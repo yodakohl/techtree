@@ -1,0 +1,63 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    padding: 10px;
+    gap: 10px;
+}
+
+#tech-tree-container {
+    flex: 3; /* Takes more space */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: auto; /* For pan/scroll if tree is big */
+    position: relative; /* For positioning nodes absolutely if doing manually */
+}
+
+#tech-info-panel {
+    flex: 1; /* Takes less space */
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+    height: fit-content; /* So it doesn't stretch full height initially */
+}
+
+#tech-info-panel h2 {
+    margin-top: 0;
+}
+
+/* Basic Node Styling (if rendering manually - Vis.js/D3 will have their own ways) */
+.tech-node {
+    position: absolute; /* Example for manual layout */
+    border: 1px solid blue;
+    background-color: lightblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    text-align: center;
+    min-width: 80px; /* Ensure some width */
+}
+
+.tech-node:hover {
+    background-color: cornflowerblue;
+}
+
+/* Line styling (very tricky to do well with just CSS/HTML for complex graphs) */
+/* This is where a library shines. */
