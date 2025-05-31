@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const techDescriptionEl = document.getElementById('tech-description');
     const techPrerequisitesEl = document.getElementById('tech-prerequisites');
 
+    // Check if techTreeData is defined
+    if (typeof techTreeData === 'undefined' || !techTreeData || techTreeData.length === 0) {
+        console.error("Error: techTreeData is not defined, is null, or is empty. Make sure tech-data.js is loaded correctly and contains the tech tree data array.");
+        alert("Tech tree data is missing or empty. The tech tree cannot be displayed. Please ensure 'tech-data.js' is correctly set up.");
+        return; // Stop further execution
+    }
+
     // 1. Transform techTreeData into Vis.js nodes and edges
     const nodes = new vis.DataSet(
         techTreeData.map(tech => ({
@@ -62,6 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const network = new vis.Network(container, data, options);
+
+    // 1a. Fit the network to the view
+    network.fit();
+
+    // Refit on window resize
+    window.addEventListener('resize', () => {
+        if (network) {
+            network.fit();
+        }
+    });
+
 
     // 2. Handle node selection
     network.on("selectNode", function (params) {
