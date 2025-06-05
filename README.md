@@ -38,7 +38,3 @@ When first launched, the server populates `tech-tree.json` with the contents of 
 
 Edit `app.js`, `style.css`, and `index.html` to adjust the interface. The server itself is implemented in `server.js`. Restart the server after making changes to server-side code.
 
-### Large graphs
-
-When the tech tree grows beyond a hundred nodes the browser may struggle to render every node individually. The application now automatically clusters technologies by era once this threshold is reached and disables physics after the initial stabilisation. Double‑click a cluster to expand it and reveal the underlying technologies.
-
