@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             hierarchical: {
                 direction: "LR", // Left to Right
                 sortMethod: "directed", // Follows the edges
-                levelSeparation: 200,
-                nodeSpacing: 150,
+                levelSeparation: 120,
+                nodeSpacing: 100,
             }
         },
         interaction: {
@@ -60,8 +60,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             dragView: true,
             zoomView: true
         },
-        physics: { // Disable physics if using hierarchical layout for stability
-            enabled: false
+        physics: {
+            hierarchicalRepulsion: {
+                nodeDistance: 80
+            }
         },
         nodes: {
             shape: 'box',
