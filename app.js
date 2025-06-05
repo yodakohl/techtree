@@ -117,7 +117,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         physics: {
             enabled: true,
-            barnesHut: { springLength: 120 }
+            barnesHut: {
+                springLength: 150,
+                springConstant: 0.01
+            }
         },
         interaction: {
             dragNodes: true,
