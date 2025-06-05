@@ -24,6 +24,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    // Calculate how many technologies depend on each tech to scale node size
+    const dependentsCount = {};
+    dynamicData.forEach(t => dependentsCount[t.id] = 0);
+    dynamicData.forEach(t => {
+        if (t.prerequisites) {
+            t.prerequisites.forEach(p => {
+                if (dependentsCount[p] === undefined) dependentsCount[p] = 0;
+                dependentsCount[p] += 1;
+            });
+        }
+    });
+
     // 1. Transform dynamicData into Vis.js nodes and edges
     const nodes = new vis.DataSet(
         dynamicData.map(tech => ({
@@ -31,7 +43,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             label: tech.name,
             title: tech.description, // Tooltip
             era: tech.era, // Store custom data
-            description: tech.description
+            description: tech.description,
+            value: (dependentsCount[tech.id] || 0) + 1, // Larger for more important techs
+            color: (!tech.prerequisites || tech.prerequisites.length === 0) ? '#f0ad4e' : undefined
         }))
     );
 
@@ -74,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         groups[lvl].push(id);
     });
 
-    const radiusStep = 200;
+    const radiusStep = 250;
     Object.entries(groups).forEach(([lvl, ids]) => {
         const radius = radiusStep * parseInt(lvl, 10);
         ids.forEach((id, index) => {
@@ -100,6 +114,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         nodes: {
             shape: 'box',
             margin: 10,
+            scaling: {
+                min: 16,
+                max: 40,
+                label: {
+                    enabled: true,
+                    min: 12,
+                    max: 24
+                }
+            },
             font: {
                 size: 12
             }
