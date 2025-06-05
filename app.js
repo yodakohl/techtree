@@ -109,6 +109,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
+    // Determine the newest non-Future technologies for glow effect
+    const maxNonFuture = Math.max(
+        ...dynamicData
+            .filter(t => t.era !== 'Future')
+            .map(t => levelMap[t.id] || 0)
+    );
+
+    dynamicData.forEach(t => {
+        const update = {};
+        if (t.era === 'Future') {
+            update.color = { background: '#dddddd', border: '#aaaaaa' };
+            update.font = { color: '#666666' };
+        } else if ((levelMap[t.id] || 0) === maxNonFuture) {
+            update.shadow = { enabled: true, color: 'rgba(255,215,0,0.8)', size: 20 };
+            update.borderWidth = 2;
+        }
+        if (Object.keys(update).length > 0) {
+            nodes.update({ id: t.id, ...update });
+        }
+    });
+
     const data = { nodes: nodes, edges: edges };
 
     const options = {
