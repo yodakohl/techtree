@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    const eraColors = {
+        Ancient: '#e67e22',
+        Classical: '#3498db',
+        Medieval: '#2ecc71',
+        Renaissance: '#9b59b6',
+        Industrial: '#f1c40f',
+        Modern: '#e74c3c',
+        Future: '#95a5a6'
+    };
+
     // 1. Transform dynamicData into Vis.js nodes and edges
     const nodes = new vis.DataSet(
         dynamicData.map(tech => ({
@@ -45,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             era: tech.era, // Store custom data
             description: tech.description,
             value: (dependentsCount[tech.id] || 0) + 1, // Larger for more important techs
-            color: (!tech.prerequisites || tech.prerequisites.length === 0) ? '#f0ad4e' : undefined
+            color: eraColors[tech.era] || '#cccccc'
         }))
     );
 
@@ -105,7 +115,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         layout: {
             improvedLayout: false
         },
-        physics: false,
+        physics: {
+            enabled: true,
+            barnesHut: { springLength: 120 }
+        },
         interaction: {
             dragNodes: true,
             dragView: true,
