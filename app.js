@@ -46,28 +46,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         Future: '#95a5a6'
     };
 
-    // 1. Transform dynamicData into Vis.js nodes and edges
-    const nodes = new vis.DataSet(
-        dynamicData.map(tech => ({
-            id: tech.id,
-            label: tech.name,
-            title: tech.description, // Tooltip
-            era: tech.era, // Store custom data
-            description: tech.description,
-            value: (dependentsCount[tech.id] || 0) + 1, // Larger for more important techs
-            color: eraColors[tech.era] || '#cccccc'
-        }))
-    );
-
-    const edges = new vis.DataSet();
-    dynamicData.forEach(tech => {
-        if (tech.prerequisites && tech.prerequisites.length > 0) {
-            tech.prerequisites.forEach(prereqId => {
-                edges.add({ from: prereqId, to: tech.id, arrows: 'to' });
-            });
-        }
-    });
-
     // Compute radial layout levels based on prerequisites
     const levelMap = {};
     const queue = [];
@@ -100,6 +78,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    // Build node dataset now that levels are known
+    const nodes = new vis.DataSet(
+        dynamicData.map(tech => ({
+            id: tech.id,
+            label: tech.name,
+            title: tech.description, // Tooltip
+            era: tech.era, // Store custom data
+            description: tech.description,
+            value: (dependentsCount[tech.id] || 0) + 1,
+            color: eraColors[tech.era] || '#cccccc'
+        }))
+    );
+
+    // Edges use longer lengths for deeper technologies to spread the tree
+    const edges = new vis.DataSet();
+    dynamicData.forEach(tech => {
+        if (tech.prerequisites && tech.prerequisites.length > 0) {
+            tech.prerequisites.forEach(prereqId => {
+                const level = levelMap[tech.id] || 0;
+                const length = 200 + level * 50;
+                edges.add({ from: prereqId, to: tech.id, arrows: 'to', length });
+            });
+        }
+    });
+
     const ERA_OFFSETS = {
         Ancient: 0,
         Classical: 1,
@@ -117,7 +120,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         groups[lvl].push(t.id);
     });
 
-    const radiusStep = 350;
+    // Increase spacing between levels for a less cramped layout
+    const radiusStep = 400;
     Object.entries(groups).forEach(([lvl, ids]) => {
         const radius = radiusStep * parseInt(lvl, 10);
         ids.forEach((id, index) => {
@@ -158,8 +162,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         physics: {
             enabled: true,
             barnesHut: {
-                springLength: 150,
-                springConstant: 0.005
+                springLength: 200,
+                springConstant: 0.005,
+                centralGravity: 0.1,
+                avoidOverlap: 0.5
             }
         },
         interaction: {
