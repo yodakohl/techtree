@@ -70,8 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const network = new vis.Network(container, data, options);
 
-    // 1a. Fit the network to the view
-    network.fit();
+    // Fit once after initial draw so the layout sizes correctly
+    network.once('afterDrawing', () => {
+        network.fit();
+    });
 
     // Refit on window resize
     window.addEventListener('resize', () => {
