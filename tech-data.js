@@ -273,3 +273,5 @@ const techTreeData = [
         prerequisites: ["flight", "nuclear_power", "computers", "nanotechnology"]
     }
 ];
+
+if (typeof module !== "undefined") { module.exports = techTreeData; }
