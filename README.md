@@ -41,3 +41,7 @@ When first launched, the server populates `tech-tree.json` with the contents of 
 
 Edit `app.js`, `style.css`, and `index.html` to adjust the interface. The server itself is implemented in `server.js`. Restart the server after making changes to server-side code.
 
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
