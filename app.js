@@ -84,13 +84,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         dynamicData.forEach(t => {
             if (t.prerequisites && t.prerequisites.includes(current)) {
                 const nextLevel = currentLevel + 1;
-                if (levelMap[t.id] === undefined || levelMap[t.id] < nextLevel) {
+                if (levelMap[t.id] === undefined || nextLevel < levelMap[t.id]) {
                     levelMap[t.id] = nextLevel;
                     queue.push(t.id);
                 }
             }
         });
     }
+
+    // Any nodes involved in cycles may not have been assigned a level.
+    // Default them to 0 so the layout still renders.
+    dynamicData.forEach(t => {
+        if (levelMap[t.id] === undefined) {
+            levelMap[t.id] = 0;
+        }
+    });
 
     const ERA_OFFSETS = {
         Ancient: 0,
