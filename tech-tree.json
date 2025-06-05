@@ -21,18 +21,18 @@
     "prerequisites": ["fire_control"]
   },
   {
-    "id": "early_symbolic_communication",
-    "name": "Early Symbolic Communication",
-    "era": "Ancient",
-    "description": "Use of symbols, cave paintings, and petroglyphs for communication and ritual.",
-    "prerequisites": ["stone_tool_making", "oral_tradition_storytelling"]
-  },
-  {
     "id": "pigment_creation",
     "name": "Pigment Creation",
     "era": "Ancient",
     "description": "Sourcing and processing natural materials (ochre, charcoal) to create pigments for art and decoration.",
     "prerequisites": ["fire_control", "stone_tool_making"]
+  },
+  {
+    "id": "early_symbolic_communication",
+    "name": "Early Symbolic Communication",
+    "era": "Ancient",
+    "description": "Use of symbols, cave paintings, and petroglyphs for communication and ritual.",
+    "prerequisites": ["stone_tool_making", "oral_tradition_storytelling", "pigment_creation"]
   },
   {
     "id": "advanced_stone_tools",
@@ -67,7 +67,7 @@
     "name": "Basic Shelter",
     "era": "Ancient",
     "description": "Construction of rudimentary shelters for protection from elements.",
-    "prerequisites": ["fire_control", "woodworking_basic"]
+    "prerequisites": ["fire_control", "woodworking_basic", "stone_tool_making"]
   },
   {
     "id": "basic_tools",
@@ -80,57 +80,71 @@
     ]
   },
   {
-    "id": "basic_weaving_basketry",
-    "name": "Basic Weaving and Basketry",
-    "era": "Ancient",
-    "description": "Interlacing plant fibers or thin wood strips to create containers, mats, and simple fabrics.",
-    "prerequisites": ["woodworking_basic", "basic_tools", "plant_domestication"]
-  },
-  {
-    "id": "trapping",
-    "name": "Trapping",
-    "era": "Ancient",
-    "description": "Using snares and pits to capture animals.",
-    "prerequisites": ["basic_tools", "woodworking_basic"]
-  },
-  {
-    "id": "fishing_nets_hooks",
-    "name": "Fishing Nets & Hooks",
-    "era": "Ancient",
-    "description": "Crafting nets and hooks for efficient fishing.",
-    "prerequisites": ["basic_tools", "bone_tool_making", "basic_weaving_basketry"]
-  },
-  {
     "id": "hunting_gathering",
     "name": "Hunting & Gathering",
     "era": "Ancient",
     "description": "Societies primarily sustained by foraging and hunting.",
     "prerequisites": [
       "basic_tools",
-      "trapping",
-      "oral_tradition_storytelling"
+      "oral_tradition_storytelling",
+      "fire_control"
     ]
+  },
+  {
+    "id": "animal_tracking_signs",
+    "name": "Animal Tracking & Signs",
+    "era": "Ancient",
+    "description": "Interpreting animal tracks, trails, and other signs for hunting and understanding wildlife.",
+    "prerequisites": ["hunting_gathering", "oral_tradition_storytelling"]
   },
   {
     "id": "plant_domestication",
     "name": "Plant Domestication",
     "era": "Ancient",
     "description": "Early cultivation of wild plants for food.",
-    "prerequisites": ["hunting_gathering", "basic_tools"]
+    "prerequisites": ["hunting_gathering", "basic_tools", "fire_control"]
+  },
+  {
+    "id": "basic_rope_making",
+    "name": "Basic Rope Making",
+    "era": "Ancient",
+    "description": "Twisting plant fibers or animal sinew to create ropes and cords for various uses.",
+    "prerequisites": ["plant_domestication", "basic_tools"]
+  },
+  {
+    "id": "basic_weaving_basketry",
+    "name": "Basic Weaving and Basketry",
+    "era": "Ancient",
+    "description": "Interlacing plant fibers or thin wood strips to create containers, mats, and simple fabrics.",
+    "prerequisites": ["woodworking_basic", "basic_tools", "plant_domestication", "basic_rope_making"]
+  },
+  {
+    "id": "trapping",
+    "name": "Trapping",
+    "era": "Ancient",
+    "description": "Using snares and pits to capture animals.",
+    "prerequisites": ["basic_tools", "woodworking_basic", "basic_rope_making", "animal_tracking_signs"]
+  },
+  {
+    "id": "fishing_nets_hooks",
+    "name": "Fishing Nets & Hooks",
+    "era": "Ancient",
+    "description": "Crafting nets and hooks for efficient fishing.",
+    "prerequisites": ["basic_tools", "bone_tool_making", "basic_weaving_basketry", "basic_rope_making"]
   },
   {
     "id": "animal_domestication",
     "name": "Animal Domestication",
     "era": "Ancient",
     "description": "Taming and breeding animals for food, labor, or companionship.",
-    "prerequisites": ["hunting_gathering", "basic_shelter"]
+    "prerequisites": ["hunting_gathering", "basic_shelter", "fire_control"]
   },
   {
     "id": "leather_working",
     "name": "Leather Working",
     "era": "Ancient",
     "description": "Processing animal hides into leather for clothing, shelter, and containers.",
-    "prerequisites": ["animal_domestication", "bone_tool_making", "fire_control"]
+    "prerequisites": ["animal_domestication", "bone_tool_making", "fire_control", "stone_tool_making"]
   },
   {
     "id": "agriculture",
@@ -139,8 +153,16 @@
     "description": "The cultivation of crops, leading to settled societies.",
     "prerequisites": [
       "plant_domestication",
-      "basic_tools"
+      "basic_tools",
+      "fire_control"
     ]
+  },
+  {
+    "id": "food_preservation_drying_salting",
+    "name": "Food Preservation (Drying, Salting)",
+    "era": "Ancient",
+    "description": "Early methods of preserving food through drying with sun/fire or salting.",
+    "prerequisites": ["fire_control", "agriculture", "hunting_gathering", "mining"]
   },
   {
     "id": "animal_husbandry",
@@ -159,15 +181,23 @@
     "description": "Crafting vessels from clay for storage and cooking.",
     "prerequisites": [
       "fire_control",
-      "basic_tools"
+      "basic_tools",
+      "water_carrying_techniques"
     ]
+  },
+  {
+    "id": "water_carrying_techniques",
+    "name": "Water Carrying Techniques",
+    "era": "Ancient",
+    "description": "Methods for transporting water, e.g., using animal skins or large leaves before pottery.",
+    "prerequisites": ["basic_tools", "leather_working"]
   },
   {
     "id": "fermentation_basic",
     "name": "Basic Fermentation",
     "era": "Ancient",
     "description": "Early techniques for preserving food and creating beverages (e.g., beer, wine, fermented dairy) through microbial action.",
-    "prerequisites": ["plant_domestication", "pottery", "fire_control"]
+    "prerequisites": ["plant_domestication", "pottery", "fire_control", "agriculture"]
   },
   {
     "id": "herbalism",
@@ -181,21 +211,42 @@
     "name": "Primitive Surgery (e.g., Trepanation)",
     "era": "Ancient",
     "description": "Early forms of surgical intervention, often ritualistic or for relieving pressure, using basic tools.",
-    "prerequisites": ["herbalism", "stone_tool_making", "fire_control"]
+    "prerequisites": ["herbalism", "advanced_stone_tools", "fire_control", "oral_tradition_storytelling"]
+  },
+  {
+    "id": "early_musical_instruments_flutes_drums",
+    "name": "Early Musical Instruments (Flutes, Drums)",
+    "era": "Ancient",
+    "description": "Crafting simple instruments from wood, bone, or stretched hides for ritual, communication, or entertainment.",
+    "prerequisites": ["woodworking_basic", "bone_tool_making", "oral_tradition_storytelling", "leather_working"]
+  },
+  {
+    "id": "ritual_burial_practices",
+    "name": "Ritual Burial Practices",
+    "era": "Ancient",
+    "description": "Development of formal practices for interring the dead, often involving grave goods and symbolic acts.",
+    "prerequisites": ["early_symbolic_communication", "fire_control", "oral_tradition_storytelling", "basic_tools"]
   },
   {
     "id": "early_boats",
     "name": "Early Boats",
     "era": "Ancient",
     "description": "Construction of simple rafts and dugout canoes.",
-    "prerequisites": ["woodworking_basic", "basic_tools"]
+    "prerequisites": ["woodworking_basic", "basic_tools", "fire_control"]
+  },
+  {
+    "id": "basic_boat_propulsion",
+    "name": "Basic Boat Propulsion (Paddles, Poles)",
+    "era": "Ancient",
+    "description": "Manual methods for propelling early boats using paddles or poles.",
+    "prerequisites": ["early_boats", "woodworking_basic"]
   },
   {
     "id": "textiles_weaving",
     "name": "Textiles & Weaving",
     "era": "Ancient",
     "description": "Processing plant and animal fibers into threads and cloth, advancing from basic weaving.",
-    "prerequisites": ["plant_domestication", "animal_domestication", "basic_tools", "basic_weaving_basketry"]
+    "prerequisites": ["plant_domestication", "animal_domestication", "basic_tools", "basic_weaving_basketry", "bone_tool_making"]
   },
   {
     "id": "sailing",
@@ -204,7 +255,9 @@
     "description": "Use of wind-powered vessels for navigation across water.",
     "prerequisites": [
       "early_boats",
-      "textiles_weaving"
+      "textiles_weaving",
+      "basic_boat_propulsion",
+      "woodworking_basic"
     ]
   },
   {
@@ -212,7 +265,14 @@
     "name": "Record Keeping",
     "era": "Ancient",
     "description": "Early systems of tallying and recording information (e.g. knots, tokens).",
-    "prerequisites": ["agriculture", "pottery", "early_symbolic_communication"]
+    "prerequisites": ["agriculture", "pottery", "early_symbolic_communication", "oral_tradition_storytelling"]
+  },
+  {
+    "id": "bartering_systems_early_trade",
+    "name": "Bartering Systems & Early Trade",
+    "era": "Ancient",
+    "description": "Exchange of goods and services without currency, leading to early trade networks.",
+    "prerequisites": ["agriculture", "record_keeping", "animal_husbandry", "early_boats"]
   },
   {
     "id": "early_astronomy_observation",
@@ -220,6 +280,13 @@
     "era": "Ancient",
     "description": "Systematic observation of celestial bodies for timekeeping, navigation, and ritual.",
     "prerequisites": ["record_keeping", "fire_control", "oral_tradition_storytelling"]
+  },
+  {
+    "id": "celestial_mythology_constellations",
+    "name": "Celestial Mythology & Constellations",
+    "era": "Ancient",
+    "description": "Creation of stories and patterns based on celestial observations, forming early cosmologies.",
+    "prerequisites": ["early_astronomy_observation", "oral_tradition_storytelling", "early_symbolic_communication"]
   },
   {
     "id": "calendars",
@@ -233,7 +300,7 @@
     "name": "Early Navigation",
     "era": "Ancient",
     "description": "Basic coastal navigation and celestial observation for seafaring.",
-    "prerequisites": ["sailing", "calendars"]
+    "prerequisites": ["sailing", "calendars", "early_astronomy_observation"]
   },
   {
     "id": "wheel",
@@ -255,7 +322,8 @@
       "basic_tools",
       "hunting_gathering",
       "woodworking_basic",
-      "composite_tools"
+      "composite_tools",
+      "basic_rope_making"
     ]
   },
   {
@@ -265,7 +333,8 @@
     "description": "Extraction of valuable minerals and other geological materials from the Earth.",
     "prerequisites": [
       "basic_tools",
-      "fire_control"
+      "fire_control",
+      "woodworking_basic"
     ]
   },
   {
@@ -274,17 +343,32 @@
     "era": "Ancient",
     "description": "Stone shaping techniques for building durable structures.",
     "prerequisites": [
-      "basic_tools",
+      "advanced_stone_tools",
       "basic_shelter",
-      "mining"
+      "mining",
+      "basic_tools"
     ]
+  },
+  {
+    "id": "megalithic_construction",
+    "name": "Megalithic Construction",
+    "era": "Ancient",
+    "description": "Building large structures using massive stones, often for ritual or monumental purposes.",
+    "prerequisites": ["masonry", "basic_tools", "oral_tradition_storytelling", "basic_rope_making"]
+  },
+  {
+    "id": "fired_bricks_early_kilns",
+    "name": "Fired Bricks & Early Kilns",
+    "era": "Ancient",
+    "description": "Manufacturing durable building bricks from clay by firing them in kilns.",
+    "prerequisites": ["pottery", "fire_control", "masonry", "agriculture"]
   },
   {
     "id": "early_fortifications",
     "name": "Early Fortifications",
     "era": "Ancient",
     "description": "Construction of basic defensive structures like palisades and earthworks.",
-    "prerequisites": ["masonry", "woodworking_basic", "agriculture"]
+    "prerequisites": ["masonry", "woodworking_basic", "agriculture", "basic_shelter"]
   },
   {
     "id": "irrigation",
@@ -294,7 +378,8 @@
     "prerequisites": [
       "agriculture",
       "masonry",
-      "pottery"
+      "pottery",
+      "basic_tools"
     ]
   },
   {
@@ -314,7 +399,8 @@
     "prerequisites": [
       "fire_control",
       "pottery",
-      "mining"
+      "mining",
+      "basic_chemistry_early_forms"
     ]
   },
   {
@@ -326,8 +412,23 @@
       "record_keeping",
       "calendars",
       "pottery",
-      "early_symbolic_communication"
+      "early_symbolic_communication",
+      "pigment_creation"
     ]
+  },
+  {
+    "id": "paper_making_papyrus_parchment",
+    "name": "Paper Making (Papyrus/Parchment)",
+    "era": "Classical",
+    "description": "Early forms of writing surfaces derived from plants (papyrus) or animal skins (parchment).",
+    "prerequisites": ["writing", "plant_domestication", "animal_husbandry", "basic_tools", "leather_working"]
+  },
+  {
+    "id": "basic_chemistry_early_forms",
+    "name": "Basic Chemistry (Early Forms)",
+    "era": "Classical",
+    "description": "Early understanding of material properties, reactions, and transformations (e.g., dyeing, metallurgy, fermentation).",
+    "prerequisites": ["fire_control", "pottery", "mining", "herbalism", "fermentation_basic", "pigment_creation"]
   },
   {
     "id": "bronze_working",
@@ -338,7 +439,8 @@
       "mining",
       "pottery",
       "fire_control",
-      "wheel"
+      "wheel",
+      "basic_chemistry_early_forms"
     ]
   },
   {
@@ -349,7 +451,8 @@
     "prerequisites": [
       "bronze_working",
       "fire_control",
-      "mining"
+      "mining",
+      "basic_chemistry_early_forms"
     ]
   },
   {
@@ -359,7 +462,8 @@
     "description": "Systematic study of general and fundamental questions.",
     "prerequisites": [
       "writing",
-      "oral_tradition_storytelling"
+      "oral_tradition_storytelling",
+      "early_astronomy_observation"
     ]
   },
   {
@@ -370,29 +474,37 @@
     "prerequisites": [
       "writing",
       "agriculture",
-      "record_keeping"
+      "record_keeping",
+      "calendars"
     ]
+  },
+  {
+    "id": "levers_pulleys_ramps",
+    "name": "Levers, Pulleys, and Ramps",
+    "era": "Classical",
+    "description": "Understanding and application of simple machines for mechanical advantage in construction and labor.",
+    "prerequisites": ["woodworking_basic", "basic_rope_making", "mathematics", "masonry"]
   },
   {
     "id": "abacus",
     "name": "Abacus",
     "era": "Classical",
     "description": "An early calculating tool using beads or stones.",
-    "prerequisites": ["mathematics", "woodworking_basic", "record_keeping"]
+    "prerequisites": ["mathematics", "woodworking_basic", "record_keeping", "bronze_working"]
   },
   {
     "id": "geometry",
     "name": "Geometry",
     "era": "Classical",
     "description": "Branch of mathematics concerned with properties of space such as distance, shape, size, and relative position of figures.",
-    "prerequisites": ["mathematics", "masonry", "writing"]
+    "prerequisites": ["mathematics", "masonry", "writing", "early_astronomy_observation"]
   },
   {
     "id": "algebra_basic",
     "name": "Basic Algebra",
     "era": "Classical",
     "description": "Early methods for solving equations and understanding symbolic representation.",
-    "prerequisites": ["mathematics", "writing"]
+    "prerequisites": ["mathematics", "writing", "philosophy"]
   },
   {
     "id": "concrete",
@@ -402,18 +514,25 @@
     "prerequisites": ["masonry", "mining", "fire_control", "pottery", "basic_chemistry_early_forms"]
   },
   {
+    "id": "roman_concrete_opus_caementicium",
+    "name": "Roman Concrete (Opus Caementicium)",
+    "era": "Classical",
+    "description": "Advanced concrete formulation using pozzolanic ash, known for its durability and hydraulic properties.",
+    "prerequisites": ["concrete", "basic_chemistry_early_forms", "mining", "volcanic_ash_utilization"]
+  },
+  {
+    "id": "volcanic_ash_utilization",
+    "name": "Volcanic Ash Utilization",
+    "era": "Classical",
+    "description": "Identifying and using volcanic ash (e.g., pozzolana) as a key ingredient in construction materials.",
+    "prerequisites": ["mining", "basic_chemistry_early_forms", "fire_control"]
+  },
+  {
     "id": "arches_domes",
     "name": "Arches and Domes",
     "era": "Classical",
     "description": "Architectural innovations allowing for larger and more stable structures.",
-    "prerequisites": ["masonry", "geometry", "concrete"]
-  },
-  {
-    "id": "crane_lifting_devices",
-    "name": "Crane & Lifting Devices",
-    "era": "Classical",
-    "description": "Mechanical advantage systems using levers, pulleys, and winches for heavy construction.",
-    "prerequisites": ["construction", "wheel", "woodworking_basic", "iron_working"]
+    "prerequisites": ["masonry", "geometry", "concrete", "woodworking_basic"]
   },
   {
     "id": "construction",
@@ -425,50 +544,86 @@
       "masonry",
       "wheel",
       "arches_domes",
-      "bronze_working"
+      "bronze_working",
+      "levers_pulleys_ramps"
     ]
+  },
+  {
+    "id": "crane_lifting_devices",
+    "name": "Crane & Lifting Devices",
+    "era": "Classical",
+    "description": "Mechanical advantage systems using levers, pulleys, and winches for heavy construction.",
+    "prerequisites": ["construction", "wheel", "woodworking_basic", "iron_working", "basic_rope_making", "levers_pulleys_ramps"]
   },
   {
     "id": "surveying",
     "name": "Surveying",
     "era": "Classical",
     "description": "Techniques for determining terrestrial or three-dimensional positions of points and the distances and angles between them.",
-    "prerequisites": ["geometry", "writing", "mathematics"]
+    "prerequisites": ["geometry", "writing", "mathematics", "record_keeping"]
+  },
+  {
+    "id": "urban_planning_grid_system",
+    "name": "Urban Planning (Grid System)",
+    "era": "Classical",
+    "description": "Organized city layouts using grid patterns for streets and public spaces, facilitating administration and growth.",
+    "prerequisites": ["construction", "surveying", "mathematics", "codified_law", "roads"]
   },
   {
     "id": "roads",
     "name": "Roads",
     "era": "Classical",
     "description": "Engineered pathways for efficient land travel and trade.",
-    "prerequisites": ["construction", "wheel", "surveying", "concrete"]
+    "prerequisites": ["construction", "wheel", "surveying", "concrete", "masonry"]
   },
   {
     "id": "basic_cartography",
     "name": "Basic Cartography",
     "era": "Classical",
     "description": "Early map-making based on surveying, travel accounts, and astronomical observations.",
-    "prerequisites": ["surveying", "writing", "early_navigation", "geometry"]
+    "prerequisites": ["surveying", "writing", "early_navigation", "geometry", "mathematics"]
   },
   {
     "id": "hydraulics",
     "name": "Hydraulics",
     "era": "Classical",
     "description": "The study and application of fluid mechanics, particularly water.",
-    "prerequisites": ["mathematics", "construction", "pottery", "bronze_working"]
+    "prerequisites": ["mathematics", "construction", "pottery", "bronze_working", "irrigation"]
+  },
+  {
+    "id": "water_clocks_advanced_clepsydra",
+    "name": "Water Clocks (Advanced Clepsydra)",
+    "era": "Classical",
+    "description": "Sophisticated timekeeping devices using regulated water flow, often with complex mechanisms.",
+    "prerequisites": ["hydraulics", "pottery", "mathematics", "bronze_working", "gears_simple_classical"]
+  },
+  {
+    "id": "gears_simple_classical",
+    "name": "Simple Gears (Classical)",
+    "era": "Classical",
+    "description": "Early understanding and creation of interlocking toothed wheels for transmitting motion or changing speed/torque.",
+    "prerequisites": ["wheel", "bronze_working", "mathematics", "woodworking_basic"]
   },
   {
     "id": "water_screw_archimedes",
     "name": "Water Screw (Archimedes Screw)",
     "era": "Classical",
     "description": "Device for transferring water from a low-lying body of water into irrigation ditches.",
-    "prerequisites": ["hydraulics", "woodworking_basic", "bronze_working", "geometry"]
+    "prerequisites": ["hydraulics", "woodworking_basic", "bronze_working", "geometry", "gears_simple_classical"]
   },
   {
     "id": "aqueducts",
     "name": "Aqueducts",
     "era": "Classical",
     "description": "Structures to convey water over long distances.",
-    "prerequisites": ["construction", "concrete", "geometry", "hydraulics", "surveying"]
+    "prerequisites": ["construction", "concrete", "geometry", "hydraulics", "surveying", "masonry"]
+  },
+  {
+    "id": "aqueduct_siphons_lead_pipes",
+    "name": "Aqueduct Siphons & Lead Pipes",
+    "era": "Classical",
+    "description": "Advanced aqueduct technology including inverted siphons to cross valleys and the use of lead pipes for water distribution.",
+    "prerequisites": ["aqueducts", "hydraulics", "bronze_working", "masonry", "iron_working"]
   },
   {
     "id": "currency",
@@ -479,7 +634,8 @@
       "writing",
       "mining",
       "bronze_working",
-      "record_keeping"
+      "record_keeping",
+      "bartering_systems_early_trade"
     ]
   },
   {
@@ -487,7 +643,14 @@
     "name": "Metal Coinage",
     "era": "Classical",
     "description": "Production of standardized coins from precious or base metals, facilitating trade.",
-    "prerequisites": ["currency", "bronze_working", "iron_working", "mining", "mathematics"]
+    "prerequisites": ["currency", "bronze_working", "iron_working", "mining", "mathematics", "standardized_weights_measures_systems"]
+  },
+  {
+    "id": "standardized_weights_measures_systems",
+    "name": "Standardized Weights & Measures Systems",
+    "era": "Classical",
+    "description": "Establishment of common units for weight, volume, and length to facilitate trade and taxation.",
+    "prerequisites": ["currency", "mathematics", "writing", "record_keeping", "bronze_working"]
   },
   {
     "id": "navigation",
@@ -499,15 +662,23 @@
       "mathematics",
       "writing",
       "geometry",
-      "early_astronomy_observation"
+      "early_astronomy_observation",
+      "basic_cartography"
     ]
+  },
+  {
+    "id": "advanced_shipbuilding_bireme_trireme",
+    "name": "Advanced Shipbuilding (Bireme, Trireme)",
+    "era": "Classical",
+    "description": "Construction of larger, more complex warships with multiple banks of oars and advanced naval architecture.",
+    "prerequisites": ["sailing", "construction", "bronze_working", "woodworking_basic", "iron_working", "basic_rope_making"]
   },
   {
     "id": "lighthouses",
     "name": "Lighthouses",
     "era": "Classical",
     "description": "Towers with light beacons to guide ships at sea.",
-    "prerequisites": ["navigation", "construction", "fire_control", "masonry"]
+    "prerequisites": ["navigation", "construction", "fire_control", "masonry", "bronze_working"]
   },
   {
     "id": "plumbing",
@@ -515,7 +686,7 @@
     "era": "Classical",
     "description": "Water supply and waste removal systems for buildings.",
     "prerequisites": [
-      "construction", "aqueducts", "pottery", "bronze_working", "hydraulics"
+      "construction", "aqueducts", "pottery", "bronze_working", "hydraulics", "iron_working"
     ]
   },
   {
@@ -523,7 +694,7 @@
     "name": "Public Health Systems",
     "era": "Classical",
     "description": "Development of sanitation, sewers, and public baths to improve urban hygiene.",
-    "prerequisites": ["plumbing", "construction", "herbalism", "codified_law"]
+    "prerequisites": ["plumbing", "construction", "herbalism", "codified_law", "aqueducts"]
   },
   {
     "id": "siege_engineering",
@@ -536,50 +707,58 @@
       "iron_working",
       "mathematics",
       "woodworking_basic",
-      "crane_lifting_devices"
+      "crane_lifting_devices",
+      "levers_pulleys_ramps"
     ]
+  },
+  {
+    "id": "siege_towers_battering_rams",
+    "name": "Siege Towers & Battering Rams",
+    "era": "Classical",
+    "description": "Large mobile structures to assault fortifications and heavy implements to breach walls.",
+    "prerequisites": ["siege_engineering", "woodworking_basic", "iron_working", "levers_pulleys_ramps", "construction"]
   },
   {
     "id": "crossbow_early_forms",
     "name": "Crossbow (Early Forms)",
     "era": "Classical",
     "description": "Development of early mechanical bows with greater power than hand-drawn bows.",
-    "prerequisites": ["archery", "woodworking_basic", "bronze_working", "composite_tools"]
+    "prerequisites": ["archery", "woodworking_basic", "bronze_working", "composite_tools", "gears_simple_classical"]
   },
   {
     "id": "ballistics_early",
     "name": "Early Ballistics",
     "era": "Classical",
     "description": "Rudimentary understanding of projectile motion for siege engines and archery.",
-    "prerequisites": ["archery", "mathematics", "siege_engineering", "geometry"]
+    "prerequisites": ["archery", "mathematics", "siege_engineering", "geometry", "philosophy"]
   },
   {
     "id": "organized_military_formations",
     "name": "Organized Military Formations",
     "era": "Classical",
     "description": "Development of disciplined troop formations and tactics (e.g., phalanx, legion).",
-    "prerequisites": ["iron_working", "archery", "writing", "roads"]
+    "prerequisites": ["iron_working", "archery", "writing", "roads", "horseback_riding"]
   },
   {
     "id": "logistics_supply_lines",
     "name": "Logistics & Supply Lines",
     "era": "Classical",
     "description": "Systems for supplying armies and large populations over distances.",
-    "prerequisites": ["roads", "animal_husbandry", "currency", "writing", "record_keeping"]
+    "prerequisites": ["roads", "animal_husbandry", "currency", "writing", "record_keeping", "wheel", "sailing"]
   },
   {
     "id": "democracy_republicanism",
     "name": "Democracy & Republicanism",
     "era": "Classical",
     "description": "Development of political systems involving citizen participation and representative government.",
-    "prerequisites": ["philosophy", "writing", "record_keeping", "currency"]
+    "prerequisites": ["philosophy", "writing", "record_keeping", "currency", "oral_tradition_storytelling"]
   },
   {
     "id": "codified_law",
     "name": "Codified Law",
     "era": "Classical",
     "description": "Systematic organization and recording of laws, establishing legal precedents and procedures.",
-    "prerequisites": ["writing", "philosophy", "democracy_republicanism", "currency"]
+    "prerequisites": ["writing", "philosophy", "democracy_republicanism", "currency", "record_keeping"]
   },
   {
     "id": "theater",
@@ -587,43 +766,64 @@
     "era": "Classical",
     "description": "Development of dramatic performances and stagecraft.",
     "prerequisites": [
-      "writing", "philosophy", "construction", "oral_tradition_storytelling"
+      "writing", "philosophy", "construction", "oral_tradition_storytelling", "early_musical_instruments_flutes_drums", "textiles_weaving"
     ]
   },
   {
-    "id": "classical_sculpture",
-    "name": "Classical Sculpture",
+    "id": "formal_logic_syllogism",
+    "name": "Formal Logic (Syllogism)",
     "era": "Classical",
-    "description": "Advanced techniques in stone and bronze sculpting, focusing on realism and idealized human forms.",
-    "prerequisites": ["masonry", "bronze_working", "philosophy", "geometry", "anatomy_early_studies"]
-  },
-  {
-    "id": "libraries",
-    "name": "Libraries",
-    "era": "Classical",
-    "description": "Institutions for collecting, preserving, and accessing written knowledge.",
-    "prerequisites": ["writing", "philosophy", "construction", "paper_making_papyrus_parchment"]
+    "description": "Systematic principles of reasoning, particularly deductive reasoning as formulated by Aristotle.",
+    "prerequisites": ["philosophy", "mathematics", "writing"]
   },
   {
     "id": "anatomy_early_studies",
     "name": "Anatomy (Early Studies)",
     "era": "Classical",
     "description": "Initial investigations into the structure of the human and animal body, often through observation and limited dissection.",
-    "prerequisites": ["herbalism", "writing", "philosophy", "primitive_surgery_trepanation"]
+    "prerequisites": ["herbalism", "writing", "philosophy", "primitive_surgery_trepanation", "bronze_working"]
+  },
+  {
+    "id": "classical_sculpture",
+    "name": "Classical Sculpture",
+    "era": "Classical",
+    "description": "Advanced techniques in stone and bronze sculpting, focusing on realism and idealized human forms.",
+    "prerequisites": ["masonry", "bronze_working", "philosophy", "geometry", "anatomy_early_studies", "pigment_creation"]
+  },
+  {
+    "id": "codex_early_book_form",
+    "name": "Codex (Early Book Form)",
+    "era": "Classical",
+    "description": "Transition from scrolls to bound pages, improving ease of use and storage of written information.",
+    "prerequisites": ["paper_making_papyrus_parchment", "writing", "leather_working"]
+  },
+  {
+    "id": "libraries",
+    "name": "Libraries",
+    "era": "Classical",
+    "description": "Institutions for collecting, preserving, and accessing written knowledge.",
+    "prerequisites": ["writing", "philosophy", "construction", "paper_making_papyrus_parchment", "codex_early_book_form"]
+  },
+  {
+    "id": "public_libraries_scroll_collections",
+    "name": "Public Libraries (Scroll Collections)",
+    "era": "Classical",
+    "description": "Establishment of libraries accessible to scholars or the public, housing collections of scrolls and codices.",
+    "prerequisites": ["libraries", "codified_law", "construction", "democracy_republicanism"]
+  },
+  {
+    "id": "classical_historiography_herodotus_thucydides",
+    "name": "Classical Historiography (Herodotus, Thucydides)",
+    "era": "Classical",
+    "description": "Development of systematic historical writing, emphasizing inquiry, evidence, and narrative.",
+    "prerequisites": ["writing", "philosophy", "record_keeping", "oral_tradition_storytelling", "libraries"]
   },
   {
     "id": "early_optics",
     "name": "Early Optics",
     "era": "Classical",
     "description": "Basic understanding of light, reflection, and refraction; simple lenses.",
-    "prerequisites": ["glassmaking", "mathematics", "philosophy"]
-  },
-  {
-    "id": "basic_chemistry_early_forms",
-    "name": "Basic Chemistry (Early Forms)",
-    "era": "Classical",
-    "description": "Early understanding of material properties, reactions, and transformations (e.g., dyeing, metallurgy, fermentation).",
-    "prerequisites": ["fire_control", "pottery", "mining", "herbalism", "glassmaking"]
+    "prerequisites": ["glassmaking", "mathematics", "philosophy", "geometry"]
   },
   {
     "id": "alchemy",
@@ -636,7 +836,8 @@
       "glassmaking",
       "fire_control",
       "basic_chemistry_early_forms",
-      "writing"
+      "writing",
+      "herbalism"
     ]
   },
   {
@@ -644,14 +845,21 @@
     "name": "Advanced Distillation",
     "era": "Medieval",
     "description": "Refinement of distillation techniques for producing concentrated substances, essential oils, and spirits.",
-    "prerequisites": ["alchemy", "glassmaking", "fire_control", "pottery"]
+    "prerequisites": ["alchemy", "glassmaking", "fire_control", "pottery", "bronze_working"]
+  },
+  {
+    "id": "distillation_for_alcoholic_spirits",
+    "name": "Distillation for Alcoholic Spirits",
+    "era": "Medieval",
+    "description": "Application of advanced distillation to produce concentrated alcoholic beverages like brandy and whiskey.",
+    "prerequisites": ["distillation_advanced", "fermentation_basic", "glassmaking", "pottery"]
   },
   {
     "id": "basic_chemistry",
     "name": "Basic Chemistry",
     "era": "Medieval",
     "description": "Systematic experimentation with substances, distillation, and refinement processes.",
-    "prerequisites": ["alchemy", "glassmaking", "fire_control", "writing", "distillation_advanced"]
+    "prerequisites": ["alchemy", "glassmaking", "fire_control", "writing", "distillation_advanced", "mathematics"]
   },
   {
     "id": "feudalism",
@@ -663,7 +871,8 @@
       "animal_husbandry",
       "agriculture",
       "horseback_riding",
-      "codified_law"
+      "codified_law",
+      "organized_military_formations"
     ]
   },
   {
@@ -676,7 +885,8 @@
       "mathematics",
       "iron_working",
       "geometry",
-      "crane_lifting_devices"
+      "crane_lifting_devices",
+      "hydraulics"
     ]
   },
   {
@@ -684,7 +894,14 @@
     "name": "Gothic Architecture",
     "era": "Medieval",
     "description": "Architectural style characterized by pointed arches, ribbed vaults, and flying buttresses, enabling taller and lighter structures.",
-    "prerequisites": ["engineering", "arches_domes", "masonry", "glassmaking", "construction"]
+    "prerequisites": ["engineering", "arches_domes", "masonry", "glassmaking", "construction", "mathematics"]
+  },
+  {
+    "id": "stained_glass_window_artistry",
+    "name": "Stained Glass Window Artistry",
+    "era": "Medieval",
+    "description": "Crafting decorative windows from colored glass, particularly for cathedrals and churches.",
+    "prerequisites": ["glassmaking", "gothic_architecture", "pigment_creation", "advanced_metallurgy_medieval", "alchemy"]
   },
   {
     "id": "universities",
@@ -696,7 +913,8 @@
       "writing",
       "libraries",
       "mathematics",
-      "codified_law"
+      "codified_law",
+      "algebra_basic"
     ]
   },
   {
@@ -704,14 +922,14 @@
     "name": "Scholasticism",
     "era": "Medieval",
     "description": "Method of critical thought which dominated teaching in medieval universities, emphasizing dialectical reasoning.",
-    "prerequisites": ["universities", "philosophy", "writing"]
+    "prerequisites": ["universities", "philosophy", "writing", "formal_logic_syllogism"]
   },
   {
     "id": "university_degrees",
     "name": "University Degrees",
     "era": "Medieval",
     "description": "Formal qualifications awarded by universities, signifying mastery in specific fields of study.",
-    "prerequisites": ["universities", "scholasticism"]
+    "prerequisites": ["universities", "scholasticism", "writing"]
   },
   {
     "id": "gunpowder",
@@ -721,7 +939,8 @@
     "prerequisites": [
       "mining",
       "basic_chemistry",
-      "alchemy"
+      "alchemy",
+      "fire_control"
     ]
   },
   {
@@ -729,14 +948,21 @@
     "name": "Early Medicine",
     "era": "Medieval",
     "description": "Basic understanding of anatomy, herbal remedies, and surgical practices.",
-    "prerequisites": ["writing", "alchemy", "herbalism", "philosophy", "anatomy_early_studies", "universities"]
+    "prerequisites": ["writing", "alchemy", "herbalism", "philosophy", "anatomy_early_studies", "universities", "primitive_surgery_trepanation"]
   },
   {
     "id": "hospitals_early",
     "name": "Early Hospitals",
     "era": "Medieval",
     "description": "Establishment of institutions dedicated to caring for the sick and infirm, often with religious affiliations.",
-    "prerequisites": ["early_medicine", "universities", "herbalism", "construction"]
+    "prerequisites": ["early_medicine", "universities", "herbalism", "construction", "codified_law"]
+  },
+  {
+    "id": "quarantine_public_health_measures",
+    "name": "Quarantine & Public Health Measures",
+    "era": "Medieval",
+    "description": "Isolation practices and early public health interventions to control spread of disease.",
+    "prerequisites": ["early_medicine", "codified_law", "hospitals_early", "feudalism"]
   },
   {
     "id": "horse_collar",
@@ -756,14 +982,28 @@
     "name": "Horse Shoes",
     "era": "Medieval",
     "description": "Iron shoes nailed to horses' hooves, providing protection and better traction.",
-    "prerequisites": ["horseback_riding", "iron_working", "animal_husbandry"]
+    "prerequisites": ["horseback_riding", "iron_working", "animal_husbandry", "leather_working"]
   },
   {
     "id": "heavy_plow_mouldboard",
     "name": "Heavy Plow (Mouldboard Plow)",
     "era": "Medieval",
     "description": "Advanced plow with a mouldboard to turn over heavy European soils, significantly increasing agricultural productivity.",
-    "prerequisites": ["agriculture", "iron_working", "woodworking_basic", "horse_collar"]
+    "prerequisites": ["agriculture", "iron_working", "woodworking_basic", "horse_collar", "animal_husbandry"]
+  },
+  {
+    "id": "crop_rotation_three_field",
+    "name": "Crop Rotation (Three-Field System)",
+    "era": "Medieval",
+    "description": "Agricultural practice of rotating crops in three fields to improve soil fertility and yields.",
+    "prerequisites": ["agriculture", "animal_husbandry", "heavy_plow_mouldboard", "record_keeping"]
+  },
+  {
+    "id": "four_field_crop_rotation",
+    "name": "Four-Field Crop Rotation",
+    "era": "Medieval",
+    "description": "Further advancement in crop rotation including fodder crops, enhancing soil fertility and livestock support.",
+    "prerequisites": ["crop_rotation_three_field", "agriculture", "animal_husbandry"]
   },
   {
     "id": "stirrups",
@@ -777,28 +1017,35 @@
     "name": "Advanced Metallurgy (Medieval)",
     "era": "Medieval",
     "description": "Improved techniques for smelting, forging, and heat-treating metals.",
-    "prerequisites": ["iron_working", "bronze_working", "mining", "fire_control"]
+    "prerequisites": ["iron_working", "bronze_working", "mining", "fire_control", "basic_chemistry"]
   },
   {
     "id": "blast_furnace",
     "name": "Blast Furnace",
     "era": "Medieval",
     "description": "Furnace capable of producing large quantities of high-quality iron by using a continuous blast of air.",
-    "prerequisites": ["advanced_metallurgy_medieval", "iron_working", "watermills", "fire_control"]
+    "prerequisites": ["advanced_metallurgy_medieval", "iron_working", "watermills", "fire_control", "masonry"]
+  },
+  {
+    "id": "chainmail_armor_smithing",
+    "name": "Chainmail Armor Smithing",
+    "era": "Medieval",
+    "description": "Crafting flexible armor from interlinked metal rings, offering good protection against cutting weapons.",
+    "prerequisites": ["iron_working", "advanced_metallurgy_medieval", "basic_tools"]
   },
   {
     "id": "plate_armor",
     "name": "Plate Armor",
     "era": "Medieval",
     "description": "Full suits of articulated steel plate offering superior protection.",
-    "prerequisites": ["iron_working", "advanced_metallurgy_medieval", "blast_furnace"]
+    "prerequisites": ["iron_working", "advanced_metallurgy_medieval", "blast_furnace", "chainmail_armor_smithing"]
   },
   {
     "id": "heavy_cavalry",
     "name": "Heavy Cavalry",
     "era": "Medieval",
     "description": "Mounted warriors equipped with armor and lances, dominant in medieval warfare.",
-    "prerequisites": ["stirrups", "plate_armor", "horse_collar", "horse_shoes", "feudalism"]
+    "prerequisites": ["stirrups", "plate_armor", "horse_collar", "horse_shoes", "feudalism", "horseback_riding"]
   },
   {
     "id": "crossbow",
@@ -809,8 +1056,16 @@
       "archery",
       "iron_working",
       "engineering",
-      "crossbow_early_forms"
+      "crossbow_early_forms",
+      "advanced_metallurgy_medieval"
     ]
+  },
+  {
+    "id": "trebuchet_counterweight_siege_engine",
+    "name": "Trebuchet (Counterweight Siege Engine)",
+    "era": "Medieval",
+    "description": "Powerful siege engine using a counterweight to hurl large projectiles.",
+    "prerequisites": ["siege_engineering", "engineering", "woodworking_basic", "iron_working", "mathematics", "basic_rope_making"]
   },
   {
     "id": "windmills",
@@ -818,7 +1073,7 @@
     "era": "Medieval",
     "description": "Harnessing wind power for grinding grain and pumping water.",
     "prerequisites": [
-      "engineering", "wheel", "woodworking_basic", "textiles_weaving"
+      "engineering", "wheel", "woodworking_basic", "textiles_weaving", "mathematics"
     ]
   },
   {
@@ -826,28 +1081,35 @@
     "name": "Watermills",
     "era": "Medieval",
     "description": "Using water power for grinding, sawing, and other industrial processes.",
-    "prerequisites": ["engineering", "wheel", "woodworking_basic", "hydraulics", "iron_working"]
+    "prerequisites": ["engineering", "wheel", "woodworking_basic", "hydraulics", "iron_working", "mathematics"]
+  },
+  {
+    "id": "water_powered_trip_hammers_forges",
+    "name": "Water-Powered Trip Hammers & Forges",
+    "era": "Medieval",
+    "description": "Application of water power to operate heavy hammers for forging metal and other industrial tasks.",
+    "prerequisites": ["watermills", "iron_working", "engineering", "advanced_metallurgy_medieval"]
   },
   {
     "id": "mechanical_clocks",
     "name": "Mechanical Clocks",
     "era": "Medieval",
     "description": "Weight-driven or spring-driven timekeeping devices with escapement mechanisms, often for public display.",
-    "prerequisites": ["engineering", "iron_working", "mathematics", "bronze_working"]
+    "prerequisites": ["engineering", "iron_working", "mathematics", "bronze_working", "water_clocks_advanced_clepsydra", "gears_simple_classical"]
   },
   {
     "id": "spectacles_eyeglasses",
     "name": "Spectacles (Eyeglasses)",
     "era": "Medieval",
     "description": "Lenses mounted in a frame to aid vision, initially for presbyopia.",
-    "prerequisites": ["early_optics", "glassmaking", "bronze_working"]
+    "prerequisites": ["early_optics", "glassmaking", "bronze_working", "iron_working"]
   },
   {
     "id": "astrolabe_quadrant",
     "name": "Astrolabe & Quadrant",
     "era": "Medieval",
     "description": "Navigational and astronomical instruments for measuring altitude of celestial bodies.",
-    "prerequisites": ["navigation", "bronze_working", "mathematics", "geometry", "early_astronomy_observation"]
+    "prerequisites": ["navigation", "bronze_working", "mathematics", "geometry", "early_astronomy_observation", "writing"]
   },
   {
     "id": "compass",
@@ -858,22 +1120,23 @@
       "navigation",
       "iron_working",
       "mining",
-      "astrolabe_quadrant"
+      "astrolabe_quadrant",
+      "basic_chemistry_early_forms"
     ]
+  },
+  {
+    "id": "portolan_charts_maritime_navigation",
+    "name": "Portolan Charts & Maritime Navigation",
+    "era": "Medieval",
+    "description": "Detailed nautical charts with rhumb lines, used with the compass for improved sea navigation.",
+    "prerequisites": ["compass", "basic_cartography", "navigation", "astrolabe_quadrant", "writing", "mathematics"]
   },
   {
     "id": "lateen_sail_caravel",
     "name": "Lateen Sail & Caravel",
     "era": "Medieval",
     "description": "Advanced ship designs like the caravel, incorporating lateen sails for better maneuverability and sailing against the wind.",
-    "prerequisites": ["sailing", "engineering", "compass", "woodworking_basic", "textiles_weaving"]
-  },
-  {
-    "id": "paper_making_papyrus_parchment",
-    "name": "Paper Making (Papyrus/Parchment)",
-    "era": "Classical",
-    "description": "Early forms of writing surfaces derived from plants (papyrus) or animal skins (parchment).",
-    "prerequisites": ["writing", "plant_domestication", "animal_husbandry", "basic_tools"]
+    "prerequisites": ["sailing", "engineering", "compass", "woodworking_basic", "textiles_weaving", "advanced_shipbuilding_bireme_trireme", "portolan_charts_maritime_navigation"]
   },
   {
     "id": "paper_making",
@@ -885,50 +1148,86 @@
       "basic_chemistry",
       "agriculture",
       "textiles_weaving",
-      "watermills"
+      "watermills",
+      "paper_making_papyrus_parchment"
     ]
+  },
+  {
+    "id": "book_binding_codex_production",
+    "name": "Book Binding (Codex Production)",
+    "era": "Medieval",
+    "description": "Techniques for assembling and binding paper pages into codices (books), replacing scrolls.",
+    "prerequisites": ["paper_making", "leather_working", "writing", "codex_early_book_form", "textiles_weaving"]
+  },
+  {
+    "id": "illuminated_manuscripts_scribal_art",
+    "name": "Illuminated Manuscripts & Scribal Art",
+    "era": "Medieval",
+    "description": "Elaborately decorated handwritten books, often with gold leaf and intricate illustrations.",
+    "prerequisites": ["book_binding_codex_production", "pigment_creation", "writing", "alchemy", "fine_arts_medieval"]
+  },
+  {
+    "id": "fine_arts_medieval",
+    "name": "Fine Arts (Medieval)",
+    "era": "Medieval",
+    "description": "Development of artistic styles in painting, sculpture, and manuscript illumination characteristic of the medieval period.",
+    "prerequisites": ["classical_sculpture", "pigment_creation", "philosophy", "writing", "alchemy"]
   },
   {
     "id": "cannons",
     "name": "Cannons",
     "era": "Medieval",
     "description": "Artillery pieces utilizing gunpowder to fire projectiles.",
-    "prerequisites": ["gunpowder", "bronze_working", "iron_working", "engineering", "blast_furnace"]
-  },
-  {
-    "id": "crop_rotation_three_field",
-    "name": "Crop Rotation (Three-Field System)",
-    "era": "Medieval",
-    "description": "Agricultural practice of rotating crops in three fields to improve soil fertility and yields.",
-    "prerequisites": ["agriculture", "animal_husbandry", "heavy_plow_mouldboard"]
+    "prerequisites": ["gunpowder", "bronze_working", "iron_working", "engineering", "blast_furnace", "advanced_metallurgy_medieval"]
   },
   {
     "id": "guilds",
     "name": "Guilds",
     "era": "Medieval",
     "description": "Associations of artisans or merchants who oversee the practice of their craft/trade in a particular area.",
-    "prerequisites": ["currency", "writing", "basic_tools", "feudalism", "metal_coinage"]
+    "prerequisites": ["currency", "writing", "basic_tools", "feudalism", "metal_coinage", "urban_planning_grid_system"]
+  },
+  {
+    "id": "guild_halls_trade_centers",
+    "name": "Guild Halls & Trade Centers",
+    "era": "Medieval",
+    "description": "Construction of dedicated buildings for guild activities, serving as centers for commerce and craft regulation.",
+    "prerequisites": ["guilds", "construction", "banking_early_forms", "masonry"]
   },
   {
     "id": "banking_early_forms",
     "name": "Banking (Early Forms)",
     "era": "Medieval",
     "description": "Early financial practices like money lending, letters of credit by merchant families and religious orders.",
-    "prerequisites": ["currency", "writing", "mathematics", "guilds", "metal_coinage", "codified_law"]
+    "prerequisites": ["currency", "writing", "mathematics", "guilds", "metal_coinage", "codified_law", "record_keeping"]
+  },
+  {
+    "id": "bills_of_exchange_early_finance",
+    "name": "Bills of Exchange & Early Finance",
+    "era": "Medieval",
+    "description": "Financial instruments allowing for transfer of funds without physical currency, facilitating long-distance trade.",
+    "prerequisites": ["banking_early_forms", "writing", "guilds", "codified_law", "mathematics"]
   },
   {
     "id": "legal_systems_common_civil",
     "name": "Legal Systems (Common/Civil Law)",
     "era": "Medieval",
     "description": "Development of more formal and widespread legal frameworks influencing governance and society.",
-    "prerequisites": ["codified_law", "universities", "writing", "feudalism"]
+    "prerequisites": ["codified_law", "universities", "writing", "feudalism", "philosophy"]
+  },
+  {
+    "id": "legal_commentary_glossators",
+    "name": "Legal Commentary (Glossators)",
+    "era": "Medieval",
+    "description": "Scholarly analysis and interpretation of Roman law texts, contributing to the development of European legal thought.",
+    "prerequisites": ["legal_systems_common_civil", "universities", "writing", "scholasticism"]
   },
   {
     "id": "heraldry",
     "name": "Heraldry",
     "era": "Medieval",
     "description": "System of hereditary symbols (coats of arms) to identify individuals and families, particularly in warfare and society.",
-    "prerequisites": ["feudalism", "writing", "pigment_creation", "plate_armor"]
+    "prerequisites": ["feudalism", "writing", "pigment_creation", "plate_armor", "fine_arts_medieval"]
   },
   {
     "id": "printing_press",
@@ -941,8 +1240,17 @@
       "writing",
       "basic_chemistry",
       "guilds",
-      "mechanical_clocks"
+      "mechanical_clocks",
+      "advanced_metallurgy_medieval",
+      "woodworking_basic"
     ]
+  },
+  {
+    "id": "color_printing_woodblock_intaglio",
+    "name": "Color Printing (Woodblock, Intaglio)",
+    "era": "Renaissance",
+    "description": "Early techniques for producing images with multiple colors using carved woodblocks or engraved metal plates.",
+    "prerequisites": ["printing_press", "pigment_creation", "woodworking_basic", "oil_painting", "alchemy"]
   },
   {
     "id": "scientific_method",
@@ -955,7 +1263,8 @@
       "universities",
       "writing",
       "alchemy",
-      "scholasticism"
+      "scholasticism",
+      "printing_press"
     ]
   },
   {
@@ -963,7 +1272,7 @@
     "name": "Humanism",
     "era": "Renaissance",
     "description": "Intellectual movement emphasizing human potential and achievements, drawing on classical antiquity.",
-    "prerequisites": ["philosophy", "universities", "libraries", "printing_press"]
+    "prerequisites": ["philosophy", "universities", "libraries", "printing_press", "classical_historiography_herodotus_thucydides"]
   },
   {
     "id": "banking",
@@ -976,7 +1285,8 @@
       "writing",
       "printing_press",
       "banking_early_forms",
-      "metal_coinage"
+      "metal_coinage",
+      "bills_of_exchange_early_finance"
     ]
   },
   {
@@ -984,14 +1294,21 @@
     "name": "Double-Entry Bookkeeping",
     "era": "Renaissance",
     "description": "Accounting system that records each transaction in at least two different accounts.",
-    "prerequisites": ["banking", "mathematics", "writing", "printing_press"]
+    "prerequisites": ["banking", "mathematics", "writing", "printing_press", "paper_making"]
   },
   {
     "id": "stock_exchange_early",
     "name": "Early Stock Exchanges",
     "era": "Renaissance",
     "description": "Formal marketplaces for buying and selling shares of companies and commodities.",
-    "prerequisites": ["banking", "double_entry_bookkeeping", "printing_press", "lateen_sail_caravel"]
+    "prerequisites": ["banking", "double_entry_bookkeeping", "printing_press", "lateen_sail_caravel", "codified_law"]
+  },
+  {
+    "id": "mercantilism_economic_theory",
+    "name": "Mercantilism Economic Theory",
+    "era": "Renaissance",
+    "description": "Economic nationalism aiming to build a wealthy and powerful state by maximizing exports and minimizing imports.",
+    "prerequisites": ["banking", "stock_exchange_early", "codified_law", "cartography", "metal_coinage", "printing_press"]
   },
   {
     "id": "astronomy",
@@ -1005,7 +1322,22 @@
       "navigation",
       "early_optics",
       "printing_press",
-      "astrolabe_quadrant"
+      "astrolabe_quadrant",
+      "mechanical_clocks"
+    ]
+  },
+  {
+    "id": "telescope",
+    "name": "Telescope",
+    "era": "Renaissance",
+    "description": "Optical instrument that magnifies distant objects in the sky.",
+    "prerequisites": [
+      "glassmaking",
+      "scientific_method",
+      "astronomy",
+      "early_optics",
+      "spectacles_eyeglasses",
+      "scientific_instrument_making_guilds"
     ]
   },
   {
@@ -1013,14 +1345,7 @@
     "name": "Planetary Motion (Kepler's Laws)",
     "era": "Renaissance",
     "description": "Mathematical description of the motion of planets around the Sun, challenging geocentric models.",
-    "prerequisites": ["astronomy", "mathematics", "telescope", "scientific_method"]
-  },
-  {
-    "id": "cartography_mercator_projection",
-    "name": "Cartography (Mercator Projection)",
-    "era": "Renaissance",
-    "description": "Development of new map projections, like Mercator's, aiding navigation for global exploration.",
-    "prerequisites": ["cartography", "mathematics", "printing_press"]
+    "prerequisites": ["astronomy", "mathematics", "telescope", "scientific_method", "printing_press"]
   },
   {
     "id": "cartography",
@@ -1034,8 +1359,23 @@
       "astronomy",
       "surveying",
       "basic_cartography",
-      "lateen_sail_caravel"
+      "lateen_sail_caravel",
+      "portolan_charts_maritime_navigation"
     ]
+  },
+  {
+    "id": "cartography_mercator_projection",
+    "name": "Cartography (Mercator Projection)",
+    "era": "Renaissance",
+    "description": "Development of new map projections, like Mercator's, aiding navigation for global exploration.",
+    "prerequisites": ["cartography", "mathematics", "printing_press", "geometry", "navigation"]
+  },
+  {
+    "id": "surveying_theodolite_early_precision",
+    "name": "Surveying Theodolite (Early Precision)",
+    "era": "Renaissance",
+    "description": "Development of more precise surveying instruments incorporating telescopic sights and graduated circles.",
+    "prerequisites": ["surveying", "early_optics", "clockwork_mechanisms", "bronze_working", "mathematics", "telescope"]
   },
   {
     "id": "clockwork_mechanisms",
@@ -1048,7 +1388,8 @@
       "iron_working",
       "advanced_metallurgy_medieval",
       "mechanical_clocks",
-      "bronze_working"
+      "bronze_working",
+      "gears_simple_classical"
     ]
   },
   {
@@ -1056,20 +1397,14 @@
     "name": "Pocket Watch",
     "era": "Renaissance",
     "description": "Portable timekeeping devices made possible by advancements in clockwork mechanisms and miniaturization.",
-    "prerequisites": ["clockwork_mechanisms", "advanced_metallurgy_medieval", "glassmaking"]
+    "prerequisites": ["clockwork_mechanisms", "advanced_metallurgy_medieval", "glassmaking", "bronze_working"]
   },
   {
-    "id": "telescope",
-    "name": "Telescope",
+    "id": "scientific_instrument_making_guilds",
+    "name": "Scientific Instrument Making Guilds",
     "era": "Renaissance",
-    "description": "Optical instrument that magnifies distant objects in the sky.",
-    "prerequisites": [
-      "glassmaking",
-      "scientific_method",
-      "astronomy",
-      "early_optics",
-      "spectacles_eyeglasses"
-    ]
+    "description": "Specialized craft guilds focused on the design and construction of precision instruments for science and navigation.",
+    "prerequisites": ["clockwork_mechanisms", "early_optics", "guilds", "bronze_working", "mathematics", "printing_press"]
   },
   {
     "id": "microscope",
@@ -1080,7 +1415,8 @@
       "glassmaking",
       "scientific_method",
       "early_optics",
-      "spectacles_eyeglasses"
+      "spectacles_eyeglasses",
+      "scientific_instrument_making_guilds"
     ]
   },
   {
@@ -1088,7 +1424,7 @@
     "name": "Microbiology (Early Observations)",
     "era": "Renaissance",
     "description": "Initial observations of microorganisms using early microscopes, revealing a previously unseen world.",
-    "prerequisites": ["microscope", "scientific_method", "glassmaking"]
+    "prerequisites": ["microscope", "scientific_method", "glassmaking", "printing_press"]
   },
   {
     "id": "human_anatomy_physiology",
@@ -1098,60 +1434,123 @@
     "prerequisites": ["early_medicine", "scientific_method", "printing_press", "universities", "anatomy_early_studies", "humanism"]
   },
   {
+    "id": "anatomical_studies_vesalius_detailed",
+    "name": "Anatomical Studies (Vesalius, Detailed)",
+    "era": "Renaissance",
+    "description": "Revolutionary anatomical atlases based on direct human dissection, correcting ancient errors.",
+    "prerequisites": ["human_anatomy_physiology", "printing_press", "scientific_method", "fine_arts_medieval"]
+  },
+  {
     "id": "blood_circulation_harvey",
     "name": "Blood Circulation (Harvey)",
     "era": "Renaissance",
     "description": "Discovery and demonstration of the systemic circulation of blood, pumped by the heart.",
-    "prerequisites": ["human_anatomy_physiology", "scientific_method", "early_medicine"]
+    "prerequisites": ["human_anatomy_physiology", "scientific_method", "early_medicine", "anatomical_studies_vesalius_detailed"]
+  },
+  {
+    "id": "botanical_gardens_systematic_collection",
+    "name": "Botanical Gardens & Systematic Collection",
+    "era": "Renaissance",
+    "description": "Establishment of gardens for the scientific study and classification of plants, often linked to universities.",
+    "prerequisites": ["herbalism", "scientific_method", "printing_press", "agriculture", "universities", "exploration_global"]
+  },
+  {
+    "id": "exploration_global",
+    "name": "Global Exploration",
+    "era": "Renaissance",
+    "description": "Voyages of discovery leading to increased knowledge of world geography, cultures, and resources.",
+    "prerequisites": ["lateen_sail_caravel", "cartography", "compass", "astrolabe_quadrant", "gunpowder"]
   },
   {
     "id": "perspective_in_art",
     "name": "Perspective in Art",
     "era": "Renaissance",
     "description": "Techniques for creating an illusion of three-dimensional depth on a two-dimensional surface.",
-    "prerequisites": ["geometry", "humanism", "philosophy", "mathematics", "pigment_creation"]
+    "prerequisites": ["geometry", "humanism", "philosophy", "mathematics", "pigment_creation", "fine_arts_medieval"]
+  },
+  {
+    "id": "linear_perspective_vanishing_point",
+    "name": "Linear Perspective (Vanishing Point)",
+    "era": "Renaissance",
+    "description": "Mathematical system for representing three-dimensional objects and space on a two-dimensional surface using vanishing points.",
+    "prerequisites": ["perspective_in_art", "geometry", "mathematics", "humanism"]
   },
   {
     "id": "oil_painting",
     "name": "Oil Painting",
     "era": "Renaissance",
     "description": "Painting technique using pigments mixed with a drying oil as a binder, allowing for greater depth and realism.",
-    "prerequisites": ["pigment_creation", "basic_chemistry", "humanism", "perspective_in_art", "textiles_weaving"]
+    "prerequisites": ["pigment_creation", "basic_chemistry", "humanism", "perspective_in_art", "textiles_weaving", "alchemy"]
   },
   {
     "id": "early_firearms",
     "name": "Early Firearms",
     "era": "Renaissance",
     "description": "Development of personal gunpowder weapons like arquebuses and muskets.",
-    "prerequisites": ["gunpowder", "iron_working", "engineering", "cannons", "blast_furnace"]
+    "prerequisites": ["gunpowder", "iron_working", "engineering", "cannons", "blast_furnace", "advanced_metallurgy_medieval"]
   },
   {
     "id": "muskets_flintlock",
     "name": "Muskets (Flintlock)",
     "era": "Renaissance",
     "description": "Advancement in firearm technology with the flintlock mechanism, improving reliability and ease of use.",
-    "prerequisites": ["early_firearms", "iron_working", "clockwork_mechanisms"]
+    "prerequisites": ["early_firearms", "iron_working", "clockwork_mechanisms", "advanced_metallurgy_medieval"]
+  },
+  {
+    "id": "ballistics_projectile_motion_studies",
+    "name": "Ballistics (Projectile Motion Studies)",
+    "era": "Renaissance",
+    "description": "Mathematical and experimental investigation of projectile trajectories, improving accuracy of artillery and firearms.",
+    "prerequisites": ["early_ballistics", "logarithms_calculus_early", "muskets_flintlock", "mathematics", "scientific_method"]
   },
   {
     "id": "musketry_formations",
     "name": "Musketry Formations",
     "era": "Renaissance",
     "description": "Military tactics developed for ranks of soldiers armed with muskets.",
-    "prerequisites": ["muskets_flintlock", "organized_military_formations", "gunpowder"]
+    "prerequisites": ["muskets_flintlock", "organized_military_formations", "gunpowder", "printing_press"]
+  },
+  {
+    "id": "naval_artillery_broadside_cannons",
+    "name": "Naval Artillery (Broadside Cannons)",
+    "era": "Renaissance",
+    "description": "Mounting cannons along the sides of warships for powerful broadsides, transforming naval warfare.",
+    "prerequisites": ["cannons", "lateen_sail_caravel", "iron_working", "engineering", "gunpowder"]
+  },
+  {
+    "id": "double_hulled_ships_early_exploration",
+    "name": "Double-Hulled Ships (Early Exploration)",
+    "era": "Renaissance",
+    "description": "Shipbuilding technique providing increased stability and cargo capacity for long voyages.",
+    "prerequisites": ["lateen_sail_caravel", "engineering", "woodworking_basic", "iron_working"]
   },
   {
     "id": "logarithms_calculus_early",
     "name": "Logarithms & Early Calculus",
     "era": "Renaissance",
     "description": "Development of mathematical tools like logarithms for computation and foundational concepts leading to calculus.",
-    "prerequisites": ["algebra_basic", "scientific_method", "mathematics", "printing_press"]
+    "prerequisites": ["algebra_basic", "scientific_method", "mathematics", "printing_press", "geometry"]
   },
   {
     "id": "scientific_societies",
     "name": "Scientific Societies",
     "era": "Renaissance",
     "description": "Formation of organizations to promote scientific inquiry, share knowledge, and publish findings.",
-    "prerequisites": ["scientific_method", "printing_press", "universities", "humanism"]
+    "prerequisites": ["scientific_method", "printing_press", "universities", "humanism", "libraries"]
+  },
+  {
+    "id": "encyclopedic_compendiums_knowledge_organization",
+    "name": "Encyclopedic Compendiums & Knowledge Organization",
+    "era": "Renaissance",
+    "description": "Systematic collection and organization of knowledge in comprehensive printed works.",
+    "prerequisites": ["printing_press", "humanism", "scientific_societies", "libraries", "scholasticism"]
+  },
+  {
+    "id": "statistics_advanced_data_analysis",
+    "name": "Statistics (Advanced Data Analysis)",
+    "era": "Industrial",
+    "description": "Development of statistical methods for analyzing and interpreting large datasets, probability theory.",
+    "prerequisites": ["mathematics", "printing_press", "scientific_method", "logarithms_calculus_early", "double_entry_bookkeeping"]
   },
   {
     "id": "steam_engine",
@@ -1165,7 +1564,8 @@
       "engineering",
       "clockwork_mechanisms",
       "blast_furnace",
-      "basic_chemistry"
+      "basic_chemistry",
+      "watermills"
     ]
   },
   {
@@ -1173,7 +1573,14 @@
     "name": "Thermodynamics",
     "era": "Industrial",
     "description": "The branch of physics concerned with heat and its relation to other forms of energy and work.",
-    "prerequisites": ["steam_engine", "scientific_method", "mathematics", "advanced_chemistry", "logarithms_calculus_early"]
+    "prerequisites": ["steam_engine", "scientific_method", "mathematics", "advanced_chemistry", "logarithms_calculus_early", "printing_press"]
+  },
+  {
+    "id": "steam_turbine_power_generation",
+    "name": "Steam Turbine Power Generation",
+    "era": "Industrial",
+    "description": "Highly efficient turbines using steam to generate rotational motion, primarily for electricity production.",
+    "prerequisites": ["steam_engine", "thermodynamics", "steel_production", "engineering", "advanced_metallurgy_medieval"]
   },
   {
     "id": "advanced_chemistry",
@@ -1186,7 +1593,8 @@
       "microscope",
       "glassmaking",
       "printing_press",
-      "distillation_advanced"
+      "distillation_advanced",
+      "mathematics"
     ]
   },
   {
@@ -1194,7 +1602,14 @@
     "name": "Synthetic Dyes",
     "era": "Industrial",
     "description": "Creation of artificial colorants, revolutionizing the textile industry and chemical manufacturing.",
-    "prerequisites": ["advanced_chemistry", "textiles_weaving", "scientific_method"]
+    "prerequisites": ["advanced_chemistry", "textiles_weaving", "scientific_method", "coal_tar_distillation"]
+  },
+  {
+    "id": "coal_tar_distillation",
+    "name": "Coal Tar Distillation",
+    "era": "Industrial",
+    "description": "Process of separating useful organic chemicals from coal tar, a byproduct of coal gas production.",
+    "prerequisites": ["advanced_chemistry", "distillation_advanced", "mining", "steam_engine"]
   },
   {
     "id": "electricity",
@@ -1207,7 +1622,8 @@
       "engineering",
       "iron_working",
       "glassmaking",
-      "mathematics"
+      "mathematics",
+      "bronze_working"
     ]
   },
   {
@@ -1215,28 +1631,49 @@
     "name": "Electromagnetism (Maxwell's Equations)",
     "era": "Industrial",
     "description": "Unification of electricity, magnetism, and light into a single theoretical framework.",
-    "prerequisites": ["electricity", "mathematics", "scientific_method", "early_optics", "logarithms_calculus_early"]
+    "prerequisites": ["electricity", "mathematics", "scientific_method", "early_optics", "logarithms_calculus_early", "printing_press"]
   },
   {
     "id": "dynamo",
     "name": "Dynamo",
     "era": "Industrial",
     "description": "Early electrical generator capable of delivering power for industry.",
-    "prerequisites": ["electricity", "steam_engine", "engineering", "electromagnetism_maxwell", "iron_working"]
+    "prerequisites": ["electricity", "steam_engine", "engineering", "electromagnetism_maxwell", "iron_working", "bronze_working"]
   },
   {
     "id": "electric_motor",
     "name": "Electric Motor",
     "era": "Industrial",
     "description": "Device that converts electrical energy into mechanical motion.",
-    "prerequisites": ["dynamo", "electricity", "engineering", "electromagnetism_maxwell"]
+    "prerequisites": ["dynamo", "electricity", "engineering", "electromagnetism_maxwell", "iron_working"]
   },
   {
     "id": "light_bulb",
     "name": "Light Bulb",
     "era": "Industrial",
     "description": "Electric lamp producing light with a wire filament heated by an electric current.",
-    "prerequisites": ["electricity", "glassmaking", "advanced_chemistry", "dynamo", "mining"]
+    "prerequisites": ["electricity", "glassmaking", "advanced_chemistry", "dynamo", "mining", "vacuum_technology_early"]
+  },
+  {
+    "id": "vacuum_technology_early",
+    "name": "Vacuum Technology (Early)",
+    "era": "Industrial",
+    "description": "Development of pumps and techniques to create and maintain vacuums, essential for light bulbs and later electronics.",
+    "prerequisites": ["glassmaking", "steam_engine", "scientific_method", "engineering"]
+  },
+  {
+    "id": "electrical_grid_early_distribution",
+    "name": "Electrical Grid (Early Distribution)",
+    "era": "Industrial",
+    "description": "Initial networks for distributing electricity from central power stations to consumers.",
+    "prerequisites": ["dynamo", "light_bulb", "engineering", "steam_turbine_power_generation", "copper_wiring_production"]
+  },
+  {
+    "id": "copper_wiring_production",
+    "name": "Copper Wiring Production",
+    "era": "Industrial",
+    "description": "Mass production of copper wires for electrical conduction.",
+    "prerequisites": ["bronze_working", "mining", "mass_production", "steam_engine"]
   },
   {
     "id": "telegraph",
@@ -1244,8 +1681,22 @@
     "era": "Industrial",
     "description": "Long-distance transmission of text messages using electrical signals.",
     "prerequisites": [
-      "electricity", "iron_working", "writing", "electromagnetism_maxwell"
+      "electricity", "iron_working", "writing", "electromagnetism_maxwell", "copper_wiring_production"
     ]
+  },
+  {
+    "id": "radio_telegraphy_wireless_communication",
+    "name": "Radio Telegraphy (Wireless Communication)",
+    "era": "Industrial",
+    "description": "Transmission of telegraph signals using radio waves, enabling wireless communication.",
+    "prerequisites": ["telegraph", "electromagnetism_maxwell", "electricity", "scientific_method"]
+  },
+  {
+    "id": "telegraph_cables_transoceanic",
+    "name": "Telegraph Cables (Transoceanic)",
+    "era": "Industrial",
+    "description": "Laying submarine cables across oceans for intercontinental telegraph communication.",
+    "prerequisites": ["telegraph", "steel_ships", "vulcanized_rubber", "copper_wiring_production", "steam_engine"]
   },
   {
     "id": "mass_production",
@@ -1258,7 +1709,8 @@
       "banking",
       "engineering",
       "clockwork_mechanisms",
-      "guilds"
+      "guilds",
+      "printing_press"
     ]
   },
   {
@@ -1267,15 +1719,36 @@
     "era": "Industrial",
     "description": "Organization of labor and machinery in centralized factories.",
     "prerequisites": [
-      "mass_production", "steam_engine", "textiles_weaving", "banking", "clockwork_mechanisms"
+      "mass_production", "steam_engine", "textiles_weaving", "banking", "clockwork_mechanisms", "watermills", "iron_working"
     ]
+  },
+  {
+    "id": "scientific_management_taylorism",
+    "name": "Scientific Management (Taylorism)",
+    "era": "Industrial",
+    "description": "Application of scientific principles to improve efficiency and labor productivity in factories.",
+    "prerequisites": ["factory_system", "mass_production", "psychology_experimental", "statistics_advanced_data_analysis", "printing_press"]
+  },
+  {
+    "id": "labor_unions_collective_bargaining",
+    "name": "Labor Unions & Collective Bargaining",
+    "era": "Industrial",
+    "description": "Organizations of workers formed to protect and advance their interests through collective action.",
+    "prerequisites": ["factory_system", "codified_law", "printing_press", "democracy_republicanism", "socialism_early_theories"]
+  },
+  {
+    "id": "socialism_early_theories",
+    "name": "Socialism (Early Theories)",
+    "era": "Industrial",
+    "description": "Development of political and economic theories advocating for social ownership and control of the means of production.",
+    "prerequisites": ["philosophy", "factory_system", "printing_press", "democracy_republicanism", "humanism"]
   },
   {
     "id": "assembly_line",
     "name": "Assembly Line",
     "era": "Industrial",
     "description": "Manufacturing process where parts are added sequentially to create a finished product.",
-    "prerequisites": ["mass_production", "factory_system", "electricity", "electric_motor"]
+    "prerequisites": ["mass_production", "factory_system", "electricity", "electric_motor", "scientific_management_taylorism"]
   },
   {
     "id": "railroads",
@@ -1288,7 +1761,8 @@
       "engineering",
       "iron_working",
       "roads",
-      "steel_production"
+      "steel_production",
+      "surveying"
     ]
   },
   {
@@ -1301,7 +1775,8 @@
       "steam_engine",
       "advanced_chemistry",
       "advanced_metallurgy_medieval",
-      "blast_furnace"
+      "blast_furnace",
+      "coal_tar_distillation"
     ]
   },
   {
@@ -1309,21 +1784,49 @@
     "name": "Bessemer Process",
     "era": "Industrial",
     "description": "First inexpensive industrial process for the mass production of steel from molten pig iron.",
-    "prerequisites": ["steel_production", "advanced_chemistry", "steam_engine"]
+    "prerequisites": ["steel_production", "advanced_chemistry", "steam_engine", "mass_production"]
   },
   {
     "id": "reinforced_concrete",
     "name": "Reinforced Concrete",
     "era": "Industrial",
     "description": "Concrete in which steel reinforcing bars or mesh are embedded to strengthen the material in tension.",
-    "prerequisites": ["concrete", "steel_production", "engineering", "construction"]
+    "prerequisites": ["concrete", "steel_production", "engineering", "construction", "roman_concrete_opus_caementicium"]
+  },
+  {
+    "id": "reinforced_concrete_structures_bridges_buildings",
+    "name": "Reinforced Concrete Structures (Bridges, Buildings)",
+    "era": "Industrial",
+    "description": "Large-scale application of reinforced concrete in civil engineering projects.",
+    "prerequisites": ["reinforced_concrete", "steel_production", "engineering", "construction", "steam_engine"]
   },
   {
     "id": "steel_ships",
     "name": "Steel Ships",
     "era": "Industrial",
     "description": "Construction of ships with steel hulls, allowing for larger, stronger, and more durable vessels.",
-    "prerequisites": ["steel_production", "steam_engine", "engineering", "lateen_sail_caravel", "mass_production"]
+    "prerequisites": ["steel_production", "steam_engine", "engineering", "lateen_sail_caravel", "mass_production", "riveting_technology"]
+  },
+  {
+    "id": "riveting_technology",
+    "name": "Riveting Technology",
+    "era": "Industrial",
+    "description": "Method of joining metal plates using rivets, crucial for shipbuilding, boilers, and large structures.",
+    "prerequisites": ["iron_working", "steel_production", "steam_engine", "mass_production"]
+  },
+  {
+    "id": "submarines_early_military_naval",
+    "name": "Submarines (Early Military Naval)",
+    "era": "Industrial",
+    "description": "Development of early submersible vessels for naval warfare, initially with limited range and capabilities.",
+    "prerequisites": ["steel_ships", "internal_combustion_engine", "electric_motor", "electricity", "torpedoes_self_propelled_naval_weapon", "advanced_chemistry"]
+  },
+  {
+    "id": "torpedoes_self_propelled_naval_weapon",
+    "name": "Torpedoes (Self-Propelled Naval Weapon)",
+    "era": "Industrial",
+    "description": "Underwater self-propelled explosive devices for attacking ships.",
+    "prerequisites": ["internal_combustion_engine", "steel_production", "dynamite", "electricity", "engineering"]
   },
   {
     "id": "photography",
@@ -1335,22 +1838,51 @@
       "advanced_chemistry",
       "glassmaking",
       "early_optics",
-      "printing_press"
+      "printing_press",
+      "silver_nitrate_chemistry"
     ]
+  },
+  {
+    "id": "silver_nitrate_chemistry",
+    "name": "Silver Nitrate Chemistry",
+    "era": "Industrial",
+    "description": "Understanding the light-sensitive properties of silver compounds, crucial for early photography.",
+    "prerequisites": ["advanced_chemistry", "alchemy", "mining"]
+  },
+  {
+    "id": "cinematography_motion_pictures",
+    "name": "Cinematography & Motion Pictures",
+    "era": "Industrial",
+    "description": "Recording and projecting sequences of photographic images to create the illusion of motion.",
+    "prerequisites": ["photography", "clockwork_mechanisms", "plastics", "electric_motor", "light_bulb"]
   },
   {
     "id": "phonograph",
     "name": "Phonograph",
     "era": "Industrial",
     "description": "Device for recording and reproducing sound using a rotating cylinder or disc.",
-    "prerequisites": ["clockwork_mechanisms", "electricity", "iron_working", "scientific_method", "mass_production"]
+    "prerequisites": ["clockwork_mechanisms", "electricity", "iron_working", "scientific_method", "mass_production", "telegraph"]
   },
   {
     "id": "typewriter",
     "name": "Typewriter",
     "era": "Industrial",
     "description": "Mechanical machine for producing characters similar to printer's type.",
-    "prerequisites": ["mass_production", "iron_working", "printing_press", "clockwork_mechanisms"]
+    "prerequisites": ["mass_production", "iron_working", "printing_press", "clockwork_mechanisms", "steel_production"]
+  },
+  {
+    "id": "department_stores_mass_retail",
+    "name": "Department Stores & Mass Retail",
+    "era": "Industrial",
+    "description": "Large retail establishments offering a wide variety of goods, transforming shopping habits.",
+    "prerequisites": ["mass_production", "factory_system", "currency", "railroads", "printing_press", "glassmaking"]
+  },
+  {
+    "id": "advertising_mass_media_early",
+    "name": "Advertising (Mass Media Early)",
+    "era": "Industrial",
+    "description": "Development of advertising techniques for newspapers, magazines, and posters to promote mass-produced goods.",
+    "prerequisites": ["printing_press", "psychology_experimental", "department_stores_mass_retail", "photography"]
   },
   {
     "id": "oil_drilling",
@@ -1359,29 +1891,36 @@
     "description": "Extraction of petroleum from underground reservoirs.",
     "prerequisites": [
       "steam_engine",
-      "mining", "engineering", "geology", "steel_production"
+      "mining", "engineering", "geology", "steel_production", "basic_rope_making"
     ]
+  },
+  {
+    "id": "petroleum_refining_fractional_distillation",
+    "name": "Petroleum Refining (Fractional Distillation)",
+    "era": "Industrial",
+    "description": "Separating crude oil into useful fractions like gasoline, kerosene, and lubricating oils.",
+    "prerequisites": ["oil_drilling", "advanced_chemistry", "distillation_advanced", "steam_engine", "thermodynamics"]
   },
   {
     "id": "geology",
     "name": "Geology",
     "era": "Industrial",
     "description": "Scientific study of the Earth, its materials, structure, processes, and history.",
-    "prerequisites": ["mining", "scientific_method", "advanced_chemistry", "cartography", "printing_press"]
+    "prerequisites": ["mining", "scientific_method", "advanced_chemistry", "cartography", "printing_press", "railroads"]
   },
   {
     "id": "theory_of_evolution_darwin",
     "name": "Theory of Evolution (Darwin)",
     "era": "Industrial",
     "description": "Scientific theory explaining biological diversity through natural selection and descent with modification.",
-    "prerequisites": ["scientific_method", "geology", "human_anatomy_physiology", "microbiology_early_observations", "printing_press", "cartography"]
+    "prerequisites": ["scientific_method", "geology", "human_anatomy_physiology", "microbiology_early_observations", "printing_press", "cartography", "exploration_global"]
   },
   {
     "id": "genetics_mendel",
     "name": "Genetics (Mendel)",
     "era": "Industrial",
     "description": "Fundamental principles of heredity discovered through experiments with pea plants.",
-    "prerequisites": ["scientific_method", "mathematics", "agriculture", "microscope", "printing_press"]
+    "prerequisites": ["scientific_method", "mathematics", "agriculture", "microscope", "printing_press", "statistics_advanced_data_analysis"]
   },
   {
     "id": "chemical_fertilizers",
@@ -1393,15 +1932,30 @@
       "agriculture",
       "mining",
       "mass_production",
-      "steam_engine"
+      "steam_engine",
+      "haber_bosch_process_early"
     ]
+  },
+  {
+    "id": "haber_bosch_process_early",
+    "name": "Haber-Bosch Process (Early)",
+    "era": "Industrial",
+    "description": "Industrial synthesis of ammonia from nitrogen and hydrogen, key for fertilizers and explosives.",
+    "prerequisites": ["advanced_chemistry", "steam_engine", "thermodynamics", "steel_production"]
   },
   {
     "id": "canning_food_preservation",
     "name": "Canning & Food Preservation",
     "era": "Industrial",
     "description": "Methods of preserving food by sealing it in airtight containers and heating, extending shelf life.",
-    "prerequisites": ["advanced_chemistry", "glassmaking", "iron_working", "steam_engine", "mass_production"]
+    "prerequisites": ["advanced_chemistry", "glassmaking", "iron_working", "steam_engine", "mass_production", "basic_chemistry"]
+  },
+  {
+    "id": "food_pasteurization_heat_treatment",
+    "name": "Food Pasteurization (Heat Treatment)",
+    "era": "Industrial",
+    "description": "Using controlled heating to kill pathogens in food and beverages, improving safety and shelf life.",
+    "prerequisites": ["germ_theory", "canning_food_preservation", "advanced_chemistry", "steam_engine", "thermodynamics"]
   },
   {
     "id": "refrigeration",
@@ -1413,7 +1967,8 @@
       "engineering",
       "advanced_chemistry",
       "steam_engine",
-      "thermodynamics"
+      "thermodynamics",
+      "electric_motor"
     ]
   },
   {
@@ -1421,28 +1976,28 @@
     "name": "Medicine (Clinical)",
     "era": "Industrial",
     "description": "Systematic diagnosis, treatment, and prevention of disease based on scientific principles.",
-    "prerequisites": ["human_anatomy_physiology", "microscope", "advanced_chemistry", "universities", "scientific_method", "hospitals_early", "blood_circulation_harvey"]
+    "prerequisites": ["human_anatomy_physiology", "microscope", "advanced_chemistry", "universities", "scientific_method", "hospitals_early", "blood_circulation_harvey", "printing_press"]
   },
   {
     "id": "germ_theory",
     "name": "Germ Theory of Disease",
     "era": "Industrial",
     "description": "Understanding that many diseases are caused by microorganisms.",
-    "prerequisites": ["medicine_clinical", "microscope", "scientific_method", "advanced_chemistry", "microbiology_early_observations"]
-  },
-  {
-    "id": "aseptic_surgery",
-    "name": "Aseptic Surgery",
-    "era": "Industrial",
-    "description": "Surgical practices aimed at preventing microbial contamination of wounds.",
-    "prerequisites": ["germ_theory", "medicine_clinical", "anesthetics", "advanced_chemistry"]
+    "prerequisites": ["medicine_clinical", "microscope", "scientific_method", "advanced_chemistry", "microbiology_early_observations", "food_pasteurization_heat_treatment"]
   },
   {
     "id": "anesthetics",
     "name": "Anesthetics",
     "era": "Industrial",
     "description": "Substances that induce insensitivity to pain, revolutionizing surgery.",
-    "prerequisites": ["medicine_clinical", "advanced_chemistry", "scientific_method"]
+    "prerequisites": ["medicine_clinical", "advanced_chemistry", "scientific_method", "herbalism"]
+  },
+  {
+    "id": "aseptic_surgery",
+    "name": "Aseptic Surgery",
+    "era": "Industrial",
+    "description": "Surgical practices aimed at preventing microbial contamination of wounds.",
+    "prerequisites": ["germ_theory", "medicine_clinical", "anesthetics", "advanced_chemistry", "hospitals_early"]
   },
   {
     "id": "vaccination",
@@ -1454,7 +2009,8 @@
       "scientific_method",
       "microscope",
       "germ_theory",
-      "advanced_chemistry"
+      "advanced_chemistry",
+      "early_medicine"
     ]
   },
   {
@@ -1462,35 +2018,49 @@
     "name": "Modern Public Sanitation",
     "era": "Industrial",
     "description": "Large-scale systems for clean water supply, sewage disposal, and waste management in urban areas.",
-    "prerequisites": ["public_health_systems", "germ_theory", "engineering", "steam_engine", "concrete"]
+    "prerequisites": ["public_health_systems", "germ_theory", "engineering", "steam_engine", "concrete", "plumbing", "mass_production"]
   },
   {
     "id": "public_education_systems",
     "name": "Public Education Systems",
     "era": "Industrial",
     "description": "State-sponsored formal schooling for large segments of the population.",
-    "prerequisites": ["printing_press", "universities", "factory_system", "banking", "paper_making"]
+    "prerequisites": ["printing_press", "universities", "factory_system", "banking", "paper_making", "codified_law"]
   },
   {
     "id": "sociology_early",
     "name": "Sociology (Early)",
     "era": "Industrial",
     "description": "The systematic study of social behavior, society, patterns of social relationships, social interaction, and culture.",
-    "prerequisites": ["philosophy", "scientific_method", "public_education_systems", "factory_system", "theory_of_evolution_darwin"]
+    "prerequisites": ["philosophy", "scientific_method", "public_education_systems", "factory_system", "theory_of_evolution_darwin", "printing_press", "statistics_advanced_data_analysis"]
+  },
+  {
+    "id": "sociology_classical_theories_durkheim_weber",
+    "name": "Sociology (Classical Theories - Durkheim, Weber)",
+    "era": "Industrial",
+    "description": "Foundation of sociology as a discipline with major theoretical frameworks on social structure, change, and action.",
+    "prerequisites": ["sociology_early", "scientific_method", "philosophy", "printing_press", "universities"]
   },
   {
     "id": "psychology_experimental",
     "name": "Experimental Psychology",
     "era": "Industrial",
     "description": "Application of experimental methods to the study of mind and behavior, establishing psychology as a science.",
-    "prerequisites": ["philosophy", "scientific_method", "medicine_clinical", "universities", "human_anatomy_physiology"]
+    "prerequisites": ["philosophy", "scientific_method", "medicine_clinical", "universities", "human_anatomy_physiology", "statistics_advanced_data_analysis"]
+  },
+  {
+    "id": "psychoanalysis_freudian_theory",
+    "name": "Psychoanalysis (Freudian Theory)",
+    "era": "Industrial",
+    "description": "A set of psychological theories and therapeutic techniques focusing on the unconscious mind.",
+    "prerequisites": ["experimental_psychology", "medicine_clinical", "philosophy", "printing_press"]
   },
   {
     "id": "telephone",
     "name": "Telephone",
     "era": "Industrial",
     "description": "Device for transmitting speech over electrical wires.",
-    "prerequisites": ["electricity", "telegraph", "scientific_method", "dynamo", "electromagnetism_maxwell"]
+    "prerequisites": ["electricity", "telegraph", "scientific_method", "dynamo", "electromagnetism_maxwell", "phonograph"]
   },
   {
     "id": "internal_combustion_engine",
@@ -1501,95 +2071,222 @@
       "steam_engine",
       "scientific_method",
       "mass_production",
-      "oil_drilling",
+      "petroleum_refining_fractional_distillation",
       "advanced_chemistry",
       "steel_production",
-      "thermodynamics"
+      "thermodynamics",
+      "clockwork_mechanisms"
     ]
+  },
+  {
+    "id": "diesel_engine_compression_ignition",
+    "name": "Diesel Engine (Compression Ignition)",
+    "era": "Industrial",
+    "description": "Internal combustion engine where fuel ignition occurs due to high temperature from compression.",
+    "prerequisites": ["internal_combustion_engine", "thermodynamics", "steel_production", "petroleum_refining_fractional_distillation"]
   },
   {
     "id": "rifling_firearms",
     "name": "Rifling in Firearms",
     "era": "Industrial",
     "description": "Grooves inside a gun barrel that impart spin to a projectile, improving accuracy and range.",
-    "prerequisites": ["muskets_flintlock", "steel_production", "engineering", "mass_production"]
+    "prerequisites": ["muskets_flintlock", "steel_production", "engineering", "mass_production", "ballistics_projectile_motion_studies"]
   },
   {
     "id": "breech_loading_firearms",
     "name": "Breech-loading Firearms",
     "era": "Industrial",
     "description": "Firearms that are loaded from the rear of the barrel, allowing for faster reloading.",
-    "prerequisites": ["rifling_firearms", "steel_production", "mass_production", "advanced_chemistry"]
+    "prerequisites": ["rifling_firearms", "steel_production", "mass_production", "advanced_chemistry", "cartridge_ammunition"]
+  },
+  {
+    "id": "cartridge_ammunition",
+    "name": "Cartridge Ammunition",
+    "era": "Industrial",
+    "description": "Self-contained ammunition units including bullet, propellant, primer, and casing.",
+    "prerequisites": ["gunpowder", "advanced_chemistry", "bronze_working", "mass_production", "muskets_flintlock"]
   },
   {
     "id": "machine_gun",
     "name": "Machine Gun",
     "era": "Industrial",
     "description": "Fully automatic mounted or portable firearm, designed to fire bullets in quick succession.",
-    "prerequisites": ["breech_loading_firearms", "mass_production", "steel_production", "internal_combustion_engine"]
+    "prerequisites": ["breech_loading_firearms", "mass_production", "steel_production", "cartridge_ammunition", "engineering"]
   },
   {
     "id": "dynamite",
     "name": "Dynamite",
     "era": "Industrial",
     "description": "A more stable and manageable explosive based on nitroglycerin, revolutionizing mining and construction.",
-    "prerequisites": ["advanced_chemistry", "gunpowder", "mass_production", "mining"]
+    "prerequisites": ["advanced_chemistry", "gunpowder", "mass_production", "mining", "nitroglycerin_synthesis"]
+  },
+  {
+    "id": "nitroglycerin_synthesis",
+    "name": "Nitroglycerin Synthesis",
+    "era": "Industrial",
+    "description": "Chemical process for producing the highly explosive compound nitroglycerin.",
+    "prerequisites": ["advanced_chemistry", "distillation_advanced", "scientific_method"]
   },
   {
     "id": "vulcanized_rubber",
     "name": "Vulcanized Rubber",
     "era": "Industrial",
     "description": "Chemical process for converting natural rubber into more durable materials.",
-    "prerequisites": ["advanced_chemistry", "agriculture", "steam_engine"]
+    "prerequisites": ["advanced_chemistry", "agriculture", "steam_engine", "scientific_method"]
+  },
+  {
+    "id": "synthetic_rubber_polymer_chemistry",
+    "name": "Synthetic Rubber (Polymer Chemistry)",
+    "era": "Industrial",
+    "description": "Creation of artificial rubber through polymerization, reducing reliance on natural sources.",
+    "prerequisites": ["vulcanized_rubber", "advanced_chemistry", "petroleum_refining_fractional_distillation", "scientific_method"]
   },
   {
     "id": "sewing_machine",
     "name": "Sewing Machine",
     "era": "Industrial",
     "description": "Machine used to stitch fabric and other materials together with thread.",
-    "prerequisites": ["mass_production", "textiles_weaving", "iron_working", "clockwork_mechanisms", "factory_system"]
+    "prerequisites": ["mass_production", "textiles_weaving", "iron_working", "clockwork_mechanisms", "factory_system", "steel_production"]
+  },
+  {
+    "id": "pneumatic_tools_compressed_air_power",
+    "name": "Pneumatic Tools (Compressed Air Power)",
+    "era": "Industrial",
+    "description": "Tools powered by compressed air, used in mining, construction, and manufacturing.",
+    "prerequisites": ["steam_engine", "iron_working", "engineering", "steel_production", "vulcanized_rubber"]
+  },
+  {
+    "id": "industrial_glass_production_float_glass",
+    "name": "Industrial Glass Production (Float Glass)",
+    "era": "Industrial",
+    "description": "Mass production methods for high-quality flat glass, revolutionizing architecture and other industries.",
+    "prerequisites": ["glassmaking", "steam_engine", "advanced_chemistry", "mass_production", "coal_tar_distillation"]
+  },
+  {
+    "id": "aluminum_production_hall_heroult",
+    "name": "Aluminum Production (Hall-Héroult)",
+    "era": "Industrial",
+    "description": "Electrolytic process for extracting aluminum from its ore, making the lightweight metal widely available.",
+    "prerequisites": ["electricity", "advanced_chemistry", "mining", "dynamo", "thermodynamics"]
+  },
+  {
+    "id": "material_science_lightweight_alloys",
+    "name": "Material Science (Lightweight Alloys)",
+    "era": "Modern",
+    "description": "Development of strong, lightweight metal alloys, particularly aluminum and titanium based, for aerospace and other applications.",
+    "prerequisites": ["advanced_metallurgy_medieval", "aluminum_production_hall_heroult", "advanced_chemistry", "steel_production", "scientific_method"]
+  },
+  {
+    "id": "precision_mechanics_miniaturization",
+    "name": "Precision Mechanics & Miniaturization",
+    "era": "Modern",
+    "description": "Engineering of highly precise and small-scale mechanical components and systems.",
+    "prerequisites": ["clockwork_mechanisms", "mass_production", "material_science_lightweight_alloys", "steel_production", "electric_motor"]
+  },
+  {
+    "id": "numerical_control_automated_machining",
+    "name": "Numerical Control (Automated Machining)",
+    "era": "Modern",
+    "description": "Automation of machine tools using programmed commands, precursor to CNC.",
+    "prerequisites": ["computers_early", "engineering", "electric_motor", "mass_production", "precision_mechanics_miniaturization"]
   },
   {
     "id": "relativity_special_general",
     "name": "Relativity (Special & General)",
     "era": "Modern",
     "description": "Einstein's theories revolutionizing understanding of space, time, gravity, and the universe.",
-    "prerequisites": ["electromagnetism_maxwell", "mathematics", "scientific_method", "early_optics", "astronomy", "logarithms_calculus_early"]
+    "prerequisites": ["electromagnetism_maxwell", "mathematics", "scientific_method", "early_optics", "astronomy", "logarithms_calculus_early", "philosophy"]
   },
   {
     "id": "quantum_physics",
     "name": "Quantum Physics",
     "era": "Modern",
     "description": "Fundamental theory in physics describing nature at the smallest scales of energy levels of atoms and subatomic particles.",
-    "prerequisites": ["scientific_method", "mathematics", "electricity", "astronomy", "advanced_chemistry", "relativity_special_general", "photography"]
+    "prerequisites": ["scientific_method", "mathematics", "electricity", "astronomy", "advanced_chemistry", "relativity_special_general", "photography", "thermodynamics"]
   },
   {
     "id": "particle_accelerators",
     "name": "Particle Accelerators",
     "era": "Modern",
     "description": "Devices that accelerate subatomic particles to high velocities, used to study fundamental physics.",
-    "prerequisites": ["quantum_physics", "electricity", "engineering", "electromagnetism_maxwell", "mathematics"]
+    "prerequisites": ["quantum_physics", "electricity", "engineering", "electromagnetism_maxwell", "mathematics", "vacuum_technology_early", "superconductors_early"]
   },
   {
     "id": "electronics",
     "name": "Electronics",
     "era": "Modern",
     "description": "Science of controlling electrical energy in which electrons have a fundamental role, including vacuum tubes and semiconductors.",
-    "prerequisites": ["electricity", "scientific_method", "advanced_chemistry", "glassmaking", "quantum_physics", "electromagnetism_maxwell"]
+    "prerequisites": ["electricity", "scientific_method", "advanced_chemistry", "glassmaking", "quantum_physics", "electromagnetism_maxwell", "vacuum_technology_early"]
+  },
+  {
+    "id": "vacuum_tubes_electron_control",
+    "name": "Vacuum Tubes (Electron Control)",
+    "era": "Modern",
+    "description": "Electronic components controlling electric current in a vacuum, foundational for early electronics.",
+    "prerequisites": ["electronics", "glassmaking", "electricity", "vacuum_technology_early", "tungsten_filament_production"]
+  },
+  {
+    "id": "tungsten_filament_production",
+    "name": "Tungsten Filament Production",
+    "era": "Modern",
+    "description": "Manufacturing high-melting-point tungsten wires for light bulbs and vacuum tubes.",
+    "prerequisites": ["advanced_metallurgy_medieval", "mining", "electricity", "advanced_chemistry"]
+  },
+  {
+    "id": "cathode_ray_tube_crt_displays",
+    "name": "Cathode Ray Tube (CRT) Displays",
+    "era": "Modern",
+    "description": "Vacuum tubes generating images by directing an electron beam onto a phosphorescent screen.",
+    "prerequisites": ["electronics", "glassmaking", "vacuum_tubes_electron_control", "electromagnetism_maxwell"]
   },
   {
     "id": "semiconductors",
     "name": "Semiconductors",
     "era": "Modern",
     "description": "Materials with electrical conductivity between a conductor and an insulator, basis of modern electronics.",
-    "prerequisites": ["electronics", "quantum_physics", "advanced_chemistry", "mining", "scientific_method"]
+    "prerequisites": ["electronics", "quantum_physics", "advanced_chemistry", "mining", "scientific_method", "crystal_growth_techniques"]
+  },
+  {
+    "id": "crystal_growth_techniques",
+    "name": "Crystal Growth Techniques",
+    "era": "Modern",
+    "description": "Methods for producing high-purity single crystals, essential for semiconductors and other advanced materials.",
+    "prerequisites": ["advanced_chemistry", "scientific_method", "furnace_technology_high_temp"]
+  },
+  {
+    "id": "furnace_technology_high_temp",
+    "name": "Furnace Technology (High Temperature)",
+    "era": "Modern",
+    "description": "Development of furnaces capable of achieving very high temperatures for material processing.",
+    "prerequisites": ["blast_furnace", "electricity", "thermodynamics", "advanced_chemistry"]
   },
   {
     "id": "transistors",
     "name": "Transistors",
     "era": "Modern",
     "description": "Semiconductor devices used to amplify or switch electronic signals and electrical power, replacing vacuum tubes.",
-    "prerequisites": ["semiconductors", "quantum_physics", "electronics", "mass_production"]
+    "prerequisites": ["semiconductors", "quantum_physics", "electronics", "mass_production", "scientific_method"]
+  },
+  {
+    "id": "integrated_circuits",
+    "name": "Integrated Circuits (Microchips)",
+    "era": "Modern",
+    "description": "Miniaturized electronic circuits (chips) that drastically reduce size and cost of electronics.",
+    "prerequisites": ["electronics", "transistors", "advanced_chemistry", "semiconductors", "photography", "mass_production", "photolithography"]
+  },
+  {
+    "id": "photolithography",
+    "name": "Photolithography",
+    "era": "Modern",
+    "description": "Process using light to transfer a geometric pattern from a photomask to a light-sensitive chemical on a substrate, key for IC manufacturing.",
+    "prerequisites": ["photography", "advanced_chemistry", "scientific_method", "precision_mechanics_miniaturization"]
+  },
+  {
+    "id": "microprocessors_cpu_on_a_chip",
+    "name": "Microprocessors (CPU on a Chip)",
+    "era": "Modern",
+    "description": "Central processing units fabricated on a single integrated circuit, enabling personal computers.",
+    "prerequisites": ["integrated_circuits", "algorithms_computation_theory", "transistors", "electronics"]
   },
   {
     "id": "automobile",
@@ -1602,7 +2299,8 @@
       "steel_production",
       "vulcanized_rubber",
       "assembly_line",
-      "roads"
+      "roads",
+      "petroleum_refining_fractional_distillation"
     ]
   },
   {
@@ -1614,10 +2312,39 @@
       "internal_combustion_engine",
       "scientific_method",
       "engineering",
-      "steel_production",
+      "material_science_lightweight_alloys",
       "woodworking_basic",
-      "thermodynamics"
+      "thermodynamics",
+      "textiles_weaving"
     ]
+  },
+  {
+    "id": "jet_engine",
+    "name": "Jet Engine",
+    "era": "Modern",
+    "description": "Airbreathing engine that produces thrust from a fast-moving jet of hot gas.",
+    "prerequisites": ["flight_powered", "internal_combustion_engine", "steel_production", "scientific_method", "engineering", "thermodynamics", "advanced_metallurgy_medieval", "material_science_lightweight_alloys"]
+  },
+  {
+    "id": "jet_aircraft_high_speed_flight",
+    "name": "Jet Aircraft (High-Speed Flight)",
+    "era": "Modern",
+    "description": "Aircraft propelled by jet engines, enabling significantly faster and higher altitude flight.",
+    "prerequisites": ["jet_engine", "flight_powered", "aluminum_production_hall_heroult", "material_science_lightweight_alloys", "aerodynamics_supersonic"]
+  },
+  {
+    "id": "aerodynamics_supersonic",
+    "name": "Aerodynamics (Supersonic)",
+    "era": "Modern",
+    "description": "Study of air flow at speeds exceeding the speed of sound, crucial for high-performance aircraft and rocketry.",
+    "prerequisites": ["flight_powered", "mathematics", "thermodynamics", "scientific_method", "jet_engine"]
+  },
+  {
+    "id": "helicopters_vertical_takeoff_landing_vtol",
+    "name": "Helicopters (Vertical Takeoff & Landing - VTOL)",
+    "era": "Modern",
+    "description": "Aircraft capable of vertical flight, hovering, and forward/backward movement using rotating blades.",
+    "prerequisites": ["flight_powered", "internal_combustion_engine", "engineering", "steel_production", "material_science_lightweight_alloys", "precision_mechanics_miniaturization"]
   },
   {
     "id": "telecommunications",
@@ -1629,7 +2356,8 @@
       "scientific_method",
       "telephone",
       "electronics",
-      "electromagnetism_maxwell"
+      "electromagnetism_maxwell",
+      "radio_telegraphy_wireless_communication"
     ]
   },
   {
@@ -1641,71 +2369,79 @@
       "electricity",
       "telecommunications",
       "electronics",
-      "electromagnetism_maxwell"
+      "electromagnetism_maxwell",
+      "vacuum_tubes_electron_control"
     ]
+  },
+  {
+    "id": "radar_radio_detection_and_ranging",
+    "name": "Radar (Radio Detection and Ranging)",
+    "era": "Modern",
+    "description": "Using radio waves to determine the range, angle, or velocity of objects.",
+    "prerequisites": ["radio", "electronics", "cathode_ray_tube_crt_displays", "electromagnetism_maxwell", "scientific_method"]
   },
   {
     "id": "radio_broadcasting",
     "name": "Radio Broadcasting",
     "era": "Modern",
     "description": "Mass distribution of audio content via radio waves.",
-    "prerequisites": ["radio", "mass_production", "electronics", "public_education_systems"]
+    "prerequisites": ["radio", "mass_production", "electronics", "public_education_systems", "phonograph"]
   },
   {
     "id": "television",
     "name": "Television",
     "era": "Modern",
     "description": "System for transmitting visual images and sound that are reproduced on screens.",
-    "prerequisites": ["radio", "electronics", "photography", "glassmaking", "electricity"]
+    "prerequisites": ["radio", "electronics", "photography", "glassmaking", "electricity", "cathode_ray_tube_crt_displays"]
   },
   {
     "id": "plastics",
     "name": "Plastics",
     "era": "Modern",
     "description": "Synthetic or semi-synthetic materials that use polymers as a main ingredient, enabling new manufacturing possibilities.",
-    "prerequisites": ["advanced_chemistry", "oil_drilling", "mass_production", "scientific_method", "thermodynamics"]
+    "prerequisites": ["advanced_chemistry", "petroleum_refining_fractional_distillation", "mass_production", "scientific_method", "thermodynamics", "coal_tar_distillation"]
   },
   {
     "id": "synthetic_materials_advanced",
     "name": "Advanced Synthetic Materials",
     "era": "Modern",
     "description": "Development of high-performance synthetic materials like nylon, kevlar, and teflon.",
-    "prerequisites": ["plastics", "advanced_chemistry", "scientific_method", "quantum_physics"]
+    "prerequisites": ["plastics", "advanced_chemistry", "scientific_method", "quantum_physics", "mass_production"]
   },
   {
     "id": "antibiotics",
     "name": "Antibiotics",
     "era": "Modern",
     "description": "Drugs that kill or inhibit the growth of bacteria, revolutionizing medicine.",
-    "prerequisites": ["medicine_clinical", "advanced_chemistry", "microscope", "scientific_method", "germ_theory", "vaccination"]
+    "prerequisites": ["medicine_clinical", "advanced_chemistry", "microscope", "scientific_method", "germ_theory", "vaccination", "mass_production"]
   },
   {
     "id": "immunology_advanced",
     "name": "Advanced Immunology",
     "era": "Modern",
     "description": "Deeper understanding of the immune system, leading to advanced vaccines, autoimmune disease treatments, and transplantation.",
-    "prerequisites": ["vaccination", "antibiotics", "medicine_clinical", "microscope", "advanced_chemistry", "genetics_mendel"]
+    "prerequisites": ["vaccination", "antibiotics", "medicine_clinical", "microscope", "advanced_chemistry", "genetics_mendel", "dna_structure"]
   },
   {
     "id": "organ_transplantation",
     "name": "Organ Transplantation",
     "era": "Modern",
     "description": "Surgical procedures to replace failing organs with healthy ones from donors.",
-    "prerequisites": ["medicine_clinical", "aseptic_surgery", "antibiotics", "human_anatomy_physiology", "immunology_advanced", "refrigeration"]
+    "prerequisites": ["medicine_clinical", "aseptic_surgery", "antibiotics", "human_anatomy_physiology", "immunology_advanced", "refrigeration", "blood_circulation_harvey"]
   },
   {
     "id": "medical_imaging_xray_mri",
     "name": "Medical Imaging (X-ray, MRI, CT)",
     "era": "Modern",
     "description": "Technologies to visualize internal body structures for diagnosis and treatment.",
-    "prerequisites": ["medicine_clinical", "electricity", "quantum_physics", "computers_early", "photography", "advanced_chemistry"]
+    "prerequisites": ["medicine_clinical", "electricity", "quantum_physics", "computers_early", "photography", "advanced_chemistry", "cathode_ray_tube_crt_displays", "superconductors_early"]
   },
   {
     "id": "nuclear_fission",
     "name": "Nuclear Fission",
     "era": "Modern",
     "description": "Splitting of atomic nuclei, releasing vast amounts of energy.",
-    "prerequisites": ["quantum_physics", "scientific_method", "advanced_chemistry", "engineering", "mathematics", "particle_accelerators"]
+    "prerequisites": ["quantum_physics", "scientific_method", "advanced_chemistry", "engineering", "mathematics", "particle_accelerators", "relativity_special_general"]
   },
   {
     "id": "nuclear_power",
@@ -1716,8 +2452,9 @@
       "electricity",
       "nuclear_fission",
       "engineering",
-      "steam_engine",
-      "thermodynamics"
+      "steam_turbine_power_generation",
+      "thermodynamics",
+      "concrete"
     ]
   },
   {
@@ -1730,22 +2467,16 @@
       "scientific_method",
       "engineering",
       "advanced_chemistry",
-      "mass_production"
+      "mass_production",
+      "rocketry"
     ]
-  },
-  {
-    "id": "jet_engine",
-    "name": "Jet Engine",
-    "era": "Modern",
-    "description": "Airbreathing engine that produces thrust from a fast-moving jet of hot gas.",
-    "prerequisites": ["flight_powered", "internal_combustion_engine", "steel_production", "scientific_method", "engineering", "thermodynamics", "advanced_metallurgy_medieval"]
   },
   {
     "id": "algorithms_computation_theory",
     "name": "Algorithms & Computation Theory",
     "era": "Modern",
     "description": "Formal study of algorithms, computability, and complexity, forming the theoretical basis of computer science.",
-    "prerequisites": ["mathematics", "philosophy", "scientific_method", "logarithms_calculus_early", "printing_press"]
+    "prerequisites": ["mathematics", "philosophy", "scientific_method", "logarithms_calculus_early", "printing_press", "formal_logic_syllogism"]
   },
   {
     "id": "computers_early",
@@ -1759,85 +2490,157 @@
       "electricity",
       "telegraph",
       "algorithms_computation_theory",
-      "transistors"
+      "transistors",
+      "vacuum_tubes_electron_control",
+      "magnetic_tape_data_storage"
     ]
   },
   {
-    "id": "information_theory",
-    "name": "Information Theory",
+    "id": "magnetic_tape_data_storage",
+    "name": "Magnetic Tape Data Storage",
     "era": "Modern",
-    "description": "Mathematical study of the quantification, storage, and communication of digital information.",
-    "prerequisites": ["mathematics", "telecommunications", "algorithms_computation_theory", "computers_early", "quantum_physics"]
+    "description": "Storing digital data on magnetic tape, an early form of mass computer storage.",
+    "prerequisites": ["electronics", "phonograph", "plastics", "advanced_chemistry", "telegraph"]
   },
   {
-    "id": "cybernetics",
-    "name": "Cybernetics",
+    "id": "operating_systems_os_computer_management",
+    "name": "Operating Systems (OS Computer Management)",
     "era": "Modern",
-    "description": "The study of control and communication in animals and machines, influencing AI and robotics.",
-    "prerequisites": ["electronics", "mathematics", "engineering", "psychology", "information_theory"]
+    "description": "Software that manages computer hardware and software resources, providing common services for computer programs.",
+    "prerequisites": ["computers_early", "software_engineering", "algorithms_computation_theory"]
   },
   {
-    "id": "integrated_circuits",
-    "name": "Integrated Circuits (Microchips)",
+    "id": "virtualization_early_vm_tech",
+    "name": "Virtualization (Early VM Tech)",
     "era": "Modern",
-    "description": "Miniaturized electronic circuits (chips) that drastically reduce size and cost of electronics.",
-    "prerequisites": ["electronics", "computers_early", "advanced_chemistry", "semiconductors", "photography", "transistors", "mass_production"]
-  },
-  {
-    "id": "personal_computers",
-    "name": "Personal Computers",
-    "era": "Modern",
-    "description": "Affordable computers for individual use, powered by microprocessors.",
-    "prerequisites": ["integrated_circuits", "mass_production", "television", "algorithms_computation_theory", "plastics"]
+    "description": "Creation of virtual versions of computer hardware platforms, operating systems, storage devices, or computer network resources.",
+    "prerequisites": ["computers_early", "operating_systems_os_computer_management", "algorithms_computation_theory", "software_engineering"]
   },
   {
     "id": "software_engineering",
     "name": "Software Engineering",
     "era": "Modern",
     "description": "Systematic application of engineering principles to the design, development, and maintenance of software.",
-    "prerequisites": ["personal_computers", "algorithms_computation_theory", "information_theory", "computers_early"]
+    "prerequisites": ["computers_early", "algorithms_computation_theory", "information_theory", "printing_press"]
+  },
+  {
+    "id": "databases_relational_dbms",
+    "name": "Databases (Relational DBMS)",
+    "era": "Modern",
+    "description": "Systems for organizing, storing, and retrieving large amounts of structured data using relational models.",
+    "prerequisites": ["computers_early", "software_engineering", "algorithms_computation_theory", "information_theory", "mathematics"]
+  },
+  {
+    "id": "information_theory",
+    "name": "Information Theory",
+    "era": "Modern",
+    "description": "Mathematical study of the quantification, storage, and communication of digital information.",
+    "prerequisites": ["mathematics", "telecommunications", "algorithms_computation_theory", "computers_early", "quantum_physics", "statistics_advanced_data_analysis"]
+  },
+  {
+    "id": "cybernetics",
+    "name": "Cybernetics",
+    "era": "Modern",
+    "description": "The study of control and communication in animals and machines, influencing AI and robotics.",
+    "prerequisites": ["electronics", "mathematics", "engineering", "psychology", "information_theory", "scientific_method", "philosophy"]
+  },
+  {
+    "id": "personal_computers",
+    "name": "Personal Computers",
+    "era": "Modern",
+    "description": "Affordable computers for individual use, powered by microprocessors.",
+    "prerequisites": ["integrated_circuits", "mass_production", "television", "algorithms_computation_theory", "plastics", "microprocessors_cpu_on_a_chip", "operating_systems_os_computer_management"]
+  },
+  {
+    "id": "hard_disk_drives_magnetic_storage",
+    "name": "Hard Disk Drives (Magnetic Storage)",
+    "era": "Modern",
+    "description": "Electro-mechanical data storage devices using magnetic storage on rotating platters.",
+    "prerequisites": ["magnetic_tape_data_storage", "electronics", "personal_computers", "precision_mechanics_miniaturization", "electric_motor"]
+  },
+  {
+    "id": "solid_state_drives_ssd_flash_memory",
+    "name": "Solid State Drives (SSD Flash Memory)",
+    "era": "Modern",
+    "description": "Data storage devices using integrated circuit assemblies as memory to store data persistently, typically using flash memory.",
+    "prerequisites": ["semiconductors", "personal_computers", "integrated_circuits", "electronics", "transistors"]
   },
   {
     "id": "graphical_user_interface_gui",
     "name": "Graphical User Interface (GUI)",
     "era": "Modern",
     "description": "Visual way of interacting with computers using windows, icons, and menus.",
-    "prerequisites": ["personal_computers", "television", "psychology", "software_engineering", "photography"]
+    "prerequisites": ["personal_computers", "television", "psychology", "software_engineering", "photography", "cathode_ray_tube_crt_displays"]
+  },
+  {
+    "id": "computer_aided_design_cad_software",
+    "name": "Computer-Aided Design (CAD Software)",
+    "era": "Modern",
+    "description": "Use of computer systems to aid in the creation, modification, analysis, or optimization of a design.",
+    "prerequisites": ["personal_computers", "software_engineering", "graphical_user_interface_gui", "geometry", "mathematics"]
+  },
+  {
+    "id": "computer_aided_manufacturing_cam_systems",
+    "name": "Computer-Aided Manufacturing (CAM Systems)",
+    "era": "Modern",
+    "description": "Use of software to control machine tools and related machinery in the manufacturing of workpieces.",
+    "prerequisites": ["computer_aided_design_cad_software", "robotics", "mass_production", "numerical_control_automated_machining", "personal_computers"]
   },
   {
     "id": "dna_structure",
     "name": "DNA Structure",
     "era": "Modern",
     "description": "Discovery of the double helix structure of deoxyribonucleic acid, the basis of heredity.",
-    "prerequisites": ["advanced_chemistry", "microscope", "scientific_method", "quantum_physics", "medicine_clinical", "genetics_mendel", "photography" ]
+    "prerequisites": ["advanced_chemistry", "microscope", "scientific_method", "quantum_physics", "medicine_clinical", "genetics_mendel", "photography", "x_ray_crystallography" ]
+  },
+  {
+    "id": "x_ray_crystallography",
+    "name": "X-ray Crystallography",
+    "era": "Modern",
+    "description": "Technique for determining the atomic and molecular structure of a crystal by analyzing diffraction patterns of X-rays.",
+    "prerequisites": ["quantum_physics", "photography", "advanced_chemistry", "mathematics", "crystal_growth_techniques"]
   },
   {
     "id": "molecular_biology",
     "name": "Molecular Biology",
     "era": "Modern",
     "description": "The branch of biology that concerns the molecular basis of biological activity between biomolecules in the various systems of a cell.",
-    "prerequisites": ["dna_structure", "advanced_chemistry", "microscope", "scientific_method", "quantum_physics"]
+    "prerequisites": ["dna_structure", "advanced_chemistry", "microscope", "scientific_method", "quantum_physics", "biochemistry"]
+  },
+  {
+    "id": "biochemistry",
+    "name": "Biochemistry",
+    "era": "Modern",
+    "description": "Study of chemical processes within and relating to living organisms.",
+    "prerequisites": ["advanced_chemistry", "medicine_clinical", "microscope", "scientific_method", "genetics_mendel"]
   },
   {
     "id": "lasers",
     "name": "Lasers",
     "era": "Modern",
     "description": "Devices that emit light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
-    "prerequisites": ["quantum_physics", "electronics", "advanced_chemistry", "early_optics", "glassmaking"]
+    "prerequisites": ["quantum_physics", "electronics", "advanced_chemistry", "early_optics", "glassmaking", "masers_early"]
+  },
+  {
+    "id": "masers_early",
+    "name": "Masers (Early Development)",
+    "era": "Modern",
+    "description": "Devices that produce coherent electromagnetic waves through amplification by stimulated emission, precursor to lasers (microwave range).",
+    "prerequisites": ["quantum_physics", "electronics", "electromagnetism_maxwell", "advanced_chemistry"]
   },
   {
     "id": "fiber_optics",
     "name": "Fiber Optics",
     "era": "Modern",
     "description": "Technology that uses glass (or plastic) threads (fibers) to transmit data as light pulses.",
-    "prerequisites": ["lasers", "glassmaking", "advanced_chemistry", "telecommunications", "plastics"]
+    "prerequisites": ["lasers", "glassmaking", "advanced_chemistry", "telecommunications", "plastics", "industrial_glass_production_float_glass"]
   },
   {
     "id": "digital_signal_processing",
     "name": "Digital Signal Processing (DSP)",
     "era": "Modern",
     "description": "Manipulation of signals (audio, video, etc.) that have been converted into digital form.",
-    "prerequisites": ["electronics", "algorithms_computation_theory", "information_theory", "integrated_circuits"]
+    "prerequisites": ["electronics", "algorithms_computation_theory", "information_theory", "integrated_circuits", "mathematics"]
   },
   {
     "id": "rocketry",
@@ -1851,8 +2654,16 @@
       "advanced_chemistry",
       "gunpowder",
       "thermodynamics",
-      "steel_production"
+      "steel_production",
+      "liquid_fuel_propellants"
     ]
+  },
+  {
+    "id": "liquid_fuel_propellants",
+    "name": "Liquid Fuel Propellants",
+    "era": "Modern",
+    "description": "Development of liquid chemical propellants for rockets, offering higher performance than solid fuels.",
+    "prerequisites": ["advanced_chemistry", "thermodynamics", "engineering", "petroleum_refining_fractional_distillation"]
   },
   {
     "id": "space_flight",
@@ -1863,17 +2674,18 @@
       "rocketry",
       "computers_early",
       "electronics",
-      "steel_production",
-      "advanced_materials_advanced",
-      "radio"
+      "synthetic_materials_advanced",
+      "radio",
+      "aerodynamics_supersonic",
+      "guidance_systems_early"
     ]
   },
   {
-    "id": "space_stations",
-    "name": "Space Stations",
+    "id": "guidance_systems_early",
+    "name": "Guidance Systems (Early Inertial)",
     "era": "Modern",
-    "description": "Orbiting artificial structures designed for human habitation and research in space.",
-    "prerequisites": ["space_flight", "solar_power", "robotics", "closed_loop_life_support_early_forms", "advanced_materials_advanced"]
+    "description": "Systems using gyroscopes and accelerometers to navigate vehicles like missiles and spacecraft without external references.",
+    "prerequisites": ["rocketry", "electronics", "precision_mechanics_miniaturization", "computers_early", "mathematics"]
   },
   {
     "id": "solar_power",
@@ -1900,15 +2712,44 @@
       "radio",
       "solar_power",
       "computers_early",
-      "electronics"
+      "electronics",
+      "rocketry"
     ]
+  },
+  {
+    "id": "weather_satellites_meteorological_observation",
+    "name": "Weather Satellites (Meteorological Observation)",
+    "era": "Modern",
+    "description": "Satellites equipped for observing Earth's weather patterns and climate from orbit.",
+    "prerequisites": ["satellite_technology", "photography", "radio", "computers_early", "television"]
+  },
+  {
+    "id": "spy_satellites_reconnaissance_technology",
+    "name": "Spy Satellites (Reconnaissance Technology)",
+    "era": "Modern",
+    "description": "Satellites used for intelligence gathering through photographic and electronic surveillance.",
+    "prerequisites": ["satellite_technology", "photography", "rocketry", "radio", "advanced_optics_space_based"]
+  },
+  {
+    "id": "advanced_optics_space_based",
+    "name": "Advanced Optics (Space-Based)",
+    "era": "Modern",
+    "description": "Development of high-resolution optical systems for telescopes and surveillance in space.",
+    "prerequisites": ["telescope", "lasers", "scientific_method", "material_science_lightweight_alloys", "computers_early"]
   },
   {
     "id": "artificial_satellites_geosynchronous",
     "name": "Geosynchronous Satellites",
     "era": "Modern",
     "description": "Satellites in an orbit that matches Earth's rotation, appearing stationary for communications and broadcasting.",
-    "prerequisites": ["satellite_technology", "rocketry", "telecommunications", "solar_power"]
+    "prerequisites": ["satellite_technology", "rocketry", "telecommunications", "solar_power", "mathematics"]
+  },
+  {
+    "id": "internet_protocols_tcp_ip_arpanet",
+    "name": "Internet Protocols (TCP/IP, ARPANET)",
+    "era": "Modern",
+    "description": "Development of foundational communication protocols enabling computer networking, originating with ARPANET.",
+    "prerequisites": ["computers_early", "telecommunications", "algorithms_computation_theory", "information_theory", "software_engineering"]
   },
   {
     "id": "internet",
@@ -1921,7 +2762,8 @@
       "satellite_technology",
       "fiber_optics",
       "software_engineering",
-      "information_theory"
+      "information_theory",
+      "internet_protocols_tcp_ip_arpanet"
     ]
   },
   {
@@ -1929,7 +2771,14 @@
     "name": "World Wide Web",
     "era": "Modern",
     "description": "Information system where documents and other web resources are identified by URLs, interlinked by hypertext links, and accessible via the Internet.",
-    "prerequisites": ["internet", "personal_computers", "graphical_user_interface_gui", "software_engineering", "information_theory"]
+    "prerequisites": ["internet", "personal_computers", "graphical_user_interface_gui", "software_engineering", "information_theory", "hypertext_systems"]
+  },
+  {
+    "id": "hypertext_systems",
+    "name": "Hypertext Systems",
+    "era": "Modern",
+    "description": "Text displayed on a computer display or other electronic devices with references (hyperlinks) to other text that the reader can immediately access.",
+    "prerequisites": ["personal_computers", "software_engineering", "information_theory", "algorithms_computation_theory"]
   },
   {
     "id": "mobile_phones",
@@ -1942,8 +2791,16 @@
       "integrated_circuits",
       "radio",
       "plastics",
-      "digital_signal_processing"
+      "digital_signal_processing",
+      "lithium_ion_batteries_rechargeable_power"
     ]
+  },
+  {
+    "id": "mobile_operating_systems_smartphone_os",
+    "name": "Mobile Operating Systems (Smartphone OS)",
+    "era": "Modern",
+    "description": "Operating systems specifically designed for mobile devices like smartphones and tablets.",
+    "prerequisites": ["mobile_phones", "operating_systems_os_computer_management", "graphical_user_interface_gui", "integrated_circuits", "software_engineering"]
   },
   {
     "id": "robotics",
@@ -1957,7 +2814,8 @@
       "mass_production",
       "plastics",
       "electric_motor",
-      "cybernetics"
+      "cybernetics",
+      "numerical_control_automated_machining"
     ]
   },
   {
@@ -1966,21 +2824,29 @@
     "era": "Modern",
     "description": "Machine systems capable of tasks requiring basic human-like intelligence (e.g. expert systems, early machine learning).",
     "prerequisites": [
-      "personal_computers",
+      "computers_early",
       "mathematics",
       "scientific_method",
       "philosophy",
       "universities",
       "algorithms_computation_theory",
-      "cybernetics"
+      "cybernetics",
+      "formal_logic_syllogism"
     ]
+  },
+  {
+    "id": "machine_learning_early_algorithms",
+    "name": "Machine Learning (Early Algorithms)",
+    "era": "Modern",
+    "description": "Development of algorithms that allow computer systems to learn from data without being explicitly programmed.",
+    "prerequisites": ["artificial_intelligence_early", "algorithms_computation_theory", "personal_computers", "statistics_advanced_data_analysis", "information_theory"]
   },
   {
     "id": "atomic_clocks",
     "name": "Atomic Clocks",
     "era": "Modern",
     "description": "Extremely precise timekeeping devices based on atomic resonance.",
-    "prerequisites": ["quantum_physics", "electronics", "scientific_method", "clockwork_mechanisms", "lasers"]
+    "prerequisites": ["quantum_physics", "electronics", "scientific_method", "mechanical_clocks", "lasers", "masers_early"]
   },
   {
     "id": "gps",
@@ -1992,7 +2858,8 @@
       "personal_computers",
       "atomic_clocks",
       "radio",
-      "relativity_special_general"
+      "relativity_special_general",
+      "integrated_circuits"
     ]
   },
   {
@@ -2006,36 +2873,58 @@
       "steel_production",
       "windmills",
       "plastics",
-      "dynamo"
+      "dynamo",
+      "material_science_lightweight_alloys"
     ]
+  },
+  {
+    "id": "geothermal_power_earth_heat_energy",
+    "name": "Geothermal Power (Earth Heat Energy)",
+    "era": "Modern",
+    "description": "Harnessing geothermal energy from the Earth's interior for heating and electricity generation.",
+    "prerequisites": ["steam_turbine_power_generation", "geology", "drilling_technology_advanced_deep_earth", "engineering", "thermodynamics"]
+  },
+  {
+    "id": "drilling_technology_advanced_deep_earth",
+    "name": "Drilling Technology (Advanced Deep Earth)",
+    "era": "Modern",
+    "description": "Techniques for drilling deep into the Earth's crust for resource extraction or scientific purposes.",
+    "prerequisites": ["oil_drilling", "steel_production", "engineering", "geology", "robotics"]
   },
   {
     "id": "renewable_energy_systems",
     "name": "Renewable Energy Systems",
     "era": "Modern",
     "description": "Broad adoption and integration of various renewable energy sources (solar, wind, geothermal, hydro) into power grids.",
-    "prerequisites": ["solar_power", "wind_power_modern", "dynamo", "engineering", "electricity", "hydraulics"]
+    "prerequisites": ["solar_power", "wind_power_modern", "dynamo", "engineering", "electricity", "hydraulics", "geothermal_power_earth_heat_energy", "electrical_grid_early_distribution"]
   },
   {
     "id": "skyscrapers",
     "name": "Skyscrapers",
     "era": "Modern",
     "description": "Very tall buildings made possible by steel frames and elevators.",
-    "prerequisites": ["steel_production", "construction", "electricity", "engineering", "plumbing", "reinforced_concrete", "electric_motor"]
+    "prerequisites": ["steel_production", "construction", "electricity", "engineering", "plumbing", "reinforced_concrete", "electric_motor", "mass_production"]
   },
   {
     "id": "containerization_shipping",
     "name": "Containerization",
     "era": "Modern",
     "description": "System of standardized intermodal freight transport using shipping containers, revolutionizing global trade.",
-    "prerequisites": ["mass_production", "steel_production", "railroads", "internal_combustion_engine", "steel_ships", "crane_lifting_devices"]
+    "prerequisites": ["mass_production", "steel_production", "railroads", "internal_combustion_engine", "steel_ships", "crane_lifting_devices", "logistics_supply_lines"]
   },
   {
     "id": "green_revolution_agriculture",
     "name": "Green Revolution",
     "era": "Modern",
     "description": "Set of research technology transfer initiatives increasing agricultural production worldwide, particularly with high-yield crop varieties.",
-    "prerequisites": ["chemical_fertilizers", "genetics_mendel", "mass_production", "irrigation", "internal_combustion_engine"]
+    "prerequisites": ["chemical_fertilizers", "genetics_mendel", "mass_production", "irrigation", "internal_combustion_engine", "haber_bosch_process_early", "plant_breeding_hybridization"]
+  },
+  {
+    "id": "plant_breeding_hybridization",
+    "name": "Plant Breeding & Hybridization",
+    "era": "Modern",
+    "description": "Systematic breeding of plants to develop improved varieties with desirable traits like higher yield or disease resistance.",
+    "prerequisites": ["genetics_mendel", "agriculture", "scientific_method", "statistics_advanced_data_analysis"]
   },
   {
     "id": "virtual_reality",
@@ -2044,61 +2933,180 @@
     "description": "Immersive computer-simulated environments.",
     "prerequisites": [
       "personal_computers",
-      "internet",
+      "graphical_user_interface_gui",
       "electronics",
       "television",
-      "graphical_user_interface_gui",
-      "software_engineering"
+      "software_engineering",
+      "robotics"
     ]
+  },
+  {
+    "id": "digital_photography_ccd_cmos_sensors",
+    "name": "Digital Photography (CCD/CMOS Sensors)",
+    "era": "Modern",
+    "description": "Capturing images electronically using light-sensitive semiconductor sensors.",
+    "prerequisites": ["photography", "semiconductors", "personal_computers", "electronics", "integrated_circuits"]
+  },
+  {
+    "id": "led_lighting_efficient_illumination",
+    "name": "LED Lighting (Efficient Illumination)",
+    "era": "Modern",
+    "description": "Light-emitting diodes used for general lighting, offering high efficiency and long lifespan.",
+    "prerequisites": ["semiconductors", "electronics", "quantum_physics", "mass_production"]
+  },
+  {
+    "id": "liquid_crystal_displays_lcd_screens",
+    "name": "Liquid Crystal Displays (LCD Screens)",
+    "era": "Modern",
+    "description": "Flat-panel displays using the light-modulating properties of liquid crystals.",
+    "prerequisites": ["electronics", "advanced_chemistry", "glassmaking", "plastics", "transistors"]
+  },
+  {
+    "id": "lithium_ion_batteries_rechargeable_power",
+    "name": "Lithium-Ion Batteries (Rechargeable Power)",
+    "era": "Modern",
+    "description": "High energy density rechargeable batteries widely used in portable electronics and electric vehicles.",
+    "prerequisites": ["advanced_chemistry", "electricity", "electronics", "mining", "mass_production"]
   },
   {
     "id": "genetic_sequencing",
     "name": "Genetic Sequencing",
     "era": "Modern",
     "description": "Determining the precise order of nucleotides within a DNA molecule.",
-    "prerequisites": ["dna_structure", "personal_computers", "advanced_chemistry", "microscope", "molecular_biology", "algorithms_computation_theory"]
+    "prerequisites": ["dna_structure", "personal_computers", "advanced_chemistry", "microscope", "molecular_biology", "algorithms_computation_theory", "robotics"]
+  },
+  {
+    "id": "human_genome_project_dna_mapping",
+    "name": "Human Genome Project (DNA Mapping)",
+    "era": "Modern",
+    "description": "International research effort to determine the sequence of nucleotide base pairs that make up human DNA.",
+    "prerequisites": ["genetic_sequencing", "bioinformatics", "dna_structure", "computers_early", "robotics"]
   },
   {
     "id": "bioinformatics",
     "name": "Bioinformatics",
     "era": "Modern",
     "description": "Application of computer science and statistics to biological data, especially genomics.",
-    "prerequisites": ["genetic_sequencing", "personal_computers", "algorithms_computation_theory", "software_engineering", "dna_structure"]
+    "prerequisites": ["genetic_sequencing", "personal_computers", "algorithms_computation_theory", "software_engineering", "dna_structure", "statistics_advanced_data_analysis"]
   },
   {
     "id": "gene_therapy_early",
     "name": "Gene Therapy (Early)",
     "era": "Modern",
     "description": "Experimental techniques to treat or cure diseases by modifying an individual's genes.",
-    "prerequisites": ["genetic_sequencing", "medicine_clinical", "antibiotics", "molecular_biology", "dna_structure"]
+    "prerequisites": ["genetic_sequencing", "medicine_clinical", "antibiotics", "molecular_biology", "dna_structure", "immunology_advanced"]
   },
   {
     "id": "psychology",
     "name": "Psychology",
     "era": "Modern",
     "description": "The scientific study of mind and behavior, encompassing diverse subfields.",
-    "prerequisites": ["philosophy", "scientific_method", "medicine_clinical", "universities", "experimental_psychology", "printing_press"]
+    "prerequisites": ["philosophy", "scientific_method", "medicine_clinical", "universities", "experimental_psychology", "printing_press", "statistics_advanced_data_analysis"]
   },
   {
     "id": "neuroscience",
     "name": "Neuroscience",
     "era": "Modern",
     "description": "Scientific study of the nervous system, including the brain.",
-    "prerequisites": ["medicine_clinical", "microscope", "electronics", "advanced_chemistry", "scientific_method", "psychology", "human_anatomy_physiology"]
+    "prerequisites": ["medicine_clinical", "microscope", "electronics", "advanced_chemistry", "scientific_method", "psychology", "human_anatomy_physiology", "biochemistry"]
+  },
+  {
+    "id": "superconductors_early",
+    "name": "Superconductors (Early)",
+    "era": "Modern",
+    "description": "Discovery and initial applications of materials with zero electrical resistance at very low temperatures.",
+    "prerequisites": ["quantum_physics", "advanced_chemistry", "electricity", "refrigeration", "scientific_method"]
   },
   {
     "id": "nuclear_fusion_research",
     "name": "Nuclear Fusion Research",
     "era": "Modern",
     "description": "Theoretical and experimental efforts to harness nuclear fusion energy.",
-    "prerequisites": ["nuclear_fission", "quantum_physics", "engineering", "advanced_chemistry", "particle_accelerators", "superconductors_early"]
+    "prerequisites": ["nuclear_fission", "quantum_physics", "engineering", "advanced_chemistry", "particle_accelerators", "superconductors_early", "plasma_physics"]
+  },
+  {
+    "id": "plasma_physics",
+    "name": "Plasma Physics",
+    "era": "Modern",
+    "description": "Study of the fourth state of matter (plasma), crucial for fusion research and astrophysics.",
+    "prerequisites": ["quantum_physics", "electromagnetism_maxwell", "thermodynamics", "mathematics"]
   },
   {
     "id": "closed_loop_life_support_early_forms",
     "name": "Closed-Loop Life Support (Early Forms)",
     "era": "Modern",
     "description": "Initial development of systems for recycling air and water in confined environments like submarines and early spacecraft.",
-    "prerequisites": ["advanced_chemistry", "engineering", "refrigeration", "space_flight", "medicine_clinical"]
+    "prerequisites": ["advanced_chemistry", "engineering", "refrigeration", "space_flight", "medicine_clinical", "filters_membranes_early"]
+  },
+  {
+    "id": "filters_membranes_early",
+    "name": "Filters & Membranes (Early)",
+    "era": "Modern",
+    "description": "Development of materials and techniques for selective separation of substances, e.g., for water purification or air filtering.",
+    "prerequisites": ["advanced_chemistry", "textiles_weaving", "paper_making", "scientific_method"]
+  },
+  {
+    "id": "space_stations",
+    "name": "Space Stations",
+    "era": "Modern",
+    "description": "Orbiting artificial structures designed for human habitation and research in space.",
+    "prerequisites": ["space_flight", "solar_power", "robotics", "closed_loop_life_support_early_forms", "synthetic_materials_advanced", "guidance_systems_early"]
+  },
+  {
+    "id": "cloud_computing_distributed_systems",
+    "name": "Cloud Computing & Distributed Systems",
+    "era": "Modern",
+    "description": "Delivery of computing services—including servers, storage, databases, networking, software—over the Internet.",
+    "prerequisites": ["internet", "personal_computers", "software_engineering", "databases_relational_dbms", "virtualization_early_vm_tech", "data_centers_early"]
+  },
+  {
+    "id": "data_centers_early",
+    "name": "Data Centers (Early)",
+    "era": "Modern",
+    "description": "Facilities housing computer systems and associated components, such as telecommunications and storage systems.",
+    "prerequisites": ["computers_early", "electrical_grid_early_distribution", "refrigeration", "engineering"]
+  },
+  {
+    "id": "big_data_analytics_computational_statistics",
+    "name": "Big Data Analytics & Computational Statistics",
+    "era": "Modern",
+    "description": "Analyzing extremely large data sets to uncover patterns, correlations, and insights using advanced computational methods.",
+    "prerequisites": ["internet", "personal_computers", "algorithms_computation_theory", "databases_relational_dbms", "statistics_advanced_data_analysis", "machine_learning_early_algorithms", "cloud_computing_distributed_systems"]
+  },
+  {
+    "id": "game_consoles_dedicated_gaming_hardware",
+    "name": "Game Consoles (Dedicated Gaming Hardware)",
+    "era": "Modern",
+    "description": "Specialized electronic devices for playing video games, connected to a display like a television.",
+    "prerequisites": ["television", "integrated_circuits", "plastics", "software_engineering", "personal_computers"]
+  },
+  {
+    "id": "encryption_modern_cryptography_public_key",
+    "name": "Encryption (Modern Cryptography, Public Key)",
+    "era": "Modern",
+    "description": "Development of advanced cryptographic systems, including public-key cryptography, for secure communication.",
+    "prerequisites": ["mathematics", "algorithms_computation_theory", "computers_early", "information_theory", "printing_press"]
+  },
+  {
+    "id": "political_science_advanced_governance_models",
+    "name": "Political Science (Advanced Governance Models)",
+    "era": "Modern",
+    "description": "Systematic study of governance, political activities, thoughts, and behavior, including comparative politics and international relations.",
+    "prerequisites": ["democracy_republicanism", "philosophy", "sociology_early", "codified_law", "printing_press", "statistics_advanced_data_analysis"]
+  },
+  {
+    "id": "internet_of_things_iot_ubiquitous_connectivity",
+    "name": "Internet of Things (IoT) & Ubiquitous Connectivity",
+    "era": "Modern",
+    "description": "Network of physical objects embedded with sensors, software, and other technologies for connecting and exchanging data over the internet.",
+    "prerequisites": ["internet", "mobile_phones", "semiconductors", "electronics", "integrated_circuits", "cloud_computing_distributed_systems"]
+  },
+  {
+    "id": "signal_processing_advanced_real_time",
+    "name": "Signal Processing (Advanced Real-Time)",
+    "era": "Future",
+    "description": "Sophisticated techniques for analyzing, modifying, and synthesizing signals in real-time, crucial for AI, communications, and BCI.",
+    "prerequisites": ["digital_signal_processing", "advanced_ai", "integrated_circuits", "quantum_computing", "mathematics"]
   },
   {
     "id": "nanotechnology",
@@ -2112,7 +3120,8 @@
       "quantum_physics",
       "microscope",
       "electronics",
-      "molecular_biology"
+      "molecular_biology",
+      "photolithography"
     ]
   },
   {
@@ -2120,14 +3129,14 @@
     "name": "Advanced Materials Science",
     "era": "Future",
     "description": "Design and discovery of new materials with novel properties, often at the nanoscale (e.g. metamaterials, advanced composites).",
-    "prerequisites": ["nanotechnology", "advanced_chemistry", "quantum_physics", "personal_computers", "steel_production", "plastics", "synthetic_materials_advanced"]
+    "prerequisites": ["nanotechnology", "advanced_chemistry", "quantum_physics", "personal_computers", "synthetic_materials_advanced", "scientific_method", "superconductors_high_temp"]
   },
   {
     "id": "smart_materials_self_healing",
     "name": "Smart & Self-Healing Materials",
     "era": "Future",
     "description": "Materials designed to respond to environmental stimuli or repair themselves autonomously.",
-    "prerequisites": ["advanced_materials_science", "nanotechnology", "advanced_chemistry", "robotics", "advanced_ai"]
+    "prerequisites": ["advanced_materials_science", "nanotechnology", "advanced_chemistry", "robotics", "advanced_ai", "synthetic_biology"]
   },
   {
     "id": "genetic_engineering",
@@ -2142,50 +3151,136 @@
       "nanotechnology",
       "gene_therapy_early",
       "molecular_biology",
-      "bioinformatics"
+      "bioinformatics",
+      "viral_vectors"
     ]
+  },
+  {
+    "id": "viral_vectors",
+    "name": "Viral Vectors",
+    "era": "Future",
+    "description": "Using viruses as vehicles to deliver genetic material into cells for gene therapy or research.",
+    "prerequisites": ["molecular_biology", "immunology_advanced", "genetic_sequencing", "microbiology_early_observations"]
   },
   {
     "id": "crispr_gene_editing",
     "name": "CRISPR Gene Editing",
     "era": "Future",
     "description": "Highly precise and versatile technology for editing genomes.",
-    "prerequisites": ["genetic_engineering", "nanotechnology", "advanced_chemistry", "molecular_biology"]
+    "prerequisites": ["genetic_engineering", "nanotechnology", "advanced_chemistry", "molecular_biology", "bioinformatics"]
   },
   {
     "id": "personalized_medicine",
     "name": "Personalized Medicine",
     "era": "Future",
     "description": "Tailoring medical treatment to the individual characteristics of each patient, often based on genetic makeup.",
-    "prerequisites": ["crispr_gene_editing", "advanced_ai", "genetic_sequencing", "medicine_clinical", "bioinformatics", "nanotechnology"]
+    "prerequisites": ["crispr_gene_editing", "advanced_ai", "genetic_sequencing", "medicine_clinical", "bioinformatics", "nanotechnology", "human_genome_project_dna_mapping"]
   },
   {
     "id": "nanomedicine_advanced",
     "name": "Advanced Nanomedicine",
     "era": "Future",
     "description": "Application of nanotechnology for diagnosis, treatment, and prevention of disease at the molecular level, including nanorobots.",
-    "prerequisites": ["nanotechnology", "personalized_medicine", "synthetic_biology", "robotics", "advanced_materials_science"]
+    "prerequisites": ["nanotechnology", "personalized_medicine", "synthetic_biology", "robotics", "advanced_materials_science", "drug_delivery_systems_targeted"]
+  },
+  {
+    "id": "drug_delivery_systems_targeted",
+    "name": "Drug Delivery Systems (Targeted)",
+    "era": "Future",
+    "description": "Advanced methods to deliver therapeutic agents to specific sites in the body, enhancing efficacy and reducing side effects.",
+    "prerequisites": ["nanotechnology", "advanced_chemistry", "molecular_biology", "pharmacology_advanced"]
+  },
+  {
+    "id": "pharmacology_advanced",
+    "name": "Pharmacology (Advanced)",
+    "era": "Future",
+    "description": "Deep understanding of drug action, pharmacokinetics, and pharmacodynamics, aided by molecular biology and AI.",
+    "prerequisites": ["medicine_clinical", "biochemistry", "advanced_chemistry", "molecular_biology", "ai_driven_drug_discovery"]
+  },
+  {
+    "id": "synthetic_biology",
+    "name": "Synthetic Biology",
+    "era": "Future",
+    "description": "Designing and constructing new biological parts, devices, and systems, or re-designing existing, natural biological systems for useful purposes.",
+    "prerequisites": ["genetic_engineering", "nanotechnology", "advanced_ai", "advanced_chemistry", "crispr_gene_editing", "molecular_biology", "bioinformatics", "systems_biology"]
+  },
+  {
+    "id": "systems_biology",
+    "name": "Systems Biology",
+    "era": "Future",
+    "description": "Computational and mathematical modeling of complex biological systems.",
+    "prerequisites": ["molecular_biology", "bioinformatics", "advanced_ai", "mathematics"]
+  },
+  {
+    "id": "synthetic_organs_bio_printing",
+    "name": "Synthetic Organs & Bioprinting",
+    "era": "Future",
+    "description": "Creation of artificial organs or use of 3D printing techniques with biological materials to produce tissues and organs.",
+    "prerequisites": ["synthetic_biology", "nanotechnology", "advanced_materials_science", "robotics", "personalized_medicine", "crispr_gene_editing", "3d_printing_advanced"]
+  },
+  {
+    "id": "3d_printing_advanced",
+    "name": "3D Printing (Advanced / Multi-Material)",
+    "era": "Future",
+    "description": "Additive manufacturing capable of creating complex objects from diverse materials, including biological ones.",
+    "prerequisites": ["mass_production", "robotics", "personal_computers", "plastics", "advanced_materials_science", "computer_aided_design_cad_software"]
   },
   {
     "id": "longevity_escape_velocity_lev",
     "name": "Longevity Escape Velocity (LEV)",
     "era": "Future",
     "description": "Hypothetical point where life-extending technologies advance rapidly enough to increase remaining life expectancy faster than time passes.",
-    "prerequisites": ["personalized_medicine", "crispr_gene_editing", "nanomedicine_advanced", "advanced_ai", "synthetic_organs_bio_printing"]
+    "prerequisites": ["personalized_medicine", "crispr_gene_editing", "nanomedicine_advanced", "advanced_ai", "synthetic_organs_bio_printing", "aging_research_senolytics"]
+  },
+  {
+    "id": "aging_research_senolytics",
+    "name": "Aging Research (Senolytics & Rejuvenation)",
+    "era": "Future",
+    "description": "Scientific study of aging processes and development of interventions like senolytics to slow, halt, or reverse aging.",
+    "prerequisites": ["molecular_biology", "genetic_engineering", "personalized_medicine", "advanced_ai"]
+  },
+  {
+    "id": "cryonics",
+    "name": "Cryonics",
+    "era": "Future",
+    "description": "Preservation of humans at low temperatures with the hope of future revival and treatment.",
+    "prerequisites": [
+      "medicine_clinical",
+      "advanced_chemistry",
+      "refrigeration",
+      "nanotechnology",
+      "personalized_medicine",
+      "longevity_escape_velocity_lev",
+      "neuroscience"
+    ]
   },
   {
     "id": "advanced_ai",
     "name": "Advanced AI (Deep Learning)",
     "era": "Future",
     "description": "AI based on neural networks with multiple layers, capable of complex pattern recognition and learning.",
-    "prerequisites": ["artificial_intelligence_early", "personal_computers", "internet", "mathematics", "neuroscience", "algorithms_computation_theory", "information_theory"]
+    "prerequisites": ["artificial_intelligence_early", "personal_computers", "internet", "mathematics", "neuroscience", "algorithms_computation_theory", "information_theory", "big_data_analytics_computational_statistics", "cloud_computing_distributed_systems"]
   },
   {
     "id": "explainable_ai_xai",
     "name": "Explainable AI (XAI)",
     "era": "Future",
     "description": "AI systems whose decision-making processes can be understood by humans.",
-    "prerequisites": ["advanced_ai", "philosophy", "psychology", "software_engineering", "cybernetics"]
+    "prerequisites": ["advanced_ai", "philosophy", "psychology", "software_engineering", "cybernetics", "formal_logic_syllogism"]
+  },
+  {
+    "id": "neuromorphic_computing",
+    "name": "Neuromorphic Computing",
+    "era": "Future",
+    "description": "Computer engineering that mimics the neuro-biological architectures present in the nervous system.",
+    "prerequisites": ["advanced_ai", "semiconductors", "neuroscience", "nanotechnology", "integrated_circuits", "materials_science_exotic"]
+  },
+  {
+    "id": "materials_science_exotic",
+    "name": "Materials Science (Exotic)",
+    "era": "Future",
+    "description": "Research and development of materials with highly unusual or unprecedented properties (e.g. room-temperature superconductors, programmable matter components).",
+    "prerequisites": ["advanced_materials_science", "quantum_computing", "nanotechnology", "advanced_ai"]
   },
   {
     "id": "quantum_computing",
@@ -2200,15 +3295,72 @@
       "advanced_materials_science",
       "lasers",
       "superconductors_high_temp",
-      "algorithms_computation_theory"
+      "algorithms_computation_theory",
+      "cryogenics_advanced"
     ]
   },
   {
-    "id": "neuromorphic_computing",
-    "name": "Neuromorphic Computing",
+    "id": "cryogenics_advanced",
+    "name": "Cryogenics (Advanced)",
     "era": "Future",
-    "description": "Computer engineering that mimics the neuro-biological architectures present in the nervous system.",
-    "prerequisites": ["advanced_ai", "semiconductors", "neuroscience", "nanotechnology", "integrated_circuits"]
+    "description": "Production and behavior of materials at extremely low temperatures, essential for quantum computing and advanced sensors.",
+    "prerequisites": ["refrigeration", "thermodynamics", "quantum_physics", "superconductors_early", "advanced_materials_science"]
+  },
+  {
+    "id": "quantum_sensors_high_precision_measurement",
+    "name": "Quantum Sensors (High Precision Measurement)",
+    "era": "Future",
+    "description": "Devices leveraging quantum phenomena for ultra-sensitive measurements of physical quantities.",
+    "prerequisites": ["quantum_computing", "nanotechnology", "semiconductors", "lasers", "atomic_clocks"]
+  },
+  {
+    "id": "ai_driven_drug_discovery",
+    "name": "AI-Driven Drug Discovery",
+    "era": "Future",
+    "description": "Utilizing advanced AI and machine learning to rapidly design, test, and optimize new pharmaceutical compounds.",
+    "prerequisites": ["advanced_ai", "bioinformatics", "advanced_chemistry", "personalized_medicine", "quantum_computing", "molecular_biology"]
+  },
+  {
+    "id": "brain_mapping",
+    "name": "Brain Mapping",
+    "era": "Future",
+    "description": "Comprehensive mapping of neural connections in the brain.",
+    "prerequisites": ["neuroscience", "advanced_ai", "personal_computers", "microscope", "nanotechnology", "medical_imaging_xray_mri", "bioinformatics", "superconductors_high_temp"]
+  },
+  {
+    "id": "brain_computer_interface",
+    "name": "Brain-Computer Interface (BCI)",
+    "era": "Future",
+    "description": "Direct communication pathway between an enhanced or wired brain and an external device.",
+    "prerequisites": ["neuroscience", "nanotechnology", "advanced_ai", "robotics", "brain_mapping", "electronics", "personal_computers", "signal_processing_advanced_real_time"]
+  },
+  {
+    "id": "brain_computer_interface_non_invasive_eeg_fnirs",
+    "name": "Brain-Computer Interface (Non-Invasive - EEG, fNIRS)",
+    "era": "Future",
+    "description": "BCIs that do not require surgical implantation, using external sensors to read brain activity.",
+    "prerequisites": ["brain_computer_interface", "neuroscience", "advanced_ai", "signal_processing_advanced_real_time", "electronics"]
+  },
+  {
+    "id": "neural_lace",
+    "name": "Neural Lace / Advanced BCI",
+    "era": "Future",
+    "description": "Ultra-fine mesh that can be implanted in the brain for high-bandwidth brain-computer interfacing.",
+    "prerequisites": ["brain_computer_interface", "nanotechnology", "advanced_materials_science", "synthetic_biology", "advanced_ai", "neuroscience"]
+  },
+  {
+    "id": "bio_enhancements_genetic_cybernetic_augmentation",
+    "name": "Bio-Enhancements (Genetic, Cybernetic Augmentation)",
+    "era": "Future",
+    "description": "Technologies to augment human capabilities through genetic modification or cybernetic implants.",
+    "prerequisites": ["crispr_gene_editing", "neural_lace", "synthetic_biology", "robotics", "advanced_ai", "personalized_medicine"]
+  },
+  {
+    "id": "thought_control_interfaces_direct_neural_command",
+    "name": "Thought Control Interfaces (Direct Neural Command)",
+    "era": "Future",
+    "description": "Advanced BCIs allowing direct mental control over complex external systems and devices.",
+    "prerequisites": ["neural_lace", "advanced_ai", "brain_mapping", "robotics", "explainable_ai_xai"]
   },
   {
     "id": "artificial_general_intelligence",
@@ -2222,60 +3374,87 @@
       "philosophy",
       "brain_mapping",
       "explainable_ai_xai",
-      "neuromorphic_computing"
+      "neuromorphic_computing",
+      "consciousness_studies_advanced"
     ]
   },
   {
-    "id": "closed_loop_life_support",
-    "name": "Closed-Loop Life Support",
+    "id": "ai_governance_ethics_frameworks_robust",
+    "name": "AI Governance & Ethics Frameworks (Robust)",
     "era": "Future",
-    "description": "Self-sustaining systems for providing air, water, and food for humans in isolated environments like spacecraft.",
-    "prerequisites": ["space_flight", "advanced_chemistry", "genetic_engineering", "robotics", "solar_power", "nanotechnology", "synthetic_biology", "closed_loop_life_support_early_forms"]
+    "description": "Comprehensive legal, ethical, and societal frameworks to manage the development and deployment of advanced AI, including AGI.",
+    "prerequisites": ["artificial_general_intelligence", "philosophy", "legal_systems_common_civil", "explainable_ai_xai", "sociology_classical_theories_durkheim_weber", "political_science_advanced_governance_models"]
   },
   {
-    "id": "space_colonization",
-    "name": "Space Colonization",
+    "id": "sentient_ai_rights_philosophy_legal_status",
+    "name": "Sentient AI Rights (Philosophy & Legal Status)",
     "era": "Future",
-    "description": "Permanent human settlement off Earth.",
+    "description": "Philosophical and legal considerations regarding the rights and status of sentient artificial intelligence.",
+    "prerequisites": ["artificial_general_intelligence", "philosophy", "consciousness_studies_advanced", "ai_governance_ethics_frameworks_robust", "legal_systems_common_civil"]
+  },
+  {
+    "id": "consciousness_studies_advanced",
+    "name": "Advanced Consciousness Studies",
+    "era": "Future",
+    "description": "Deep scientific and philosophical investigation into the nature of consciousness, potentially informed by AGI and brain emulation.",
+    "prerequisites": ["artificial_general_intelligence", "neuroscience", "philosophy", "quantum_physics", "mind_uploading", "brain_mapping", "psychology"]
+  },
+  {
+    "id": "mind_uploading",
+    "name": "Mind Uploading (Whole Brain Emulation)",
+    "era": "Future",
+    "description": "Hypothetical process of transferring human consciousness to a digital medium.",
     "prerequisites": [
-      "space_flight",
-      "nuclear_power",
-      "robotics",
-      "nanotechnology",
-      "genetic_engineering",
-      "closed_loop_life_support",
-      "advanced_materials_science",
-      "space_stations",
-      "asteroid_mining"
+      "artificial_general_intelligence",
+      "brain_computer_interface",
+      "quantum_computing",
+      "neuroscience",
+      "brain_mapping",
+      "neural_lace",
+      "nanotechnology"
     ]
   },
   {
-    "id": "asteroid_mining",
-    "name": "Asteroid Mining",
+    "id": "direct_neural_simulation_whole_brain_emulation_detailed",
+    "name": "Direct Neural Simulation (Whole Brain Emulation - Detailed)",
     "era": "Future",
-    "description": "Exploitation of raw materials from asteroids and other minor planets.",
-    "prerequisites": ["space_flight", "robotics", "advanced_materials_science", "fusion_power_early_reactors", "nanotechnology", "advanced_ai"]
+    "description": "High-fidelity simulation of an entire human brain at the neural or sub-neural level, enabling mind uploading.",
+    "prerequisites": ["mind_uploading", "quantum_computing", "brain_mapping", "advanced_ai", "neuromorphic_computing"]
   },
   {
-    "id": "space_elevators",
-    "name": "Space Elevators",
+    "id": "digital_immortality",
+    "name": "Digital Immortality",
     "era": "Future",
-    "description": "Hypothetical megastructure connecting a planet's surface to orbit, enabling cheaper access to space.",
-    "prerequisites": ["advanced_materials_science", "engineering", "robotics", "nanotechnology", "fusion_power_early_reactors"]
+    "description": "Hypothetical concept of storing a person's personality or consciousness in a digital format to achieve a form of immortality.",
+    "prerequisites": ["mind_uploading", "advanced_ai", "philosophy", "artificial_general_intelligence", "data_storage_petascale_exascale"]
   },
   {
-    "id": "superconductors_early",
-    "name": "Superconductors (Early)",
-    "era": "Modern",
-    "description": "Discovery and initial applications of materials with zero electrical resistance at very low temperatures.",
-    "prerequisites": ["quantum_physics", "advanced_chemistry", "electricity", "refrigeration"]
+    "id": "data_storage_petascale_exascale",
+    "name": "Data Storage (Petascale/Exascale)",
+    "era": "Future",
+    "description": "Technologies for storing and managing extremely large volumes of data, measured in petabytes and exabytes.",
+    "prerequisites": ["solid_state_drives_ssd_flash_memory", "cloud_computing_distributed_systems", "quantum_computing", "nanotechnology"]
+  },
+  {
+    "id": "virtual_afterlife_simulations_digital_legacies",
+    "name": "Virtual Afterlife Simulations & Digital Legacies",
+    "era": "Future",
+    "description": "Creation of simulated environments or interactive digital representations for individuals after death, based on uploaded consciousness or comprehensive data.",
+    "prerequisites": ["digital_immortality", "metaverse_deep_immersion", "advanced_ai", "consciousness_studies_advanced"]
+  },
+  {
+    "id": "global_consciousness_network",
+    "name": "Global Consciousness Network (Hypothetical)",
+    "era": "Future",
+    "description": "A speculative future where individual consciousnesses might be interconnected through advanced BCI and AI, forming a collective intelligence.",
+    "prerequisites": ["digital_immortality", "neural_lace", "artificial_general_intelligence", "quantum_communications", "internet", "metaverse_deep_immersion"]
   },
   {
     "id": "superconductors_high_temp",
     "name": "Superconductors (High Temperature)",
     "era": "Future",
     "description": "Materials that exhibit zero electrical resistance at relatively high temperatures, enabling powerful magnets and efficient power transmission.",
-    "prerequisites": ["quantum_physics", "advanced_materials_science", "advanced_chemistry", "nanotechnology", "superconductors_early"]
+    "prerequisites": ["quantum_physics", "advanced_materials_science", "advanced_chemistry", "nanotechnology", "superconductors_early", "scientific_method"]
   },
   {
     "id": "fusion_power_early_reactors",
@@ -2289,7 +3468,8 @@
       "engineering",
       "superconductors_high_temp",
       "lasers",
-      "advanced_ai"
+      "advanced_ai",
+      "plasma_physics"
     ]
   },
   {
@@ -2302,15 +3482,62 @@
       "advanced_materials_science",
       "engineering",
       "superconductors_high_temp",
-      "quantum_computing"
+      "quantum_computing",
+      "robotics"
     ]
+  },
+  {
+    "id": "closed_loop_life_support",
+    "name": "Closed-Loop Life Support",
+    "era": "Future",
+    "description": "Self-sustaining systems for providing air, water, and food for humans in isolated environments like spacecraft.",
+    "prerequisites": ["space_flight", "advanced_chemistry", "genetic_engineering", "robotics", "solar_power", "nanotechnology", "synthetic_biology", "closed_loop_life_support_early_forms", "fusion_power_early_reactors"]
+  },
+  {
+    "id": "asteroid_mining",
+    "name": "Asteroid Mining",
+    "era": "Future",
+    "description": "Exploitation of raw materials from asteroids and other minor planets.",
+    "prerequisites": ["space_flight", "robotics", "advanced_materials_science", "fusion_power_early_reactors", "nanotechnology", "advanced_ai", "mass_drivers_space_launch"]
+  },
+  {
+    "id": "mass_drivers_space_launch",
+    "name": "Mass Drivers (Space Launch)",
+    "era": "Future",
+    "description": "Electromagnetic accelerators for launching payloads into space or propelling spacecraft.",
+    "prerequisites": ["electromagnetism_maxwell", "superconductors_high_temp", "engineering", "space_flight", "advanced_materials_science"]
+  },
+  {
+    "id": "space_colonization",
+    "name": "Space Colonization",
+    "era": "Future",
+    "description": "Permanent human settlement off Earth.",
+    "prerequisites": [
+      "space_flight",
+      "fusion_power",
+      "robotics",
+      "nanotechnology",
+      "genetic_engineering",
+      "closed_loop_life_support",
+      "advanced_materials_science",
+      "space_stations",
+      "asteroid_mining",
+      "3d_printing_advanced"
+    ]
+  },
+  {
+    "id": "space_elevators",
+    "name": "Space Elevators",
+    "era": "Future",
+    "description": "Hypothetical megastructure connecting a planet's surface to orbit, enabling cheaper access to space.",
+    "prerequisites": ["advanced_materials_science", "engineering", "robotics", "nanotechnology", "fusion_power", "mass_drivers_space_launch"]
   },
   {
     "id": "fusion_rockets",
     "name": "Fusion Rockets",
     "era": "Future",
     "description": "Spacecraft propulsion systems using fusion power for high thrust and efficiency, enabling rapid interplanetary travel.",
-    "prerequisites": ["fusion_power", "rocketry", "advanced_materials_science", "space_flight", "robotics"]
+    "prerequisites": ["fusion_power", "rocketry", "advanced_materials_science", "space_flight", "robotics", "plasma_physics"]
   },
   {
     "id": "quantum_communications",
@@ -2323,7 +3550,8 @@
       "lasers",
       "fiber_optics",
       "satellite_technology",
-      "information_theory"
+      "information_theory",
+      "quantum_physics"
     ]
   },
   {
@@ -2331,21 +3559,7 @@
     "name": "Quantum Encryption",
     "era": "Future",
     "description": "Cryptography methods that use quantum mechanics to guarantee secure communication.",
-    "prerequisites": ["quantum_communications", "quantum_computing", "advanced_ai", "information_theory"]
-  },
-  {
-    "id": "synthetic_biology",
-    "name": "Synthetic Biology",
-    "era": "Future",
-    "description": "Designing and constructing new biological parts, devices, and systems, or re-designing existing, natural biological systems for useful purposes.",
-    "prerequisites": ["genetic_engineering", "nanotechnology", "advanced_ai", "advanced_chemistry", "crispr_gene_editing", "molecular_biology", "bioinformatics"]
-  },
-  {
-    "id": "synthetic_organs_bio_printing",
-    "name": "Synthetic Organs & Bioprinting",
-    "era": "Future",
-    "description": "Creation of artificial organs or use of 3D printing techniques with biological materials to produce tissues and organs.",
-    "prerequisites": ["synthetic_biology", "nanotechnology", "advanced_materials_science", "robotics", "personalized_medicine", "crispr_gene_editing"]
+    "prerequisites": ["quantum_communications", "quantum_computing", "advanced_ai", "information_theory", "encryption_modern_cryptography_public_key"]
   },
   {
     "id": "terraforming",
@@ -2360,78 +3574,65 @@
       "advanced_ai",
       "synthetic_biology",
       "closed_loop_life_support",
-      "climate_engineering_geoengineering"
+      "climate_engineering_geoengineering",
+      "planetary_science_advanced"
     ]
+  },
+  {
+    "id": "planetary_science_advanced",
+    "name": "Planetary Science (Advanced)",
+    "era": "Future",
+    "description": "Deep understanding of planetary formation, geology, atmospheres, and potential for habitability, including exoplanets.",
+    "prerequisites": ["geology", "astronomy", "space_flight", "advanced_ai", "exoplanet_detection_analysis", "robotics"]
   },
   {
     "id": "climate_engineering_geoengineering",
     "name": "Climate Engineering / Geoengineering",
     "era": "Future",
     "description": "Large-scale intervention in Earth's climate system to counteract climate change.",
-    "prerequisites": ["advanced_ai", "nanotechnology", "fusion_power_early_reactors", "advanced_chemistry", "satellite_technology", "weather_control_regional"]
+    "prerequisites": ["advanced_ai", "nanotechnology", "fusion_power_early_reactors", "advanced_chemistry", "satellite_technology", "weather_control_regional", "atmospheric_carbon_capture_large_scale"]
   },
   {
     "id": "weather_control_regional",
     "name": "Regional Weather Control",
     "era": "Future",
     "description": "Technologies to influence or control weather patterns on a regional scale.",
-    "prerequisites": ["advanced_ai", "satellite_technology", "nanotechnology", "fusion_power_early_reactors", "superconductors_high_temp"]
+    "prerequisites": ["advanced_ai", "satellite_technology", "nanotechnology", "fusion_power_early_reactors", "superconductors_high_temp", "cloud_seeding_advanced"]
   },
   {
-    "id": "brain_mapping",
-    "name": "Brain Mapping",
+    "id": "cloud_seeding_advanced",
+    "name": "Cloud Seeding (Advanced)",
     "era": "Future",
-    "description": "Comprehensive mapping of neural connections in the brain.",
-    "prerequisites": ["neuroscience", "advanced_ai", "personal_computers", "microscope", "nanotechnology", "medical_imaging_xray_mri", "bioinformatics"]
+    "description": "Sophisticated methods to modify precipitation by dispersing substances into clouds, potentially using AI and nanotech.",
+    "prerequisites": ["advanced_chemistry", "nanotechnology", "advanced_ai", "satellite_technology", "meteorology_advanced"]
   },
   {
-    "id": "brain_computer_interface",
-    "name": "Brain-Computer Interface (BCI)",
+    "id": "meteorology_advanced",
+    "name": "Meteorology (Advanced Predictive Modeling)",
     "era": "Future",
-    "description": "Direct communication pathway between an enhanced or wired brain and an external device.",
-    "prerequisites": ["neuroscience", "nanotechnology", "advanced_ai", "robotics", "brain_mapping", "electronics", "personal_computers"]
+    "description": "Highly accurate weather forecasting and climate modeling using supercomputers and advanced AI.",
+    "prerequisites": ["weather_satellites_meteorological_observation", "advanced_ai", "quantum_computing", "big_data_analytics_computational_statistics"]
   },
   {
-    "id": "neural_lace",
-    "name": "Neural Lace / Advanced BCI",
+    "id": "global_weather_control_climate_stabilization",
+    "name": "Global Weather Control & Climate Stabilization",
     "era": "Future",
-    "description": "Ultra-fine mesh that can be implanted in the brain for high-bandwidth brain-computer interfacing.",
-    "prerequisites": ["brain_computer_interface", "nanotechnology", "advanced_materials_science", "synthetic_biology", "advanced_ai"]
+    "description": "Coordinated, large-scale interventions to manage global climate patterns and mitigate extreme weather events.",
+    "prerequisites": ["weather_control_regional", "fusion_power", "advanced_ai", "climate_engineering_geoengineering", "international_cooperation_treaties"]
   },
   {
-    "id": "mind_uploading",
-    "name": "Mind Uploading (Whole Brain Emulation)",
-    "era": "Future",
-    "description": "Hypothetical process of transferring human consciousness to a digital medium.",
-    "prerequisites": [
-      "artificial_general_intelligence",
-      "brain_computer_interface",
-      "quantum_computing",
-      "neuroscience",
-      "brain_mapping",
-      "neural_lace"
-    ]
+    "id": "international_cooperation_treaties",
+    "name": "International Cooperation & Treaties",
+    "era": "Modern",
+    "description": "Formal agreements and organizations established between nations to address global issues.",
+    "prerequisites": ["codified_law", "printing_press", "telecommunications", "democracy_republicanism", "banking"]
   },
   {
-    "id": "digital_immortality",
-    "name": "Digital Immortality",
+    "id": "atmospheric_carbon_capture_large_scale",
+    "name": "Atmospheric Carbon Capture & Sequestration (Large Scale)",
     "era": "Future",
-    "description": "Hypothetical concept of storing a person's personality or consciousness in a digital format to achieve a form of immortality.",
-    "prerequisites": ["mind_uploading", "advanced_ai", "philosophy", "artificial_general_intelligence"]
-  },
-  {
-    "id": "consciousness_studies_advanced",
-    "name": "Advanced Consciousness Studies",
-    "era": "Future",
-    "description": "Deep scientific and philosophical investigation into the nature of consciousness, potentially informed by AGI and brain emulation.",
-    "prerequisites": ["artificial_general_intelligence", "neuroscience", "philosophy", "quantum_physics", "mind_uploading", "brain_mapping"]
-  },
-  {
-    "id": "global_consciousness_network",
-    "name": "Global Consciousness Network (Hypothetical)",
-    "era": "Future",
-    "description": "A speculative future where individual consciousnesses might be interconnected through advanced BCI and AI, forming a collective intelligence.",
-    "prerequisites": ["digital_immortality", "neural_lace", "artificial_general_intelligence", "quantum_communications", "internet"]
+    "description": "Technologies to directly remove CO2 from the atmosphere and store it long-term.",
+    "prerequisites": ["advanced_chemistry", "nanotechnology", "renewable_energy_systems", "advanced_ai", "geology", "synthetic_biology"]
   },
   {
     "id": "interstellar_travel",
@@ -2445,7 +3646,8 @@
       "artificial_general_intelligence",
       "advanced_materials_science",
       "closed_loop_life_support",
-      "longevity_escape_velocity_lev"
+      "longevity_escape_velocity_lev",
+      "exotic_propulsion_warp_drives_wormholes"
     ]
   },
   {
@@ -2453,83 +3655,293 @@
     "name": "Dyson Sphere / Swarm",
     "era": "Future",
     "description": "Hypothetical megastructure that encompasses a star to capture a large percentage of its power output.",
-    "prerequisites": ["interstellar_travel", "fusion_power", "advanced_materials_science", "self_replicating_systems", "swarm_robotics_advanced", "nanotechnology"]
+    "prerequisites": ["interstellar_travel", "fusion_power", "advanced_materials_science", "self_replicating_systems", "swarm_robotics_advanced", "nanotechnology", "space_elevators"]
+  },
+  {
+    "id": "kardashev_scale_civilizational_advancement",
+    "name": "Kardashev Scale Civilizational Advancement",
+    "era": "Future",
+    "description": "Achieving Type I, II, or III civilization status based on energy consumption and mastery.",
+    "prerequisites": ["dyson_sphere_swarm", "fusion_power", "terraforming", "interstellar_travel", "artificial_general_intelligence"]
   },
   {
     "id": "exoplanet_detection_analysis",
     "name": "Exoplanet Detection & Analysis",
     "era": "Future",
     "description": "Advanced techniques for finding and characterizing planets outside our solar system.",
-    "prerequisites": ["telescope", "astronomy", "space_flight", "advanced_ai", "quantum_physics", "satellite_technology", "lasers"]
+    "prerequisites": ["telescope", "astronomy", "space_flight", "advanced_ai", "quantum_physics", "satellite_technology", "lasers", "advanced_optics_space_based", "spectroscopy_advanced"]
   },
   {
-    "id": "cryonics",
-    "name": "Cryonics",
+    "id": "spectroscopy_advanced",
+    "name": "Spectroscopy (Advanced Atmospheric Analysis)",
     "era": "Future",
-    "description": "Preservation of humans at low temperatures with the hope of future revival and treatment.",
-    "prerequisites": [
-      "medicine_clinical",
-      "advanced_chemistry",
-      "refrigeration",
-      "nanotechnology",
-      "personalized_medicine",
-      "longevity_escape_velocity_lev"
-    ]
+    "description": "Analyzing light spectra from exoplanets to determine atmospheric composition and potential biosignatures.",
+    "prerequisites": ["advanced_optics_space_based", "quantum_physics", "advanced_ai", "astronomy", "lasers"]
   },
   {
     "id": "utility_fog_programmable_matter",
     "name": "Utility Fog / Programmable Matter",
     "era": "Future",
     "description": "Hypothetical collection of tiny robots (nanobots) that can replicate a physical structure or change shape.",
-    "prerequisites": ["nanotechnology", "robotics", "advanced_ai", "advanced_materials_science", "swarm_robotics_advanced", "self_replicating_systems"]
+    "prerequisites": ["nanotechnology", "robotics", "advanced_ai", "advanced_materials_science", "swarm_robotics_advanced", "self_replicating_systems", "micro_electromechanical_systems_mems"]
+  },
+  {
+    "id": "micro_electromechanical_systems_mems",
+    "name": "Micro-Electro-Mechanical Systems (MEMS)",
+    "era": "Future",
+    "description": "Miniaturized mechanical and electro-mechanical elements made using microfabrication techniques.",
+    "prerequisites": ["nanotechnology", "electronics", "precision_mechanics_miniaturization", "photolithography"]
+  },
+  {
+    "id": "nanobot_swarms_construction_environmental_remediation",
+    "name": "Nanobot Swarms (Construction, Environmental Remediation)",
+    "era": "Future",
+    "description": "Coordinated groups of nanorobots performing complex tasks like building structures or cleaning pollution.",
+    "prerequisites": ["utility_fog_programmable_matter", "swarm_robotics_advanced", "nanotechnology", "advanced_ai"]
   },
   {
     "id": "molecular_assemblers_universal_construction",
     "name": "Molecular Assemblers / Universal Construction",
     "era": "Future",
     "description": "Nanomachines capable of guiding chemical reactions by positioning reactive molecules with atomic precision, enabling construction from the bottom up.",
-    "prerequisites": ["utility_fog_programmable_matter", "self_replicating_systems", "nanotechnology", "advanced_ai", "quantum_computing", "synthetic_biology"]
+    "prerequisites": ["utility_fog_programmable_matter", "self_replicating_systems", "nanotechnology", "advanced_ai", "quantum_computing", "synthetic_biology", "atomic_force_microscopy_manipulation"]
+  },
+  {
+    "id": "atomic_force_microscopy_manipulation",
+    "name": "Atomic Force Microscopy & Manipulation",
+    "era": "Future",
+    "description": "Techniques for imaging and manipulating matter at the atomic scale.",
+    "prerequisites": ["nanotechnology", "quantum_physics", "microscope", "precision_mechanics_miniaturization"]
+  },
+  {
+    "id": "matter_replication_star_trek_style",
+    "name": "Matter Replication (Star Trek Style)",
+    "era": "Future",
+    "description": "Hypothetical technology to create or transmute matter on demand from energy or base components.",
+    "prerequisites": ["molecular_assemblers_universal_construction", "fusion_power", "quantum_physics", "advanced_ai", "zero_point_energy_research_vacuum_energy"]
   },
   {
     "id": "swarm_robotics_advanced",
     "name": "Advanced Swarm Robotics",
     "era": "Future",
     "description": "Coordination of large numbers of relatively simple robots to perform complex tasks, inspired by social insects.",
-    "prerequisites": ["robotics", "advanced_ai", "nanotechnology", "internet", "personal_computers", "cybernetics"]
+    "prerequisites": ["robotics", "advanced_ai", "nanotechnology", "internet_of_things_iot_ubiquitous_connectivity", "personal_computers", "cybernetics", "self_organization_algorithms"]
+  },
+  {
+    "id": "self_organization_algorithms",
+    "name": "Self-Organization Algorithms",
+    "era": "Future",
+    "description": "Computational methods enabling systems to achieve global order or coordination from local interactions without central control.",
+    "prerequisites": ["algorithms_computation_theory", "advanced_ai", "cybernetics", "systems_biology"]
   },
   {
     "id": "self_replicating_systems",
     "name": "Self-Replicating Systems",
     "era": "Future",
     "description": "Machines or organisms (synthetic or otherwise) capable of autonomously reproducing themselves.",
-    "prerequisites": ["nanotechnology", "synthetic_biology", "advanced_ai", "robotics", "advanced_materials_science", "swarm_robotics_advanced"]
-  },
-  {
-    "id": "ai_driven_drug_discovery",
-    "name": "AI-Driven Drug Discovery",
-    "era": "Future",
-    "description": "Utilizing advanced AI and machine learning to rapidly design, test, and optimize new pharmaceutical compounds.",
-    "prerequisites": ["advanced_ai", "bioinformatics", "advanced_chemistry", "personalized_medicine", "quantum_computing"]
+    "prerequisites": ["nanotechnology", "synthetic_biology", "advanced_ai", "robotics", "advanced_materials_science", "swarm_robotics_advanced", "molecular_assemblers_universal_construction"]
   },
   {
     "id": "metaverse_deep_immersion",
     "name": "Metaverse (Deep Immersion)",
     "era": "Future",
     "description": "Highly immersive and interactive shared virtual universes, potentially integrated with BCI.",
-    "prerequisites": ["virtual_reality", "brain_computer_interface", "advanced_ai", "internet", "quantum_computing", "haptics_advanced"]
+    "prerequisites": ["virtual_reality", "brain_computer_interface", "advanced_ai", "internet", "quantum_computing", "haptics_advanced", "cloud_computing_distributed_systems", "graphical_user_interface_gui"]
   },
   {
     "id": "haptics_advanced",
     "name": "Advanced Haptics",
     "era": "Future",
     "description": "Technology that can create an experience of touch by applying forces, vibrations, or motions to the user, integrated into VR/AR.",
-    "prerequisites": ["virtual_reality", "robotics", "nanotechnology", "electronics", "advanced_materials_science"]
+    "prerequisites": ["virtual_reality", "robotics", "nanotechnology", "electronics", "advanced_materials_science", "neuroscience"]
   },
   {
     "id": "direct_energy_weapons",
     "name": "Direct Energy Weapons",
     "era": "Future",
     "description": "Weapons that emit highly focused energy (lasers, microwaves, particle beams) rather than projectiles.",
-    "prerequisites": ["lasers", "fusion_power_early_reactors", "advanced_materials_science", "particle_accelerators", "superconductors_high_temp"]
+    "prerequisites": ["lasers", "fusion_power_early_reactors", "advanced_materials_science", "particle_accelerators", "superconductors_high_temp", "masers_early"]
+  },
+  {
+    "id": "real_time_universal_translation_devices",
+    "name": "Real-Time Universal Translation Devices",
+    "era": "Future",
+    "description": "Portable devices or implants providing instant translation between any spoken or written languages.",
+    "prerequisites": ["advanced_ai", "internet", "mobile_phones", "information_theory", "neuroscience", "natural_language_processing_advanced"]
+  },
+  {
+    "id": "natural_language_processing_advanced",
+    "name": "Natural Language Processing (Advanced)",
+    "era": "Future",
+    "description": "AI capable of understanding, interpreting, and generating human language with high nuance and accuracy.",
+    "prerequisites": ["advanced_ai", "linguistics_computational", "machine_learning_early_algorithms", "big_data_analytics_computational_statistics"]
+  },
+  {
+    "id": "linguistics_computational",
+    "name": "Linguistics (Computational)",
+    "era": "Modern",
+    "description": "Interdisciplinary field dealing with the statistical or rule-based modeling of natural language from a computational perspective.",
+    "prerequisites": ["linguistics_formal", "algorithms_computation_theory", "personal_computers", "artificial_intelligence_early"]
+  },
+  {
+    "id": "linguistics_formal",
+    "name": "Linguistics (Formal)",
+    "era": "Modern",
+    "description": "Scientific study of language, including phonetics, phonology, morphology, syntax, semantics, and pragmatics.",
+    "prerequisites": ["philosophy", "writing", "printing_press", "scientific_method", "anthropology_cultural"]
+  },
+  {
+    "id": "anthropology_cultural",
+    "name": "Anthropology (Cultural)",
+    "era": "Industrial",
+    "description": "Study of human societies and cultures and their development.",
+    "prerequisites": ["sociology_early", "exploration_global", "printing_press", "scientific_method"]
+  },
+  {
+    "id": "bio_digital_convergence_seamless_integration",
+    "name": "Bio-Digital Convergence (Seamless Integration)",
+    "era": "Future",
+    "description": "Deep integration of biological and digital systems, blurring the lines between human and machine.",
+    "prerequisites": ["neural_lace", "synthetic_biology", "nanotechnology", "advanced_ai", "brain_computer_interface"]
+  },
+  {
+    "id": "computational_social_science_predictive_modeling",
+    "name": "Computational Social Science & Predictive Modeling",
+    "era": "Future",
+    "description": "Using computational methods, big data, and AI to model, simulate, and predict social dynamics and behaviors.",
+    "prerequisites": ["advanced_ai", "big_data_analytics_computational_statistics", "sociology_classical_theories_durkheim_weber", "psychology", "virtual_reality", "game_theory_advanced"]
+  },
+  {
+    "id": "game_theory_advanced",
+    "name": "Game Theory (Advanced)",
+    "era": "Future",
+    "description": "Sophisticated mathematical models of strategic interaction among rational decision-makers, applied to complex systems.",
+    "prerequisites": ["mathematics", "advanced_ai", "economics_behavioral", "algorithms_computation_theory"]
+  },
+  {
+    "id": "economics_behavioral",
+    "name": "Economics (Behavioral)",
+    "era": "Modern",
+    "description": "Study of the psychological, cognitive, emotional, cultural and social factors on the economic decisions of individuals and institutions.",
+    "prerequisites": ["psychology", "statistics_advanced_data_analysis", "banking", "sociology_early"]
+  },
+  {
+    "id": "personalized_education_lifelong_learning_platforms_ai",
+    "name": "Personalized Education & Lifelong Learning Platforms (AI)",
+    "era": "Future",
+    "description": "AI-driven educational systems adapting to individual learning styles, paces, and needs throughout life.",
+    "prerequisites": ["advanced_ai", "public_education_systems", "internet", "personal_computers", "neuroscience", "psychology"]
+  },
+  {
+    "id": "fully_autonomous_transportation_networks_level_5",
+    "name": "Fully Autonomous Transportation Networks (Level 5)",
+    "era": "Future",
+    "description": "Integrated networks of self-driving vehicles (cars, trucks, drones) operating without human intervention.",
+    "prerequisites": ["automobile", "advanced_ai", "gps", "robotics", "internet_of_things_iot_ubiquitous_connectivity", "sensor_fusion_advanced", "5g_6g_communication_networks"]
+  },
+  {
+    "id": "5g_6g_communication_networks",
+    "name": "5G/6G Communication Networks",
+    "era": "Future",
+    "description": "Next-generation wireless communication technologies offering high speed, low latency, and massive connectivity.",
+    "prerequisites": ["mobile_phones", "fiber_optics", "satellite_technology", "advanced_ai", "internet_of_things_iot_ubiquitous_connectivity"]
+  },
+  {
+    "id": "sensor_fusion_advanced_multi_modal_perception",
+    "name": "Sensor Fusion (Advanced Multi-Modal Perception)",
+    "era": "Future",
+    "description": "Combining data from multiple diverse sensors to achieve more accurate and reliable perception than from individual sensors.",
+    "prerequisites": ["advanced_ai", "robotics", "nanotechnology", "internet_of_things_iot_ubiquitous_connectivity", "quantum_sensors_high_precision_measurement"]
+  },
+  {
+    "id": "drone_logistics_autonomous_delivery_networks",
+    "name": "Drone Logistics & Autonomous Delivery Networks",
+    "era": "Future",
+    "description": "Use of autonomous drones for widespread package delivery and logistics.",
+    "prerequisites": ["robotics", "gps", "internet", "advanced_ai", "lithium_ion_batteries_rechargeable_power", "5g_6g_communication_networks", "fully_autonomous_transportation_networks_level_5"]
+  },
+  {
+    "id": "zero_point_energy_research_vacuum_energy",
+    "name": "Zero-Point Energy Research (Vacuum Energy)",
+    "era": "Future",
+    "description": "Investigation into extracting usable energy from the quantum vacuum, a highly speculative but potentially transformative field.",
+    "prerequisites": ["quantum_physics", "fusion_power", "advanced_materials_science", "relativity_special_general", "particle_accelerators"]
+  },
+  {
+    "id": "sentience_engineering_artificial_consciousness_creation",
+    "name": "Sentience Engineering (Artificial Consciousness Creation)",
+    "era": "Future",
+    "description": "Hypothetical field focused on understanding and potentially creating artificial consciousness or sentience.",
+    "prerequisites": ["artificial_general_intelligence", "consciousness_studies_advanced", "synthetic_biology", "neuromorphic_computing", "philosophy"]
+  },
+  {
+    "id": "psychohistory_predictive_social_dynamics_asimovian",
+    "name": "Psychohistory (Predictive Social Dynamics - Asimovian)",
+    "era": "Future",
+    "description": "Hypothetical science combining history, sociology, and mathematical statistics to make general predictions about the future behavior of very large groups of people.",
+    "prerequisites": ["computational_social_science_predictive_modeling", "artificial_general_intelligence", "big_data_analytics_computational_statistics", "chaos_theory_complex_systems"]
+  },
+  {
+    "id": "chaos_theory_complex_systems",
+    "name": "Chaos Theory & Complex Systems",
+    "era": "Future",
+    "description": "Study of dynamic systems highly sensitive to initial conditions, and the behavior of complex, interconnected networks.",
+    "prerequisites": ["mathematics", "advanced_ai", "algorithms_computation_theory", "scientific_method", "thermodynamics"]
+  },
+  {
+    "id": "cybernetic_immortality_consciousness_transfer_to_machines",
+    "name": "Cybernetic Immortality (Consciousness Transfer to Machines)",
+    "era": "Future",
+    "description": "Achieving a form of immortality by transferring human consciousness or essential personality data to durable artificial bodies or systems.",
+    "prerequisites": ["mind_uploading", "robotics", "artificial_general_intelligence", "advanced_materials_science", "fusion_power"]
+  },
+  {
+    "id": "exotic_matter_physics_negative_mass_energy",
+    "name": "Exotic Matter Physics (Negative Mass/Energy)",
+    "era": "Future",
+    "description": "Theoretical and experimental investigation of matter with unusual properties, such as negative mass or energy density, potentially for advanced propulsion.",
+    "prerequisites": ["quantum_physics", "particle_accelerators", "fusion_power_early_reactors", "advanced_ai", "relativity_special_general"]
+  },
+  {
+    "id": "exotic_propulsion_warp_drives_wormholes",
+    "name": "Exotic Propulsion (Warp Drives, Wormholes)",
+    "era": "Future",
+    "description": "Hypothetical faster-than-light travel methods based on manipulating spacetime, such as warp drives or traversing wormholes.",
+    "prerequisites": ["interstellar_travel", "relativity_special_general", "quantum_physics", "fusion_power", "exotic_matter_physics_negative_mass_energy", "advanced_materials_science"]
+  },
+  {
+    "id": "wireless_power_transmission_long_range",
+    "name": "Wireless Power Transmission (Long Range)",
+    "era": "Future",
+    "description": "Efficiently transmitting electrical power over significant distances without wires, e.g., via microwaves or lasers.",
+    "prerequisites": ["electromagnetism_maxwell", "advanced_ai", "superconductors_high_temp", "lasers", "masers_early", "satellite_technology"]
+  },
+  {
+    "id": "space_based_solar_power_orbital_arrays",
+    "name": "Space-Based Solar Power (Orbital Arrays)",
+    "era": "Future",
+    "description": "Collecting solar energy in space using large satellite arrays and transmitting it to Earth.",
+    "prerequisites": ["solar_power", "space_flight", "robotics", "advanced_materials_science", "wireless_power_transmission_long_range", "mass_drivers_space_launch"]
+  },
+  {
+    "id": "ocean_colonization_underwater_habitats_seasteading",
+    "name": "Ocean Colonization (Underwater Habitats, Seasteading)",
+    "era": "Future",
+    "description": "Establishment of permanent human settlements on or under the ocean surface.",
+    "prerequisites": ["advanced_materials_science", "closed_loop_life_support", "robotics", "renewable_energy_systems", "fusion_power_early_reactors", "submarine_technology_advanced"]
+  },
+  {
+    "id": "submarine_technology_advanced",
+    "name": "Submarine Technology (Advanced)",
+    "era": "Future",
+    "description": "Highly advanced submersible vessels for exploration, resource extraction, or long-duration habitation.",
+    "prerequisites": ["submarines_early_military_naval", "fusion_power_early_reactors", "advanced_materials_science", "closed_loop_life_support", "robotics"]
+  },
+  {
+    "id": "ai_assisted_global_governance_systems",
+    "name": "AI-Assisted Global Governance Systems",
+    "era": "Future",
+    "description": "Utilizing advanced AI for analysis, decision support, and coordination in global governance and international relations.",
+    "prerequisites": ["advanced_ai", "explainable_ai_xai", "global_consciousness_network", "political_science_advanced_governance_models", "big_data_analytics_computational_statistics", "international_cooperation_treaties"]
   }
 ]
