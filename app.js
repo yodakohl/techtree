@@ -46,8 +46,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         Future: '#95a5a6'
     };
 
-    // Compute radial layout levels based on prerequisites
+    // Compute radial layout levels using an adjacency list for efficiency
     const levelMap = {};
+    const dependentsMap = {};
+    const prereqMap = {};
+    dynamicData.forEach(t => {
+        prereqMap[t.id] = t.prerequisites || [];
+        (t.prerequisites || []).forEach(pr => {
+            if (!dependentsMap[pr]) dependentsMap[pr] = [];
+            dependentsMap[pr].push(t.id);
+        });
+    });
+
     const queue = [];
     dynamicData.forEach(t => {
         if (!t.prerequisites || t.prerequisites.length === 0) {
@@ -59,13 +69,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     while (queue.length > 0) {
         const current = queue.shift();
         const currentLevel = levelMap[current];
-        dynamicData.forEach(t => {
-            if (t.prerequisites && t.prerequisites.includes(current)) {
-                const nextLevel = currentLevel + 1;
-                if (levelMap[t.id] === undefined || nextLevel < levelMap[t.id]) {
-                    levelMap[t.id] = nextLevel;
-                    queue.push(t.id);
-                }
+        const dependents = dependentsMap[current] || [];
+        dependents.forEach(dep => {
+            const nextLevel = currentLevel + 1;
+            if (levelMap[dep] === undefined || nextLevel < levelMap[dep]) {
+                levelMap[dep] = nextLevel;
+                queue.push(dep);
             }
         });
     }
@@ -228,15 +237,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function highlightRelevantNodes(nodeId) {
         const connected = new Set([nodeId]);
-        const nodeObj = dynamicData.find(t => t.id === nodeId);
-        if (nodeObj && nodeObj.prerequisites) {
-            nodeObj.prerequisites.forEach(id => connected.add(id));
-        }
-        dynamicData.forEach(t => {
-            if (t.prerequisites && t.prerequisites.includes(nodeId)) {
-                connected.add(t.id);
-            }
-        });
+        (prereqMap[nodeId] || []).forEach(id => connected.add(id));
+        (dependentsMap[nodeId] || []).forEach(id => connected.add(id));
 
         nodes.forEach(n => {
             const base = n.origColor || n.color;
@@ -346,6 +348,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const newTech = { id, name, era, description: desc, prerequisites: prereqs };
             dynamicData.push(newTech);
+            prereqMap[id] = prereqs;
+            prereqs.forEach(pr => {
+                if (!dependentsMap[pr]) dependentsMap[pr] = [];
+                dependentsMap[pr].push(id);
+            });
 
             nodes.add({ id, label: name, title: desc, era, description: desc });
             prereqs.forEach(pr => {
@@ -389,10 +396,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             const techIndex = dynamicData.findIndex(t => t.id === selectedNodeId);
             if (techIndex === -1) return;
             const tech = dynamicData[techIndex];
+            const oldPrereqs = prereqMap[selectedNodeId] || [];
             tech.name = name;
             tech.era = era;
             tech.description = desc;
             tech.prerequisites = prereqs;
+            prereqMap[selectedNodeId] = prereqs;
+            oldPrereqs.forEach(pr => {
+                dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
+            });
+            prereqs.forEach(pr => {
+                if (!dependentsMap[pr]) dependentsMap[pr] = [];
+                if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
+            });
 
             nodes.update({ id: selectedNodeId, label: name, era, description: desc, title: desc });
 
@@ -409,6 +425,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (t.prerequisites.includes(selectedNodeId)) {
                     edges.add({ from: selectedNodeId, to: t.id, arrows: 'to' });
                 }
+            });
+            oldPrereqs.forEach(pr => {
+                dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
+            });
+            prereqs.forEach(pr => {
+                if (!dependentsMap[pr]) dependentsMap[pr] = [];
+                if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
             });
 
             saveData();
@@ -428,6 +451,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             dynamicData.forEach(t => {
                 t.prerequisites = t.prerequisites.filter(p => p !== selectedNodeId);
             });
+            if (dependentsMap[selectedNodeId]) {
+                dependentsMap[selectedNodeId].forEach(dep => {
+                    prereqMap[dep] = (prereqMap[dep] || []).filter(p => p !== selectedNodeId);
+                });
+                delete dependentsMap[selectedNodeId];
+            }
+            delete prereqMap[selectedNodeId];
 
             nodes.remove({ id: selectedNodeId });
             dynamicData = dynamicData.filter(t => t.id !== selectedNodeId);
