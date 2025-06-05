@@ -1,5 +1,5 @@
 // app.js with Vis.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('tech-tree-container');
     const techNameEl = document.getElementById('tech-name');
     const techEraEl = document.getElementById('tech-era');
@@ -10,16 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateBtn = document.getElementById('update-tech-btn');
     const addBtn = document.getElementById('add-tech-btn');
 
-    if (typeof techTreeData === 'undefined' || !techTreeData || techTreeData.length === 0) {
-        console.error("Error: techTreeData is not defined, is null, or is empty. Make sure tech-data.js is loaded correctly and contains the tech tree data array.");
-        alert("Tech tree data is missing or empty. The tech tree cannot be displayed. Please ensure 'tech-data.js' is correctly set up.");
+    let dynamicData = [];
+    try {
+        const resp = await fetch('/api/tech-tree');
+        if (resp.ok) {
+            dynamicData = await resp.json();
+        } else {
+            throw new Error('Failed to load tech tree');
+        }
+    } catch (err) {
+        console.error('Error loading tech tree:', err);
+        alert('Failed to load tech tree from server.');
         return;
-    }
-
-    const stored = localStorage.getItem('techTreeData');
-    let dynamicData = stored ? JSON.parse(stored) : techTreeData.slice();
-    if (!stored) {
-        localStorage.setItem('techTreeData', JSON.stringify(dynamicData));
     }
 
     // 1. Transform dynamicData into Vis.js nodes and edges
@@ -115,8 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function saveData() {
-        localStorage.setItem('techTreeData', JSON.stringify(dynamicData));
+    async function saveData() {
+        try {
+            await fetch('/api/tech-tree', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dynamicData)
+            });
+        } catch (e) {
+            console.error('Failed to save tech tree:', e);
+        }
     }
 
     function clearForm() {
