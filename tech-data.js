@@ -64,6 +64,20 @@ const techTreeData = [
         description: "Use of wind-powered vessels for navigation across water.",
         prerequisites: ["basic_tools"]
     },
+    {
+        id: "wheel",
+        name: "Wheel",
+        era: "Ancient",
+        description: "Circular component enabling carts and early vehicles.",
+        prerequisites: ["basic_tools"]
+    },
+    {
+        id: "archery",
+        name: "Archery",
+        era: "Ancient",
+        description: "Use of bows and arrows for hunting and warfare.",
+        prerequisites: ["basic_tools", "hunting_gathering"]
+    },
 
     // --- CLASSICAL ERA ---
     {
@@ -206,6 +220,13 @@ const techTreeData = [
         prerequisites: ["scientific_method", "steam_engine"] // For generators
     },
     {
+        id: "telegraph",
+        name: "Telegraph",
+        era: "Industrial",
+        description: "Long-distance transmission of text messages using electrical signals.",
+        prerequisites: ["electricity"]
+    },
+    {
         id: "mass_production",
         name: "Mass Production",
         era: "Industrial",
@@ -227,6 +248,13 @@ const techTreeData = [
         era: "Modern",
         description: "Engine that generates motive power by burning fuel within the engine itself.",
         prerequisites: ["steam_engine", "scientific_method", "mass_production"]
+    },
+    {
+        id: "automobile",
+        name: "Automobile",
+        era: "Modern",
+        description: "Self-propelled road vehicle powered by an internal combustion engine.",
+        prerequisites: ["internal_combustion_engine", "mass_production"]
     },
     {
         id: "flight",
@@ -299,6 +327,13 @@ const techTreeData = [
         era: "Future",
         description: "Direct manipulation of genetic material to modify organisms.",
         prerequisites: ["nanotechnology", "chemistry_advanced", "scientific_method"]
+    },
+    {
+        id: "quantum_computing",
+        name: "Quantum Computing",
+        era: "Future",
+        description: "Exploitation of quantum phenomena to perform computation.",
+        prerequisites: ["computers", "scientific_method", "nuclear_power"]
     },
     {
         id: "space_colonization",
