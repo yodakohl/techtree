@@ -240,29 +240,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         (prereqMap[nodeId] || []).forEach(id => connected.add(id));
         (dependentsMap[nodeId] || []).forEach(id => connected.add(id));
 
+        const nodeUpdates = [];
         nodes.forEach(n => {
             const base = n.origColor || n.color;
             const color = connected.has(n.id) ? base : '#dddddd';
-            nodes.update({ id: n.id, color });
+            nodeUpdates.push({ id: n.id, color });
         });
+        if (nodeUpdates.length) nodes.update(nodeUpdates);
 
+        const edgeUpdates = [];
         edges.forEach(e => {
             const isConnected = connected.has(e.from) && connected.has(e.to);
             const base = e.origColor || (e.color && e.color.color) || e.color || '#848484';
-            edges.update({ id: e.id, color: { color: isConnected ? base : '#dddddd' } });
+            edgeUpdates.push({ id: e.id, color: { color: isConnected ? base : '#dddddd' } });
         });
+        if (edgeUpdates.length) edges.update(edgeUpdates);
     }
 
     function resetHighlight() {
+        const nodeUpdates = [];
         nodes.forEach(n => {
             if (n.origColor) {
-                nodes.update({ id: n.id, color: n.origColor });
+                nodeUpdates.push({ id: n.id, color: n.origColor });
             }
         });
+        if (nodeUpdates.length) nodes.update(nodeUpdates);
+
+        const edgeUpdates = [];
         edges.forEach(e => {
             const base = e.origColor || (e.color && e.color.color) || '#848484';
-            edges.update({ id: e.id, color: { color: base } });
+            edgeUpdates.push({ id: e.id, color: { color: base } });
         });
+        if (edgeUpdates.length) edges.update(edgeUpdates);
     }
 
 
