@@ -80,15 +80,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Build node dataset now that levels are known
     const nodes = new vis.DataSet(
-        dynamicData.map(tech => ({
-            id: tech.id,
-            label: tech.name,
-            title: tech.description, // Tooltip
-            era: tech.era, // Store custom data
-            description: tech.description,
-            value: (dependentsCount[tech.id] || 0) + 1,
-            color: eraColors[tech.era] || '#cccccc'
-        }))
+        dynamicData.map(tech => {
+            const baseColor = eraColors[tech.era] || '#cccccc';
+            return {
+                id: tech.id,
+                label: tech.name,
+                title: tech.description, // Tooltip
+                era: tech.era, // Store custom data
+                description: tech.description,
+                value: (dependentsCount[tech.id] || 0) + 1,
+                color: baseColor,
+                origColor: baseColor
+            };
+        })
     );
 
     // Edges use longer lengths for deeper technologies to spread the tree
@@ -101,6 +105,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 edges.add({ from: prereqId, to: tech.id, arrows: 'to', length });
             });
         }
+    });
+    // Store original edge colors for later highlighting
+    edges.forEach(e => {
+        const base = e.color && typeof e.color === 'object' ? (e.color.color || '#848484') : (e.color || '#848484');
+        edges.update({ id: e.id, origColor: base });
     });
 
     const ERA_OFFSETS = {
@@ -217,6 +226,43 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    function highlightRelevantNodes(nodeId) {
+        const connected = new Set([nodeId]);
+        const nodeObj = dynamicData.find(t => t.id === nodeId);
+        if (nodeObj && nodeObj.prerequisites) {
+            nodeObj.prerequisites.forEach(id => connected.add(id));
+        }
+        dynamicData.forEach(t => {
+            if (t.prerequisites && t.prerequisites.includes(nodeId)) {
+                connected.add(t.id);
+            }
+        });
+
+        nodes.forEach(n => {
+            const base = n.origColor || n.color;
+            const color = connected.has(n.id) ? base : '#dddddd';
+            nodes.update({ id: n.id, color });
+        });
+
+        edges.forEach(e => {
+            const isConnected = connected.has(e.from) && connected.has(e.to);
+            const base = e.origColor || (e.color && e.color.color) || e.color || '#848484';
+            edges.update({ id: e.id, color: { color: isConnected ? base : '#dddddd' } });
+        });
+    }
+
+    function resetHighlight() {
+        nodes.forEach(n => {
+            if (n.origColor) {
+                nodes.update({ id: n.id, color: n.origColor });
+            }
+        });
+        edges.forEach(e => {
+            const base = e.origColor || (e.color && e.color.color) || '#848484';
+            edges.update({ id: e.id, color: { color: base } });
+        });
+    }
+
 
     let selectedNodeId = null;
     network.on("selectNode", function (params) {
@@ -238,7 +284,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             editBtn.disabled = false;
             deleteBtn.disabled = false;
+
+            highlightRelevantNodes(selectedNodeId);
         }
+    });
+
+    network.on("deselectNode", function () {
+        selectedNodeId = null;
+        techNameEl.textContent = '';
+        techEraEl.textContent = '';
+        techDescriptionEl.textContent = '';
+        techPrerequisitesEl.textContent = '';
+        editBtn.disabled = true;
+        deleteBtn.disabled = true;
+        resetHighlight();
     });
 
 
