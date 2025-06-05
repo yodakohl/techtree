@@ -57,6 +57,13 @@ const techTreeData = [
         description: "Extraction of valuable minerals and other geological materials from the Earth.",
         prerequisites: ["basic_tools"]
     },
+    {
+        id: "sailing",
+        name: "Sailing",
+        era: "Ancient",
+        description: "Use of wind-powered vessels for navigation across water.",
+        prerequisites: ["basic_tools"]
+    },
 
     // --- CLASSICAL ERA ---
     {
@@ -101,6 +108,13 @@ const techTreeData = [
         description: "Standardized medium of exchange.",
         prerequisites: ["writing", "mining"]
     },
+    {
+        id: "navigation",
+        name: "Navigation",
+        era: "Classical",
+        description: "Techniques for determining position and course during travel.",
+        prerequisites: ["sailing", "mathematics"]
+    },
 
     // --- MEDIEVAL ERA ---
     {
@@ -137,6 +151,13 @@ const techTreeData = [
         era: "Medieval",
         description: "Early form of investigation of nature and philosophical and spiritual discipline.",
         prerequisites: ["philosophy", "mining"]
+    },
+    {
+        id: "medicine",
+        name: "Medicine",
+        era: "Medieval",
+        description: "Study and practice of diagnosing and treating illness.",
+        prerequisites: ["universities"]
     },
 
     // --- RENAISSANCE ERA ---
@@ -242,6 +263,13 @@ const techTreeData = [
         description: "Transmission of information over significant distances by electronic means.",
         prerequisites: ["electricity", "scientific_method"]
     },
+    {
+        id: "radio",
+        name: "Radio",
+        era: "Modern",
+        description: "Wireless transmission of signals using electromagnetic waves.",
+        prerequisites: ["electricity", "telecommunications"]
+    },
 
     // --- FUTURE ERA (Speculative) ---
     {
@@ -264,6 +292,13 @@ const techTreeData = [
         era: "Modern", // Could be late modern, leading to future
         description: "Deep understanding of molecular interactions and material science.",
         prerequisites: ["scientific_method", "alchemy"] // Evolution from early chemistry
+    },
+    {
+        id: "genetic_engineering",
+        name: "Genetic Engineering",
+        era: "Future",
+        description: "Direct manipulation of genetic material to modify organisms.",
+        prerequisites: ["nanotechnology", "chemistry_advanced", "scientific_method"]
     },
     {
         id: "space_colonization",
