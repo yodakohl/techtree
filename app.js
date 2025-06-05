@@ -44,26 +44,58 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    // Compute radial layout levels based on prerequisites
+    const levelMap = {};
+    const queue = [];
+    dynamicData.forEach(t => {
+        if (!t.prerequisites || t.prerequisites.length === 0) {
+            levelMap[t.id] = 0;
+            queue.push(t.id);
+        }
+    });
+
+    while (queue.length > 0) {
+        const current = queue.shift();
+        const currentLevel = levelMap[current];
+        dynamicData.forEach(t => {
+            if (t.prerequisites && t.prerequisites.includes(current)) {
+                const nextLevel = currentLevel + 1;
+                if (levelMap[t.id] === undefined || levelMap[t.id] < nextLevel) {
+                    levelMap[t.id] = nextLevel;
+                    queue.push(t.id);
+                }
+            }
+        });
+    }
+
+    const groups = {};
+    Object.entries(levelMap).forEach(([id, lvl]) => {
+        if (!groups[lvl]) groups[lvl] = [];
+        groups[lvl].push(id);
+    });
+
+    const radiusStep = 200;
+    Object.entries(groups).forEach(([lvl, ids]) => {
+        const radius = radiusStep * parseInt(lvl, 10);
+        ids.forEach((id, index) => {
+            const angle = (2 * Math.PI / ids.length) * index;
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            nodes.update({ id, x, y });
+        });
+    });
+
     const data = { nodes: nodes, edges: edges };
 
     const options = {
         layout: {
-            hierarchical: {
-                direction: "LR", // Left to Right
-                sortMethod: "directed", // Follows the edges
-                levelSeparation: 120,
-                nodeSpacing: 100,
-            }
+            improvedLayout: false
         },
+        physics: false,
         interaction: {
             dragNodes: true,
             dragView: true,
             zoomView: true
-        },
-        physics: {
-            hierarchicalRepulsion: {
-                nodeDistance: 80
-            }
         },
         nodes: {
             shape: 'box',
@@ -74,9 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         edges: {
             smooth: {
-                type: 'cubicBezier',
-                forceDirection: 'horizontal',
-                roundness: 0.4
+                type: 'continuous'
             }
         }
     };
