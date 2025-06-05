@@ -198,6 +198,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const network = new vis.Network(container, data, options);
 
+    // Disable physics once the network stabilizes to prevent endless jiggle
+    network.once('stabilizationIterationsDone', function () {
+        network.setOptions({ physics: false });
+    });
+
 
     // Fit once after initial draw so the layout sizes correctly
     network.once('afterDrawing', () => {
