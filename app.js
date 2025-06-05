@@ -184,9 +184,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const network = new vis.Network(container, data, options);
 
+    // Cluster nodes by era when dataset is large for better performance
+    function clusterByEra() {
+        const eras = [...new Set(dynamicData.map(t => t.era))];
+        eras.forEach(era => {
+            network.cluster({
+                joinCondition: nodeOptions => nodeOptions.era === era,
+                clusterNodeProperties: { id: `cluster_${era}`, label: `${era} Era` }
+            });
+        });
+    }
+
+    if (nodes.length > 100) {
+        clusterByEra();
+    }
+
     // Fit once after initial draw so the layout sizes correctly
     network.once('afterDrawing', () => {
         network.fit();
+    });
+
+    // Disable physics after stabilization for large graphs
+    network.once('stabilized', () => {
+        network.setOptions({ physics: { enabled: false } });
     });
 
     // Refit on window resize
@@ -217,6 +237,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             editBtn.disabled = false;
             deleteBtn.disabled = false;
+        }
+    });
+
+    network.on('doubleClick', params => {
+        if (params.nodes.length === 1 && network.isCluster(params.nodes[0])) {
+            network.openCluster(params.nodes[0]);
         }
     });
 
