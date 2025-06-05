@@ -92,13 +92,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    const ERA_OFFSETS = {
+        Ancient: 0,
+        Classical: 1,
+        Medieval: 2,
+        Renaissance: 3,
+        Industrial: 4,
+        Modern: 5,
+        Future: 6
+    };
+
     const groups = {};
-    Object.entries(levelMap).forEach(([id, lvl]) => {
+    dynamicData.forEach(t => {
+        const lvl = (levelMap[t.id] || 0) + (ERA_OFFSETS[t.era] || 0);
         if (!groups[lvl]) groups[lvl] = [];
-        groups[lvl].push(id);
+        groups[lvl].push(t.id);
     });
 
-    const radiusStep = 250;
+    const radiusStep = 350;
     Object.entries(groups).forEach(([lvl, ids]) => {
         const radius = radiusStep * parseInt(lvl, 10);
         ids.forEach((id, index) => {
@@ -137,11 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             improvedLayout: false
         },
         physics: {
-            enabled: true,
-            barnesHut: {
-                springLength: 150,
-                springConstant: 0.01
-            }
+            enabled: false
         },
         interaction: {
             dragNodes: true,
