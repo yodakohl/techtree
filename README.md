@@ -1,6 +1,6 @@
 # Tech Tree
 
-This project provides a minimal node-based server and web interface for experimenting with technology trees. The data is stored locally in `tech-tree.json` and loaded on startup. The client UI uses Vis.js to draw the tree and allows adding or editing entries.
+MVP for a visualization of all human technology. 95% of the work was done by codex. Data provided by codex/gemini. The data is stored locally in `tech-tree.json` and loaded on startup. The client UI uses Vis.js to draw the tree and allows adding or editing entries.
 
 ## Prerequisites
 
