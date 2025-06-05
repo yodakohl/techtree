@@ -299,6 +299,21 @@ const techTreeData = [
         prerequisites: ["electricity", "telecommunications"]
     },
 
+    {
+        id: "solar_power",
+        name: "Solar Power",
+        era: "Modern",
+        description: "Harnessing energy from sunlight to produce electricity.",
+        prerequisites: ["electricity", "scientific_method"]
+    },
+    {
+        id: "virtual_reality",
+        name: "Virtual Reality",
+        era: "Modern",
+        description: "Immersive computer-simulated environments.",
+        prerequisites: ["computers", "internet"]
+    },
+
     // --- FUTURE ERA (Speculative) ---
     {
         id: "artificial_general_intelligence",
@@ -341,6 +356,13 @@ const techTreeData = [
         era: "Future",
         description: "Permanent human settlement off Earth.",
         prerequisites: ["flight", "nuclear_power", "computers", "nanotechnology"]
+    },
+    {
+        id: "fusion_power",
+        name: "Fusion Power",
+        era: "Future",
+        description: "Harnessing energy from nuclear fusion reactions.",
+        prerequisites: ["nuclear_power", "scientific_method"]
     }
 ];
 
