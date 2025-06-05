@@ -1,38 +1,42 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f2f5;
     color: #333;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    line-height: 1.4;
 }
 
 header {
-    background-color: #333;
+    background-color: #2c3e50;
     color: #fff;
     padding: 1em;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 main {
     display: flex;
     flex-grow: 1;
-    padding: 10px;
-    gap: 10px;
+    padding: 20px;
+    gap: 20px;
 }
 
 #side-panels {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     flex: 1;
 }
 
 #tech-tree-container {
     flex: 3; /* Takes more space */
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     overflow: auto; /* For pan/scroll if tree is big */
     position: relative; /* For positioning nodes absolutely if doing manually */
 /* min-height: 0 allows the container to shrink correctly if its own content tries to overflow. */
@@ -41,9 +45,11 @@ main {
 }
 
 #tech-info-panel {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 15px;
     background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     height: fit-content; /* So it doesn't stretch full height initially */
 }
 
@@ -53,9 +59,11 @@ main {
 }
 
 #tech-add-panel {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 15px;
     background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     height: fit-content;
 }
 
@@ -63,17 +71,38 @@ main {
 #tech-add-panel textarea {
     width: 100%;
     margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 #tech-info-panel h2 {
     margin-top: 0;
 }
 
+button {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #1a252f;
+}
+
 /* Basic Node Styling (if rendering manually - Vis.js/D3 will have their own ways) */
 .tech-node {
     position: absolute; /* Example for manual layout */
-    border: 1px solid blue;
-    background-color: lightblue;
+    border: 1px solid #2c3e50;
+    background-color: #e8f1fa;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -83,7 +112,7 @@ main {
 }
 
 .tech-node:hover {
-    background-color: cornflowerblue;
+    background-color: #cde0f2;
 }
 
 /* Line styling (very tricky to do well with just CSS/HTML for complex graphs) */
