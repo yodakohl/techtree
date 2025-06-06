@@ -17,7 +17,7 @@
     "id": "distillation_advanced",
     "name": "Advanced Distillation",
     "era": "Medieval",
-    "description": "Refinement of distillation techniques for producing concentrated substances, essential oils, and spirits.",
+    "description": "Refinement of distillation techniques using alembics for producing concentrated substances, essential oils, perfumes, and spirits.",
     "prerequisites": [
       "alchemy",
       "glassmaking",
@@ -30,7 +30,7 @@
     "id": "distillation_for_alcoholic_spirits",
     "name": "Distillation for Alcoholic Spirits",
     "era": "Medieval",
-    "description": "Application of advanced distillation to produce concentrated alcoholic beverages like brandy and whiskey.",
+    "description": "Application of advanced distillation to produce concentrated alcoholic beverages like aqua vitae, brandy, and whiskey.",
     "prerequisites": [
       "distillation_advanced",
       "fermentation_basic",
@@ -42,7 +42,7 @@
     "id": "basic_chemistry",
     "name": "Basic Chemistry",
     "era": "Medieval",
-    "description": "Systematic experimentation with substances, distillation, and refinement processes moving beyond pure alchemy.",
+    "description": "Systematic experimentation with substances, acids, alkalis, distillation, and refinement processes moving beyond pure alchemy.",
     "prerequisites": [
       "alchemy",
       "glassmaking",
@@ -55,7 +55,7 @@
     "id": "feudalism",
     "name": "Feudalism",
     "era": "Medieval",
-    "description": "Social, economic, and political system based on land tenure, loyalty, and military service between lords and vassals.",
+    "description": "Social, economic, and political system based on land tenure (fiefs), loyalty, and military service between lords and vassals.",
     "prerequisites": [
       "iron_working",
       "animal_husbandry",
@@ -63,6 +63,17 @@
       "horseback_riding",
       "codified_law",
       "organized_military_formations"
+    ]
+  },
+  {
+    "id": "serfdom",
+    "name": "Serfdom",
+    "era": "Medieval",
+    "description": "The legal and economic status of peasants tied to a lord's land (the manor). They were not slaves but were not free to leave without permission.",
+    "prerequisites": [
+      "feudalism",
+      "manorialism",
+      "agriculture"
     ]
   },
   {
@@ -81,7 +92,7 @@
     "id": "engineering",
     "name": "Engineering",
     "era": "Medieval",
-    "description": "Practical application of scientific and mathematical principles for design and construction (e.g., castles, cathedrals).",
+    "description": "Practical application of scientific and mathematical principles for design and construction (e.g., castles, cathedrals, mills, and siege engines).",
     "prerequisites": [
       "construction",
       "mathematics",
@@ -95,7 +106,7 @@
     "id": "gothic_architecture",
     "name": "Gothic Architecture",
     "era": "Medieval",
-    "description": "Architectural style characterized by pointed arches, ribbed vaults, and flying buttresses, enabling taller and lighter structures.",
+    "description": "Architectural style characterized by pointed arches, ribbed vaults, and flying buttresses, enabling taller, lighter structures with vast window spaces.",
     "prerequisites": [
       "engineering",
       "arches_domes",
@@ -106,10 +117,34 @@
     ]
   },
   {
+    "id": "concentric_castles",
+    "name": "Concentric Castles",
+    "era": "Medieval",
+    "description": "Advanced castle design featuring multiple rings of defensive walls, one inside the other, creating a layered and formidable defense with overlapping fields of fire.",
+    "prerequisites": [
+      "engineering",
+      "gothic_architecture",
+      "siege_engineering",
+      "masonry",
+      "feudalism"
+    ]
+  },
+  {
+    "id": "machicolations",
+    "name": "Machicolations",
+    "era": "Medieval",
+    "description": "Openings in the floor of a battlement or projecting gallery allowing defenders to drop stones, boiling liquids, or other projectiles on attackers below.",
+    "prerequisites": [
+      "gothic_architecture",
+      "masonry",
+      "engineering"
+    ]
+  },
+  {
     "id": "stained_glass_window_artistry",
     "name": "Stained Glass Window Artistry",
     "era": "Medieval",
-    "description": "Crafting decorative windows from colored glass, particularly for cathedrals and churches.",
+    "description": "Crafting decorative windows from colored glass, particularly for cathedrals and churches, used to depict religious narratives.",
     "prerequisites": [
       "glassmaking",
       "gothic_architecture",
@@ -119,24 +154,38 @@
     ]
   },
   {
+    "id": "monasticism_and_scriptoria",
+    "name": "Monasticism and Scriptoriums",
+    "era": "Medieval",
+    "description": "Establishment of religious communities (monasteries) that became centers of learning, agriculture, and knowledge preservation through the copying of manuscripts in dedicated writing rooms (scriptoria).",
+    "prerequisites": [
+      "philosophy",
+      "writing",
+      "codex_early_book_form",
+      "agriculture",
+      "herbalism"
+    ]
+  },
+  {
     "id": "universities",
     "name": "Universities",
     "era": "Medieval",
-    "description": "Institutions of higher learning, growing out of cathedral schools and fostering advanced scholarship.",
+    "description": "Institutions of higher learning, growing out of cathedral schools and monastic centers, fostering advanced scholarship in theology, law, and medicine.",
     "prerequisites": [
       "philosophy",
       "writing",
       "libraries",
       "mathematics",
       "codified_law",
-      "algebra_basic"
+      "algebra_basic",
+      "monasticism_and_scriptoria"
     ]
   },
   {
     "id": "scholasticism",
     "name": "Scholasticism",
     "era": "Medieval",
-    "description": "Method of critical thought which dominated teaching in medieval universities, emphasizing dialectical reasoning to resolve contradictions.",
+    "description": "Method of critical thought which dominated teaching in medieval universities, emphasizing dialectical reasoning to resolve contradictions between authoritative texts.",
     "prerequisites": [
       "universities",
       "philosophy",
@@ -148,7 +197,7 @@
     "id": "university_degrees",
     "name": "University Degrees",
     "era": "Medieval",
-    "description": "Formal qualifications awarded by universities, signifying mastery in specific fields of study.",
+    "description": "Formal qualifications (Bachelor, Master, Doctorate) awarded by universities, signifying mastery in specific fields of study.",
     "prerequisites": [
       "universities",
       "scholasticism",
@@ -159,7 +208,7 @@
     "id": "gunpowder",
     "name": "Gunpowder",
     "era": "Medieval",
-    "description": "Explosive mixture of sulfur, charcoal, and potassium nitrate used in early firearms and cannons.",
+    "description": "Explosive mixture of sulfur, charcoal, and potassium nitrate (saltpeter) used in early firearms and cannons.",
     "prerequisites": [
       "mining",
       "basic_chemistry",
@@ -170,25 +219,38 @@
     "id": "early_medicine",
     "name": "Early Medicine",
     "era": "Medieval",
-    "description": "Medical practice based on classical texts (humorism), herbal remedies, and limited surgical practices, often practiced in monasteries.",
+    "description": "Medical practice based on classical texts (humorism), herbal remedies, and limited surgical practices, often practiced in monasteries and by lay healers.",
     "prerequisites": [
       "writing",
       "alchemy",
       "herbalism",
       "philosophy",
       "anatomy_early_studies",
-      "universities",
+      "monasticism_and_scriptoria",
       "primitive_surgery_trepanation"
+    ]
+  },
+  {
+    "id": "university_medical_studies",
+    "name": "University Medical Studies",
+    "era": "Medieval",
+    "description": "Formalized medical education within universities, based on the study of classical texts like Galen and Avicenna, combined with scholastic debate and limited dissections.",
+    "prerequisites": [
+      "early_medicine",
+      "universities",
+      "scholasticism",
+      "anatomy_early_studies",
+      "distillation_advanced"
     ]
   },
   {
     "id": "hospitals_early",
     "name": "Early Hospitals",
     "era": "Medieval",
-    "description": "Establishment of institutions dedicated to caring for the sick and infirm, often with religious affiliations.",
+    "description": "Establishment of institutions dedicated to caring for the sick, poor, and infirm, often with religious affiliations and providing hospice care.",
     "prerequisites": [
       "early_medicine",
-      "universities",
+      "monasticism_and_scriptoria",
       "herbalism",
       "construction",
       "codified_law"
@@ -198,19 +260,20 @@
     "id": "quarantine_public_health_measures",
     "name": "Quarantine & Public Health Measures",
     "era": "Medieval",
-    "description": "Isolation practices and early public health interventions to control spread of disease, notably during plagues.",
+    "description": "Isolation practices and early public health interventions to control spread of disease, notably the 40-day isolation (quarantena) for ships during plagues.",
     "prerequisites": [
       "early_medicine",
       "codified_law",
       "hospitals_early",
-      "bureaucracy"
+      "bureaucracy",
+      "portolan_charts_maritime_navigation"
     ]
   },
   {
     "id": "horse_collar",
     "name": "Horse Collar",
     "era": "Medieval",
-    "description": "Harness allowing horses to pull heavy loads efficiently without choking, revolutionizing agriculture and transport.",
+    "description": "Padded harness allowing horses to pull heavy loads efficiently without choking, revolutionizing agriculture and transport.",
     "prerequisites": [
       "animal_husbandry",
       "agriculture",
@@ -222,7 +285,7 @@
     "id": "horse_shoes",
     "name": "Horse Shoes",
     "era": "Medieval",
-    "description": "Iron shoes nailed to horses' hooves, providing protection and better traction.",
+    "description": "Iron shoes nailed to horses' hooves, providing protection from wear and better traction, crucial for both labor and military use.",
     "prerequisites": [
       "horseback_riding",
       "iron_working",
@@ -233,7 +296,7 @@
     "id": "heavy_plow_mouldboard",
     "name": "Heavy Plow (Mouldboard Plow)",
     "era": "Medieval",
-    "description": "Advanced plow with a mouldboard to turn over heavy European soils, significantly increasing agricultural productivity.",
+    "description": "Advanced wheeled plow with a mouldboard to turn over heavy, clay-rich European soils, significantly increasing agricultural productivity.",
     "prerequisites": [
       "agriculture",
       "iron_working",
@@ -246,7 +309,7 @@
     "id": "crop_rotation_three_field",
     "name": "Crop Rotation (Three-Field System)",
     "era": "Medieval",
-    "description": "Agricultural practice of rotating crops in three fields to improve soil fertility and yields.",
+    "description": "Agricultural practice of dividing land into three fields, rotating crops (e.g., wheat, beans, fallow) to improve soil fertility and increase yields by one-third over the two-field system.",
     "prerequisites": [
       "agriculture",
       "animal_husbandry",
@@ -255,21 +318,10 @@
     ]
   },
   {
-    "id": "four_field_crop_rotation",
-    "name": "Four-Field Crop Rotation",
-    "era": "Medieval",
-    "description": "Further advancement in crop rotation including fodder crops, enhancing soil fertility and livestock support.",
-    "prerequisites": [
-      "crop_rotation_three_field",
-      "agriculture",
-      "animal_husbandry"
-    ]
-  },
-  {
     "id": "stirrups",
     "name": "Stirrups",
     "era": "Medieval",
-    "description": "Device for securing a horseman's feet, enabling more stable riding and the effective use of lances in mounted combat.",
+    "description": "Device for securing a horseman's feet, enabling a more stable fighting platform for mounted combat with lances and swords.",
     "prerequisites": [
       "horseback_riding",
       "iron_working",
@@ -280,7 +332,7 @@
     "id": "advanced_metallurgy_medieval",
     "name": "Advanced Metallurgy (Medieval)",
     "era": "Medieval",
-    "description": "Improved techniques for smelting, forging, and heat-treating metals like steel.",
+    "description": "Improved techniques for smelting, forging, and heat-treating metals like steel, enabling the creation of stronger tools, weapons, and armor.",
     "prerequisites": [
       "iron_working",
       "bronze_working",
@@ -292,7 +344,7 @@
     "id": "watermills",
     "name": "Watermills",
     "era": "Medieval",
-    "description": "Using water power for grinding, sawing, and other industrial processes, becoming a key power source.",
+    "description": "Using water power for grinding grain (gristmills), sawing wood, and other industrial processes, becoming a key power source of the medieval economy.",
     "prerequisites": [
       "engineering",
       "wheel",
@@ -305,7 +357,7 @@
     "id": "blast_furnace",
     "name": "Blast Furnace",
     "era": "Medieval",
-    "description": "Furnace capable of producing large quantities of high-quality iron by using a continuous blast of air, often water-powered.",
+    "description": "A tall furnace capable of producing large quantities of high-quality cast iron by using a continuous blast of hot air, often powered by water-driven bellows.",
     "prerequisites": [
       "advanced_metallurgy_medieval",
       "iron_working",
@@ -317,7 +369,7 @@
     "id": "chainmail_armor_smithing",
     "name": "Chainmail Armor Smithing",
     "era": "Medieval",
-    "description": "Crafting flexible armor from interlinked metal rings, offering good protection against cutting weapons.",
+    "description": "Crafting flexible armor from interlinked and riveted iron rings, offering good protection against cutting and piercing weapons.",
     "prerequisites": [
       "iron_working",
       "advanced_metallurgy_medieval"
@@ -327,7 +379,7 @@
     "id": "plate_armor",
     "name": "Plate Armor",
     "era": "Medieval",
-    "description": "Full suits of articulated steel plate offering superior protection, made possible by advanced forging techniques.",
+    "description": "Full suits of articulated steel plate offering superior protection against a variety of weapons, made possible by advanced forging techniques and blast furnaces.",
     "prerequisites": [
       "blast_furnace",
       "advanced_metallurgy_medieval",
@@ -338,7 +390,7 @@
     "id": "heavy_cavalry",
     "name": "Heavy Cavalry",
     "era": "Medieval",
-    "description": "Mounted knights equipped with plate armor and lances, dominant in medieval warfare.",
+    "description": "Mounted knights equipped with plate armor, lances, and barded warhorses, forming the dominant shock troops of medieval warfare.",
     "prerequisites": [
       "stirrups",
       "plate_armor",
@@ -349,10 +401,21 @@
     ]
   },
   {
+    "id": "longbow",
+    "name": "Longbow",
+    "era": "Medieval",
+    "description": "A powerful type of tall bow, typically made from yew, capable of high rates of fire and great range, influential in late medieval warfare.",
+    "prerequisites": [
+      "bow_and_arrow",
+      "woodworking_basic",
+      "organized_military_formations"
+    ]
+  },
+  {
     "id": "crossbow",
     "name": "Crossbow",
     "era": "Medieval",
-    "description": "Mechanical bow that shoots bolts with great force, requiring less training than a longbow.",
+    "description": "A powerful mechanical bow that shoots bolts with great force, requiring less training than a longbow and capable of penetrating most armor of its time.",
     "prerequisites": [
       "crossbow_early_forms",
       "engineering",
@@ -363,7 +426,7 @@
     "id": "trebuchet_counterweight_siege_engine",
     "name": "Trebuchet (Counterweight Siege Engine)",
     "era": "Medieval",
-    "description": "Powerful siege engine using a counterweight to hurl large projectiles.",
+    "description": "The most powerful siege engine of the medieval period, using a massive counterweight to hurl large projectiles over long distances to batter down fortifications.",
     "prerequisites": [
       "siege_engineering",
       "engineering",
@@ -377,7 +440,7 @@
     "id": "windmills",
     "name": "Windmills",
     "era": "Medieval",
-    "description": "Harnessing wind power for grinding grain and pumping water, especially in areas without strong rivers.",
+    "description": "Harnessing wind power, typically with a post or tower design, for grinding grain and pumping water, especially in areas without strong rivers.",
     "prerequisites": [
       "engineering",
       "wheel",
@@ -386,10 +449,32 @@
     ]
   },
   {
+    "id": "spinning_wheel",
+    "name": "Spinning Wheel",
+    "era": "Medieval",
+    "description": "A device that mechanized the process of spinning fiber into thread or yarn, significantly increasing the productivity of textile manufacturing over the drop spindle.",
+    "prerequisites": [
+      "textiles_weaving",
+      "woodworking_basic",
+      "wheel"
+    ]
+  },
+  {
+    "id": "fulling_mills",
+    "name": "Fulling Mills",
+    "era": "Medieval",
+    "description": "The application of water-powered trip hammers to the fulling of cloth (cleansing and thickening), a key mechanization in the medieval textile industry.",
+    "prerequisites": [
+      "water_powered_trip_hammers_forges",
+      "textiles_weaving",
+      "guilds"
+    ]
+  },
+  {
     "id": "water_powered_trip_hammers_forges",
     "name": "Water-Powered Trip Hammers & Forges",
     "era": "Medieval",
-    "description": "Application of water power to operate heavy hammers for forging metal and other industrial tasks.",
+    "description": "Application of water power via cams and camshafts to operate heavy hammers for forging metal, fulling cloth, and other industrial tasks.",
     "prerequisites": [
       "watermills",
       "iron_working",
@@ -401,7 +486,7 @@
     "id": "mechanical_clocks",
     "name": "Mechanical Clocks",
     "era": "Medieval",
-    "description": "Weight-driven or spring-driven timekeeping devices with escapement mechanisms, often for public display in clock towers.",
+    "description": "Weight-driven timekeeping devices using a verge escapement mechanism, initially for public display in clock towers to regulate civic and religious life.",
     "prerequisites": [
       "engineering",
       "iron_working",
@@ -414,19 +499,20 @@
     "id": "spectacles_eyeglasses",
     "name": "Spectacles (Eyeglasses)",
     "era": "Medieval",
-    "description": "Lenses mounted in a frame to aid vision, initially for presbyopia, extending the working life of scholars and craftsmen.",
+    "description": "Convex lenses mounted in a frame to correct for presbyopia (farsightedness), dramatically extending the working life of scholars, scribes, and craftsmen.",
     "prerequisites": [
       "early_optics",
       "glassmaking",
       "bronze_working",
-      "iron_working"
+      "iron_working",
+      "universities"
     ]
   },
   {
     "id": "astrolabe_quadrant",
     "name": "Astrolabe & Quadrant",
     "era": "Medieval",
-    "description": "Navigational and astronomical instruments for measuring altitude of celestial bodies.",
+    "description": "Sophisticated navigational and astronomical instruments for measuring the altitude of celestial bodies to determine latitude and time.",
     "prerequisites": [
       "navigation",
       "bronze_working",
@@ -440,7 +526,7 @@
     "id": "compass",
     "name": "Compass",
     "era": "Medieval",
-    "description": "Magnetic device for determining direction, revolutionizing navigation.",
+    "description": "A dry-pivoted magnetic needle in a box with a compass card, allowing for reliable determination of direction and revolutionizing maritime navigation.",
     "prerequisites": [
       "navigation",
       "iron_working",
@@ -453,7 +539,7 @@
     "id": "portolan_charts_maritime_navigation",
     "name": "Portolan Charts & Maritime Navigation",
     "era": "Medieval",
-    "description": "Detailed nautical charts with rhumb lines, used with the compass for improved sea navigation.",
+    "description": "Highly accurate nautical charts with a grid of rhumb lines, used with the compass for precise sea navigation, especially in the Mediterranean.",
     "prerequisites": [
       "compass",
       "basic_cartography",
@@ -467,7 +553,7 @@
     "id": "lateen_sail_caravel",
     "name": "Lateen Sail & Caravel",
     "era": "Medieval",
-    "description": "Advanced ship designs like the caravel, incorporating triangular lateen sails for better maneuverability and sailing against the wind.",
+    "description": "Advanced ship designs like the caravel, combining square and triangular lateen sails for better maneuverability, sailing against the wind, and deep-sea voyages.",
     "prerequisites": [
       "sailing",
       "engineering",
@@ -482,7 +568,7 @@
     "id": "paper_making",
     "name": "Paper Making",
     "era": "Medieval",
-    "description": "Production of paper from pulp (rags, later wood), a cheaper and more versatile writing material than parchment.",
+    "description": "Production of paper from linen rag pulp, a cheaper and more versatile writing material than parchment, which spread from the Islamic world to Europe.",
     "prerequisites": [
       "writing",
       "basic_chemistry",
@@ -495,7 +581,7 @@
     "id": "book_binding_codex_production",
     "name": "Book Binding (Codex Production)",
     "era": "Medieval",
-    "description": "Techniques for assembling and binding paper pages into codices (books), replacing scrolls.",
+    "description": "Techniques for assembling and binding paper or vellum pages between hard covers to create codices (books), replacing scrolls for most uses.",
     "prerequisites": [
       "paper_making",
       "leather_working",
@@ -508,7 +594,7 @@
     "id": "fine_arts_medieval",
     "name": "Fine Arts (Medieval)",
     "era": "Medieval",
-    "description": "Development of artistic styles in painting, sculpture, and manuscript illumination characteristic of the medieval period.",
+    "description": "Development of artistic styles in painting (frescoes, panel painting), sculpture, and manuscript illumination characteristic of the Romanesque and Gothic periods.",
     "prerequisites": [
       "classical_sculpture",
       "pigment_creation",
@@ -521,20 +607,46 @@
     "id": "illuminated_manuscripts_scribal_art",
     "name": "Illuminated Manuscripts & Scribal Art",
     "era": "Medieval",
-    "description": "Elaborately decorated handwritten books, often with gold leaf and intricate illustrations, produced in scriptoriums.",
+    "description": "Elaborately decorated handwritten books, often with gold leaf (illumination) and intricate illustrations (miniatures), produced in monastic scriptoriums.",
     "prerequisites": [
       "book_binding_codex_production",
       "pigment_creation",
       "writing",
       "alchemy",
-      "fine_arts_medieval"
+      "fine_arts_medieval",
+      "monasticism_and_scriptoria"
+    ]
+  },
+  {
+    "id": "oil_based_inks",
+    "name": "Oil-Based Inks",
+    "era": "Medieval",
+    "description": "Development of inks using a drying oil (like linseed) as a binder, creating a durable, viscous medium suitable for printing on paper with metal type.",
+    "prerequisites": [
+      "pigment_creation",
+      "alchemy",
+      "distillation_advanced"
+    ]
+  },
+  {
+    "id": "printing_press_movable_type",
+    "name": "Printing Press (Movable Type)",
+    "era": "Medieval",
+    "description": "A machine for mass-producing texts using movable metal type, a screw press, and oil-based ink. A pivotal invention marking the end of the Middle Ages.",
+    "prerequisites": [
+      "paper_making",
+      "advanced_metallurgy_medieval",
+      "engineering",
+      "oil_based_inks",
+      "book_binding_codex_production",
+      "guilds"
     ]
   },
   {
     "id": "cannons",
     "name": "Cannons",
     "era": "Medieval",
-    "description": "Artillery pieces utilizing gunpowder to fire projectiles, challenging the dominance of fortifications.",
+    "description": "Early, large-caliber artillery pieces utilizing gunpowder to fire stone or iron projectiles, challenging the dominance of traditional fortifications.",
     "prerequisites": [
       "gunpowder",
       "bronze_working",
@@ -544,34 +656,72 @@
     ]
   },
   {
+    "id": "arquebus",
+    "name": "Arquebus",
+    "era": "Medieval",
+    "description": "An early type of long gun that used a matchlock firing mechanism, representing the first firearm portable and effective enough for widespread infantry use.",
+    "prerequisites": [
+      "gunpowder",
+      "cannons",
+      "advanced_metallurgy_medieval",
+      "mechanical_clocks"
+    ]
+  },
+  {
+    "id": "pike_and_shot_formation",
+    "name": "Pike and Shot Formation",
+    "era": "Medieval",
+    "description": "A tactical infantry formation combining pikemen for defense against cavalry with arquebusiers for ranged firepower, marking a shift away from knightly dominance.",
+    "prerequisites": [
+      "arquebus",
+      "longbow",
+      "organized_military_formations",
+      "advanced_metallurgy_medieval"
+    ]
+  },
+  {
     "id": "guilds",
     "name": "Guilds",
     "era": "Medieval",
-    "description": "Associations of artisans or merchants who oversee the practice of their craft/trade in a particular area, setting standards and prices.",
+    "description": "Associations of artisans or merchants who oversee the practice of their craft/trade in a particular area, setting standards for quality, prices, and training (apprenticeship).",
     "prerequisites": [
       "metal_coinage",
       "writing",
       "feudalism",
-      "urban_planning_grid_system"
+      "urban_planning_grid_system",
+      "codified_law"
+    ]
+  },
+  {
+    "id": "trade_fairs",
+    "name": "Trade Fairs",
+    "era": "Medieval",
+    "description": "Large, organized markets held at specific times of the year, attracting merchants from across regions to trade goods in bulk and settle accounts.",
+    "prerequisites": [
+      "guilds",
+      "metal_coinage",
+      "record_keeping",
+      "manorialism"
     ]
   },
   {
     "id": "trade_leagues",
     "name": "Trade Leagues",
     "era": "Medieval",
-    "description": "Formal alliances of merchant guilds and market towns (e.g., Hanseatic League) to protect mutual trading interests and dominate trade routes.",
+    "description": "Formal alliances of merchant guilds and market towns (e.g., the Hanseatic League) to protect mutual trading interests, monopolize trade routes, and wield political power.",
     "prerequisites": [
       "guilds",
       "lateen_sail_caravel",
       "codified_law",
-      "metal_coinage"
+      "metal_coinage",
+      "trade_fairs"
     ]
   },
   {
     "id": "guild_halls_trade_centers",
     "name": "Guild Halls & Trade Centers",
     "era": "Medieval",
-    "description": "Construction of dedicated buildings for guild activities, serving as centers for commerce and craft regulation.",
+    "description": "Construction of dedicated, often opulent buildings for guild activities, serving as centers for commerce, craft regulation, and civic pride.",
     "prerequisites": [
       "guilds",
       "construction",
@@ -583,7 +733,7 @@
     "id": "banking_early_forms",
     "name": "Banking (Early Forms)",
     "era": "Medieval",
-    "description": "Early financial practices like money lending, letters of credit by merchant families and religious orders.",
+    "description": "Early financial practices like money changing, money lending, and deposit holding by merchant families (e.g., the Medici) and religious orders (e.g., the Knights Templar).",
     "prerequisites": [
       "metal_coinage",
       "writing",
@@ -597,7 +747,7 @@
     "id": "bills_of_exchange_early_finance",
     "name": "Bills of Exchange & Early Finance",
     "era": "Medieval",
-    "description": "Financial instruments allowing for transfer of funds without physical currency, facilitating long-distance trade.",
+    "description": "Financial instruments allowing for transfer of funds without physically moving currency, a written order to pay a certain sum to a specific person, facilitating long-distance trade.",
     "prerequisites": [
       "banking_early_forms",
       "writing",
@@ -610,7 +760,7 @@
     "id": "legal_systems_common_civil",
     "name": "Legal Systems (Common/Civil Law)",
     "era": "Medieval",
-    "description": "Development of more formal and widespread legal frameworks influencing governance and society, based on precedent or statute.",
+    "description": "Development of more formal and widespread legal frameworks based on precedent (Common Law) or statute and revived Roman law (Civil Law).",
     "prerequisites": [
       "codified_law",
       "universities",
@@ -623,7 +773,7 @@
     "id": "legal_commentary_glossators",
     "name": "Legal Commentary (Glossators)",
     "era": "Medieval",
-    "description": "Scholarly analysis and interpretation of Roman law texts, contributing to the development of European legal thought.",
+    "description": "Scholarly analysis and interpretation of Roman law texts (Corpus Juris Civilis), adding explanatory notes (glosses) that became foundational to European legal thought.",
     "prerequisites": [
       "legal_systems_common_civil",
       "universities",
@@ -632,15 +782,63 @@
     ]
   },
   {
+    "id": "parliaments_estates_general",
+    "name": "Parliaments & Estates-General",
+    "era": "Medieval",
+    "description": "The emergence of representative assemblies (like the English Parliament or French Estates-General) where monarchs consulted with different social estates (clergy, nobility, commoners) on matters like taxation.",
+    "prerequisites": [
+      "feudalism",
+      "legal_systems_common_civil",
+      "guilds",
+      "codified_law"
+    ]
+  },
+  {
     "id": "heraldry",
     "name": "Heraldry",
     "era": "Medieval",
-    "description": "System of hereditary symbols (coats of arms) to identify individuals and families, particularly in warfare and society.",
+    "description": "A formal system of hereditary symbols (coats of arms) used to identify individuals, families, and lineages, particularly important for recognition in battle and tournaments.",
     "prerequisites": [
       "feudalism",
       "writing",
       "pigment_creation",
       "plate_armor",
+      "fine_arts_medieval"
+    ]
+  },
+  {
+    "id": "chivalry",
+    "name": "Chivalry",
+    "era": "Medieval",
+    "description": "An idealized code of conduct for the knightly class, combining martial prowess, Christian values, and courtly manners that shaped medieval literature and aristocratic culture.",
+    "prerequisites": [
+      "feudalism",
+      "heavy_cavalry",
+      "philosophy",
+      "heraldry",
+      "vernacular_literature_troubadours"
+    ]
+  },
+  {
+    "id": "vernacular_literature_troubadours",
+    "name": "Vernacular Literature & Troubadours",
+    "era": "Medieval",
+    "description": "The rise of literature written in common languages (not Latin), including epic poems, romances, and lyric poetry about courtly love performed by travelling minstrels (troubadours).",
+    "prerequisites": [
+      "writing",
+      "feudalism",
+      "musical_instruments_lyre_flute"
+    ]
+  },
+  {
+    "id": "musical_notation_polyphony",
+    "name": "Musical Notation & Polyphony",
+    "era": "Medieval",
+    "description": "The development of a system (staff notation) to write down music and the emergence of polyphony—music with multiple independent melodic lines—transforming Western music.",
+    "prerequisites": [
+      "writing",
+      "mathematics",
+      "monasticism_and_scriptoria",
       "fine_arts_medieval"
     ]
   }
