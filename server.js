@@ -3,25 +3,60 @@ const fs = require('fs');
 const path = require('path');
 
 const DATA_FILE = path.join(__dirname, 'tech-tree.json');
+const DATA_DIR = path.join(__dirname, 'data');
 
 function loadData() {
+    // Prefer split data files if available
+    if (fs.existsSync(DATA_DIR)) {
+        const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json'));
+        if (files.length) {
+            const combined = [];
+            for (const f of files) {
+                const p = path.join(DATA_DIR, f);
+                try {
+                    const chunk = JSON.parse(fs.readFileSync(p, 'utf8'));
+                    if (Array.isArray(chunk)) combined.push(...chunk);
+                } catch (e) {
+                    console.error('Failed to parse', p, e);
+                }
+            }
+            if (combined.length) return combined;
+        }
+    }
+    // Fallback to single JSON file
     if (fs.existsSync(DATA_FILE)) {
         return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
     }
+    // Fallback to bundled initial data
     let initial = [];
     try {
         initial = require('./tech-data.js');
     } catch (e) {
         console.error('Failed to load initial tech data:', e);
     }
-    fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2));
+    saveDataArray(initial);
     return initial;
 }
 
 let techData = loadData();
 
+function saveDataArray(data) {
+    if (!fs.existsSync(DATA_DIR)) {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    const byEra = {};
+    data.forEach(t => {
+        const key = (t.era || 'unknown').toLowerCase().replace(/\s+/g, '_');
+        (byEra[key] = byEra[key] || []).push(t);
+    });
+    for (const [era, arr] of Object.entries(byEra)) {
+        fs.writeFileSync(path.join(DATA_DIR, `${era}.json`), JSON.stringify(arr, null, 2));
+    }
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+}
+
 function saveData() {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(techData, null, 2));
+    saveDataArray(techData);
 }
 
 function serveStatic(req, res) {
