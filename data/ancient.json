@@ -59,8 +59,7 @@
     "prerequisites": [
       "persistence_hunting",
       "foraging_and_botany",
-      "stone_tool_making",
-      "fire_control"
+      "stone_tool_making"
     ]
   },
   {
@@ -110,7 +109,7 @@
     "description": "Construction of rudimentary shelters like lean-tos from wood, bone, and hides for protection from elements.",
     "prerequisites": [
       "woodworking_basic",
-      "stone_tool_making"
+      "bone_tool_making"
     ]
   },
   {
@@ -136,6 +135,16 @@
     ]
   },
   {
+    "id": "mythology_and_cosmology",
+    "name": "Mythology & Cosmology",
+    "era": "Ancient",
+    "description": "Complex narratives explaining the origin of the world, natural phenomena, and the place of humanity within the cosmos.",
+    "prerequisites": [
+      "early_symbolic_communication",
+      "shamanism_animism"
+    ]
+  },
+  {
     "id": "tally_marks",
     "name": "Tally Marks",
     "era": "Ancient",
@@ -146,13 +155,23 @@
     ]
   },
   {
+    "id": "ancestor_worship",
+    "name": "Ancestor Worship",
+    "era": "Ancient",
+    "description": "Ritualistic veneration of deceased relatives, who are believed to hold influence over the fortunes of the living.",
+    "prerequisites": [
+      "kinship_systems",
+      "shamanism_animism"
+    ]
+  },
+  {
     "id": "ritual_burial_practices",
     "name": "Ritual Burial Practices",
     "era": "Ancient",
     "description": "Development of formal practices for interring the dead, often involving grave goods and symbolic acts, indicating abstract belief systems.",
     "prerequisites": [
       "early_symbolic_communication",
-      "shamanism_animism",
+      "ancestor_worship",
       "tribalism"
     ]
   },
@@ -204,8 +223,7 @@
     "era": "Ancient",
     "description": "A spear-thrower that increases the range and velocity of darts, a significant hunting and military innovation.",
     "prerequisites": [
-      "composite_tools",
-      "woodworking_basic"
+      "composite_tools"
     ]
   },
   {
@@ -274,14 +292,24 @@
     ]
   },
   {
+    "id": "hide_processing",
+    "name": "Hide Processing",
+    "era": "Ancient",
+    "description": "The basic craft of scraping and preparing animal hides for use as simple clothing, shelter covers, or containers.",
+    "prerequisites": [
+      "advanced_hunting_gathering",
+      "advanced_stone_tools"
+    ]
+  },
+  {
     "id": "leather_working",
     "name": "Leather Working",
     "era": "Ancient",
-    "description": "Processing animal hides into leather for clothing, shelter, and containers using tanning agents.",
+    "description": "Processing animal hides into durable, flexible leather using vegetable or mineral tanning agents.",
     "prerequisites": [
-      "animal_domestication",
-      "fire_control",
-      "advanced_stone_tools"
+      "hide_processing",
+      "foraging_and_botany",
+      "fire_control"
     ]
   },
   {
@@ -301,8 +329,7 @@
     "description": "Crafting hooks from bone or wood and nets from fiber for efficient fishing.",
     "prerequisites": [
       "bone_tool_making",
-      "basic_weaving_basketry",
-      "basic_rope_making"
+      "basic_weaving_basketry"
     ]
   },
   {
@@ -328,6 +355,16 @@
     ]
   },
   {
+    "id": "village_settlements",
+    "name": "Village Settlements",
+    "era": "Ancient",
+    "description": "The establishment of permanent or semi-permanent settlements, enabled by horticulture and early food production.",
+    "prerequisites": [
+      "horticulture",
+      "basic_shelter"
+    ]
+  },
+  {
     "id": "agriculture",
     "name": "Agriculture",
     "era": "Ancient",
@@ -335,7 +372,8 @@
     "prerequisites": [
       "plant_domestication",
       "animal_domestication",
-      "composite_tools"
+      "composite_tools",
+      "village_settlements"
     ]
   },
   {
@@ -391,6 +429,16 @@
     ]
   },
   {
+    "id": "chieftainship",
+    "name": "Chieftainship",
+    "era": "Ancient",
+    "description": "A form of hierarchical political organization in non-industrial societies usually based on kinship, where formal leadership is monopolized by a senior member of a select family.",
+    "prerequisites": [
+      "tribalism",
+      "property_concepts"
+    ]
+  },
+  {
     "id": "social_stratification",
     "name": "Social Stratification",
     "era": "Ancient",
@@ -398,7 +446,17 @@
     "prerequisites": [
       "agriculture",
       "property_concepts",
-      "tribalism"
+      "chieftainship"
+    ]
+  },
+  {
+    "id": "labor_specialization",
+    "name": "Labor Specialization",
+    "era": "Ancient",
+    "description": "The division of tasks in a society that allows individuals to specialize in specific types of work, such as farming, pottery, or smithing, driven by food surpluses.",
+    "prerequisites": [
+      "agriculture",
+      "pottery"
     ]
   },
   {
@@ -427,7 +485,6 @@
     "era": "Ancient",
     "description": "Methods of preserving food through drying with sun/fire or using salt, extending food availability and enabling trade.",
     "prerequisites": [
-      "fire_control",
       "agriculture",
       "salt_harvesting"
     ]
@@ -465,6 +522,15 @@
     ]
   },
   {
+    "id": "pastoralism",
+    "name": "Pastoralism",
+    "era": "Ancient",
+    "description": "A subsistence strategy based on herding large groups of domesticated animals, often involving a nomadic or semi-nomadic lifestyle.",
+    "prerequisites": [
+      "animal_husbandry"
+    ]
+  },
+  {
     "id": "fermentation_basic",
     "name": "Basic Fermentation",
     "era": "Ancient",
@@ -476,6 +542,17 @@
     ]
   },
   {
+    "id": "cheese_and_yogurt_making",
+    "name": "Cheese and Yogurt Making",
+    "era": "Ancient",
+    "description": "Developing techniques to preserve milk and create new food products by controlled curdling and fermentation.",
+    "prerequisites": [
+      "animal_husbandry",
+      "pottery",
+      "salt_harvesting"
+    ]
+  },
+  {
     "id": "textiles_weaving",
     "name": "Textiles & Weaving",
     "era": "Ancient",
@@ -484,6 +561,16 @@
       "plant_domestication",
       "animal_husbandry",
       "basic_weaving_basketry"
+    ]
+  },
+  {
+    "id": "natural_dyes",
+    "name": "Natural Dyes",
+    "era": "Ancient",
+    "description": "The extraction and use of colorants from plants, minerals, and insects to dye textiles.",
+    "prerequisites": [
+      "textiles_weaving",
+      "herbalism"
     ]
   },
   {
@@ -524,8 +611,10 @@
     "description": "Harnessing wind power with simple square sails made from hides or textiles for navigation.",
     "prerequisites": [
       "early_boats",
+      "basic_boat_propulsion",
       "loom",
-      "basic_boat_propulsion"
+      "leather_working",
+      "basic_rope_making"
     ]
   },
   {
@@ -546,7 +635,7 @@
     "description": "The direct exchange of goods and services for other goods and services without a medium of exchange.",
     "prerequisites": [
       "record_keeping",
-      "tribalism"
+      "labor_specialization"
     ]
   },
   {
@@ -556,8 +645,18 @@
     "description": "Establishment of regional land and sea networks for bartering, exchanging surplus goods and rare materials over long distances.",
     "prerequisites": [
       "barter",
-      "animal_husbandry",
+      "pastoralism",
       "sailing"
+    ]
+  },
+  {
+    "id": "proto_currency",
+    "name": "Proto-Currency",
+    "era": "Ancient",
+    "description": "The use of shells, beads, or valuable materials like salt or obsidian as a standardized medium of exchange to simplify trade.",
+    "prerequisites": [
+      "barter",
+      "trade_routes"
     ]
   },
   {
@@ -567,7 +666,7 @@
     "description": "Systematic observation of celestial bodies (sun, moon, stars) for timekeeping, navigation, and ritual.",
     "prerequisites": [
       "record_keeping",
-      "oral_tradition_storytelling"
+      "mythology_and_cosmology"
     ]
   },
   {
@@ -577,8 +676,7 @@
     "description": "Creation of stories and patterns based on celestial observations, forming early cosmologies and mnemonic aids.",
     "prerequisites": [
       "early_astronomy_observation",
-      "shamanism_animism",
-      "early_symbolic_communication"
+      "mythology_and_cosmology"
     ]
   },
   {
@@ -687,6 +785,16 @@
     ]
   },
   {
+    "id": "mud_brick_sun_dried",
+    "name": "Mud Brick (Sun-Dried)",
+    "era": "Ancient",
+    "description": "Forming bricks from a mixture of mud and organic material (like straw), then drying them in the sun. A primary building material in arid climates.",
+    "prerequisites": [
+      "village_settlements",
+      "clay_gathering_and_preparation"
+    ]
+  },
+  {
     "id": "wattle_and_daub",
     "name": "Wattle and Daub",
     "era": "Ancient",
@@ -705,7 +813,7 @@
     "prerequisites": [
       "pottery",
       "masonry",
-      "wattle_and_daub"
+      "mud_brick_sun_dried"
     ]
   },
   {
@@ -726,7 +834,7 @@
     "description": "Controlled water management through canals and channels to support large-scale agriculture in arid regions.",
     "prerequisites": [
       "agriculture",
-      "masonry",
+      "labor_specialization",
       "social_stratification"
     ]
   },
@@ -739,6 +847,16 @@
       "agriculture",
       "woodworking_basic",
       "animal_husbandry"
+    ]
+  },
+  {
+    "id": "crop_rotation_and_fallowing",
+    "name": "Crop Rotation & Fallowing",
+    "era": "Ancient",
+    "description": "Improving soil fertility and crop yields by rotating different types of crops or leaving fields unplanted for a season.",
+    "prerequisites": [
+      "plow",
+      "calendars"
     ]
   },
   {
@@ -792,16 +910,6 @@
     ]
   },
   {
-    "id": "tin_working",
-    "name": "Tin Working",
-    "era": "Ancient",
-    "description": "The extraction and working of tin, a rare but essential component for creating bronze, often requiring long-distance trade.",
-    "prerequisites": [
-      "smelting_basic",
-      "trade_routes"
-    ]
-  },
-  {
     "id": "casting_and_molding",
     "name": "Casting and Molding",
     "era": "Ancient",
@@ -809,6 +917,26 @@
     "prerequisites": [
       "copper_working",
       "pottery"
+    ]
+  },
+  {
+    "id": "gold_and_silver_working",
+    "name": "Gold and Silver Working",
+    "era": "Ancient",
+    "description": "Working with native precious metals like gold and silver for ornamentation, ritual objects, and as a store of value.",
+    "prerequisites": [
+      "casting_and_molding",
+      "prospecting"
+    ]
+  },
+  {
+    "id": "tin_working",
+    "name": "Tin Working",
+    "era": "Ancient",
+    "description": "The extraction and working of tin, a rare but essential component for creating bronze, often requiring long-distance trade.",
+    "prerequisites": [
+      "smelting_basic",
+      "trade_routes"
     ]
   },
   {
@@ -835,12 +963,21 @@
     ]
   },
   {
+    "id": "forging_and_smithing",
+    "name": "Forging and Smithing",
+    "era": "Ancient",
+    "description": "The art of shaping metal by heating it and then hammering it, allowing for the creation of stronger, more refined tools and weapons.",
+    "prerequisites": [
+      "bronze_working"
+    ]
+  },
+  {
     "id": "iron_working",
     "name": "Iron Working",
     "era": "Ancient",
     "description": "Smelting iron from ore at very high temperatures to produce bloom, which is then forged into a stronger, more abundant metal than bronze.",
     "prerequisites": [
-      "bronze_working",
+      "forging_and_smithing",
       "early_alchemy_material_science"
     ]
   },
@@ -856,6 +993,17 @@
     ]
   },
   {
+    "id": "urbanization",
+    "name": "Urbanization",
+    "era": "Ancient",
+    "description": "The growth of large, dense population centers (cities) with complex social structures and monumental architecture.",
+    "prerequisites": [
+      "social_stratification",
+      "irrigation",
+      "fired_bricks_early_kilns"
+    ]
+  },
+  {
     "id": "writing",
     "name": "Writing",
     "era": "Ancient",
@@ -863,7 +1011,113 @@
     "prerequisites": [
       "proto_writing",
       "calendars",
-      "social_stratification"
+      "urbanization"
+    ]
+  },
+  {
+    "id": "customary_law",
+    "name": "Customary Law",
+    "era": "Ancient",
+    "description": "Systems of established rules, orally transmitted, that govern social behavior, property disputes, and criminal acts within a society.",
+    "prerequisites": [
+      "writing",
+      "chieftainship"
+    ]
+  },
+  {
+    "id": "standardized_weights_and_measures",
+    "name": "Standardized Weights and Measures",
+    "era": "Ancient",
+    "description": "The creation of uniform standards for weight, volume, and length to facilitate fair trade, taxation, and large-scale construction.",
+    "prerequisites": [
+      "trade_routes",
+      "writing"
+    ]
+  },
+  {
+    "id": "taxation_and_tribute",
+    "name": "Taxation and Tribute",
+    "era": "Ancient",
+    "description": "Systematic collection of goods, grain, or labor by a central authority to fund the state, its army, and public works.",
+    "prerequisites": [
+      "bureaucracy",
+      "standardized_weights_and_measures"
+    ]
+  },
+  {
+    "id": "city_states",
+    "name": "City-States",
+    "era": "Ancient",
+    "description": "A political structure where a single city and its surrounding territory forms an independent state with its own government and military.",
+    "prerequisites": [
+      "urbanization",
+      "taxation_and_tribute",
+      "early_fortifications"
+    ]
+  },
+  {
+    "id": "basic_geometry_and_surveying",
+    "name": "Basic Geometry and Surveying",
+    "era": "Ancient",
+    "description": "Practical application of geometric principles for surveying land (especially after floods), planning irrigation, and laying out foundations for large buildings.",
+    "prerequisites": [
+      "irrigation",
+      "megalithic_construction",
+      "writing"
+    ]
+  },
+  {
+    "id": "basic_arithmetic",
+    "name": "Basic Arithmetic",
+    "era": "Ancient",
+    "description": "Development of number systems (like sexagesimal or decimal) and operations for accounting, trade, and engineering.",
+    "prerequisites": [
+      "writing",
+      "standardized_weights_and_measures"
+    ]
+  },
+  {
+    "id": "libraries_and_archives",
+    "name": "Libraries and Archives",
+    "era": "Ancient",
+    "description": "The establishment of dedicated locations for the storage and retrieval of written records, religious texts, and literature on clay tablets or scrolls.",
+    "prerequisites": [
+      "bureaucracy",
+      "writing"
+    ]
+  },
+  {
+    "id": "chariot",
+    "name": "Chariot",
+    "era": "Ancient",
+    "description": "A light, two-wheeled vehicle pulled by horses, used as a prestigious and powerful platform for archery and warfare.",
+    "prerequisites": [
+      "wheeled_vehicles",
+      "horseback_riding",
+      "bronze_working",
+      "archery"
+    ]
+  },
+  {
+    "id": "organized_warfare",
+    "name": "Organized Warfare",
+    "era": "Ancient",
+    "description": "The conduct of war using trained, disciplined bodies of soldiers with standardized equipment and basic tactical formations.",
+    "prerequisites": [
+      "city_states",
+      "iron_working",
+      "chariot"
+    ]
+  },
+  {
+    "id": "sewers_and_drainage",
+    "name": "Sewers and Drainage",
+    "era": "Ancient",
+    "description": "The construction of underground channels and pipes to carry away waste and stormwater, essential for public health in dense cities.",
+    "prerequisites": [
+      "urbanization",
+      "masonry",
+      "basic_geometry_and_surveying"
     ]
   }
 ]
