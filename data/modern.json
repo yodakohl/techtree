@@ -1,35 +1,9 @@
 [
   {
-    "id": "material_science_lightweight_alloys",
-    "name": "Material Science (Lightweight Alloys)",
-    "era": "Modern",
-    "description": "Development of strong, lightweight metal alloys, particularly aluminum and titanium based, for aerospace and other applications.",
-    "prerequisites": [
-      "advanced_metallurgy_medieval",
-      "aluminum_production_hall_heroult",
-      "advanced_chemistry",
-      "steel_production",
-      "scientific_method"
-    ]
-  },
-  {
-    "id": "precision_mechanics_miniaturization",
-    "name": "Precision Mechanics & Miniaturization",
-    "era": "Modern",
-    "description": "Engineering of highly precise and small-scale mechanical components and systems.",
-    "prerequisites": [
-      "clockwork_mechanisms",
-      "mass_production",
-      "material_science_lightweight_alloys",
-      "steel_production",
-      "electric_motor"
-    ]
-  },
-  {
     "id": "relativity_special_general",
     "name": "Relativity (Special & General)",
     "era": "Modern",
-    "description": "Einstein's theories revolutionizing understanding of space, time, gravity, and the universe.",
+    "description": "Einstein's theories revolutionizing understanding of space, time, gravity, and the universe, essential for technologies like GPS.",
     "prerequisites": [
       "electromagnetism_maxwell",
       "mathematics",
@@ -57,16 +31,29 @@
     ]
   },
   {
-    "id": "superconductors_early",
-    "name": "Superconductors (Early)",
+    "id": "isotope_separation",
+    "name": "Isotope Separation",
     "era": "Modern",
-    "description": "Discovery and initial applications of materials with zero electrical resistance at very low temperatures.",
+    "description": "The process of concentrating specific isotopes of a chemical element by separating them from other isotopes, critical for nuclear applications.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "quantum_physics",
+      "engineering",
+      "electricity"
+    ]
+  },
+  {
+    "id": "nuclear_fission",
+    "name": "Nuclear Fission",
+    "era": "Modern",
+    "description": "Splitting of atomic nuclei, releasing vast amounts of energy.",
     "prerequisites": [
       "quantum_physics",
+      "scientific_method",
       "advanced_chemistry",
-      "electricity",
-      "refrigeration",
-      "scientific_method"
+      "engineering",
+      "relativity_special_general",
+      "isotope_separation"
     ]
   },
   {
@@ -81,6 +68,176 @@
       "electromagnetism_maxwell",
       "vacuum_technology_early",
       "superconductors_early"
+    ]
+  },
+  {
+    "id": "plasma_physics",
+    "name": "Plasma Physics",
+    "era": "Modern",
+    "description": "Study of the fourth state of matter (plasma), crucial for fusion research and astrophysics.",
+    "prerequisites": [
+      "quantum_physics",
+      "electromagnetism_maxwell",
+      "thermodynamics",
+      "mathematics"
+    ]
+  },
+  {
+    "id": "nuclear_fusion_research",
+    "name": "Nuclear Fusion Research",
+    "era": "Modern",
+    "description": "Theoretical and experimental efforts to harness nuclear fusion energy, primarily through tokamaks and stellarators.",
+    "prerequisites": [
+      "nuclear_fission",
+      "quantum_physics",
+      "engineering",
+      "particle_accelerators",
+      "superconductors_early",
+      "plasma_physics"
+    ]
+  },
+  {
+    "id": "catalysis",
+    "name": "Catalysis",
+    "era": "Modern",
+    "description": "The study and application of catalysts to increase the rate of chemical reactions, fundamental to industrial chemistry.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "thermodynamics",
+      "scientific_method"
+    ]
+  },
+  {
+    "id": "polymer_chemistry",
+    "name": "Polymer Chemistry",
+    "era": "Modern",
+    "description": "A sub-discipline of chemistry that focuses on the chemical synthesis, structure, and chemical/physical properties of polymers and macromolecules.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "scientific_method",
+      "catalysis"
+    ]
+  },
+  {
+    "id": "synthetic_materials_advanced",
+    "name": "Advanced Synthetic Materials",
+    "era": "Modern",
+    "description": "Development of high-performance synthetic materials like nylon, teflon, and kevlar through polymer chemistry.",
+    "prerequisites": [
+      "plastics",
+      "advanced_chemistry",
+      "scientific_method",
+      "mass_production",
+      "polymer_chemistry"
+    ]
+  },
+  {
+    "id": "composite_materials_carbon_fiber",
+    "name": "Composite Materials (Carbon Fiber)",
+    "era": "Modern",
+    "description": "Materials made from two or more constituent materials with significantly different properties, such as carbon fiber-reinforced polymers, offering high strength-to-weight ratios.",
+    "prerequisites": [
+      "polymer_chemistry",
+      "synthetic_materials_advanced",
+      "engineering"
+    ]
+  },
+  {
+    "id": "nanotechnology_early",
+    "name": "Nanotechnology (Early Research)",
+    "era": "Modern",
+    "description": "The manipulation of matter on an atomic and molecular scale, laying the groundwork for future nanoscale engineering.",
+    "prerequisites": [
+      "quantum_physics",
+      "electron_microscope",
+      "advanced_chemistry",
+      "precision_mechanics_miniaturization"
+    ]
+  },
+  {
+    "id": "material_science_lightweight_alloys",
+    "name": "Material Science (Lightweight Alloys)",
+    "era": "Modern",
+    "description": "Development of strong, lightweight metal alloys, particularly aluminum and titanium based, for aerospace and other applications.",
+    "prerequisites": [
+      "advanced_metallurgy_medieval",
+      "aluminum_production_hall_heroult",
+      "advanced_chemistry",
+      "steel_production",
+      "scientific_method"
+    ]
+  },
+  {
+    "id": "furnace_technology_high_temp",
+    "name": "Furnace Technology (High Temperature)",
+    "era": "Modern",
+    "description": "Development of furnaces capable of achieving very high temperatures for material processing.",
+    "prerequisites": [
+      "blast_furnace",
+      "electricity",
+      "thermodynamics",
+      "advanced_chemistry"
+    ]
+  },
+  {
+    "id": "filters_membranes_early",
+    "name": "Filters & Membranes (Early)",
+    "era": "Modern",
+    "description": "Development of materials and techniques for selective separation of substances, e.g., for water purification or air filtering.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "textiles_weaving",
+      "paper_making",
+      "scientific_method"
+    ]
+  },
+  {
+    "id": "clean_rooms",
+    "name": "Clean Rooms",
+    "era": "Modern",
+    "description": "Controlled environments with low levels of pollutants, essential for manufacturing sensitive equipment like semiconductors and for scientific research.",
+    "prerequisites": [
+      "engineering",
+      "filters_membranes_early",
+      "aseptic_surgery",
+      "air_conditioning"
+    ]
+  },
+  {
+    "id": "crystal_growth_techniques",
+    "name": "Crystal Growth Techniques",
+    "era": "Modern",
+    "description": "Methods for producing high-purity single crystals, essential for semiconductors and other advanced materials.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "scientific_method",
+      "furnace_technology_high_temp"
+    ]
+  },
+  {
+    "id": "precision_mechanics_miniaturization",
+    "name": "Precision Mechanics & Miniaturization",
+    "era": "Modern",
+    "description": "Engineering of highly precise and small-scale mechanical components and systems.",
+    "prerequisites": [
+      "clockwork_mechanisms",
+      "mass_production",
+      "material_science_lightweight_alloys",
+      "steel_production",
+      "electric_motor"
+    ]
+  },
+  {
+    "id": "numerical_control_automated_machining",
+    "name": "Numerical Control (Automated Machining)",
+    "era": "Modern",
+    "description": "Automation of machine tools using programmed commands on punched tape, a precursor to CNC.",
+    "prerequisites": [
+      "computers_early",
+      "engineering",
+      "electric_motor",
+      "mass_production",
+      "precision_mechanics_miniaturization"
     ]
   },
   {
@@ -135,29 +292,6 @@
     ]
   },
   {
-    "id": "furnace_technology_high_temp",
-    "name": "Furnace Technology (High Temperature)",
-    "era": "Modern",
-    "description": "Development of furnaces capable of achieving very high temperatures for material processing.",
-    "prerequisites": [
-      "blast_furnace",
-      "electricity",
-      "thermodynamics",
-      "advanced_chemistry"
-    ]
-  },
-  {
-    "id": "crystal_growth_techniques",
-    "name": "Crystal Growth Techniques",
-    "era": "Modern",
-    "description": "Methods for producing high-purity single crystals, essential for semiconductors and other advanced materials.",
-    "prerequisites": [
-      "advanced_chemistry",
-      "scientific_method",
-      "furnace_technology_high_temp"
-    ]
-  },
-  {
     "id": "semiconductors",
     "name": "Semiconductors",
     "era": "Modern",
@@ -167,8 +301,8 @@
       "quantum_physics",
       "advanced_chemistry",
       "mining",
-      "scientific_method",
-      "crystal_growth_techniques"
+      "crystal_growth_techniques",
+      "clean_rooms"
     ]
   },
   {
@@ -204,7 +338,33 @@
       "transistors",
       "semiconductors",
       "photolithography",
+      "mass_production",
+      "clean_rooms"
+    ]
+  },
+  {
+    "id": "led_lighting_efficient_illumination",
+    "name": "LED Lighting (Efficient Illumination)",
+    "era": "Modern",
+    "description": "Light-emitting diodes used for general lighting, offering high efficiency and long lifespan.",
+    "prerequisites": [
+      "semiconductors",
+      "electronics",
+      "quantum_physics",
       "mass_production"
+    ]
+  },
+  {
+    "id": "liquid_crystal_displays_lcd_screens",
+    "name": "Liquid Crystal Displays (LCD Screens)",
+    "era": "Modern",
+    "description": "Flat-panel displays using the light-modulating properties of liquid crystals.",
+    "prerequisites": [
+      "electronics",
+      "advanced_chemistry",
+      "glassmaking",
+      "plastics",
+      "transistors"
     ]
   },
   {
@@ -218,355 +378,6 @@
       "scientific_method",
       "logarithms_calculus_early",
       "formal_logic_syllogism"
-    ]
-  },
-  {
-    "id": "microprocessors_cpu_on_a_chip",
-    "name": "Microprocessors (CPU on a Chip)",
-    "era": "Modern",
-    "description": "Central processing units fabricated on a single integrated circuit, enabling the personal computer revolution.",
-    "prerequisites": [
-      "integrated_circuits",
-      "algorithms_computation_theory",
-      "transistors"
-    ]
-  },
-  {
-    "id": "automobile",
-    "name": "Automobile",
-    "era": "Modern",
-    "description": "Self-propelled road vehicle powered by an internal combustion engine, enabling personal mobility on a mass scale.",
-    "prerequisites": [
-      "internal_combustion_engine",
-      "mass_production",
-      "steel_production",
-      "vulcanized_rubber",
-      "assembly_line",
-      "roads",
-      "petroleum_refining_fractional_distillation"
-    ]
-  },
-  {
-    "id": "flight_powered",
-    "name": "Flight (Powered)",
-    "era": "Modern",
-    "description": "Achieving sustained, controlled travel through the air with heavier-than-air craft.",
-    "prerequisites": [
-      "internal_combustion_engine",
-      "scientific_method",
-      "engineering",
-      "aerodynamics_subsonic",
-      "material_science_lightweight_alloys",
-      "textiles_weaving"
-    ]
-  },
-  {
-    "id": "jet_engine",
-    "name": "Jet Engine",
-    "era": "Modern",
-    "description": "Airbreathing engine that produces thrust from a fast-moving jet of hot gas.",
-    "prerequisites": [
-      "flight_powered",
-      "internal_combustion_engine",
-      "thermodynamics",
-      "advanced_metallurgy_medieval",
-      "material_science_lightweight_alloys"
-    ]
-  },
-  {
-    "id": "aerodynamics_supersonic",
-    "name": "Aerodynamics (Supersonic)",
-    "era": "Modern",
-    "description": "Study of air flow at speeds exceeding the speed of sound, crucial for high-performance aircraft and rocketry.",
-    "prerequisites": [
-      "flight_powered",
-      "mathematics",
-      "thermodynamics",
-      "scientific_method",
-      "jet_engine"
-    ]
-  },
-  {
-    "id": "jet_aircraft_high_speed_flight",
-    "name": "Jet Aircraft (High-Speed Flight)",
-    "era": "Modern",
-    "description": "Aircraft propelled by jet engines, enabling significantly faster and higher altitude flight.",
-    "prerequisites": [
-      "jet_engine",
-      "flight_powered",
-      "material_science_lightweight_alloys",
-      "aerodynamics_supersonic"
-    ]
-  },
-  {
-    "id": "helicopters_vertical_takeoff_landing_vtol",
-    "name": "Helicopters (Vertical Takeoff & Landing - VTOL)",
-    "era": "Modern",
-    "description": "Aircraft capable of vertical flight, hovering, and forward/backward movement using rotating blades.",
-    "prerequisites": [
-      "flight_powered",
-      "internal_combustion_engine",
-      "engineering",
-      "material_science_lightweight_alloys",
-      "precision_mechanics_miniaturization"
-    ]
-  },
-  {
-    "id": "telecommunications",
-    "name": "Telecommunications",
-    "era": "Modern",
-    "description": "Transmission of information over significant distances by electronic means (radio, television, telephone networks).",
-    "prerequisites": [
-      "electricity",
-      "telephone",
-      "electronics",
-      "electromagnetism_maxwell",
-      "radio_telegraphy_wireless_communication"
-    ]
-  },
-  {
-    "id": "radio",
-    "name": "Radio",
-    "era": "Modern",
-    "description": "Wireless transmission of audio signals using electromagnetic waves.",
-    "prerequisites": [
-      "telecommunications",
-      "electronics",
-      "electromagnetism_maxwell",
-      "vacuum_tubes_electron_control"
-    ]
-  },
-  {
-    "id": "radar_radio_detection_and_ranging",
-    "name": "Radar (Radio Detection and Ranging)",
-    "era": "Modern",
-    "description": "Using radio waves to determine the range, angle, or velocity of objects.",
-    "prerequisites": [
-      "radio",
-      "electronics",
-      "cathode_ray_tube_crt_displays",
-      "electromagnetism_maxwell"
-    ]
-  },
-  {
-    "id": "radio_broadcasting",
-    "name": "Radio Broadcasting",
-    "era": "Modern",
-    "description": "Mass distribution of audio content via radio waves to a wide audience.",
-    "prerequisites": [
-      "radio",
-      "mass_production",
-      "electronics",
-      "phonograph"
-    ]
-  },
-  {
-    "id": "television",
-    "name": "Television",
-    "era": "Modern",
-    "description": "System for transmitting visual images and sound that are reproduced on screens, creating a powerful mass medium.",
-    "prerequisites": [
-      "radio",
-      "electronics",
-      "cathode_ray_tube_crt_displays"
-    ]
-  },
-  {
-    "id": "synthetic_materials_advanced",
-    "name": "Advanced Synthetic Materials",
-    "era": "Modern",
-    "description": "Development of high-performance synthetic materials like nylon, teflon, and kevlar through polymer chemistry.",
-    "prerequisites": [
-      "plastics",
-      "advanced_chemistry",
-      "scientific_method",
-      "quantum_physics",
-      "mass_production"
-    ]
-  },
-  {
-    "id": "antibiotics",
-    "name": "Antibiotics",
-    "era": "Modern",
-    "description": "Drugs that kill or inhibit the growth of bacteria, revolutionizing medicine and public health.",
-    "prerequisites": [
-      "medicine_clinical",
-      "advanced_chemistry",
-      "scientific_method",
-      "germ_theory",
-      "mass_production"
-    ]
-  },
-  {
-    "id": "biochemistry",
-    "name": "Biochemistry",
-    "era": "Modern",
-    "description": "Study of chemical processes within and relating to living organisms.",
-    "prerequisites": [
-      "advanced_chemistry",
-      "medicine_clinical",
-      "microscope",
-      "scientific_method",
-      "genetics_mendel"
-    ]
-  },
-  {
-    "id": "plant_breeding_hybridization",
-    "name": "Plant Breeding & Hybridization",
-    "era": "Modern",
-    "description": "Systematic breeding of plants to develop improved varieties with desirable traits like higher yield or disease resistance.",
-    "prerequisites": [
-      "genetics_mendel",
-      "agriculture",
-      "scientific_method",
-      "statistics_advanced_data_analysis"
-    ]
-  },
-  {
-    "id": "green_revolution_agriculture",
-    "name": "Green Revolution",
-    "era": "Modern",
-    "description": "Set of research technology transfer initiatives increasing agricultural production worldwide, particularly with high-yield crop varieties.",
-    "prerequisites": [
-      "chemical_fertilizers",
-      "genetics_mendel",
-      "mass_production",
-      "irrigation",
-      "internal_combustion_engine",
-      "plant_breeding_hybridization"
-    ]
-  },
-  {
-    "id": "x_ray_crystallography",
-    "name": "X-ray Crystallography",
-    "era": "Modern",
-    "description": "Technique for determining the atomic and molecular structure of a crystal by analyzing diffraction patterns of X-rays.",
-    "prerequisites": [
-      "quantum_physics",
-      "photography",
-      "advanced_chemistry",
-      "mathematics",
-      "crystal_growth_techniques"
-    ]
-  },
-  {
-    "id": "dna_structure",
-    "name": "DNA Structure",
-    "era": "Modern",
-    "description": "Discovery of the double helix structure of deoxyribonucleic acid, the molecular basis of heredity.",
-    "prerequisites": [
-      "biochemistry",
-      "scientific_method",
-      "quantum_physics",
-      "genetics_mendel",
-      "x_ray_crystallography"
-    ]
-  },
-  {
-    "id": "immunology_advanced",
-    "name": "Advanced Immunology",
-    "era": "Modern",
-    "description": "Deeper understanding of the immune system, leading to advanced vaccines, autoimmune disease treatments, and transplantation.",
-    "prerequisites": [
-      "vaccination",
-      "antibiotics",
-      "medicine_clinical",
-      "biochemistry",
-      "dna_structure"
-    ]
-  },
-  {
-    "id": "organ_transplantation",
-    "name": "Organ Transplantation",
-    "era": "Modern",
-    "description": "Surgical procedures to replace failing organs with healthy ones from donors.",
-    "prerequisites": [
-      "aseptic_surgery",
-      "antibiotics",
-      "immunology_advanced",
-      "refrigeration",
-      "blood_circulation_harvey"
-    ]
-  },
-  {
-    "id": "medical_imaging_xray_mri",
-    "name": "Medical Imaging (X-ray, MRI, CT)",
-    "era": "Modern",
-    "description": "Technologies to visualize internal body structures for diagnosis and treatment.",
-    "prerequisites": [
-      "medicine_clinical",
-      "electricity",
-      "quantum_physics",
-      "computers_early",
-      "photography",
-      "superconductors_early"
-    ]
-  },
-  {
-    "id": "nuclear_fission",
-    "name": "Nuclear Fission",
-    "era": "Modern",
-    "description": "Splitting of atomic nuclei, releasing vast amounts of energy.",
-    "prerequisites": [
-      "quantum_physics",
-      "scientific_method",
-      "advanced_chemistry",
-      "engineering",
-      "particle_accelerators",
-      "relativity_special_general"
-    ]
-  },
-  {
-    "id": "nuclear_power",
-    "name": "Nuclear Power",
-    "era": "Modern",
-    "description": "Using controlled nuclear fission to produce electricity.",
-    "prerequisites": [
-      "nuclear_fission",
-      "engineering",
-      "steam_turbine_power_generation",
-      "thermodynamics",
-      "reinforced_concrete"
-    ]
-  },
-  {
-    "id": "liquid_fuel_propellants",
-    "name": "Liquid Fuel Propellants",
-    "era": "Modern",
-    "description": "Development of liquid chemical propellants for rockets, offering higher performance and control than solid fuels.",
-    "prerequisites": [
-      "advanced_chemistry",
-      "thermodynamics",
-      "engineering",
-      "petroleum_refining_fractional_distillation"
-    ]
-  },
-  {
-    "id": "rocketry",
-    "name": "Rocketry",
-    "era": "Modern",
-    "description": "Propulsion technology for reaching high altitudes and space using reaction engines.",
-    "prerequisites": [
-      "jet_engine",
-      "engineering",
-      "mathematics",
-      "advanced_chemistry",
-      "gunpowder",
-      "thermodynamics",
-      "liquid_fuel_propellants"
-    ]
-  },
-  {
-    "id": "nuclear_weapons",
-    "name": "Nuclear Weapons",
-    "era": "Modern",
-    "description": "Extremely destructive weapons powered by nuclear fission or fusion.",
-    "prerequisites": [
-      "nuclear_fission",
-      "engineering",
-      "advanced_chemistry",
-      "mass_production",
-      "rocketry"
     ]
   },
   {
@@ -597,16 +408,14 @@
     ]
   },
   {
-    "id": "information_theory",
-    "name": "Information Theory",
+    "id": "microprocessors_cpu_on_a_chip",
+    "name": "Microprocessors (CPU on a Chip)",
     "era": "Modern",
-    "description": "Mathematical study of the quantification, storage, and communication of digital information.",
+    "description": "Central processing units fabricated on a single integrated circuit, enabling the personal computer revolution.",
     "prerequisites": [
-      "mathematics",
-      "telecommunications",
+      "integrated_circuits",
       "algorithms_computation_theory",
-      "computers_early",
-      "statistics_advanced_data_analysis"
+      "transistors"
     ]
   },
   {
@@ -621,17 +430,6 @@
     ]
   },
   {
-    "id": "object_oriented_programming",
-    "name": "Object-Oriented Programming",
-    "era": "Modern",
-    "description": "A programming paradigm based on the concept of 'objects', which can contain data and code: a major evolution in software design.",
-    "prerequisites": [
-      "software_engineering",
-      "algorithms_computation_theory",
-      "personal_computers"
-    ]
-  },
-  {
     "id": "operating_systems_os_computer_management",
     "name": "Operating Systems (OS Computer Management)",
     "era": "Modern",
@@ -640,44 +438,6 @@
       "computers_early",
       "software_engineering",
       "algorithms_computation_theory"
-    ]
-  },
-  {
-    "id": "virtualization_early_vm_tech",
-    "name": "Virtualization (Early VM Tech)",
-    "era": "Modern",
-    "description": "Creation of virtual versions of computer hardware platforms, operating systems, or storage devices on a single physical machine.",
-    "prerequisites": [
-      "computers_early",
-      "operating_systems_os_computer_management",
-      "algorithms_computation_theory"
-    ]
-  },
-  {
-    "id": "databases_relational_dbms",
-    "name": "Databases (Relational DBMS)",
-    "era": "Modern",
-    "description": "Systems for organizing, storing, and retrieving large amounts of structured data using relational models.",
-    "prerequisites": [
-      "computers_early",
-      "software_engineering",
-      "algorithms_computation_theory",
-      "information_theory",
-      "mathematics"
-    ]
-  },
-  {
-    "id": "cybernetics",
-    "name": "Cybernetics",
-    "era": "Modern",
-    "description": "The study of control and communication in animals and machines, influencing AI and robotics.",
-    "prerequisites": [
-      "electronics",
-      "mathematics",
-      "engineering",
-      "psychology",
-      "information_theory",
-      "philosophy"
     ]
   },
   {
@@ -694,28 +454,14 @@
     ]
   },
   {
-    "id": "hard_disk_drives_magnetic_storage",
-    "name": "Hard Disk Drives (Magnetic Storage)",
+    "id": "object_oriented_programming",
+    "name": "Object-Oriented Programming",
     "era": "Modern",
-    "description": "Electro-mechanical data storage devices using magnetic storage on rotating platters.",
+    "description": "A programming paradigm based on the concept of 'objects', which can contain data and code: a major evolution in software design.",
     "prerequisites": [
-      "magnetic_tape_data_storage",
-      "electronics",
-      "personal_computers",
-      "precision_mechanics_miniaturization",
-      "electric_motor"
-    ]
-  },
-  {
-    "id": "solid_state_drives_ssd_flash_memory",
-    "name": "Solid State Drives (SSD Flash Memory)",
-    "era": "Modern",
-    "description": "Data storage devices using integrated circuit assemblies as memory to store data persistently, typically using flash memory.",
-    "prerequisites": [
-      "semiconductors",
-      "personal_computers",
-      "integrated_circuits",
-      "transistors"
+      "software_engineering",
+      "algorithms_computation_theory",
+      "personal_computers"
     ]
   },
   {
@@ -732,6 +478,18 @@
     ]
   },
   {
+    "id": "computer_graphics_3d",
+    "name": "3D Computer Graphics",
+    "era": "Modern",
+    "description": "Generating and displaying three-dimensional images in a two-dimensional space (like a screen), crucial for modern gaming, simulation, and design.",
+    "prerequisites": [
+      "graphical_user_interface_gui",
+      "personal_computers",
+      "geometry",
+      "algorithms_computation_theory"
+    ]
+  },
+  {
     "id": "computer_aided_design_cad_software",
     "name": "Computer-Aided Design (CAD Software)",
     "era": "Modern",
@@ -741,19 +499,6 @@
       "software_engineering",
       "graphical_user_interface_gui",
       "geometry"
-    ]
-  },
-  {
-    "id": "numerical_control_automated_machining",
-    "name": "Numerical Control (Automated Machining)",
-    "era": "Modern",
-    "description": "Automation of machine tools using programmed commands on punched tape, a precursor to CNC.",
-    "prerequisites": [
-      "computers_early",
-      "engineering",
-      "electric_motor",
-      "mass_production",
-      "precision_mechanics_miniaturization"
     ]
   },
   {
@@ -769,16 +514,87 @@
     ]
   },
   {
-    "id": "molecular_biology",
-    "name": "Molecular Biology",
+    "id": "3d_printing_additive_manufacturing",
+    "name": "3D Printing (Additive Manufacturing)",
     "era": "Modern",
-    "description": "The branch of biology that concerns the molecular basis of biological activity between biomolecules in the various systems of a cell.",
+    "description": "Constructing three-dimensional objects from a CAD model or digital 3D model, layer by layer.",
     "prerequisites": [
-      "dna_structure",
-      "biochemistry",
-      "microscope",
-      "scientific_method",
-      "quantum_physics"
+      "computer_aided_design_cad_software",
+      "robotics",
+      "polymer_chemistry",
+      "personal_computers"
+    ]
+  },
+  {
+    "id": "telecommunications",
+    "name": "Telecommunications",
+    "era": "Modern",
+    "description": "Transmission of information over significant distances by electronic means (radio, television, telephone networks).",
+    "prerequisites": [
+      "electricity",
+      "telephone",
+      "electronics",
+      "electromagnetism_maxwell",
+      "radio_telegraphy_wireless_communication"
+    ]
+  },
+  {
+    "id": "information_theory",
+    "name": "Information Theory",
+    "era": "Modern",
+    "description": "Mathematical study of the quantification, storage, and communication of digital information.",
+    "prerequisites": [
+      "mathematics",
+      "telecommunications",
+      "algorithms_computation_theory",
+      "computers_early",
+      "statistics_advanced_data_analysis"
+    ]
+  },
+  {
+    "id": "data_compression",
+    "name": "Data Compression",
+    "era": "Modern",
+    "description": "The process of encoding information using fewer bits than the original representation, crucial for storage and transmission.",
+    "prerequisites": [
+      "information_theory",
+      "algorithms_computation_theory"
+    ]
+  },
+  {
+    "id": "encryption_modern_cryptography_public_key",
+    "name": "Encryption (Modern Cryptography, Public Key)",
+    "era": "Modern",
+    "description": "Development of advanced cryptographic systems, including public-key cryptography, for secure communication.",
+    "prerequisites": [
+      "mathematics",
+      "algorithms_computation_theory",
+      "computers_early",
+      "information_theory"
+    ]
+  },
+  {
+    "id": "computer_networking",
+    "name": "Computer Networking",
+    "era": "Modern",
+    "description": "The practice of linking two or more computing devices together for the purpose of sharing data, forming local and wide area networks.",
+    "prerequisites": [
+      "telecommunications",
+      "computers_early",
+      "information_theory"
+    ]
+  },
+  {
+    "id": "internet_protocols_tcp_ip_arpanet",
+    "name": "Internet Protocols (TCP/IP, ARPANET)",
+    "era": "Modern",
+    "description": "Development of foundational communication protocols enabling computer networking, originating with ARPANET.",
+    "prerequisites": [
+      "computers_early",
+      "computer_networking",
+      "algorithms_computation_theory",
+      "information_theory",
+      "software_engineering"
     ]
   },
   {
@@ -818,137 +634,6 @@
     ]
   },
   {
-    "id": "digital_signal_processing",
-    "name": "Digital Signal Processing (DSP)",
-    "era": "Modern",
-    "description": "Manipulation of signals (audio, video, etc.) that have been converted into digital form.",
-    "prerequisites": [
-      "electronics",
-      "algorithms_computation_theory",
-      "information_theory",
-      "integrated_circuits"
-    ]
-  },
-  {
-    "id": "guidance_systems_early",
-    "name": "Guidance Systems (Early Inertial)",
-    "era": "Modern",
-    "description": "Systems using gyroscopes and accelerometers to navigate vehicles like missiles and spacecraft without external references.",
-    "prerequisites": [
-      "rocketry",
-      "electronics",
-      "precision_mechanics_miniaturization",
-      "computers_early",
-      "mathematics"
-    ]
-  },
-  {
-    "id": "space_flight",
-    "name": "Space Flight",
-    "era": "Modern",
-    "description": "Travel beyond Earth's atmosphere.",
-    "prerequisites": [
-      "rocketry",
-      "computers_early",
-      "electronics",
-      "synthetic_materials_advanced",
-      "radio",
-      "aerodynamics_supersonic",
-      "guidance_systems_early"
-    ]
-  },
-  {
-    "id": "solar_power",
-    "name": "Solar Power",
-    "era": "Modern",
-    "description": "Harnessing energy from sunlight to produce electricity using photovoltaic cells.",
-    "prerequisites": [
-      "electricity",
-      "scientific_method",
-      "electronics",
-      "semiconductors",
-      "quantum_physics"
-    ]
-  },
-  {
-    "id": "satellite_technology",
-    "name": "Satellite Technology",
-    "era": "Modern",
-    "description": "Use of artificial satellites for communication, observation, and navigation.",
-    "prerequisites": [
-      "space_flight",
-      "telecommunications",
-      "radio",
-      "solar_power",
-      "computers_early"
-    ]
-  },
-  {
-    "id": "weather_satellites_meteorological_observation",
-    "name": "Weather Satellites (Meteorological Observation)",
-    "era": "Modern",
-    "description": "Satellites equipped for observing Earth's weather patterns and climate from orbit.",
-    "prerequisites": [
-      "satellite_technology",
-      "photography",
-      "radio",
-      "computers_early",
-      "television"
-    ]
-  },
-  {
-    "id": "advanced_optics_space_based",
-    "name": "Advanced Optics (Space-Based)",
-    "era": "Modern",
-    "description": "Development of high-resolution optical systems for telescopes and surveillance in space.",
-    "prerequisites": [
-      "telescope",
-      "lasers",
-      "scientific_method",
-      "material_science_lightweight_alloys",
-      "computers_early"
-    ]
-  },
-  {
-    "id": "spy_satellites_reconnaissance_technology",
-    "name": "Spy Satellites (Reconnaissance Technology)",
-    "era": "Modern",
-    "description": "Satellites used for intelligence gathering through photographic and electronic surveillance.",
-    "prerequisites": [
-      "satellite_technology",
-      "photography",
-      "rocketry",
-      "radio",
-      "advanced_optics_space_based"
-    ]
-  },
-  {
-    "id": "artificial_satellites_geosynchronous",
-    "name": "Geosynchronous Satellites",
-    "era": "Modern",
-    "description": "Satellites in an orbit that matches Earth's rotation, appearing stationary for communications and broadcasting.",
-    "prerequisites": [
-      "satellite_technology",
-      "rocketry",
-      "telecommunications",
-      "solar_power",
-      "mathematics"
-    ]
-  },
-  {
-    "id": "internet_protocols_tcp_ip_arpanet",
-    "name": "Internet Protocols (TCP/IP, ARPANET)",
-    "era": "Modern",
-    "description": "Development of foundational communication protocols enabling computer networking, originating with ARPANET.",
-    "prerequisites": [
-      "computers_early",
-      "telecommunications",
-      "algorithms_computation_theory",
-      "information_theory",
-      "software_engineering"
-    ]
-  },
-  {
     "id": "internet",
     "name": "Internet",
     "era": "Modern",
@@ -957,7 +642,8 @@
       "personal_computers",
       "telecommunications",
       "fiber_optics",
-      "internet_protocols_tcp_ip_arpanet"
+      "internet_protocols_tcp_ip_arpanet",
+      "data_compression"
     ]
   },
   {
@@ -981,7 +667,703 @@
       "internet",
       "personal_computers",
       "graphical_user_interface_gui",
-      "hypertext_systems"
+      "hypertext_systems",
+      "data_compression"
+    ]
+  },
+  {
+    "id": "databases_relational_dbms",
+    "name": "Databases (Relational DBMS)",
+    "era": "Modern",
+    "description": "Systems for organizing, storing, and retrieving large amounts of structured data using relational models.",
+    "prerequisites": [
+      "computers_early",
+      "software_engineering",
+      "algorithms_computation_theory",
+      "information_theory",
+      "mathematics"
+    ]
+  },
+  {
+    "id": "data_centers_early",
+    "name": "Data Centers (Early)",
+    "era": "Modern",
+    "description": "Facilities housing computer systems and associated components, such as telecommunications and storage systems.",
+    "prerequisites": [
+      "computers_early",
+      "electrical_grid_early_distribution",
+      "refrigeration",
+      "engineering"
+    ]
+  },
+  {
+    "id": "virtualization_early_vm_tech",
+    "name": "Virtualization (Early VM Tech)",
+    "era": "Modern",
+    "description": "Creation of virtual versions of computer hardware platforms, operating systems, or storage devices on a single physical machine.",
+    "prerequisites": [
+      "computers_early",
+      "operating_systems_os_computer_management",
+      "algorithms_computation_theory"
+    ]
+  },
+  {
+    "id": "cloud_computing_distributed_systems",
+    "name": "Cloud Computing & Distributed Systems",
+    "era": "Modern",
+    "description": "Delivery of computing services—including servers, storage, databases, networking, software—over the Internet.",
+    "prerequisites": [
+      "internet",
+      "software_engineering",
+      "databases_relational_dbms",
+      "virtualization_early_vm_tech",
+      "data_centers_early"
+    ]
+  },
+  {
+    "id": "search_engines",
+    "name": "Search Engines",
+    "era": "Modern",
+    "description": "Software systems designed to carry out web searches, which means to search the World Wide Web in a systematic way for particular information.",
+    "prerequisites": [
+      "world_wide_web",
+      "databases_relational_dbms",
+      "algorithms_computation_theory",
+      "cloud_computing_distributed_systems"
+    ]
+  },
+  {
+    "id": "e-commerce",
+    "name": "E-commerce",
+    "era": "Modern",
+    "description": "The buying and selling of goods or services using the internet, and the transfer of money and data to execute these transactions.",
+    "prerequisites": [
+      "world_wide_web",
+      "databases_relational_dbms",
+      "encryption_modern_cryptography_public_key",
+      "logistics_supply_lines"
+    ]
+  },
+  {
+    "id": "social_media",
+    "name": "Social Media",
+    "era": "Modern",
+    "description": "Interactive technologies that facilitate the creation and sharing of information, ideas, and other forms of expression via virtual communities and networks.",
+    "prerequisites": [
+      "world_wide_web",
+      "smartphones",
+      "databases_relational_dbms",
+      "psychology"
+    ]
+  },
+  {
+    "id": "blockchain_cryptocurrency",
+    "name": "Blockchain & Cryptocurrency",
+    "era": "Modern",
+    "description": "A decentralized, distributed, and oftentimes public, digital ledger consisting of records called blocks that is used to record transactions across many computers.",
+    "prerequisites": [
+      "encryption_modern_cryptography_public_key",
+      "internet",
+      "personal_computers",
+      "databases_relational_dbms"
+    ]
+  },
+  {
+    "id": "cybernetics",
+    "name": "Cybernetics",
+    "era": "Modern",
+    "description": "The study of control and communication in animals and machines, influencing AI and robotics.",
+    "prerequisites": [
+      "electronics",
+      "mathematics",
+      "engineering",
+      "psychology",
+      "information_theory",
+      "philosophy"
+    ]
+  },
+  {
+    "id": "artificial_intelligence_early",
+    "name": "Artificial Intelligence (Early)",
+    "era": "Modern",
+    "description": "Machine systems capable of tasks requiring basic human-like intelligence (e.g., expert systems, symbolic reasoning, search algorithms).",
+    "prerequisites": [
+      "computers_early",
+      "mathematics",
+      "philosophy",
+      "algorithms_computation_theory",
+      "cybernetics",
+      "formal_logic_syllogism"
+    ]
+  },
+  {
+    "id": "machine_learning_early_algorithms",
+    "name": "Machine Learning (Early Algorithms)",
+    "era": "Modern",
+    "description": "Development of algorithms that allow computer systems to learn from data without being explicitly programmed (e.g. decision trees, support vector machines).",
+    "prerequisites": [
+      "artificial_intelligence_early",
+      "algorithms_computation_theory",
+      "personal_computers",
+      "statistics_advanced_data_analysis",
+      "information_theory"
+    ]
+  },
+  {
+    "id": "big_data_analytics_computational_statistics",
+    "name": "Big Data Analytics & Computational Statistics",
+    "era": "Modern",
+    "description": "Analyzing extremely large data sets to uncover patterns, correlations, and insights using advanced computational methods.",
+    "prerequisites": [
+      "internet",
+      "algorithms_computation_theory",
+      "databases_relational_dbms",
+      "statistics_advanced_data_analysis",
+      "machine_learning_early_algorithms",
+      "cloud_computing_distributed_systems"
+    ]
+  },
+  {
+    "id": "biochemistry",
+    "name": "Biochemistry",
+    "era": "Modern",
+    "description": "Study of chemical processes within and relating to living organisms.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "medicine_clinical",
+      "microscope",
+      "scientific_method",
+      "genetics_mendel"
+    ]
+  },
+  {
+    "id": "antibiotics",
+    "name": "Antibiotics",
+    "era": "Modern",
+    "description": "Drugs that kill or inhibit the growth of bacteria, revolutionizing medicine and public health.",
+    "prerequisites": [
+      "medicine_clinical",
+      "advanced_chemistry",
+      "scientific_method",
+      "germ_theory",
+      "mass_production"
+    ]
+  },
+  {
+    "id": "x_ray_crystallography",
+    "name": "X-ray Crystallography",
+    "era": "Modern",
+    "description": "Technique for determining the atomic and molecular structure of a crystal by analyzing diffraction patterns of X-rays.",
+    "prerequisites": [
+      "quantum_physics",
+      "photography",
+      "advanced_chemistry",
+      "mathematics",
+      "crystal_growth_techniques"
+    ]
+  },
+  {
+    "id": "dna_structure",
+    "name": "DNA Structure",
+    "era": "Modern",
+    "description": "Discovery of the double helix structure of deoxyribonucleic acid, the molecular basis of heredity.",
+    "prerequisites": [
+      "biochemistry",
+      "scientific_method",
+      "quantum_physics",
+      "genetics_mendel",
+      "x_ray_crystallography"
+    ]
+  },
+  {
+    "id": "molecular_biology",
+    "name": "Molecular Biology",
+    "era": "Modern",
+    "description": "The branch of biology that concerns the molecular basis of biological activity between biomolecules in the various systems of a cell.",
+    "prerequisites": [
+      "dna_structure",
+      "biochemistry",
+      "microscope",
+      "scientific_method",
+      "quantum_physics"
+    ]
+  },
+  {
+    "id": "pcr_polymerase_chain_reaction",
+    "name": "PCR (Polymerase Chain Reaction)",
+    "era": "Modern",
+    "description": "A revolutionary laboratory technique used to rapidly make millions to billions of copies of a specific DNA sample, enabling modern genetic analysis.",
+    "prerequisites": [
+      "molecular_biology",
+      "biochemistry",
+      "thermodynamics"
+    ]
+  },
+  {
+    "id": "dna_sequencing",
+    "name": "DNA Sequencing",
+    "era": "Modern",
+    "description": "Determining the precise order of nucleotides within a DNA molecule.",
+    "prerequisites": [
+      "dna_structure",
+      "personal_computers",
+      "advanced_chemistry",
+      "molecular_biology",
+      "pcr_polymerase_chain_reaction"
+    ]
+  },
+  {
+    "id": "recombinant_dna_genetic_engineering",
+    "name": "Recombinant DNA & Genetic Engineering",
+    "era": "Modern",
+    "description": "The technology of joining together DNA molecules from different species and inserting it into a host organism to produce new genetic combinations.",
+    "prerequisites": [
+      "dna_structure",
+      "molecular_biology",
+      "pcr_polymerase_chain_reaction"
+    ]
+  },
+  {
+    "id": "bioinformatics",
+    "name": "Bioinformatics",
+    "era": "Modern",
+    "description": "Application of computer science and statistics to biological data, especially genomics.",
+    "prerequisites": [
+      "dna_sequencing",
+      "personal_computers",
+      "algorithms_computation_theory",
+      "dna_structure",
+      "statistics_advanced_data_analysis"
+    ]
+  },
+  {
+    "id": "human_genome_project_dna_mapping",
+    "name": "Human Genome Project (DNA Mapping)",
+    "era": "Modern",
+    "description": "International research effort to determine the sequence of nucleotide base pairs that make up human DNA.",
+    "prerequisites": [
+      "dna_sequencing",
+      "bioinformatics",
+      "dna_structure",
+      "computers_early",
+      "robotics"
+    ]
+  },
+  {
+    "id": "immunology_advanced",
+    "name": "Advanced Immunology",
+    "era": "Modern",
+    "description": "Deeper understanding of the immune system, leading to advanced vaccines, autoimmune disease treatments, and transplantation.",
+    "prerequisites": [
+      "vaccination",
+      "antibiotics",
+      "medicine_clinical",
+      "biochemistry",
+      "dna_structure"
+    ]
+  },
+  {
+    "id": "monoclonal_antibodies",
+    "name": "Monoclonal Antibodies",
+    "era": "Modern",
+    "description": "Laboratory-produced molecules that serve as substitute antibodies, used for diagnostics and to treat diseases like cancer.",
+    "prerequisites": [
+      "immunology_advanced",
+      "biochemistry",
+      "cell_culture"
+    ]
+  },
+  {
+    "id": "vaccine_development_modern",
+    "name": "Modern Vaccine Development",
+    "era": "Modern",
+    "description": "Creation of vaccines (e.g., mRNA, viral vector) using advanced molecular biology and genetic engineering for rapid development and high efficacy.",
+    "prerequisites": [
+      "immunology_advanced",
+      "recombinant_dna_genetic_engineering",
+      "mass_production"
+    ]
+  },
+  {
+    "id": "gene_therapy_early",
+    "name": "Gene Therapy (Early)",
+    "era": "Modern",
+    "description": "Experimental techniques to treat or cure diseases by modifying an individual's genes.",
+    "prerequisites": [
+      "dna_sequencing",
+      "molecular_biology",
+      "dna_structure",
+      "immunology_advanced"
+    ]
+  },
+  {
+    "id": "stem_cell_research",
+    "name": "Stem Cell Research",
+    "era": "Modern",
+    "description": "The study of undifferentiated or partially differentiated cells that can differentiate into various cell types, with potential for regenerative medicine.",
+    "prerequisites": [
+      "molecular_biology",
+      "medicine_clinical",
+      "dna_structure",
+      "cell_culture"
+    ]
+  },
+  {
+    "id": "organ_transplantation",
+    "name": "Organ Transplantation",
+    "era": "Modern",
+    "description": "Surgical procedures to replace failing organs with healthy ones from donors.",
+    "prerequisites": [
+      "aseptic_surgery",
+      "antibiotics",
+      "immunology_advanced",
+      "refrigeration",
+      "blood_circulation_harvey"
+    ]
+  },
+  {
+    "id": "x_ray_imaging",
+    "name": "X-Ray Imaging",
+    "era": "Modern",
+    "description": "Using X-radiation to view the internal structure of an opaque object, revolutionizing medical diagnosis.",
+    "prerequisites": [
+      "electricity",
+      "photography",
+      "vacuum_technology_early",
+      "medicine_clinical"
+    ]
+  },
+  {
+    "id": "computerized_tomography_ct_mri",
+    "name": "Computerized Tomography (CT/MRI)",
+    "era": "Modern",
+    "description": "Advanced imaging technologies (CT, MRI) that use computer processing to generate cross-sectional images (slices) of the body.",
+    "prerequisites": [
+      "x_ray_imaging",
+      "computers_early",
+      "superconductors_early",
+      "algorithms_computation_theory",
+      "quantum_physics"
+    ]
+  },
+  {
+    "id": "neuroscience",
+    "name": "Neuroscience",
+    "era": "Modern",
+    "description": "Scientific study of the nervous system, including the brain, at molecular, cellular, and cognitive levels.",
+    "prerequisites": [
+      "medicine_clinical",
+      "microscope",
+      "electronics",
+      "advanced_chemistry",
+      "psychology",
+      "human_anatomy_physiology",
+      "biochemistry"
+    ]
+  },
+  {
+    "id": "pharmaceuticals_drug_design",
+    "name": "Pharmaceuticals & Drug Design",
+    "era": "Modern",
+    "description": "Systematic, often computer-aided, approach to discovering and developing new medications and therapies.",
+    "prerequisites": [
+      "biochemistry",
+      "computer_aided_design_cad_software",
+      "statistics_advanced_data_analysis",
+      "mass_production"
+    ]
+  },
+  {
+    "id": "flight_powered",
+    "name": "Flight (Powered)",
+    "era": "Modern",
+    "description": "Achieving sustained, controlled travel through the air with heavier-than-air craft.",
+    "prerequisites": [
+      "internal_combustion_engine",
+      "scientific_method",
+      "engineering",
+      "aerodynamics_subsonic",
+      "textiles_weaving"
+    ]
+  },
+  {
+    "id": "jet_engine",
+    "name": "Jet Engine",
+    "era": "Modern",
+    "description": "Airbreathing engine that produces thrust from a fast-moving jet of hot gas.",
+    "prerequisites": [
+      "flight_powered",
+      "internal_combustion_engine",
+      "thermodynamics",
+      "material_science_lightweight_alloys"
+    ]
+  },
+  {
+    "id": "aerodynamics_supersonic",
+    "name": "Aerodynamics (Supersonic)",
+    "era": "Modern",
+    "description": "Study of air flow at speeds exceeding the speed of sound, crucial for high-performance aircraft and rocketry.",
+    "prerequisites": [
+      "flight_powered",
+      "mathematics",
+      "thermodynamics",
+      "scientific_method",
+      "jet_engine"
+    ]
+  },
+  {
+    "id": "jet_aircraft_high_speed_flight",
+    "name": "Jet Aircraft (High-Speed Flight)",
+    "era": "Modern",
+    "description": "Aircraft propelled by jet engines, enabling significantly faster and higher altitude flight.",
+    "prerequisites": [
+      "jet_engine",
+      "flight_powered",
+      "material_science_lightweight_alloys",
+      "aerodynamics_supersonic"
+    ]
+  },
+  {
+    "id": "supersonic_transport",
+    "name": "Supersonic Transport",
+    "era": "Modern",
+    "description": "Civilian aircraft designed to fly faster than the speed of sound, such as the Concorde.",
+    "prerequisites": [
+      "jet_aircraft_high_speed_flight",
+      "aerodynamics_supersonic",
+      "material_science_lightweight_alloys",
+      "international_cooperation_treaties"
+    ]
+  },
+  {
+    "id": "helicopters_vertical_takeoff_landing_vtol",
+    "name": "Helicopters (Vertical Takeoff & Landing - VTOL)",
+    "era": "Modern",
+    "description": "Aircraft capable of vertical flight, hovering, and forward/backward movement using rotating blades.",
+    "prerequisites": [
+      "flight_powered",
+      "internal_combustion_engine",
+      "engineering",
+      "material_science_lightweight_alloys",
+      "precision_mechanics_miniaturization"
+    ]
+  },
+  {
+    "id": "liquid_fuel_propellants",
+    "name": "Liquid Fuel Propellants",
+    "era": "Modern",
+    "description": "Development of liquid chemical propellants for rockets, offering higher performance and control than solid fuels.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "thermodynamics",
+      "engineering",
+      "petroleum_refining_fractional_distillation"
+    ]
+  },
+  {
+    "id": "rocketry",
+    "name": "Rocketry",
+    "era": "Modern",
+    "description": "Propulsion technology for reaching high altitudes and space using reaction engines.",
+    "prerequisites": [
+      "jet_engine",
+      "engineering",
+      "mathematics",
+      "advanced_chemistry",
+      "gunpowder",
+      "thermodynamics",
+      "liquid_fuel_propellants"
+    ]
+  },
+  {
+    "id": "guidance_systems_early",
+    "name": "Guidance Systems (Early Inertial)",
+    "era": "Modern",
+    "description": "Systems using gyroscopes and accelerometers to navigate vehicles like missiles and spacecraft without external references.",
+    "prerequisites": [
+      "rocketry",
+      "electronics",
+      "precision_mechanics_miniaturization",
+      "computers_early",
+      "mathematics"
+    ]
+  },
+  {
+    "id": "ballistic_missiles_icbm",
+    "name": "Ballistic Missiles (ICBMs)",
+    "era": "Modern",
+    "description": "Missiles that follow a ballistic trajectory to deliver one or more warheads to a predetermined target, capable of intercontinental ranges.",
+    "prerequisites": [
+      "rocketry",
+      "guidance_systems_early",
+      "nuclear_weapons",
+      "computers_early"
+    ]
+  },
+  {
+    "id": "space_flight",
+    "name": "Space Flight",
+    "era": "Modern",
+    "description": "Travel beyond Earth's atmosphere.",
+    "prerequisites": [
+      "rocketry",
+      "computers_early",
+      "electronics",
+      "synthetic_materials_advanced",
+      "radio",
+      "aerodynamics_supersonic",
+      "guidance_systems_early"
+    ]
+  },
+  {
+    "id": "space_shuttle_reusable_spacecraft",
+    "name": "Space Shuttle (Reusable Spacecraft)",
+    "era": "Modern",
+    "description": "Development of partially reusable low Earth orbital spacecraft systems, designed to be launched vertically and land as a glider.",
+    "prerequisites": [
+      "space_flight",
+      "personal_computers",
+      "composite_materials_carbon_fiber",
+      "aerodynamics_supersonic",
+      "guidance_systems_early"
+    ]
+  },
+  {
+    "id": "satellite_technology",
+    "name": "Satellite Technology",
+    "era": "Modern",
+    "description": "Use of artificial satellites for communication, observation, and navigation.",
+    "prerequisites": [
+      "space_flight",
+      "telecommunications",
+      "radio",
+      "solar_power",
+      "computers_early"
+    ]
+  },
+  {
+    "id": "interplanetary_probes",
+    "name": "Interplanetary Probes",
+    "era": "Modern",
+    "description": "Unmanned robotic spacecraft sent to explore other planets, moons, asteroids, or comets within our solar system.",
+    "prerequisites": [
+      "space_flight",
+      "robotics",
+      "advanced_optics_space_based",
+      "atomic_clocks",
+      "radio"
+    ]
+  },
+  {
+    "id": "closed_loop_life_support_early_forms",
+    "name": "Closed-Loop Life Support (Early Forms)",
+    "era": "Modern",
+    "description": "Initial development of systems for recycling air and water in confined environments like submarines and early spacecraft.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "engineering",
+      "refrigeration",
+      "space_flight",
+      "medicine_clinical",
+      "filters_membranes_early"
+    ]
+  },
+  {
+    "id": "space_stations",
+    "name": "Space Stations",
+    "era": "Modern",
+    "description": "Orbiting artificial structures designed for long-term human habitation and research in space.",
+    "prerequisites": [
+      "space_flight",
+      "solar_power",
+      "robotics",
+      "closed_loop_life_support_early_forms",
+      "synthetic_materials_advanced",
+      "guidance_systems_early"
+    ]
+  },
+  {
+    "id": "radio",
+    "name": "Radio",
+    "era": "Modern",
+    "description": "Wireless transmission of audio signals using electromagnetic waves.",
+    "prerequisites": [
+      "telecommunications",
+      "electronics",
+      "electromagnetism_maxwell",
+      "vacuum_tubes_electron_control"
+    ]
+  },
+  {
+    "id": "radio_broadcasting",
+    "name": "Radio Broadcasting",
+    "era": "Modern",
+    "description": "Mass distribution of audio content via radio waves to a wide audience.",
+    "prerequisites": [
+      "radio",
+      "mass_production",
+      "electronics",
+      "phonograph"
+    ]
+  },
+  {
+    "id": "television",
+    "name": "Television",
+    "era": "Modern",
+    "description": "System for transmitting visual images and sound that are reproduced on screens, creating a powerful mass medium.",
+    "prerequisites": [
+      "radio",
+      "electronics",
+      "cathode_ray_tube_crt_displays"
+    ]
+  },
+  {
+    "id": "mass_media",
+    "name": "Mass Media",
+    "era": "Modern",
+    "description": "The collection of media technologies that reach a large audience via mass communication, shaping culture and public opinion.",
+    "prerequisites": [
+      "radio_broadcasting",
+      "television",
+      "printing_press",
+      "sociology_early"
+    ]
+  },
+  {
+    "id": "radar_radio_detection_and_ranging",
+    "name": "Radar (Radio Detection and Ranging)",
+    "era": "Modern",
+    "description": "Using radio waves to determine the range, angle, or velocity of objects.",
+    "prerequisites": [
+      "radio",
+      "electronics",
+      "cathode_ray_tube_crt_displays",
+      "electromagnetism_maxwell"
+    ]
+  },
+  {
+    "id": "atomic_clocks",
+    "name": "Atomic Clocks",
+    "era": "Modern",
+    "description": "Extremely precise timekeeping devices based on atomic resonance.",
+    "prerequisites": [
+      "quantum_physics",
+      "electronics",
+      "masers_early",
+      "lasers"
+    ]
+  },
+  {
+    "id": "gps",
+    "name": "Global Positioning System (GPS)",
+    "era": "Modern",
+    "description": "Satellite-based navigation providing location and time data worldwide, requiring relativistic corrections.",
+    "prerequisites": [
+      "satellite_technology",
+      "atomic_clocks",
+      "radio",
+      "relativity_special_general",
+      "integrated_circuits"
     ]
   },
   {
@@ -1024,70 +1406,85 @@
     ]
   },
   {
-    "id": "robotics",
-    "name": "Robotics",
+    "id": "smartphones",
+    "name": "Smartphones",
     "era": "Modern",
-    "description": "Design and use of autonomous or remote-controlled machines for industrial and other applications.",
+    "description": "A mobile phone that performs many of the functions of a computer, typically having a touchscreen interface, internet access, and an operating system capable of running downloaded apps.",
     "prerequisites": [
-      "computers_early",
-      "engineering",
-      "electronics",
-      "plastics",
-      "electric_motor",
-      "cybernetics",
-      "numerical_control_automated_machining"
-    ]
-  },
-  {
-    "id": "artificial_intelligence_early",
-    "name": "Artificial Intelligence (Early)",
-    "era": "Modern",
-    "description": "Machine systems capable of tasks requiring basic human-like intelligence (e.g., expert systems, symbolic reasoning, search algorithms).",
-    "prerequisites": [
-      "computers_early",
-      "mathematics",
-      "philosophy",
-      "algorithms_computation_theory",
-      "cybernetics",
-      "formal_logic_syllogism"
-    ]
-  },
-  {
-    "id": "machine_learning_early_algorithms",
-    "name": "Machine Learning (Early Algorithms)",
-    "era": "Modern",
-    "description": "Development of algorithms that allow computer systems to learn from data without being explicitly programmed (e.g. decision trees, support vector machines).",
-    "prerequisites": [
-      "artificial_intelligence_early",
-      "algorithms_computation_theory",
+      "mobile_phones",
       "personal_computers",
-      "statistics_advanced_data_analysis",
-      "information_theory"
+      "mobile_operating_systems_smartphone_os",
+      "internet",
+      "gps"
     ]
   },
   {
-    "id": "atomic_clocks",
-    "name": "Atomic Clocks",
+    "id": "internet_of_things_iot_ubiquitous_connectivity",
+    "name": "Internet of Things (IoT) & Ubiquitous Connectivity",
     "era": "Modern",
-    "description": "Extremely precise timekeeping devices based on atomic resonance.",
+    "description": "Network of physical objects embedded with sensors, software, and other technologies for connecting and exchanging data over the internet.",
     "prerequisites": [
-      "quantum_physics",
+      "internet",
+      "smartphones",
+      "semiconductors",
+      "integrated_circuits",
+      "cloud_computing_distributed_systems"
+    ]
+  },
+  {
+    "id": "automobile",
+    "name": "Automobile",
+    "era": "Modern",
+    "description": "Self-propelled road vehicle powered by an internal combustion engine, enabling personal mobility on a mass scale.",
+    "prerequisites": [
+      "internal_combustion_engine",
+      "mass_production",
+      "steel_production",
+      "vulcanized_rubber",
+      "assembly_line",
+      "roads",
+      "petroleum_refining_fractional_distillation"
+    ]
+  },
+  {
+    "id": "containerization_shipping",
+    "name": "Containerization",
+    "era": "Modern",
+    "description": "System of standardized intermodal freight transport using shipping containers, revolutionizing global trade.",
+    "prerequisites": [
+      "mass_production",
+      "steel_production",
+      "railroads",
+      "internal_combustion_engine",
+      "steel_ships",
+      "crane_lifting_devices",
+      "logistics_supply_lines"
+    ]
+  },
+  {
+    "id": "nuclear_power",
+    "name": "Nuclear Power",
+    "era": "Modern",
+    "description": "Using controlled nuclear fission to produce electricity.",
+    "prerequisites": [
+      "nuclear_fission",
+      "engineering",
+      "steam_turbine_power_generation",
+      "thermodynamics",
+      "reinforced_concrete"
+    ]
+  },
+  {
+    "id": "solar_power",
+    "name": "Solar Power",
+    "era": "Modern",
+    "description": "Harnessing energy from sunlight to produce electricity using photovoltaic cells.",
+    "prerequisites": [
+      "electricity",
+      "scientific_method",
       "electronics",
-      "masers_early",
-      "lasers"
-    ]
-  },
-  {
-    "id": "gps",
-    "name": "Global Positioning System (GPS)",
-    "era": "Modern",
-    "description": "Satellite-based navigation providing location and time data worldwide, requiring relativistic corrections.",
-    "prerequisites": [
-      "satellite_technology",
-      "atomic_clocks",
-      "radio",
-      "relativity_special_general",
-      "integrated_circuits"
+      "semiconductors",
+      "quantum_physics"
     ]
   },
   {
@@ -1101,19 +1498,6 @@
       "windmills",
       "dynamo",
       "material_science_lightweight_alloys"
-    ]
-  },
-  {
-    "id": "drilling_technology_advanced_deep_earth",
-    "name": "Drilling Technology (Advanced Deep Earth)",
-    "era": "Modern",
-    "description": "Techniques for drilling deep into the Earth's crust for resource extraction or scientific purposes.",
-    "prerequisites": [
-      "oil_drilling",
-      "steel_production",
-      "engineering",
-      "geology",
-      "robotics"
     ]
   },
   {
@@ -1143,6 +1527,45 @@
     ]
   },
   {
+    "id": "plant_breeding_hybridization",
+    "name": "Plant Breeding & Hybridization",
+    "era": "Modern",
+    "description": "Systematic breeding of plants to develop improved varieties with desirable traits like higher yield or disease resistance.",
+    "prerequisites": [
+      "genetics_mendel",
+      "agriculture",
+      "scientific_method",
+      "statistics_advanced_data_analysis"
+    ]
+  },
+  {
+    "id": "green_revolution_agriculture",
+    "name": "Green Revolution",
+    "era": "Modern",
+    "description": "Set of research technology transfer initiatives increasing agricultural production worldwide, particularly with high-yield crop varieties.",
+    "prerequisites": [
+      "chemical_fertilizers",
+      "genetics_mendel",
+      "mass_production",
+      "irrigation",
+      "internal_combustion_engine",
+      "plant_breeding_hybridization"
+    ]
+  },
+  {
+    "id": "agribusiness",
+    "name": "Agribusiness",
+    "era": "Modern",
+    "description": "The business sector encompassing farming and farming-related commercial activities, involving large-scale production, processing, and distribution.",
+    "prerequisites": [
+      "green_revolution",
+      "containerization_shipping",
+      "capitalism_industrial",
+      "logistics_supply_lines",
+      "biochemistry"
+    ]
+  },
+  {
     "id": "skyscrapers",
     "name": "Skyscrapers",
     "era": "Modern",
@@ -1158,289 +1581,28 @@
     ]
   },
   {
-    "id": "containerization_shipping",
-    "name": "Containerization",
+    "id": "urban_planning_modern",
+    "name": "Modern Urban Planning",
     "era": "Modern",
-    "description": "System of standardized intermodal freight transport using shipping containers, revolutionizing global trade.",
+    "description": "The technical and political process concerned with the development and design of land use and the built environment, including air, water, and infrastructure.",
     "prerequisites": [
+      "skyscrapers",
+      "automobile",
+      "sociology_early",
+      "demography",
+      "sanitation_systems"
+    ]
+  },
+  {
+    "id": "consumerism",
+    "name": "Consumerism",
+    "era": "Modern",
+    "description": "A social and economic order that encourages the acquisition of goods and services in ever-increasing amounts, driven by mass production and advertising.",
+    "prerequisites": [
+      "mass_media",
       "mass_production",
-      "steel_production",
-      "railroads",
-      "internal_combustion_engine",
-      "steel_ships",
-      "crane_lifting_devices",
-      "logistics_supply_lines"
-    ]
-  },
-  {
-    "id": "globalization",
-    "name": "Globalization",
-    "era": "Modern",
-    "description": "The process of interaction and integration among people, companies, and governments worldwide, accelerated by technology.",
-    "prerequisites": [
-      "containerization_shipping",
-      "internet",
-      "jet_aircraft_high_speed_flight",
-      "banking",
-      "international_cooperation_treaties"
-    ]
-  },
-  {
-    "id": "virtual_reality",
-    "name": "Virtual Reality",
-    "era": "Modern",
-    "description": "Immersive computer-simulated environments that can simulate physical presence in real or imagined worlds.",
-    "prerequisites": [
-      "personal_computers",
-      "graphical_user_interface_gui",
-      "electronics",
-      "software_engineering",
-      "robotics"
-    ]
-  },
-  {
-    "id": "digital_photography_ccd_cmos_sensors",
-    "name": "Digital Photography (CCD/CMOS Sensors)",
-    "era": "Modern",
-    "description": "Capturing images electronically using light-sensitive semiconductor sensors.",
-    "prerequisites": [
-      "photography",
-      "semiconductors",
-      "personal_computers",
-      "integrated_circuits"
-    ]
-  },
-  {
-    "id": "led_lighting_efficient_illumination",
-    "name": "LED Lighting (Efficient Illumination)",
-    "era": "Modern",
-    "description": "Light-emitting diodes used for general lighting, offering high efficiency and long lifespan.",
-    "prerequisites": [
-      "semiconductors",
-      "electronics",
-      "quantum_physics",
-      "mass_production"
-    ]
-  },
-  {
-    "id": "liquid_crystal_displays_lcd_screens",
-    "name": "Liquid Crystal Displays (LCD Screens)",
-    "era": "Modern",
-    "description": "Flat-panel displays using the light-modulating properties of liquid crystals.",
-    "prerequisites": [
-      "electronics",
-      "advanced_chemistry",
-      "glassmaking",
-      "plastics",
-      "transistors"
-    ]
-  },
-  {
-    "id": "genetic_sequencing",
-    "name": "Genetic Sequencing",
-    "era": "Modern",
-    "description": "Determining the precise order of nucleotides within a DNA molecule.",
-    "prerequisites": [
-      "dna_structure",
-      "personal_computers",
-      "advanced_chemistry",
-      "molecular_biology",
-      "algorithms_computation_theory"
-    ]
-  },
-  {
-    "id": "bioinformatics",
-    "name": "Bioinformatics",
-    "era": "Modern",
-    "description": "Application of computer science and statistics to biological data, especially genomics.",
-    "prerequisites": [
-      "genetic_sequencing",
-      "personal_computers",
-      "algorithms_computation_theory",
-      "dna_structure",
-      "statistics_advanced_data_analysis"
-    ]
-  },
-  {
-    "id": "human_genome_project_dna_mapping",
-    "name": "Human Genome Project (DNA Mapping)",
-    "era": "Modern",
-    "description": "International research effort to determine the sequence of nucleotide base pairs that make up human DNA.",
-    "prerequisites": [
-      "genetic_sequencing",
-      "bioinformatics",
-      "dna_structure",
-      "computers_early",
-      "robotics"
-    ]
-  },
-  {
-    "id": "gene_therapy_early",
-    "name": "Gene Therapy (Early)",
-    "era": "Modern",
-    "description": "Experimental techniques to treat or cure diseases by modifying an individual's genes.",
-    "prerequisites": [
-      "genetic_sequencing",
-      "molecular_biology",
-      "dna_structure",
-      "immunology_advanced"
-    ]
-  },
-  {
-    "id": "neuroscience",
-    "name": "Neuroscience",
-    "era": "Modern",
-    "description": "Scientific study of the nervous system, including the brain, at molecular, cellular, and cognitive levels.",
-    "prerequisites": [
-      "medicine_clinical",
-      "microscope",
-      "electronics",
-      "advanced_chemistry",
-      "psychology",
-      "human_anatomy_physiology",
-      "biochemistry"
-    ]
-  },
-  {
-    "id": "nuclear_fusion_research",
-    "name": "Nuclear Fusion Research",
-    "era": "Modern",
-    "description": "Theoretical and experimental efforts to harness nuclear fusion energy, primarily through tokamaks and stellarators.",
-    "prerequisites": [
-      "nuclear_fission",
-      "quantum_physics",
-      "engineering",
-      "particle_accelerators",
-      "superconductors_early",
-      "plasma_physics"
-    ]
-  },
-  {
-    "id": "plasma_physics",
-    "name": "Plasma Physics",
-    "era": "Modern",
-    "description": "Study of the fourth state of matter (plasma), crucial for fusion research and astrophysics.",
-    "prerequisites": [
-      "quantum_physics",
-      "electromagnetism_maxwell",
-      "thermodynamics",
-      "mathematics"
-    ]
-  },
-  {
-    "id": "filters_membranes_early",
-    "name": "Filters & Membranes (Early)",
-    "era": "Modern",
-    "description": "Development of materials and techniques for selective separation of substances, e.g., for water purification or air filtering.",
-    "prerequisites": [
-      "advanced_chemistry",
-      "textiles_weaving",
-      "paper_making",
-      "scientific_method"
-    ]
-  },
-  {
-    "id": "closed_loop_life_support_early_forms",
-    "name": "Closed-Loop Life Support (Early Forms)",
-    "era": "Modern",
-    "description": "Initial development of systems for recycling air and water in confined environments like submarines and early spacecraft.",
-    "prerequisites": [
-      "advanced_chemistry",
-      "engineering",
-      "refrigeration",
-      "space_flight",
-      "medicine_clinical",
-      "filters_membranes_early"
-    ]
-  },
-  {
-    "id": "space_stations",
-    "name": "Space Stations",
-    "era": "Modern",
-    "description": "Orbiting artificial structures designed for long-term human habitation and research in space.",
-    "prerequisites": [
-      "space_flight",
-      "solar_power",
-      "robotics",
-      "closed_loop_life_support_early_forms",
-      "synthetic_materials_advanced",
-      "guidance_systems_early"
-    ]
-  },
-  {
-    "id": "data_centers_early",
-    "name": "Data Centers (Early)",
-    "era": "Modern",
-    "description": "Facilities housing computer systems and associated components, such as telecommunications and storage systems.",
-    "prerequisites": [
-      "computers_early",
-      "electrical_grid_early_distribution",
-      "refrigeration",
-      "engineering"
-    ]
-  },
-  {
-    "id": "cloud_computing_distributed_systems",
-    "name": "Cloud Computing & Distributed Systems",
-    "era": "Modern",
-    "description": "Delivery of computing services—including servers, storage, databases, networking, software—over the Internet.",
-    "prerequisites": [
-      "internet",
-      "software_engineering",
-      "databases_relational_dbms",
-      "virtualization_early_vm_tech",
-      "data_centers_early"
-    ]
-  },
-  {
-    "id": "big_data_analytics_computational_statistics",
-    "name": "Big Data Analytics & Computational Statistics",
-    "era": "Modern",
-    "description": "Analyzing extremely large data sets to uncover patterns, correlations, and insights using advanced computational methods.",
-    "prerequisites": [
-      "internet",
-      "algorithms_computation_theory",
-      "databases_relational_dbms",
-      "statistics_advanced_data_analysis",
-      "machine_learning_early_algorithms",
-      "cloud_computing_distributed_systems"
-    ]
-  },
-  {
-    "id": "game_consoles_dedicated_gaming_hardware",
-    "name": "Game Consoles (Dedicated Gaming Hardware)",
-    "era": "Modern",
-    "description": "Specialized electronic devices for playing video games, connected to a display like a television.",
-    "prerequisites": [
-      "television",
-      "integrated_circuits",
-      "plastics",
-      "software_engineering",
-      "personal_computers"
-    ]
-  },
-  {
-    "id": "encryption_modern_cryptography_public_key",
-    "name": "Encryption (Modern Cryptography, Public Key)",
-    "era": "Modern",
-    "description": "Development of advanced cryptographic systems, including public-key cryptography, for secure communication.",
-    "prerequisites": [
-      "mathematics",
-      "algorithms_computation_theory",
-      "computers_early",
-      "information_theory"
-    ]
-  },
-  {
-    "id": "blockchain_cryptocurrency",
-    "name": "Blockchain & Cryptocurrency",
-    "era": "Modern",
-    "description": "A decentralized, distributed, and oftentimes public, digital ledger consisting of records called blocks that is used to record transactions across many computers.",
-    "prerequisites": [
-      "encryption_modern_cryptography_public_key",
-      "internet",
-      "personal_computers",
-      "databases_relational_dbms"
+      "capitalism_industrial",
+      "psychology"
     ]
   },
   {
@@ -1457,55 +1619,52 @@
     ]
   },
   {
-    "id": "political_science_advanced_governance_models",
-    "name": "Political Science (Advanced Governance Models)",
+    "id": "globalization",
+    "name": "Globalization",
     "era": "Modern",
-    "description": "Systematic study of governance, political activities, thoughts, and behavior, including comparative politics and international relations.",
+    "description": "The process of interaction and integration among people, companies, and governments worldwide, accelerated by technology.",
     "prerequisites": [
-      "democracy_republicanism",
-      "philosophy",
-      "sociology_early",
-      "codified_law",
-      "printing_press",
-      "statistics_advanced_data_analysis"
-    ]
-  },
-  {
-    "id": "internet_of_things_iot_ubiquitous_connectivity",
-    "name": "Internet of Things (IoT) & Ubiquitous Connectivity",
-    "era": "Modern",
-    "description": "Network of physical objects embedded with sensors, software, and other technologies for connecting and exchanging data over the internet.",
-    "prerequisites": [
+      "containerization_shipping",
       "internet",
-      "mobile_phones",
-      "semiconductors",
-      "integrated_circuits",
-      "cloud_computing_distributed_systems"
+      "jet_aircraft_high_speed_flight",
+      "banking",
+      "international_cooperation_treaties"
     ]
   },
   {
-    "id": "linguistics_formal",
-    "name": "Linguistics (Formal)",
+    "id": "environmentalism_ecology",
+    "name": "Environmentalism & Ecology",
     "era": "Modern",
-    "description": "Scientific study of language, including phonetics, phonology, morphology, syntax, semantics, and pragmatics.",
+    "description": "A scientific, social, and political movement concerned with protecting the natural environment and the systematic study of interactions among organisms and their environment.",
     "prerequisites": [
-      "philosophy",
-      "writing",
-      "printing_press",
-      "scientific_method",
-      "anthropology_cultural"
+      "biology",
+      "industrial_revolution",
+      "sociology_early",
+      "advanced_chemistry"
     ]
   },
   {
-    "id": "linguistics_computational",
-    "name": "Linguistics (Computational)",
+    "id": "demography",
+    "name": "Demography",
     "era": "Modern",
-    "description": "Interdisciplinary field dealing with the statistical or rule-based modeling of natural language from a computational perspective.",
+    "description": "The scientific study of human populations, primarily with respect to their size, structure, and development.",
     "prerequisites": [
-      "linguistics_formal",
-      "algorithms_computation_theory",
-      "personal_computers",
-      "artificial_intelligence_early"
+      "statistics_advanced_data_analysis",
+      "sociology_early",
+      "census",
+      "codified_law"
+    ]
+  },
+  {
+    "id": "modern_economics_keynesian",
+    "name": "Modern Economics (Keynesian)",
+    "era": "Modern",
+    "description": "Macroeconomic theories concerning the determinants of total spending in the economy and its effects on output, employment, and inflation.",
+    "prerequisites": [
+      "capitalism_industrial",
+      "statistics_advanced_data_analysis",
+      "banking",
+      "bureaucracy"
     ]
   },
   {
@@ -1521,15 +1680,119 @@
     ]
   },
   {
-    "id": "modern_economics_keynesian",
-    "name": "Modern Economics (Keynesian)",
+    "id": "financial_derivatives",
+    "name": "Financial Derivatives",
     "era": "Modern",
-    "description": "Macroeconomic theories concerning the determinants of total spending in the economy and its effects on output, employment, and inflation.",
+    "description": "Complex financial instruments whose value is derived from an underlying asset or group of assets, used for hedging or speculation.",
     "prerequisites": [
-      "capitalism_industrial",
-      "statistics_advanced_data_analysis",
       "banking",
-      "bureaucracy"
+      "statistics_advanced_data_analysis",
+      "computers_early",
+      "information_theory"
+    ]
+  },
+  {
+    "id": "nuclear_weapons",
+    "name": "Nuclear Weapons",
+    "era": "Modern",
+    "description": "Extremely destructive weapons powered by nuclear fission or fusion.",
+    "prerequisites": [
+      "nuclear_fission",
+      "engineering",
+      "advanced_chemistry",
+      "mass_production"
+    ]
+  },
+  {
+    "id": "robotics",
+    "name": "Robotics",
+    "era": "Modern",
+    "description": "Design and use of autonomous or remote-controlled machines for industrial and other applications.",
+    "prerequisites": [
+      "computers_early",
+      "engineering",
+      "electronics",
+      "plastics",
+      "electric_motor",
+      "cybernetics",
+      "numerical_control_automated_machining"
+    ]
+  },
+  {
+    "id": "virtual_reality",
+    "name": "Virtual Reality",
+    "era": "Modern",
+    "description": "Immersive computer-simulated environments that can simulate physical presence in real or imagined worlds.",
+    "prerequisites": [
+      "personal_computers",
+      "graphical_user_interface_gui",
+      "electronics",
+      "software_engineering",
+      "computer_graphics_3d"
+    ]
+  },
+  {
+    "id": "game_consoles_dedicated_gaming_hardware",
+    "name": "Game Consoles (Dedicated Gaming Hardware)",
+    "era": "Modern",
+    "description": "Specialized electronic devices for playing video games, connected to a display like a television.",
+    "prerequisites": [
+      "television",
+      "integrated_circuits",
+      "plastics",
+      "software_engineering",
+      "personal_computers",
+      "computer_graphics_3d"
+    ]
+  },
+  {
+    "id": "digital_photography_ccd_cmos_sensors",
+    "name": "Digital Photography (CCD/CMOS Sensors)",
+    "era": "Modern",
+    "description": "Capturing images electronically using light-sensitive semiconductor sensors.",
+    "prerequisites": [
+      "photography",
+      "semiconductors",
+      "personal_computers",
+      "integrated_circuits"
+    ]
+  },
+  {
+    "id": "hard_disk_drives_magnetic_storage",
+    "name": "Hard Disk Drives (Magnetic Storage)",
+    "era": "Modern",
+    "description": "Electro-mechanical data storage devices using magnetic storage on rotating platters.",
+    "prerequisites": [
+      "magnetic_tape_data_storage",
+      "electronics",
+      "personal_computers",
+      "precision_mechanics_miniaturization",
+      "electric_motor"
+    ]
+  },
+  {
+    "id": "solid_state_drives_ssd_flash_memory",
+    "name": "Solid State Drives (SSD Flash Memory)",
+    "era": "Modern",
+    "description": "Data storage devices using integrated circuit assemblies as memory to store data persistently, typically using flash memory.",
+    "prerequisites": [
+      "semiconductors",
+      "personal_computers",
+      "integrated_circuits",
+      "transistors"
+    ]
+  },
+  {
+    "id": "digital_signal_processing",
+    "name": "Digital Signal Processing (DSP)",
+    "era": "Modern",
+    "description": "Manipulation of signals (audio, video, etc.) that have been converted into digital form.",
+    "prerequisites": [
+      "electronics",
+      "algorithms_computation_theory",
+      "information_theory",
+      "integrated_circuits",
+      "data_compression"
     ]
   }
 ]
