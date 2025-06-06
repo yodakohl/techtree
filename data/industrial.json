@@ -8,14 +8,39 @@
       "mercantilism_economic_theory",
       "factory_system",
       "banking",
-      "joint_stock_companies"
+      "joint_stock_companies",
+      "corporation_limited_liability"
+    ]
+  },
+  {
+    "id": "corporation_limited_liability",
+    "name": "Limited Liability Corporation",
+    "era": "Industrial",
+    "description": "A legal structure for business where corporate debts are separate from the personal assets of its owners, encouraging large-scale investment.",
+    "prerequisites": [
+      "codified_law",
+      "joint_stock_companies",
+      "banking",
+      "industrial_urbanization"
+    ]
+  },
+  {
+    "id": "stock_exchange_modern",
+    "name": "Modern Stock Exchange",
+    "era": "Industrial",
+    "description": "Organized and regulated financial markets for trading company stocks and bonds on a large scale, facilitated by telegraph communication.",
+    "prerequisites": [
+      "corporation_limited_liability",
+      "telegraph",
+      "banking",
+      "double_entry_bookkeeping"
     ]
   },
   {
     "id": "liberalism_classical",
     "name": "Classical Liberalism",
     "era": "Industrial",
-    "description": "A political ideology advocating for civil liberties under the rule of law with an emphasis on economic freedom.",
+    "description": "A political ideology advocating for civil liberties under the rule of law with an emphasis on economic freedom and limited government.",
     "prerequisites": [
       "philosophy",
       "printing_press",
@@ -27,7 +52,7 @@
     "id": "statistics_advanced_data_analysis",
     "name": "Statistics (Advanced Data Analysis)",
     "era": "Industrial",
-    "description": "Development of statistical methods for analyzing and interpreting large datasets, including probability theory and regression.",
+    "description": "Development of statistical methods for analyzing and interpreting large datasets, including probability theory, regression, and correlation.",
     "prerequisites": [
       "mathematics",
       "printing_press",
@@ -51,10 +76,34 @@
     ]
   },
   {
+    "id": "machine_tools_precision",
+    "name": "Precision Machine Tools",
+    "era": "Industrial",
+    "description": "Development of advanced metalworking machinery like the screw-cutting lathe, milling machine, and planer, enabling the creation of precise, standardized components.",
+    "prerequisites": [
+      "steam_engine",
+      "engineering",
+      "iron_working",
+      "clockwork_mechanisms"
+    ]
+  },
+  {
+    "id": "interchangeable_parts",
+    "name": "Interchangeable Parts",
+    "era": "Industrial",
+    "description": "Manufacturing of identical components to specifications that allow them to fit into any assembly of the same type, simplifying production and repair.",
+    "prerequisites": [
+      "machine_tools_precision",
+      "mass_production",
+      "engineering",
+      "rifling_firearms"
+    ]
+  },
+  {
     "id": "advanced_chemistry",
     "name": "Advanced Chemistry",
     "era": "Industrial",
-    "description": "The modern science of chemistry, including atomic theory, stoichiometry, and the isolation of elements.",
+    "description": "The modern science of chemistry, including atomic theory, stoichiometry, the periodic table, and the isolation of numerous elements.",
     "prerequisites": [
       "scientific_method",
       "basic_chemistry",
@@ -66,10 +115,21 @@
     ]
   },
   {
+    "id": "atomic_theory_daltonian",
+    "name": "Daltonian Atomic Theory",
+    "era": "Industrial",
+    "description": "The scientific theory that matter is composed of discrete units called atoms, with each element having its own unique atomic mass.",
+    "prerequisites": [
+      "advanced_chemistry",
+      "scientific_method",
+      "mathematics"
+    ]
+  },
+  {
     "id": "thermodynamics",
     "name": "Thermodynamics",
     "era": "Industrial",
-    "description": "The branch of physics concerned with heat and its relation to other forms of energy and work.",
+    "description": "The branch of physics concerned with heat, work, and temperature, and their relation to energy, radiation, and the physical properties of matter.",
     "prerequisites": [
       "steam_engine",
       "scientific_method",
@@ -82,20 +142,20 @@
     "id": "steam_turbine_power_generation",
     "name": "Steam Turbine Power Generation",
     "era": "Industrial",
-    "description": "Highly efficient turbines using steam to generate rotational motion, primarily for electricity production.",
+    "description": "Highly efficient turbines using steam to generate rotational motion, primarily for electricity production in power plants.",
     "prerequisites": [
       "steam_engine",
       "thermodynamics",
       "steel_production",
       "engineering",
-      "advanced_metallurgy_medieval"
+      "dynamo"
     ]
   },
   {
     "id": "coal_tar_distillation",
     "name": "Coal Tar Distillation",
     "era": "Industrial",
-    "description": "Process of separating useful organic chemicals from coal tar, a byproduct of coal gas production for lighting.",
+    "description": "Process of separating useful organic chemicals from coal tar, a byproduct of coal gas production, laying the foundation for the synthetic organic chemistry industry.",
     "prerequisites": [
       "advanced_chemistry",
       "distillation_advanced",
@@ -107,7 +167,7 @@
     "id": "synthetic_dyes",
     "name": "Synthetic Dyes",
     "era": "Industrial",
-    "description": "Creation of artificial colorants, revolutionizing the textile industry and launching the organic chemistry industry.",
+    "description": "Creation of artificial colorants from chemical sources, revolutionizing the textile industry and launching the organic chemistry industry.",
     "prerequisites": [
       "advanced_chemistry",
       "textiles_weaving",
@@ -119,7 +179,7 @@
     "id": "electricity",
     "name": "Electricity",
     "era": "Industrial",
-    "description": "Scientific understanding and harnessing of electrical phenomena, including current, voltage, and resistance.",
+    "description": "Scientific investigation and harnessing of electrical phenomena, including the battery, current, voltage, and resistance.",
     "prerequisites": [
       "scientific_method",
       "advanced_chemistry",
@@ -130,12 +190,23 @@
     ]
   },
   {
+    "id": "electromagnetism_early_discoveries",
+    "name": "Early Electromagnetism",
+    "era": "Industrial",
+    "description": "Discovery of the fundamental link between electricity and magnetism (Oersted, Faraday, Ampère), enabling the creation of electromagnets and the principle of induction.",
+    "prerequisites": [
+      "electricity",
+      "scientific_method",
+      "mathematics"
+    ]
+  },
+  {
     "id": "electromagnetism_maxwell",
     "name": "Electromagnetism (Maxwell's Equations)",
     "era": "Industrial",
-    "description": "Unification of electricity, magnetism, and light into a single theoretical framework of fundamental equations.",
+    "description": "Unification of electricity, magnetism, and light into a single theoretical framework of fundamental equations, predicting the existence of electromagnetic waves.",
     "prerequisites": [
-      "electricity",
+      "electromagnetism_early_discoveries",
       "mathematics",
       "scientific_method",
       "early_optics",
@@ -147,32 +218,32 @@
     "id": "dynamo",
     "name": "Dynamo",
     "era": "Industrial",
-    "description": "Early electrical generator capable of delivering power for industry, converting mechanical energy to electrical energy.",
+    "description": "The first electrical generator capable of delivering power for industry, converting mechanical energy to direct current electrical energy using electromagnetism.",
     "prerequisites": [
       "electricity",
       "steam_engine",
       "engineering",
-      "electromagnetism_maxwell",
-      "iron_working"
+      "electromagnetism_early_discoveries",
+      "copper_wiring_production"
     ]
   },
   {
     "id": "electric_motor",
     "name": "Electric Motor",
     "era": "Industrial",
-    "description": "Device that converts electrical energy into mechanical motion.",
+    "description": "A device that converts electrical energy into mechanical motion, a direct application of motor principles demonstrated by Faraday.",
     "prerequisites": [
       "dynamo",
       "electricity",
       "engineering",
-      "electromagnetism_maxwell"
+      "electromagnetism_early_discoveries"
     ]
   },
   {
     "id": "vacuum_technology_early",
     "name": "Vacuum Technology (Early)",
     "era": "Industrial",
-    "description": "Development of pumps and techniques to create and maintain vacuums, essential for light bulbs and later electronics.",
+    "description": "Development of improved air pumps and techniques to create and maintain vacuums, essential for light bulbs and later electronics.",
     "prerequisites": [
       "glassmaking",
       "steam_engine",
@@ -182,9 +253,9 @@
   },
   {
     "id": "light_bulb",
-    "name": "Light Bulb",
+    "name": "Incandescent Light Bulb",
     "era": "Industrial",
-    "description": "Electric lamp producing light with a wire filament heated by an electric current, enabling widespread electric lighting.",
+    "description": "An electric lamp producing light with a wire filament heated to incandescence by an electric current, enabling widespread, safe electric lighting.",
     "prerequisites": [
       "electricity",
       "glassmaking",
@@ -197,7 +268,7 @@
     "id": "copper_wiring_production",
     "name": "Copper Wiring Production",
     "era": "Industrial",
-    "description": "Mass production of copper wires for electrical conduction.",
+    "description": "Mass production of ductile copper wires using steam-powered wire drawing techniques for electrical conduction.",
     "prerequisites": [
       "copper_working",
       "mining",
@@ -209,7 +280,7 @@
     "id": "electrical_grid_early_distribution",
     "name": "Electrical Grid (Early Distribution)",
     "era": "Industrial",
-    "description": "Initial networks for distributing electricity from central power stations to consumers.",
+    "description": "Initial networks for distributing electricity from central power stations to consumers, starting with DC systems for urban lighting.",
     "prerequisites": [
       "dynamo",
       "light_bulb",
@@ -222,19 +293,43 @@
     "id": "telegraph",
     "name": "Telegraph",
     "era": "Industrial",
-    "description": "Long-distance transmission of text messages using electrical signals and Morse code.",
+    "description": "Long-distance transmission of textual information as a series of on-off electrical signals, using coded pulses like Morse code.",
     "prerequisites": [
       "electricity",
       "writing",
-      "electromagnetism_maxwell",
+      "electromagnetism_early_discoveries",
       "copper_wiring_production"
+    ]
+  },
+  {
+    "id": "telephone",
+    "name": "Telephone",
+    "era": "Industrial",
+    "description": "A telecommunications device that permits two or more users to conduct a conversation when they are too far apart to be heard directly.",
+    "prerequisites": [
+      "electricity",
+      "telegraph",
+      "scientific_method",
+      "electromagnetism_early_discoveries",
+      "phonograph"
+    ]
+  },
+  {
+    "id": "telephone_exchange",
+    "name": "Telephone Exchange",
+    "era": "Industrial",
+    "description": "A system that interconnects telephone subscriber lines, allowing any user to connect to any other, moving beyond simple point-to-point connections.",
+    "prerequisites": [
+      "telephone",
+      "electrical_grid_early_distribution",
+      "bureaucracy"
     ]
   },
   {
     "id": "vulcanized_rubber",
     "name": "Vulcanized Rubber",
     "era": "Industrial",
-    "description": "Chemical process for converting natural rubber into more durable, elastic, and weather-resistant materials.",
+    "description": "A chemical process for converting natural rubber into more durable, elastic, and weather-resistant materials by heating it with sulfur.",
     "prerequisites": [
       "advanced_chemistry",
       "agriculture",
@@ -246,7 +341,7 @@
     "id": "steel_ships",
     "name": "Steel Ships",
     "era": "Industrial",
-    "description": "Construction of ships with steel hulls, allowing for larger, stronger, and more durable vessels.",
+    "description": "Construction of ships with steel hulls, allowing for larger, stronger, and more durable vessels that can be powered by efficient steam engines.",
     "prerequisites": [
       "steel_production",
       "steam_engine",
@@ -260,7 +355,7 @@
     "id": "telegraph_cables_transoceanic",
     "name": "Telegraph Cables (Transoceanic)",
     "era": "Industrial",
-    "description": "Laying submarine cables across oceans for intercontinental telegraph communication.",
+    "description": "Laying submarine communication cables across oceans for intercontinental telegraph communication, insulated with materials like gutta-percha.",
     "prerequisites": [
       "telegraph",
       "steel_ships",
@@ -273,7 +368,7 @@
     "id": "radio_telegraphy_wireless_communication",
     "name": "Radio Telegraphy (Wireless Communication)",
     "era": "Industrial",
-    "description": "Transmission of telegraph signals using radio waves, enabling wireless communication over long distances.",
+    "description": "Transmission of telegraph signals using radio waves, enabling wireless communication over long distances without the need for physical cables.",
     "prerequisites": [
       "telegraph",
       "electromagnetism_maxwell",
@@ -285,26 +380,27 @@
     "id": "mass_production",
     "name": "Mass Production",
     "era": "Industrial",
-    "description": "Manufacture of large quantities of standardized products, often using interchangeable parts and specialized machinery.",
+    "description": "The manufacture of large quantities of standardized products, often using specialized machinery and division of labor.",
     "prerequisites": [
       "steam_engine",
       "engineering",
       "clockwork_mechanisms",
-      "printing_press"
+      "printing_press",
+      "factory_system"
     ]
   },
   {
     "id": "factory_system",
     "name": "Factory System",
     "era": "Industrial",
-    "description": "Organization of labor and machinery in centralized factories, fundamentally changing the nature of work.",
+    "description": "A method of manufacturing using machinery and division of labor, centralizing production in a single location.",
     "prerequisites": [
-      "mass_production",
       "steam_engine",
       "textiles_weaving",
       "banking",
       "clockwork_mechanisms",
-      "watermills"
+      "watermills",
+      "division_of_labor"
     ]
   },
   {
@@ -315,14 +411,14 @@
     "prerequisites": [
       "factory_system",
       "railroads",
-      "public_health_systems"
+      "agricultural_revolution_enclosures"
     ]
   },
   {
     "id": "psychology_experimental",
     "name": "Experimental Psychology",
     "era": "Industrial",
-    "description": "Application of experimental methods to the study of mind and behavior, establishing psychology as a science.",
+    "description": "The establishment of psychology as a scientific discipline by applying experimental methods to the study of mind and behavior, pioneered in laboratories like Wundt's.",
     "prerequisites": [
       "philosophy",
       "scientific_method",
@@ -335,22 +431,30 @@
     "id": "psychology",
     "name": "Psychology",
     "era": "Industrial",
-    "description": "The scientific study of mind and behavior, encompassing diverse subfields and moving beyond purely philosophical inquiry.",
+    "description": "The broad scientific study of mind and behavior, encompassing diverse subfields and moving beyond purely philosophical or physiological inquiry.",
     "prerequisites": [
-      "philosophy",
-      "scientific_method",
-      "medicine_clinical",
-      "universities",
       "experimental_psychology",
       "printing_press",
-      "statistics_advanced_data_analysis"
+      "theory_of_evolution_darwin"
+    ]
+  },
+  {
+    "id": "psychoanalysis_freudian_theory",
+    "name": "Psychoanalysis (Freudian Theory)",
+    "era": "Industrial",
+    "description": "A set of psychological theories and therapeutic techniques focusing on the unconscious mind, talk therapy, and early developmental experiences.",
+    "prerequisites": [
+      "psychology",
+      "medicine_clinical",
+      "philosophy",
+      "printing_press"
     ]
   },
   {
     "id": "scientific_management_taylorism",
     "name": "Scientific Management (Taylorism)",
     "era": "Industrial",
-    "description": "Application of scientific principles to improve efficiency and labor productivity in factories through time-and-motion studies.",
+    "description": "Application of engineering principles to factory work to improve efficiency and labor productivity through time-and-motion studies and optimization of tasks.",
     "prerequisites": [
       "factory_system",
       "mass_production",
@@ -363,7 +467,7 @@
     "id": "socialism_early_theories",
     "name": "Socialism (Early Theories)",
     "era": "Industrial",
-    "description": "Development of political and economic theories advocating for social ownership and control of the means of production.",
+    "description": "Development of political and economic theories advocating for social ownership and democratic control of the means of production, arising in response to industrial capitalism.",
     "prerequisites": [
       "philosophy",
       "factory_system",
@@ -373,10 +477,22 @@
     ]
   },
   {
+    "id": "marxism_communism",
+    "name": "Marxism & Communism",
+    "era": "Industrial",
+    "description": "A political and economic theory analyzing class relations and social conflict using a materialist interpretation of historical development, advocating for a classless, stateless society.",
+    "prerequisites": [
+      "socialism_early_theories",
+      "philosophy",
+      "capitalism_industrial",
+      "printing_press"
+    ]
+  },
+  {
     "id": "labor_unions_collective_bargaining",
     "name": "Labor Unions & Collective Bargaining",
     "era": "Industrial",
-    "description": "Organizations of workers formed to protect and advance their interests through collective action.",
+    "description": "Organizations of workers (trade unions) formed to protect and advance their interests through collective action and negotiation with employers.",
     "prerequisites": [
       "factory_system",
       "codified_law",
@@ -389,19 +505,20 @@
     "id": "assembly_line",
     "name": "Assembly Line",
     "era": "Industrial",
-    "description": "Manufacturing process where parts are added sequentially to create a finished product, dramatically increasing production speed.",
+    "description": "A manufacturing process where parts are added sequentially as the semi-finished assembly moves from workstation to workstation, dramatically increasing production speed.",
     "prerequisites": [
       "mass_production",
       "factory_system",
       "electric_motor",
-      "scientific_management_taylorism"
+      "scientific_management_taylorism",
+      "interchangeable_parts"
     ]
   },
   {
     "id": "steel_production",
     "name": "Steel Production",
     "era": "Industrial",
-    "description": "Processes for producing strong, versatile steel in large quantities (e.g., Bessemer process), enabling modern infrastructure.",
+    "description": "The general capability to produce strong, versatile steel in large quantities, enabling modern infrastructure.",
     "prerequisites": [
       "iron_working",
       "steam_engine",
@@ -414,7 +531,7 @@
     "id": "bessemer_process",
     "name": "Bessemer Process",
     "era": "Industrial",
-    "description": "First inexpensive industrial process for the mass production of steel from molten pig iron.",
+    "description": "The first inexpensive industrial process for the mass production of steel from molten pig iron by blowing air through it to remove impurities.",
     "prerequisites": [
       "steel_production",
       "advanced_chemistry",
@@ -423,10 +540,22 @@
     ]
   },
   {
+    "id": "open_hearth_furnace",
+    "name": "Open-Hearth Furnace",
+    "era": "Industrial",
+    "description": "A steelmaking process that allows for the production of very large batches of high-quality steel with greater control over chemistry, eventually supplanting the Bessemer process.",
+    "prerequisites": [
+      "bessemer_process",
+      "thermodynamics",
+      "advanced_chemistry",
+      "steel_production"
+    ]
+  },
+  {
     "id": "railroads",
     "name": "Railroads",
     "era": "Industrial",
-    "description": "Mode of transport using trains running on steel tracks, powered by steam, connecting vast territories.",
+    "description": "A mode of land transport using trains running on steel tracks, powered by steam locomotives, connecting vast territories for trade and travel.",
     "prerequisites": [
       "steam_engine",
       "mass_production",
@@ -437,47 +566,71 @@
     ]
   },
   {
-    "id": "reinforced_concrete",
-    "name": "Reinforced Concrete",
+    "id": "portland_cement",
+    "name": "Portland Cement",
     "era": "Industrial",
-    "description": "Concrete in which steel reinforcing bars or mesh are embedded to strengthen the material in tension.",
+    "description": "The most common type of cement, a key ingredient in concrete, mortar, and stucco. Mass-produced for the first time, it is a basic material for modern construction.",
     "prerequisites": [
       "concrete",
-      "steel_production",
-      "engineering",
-      "roman_concrete_opus_caementicium"
+      "advanced_chemistry",
+      "steam_engine",
+      "kiln"
     ]
   },
   {
-    "id": "reinforced_concrete_structures_bridges_buildings",
-    "name": "Reinforced Concrete Structures (Bridges, Buildings)",
+    "id": "reinforced_concrete",
+    "name": "Reinforced Concrete",
     "era": "Industrial",
-    "description": "Large-scale application of reinforced concrete in civil engineering projects.",
+    "description": "Concrete in which steel reinforcing bars or mesh are embedded to strengthen the material in tension, allowing for new architectural forms.",
     "prerequisites": [
-      "reinforced_concrete",
+      "portland_cement",
+      "steel_production",
+      "engineering"
+    ]
+  },
+  {
+    "id": "suspension_bridges",
+    "name": "Steel-Cable Suspension Bridges",
+    "era": "Industrial",
+    "description": "Construction of long-span bridges using spun steel cables, towers, and anchorages, enabling the crossing of wide rivers and bays.",
+    "prerequisites": [
       "steel_production",
       "engineering",
-      "construction",
-      "steam_engine"
+      "mathematics",
+      "riveting_technology",
+      "mass_production"
+    ]
+  },
+  {
+    "id": "skyscrapers_steel_frame",
+    "name": "Steel-Frame Skyscrapers",
+    "era": "Industrial",
+    "description": "Construction of tall, habitable buildings using an internal steel skeleton to bear weight, rather than load-bearing walls.",
+    "prerequisites": [
+      "steel_production",
+      "reinforced_concrete",
+      "engineering",
+      "electric_motor",
+      "public_sanitation_modern"
     ]
   },
   {
     "id": "riveting_technology",
     "name": "Riveting Technology",
     "era": "Industrial",
-    "description": "Method of joining metal plates using rivets, crucial for shipbuilding, boilers, and large structures.",
+    "description": "A method of joining metal plates using heated metal fasteners called rivets, crucial for constructing boilers, bridges, skyscrapers, and steel ships.",
     "prerequisites": [
       "iron_working",
       "steel_production",
       "steam_engine",
-      "mass_production"
+      "pneumatic_tools_compressed_air_power"
     ]
   },
   {
     "id": "nitroglycerin_synthesis",
     "name": "Nitroglycerin Synthesis",
     "era": "Industrial",
-    "description": "Chemical process for producing the highly explosive compound nitroglycerin.",
+    "description": "The chemical process for producing the highly powerful but unstable explosive liquid nitroglycerin from glycerol, nitric acid, and sulfuric acid.",
     "prerequisites": [
       "advanced_chemistry",
       "distillation_advanced",
@@ -488,33 +641,44 @@
     "id": "dynamite",
     "name": "Dynamite",
     "era": "Industrial",
-    "description": "A more stable and manageable high explosive based on nitroglycerin, revolutionizing mining and construction.",
+    "description": "A more stable and manageable high explosive based on absorbing nitroglycerin into a porous material like diatomaceous earth, revolutionizing mining and construction.",
     "prerequisites": [
       "advanced_chemistry",
-      "gunpowder",
       "mass_production",
       "mining",
       "nitroglycerin_synthesis"
     ]
   },
   {
-    "id": "torpedoes_self_propelled_naval_weapon",
-    "name": "Torpedoes (Self-Propelled Naval Weapon)",
+    "id": "smokeless_powder",
+    "name": "Smokeless Powder",
     "era": "Industrial",
-    "description": "Underwater self-propelled explosive devices for attacking ships.",
+    "description": "A class of firearm propellants that produce negligible smoke when fired, drastically improving battlefield visibility and firearm performance.",
     "prerequisites": [
-      "internal_combustion_engine",
+      "gunpowder",
+      "advanced_chemistry",
+      "nitroglycerin_synthesis",
+      "mass_production"
+    ]
+  },
+  {
+    "id": "torpedoes_self_propelled_naval_weapon",
+    "name": "Self-Propelled Torpedoes",
+    "era": "Industrial",
+    "description": "Underwater self-propelled explosive devices for attacking ships, initially powered by compressed air or later, heat engines.",
+    "prerequisites": [
       "steel_production",
       "dynamite",
-      "electricity",
-      "engineering"
+      "engineering",
+      "pneumatic_tools_compressed_air_power",
+      "clockwork_mechanisms"
     ]
   },
   {
     "id": "submarines_early_military_naval",
-    "name": "Submarines (Early Military Naval)",
+    "name": "Military Submarines",
     "era": "Industrial",
-    "description": "Development of early submersible vessels for naval warfare, initially with limited range and capabilities.",
+    "description": "Development of submersible vessels for naval warfare, combining a diesel or gasoline engine for surface travel and an electric motor for submerged operation.",
     "prerequisites": [
       "steel_ships",
       "internal_combustion_engine",
@@ -526,9 +690,9 @@
   },
   {
     "id": "silver_nitrate_chemistry",
-    "name": "Silver Nitrate Chemistry",
+    "name": "Silver Halide Chemistry",
     "era": "Industrial",
-    "description": "Understanding the light-sensitive properties of silver compounds, crucial for early photography.",
+    "description": "Understanding the light-sensitive properties of silver compounds (halides), the chemical foundation for nearly all early photographic processes.",
     "prerequisites": [
       "advanced_chemistry",
       "alchemy",
@@ -539,20 +703,20 @@
     "id": "photography",
     "name": "Photography",
     "era": "Industrial",
-    "description": "Capturing images using light-sensitive materials, creating a permanent visual record.",
+    "description": "The art and science of capturing durable images by recording light on light-sensitive material, creating a permanent visual record.",
     "prerequisites": [
       "scientific_method",
       "advanced_chemistry",
       "glassmaking",
       "early_optics",
-      "silver_nitrate_chemistry"
+      "silver_halide_chemistry"
     ]
   },
   {
     "id": "plastics",
-    "name": "Plastics",
+    "name": "Early Plastics (Bakelite)",
     "era": "Industrial",
-    "description": "First generation of synthetic or semi-synthetic materials that use polymers as a main ingredient (e.g. celluloid, bakelite).",
+    "description": "The creation of the first fully synthetic plastic materials that use polymers as a main ingredient (e.g., Bakelite), valuable for their electrical nonconductivity and heat-resistant properties.",
     "prerequisites": [
       "advanced_chemistry",
       "coal_tar_distillation",
@@ -565,7 +729,7 @@
     "id": "cinematography_motion_pictures",
     "name": "Cinematography & Motion Pictures",
     "era": "Industrial",
-    "description": "Recording and projecting sequences of photographic images to create the illusion of motion.",
+    "description": "Recording and projecting sequences of photographic images on a flexible film strip to create the illusion of motion.",
     "prerequisites": [
       "photography",
       "clockwork_mechanisms",
@@ -578,7 +742,7 @@
     "id": "phonograph",
     "name": "Phonograph",
     "era": "Industrial",
-    "description": "Device for recording and reproducing sound using a rotating cylinder or disc.",
+    "description": "A device for the mechanical recording and reproduction of sound, typically using a rotating cylinder or disc with a modulated groove.",
     "prerequisites": [
       "clockwork_mechanisms",
       "scientific_method",
@@ -590,7 +754,7 @@
     "id": "mass_media_newspapers",
     "name": "Mass Media (Newspapers)",
     "era": "Industrial",
-    "description": "Wide circulation of newspapers made possible by steam-powered printing presses and railroads, shaping public opinion.",
+    "description": "Wide circulation of newspapers made possible by steam-powered rotary printing presses and railroad distribution, shaping public opinion on an unprecedented scale.",
     "prerequisites": [
       "printing_press",
       "steam_engine",
@@ -603,33 +767,33 @@
     "id": "typewriter",
     "name": "Typewriter",
     "era": "Industrial",
-    "description": "Mechanical machine for producing characters similar to printer's type, transforming office work.",
+    "description": "A mechanical machine for producing legible, standardized text, transforming office work and professional writing.",
     "prerequisites": [
       "mass_production",
       "steel_production",
       "printing_press",
-      "clockwork_mechanisms"
+      "interchangeable_parts"
     ]
   },
   {
     "id": "department_stores_mass_retail",
     "name": "Department Stores & Mass Retail",
     "era": "Industrial",
-    "description": "Large retail establishments offering a wide variety of goods, transforming shopping habits.",
+    "description": "Large retail establishments offering a wide variety of goods organized into different departments, transforming the urban shopping experience.",
     "prerequisites": [
       "mass_production",
-      "factory_system",
+      "industrial_urbanization",
       "currency",
       "railroads",
       "printing_press",
-      "glassmaking"
+      "industrial_glass_production_float_glass"
     ]
   },
   {
     "id": "advertising_mass_media_early",
-    "name": "Advertising (Mass Media Early)",
+    "name": "Mass Advertising",
     "era": "Industrial",
-    "description": "Development of advertising techniques for newspapers, magazines, and posters to promote mass-produced goods.",
+    "description": "The development of sophisticated advertising techniques for newspapers, magazines, and posters to create brands and drive demand for mass-produced goods.",
     "prerequisites": [
       "mass_media_newspapers",
       "psychology",
@@ -642,21 +806,21 @@
     "id": "geology",
     "name": "Geology",
     "era": "Industrial",
-    "description": "Scientific study of the Earth, its materials, structure, processes, and history.",
+    "description": "The scientific study of the Earth, its materials, structure, processes, and history, including principles like uniformitarianism.",
     "prerequisites": [
       "mining",
       "scientific_method",
       "advanced_chemistry",
       "cartography",
       "printing_press",
-      "railroads"
+      "canal_networks"
     ]
   },
   {
     "id": "oil_drilling",
     "name": "Oil Drilling",
     "era": "Industrial",
-    "description": "Extraction of petroleum from underground reservoirs using steam-powered rigs.",
+    "description": "Extraction of petroleum from underground reservoirs using mechanically powered rigs, often driven by steam engines.",
     "prerequisites": [
       "steam_engine",
       "mining",
@@ -667,9 +831,9 @@
   },
   {
     "id": "petroleum_refining_fractional_distillation",
-    "name": "Petroleum Refining (Fractional Distillation)",
+    "name": "Petroleum Refining",
     "era": "Industrial",
-    "description": "Separating crude oil into useful fractions like gasoline, kerosene, and lubricating oils.",
+    "description": "Separating crude oil into commercially useful fractions like kerosene, gasoline, and lubricating oils using fractional distillation.",
     "prerequisites": [
       "oil_drilling",
       "advanced_chemistry",
@@ -682,12 +846,11 @@
     "id": "theory_of_evolution_darwin",
     "name": "Theory of Evolution (Darwin)",
     "era": "Industrial",
-    "description": "Scientific theory explaining biological diversity through natural selection and descent with modification.",
+    "description": "A scientific theory explaining biological diversity through the process of natural selection acting on heritable variation over geologic time.",
     "prerequisites": [
       "scientific_method",
       "geology",
       "human_anatomy_physiology",
-      "microbiology_early_observations",
       "printing_press",
       "exploration_global"
     ]
@@ -696,7 +859,7 @@
     "id": "genetics_mendel",
     "name": "Genetics (Mendel)",
     "era": "Industrial",
-    "description": "Fundamental principles of heredity discovered through experiments with pea plants.",
+    "description": "Discovery of the fundamental principles of heredity through systematic experiments, showing that traits are passed down in discrete units (genes).",
     "prerequisites": [
       "scientific_method",
       "mathematics",
@@ -708,34 +871,35 @@
   },
   {
     "id": "haber_bosch_process_early",
-    "name": "Haber-Bosch Process (Early)",
+    "name": "Haber-Bosch Process",
     "era": "Industrial",
-    "description": "Industrial synthesis of ammonia from atmospheric nitrogen and hydrogen, key for fertilizers and explosives.",
+    "description": "An industrial process for synthesizing ammonia from atmospheric nitrogen and hydrogen under high temperatures and pressures, key for fertilizers and explosives.",
     "prerequisites": [
       "advanced_chemistry",
-      "steam_engine",
       "thermodynamics",
-      "steel_production"
+      "steel_production",
+      "engineering"
     ]
   },
   {
     "id": "chemical_fertilizers",
     "name": "Chemical Fertilizers",
     "era": "Industrial",
-    "description": "Synthesized nutrients to enhance crop yields.",
+    "description": "Large-scale production and application of synthesized plant nutrients (N-P-K) to enhance agricultural crop yields.",
     "prerequisites": [
       "advanced_chemistry",
       "agriculture",
       "mining",
       "mass_production",
-      "haber_bosch_process_early"
+      "haber_bosch_process_early",
+      "railroads"
     ]
   },
   {
     "id": "canning_food_preservation",
     "name": "Canning & Food Preservation",
     "era": "Industrial",
-    "description": "Methods of preserving food by sealing it in airtight containers and heating, extending shelf life.",
+    "description": "A method of preserving food by processing and sealing it in airtight containers, typically made of tin-plated steel or glass.",
     "prerequisites": [
       "advanced_chemistry",
       "glassmaking",
@@ -746,9 +910,9 @@
   },
   {
     "id": "medicine_clinical",
-    "name": "Medicine (Clinical)",
+    "name": "Clinical Medicine",
     "era": "Industrial",
-    "description": "Systematic diagnosis, treatment, and prevention of disease based on scientific principles and direct observation.",
+    "description": "The systematic diagnosis, treatment, and prevention of disease based on scientific principles and direct observation of patients in a hospital setting.",
     "prerequisites": [
       "human_anatomy_physiology",
       "microscope",
@@ -763,7 +927,7 @@
     "id": "germ_theory",
     "name": "Germ Theory of Disease",
     "era": "Industrial",
-    "description": "The scientific theory that many diseases are caused by microorganisms.",
+    "description": "The scientific theory, proven by Pasteur and Koch, that many diseases are caused by the growth and replication of specific microorganisms.",
     "prerequisites": [
       "medicine_clinical",
       "microscope",
@@ -773,10 +937,22 @@
     ]
   },
   {
-    "id": "food_pasteurization_heat_treatment",
-    "name": "Food Pasteurization (Heat Treatment)",
+    "id": "bacteriology_kochs_postulates",
+    "name": "Bacteriology",
     "era": "Industrial",
-    "description": "Using controlled heating to kill pathogens in food and beverages, improving safety and shelf life.",
+    "description": "The scientific study of bacteria, establishing specific bacteria as the causes of specific diseases through methods like Koch's postulates and the development of culture media.",
+    "prerequisites": [
+      "germ_theory",
+      "microscope",
+      "advanced_chemistry",
+      "synthetic_dyes"
+    ]
+  },
+  {
+    "id": "food_pasteurization_heat_treatment",
+    "name": "Food Pasteurization",
+    "era": "Industrial",
+    "description": "Using controlled heating to kill pathogens in food and beverages like milk and wine, dramatically improving public health, safety, and food shelf life.",
     "prerequisites": [
       "germ_theory",
       "canning_food_preservation",
@@ -787,9 +963,9 @@
   },
   {
     "id": "refrigeration",
-    "name": "Refrigeration",
+    "name": "Mechanical Refrigeration",
     "era": "Industrial",
-    "description": "Artificial cooling for food preservation and industry using vapor-compression cycles.",
+    "description": "Artificial cooling for food preservation and industrial processes using vapor-compression cycles, enabling refrigerated transport and storage.",
     "prerequisites": [
       "scientific_method",
       "engineering",
@@ -802,7 +978,7 @@
     "id": "anesthetics",
     "name": "Anesthetics",
     "era": "Industrial",
-    "description": "Substances that induce insensitivity to pain, revolutionizing surgery.",
+    "description": "Discovery and application of substances like ether and chloroform that induce a temporary state of unconsciousness and insensitivity to pain, revolutionizing surgery.",
     "prerequisites": [
       "medicine_clinical",
       "advanced_chemistry",
@@ -814,7 +990,7 @@
     "id": "aseptic_surgery",
     "name": "Aseptic Surgery",
     "era": "Industrial",
-    "description": "Surgical practices aimed at preventing microbial contamination of wounds.",
+    "description": "Surgical practices aimed at preventing microbial contamination of wounds through the sterilization of instruments, use of sterile gloves, and maintaining a sterile field.",
     "prerequisites": [
       "germ_theory",
       "medicine_clinical",
@@ -827,7 +1003,7 @@
     "id": "vaccination",
     "name": "Vaccination",
     "era": "Industrial",
-    "description": "Using weakened or killed pathogens to stimulate immunity and prevent diseases.",
+    "description": "Developing and administering vaccines based on attenuated or killed pathogens to stimulate a specific immune response and prevent infectious diseases.",
     "prerequisites": [
       "medicine_clinical",
       "scientific_method",
@@ -836,10 +1012,22 @@
     ]
   },
   {
+    "id": "blood_typing",
+    "name": "Blood Typing",
+    "era": "Industrial",
+    "description": "Discovery of the main human blood groups (A, B, O) and the importance of compatibility, making safe blood transfusions possible for the first time.",
+    "prerequisites": [
+      "medicine_clinical",
+      "microscope",
+      "scientific_method",
+      "advanced_chemistry"
+    ]
+  },
+  {
     "id": "public_sanitation_modern",
     "name": "Modern Public Sanitation",
     "era": "Industrial",
-    "description": "Large-scale systems for clean water supply, sewage disposal, and waste management in urban areas.",
+    "description": "Large-scale civil engineering projects to provide clean water supplies and dispose of sewage and waste in urban areas, driven by the acceptance of germ theory.",
     "prerequisites": [
       "public_health_systems",
       "germ_theory",
@@ -853,7 +1041,7 @@
     "id": "public_education_systems",
     "name": "Public Education Systems",
     "era": "Industrial",
-    "description": "State-sponsored formal schooling for large segments of the population, often to create a literate workforce.",
+    "description": "State-sponsored, compulsory formal schooling for large segments of the population, intended to create a literate workforce and instill national values.",
     "prerequisites": [
       "printing_press",
       "universities",
@@ -864,90 +1052,88 @@
     ]
   },
   {
-    "id": "anthropology_cultural",
-    "name": "Anthropology (Cultural)",
+    "id": "nationalism_modern",
+    "name": "Modern Nationalism",
     "era": "Industrial",
-    "description": "Study of human societies and cultures and their development, often in the context of colonialism and global exploration.",
+    "description": "An ideology emphasizing loyalty, devotion, or allegiance to a nation or nation-state, often defined by common language, culture, and territory, and holding that such a nation should govern itself.",
+    "prerequisites": [
+      "printing_press",
+      "public_education_systems",
+      "democracy_republicanism",
+      "railroads"
+    ]
+  },
+  {
+    "id": "feminism_first_wave_suffrage",
+    "name": "First-Wave Feminism & Suffrage",
+    "era": "Industrial",
+    "description": "An organized social and political movement focused on gaining legal rights for women, particularly the right to vote (suffrage), as well as property and education rights.",
+    "prerequisites": [
+      "liberalism_classical",
+      "public_education_systems",
+      "printing_press",
+      "industrial_urbanization"
+    ]
+  },
+  {
+    "id": "anthropology_cultural",
+    "name": "Cultural Anthropology",
+    "era": "Industrial",
+    "description": "The study of human societies, cultures, and their development, often involving ethnographic fieldwork and participant observation.",
     "prerequisites": [
       "sociology_early",
       "exploration_global",
       "printing_press",
-      "scientific_method"
+      "scientific_method",
+      "theory_of_evolution_darwin"
     ]
   },
   {
     "id": "sociology_early",
     "name": "Sociology (Early)",
     "era": "Industrial",
-    "description": "The systematic study of social behavior, society, patterns of social relationships, and culture in response to industrialization.",
+    "description": "The systematic study of social behavior, society, patterns of social relationships, and culture in response to the massive changes brought by industrialization.",
     "prerequisites": [
       "philosophy",
       "scientific_method",
-      "public_education_systems",
       "industrial_urbanization",
-      "theory_of_evolution_darwin",
       "printing_press",
       "statistics_advanced_data_analysis"
     ]
   },
   {
     "id": "sociology_classical_theories_durkheim_weber",
-    "name": "Sociology (Classical Theories - Durkheim, Weber)",
+    "name": "Classical Sociology",
     "era": "Industrial",
-    "description": "Foundation of sociology as a discipline with major theoretical frameworks on social structure, change, and action.",
+    "description": "The foundation of sociology as a formal academic discipline with major theoretical frameworks on social facts, social action, and rationalization (e.g., Durkheim, Weber).",
     "prerequisites": [
       "sociology_early",
       "scientific_method",
       "philosophy",
       "printing_press",
-      "universities"
-    ]
-  },
-  {
-    "id": "psychoanalysis_freudian_theory",
-    "name": "Psychoanalysis (Freudian Theory)",
-    "era": "Industrial",
-    "description": "A set of psychological theories and therapeutic techniques focusing on the unconscious mind.",
-    "prerequisites": [
-      "psychology",
-      "medicine_clinical",
-      "philosophy",
-      "printing_press"
-    ]
-  },
-  {
-    "id": "telephone",
-    "name": "Telephone",
-    "era": "Industrial",
-    "description": "Device for transmitting speech over electrical wires.",
-    "prerequisites": [
-      "electricity",
-      "telegraph",
-      "scientific_method",
-      "electromagnetism_maxwell",
-      "phonograph"
+      "universities",
+      "capitalism_industrial"
     ]
   },
   {
     "id": "internal_combustion_engine",
     "name": "Internal Combustion Engine",
     "era": "Industrial",
-    "description": "Engine that generates motive power by burning fuel within the engine itself.",
+    "description": "An engine that generates motive power by burning a volatile fuel (like gasoline) with an oxidizer in a combustion chamber, creating a high power-to-weight ratio.",
     "prerequisites": [
       "steam_engine",
       "scientific_method",
       "mass_production",
       "petroleum_refining_fractional_distillation",
-      "advanced_chemistry",
       "steel_production",
       "thermodynamics"
     ]
   },
   {
     "id": "diesel_engine_compression_ignition",
-    "name": "Diesel Engine (Compression Ignition)",
+    "name": "Diesel Engine",
     "era": "Industrial",
-    "description": "Internal combustion engine where fuel ignition occurs due to high temperature from compression, offering higher torque and efficiency.",
+    "description": "An internal combustion engine where fuel ignition occurs due to the high temperature from mechanical compression, offering higher torque and fuel efficiency.",
     "prerequisites": [
       "internal_combustion_engine",
       "thermodynamics",
@@ -956,26 +1142,61 @@
     ]
   },
   {
+    "id": "automobile_prototype",
+    "name": "Automobile (Prototype)",
+    "era": "Industrial",
+    "description": "The invention of the 'horseless carriage', a self-propelled vehicle powered by an internal combustion engine, representing the first viable automobiles.",
+    "prerequisites": [
+      "internal_combustion_engine",
+      "steel_production",
+      "vulcanized_rubber",
+      "engineering",
+      "bicycle"
+    ]
+  },
+  {
+    "id": "automobile_mass_production",
+    "name": "Mass-Produced Automobile",
+    "era": "Industrial",
+    "description": "The manufacture of affordable automobiles for a mass market, pioneered by the use of the moving assembly line.",
+    "prerequisites": [
+      "automobile_prototype",
+      "assembly_line",
+      "steel_production",
+      "petroleum_refining_fractional_distillation"
+    ]
+  },
+  {
+    "id": "bicycle",
+    "name": "Bicycle",
+    "era": "Industrial",
+    "description": "A human-powered, pedal-driven, single-track vehicle, having two wheels attached to a frame. Innovations like the chain drive and pneumatic tires made it a popular mode of transport.",
+    "prerequisites": [
+      "steel_production",
+      "mass_production",
+      "vulcanized_rubber"
+    ]
+  },
+  {
     "id": "rifling_firearms",
     "name": "Rifling in Firearms",
     "era": "Industrial",
-    "description": "Grooves inside a gun barrel that impart spin to a projectile, improving accuracy and range.",
+    "description": "Machining helical grooves inside a gun barrel that impart spin to a projectile, dramatically improving its accuracy and range.",
     "prerequisites": [
       "muskets_flintlock",
       "steel_production",
-      "engineering",
-      "mass_production"
+      "machine_tools_precision"
     ]
   },
   {
     "id": "cartridge_ammunition",
     "name": "Cartridge Ammunition",
     "era": "Industrial",
-    "description": "Self-contained ammunition units including bullet, propellant, primer, and casing.",
+    "description": "Self-contained ammunition units that package the bullet, propellant, and primer within a metallic casing, simplifying and speeding up the loading process.",
     "prerequisites": [
       "gunpowder",
       "advanced_chemistry",
-      "bronze_working",
+      "copper_working",
       "mass_production",
       "muskets_flintlock"
     ]
@@ -984,11 +1205,11 @@
     "id": "breech_loading_firearms",
     "name": "Breech-loading Firearms",
     "era": "Industrial",
-    "description": "Firearms that are loaded from the rear of the barrel, allowing for faster reloading and the use of cartridges.",
+    "description": "Firearms that are loaded from the rear of the barrel, a mechanism that allows for faster reloading and the effective use of cartridge ammunition.",
     "prerequisites": [
       "rifling_firearms",
       "steel_production",
-      "mass_production",
+      "interchangeable_parts",
       "cartridge_ammunition"
     ]
   },
@@ -996,20 +1217,20 @@
     "id": "machine_gun",
     "name": "Machine Gun",
     "era": "Industrial",
-    "description": "Fully automatic mounted or portable firearm, designed to fire bullets in quick succession.",
+    "description": "A fully automatic mounted or portable firearm designed to fire rifle cartridges in quick succession from an ammunition belt or magazine, revolutionizing warfare.",
     "prerequisites": [
       "breech_loading_firearms",
       "mass_production",
       "steel_production",
       "cartridge_ammunition",
-      "engineering"
+      "smokeless_powder"
     ]
   },
   {
     "id": "synthetic_rubber_polymer_chemistry",
-    "name": "Synthetic Rubber (Polymer Chemistry)",
+    "name": "Synthetic Rubber",
     "era": "Industrial",
-    "description": "Creation of artificial rubber through polymerization, reducing reliance on natural sources.",
+    "description": "The creation of artificial elastomers through the polymerization of monomers derived from petroleum, reducing reliance on natural rubber sources.",
     "prerequisites": [
       "vulcanized_rubber",
       "advanced_chemistry",
@@ -1021,7 +1242,7 @@
     "id": "sewing_machine",
     "name": "Sewing Machine",
     "era": "Industrial",
-    "description": "Machine used to stitch fabric and other materials together with thread.",
+    "description": "A machine used to stitch fabric and other materials together with thread, vastly increasing the speed and efficiency of clothing and textile production.",
     "prerequisites": [
       "mass_production",
       "textiles_weaving",
@@ -1032,9 +1253,9 @@
   },
   {
     "id": "pneumatic_tools_compressed_air_power",
-    "name": "Pneumatic Tools (Compressed Air Power)",
+    "name": "Pneumatic Tools",
     "era": "Industrial",
-    "description": "Tools powered by compressed air, used in mining, construction, and manufacturing.",
+    "description": "Tools and equipment powered by compressed air, including rock drills, riveters, and hammers, used heavily in mining, construction, and manufacturing.",
     "prerequisites": [
       "steam_engine",
       "steel_production",
@@ -1044,9 +1265,9 @@
   },
   {
     "id": "industrial_glass_production_float_glass",
-    "name": "Industrial Glass Production (Float Glass)",
+    "name": "Industrial Glass Production",
     "era": "Industrial",
-    "description": "Mass production methods for high-quality flat glass, revolutionizing architecture and other industries.",
+    "description": "Mass production methods for high-quality, uniform flat glass, such as the cylinder and float glass processes, revolutionizing architecture and manufacturing.",
     "prerequisites": [
       "glassmaking",
       "steam_engine",
@@ -1058,7 +1279,7 @@
     "id": "aluminum_production_hall_heroult",
     "name": "Aluminum Production (Hall-Héroult)",
     "era": "Industrial",
-    "description": "Electrolytic process for extracting aluminum from its ore, making the lightweight metal widely available.",
+    "description": "An electrolytic process for smelting aluminum from its ore, bauxite, making the strong, lightweight metal economically viable for widespread use.",
     "prerequisites": [
       "electricity",
       "advanced_chemistry",
@@ -1071,13 +1292,74 @@
     "id": "aerodynamics_subsonic",
     "name": "Subsonic Aerodynamics",
     "era": "Industrial",
-    "description": "The study of air in motion around solid objects at speeds below the speed of sound, focusing on the principles of lift, drag, and thrust.",
+    "description": "The scientific study of air in motion around solid objects at speeds below the speed of sound, codifying the principles of lift, drag, and fluid dynamics.",
     "prerequisites": [
       "scientific_method",
       "thermodynamics",
       "mathematics",
       "engineering",
       "logarithms_calculus_early"
+    ]
+  },
+  {
+    "id": "dirigibles_zeppelins",
+    "name": "Dirigibles & Zeppelins",
+    "era": "Industrial",
+    "description": "Development of steerable, lighter-than-air aircraft, often with a rigid frame (Zeppelin), capable of powered, controlled flight.",
+    "prerequisites": [
+      "aerodynamics_subsonic",
+      "internal_combustion_engine",
+      "textiles_weaving",
+      "aluminum_production_hall_heroult"
+    ]
+  },
+  {
+    "id": "powered_flight_wright_flyer",
+    "name": "Powered, Controlled Flight",
+    "era": "Industrial",
+    "description": "The invention of the first successful heavier-than-air aircraft, using wings to generate lift and a powered propeller for thrust, with controls for maneuvering.",
+    "prerequisites": [
+      "aerodynamics_subsonic",
+      "internal_combustion_engine",
+      "bicycle",
+      "engineering",
+      "woodworking"
+    ]
+  },
+  {
+    "id": "x_rays_discovery",
+    "name": "X-Rays",
+    "era": "Industrial",
+    "description": "The discovery of a form of high-energy electromagnetic radiation capable of passing through many materials opaque to light, with immediate applications in medicine.",
+    "prerequisites": [
+      "electricity",
+      "vacuum_technology_early",
+      "photography",
+      "scientific_method"
+    ]
+  },
+  {
+    "id": "radioactivity_discovery",
+    "name": "Radioactivity",
+    "era": "Industrial",
+    "description": "The discovery that certain elements, like uranium and radium, spontaneously emit energy in the form of rays or particles, challenging the idea of indivisible atoms.",
+    "prerequisites": [
+      "atomic_theory_daltonian",
+      "x_rays_discovery",
+      "scientific_method",
+      "advanced_chemistry"
+    ]
+  },
+  {
+    "id": "electron_discovery",
+    "name": "Discovery of the Electron",
+    "era": "Industrial",
+    "description": "The identification of the electron as a subatomic particle, the fundamental unit of electric charge, through experiments with cathode rays.",
+    "prerequisites": [
+      "atomic_theory_daltonian",
+      "electromagnetism_maxwell",
+      "vacuum_technology_early",
+      "scientific_method"
     ]
   }
 ]
