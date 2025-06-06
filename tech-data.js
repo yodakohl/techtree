@@ -503,6 +503,20 @@ const techTreeData = [
         prerequisites: ["telecommunications", "computers"]
     },
     {
+        id: "wifi",
+        name: "Wi-Fi",
+        era: "Modern",
+        description: "Wireless local area networking technology for connecting devices to the Internet.",
+        prerequisites: ["computer_networking", "radio", "integrated_circuits"]
+    },
+    {
+        id: "bluetooth",
+        name: "Bluetooth",
+        era: "Modern",
+        description: "Short-range wireless communication standard for exchanging data between devices.",
+        prerequisites: ["integrated_circuits", "radio", "digital_signal_processing"]
+    },
+    {
         id: "robotics",
         name: "Robotics",
         era: "Modern",
