@@ -16,22 +16,71 @@
     ]
   },
   {
-    "id": "tribalism",
-    "name": "Tribalism",
+    "id": "foraging_and_botany",
+    "name": "Foraging & Botany",
     "era": "Ancient",
-    "description": "Organization of society into small-scale kinship-based groups, establishing social cohesion, identity, and early forms of governance.",
+    "description": "Identifying and gathering wild plants for food, medicine, and materials through accumulated and shared knowledge.",
     "prerequisites": [
-      "oral_tradition_storytelling",
-      "hunting_gathering"
+      "oral_tradition_storytelling"
     ]
   },
   {
     "id": "stone_tool_making",
     "name": "Stone Tool Making",
     "era": "Ancient",
-    "description": "Crafting basic tools from stone through percussion flaking (e.g., hand axes, scrapers).",
+    "description": "Crafting basic tools from stone through percussion flaking (e.g., hand axes, choppers, scrapers).",
     "prerequisites": [
       "fire_control"
+    ]
+  },
+  {
+    "id": "kinship_systems",
+    "name": "Kinship Systems",
+    "era": "Ancient",
+    "description": "Formal systems of defining relationships and lineage, forming the basis of early social structure.",
+    "prerequisites": [
+      "oral_tradition_storytelling"
+    ]
+  },
+  {
+    "id": "persistence_hunting",
+    "name": "Persistence Hunting",
+    "era": "Ancient",
+    "description": "Coordinated endurance running to pursue and exhaust prey, an early form of organized hunting.",
+    "prerequisites": [
+      "oral_tradition_storytelling"
+    ]
+  },
+  {
+    "id": "hunting_gathering_basic",
+    "name": "Basic Hunting & Gathering",
+    "era": "Ancient",
+    "description": "A nomadic subsistence strategy based on hunting wild animals and gathering wild plants using a simple toolkit.",
+    "prerequisites": [
+      "persistence_hunting",
+      "foraging_and_botany",
+      "stone_tool_making",
+      "fire_control"
+    ]
+  },
+  {
+    "id": "tribalism",
+    "name": "Tribalism",
+    "era": "Ancient",
+    "description": "Organization of society into small-scale kinship-based groups, establishing social cohesion, identity, and early forms of governance.",
+    "prerequisites": [
+      "kinship_systems",
+      "hunting_gathering_basic"
+    ]
+  },
+  {
+    "id": "shamanism_animism",
+    "name": "Shamanism & Animism",
+    "era": "Ancient",
+    "description": "Belief systems centered on a spirit world and mediators (shamans) who interact with it for healing, divination, and ritual.",
+    "prerequisites": [
+      "oral_tradition_storytelling",
+      "tribalism"
     ]
   },
   {
@@ -40,38 +89,26 @@
     "era": "Ancient",
     "description": "Crafting tools, needles, and points from animal bones, antlers, and ivory.",
     "prerequisites": [
-      "stone_tool_making"
+      "stone_tool_making",
+      "hunting_gathering_basic"
     ]
   },
   {
     "id": "woodworking_basic",
     "name": "Basic Woodworking",
     "era": "Ancient",
-    "description": "Shaping wood for simple tools, shelters, and fire fuel.",
+    "description": "Shaping wood for simple tools, shelters, and fire fuel using stone implements.",
     "prerequisites": [
       "stone_tool_making",
       "fire_control"
     ]
   },
   {
-    "id": "basic_tools",
-    "name": "Basic Tools",
-    "era": "Ancient",
-    "description": "The foundational understanding and creation of a rudimentary toolkit from available materials like stone, wood, and bone.",
-    "prerequisites": [
-      "fire_control",
-      "stone_tool_making",
-      "woodworking_basic",
-      "bone_tool_making"
-    ]
-  },
-  {
     "id": "basic_shelter",
     "name": "Basic Shelter",
     "era": "Ancient",
-    "description": "Construction of rudimentary shelters from wood, bone, and hides for protection from elements.",
+    "description": "Construction of rudimentary shelters like lean-tos from wood, bone, and hides for protection from elements.",
     "prerequisites": [
-      "fire_control",
       "woodworking_basic",
       "stone_tool_making"
     ]
@@ -80,29 +117,71 @@
     "id": "pigment_creation",
     "name": "Pigment Creation",
     "era": "Ancient",
-    "description": "Sourcing and processing natural materials (ochre, charcoal) to create pigments for art and decoration.",
+    "description": "Sourcing and processing natural materials (ochre, charcoal, manganese) to create pigments for art and decoration.",
     "prerequisites": [
-      "fire_control",
-      "stone_tool_making"
+      "foraging_and_botany",
+      "stone_tool_making",
+      "fire_control"
     ]
   },
   {
     "id": "early_symbolic_communication",
     "name": "Early Symbolic Communication",
     "era": "Ancient",
-    "description": "Use of symbols, cave paintings, and petroglyphs for communication, ritual, and recording basic information.",
+    "description": "Use of abstract symbols, cave paintings, and petroglyphs for communication, ritual, and recording basic information.",
     "prerequisites": [
-      "stone_tool_making",
+      "shamanism_animism",
       "oral_tradition_storytelling",
       "pigment_creation"
+    ]
+  },
+  {
+    "id": "tally_marks",
+    "name": "Tally Marks",
+    "era": "Ancient",
+    "description": "Notching bones or wood to count items, days, or lunar cycles; the earliest form of data recording.",
+    "prerequisites": [
+      "bone_tool_making",
+      "early_symbolic_communication"
+    ]
+  },
+  {
+    "id": "ritual_burial_practices",
+    "name": "Ritual Burial Practices",
+    "era": "Ancient",
+    "description": "Development of formal practices for interring the dead, often involving grave goods and symbolic acts, indicating abstract belief systems.",
+    "prerequisites": [
+      "early_symbolic_communication",
+      "shamanism_animism",
+      "tribalism"
     ]
   },
   {
     "id": "advanced_stone_tools",
     "name": "Advanced Stone Tools",
     "era": "Ancient",
-    "description": "Refinement of stone tool technology, including polished stone tools, microliths, and more specialized implements.",
+    "description": "Refinement of stone tool technology, including pressure flaking, polished stone tools, microliths, and more specialized implements.",
     "prerequisites": [
+      "stone_tool_making"
+    ]
+  },
+  {
+    "id": "natural_adhesives",
+    "name": "Natural Adhesives",
+    "era": "Ancient",
+    "description": "Processing materials like birch bark tar or pine resin to create glues for hafting tools and waterproofing.",
+    "prerequisites": [
+      "fire_control",
+      "foraging_and_botany"
+    ]
+  },
+  {
+    "id": "basic_rope_making",
+    "name": "Basic Rope Making",
+    "era": "Ancient",
+    "description": "Twisting plant fibers or animal sinew to create cordage for bindings, nets, and tools.",
+    "prerequisites": [
+      "foraging_and_botany",
       "stone_tool_making"
     ]
   },
@@ -110,24 +189,23 @@
     "id": "composite_tools",
     "name": "Composite Tools",
     "era": "Ancient",
-    "description": "Combining materials like stone, bone, and wood (e.g., hafting axe heads, spears) using bindings.",
+    "description": "Combining different materials like stone, bone, and wood (e.g., hafting axe heads, spears) using bindings and adhesives.",
     "prerequisites": [
       "advanced_stone_tools",
       "bone_tool_making",
       "woodworking_basic",
-      "basic_rope_making"
+      "basic_rope_making",
+      "natural_adhesives"
     ]
   },
   {
-    "id": "hunting_gathering",
-    "name": "Hunting & Gathering",
+    "id": "atlatl",
+    "name": "Atlatl",
     "era": "Ancient",
-    "description": "Societies primarily sustained by foraging, hunting, and fishing, utilizing a diverse toolkit and deep ecological knowledge.",
+    "description": "A spear-thrower that increases the range and velocity of darts, a significant hunting and military innovation.",
     "prerequisites": [
       "composite_tools",
-      "oral_tradition_storytelling",
-      "fire_control",
-      "basic_shelter"
+      "woodworking_basic"
     ]
   },
   {
@@ -136,8 +214,31 @@
     "era": "Ancient",
     "description": "Interpreting animal tracks, trails, and other signs for hunting and understanding wildlife.",
     "prerequisites": [
-      "hunting_gathering",
+      "hunting_gathering_basic",
       "oral_tradition_storytelling"
+    ]
+  },
+  {
+    "id": "advanced_hunting_gathering",
+    "name": "Advanced Hunting & Gathering",
+    "era": "Ancient",
+    "description": "Societies primarily sustained by foraging and hunting, utilizing a diverse composite toolkit, advanced tracking, and deep ecological knowledge.",
+    "prerequisites": [
+      "composite_tools",
+      "animal_tracking_signs",
+      "basic_shelter",
+      "atlatl"
+    ]
+  },
+  {
+    "id": "trapping",
+    "name": "Trapping",
+    "era": "Ancient",
+    "description": "Using pits, snares, and simple deadfalls to capture animals passively.",
+    "prerequisites": [
+      "woodworking_basic",
+      "basic_rope_making",
+      "animal_tracking_signs"
     ]
   },
   {
@@ -146,8 +247,8 @@
     "era": "Ancient",
     "description": "Small-scale, non-intensive cultivation of plants using simple tools; a transition between foraging and large-scale agriculture.",
     "prerequisites": [
-      "hunting_gathering",
-      "basic_tools",
+      "advanced_hunting_gathering",
+      "foraging_and_botany",
       "fire_control"
     ]
   },
@@ -155,20 +256,32 @@
     "id": "plant_domestication",
     "name": "Plant Domestication",
     "era": "Ancient",
-    "description": "Systematic cultivation and selective breeding of wild plants for food, fiber, and other uses.",
+    "description": "Systematic cultivation and selective breeding of wild plants (e.g., wheat, rice, maize) for food, fiber, and other uses.",
     "prerequisites": [
       "horticulture",
-      "basic_tools"
+      "advanced_stone_tools"
     ]
   },
   {
-    "id": "basic_rope_making",
-    "name": "Basic Rope Making",
+    "id": "animal_domestication",
+    "name": "Animal Domestication",
     "era": "Ancient",
-    "description": "Twisting plant fibers or animal sinew to create ropes and cords for various uses.",
+    "description": "Taming and selective breeding of animals (e.g., dogs, goats, sheep) for food, labor, or companionship.",
     "prerequisites": [
-      "plant_domestication",
-      "basic_tools"
+      "advanced_hunting_gathering",
+      "trapping",
+      "tribalism"
+    ]
+  },
+  {
+    "id": "leather_working",
+    "name": "Leather Working",
+    "era": "Ancient",
+    "description": "Processing animal hides into leather for clothing, shelter, and containers using tanning agents.",
+    "prerequisites": [
+      "animal_domestication",
+      "fire_control",
+      "advanced_stone_tools"
     ]
   },
   {
@@ -177,57 +290,41 @@
     "era": "Ancient",
     "description": "Interlacing plant fibers or thin wood strips to create containers, mats, and simple fabrics.",
     "prerequisites": [
-      "plant_domestication",
-      "basic_tools",
+      "foraging_and_botany",
       "basic_rope_making"
-    ]
-  },
-  {
-    "id": "trapping",
-    "name": "Trapping",
-    "era": "Ancient",
-    "description": "Using snares and pits to capture animals.",
-    "prerequisites": [
-      "woodworking_basic",
-      "basic_rope_making",
-      "animal_tracking_signs",
-      "composite_tools"
     ]
   },
   {
     "id": "fishing_nets_hooks",
     "name": "Fishing Nets & Hooks",
     "era": "Ancient",
-    "description": "Crafting nets and hooks from bone, wood, and fiber for efficient fishing.",
+    "description": "Crafting hooks from bone or wood and nets from fiber for efficient fishing.",
     "prerequisites": [
       "bone_tool_making",
       "basic_weaving_basketry",
-      "basic_rope_making",
-      "composite_tools"
+      "basic_rope_making"
     ]
   },
   {
-    "id": "animal_domestication",
-    "name": "Animal Domestication",
+    "id": "early_musical_instruments_flutes_drums",
+    "name": "Early Musical Instruments (Flutes, Drums)",
     "era": "Ancient",
-    "description": "Taming and selective breeding of animals for food, labor, or companionship.",
+    "description": "Crafting simple instruments from bone, wood, or stretched hides for ritual, communication, or entertainment.",
     "prerequisites": [
-      "hunting_gathering",
-      "basic_shelter",
-      "fire_control",
-      "trapping"
-    ]
-  },
-  {
-    "id": "leather_working",
-    "name": "Leather Working",
-    "era": "Ancient",
-    "description": "Processing animal hides into leather for clothing, shelter, and containers.",
-    "prerequisites": [
-      "animal_domestication",
+      "woodworking_basic",
       "bone_tool_making",
-      "fire_control",
-      "stone_tool_making"
+      "leather_working",
+      "shamanism_animism"
+    ]
+  },
+  {
+    "id": "clay_gathering_and_preparation",
+    "name": "Clay Gathering and Preparation",
+    "era": "Ancient",
+    "description": "Identifying, sourcing, and preparing clay by removing impurities and adding temper, making it suitable for pottery.",
+    "prerequisites": [
+      "foraging_and_botany",
+      "fire_control"
     ]
   },
   {
@@ -238,60 +335,130 @@
     "prerequisites": [
       "plant_domestication",
       "animal_domestication",
-      "basic_tools",
-      "fire_control"
+      "composite_tools"
+    ]
+  },
+  {
+    "id": "food_storage_pits",
+    "name": "Food Storage Pits",
+    "era": "Ancient",
+    "description": "Digging and lining pits to store surplus grain and other foods, protecting them from pests and spoilage.",
+    "prerequisites": [
+      "agriculture",
+      "basic_weaving_basketry"
+    ]
+  },
+  {
+    "id": "grinding_stones_querns",
+    "name": "Grinding Stones & Querns",
+    "era": "Ancient",
+    "description": "Using hand-operated stones (saddle stones, querns) to mill grain into flour.",
+    "prerequisites": [
+      "plant_domestication",
+      "advanced_stone_tools"
     ]
   },
   {
     "id": "water_carrying_techniques",
     "name": "Water Carrying Techniques",
     "era": "Ancient",
-    "description": "Methods for transporting water, e.g., using animal skins, gourds, or large leaves before pottery.",
+    "description": "Methods for transporting water using animal skins, gourds, or waterproofed baskets before the advent of pottery.",
     "prerequisites": [
-      "basic_tools",
       "leather_working",
-      "basic_weaving_basketry"
-    ]
-  },
-  {
-    "id": "clay_gathering_and_preparation",
-    "name": "Clay Gathering and Preparation",
-    "era": "Ancient",
-    "description": "Identifying, sourcing, and preparing clay by removing impurities and adding temper, making it suitable for pottery.",
-    "prerequisites": [
-      "stone_tool_making",
-      "fire_control"
+      "basic_weaving_basketry",
+      "natural_adhesives"
     ]
   },
   {
     "id": "pottery",
     "name": "Pottery",
     "era": "Ancient",
-    "description": "Crafting vessels from fired clay for storage, cooking, and ritual.",
+    "description": "Crafting vessels from fired clay for storage, cooking, and ritual, a key technology for settled life.",
     "prerequisites": [
+      "clay_gathering_and_preparation",
       "fire_control",
-      "basic_tools",
-      "water_carrying_techniques",
-      "clay_gathering_and_preparation"
+      "water_carrying_techniques"
+    ]
+  },
+  {
+    "id": "property_concepts",
+    "name": "Property Concepts",
+    "era": "Ancient",
+    "description": "The idea of ownership of land, livestock, or goods, arising from agricultural surplus and settlement.",
+    "prerequisites": [
+      "agriculture",
+      "tribalism"
+    ]
+  },
+  {
+    "id": "social_stratification",
+    "name": "Social Stratification",
+    "era": "Ancient",
+    "description": "The emergence of social hierarchies (e.g., rulers, priests, commoners) based on wealth, power, and labor specialization.",
+    "prerequisites": [
+      "agriculture",
+      "property_concepts",
+      "tribalism"
+    ]
+  },
+  {
+    "id": "prospecting",
+    "name": "Prospecting",
+    "era": "Ancient",
+    "description": "The search for surface-level ore deposits, precious stones, or minerals.",
+    "prerequisites": [
+      "advanced_stone_tools",
+      "oral_tradition_storytelling"
+    ]
+  },
+  {
+    "id": "salt_harvesting",
+    "name": "Salt Harvesting",
+    "era": "Ancient",
+    "description": "Gathering salt from natural deposits (mining) or through the evaporation of seawater (coastal pans).",
+    "prerequisites": [
+      "prospecting",
+      "fire_control"
     ]
   },
   {
     "id": "food_preservation_drying_salting",
     "name": "Food Preservation (Drying, Salting)",
     "era": "Ancient",
-    "description": "Early methods of preserving food through drying with sun/fire or using salt, extending food availability.",
+    "description": "Methods of preserving food through drying with sun/fire or using salt, extending food availability and enabling trade.",
     "prerequisites": [
       "fire_control",
       "agriculture",
-      "hunting_gathering",
-      "prospecting"
+      "salt_harvesting"
+    ]
+  },
+  {
+    "id": "herbalism",
+    "name": "Herbalism",
+    "era": "Ancient",
+    "description": "Use of plants for medicinal purposes, combining practical knowledge with ritual and oral tradition.",
+    "prerequisites": [
+      "foraging_and_botany",
+      "shamanism_animism",
+      "pottery"
+    ]
+  },
+  {
+    "id": "primitive_surgery_trepanation",
+    "name": "Primitive Surgery (e.g., Trepanation)",
+    "era": "Ancient",
+    "description": "Early forms of surgical intervention, often ritualistic or for relieving pressure, using specialized stone tools.",
+    "prerequisites": [
+      "herbalism",
+      "advanced_stone_tools",
+      "shamanism_animism"
     ]
   },
   {
     "id": "animal_husbandry",
     "name": "Animal Husbandry",
     "era": "Ancient",
-    "description": "Systematic breeding, feeding, and raising of livestock for meat, milk, wool, and labor.",
+    "description": "Systematic care, breeding, and raising of livestock for meat, milk, wool, and labor.",
     "prerequisites": [
       "animal_domestication",
       "agriculture"
@@ -301,66 +468,39 @@
     "id": "fermentation_basic",
     "name": "Basic Fermentation",
     "era": "Ancient",
-    "description": "Early techniques for preserving food and creating beverages (e.g., beer, wine, fermented dairy) through microbial action.",
+    "description": "Early techniques for preserving food and creating beverages (e.g., beer, mead) through microbial action.",
     "prerequisites": [
-      "plant_domestication",
+      "agriculture",
       "pottery",
-      "fire_control",
-      "agriculture"
+      "grinding_stones_querns"
     ]
   },
   {
-    "id": "herbalism",
-    "name": "Herbalism",
+    "id": "textiles_weaving",
+    "name": "Textiles & Weaving",
     "era": "Ancient",
-    "description": "Use of plants for medicinal purposes based on observation and oral tradition.",
+    "description": "Processing plant and animal fibers (flax, wool) into threads and weaving them into cloth.",
     "prerequisites": [
       "plant_domestication",
-      "fire_control",
-      "oral_tradition_storytelling"
+      "animal_husbandry",
+      "basic_weaving_basketry"
     ]
   },
   {
-    "id": "primitive_surgery_trepanation",
-    "name": "Primitive Surgery (e.g., Trepanation)",
+    "id": "loom",
+    "name": "Loom",
     "era": "Ancient",
-    "description": "Early forms of surgical intervention, often ritualistic or for relieving pressure, using basic tools.",
+    "description": "Developing simple frames, like the warp-weighted loom, to enable faster and wider textile production.",
     "prerequisites": [
-      "herbalism",
-      "advanced_stone_tools",
-      "fire_control",
-      "oral_tradition_storytelling"
-    ]
-  },
-  {
-    "id": "early_musical_instruments_flutes_drums",
-    "name": "Early Musical Instruments (Flutes, Drums)",
-    "era": "Ancient",
-    "description": "Crafting simple instruments from wood, bone, or stretched hides for ritual, communication, or entertainment.",
-    "prerequisites": [
-      "woodworking_basic",
-      "bone_tool_making",
-      "oral_tradition_storytelling",
-      "leather_working"
-    ]
-  },
-  {
-    "id": "ritual_burial_practices",
-    "name": "Ritual Burial Practices",
-    "era": "Ancient",
-    "description": "Development of formal practices for interring the dead, often involving grave goods and symbolic acts, indicating abstract belief systems.",
-    "prerequisites": [
-      "early_symbolic_communication",
-      "fire_control",
-      "oral_tradition_storytelling",
-      "basic_tools"
+      "textiles_weaving",
+      "woodworking_basic"
     ]
   },
   {
     "id": "early_boats",
     "name": "Early Boats",
     "era": "Ancient",
-    "description": "Construction of simple rafts and dugout canoes for crossing water bodies.",
+    "description": "Construction of simple rafts, coracles, and dugout canoes for crossing water bodies.",
     "prerequisites": [
       "woodworking_basic",
       "composite_tools",
@@ -371,79 +511,62 @@
     "id": "basic_boat_propulsion",
     "name": "Basic Boat Propulsion (Paddles, Poles)",
     "era": "Ancient",
-    "description": "Manual methods for propelling early boats using paddles or poles.",
+    "description": "Manual methods for propelling early boats using shaped paddles or long poles.",
     "prerequisites": [
       "early_boats",
       "woodworking_basic"
-    ]
-  },
-  {
-    "id": "textiles_weaving",
-    "name": "Textiles & Weaving",
-    "era": "Ancient",
-    "description": "Processing plant and animal fibers (flax, wool) into threads and weaving them into cloth on early looms.",
-    "prerequisites": [
-      "plant_domestication",
-      "animal_husbandry",
-      "basic_tools",
-      "basic_weaving_basketry"
     ]
   },
   {
     "id": "sailing",
     "name": "Sailing",
     "era": "Ancient",
-    "description": "Use of wind-powered vessels with simple square sails for navigation across water.",
+    "description": "Harnessing wind power with simple square sails made from hides or textiles for navigation.",
     "prerequisites": [
       "early_boats",
-      "textiles_weaving",
-      "basic_boat_propulsion",
-      "woodworking_basic"
+      "loom",
+      "basic_boat_propulsion"
     ]
   },
   {
     "id": "record_keeping",
     "name": "Record Keeping",
     "era": "Ancient",
-    "description": "Early systems of tallying and recording information (e.g., knots, tokens, clay tablets) to manage surplus and trade.",
+    "description": "Using systems of tokens or impressions on clay to manage surplus goods, livestock, and trade transactions.",
     "prerequisites": [
       "agriculture",
       "pottery",
-      "early_symbolic_communication",
-      "oral_tradition_storytelling"
+      "tally_marks"
     ]
   },
   {
     "id": "barter",
     "name": "Barter",
     "era": "Ancient",
-    "description": "The direct exchange of goods and services for other goods and services without a medium of exchange like money.",
+    "description": "The direct exchange of goods and services for other goods and services without a medium of exchange.",
     "prerequisites": [
-      "agriculture",
-      "oral_tradition_storytelling",
-      "record_keeping"
+      "record_keeping",
+      "tribalism"
     ]
   },
   {
-    "id": "bartering_systems_early_trade",
-    "name": "Bartering Systems & Early Trade",
+    "id": "trade_routes",
+    "name": "Trade Routes",
     "era": "Ancient",
-    "description": "Establishment of regional trade networks based on bartering, exchanging surplus goods and rare materials over distances.",
+    "description": "Establishment of regional land and sea networks for bartering, exchanging surplus goods and rare materials over long distances.",
     "prerequisites": [
       "barter",
-      "record_keeping",
       "animal_husbandry",
-      "early_boats"
+      "sailing"
     ]
   },
   {
     "id": "early_astronomy_observation",
     "name": "Early Astronomical Observation",
     "era": "Ancient",
-    "description": "Systematic observation of celestial bodies for timekeeping, navigation, and ritual.",
+    "description": "Systematic observation of celestial bodies (sun, moon, stars) for timekeeping, navigation, and ritual.",
     "prerequisites": [
       "record_keeping",
-      "fire_control",
       "oral_tradition_storytelling"
     ]
   },
@@ -451,10 +574,10 @@
     "id": "celestial_mythology_constellations",
     "name": "Celestial Mythology & Constellations",
     "era": "Ancient",
-    "description": "Creation of stories and patterns based on celestial observations, forming early cosmologies.",
+    "description": "Creation of stories and patterns based on celestial observations, forming early cosmologies and mnemonic aids.",
     "prerequisites": [
       "early_astronomy_observation",
-      "oral_tradition_storytelling",
+      "shamanism_animism",
       "early_symbolic_communication"
     ]
   },
@@ -462,7 +585,7 @@
     "id": "calendars",
     "name": "Calendars",
     "era": "Ancient",
-    "description": "Systems for tracking time based on lunar and solar cycles, vital for agriculture and civil life.",
+    "description": "Systems for tracking time based on lunar and solar cycles, vital for agriculture, festivals, and civil life.",
     "prerequisites": [
       "agriculture",
       "record_keeping",
@@ -473,51 +596,58 @@
     "id": "early_navigation",
     "name": "Early Navigation",
     "era": "Ancient",
-    "description": "Basic coastal navigation using landmarks and celestial observation for seafaring.",
+    "description": "Basic coastal and open-water navigation using landmarks and celestial observation.",
     "prerequisites": [
       "sailing",
-      "calendars",
       "early_astronomy_observation"
     ]
   },
   {
-    "id": "wheel",
-    "name": "Wheel",
+    "id": "wheel_and_axle",
+    "name": "Wheel and Axle",
     "era": "Ancient",
-    "description": "Invention of the wheel and axle, initially for pottery and later for transportation.",
+    "description": "Invention of the wheel and axle, initially for pottery and later adapted for wheeled carts and transportation.",
     "prerequisites": [
       "woodworking_basic",
       "pottery"
     ]
   },
   {
-    "id": "archery",
-    "name": "Archery",
+    "id": "wheeled_vehicles",
+    "name": "Wheeled Vehicles",
     "era": "Ancient",
-    "description": "Use of bows and arrows for hunting and warfare.",
+    "description": "Construction of carts and wagons, revolutionizing transport of goods and people.",
     "prerequisites": [
-      "hunting_gathering",
-      "woodworking_basic",
-      "composite_tools",
-      "basic_rope_making"
+      "wheel_and_axle",
+      "animal_husbandry"
     ]
   },
   {
-    "id": "prospecting",
-    "name": "Prospecting",
+    "id": "sling",
+    "name": "Sling",
     "era": "Ancient",
-    "description": "The search for surface-level ore deposits, stones, or minerals. A precursor to systematic mining.",
+    "description": "A simple but effective projectile weapon made from cordage or leather, used for hunting and warfare.",
     "prerequisites": [
-      "stone_tool_making",
-      "oral_tradition_storytelling",
-      "pigment_creation"
+      "basic_rope_making",
+      "leather_working"
+    ]
+  },
+  {
+    "id": "archery",
+    "name": "Archery",
+    "era": "Ancient",
+    "description": "Development of the bow and arrow, a revolutionary weapon for hunting and warfare at a distance.",
+    "prerequisites": [
+      "advanced_hunting_gathering",
+      "composite_tools",
+      "atlatl"
     ]
   },
   {
     "id": "mining",
     "name": "Mining",
     "era": "Ancient",
-    "description": "Extraction of valuable minerals and other geological materials from the Earth, initially from surface or shallow pits.",
+    "description": "Extraction of minerals and other geological materials from the Earth, initially from surface pits and later shallow shafts.",
     "prerequisites": [
       "composite_tools",
       "fire_control",
@@ -531,21 +661,40 @@
     "description": "Stone shaping and construction techniques for building durable structures, walls, and tombs.",
     "prerequisites": [
       "advanced_stone_tools",
-      "basic_shelter",
-      "mining",
-      "composite_tools"
+      "mining"
+    ]
+  },
+  {
+    "id": "levers_and_rollers",
+    "name": "Levers and Rollers",
+    "era": "Ancient",
+    "description": "Understanding and use of simple machines to move massive objects, enabling large-scale construction.",
+    "prerequisites": [
+      "woodworking_basic",
+      "masonry"
     ]
   },
   {
     "id": "megalithic_construction",
     "name": "Megalithic Construction",
     "era": "Ancient",
-    "description": "Building large structures using massive stones, often for ritual or monumental purposes, requiring significant social organization.",
+    "description": "Building large structures from massive stones, often for ritual or monumental purposes, requiring significant social organization.",
     "prerequisites": [
       "masonry",
-      "tribalism",
-      "oral_tradition_storytelling",
+      "social_stratification",
+      "levers_and_rollers",
       "basic_rope_making"
+    ]
+  },
+  {
+    "id": "wattle_and_daub",
+    "name": "Wattle and Daub",
+    "era": "Ancient",
+    "description": "A composite building material using a woven lattice of wooden strips (wattle) daubed with a sticky material like clay or soil.",
+    "prerequisites": [
+      "basic_shelter",
+      "basic_weaving_basketry",
+      "clay_gathering_and_preparation"
     ]
   },
   {
@@ -555,40 +704,48 @@
     "description": "Manufacturing durable building bricks from clay by firing them in kilns, allowing for larger and more complex buildings.",
     "prerequisites": [
       "pottery",
-      "fire_control",
       "masonry",
-      "agriculture"
+      "wattle_and_daub"
     ]
   },
   {
     "id": "early_fortifications",
     "name": "Early Fortifications",
     "era": "Ancient",
-    "description": "Construction of basic defensive structures like palisades and earthworks to protect settlements.",
+    "description": "Construction of basic defensive structures like palisades, earthworks, and stone walls to protect settlements.",
     "prerequisites": [
       "masonry",
       "woodworking_basic",
-      "agriculture",
-      "basic_shelter"
+      "social_stratification"
     ]
   },
   {
     "id": "irrigation",
     "name": "Irrigation",
     "era": "Ancient",
-    "description": "Controlled water management through canals and channels to support large-scale agriculture.",
+    "description": "Controlled water management through canals and channels to support large-scale agriculture in arid regions.",
     "prerequisites": [
       "agriculture",
       "masonry",
-      "pottery",
-      "basic_tools"
+      "social_stratification"
+    ]
+  },
+  {
+    "id": "plow",
+    "name": "Plow",
+    "era": "Ancient",
+    "description": "A tool used to turn over soil, initially a simple ard pulled by humans or oxen, dramatically increasing agricultural productivity.",
+    "prerequisites": [
+      "agriculture",
+      "woodworking_basic",
+      "animal_husbandry"
     ]
   },
   {
     "id": "horseback_riding",
     "name": "Horseback Riding",
     "era": "Ancient",
-    "description": "Using horses for travel, communication, and herding.",
+    "description": "Domesticating and riding horses, revolutionizing travel, communication, herding, and warfare.",
     "prerequisites": [
       "animal_husbandry"
     ]
@@ -597,81 +754,116 @@
     "id": "charcoal_production",
     "name": "Charcoal Production",
     "era": "Ancient",
-    "description": "Creating charcoal by slowly heating wood in a low-oxygen environment, producing a fuel that burns hotter and cleaner than wood.",
+    "description": "Creating charcoal by slowly heating wood in a low-oxygen environment, producing a fuel that burns hotter than wood.",
     "prerequisites": [
       "fire_control",
-      "woodworking_basic",
       "pottery"
+    ]
+  },
+  {
+    "id": "bellows",
+    "name": "Bellows",
+    "era": "Ancient",
+    "description": "A device constructed from leather and wood to deliver a strong blast of air, enabling fires to reach temperatures needed for smelting.",
+    "prerequisites": [
+      "leather_working",
+      "woodworking_basic"
     ]
   },
   {
     "id": "smelting_basic",
     "name": "Basic Smelting",
     "era": "Ancient",
-    "description": "Using heat and a chemical reducing agent to extract a base metal from its ore. Requires hotter fires than basic kilns.",
+    "description": "Using a chemically reducing agent and a hot, air-fed fire to extract a base metal like copper from its ore.",
     "prerequisites": [
-      "prospecting",
+      "mining",
       "pottery",
       "charcoal_production",
-      "mining"
+      "bellows"
     ]
   },
   {
     "id": "copper_working",
     "name": "Copper Working",
     "era": "Ancient",
-    "description": "The extraction and working of copper, one of the first metals to be used by humans due to its presence in native form and low melting point.",
+    "description": "The extraction and working of copper, one of the first metals to be smelted, used for tools, ornaments, and early weapons.",
     "prerequisites": [
-      "smelting_basic",
-      "basic_tools"
+      "smelting_basic"
     ]
   },
   {
     "id": "tin_working",
     "name": "Tin Working",
     "era": "Ancient",
-    "description": "The extraction and working of tin, a rare but essential component for creating bronze.",
+    "description": "The extraction and working of tin, a rare but essential component for creating bronze, often requiring long-distance trade.",
     "prerequisites": [
       "smelting_basic",
-      "prospecting"
+      "trade_routes"
+    ]
+  },
+  {
+    "id": "casting_and_molding",
+    "name": "Casting and Molding",
+    "era": "Ancient",
+    "description": "Pouring molten metal into molds made of stone or clay to create complex shapes for tools and artifacts.",
+    "prerequisites": [
+      "copper_working",
+      "pottery"
     ]
   },
   {
     "id": "bronze_working",
     "name": "Bronze Working",
     "era": "Ancient",
-    "description": "Alloying copper and tin to create bronze, a hard and durable metal for superior tools, weapons, and armor.",
+    "description": "Alloying copper with tin to create bronze, a hard and durable metal for superior tools, weapons, and armor.",
     "prerequisites": [
-      "smelting_basic",
       "copper_working",
       "tin_working",
-      "pottery",
-      "charcoal_production"
+      "casting_and_molding"
+    ]
+  },
+  {
+    "id": "early_alchemy_material_science",
+    "name": "Early Alchemy & Material Science",
+    "era": "Ancient",
+    "description": "Observational understanding of how materials transform with heat, water, and mixing; the basis for alloys, advanced pigments, and medicines.",
+    "prerequisites": [
+      "smelting_basic",
+      "herbalism",
+      "pigment_creation",
+      "fermentation_basic"
     ]
   },
   {
     "id": "iron_working",
     "name": "Iron Working",
     "era": "Ancient",
-    "description": "Smelting iron ore at high temperatures to produce iron, a stronger and more abundant metal than bronze.",
+    "description": "Smelting iron from ore at very high temperatures to produce bloom, which is then forged into a stronger, more abundant metal than bronze.",
     "prerequisites": [
       "bronze_working",
-      "smelting_basic",
-      "charcoal_production",
-      "basic_chemistry_early_forms"
+      "early_alchemy_material_science"
+    ]
+  },
+  {
+    "id": "proto_writing",
+    "name": "Proto-Writing",
+    "era": "Ancient",
+    "description": "Transition from purely pictorial symbols to more abstract ideograms and logograms representing concepts and words.",
+    "prerequisites": [
+      "record_keeping",
+      "early_symbolic_communication",
+      "trade_routes"
     ]
   },
   {
     "id": "writing",
     "name": "Writing",
     "era": "Ancient",
-    "description": "Development of symbolic systems to record language and complex information, moving from pictograms to scripts.",
+    "description": "Development of a standardized symbolic system (e.g., cuneiform, hieroglyphs) to fully represent spoken language and complex information.",
     "prerequisites": [
-      "record_keeping",
+      "proto_writing",
       "calendars",
-      "pottery",
-      "early_symbolic_communication",
-      "pigment_creation"
+      "social_stratification"
     ]
   }
 ]
