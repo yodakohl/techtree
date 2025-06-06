@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const DATA_FILE = path.join(__dirname, 'tech-tree.json');
 const DATA_DIR = path.join(__dirname, 'data');
@@ -59,6 +60,28 @@ function saveData() {
     saveDataArray(techData);
 }
 
+function sendCompressed(req, res, content, mime) {
+    const enc = req.headers['accept-encoding'] || '';
+    const headers = {
+        'Content-Type': mime,
+        'Cache-Control': 'public, max-age=3600'
+    };
+    if (/(^|,\s*)gzip(,|$)/.test(enc)) {
+        zlib.gzip(content, (err, data) => {
+            if (err) {
+                res.writeHead(500);
+                res.end();
+                return;
+            }
+            res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip' });
+            res.end(data);
+        });
+    } else {
+        res.writeHead(200, headers);
+        res.end(content);
+    }
+}
+
 function serveStatic(req, res) {
     const filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
     fs.readFile(filePath, (err, content) => {
@@ -74,16 +97,15 @@ function serveStatic(req, res) {
             '.css': 'text/css',
             '.json': 'application/json'
         }[ext] || 'text/plain';
-        res.setHeader('Content-Type', mime);
-        res.end(content);
+        sendCompressed(req, res, content, mime);
     });
 }
 
 const server = http.createServer((req, res) => {
     if (req.url === '/api/tech-tree') {
         if (req.method === 'GET') {
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(techData));
+            const json = JSON.stringify(techData);
+            sendCompressed(req, res, Buffer.from(json), 'application/json');
             return;
         } else if (req.method === 'PUT') {
             let body = '';
