@@ -47,6 +47,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         Future: '#95a5a6'
     };
 
+    function renderLegend() {
+        const legend = document.getElementById('era-legend');
+        if (!legend) return;
+        legend.innerHTML = '';
+        for (const [era, color] of Object.entries(eraColors)) {
+            const item = document.createElement('div');
+            item.className = 'legend-item';
+            const swatch = document.createElement('span');
+            swatch.className = 'legend-swatch';
+            swatch.style.backgroundColor = color;
+            const label = document.createElement('span');
+            label.textContent = era;
+            item.appendChild(swatch);
+            item.appendChild(label);
+            legend.appendChild(item);
+        }
+    }
+
+    renderLegend();
+
     // Compute radial layout levels using an adjacency list for efficiency
     const levelMap = {};
     const dependentsMap = {};
