@@ -331,23 +331,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function applyEraFilter(era) {
         const visible = new Set();
+        const nodeUpdates = [];
         if (!era || era === 'all') {
             nodes.forEach(n => {
-                nodes.update({ id: n.id, hidden: false });
+                nodeUpdates.push({ id: n.id, hidden: false });
                 visible.add(n.id);
             });
         } else {
             nodes.forEach(n => {
                 const isVisible = n.era === era;
-                nodes.update({ id: n.id, hidden: !isVisible });
+                nodeUpdates.push({ id: n.id, hidden: !isVisible });
                 if (isVisible) visible.add(n.id);
             });
         }
+        if (nodeUpdates.length) nodes.update(nodeUpdates);
+
+        const edgeUpdates = [];
         edges.forEach(e => {
             const isVisible = visible.has(e.from) && visible.has(e.to);
-            edges.update({ id: e.id, hidden: !isVisible });
+            edgeUpdates.push({ id: e.id, hidden: !isVisible });
         });
-        network.fit({ animation: true });
+        if (edgeUpdates.length) edges.update(edgeUpdates);
+
+        network.fit({ animation: false });
     }
 
 
