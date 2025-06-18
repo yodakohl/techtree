@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const deleteBtn = document.getElementById('delete-tech-btn');
     const updateBtn = document.getElementById('update-tech-btn');
     const addBtn = document.getElementById('add-tech-btn');
+    const searchInput = document.getElementById('search-tech');
 
     let dynamicData = [];
     try {
@@ -274,6 +275,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (edgeUpdates.length) edges.update(edgeUpdates);
     }
 
+    function applySearch(query) {
+        if (!query) {
+            resetHighlight();
+            return;
+        }
+        const lower = query.toLowerCase();
+        const matches = dynamicData
+            .filter(t => t.name.toLowerCase().includes(lower) || t.id.toLowerCase().includes(lower))
+            .map(t => t.id);
+        const nodeUpdates = [];
+        nodes.forEach(n => {
+            const base = n.origColor || n.color;
+            const color = matches.includes(n.id) ? base : '#dddddd';
+            nodeUpdates.push({ id: n.id, color });
+        });
+        if (nodeUpdates.length) nodes.update(nodeUpdates);
+        if (matches.length === 1) {
+            network.focus(matches[0], { scale: 1.2, animation: true });
+        }
+    }
+
 
     let selectedNodeId = null;
     network.on("selectNode", function (params) {
@@ -310,6 +332,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         deleteBtn.disabled = true;
         resetHighlight();
     });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => applySearch(searchInput.value));
+    }
 
 
     async function saveData() {

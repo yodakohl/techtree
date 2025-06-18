@@ -1,6 +1,6 @@
 # Tech Tree
 
-MVP for a visualization of all human technology. 95% of the work was done by codex. Data provided by codex/gemini. Technology data is stored under the `data/` directory split by era and loaded on startup. The client UI uses Vis.js to draw the tree and allows adding or editing entries.
+MVP for a visualization of all human technology. 95% of the work was done by codex. Data provided by codex/gemini. Technology data is stored under the `data/` directory split by era and loaded on startup. The client UI uses Vis.js to draw the tree and allows adding, searching or editing entries.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -32,6 +32,8 @@ PORT=8080 npm start
 ```
 
 Once running, open `http://localhost:3000` in your browser to view and modify the tech tree.
+
+The info panel includes a search box to quickly highlight technologies by name or ID.
 
 ### Data persistence
 
