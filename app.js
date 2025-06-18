@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const updateBtn = document.getElementById('update-tech-btn');
     const addBtn = document.getElementById('add-tech-btn');
     const searchInput = document.getElementById('search-tech');
+    const eraFilter = document.getElementById('era-filter');
 
     let dynamicData = [];
     try {
@@ -65,7 +66,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    function populateEraFilter() {
+        if (!eraFilter) return;
+        eraFilter.innerHTML = '<option value="all">All Eras</option>';
+        for (const era of Object.keys(eraColors)) {
+            const opt = document.createElement('option');
+            opt.value = era;
+            opt.textContent = era;
+            eraFilter.appendChild(opt);
+        }
+    }
+
     renderLegend();
+    populateEraFilter();
 
     // Compute radial layout levels using an adjacency list for efficiency
     const levelMap = {};
@@ -316,6 +329,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    function applyEraFilter(era) {
+        const visible = new Set();
+        if (!era || era === 'all') {
+            nodes.forEach(n => {
+                nodes.update({ id: n.id, hidden: false });
+                visible.add(n.id);
+            });
+        } else {
+            nodes.forEach(n => {
+                const isVisible = n.era === era;
+                nodes.update({ id: n.id, hidden: !isVisible });
+                if (isVisible) visible.add(n.id);
+            });
+        }
+        edges.forEach(e => {
+            const isVisible = visible.has(e.from) && visible.has(e.to);
+            edges.update({ id: e.id, hidden: !isVisible });
+        });
+        network.fit({ animation: true });
+    }
+
 
     let selectedNodeId = null;
     network.on("selectNode", function (params) {
@@ -355,6 +389,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (searchInput) {
         searchInput.addEventListener('input', () => applySearch(searchInput.value));
+    }
+
+    if (eraFilter) {
+        eraFilter.addEventListener('change', () => applyEraFilter(eraFilter.value));
     }
 
 
