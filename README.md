@@ -33,7 +33,7 @@ PORT=8080 npm start
 
 Once running, open `http://localhost:3000` in your browser to view and modify the tech tree.
 
-The info panel includes a search box to quickly highlight technologies by name or ID. A color legend explains the era assigned to each technology.
+The info panel includes a search box to quickly highlight technologies by name or ID. A color legend explains the era assigned to each technology. You can also filter the tree by era using the dropdown next to the search box.
 
 ### Data persistence
 
