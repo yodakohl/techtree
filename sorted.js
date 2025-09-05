@@ -62,12 +62,50 @@ document.addEventListener('DOMContentLoaded', async () => {
         return a.name.localeCompare(b.name);
     });
 
-    const tbody = document.querySelector('#tech-table tbody');
-    data.forEach((t, idx) => {
-        const tr = document.createElement('tr');
-        const prereqText = (t.prerequisites || []).join(', ');
-        tr.innerHTML = `<td>${idx + 1}</td><td>${t.name}</td><td>${t.era || ''}</td><td>${prereqText}</td>`;
-        tbody.appendChild(tr);
-    });
+    const width = Math.max(1000, data.length * 40);
+    const height = 400;
+    const margin = 40;
+
+    const eras = Array.from(new Set(data
+        .map(d => d.era)
+        .filter(e => e && eraOrder[e] !== undefined)))
+        .sort((a, b) => eraOrder[a] - eraOrder[b]);
+    const hasUnknown = data.some(d => !d.era || eraOrder[d.era] === undefined);
+    if (hasUnknown) eras.push('Unknown');
+
+    const yScale = d3.scalePoint()
+        .domain(eras)
+        .range([margin, height - margin]);
+    const xScale = d3.scaleLinear()
+        .domain([0, data.length - 1])
+        .range([margin, width - margin]);
+    const color = d3.scaleOrdinal()
+        .domain(eras)
+        .range(d3.schemeTableau10);
+
+    const svg = d3.select('#sorted-svg')
+        .attr('width', width)
+        .attr('height', height);
+
+    svg.append('g')
+        .attr('transform', `translate(${margin},0)`)
+        .call(d3.axisLeft(yScale));
+
+    const nodes = svg.selectAll('g.node')
+        .data(data)
+        .enter()
+        .append('g')
+        .attr('class', 'node')
+        .attr('transform', (d, i) => `translate(${xScale(i)}, ${yScale(d.era || 'Unknown')})`);
+
+    nodes.append('circle')
+        .attr('r', 6)
+        .attr('fill', d => color(d.era || 'Unknown'));
+
+    nodes.append('text')
+        .attr('y', -10)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '10px')
+        .text(d => d.name);
 });
 
