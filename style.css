@@ -17,6 +17,20 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
 main {
     display: flex;
     flex-grow: 1;
@@ -42,6 +56,32 @@ main {
 /* min-height: 0 allows the container to shrink correctly if its own content tries to overflow. */
     min-height: 0;
     height: 80vh; /* Ensure the canvas has some initial height */
+}
+
+#sorted-tech-container {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    overflow: auto;
+    padding: 15px;
+}
+
+#tech-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tech-table th, #tech-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#tech-table th {
+    background-color: #2c3e50;
+    color: #fff;
 }
 
 #tech-info-panel {
