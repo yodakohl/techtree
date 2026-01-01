@@ -1,4 +1,12 @@
 // app.js with Vis.js
+
+const DEFAULT_ROOT_LIMIT = 200;
+const SEARCH_LIMIT = 50;
+
+function normalizeQuery(value) {
+    return (value || '').toString().trim();
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('tech-tree-container');
     const techNameEl = document.getElementById('tech-name');
@@ -12,31 +20,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('search-tech');
     const eraFilter = document.getElementById('era-filter');
 
-    let dynamicData = [];
-    try {
-        const resp = await fetch('/api/tech-tree');
-        if (resp.ok) {
-            dynamicData = await resp.json();
-        } else {
-            throw new Error('Failed to load tech tree');
-        }
-    } catch (err) {
-        console.error('Error loading tech tree:', err);
-        alert('Failed to load tech tree from server.');
-        return;
-    }
-
-    // Calculate how many technologies depend on each tech to scale node size
-    const dependentsCount = {};
-    dynamicData.forEach(t => dependentsCount[t.id] = 0);
-    dynamicData.forEach(t => {
-        if (t.prerequisites) {
-            t.prerequisites.forEach(p => {
-                if (dependentsCount[p] === undefined) dependentsCount[p] = 0;
-                dependentsCount[p] += 1;
-            });
-        }
-    });
+    const techStore = new Map();
+    const prereqMap = new Map();
+    const dependentsMap = new Map();
+    const dependentsCount = new Map();
+    const edgeKeys = new Set();
 
     const eraColors = {
         Ancient: '#e67e22',
@@ -80,130 +68,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderLegend();
     populateEraFilter();
 
-    // Compute radial layout levels using an adjacency list for efficiency
-    const levelMap = {};
-    const dependentsMap = {};
-    const prereqMap = {};
-    dynamicData.forEach(t => {
-        prereqMap[t.id] = t.prerequisites || [];
-        (t.prerequisites || []).forEach(pr => {
-            if (!dependentsMap[pr]) dependentsMap[pr] = [];
-            dependentsMap[pr].push(t.id);
-        });
-    });
-
-    const queue = [];
-    dynamicData.forEach(t => {
-        if (!t.prerequisites || t.prerequisites.length === 0) {
-            levelMap[t.id] = 0;
-            queue.push(t.id);
-        }
-    });
-
-    while (queue.length > 0) {
-        const current = queue.shift();
-        const currentLevel = levelMap[current];
-        const dependents = dependentsMap[current] || [];
-        dependents.forEach(dep => {
-            const nextLevel = currentLevel + 1;
-            if (levelMap[dep] === undefined || nextLevel < levelMap[dep]) {
-                levelMap[dep] = nextLevel;
-                queue.push(dep);
-            }
-        });
-    }
-
-    // Any nodes involved in cycles may not have been assigned a level.
-    // Default them to 0 so the layout still renders.
-    dynamicData.forEach(t => {
-        if (levelMap[t.id] === undefined) {
-            levelMap[t.id] = 0;
-        }
-    });
-
-    // Build node dataset now that levels are known
-    const nodes = new vis.DataSet(
-        dynamicData.map(tech => {
-            const baseColor = eraColors[tech.era] || '#cccccc';
-            return {
-                id: tech.id,
-                label: tech.name,
-                title: tech.description, // Tooltip
-                era: tech.era, // Store custom data
-                description: tech.description,
-                value: (dependentsCount[tech.id] || 0) + 1,
-                color: baseColor,
-                origColor: baseColor
-            };
-        })
-    );
-
-    // Edges use longer lengths for deeper technologies to spread the tree
+    const nodes = new vis.DataSet();
     const edges = new vis.DataSet();
-    dynamicData.forEach(tech => {
-        if (tech.prerequisites && tech.prerequisites.length > 0) {
-            tech.prerequisites.forEach(prereqId => {
-                const level = levelMap[tech.id] || 0;
-                const length = 200 + level * 50;
-                edges.add({ from: prereqId, to: tech.id, arrows: 'to', length });
-            });
-        }
-    });
-    // Store original edge colors for later highlighting
-    edges.forEach(e => {
-        const base = e.color && typeof e.color === 'object' ? (e.color.color || '#848484') : (e.color || '#848484');
-        edges.update({ id: e.id, origColor: base });
-    });
-
-    const ERA_OFFSETS = {
-        Ancient: 0,
-        Classical: 1,
-        Medieval: 2,
-        Renaissance: 3,
-        Industrial: 4,
-        Modern: 5,
-        Future: 6
-    };
-
-    const groups = {};
-    dynamicData.forEach(t => {
-        const lvl = (levelMap[t.id] || 0) + (ERA_OFFSETS[t.era] || 0);
-        if (!groups[lvl]) groups[lvl] = [];
-        groups[lvl].push(t.id);
-    });
-
-    // Increase spacing between levels for a less cramped layout
-    const radiusStep = 400;
-    Object.entries(groups).forEach(([lvl, ids]) => {
-        const radius = radiusStep * parseInt(lvl, 10);
-        ids.forEach((id, index) => {
-            const angle = (2 * Math.PI / ids.length) * index;
-            const x = radius * Math.cos(angle);
-            const y = radius * Math.sin(angle);
-            nodes.update({ id, x, y });
-        });
-    });
-
-    // Determine the newest non-Future technologies for glow effect
-    const maxNonFuture = Math.max(
-        ...dynamicData
-            .filter(t => t.era !== 'Future')
-            .map(t => levelMap[t.id] || 0)
-    );
-
-    dynamicData.forEach(t => {
-        const update = {};
-        if (t.era === 'Future') {
-            update.color = { background: '#dddddd', border: '#aaaaaa' };
-            update.font = { color: '#666666' };
-        } else if ((levelMap[t.id] || 0) === maxNonFuture) {
-            update.shadow = { enabled: true, color: 'rgba(255,215,0,0.8)', size: 20 };
-            update.borderWidth = 2;
-        }
-        if (Object.keys(update).length > 0) {
-            nodes.update({ id: t.id, ...update });
-        }
-    });
 
     const data = { nodes: nodes, edges: edges };
 
@@ -255,12 +121,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         network.setOptions({ physics: false });
     });
 
-
     // Fit once after initial draw so the layout sizes correctly
     network.once('afterDrawing', () => {
         network.fit();
     });
-
 
     // Refit on window resize
     window.addEventListener('resize', () => {
@@ -269,10 +133,234 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    const ERA_OFFSETS = {
+        Ancient: 0,
+        Classical: 1,
+        Medieval: 2,
+        Renaissance: 3,
+        Industrial: 4,
+        Modern: 5,
+        Future: 6
+    };
+
+    function addEdge(from, to) {
+        const key = `${from}->${to}`;
+        if (edgeKeys.has(key)) return;
+        edgeKeys.add(key);
+        edges.add({
+            id: key,
+            from,
+            to,
+            arrows: 'to',
+            color: { color: '#848484' },
+            origColor: '#848484'
+        });
+    }
+
+    function removeEdgesForNode(nodeId) {
+        const connectedEdges = edges.get({
+            filter: e => e.to === nodeId || e.from === nodeId
+        });
+        connectedEdges.forEach(e => {
+            edgeKeys.delete(e.id);
+            edges.remove(e.id);
+        });
+    }
+
+    function ingestTechs(techs) {
+        const added = [];
+
+        techs.forEach(tech => {
+            if (!tech || !tech.id) return;
+            const existing = techStore.get(tech.id);
+            if (!existing) {
+                techStore.set(tech.id, tech);
+                added.push(tech);
+            } else {
+                existing.name = tech.name;
+                existing.era = tech.era;
+                existing.description = tech.description;
+                existing.prerequisites = tech.prerequisites || [];
+            }
+
+            const prereqs = tech.prerequisites || [];
+            prereqMap.set(tech.id, prereqs);
+            prereqs.forEach(pr => {
+                const set = dependentsMap.get(pr) || new Set();
+                if (!set.has(tech.id)) {
+                    set.add(tech.id);
+                    dependentsMap.set(pr, set);
+                    const count = (dependentsCount.get(pr) || 0) + 1;
+                    dependentsCount.set(pr, count);
+                    if (nodes.get(pr)) {
+                        nodes.update({ id: pr, value: count + 1 });
+                    }
+                }
+            });
+
+            const baseColor = eraColors[tech.era] || '#cccccc';
+            const value = (dependentsCount.get(tech.id) || 0) + 1;
+            if (!nodes.get(tech.id)) {
+                nodes.add({
+                    id: tech.id,
+                    label: tech.name,
+                    title: tech.description,
+                    era: tech.era,
+                    description: tech.description,
+                    value,
+                    color: baseColor,
+                    origColor: baseColor
+                });
+            } else {
+                nodes.update({
+                    id: tech.id,
+                    label: tech.name,
+                    title: tech.description,
+                    era: tech.era,
+                    description: tech.description,
+                    value,
+                    color: baseColor,
+                    origColor: baseColor
+                });
+            }
+        });
+
+        techs.forEach(tech => {
+            if (!tech || !tech.id) return;
+            const prereqs = tech.prerequisites || [];
+            prereqs.forEach(prereqId => {
+                if (nodes.get(prereqId)) {
+                    addEdge(prereqId, tech.id);
+                }
+            });
+        });
+
+        return added;
+    }
+
+    function computeLevelMap() {
+        const levelMap = new Map();
+        const queue = [];
+
+        techStore.forEach((tech, id) => {
+            const prereqs = prereqMap.get(id) || [];
+            const hasLoadedPrereq = prereqs.some(pr => techStore.has(pr));
+            if (!hasLoadedPrereq) {
+                levelMap.set(id, 0);
+                queue.push(id);
+            }
+        });
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+            const currentLevel = levelMap.get(current) || 0;
+            const dependents = dependentsMap.get(current) || new Set();
+            dependents.forEach(dep => {
+                if (!techStore.has(dep)) return;
+                const nextLevel = currentLevel + 1;
+                if (!levelMap.has(dep) || nextLevel < levelMap.get(dep)) {
+                    levelMap.set(dep, nextLevel);
+                    queue.push(dep);
+                }
+            });
+        }
+
+        techStore.forEach((_, id) => {
+            if (!levelMap.has(id)) {
+                levelMap.set(id, 0);
+            }
+        });
+
+        return levelMap;
+    }
+
+    function applyLayout() {
+        if (techStore.size === 0) return;
+
+        const levelMap = computeLevelMap();
+        const groups = new Map();
+
+        levelMap.forEach((lvl, id) => {
+            const tech = techStore.get(id);
+            const adjusted = lvl + (ERA_OFFSETS[tech.era] || 0);
+            const list = groups.get(adjusted) || [];
+            list.push(id);
+            groups.set(adjusted, list);
+        });
+
+        const radiusStep = 400;
+        groups.forEach((ids, lvl) => {
+            const radius = radiusStep * Number(lvl);
+            ids.forEach((id, index) => {
+                const angle = (2 * Math.PI / ids.length) * index;
+                const x = radius * Math.cos(angle);
+                const y = radius * Math.sin(angle);
+                nodes.update({ id, x, y });
+            });
+        });
+
+        const nonFutureLevels = [];
+        techStore.forEach((tech, id) => {
+            if (tech.era !== 'Future') {
+                nonFutureLevels.push(levelMap.get(id) || 0);
+            }
+        });
+        const maxNonFuture = nonFutureLevels.length ? Math.max(...nonFutureLevels) : null;
+
+        techStore.forEach((tech, id) => {
+            const updates = {};
+            if (tech.era === 'Future') {
+                updates.color = { background: '#dddddd', border: '#aaaaaa' };
+                updates.font = { color: '#666666' };
+                updates.origColor = updates.color;
+            } else if (maxNonFuture !== null && (levelMap.get(id) || 0) === maxNonFuture) {
+                updates.shadow = { enabled: true, color: 'rgba(255,215,0,0.8)', size: 20 };
+                updates.borderWidth = 2;
+            }
+            if (Object.keys(updates).length > 0) {
+                nodes.update({ id, ...updates });
+            }
+        });
+    }
+
+    async function fetchTechs(url) {
+        const resp = await fetch(url);
+        if (!resp.ok) {
+            throw new Error('Failed to load tech data');
+        }
+        return resp.json();
+    }
+
+    async function loadRoots() {
+        try {
+            const roots = await fetchTechs(`/api/tech-tree?roots=true&limit=${DEFAULT_ROOT_LIMIT}`);
+            ingestTechs(roots);
+            applyLayout();
+        } catch (err) {
+            console.error('Error loading tech tree:', err);
+            alert('Failed to load tech tree from server.');
+        }
+    }
+
+    async function loadNeighbors(nodeId) {
+        try {
+            const neighbors = await fetchTechs(`/api/tech-tree?neighbors=${encodeURIComponent(nodeId)}&depth=1`);
+            const added = ingestTechs(neighbors);
+            if (added.length > 0) {
+                applyLayout();
+                network.fit({ animation: false });
+            }
+        } catch (err) {
+            console.error('Error loading neighbors:', err);
+        }
+    }
+
+    await loadRoots();
+
     function highlightRelevantNodes(nodeId) {
         const connected = new Set([nodeId]);
-        (prereqMap[nodeId] || []).forEach(id => connected.add(id));
-        (dependentsMap[nodeId] || []).forEach(id => connected.add(id));
+        (prereqMap.get(nodeId) || []).forEach(id => connected.add(id));
+        (dependentsMap.get(nodeId) || new Set()).forEach(id => connected.add(id));
 
         const nodeUpdates = [];
         nodes.forEach(n => {
@@ -308,24 +396,42 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (edgeUpdates.length) edges.update(edgeUpdates);
     }
 
-    function applySearch(query) {
-        if (!query) {
-            resetHighlight();
-            return;
-        }
-        const lower = query.toLowerCase();
-        const matches = dynamicData
-            .filter(t => t.name.toLowerCase().includes(lower) || t.id.toLowerCase().includes(lower))
-            .map(t => t.id);
+    function highlightMatches(matchIds) {
+        const matchSet = new Set(matchIds);
         const nodeUpdates = [];
         nodes.forEach(n => {
             const base = n.origColor || n.color;
-            const color = matches.includes(n.id) ? base : '#dddddd';
+            const color = matchSet.has(n.id) ? base : '#dddddd';
             nodeUpdates.push({ id: n.id, color });
         });
         if (nodeUpdates.length) nodes.update(nodeUpdates);
-        if (matches.length === 1) {
-            network.focus(matches[0], { scale: 1.2, animation: true });
+    }
+
+    let searchTimeout = null;
+    async function applySearch(query) {
+        const normalized = normalizeQuery(query);
+        if (!normalized) {
+            resetHighlight();
+            return;
+        }
+        if (normalized.length < 2) {
+            resetHighlight();
+            return;
+        }
+
+        try {
+            const results = await fetchTechs(`/api/tech-tree?search=${encodeURIComponent(normalized)}&limit=${SEARCH_LIMIT}`);
+            const added = ingestTechs(results);
+            if (added.length > 0) {
+                applyLayout();
+            }
+            highlightMatches(results.map(r => r.id));
+            if (results.length === 1) {
+                network.focus(results[0].id, { scale: 1.2, animation: true });
+                loadNeighbors(results[0].id);
+            }
+        } catch (err) {
+            console.error('Search failed:', err);
         }
     }
 
@@ -356,23 +462,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         network.fit({ animation: false });
     }
 
-
     let selectedNodeId = null;
-    network.on("selectNode", function (params) {
+    network.on('selectNode', async function (params) {
         if (params.nodes.length > 0) {
             selectedNodeId = params.nodes[0];
+            await loadNeighbors(selectedNodeId);
             const nodeData = nodes.get(selectedNodeId);
+            const techData = techStore.get(selectedNodeId);
 
             techNameEl.textContent = nodeData.label;
             techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
-            techDescriptionEl.textContent = nodeData.description;
+            techDescriptionEl.textContent = nodeData.description || '';
 
-            const prereqIds = dynamicData.find(t => t.id === selectedNodeId).prerequisites;
-            if (prereqIds && prereqIds.length > 0) {
-                const prereqNames = prereqIds.map(id => nodes.get(id).label).join(', ');
+            const prereqIds = techData ? techData.prerequisites || [] : [];
+            if (prereqIds.length > 0) {
+                const prereqNames = prereqIds
+                    .map(id => techStore.get(id)?.name || id)
+                    .join(', ');
                 techPrerequisitesEl.textContent = `Prerequisites: ${prereqNames}`;
             } else {
-                techPrerequisitesEl.textContent = "Prerequisites: None";
+                techPrerequisitesEl.textContent = 'Prerequisites: None';
             }
 
             editBtn.disabled = false;
@@ -382,7 +491,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    network.on("deselectNode", function () {
+    network.on('deselectNode', function () {
         selectedNodeId = null;
         techNameEl.textContent = '';
         techEraEl.textContent = '';
@@ -394,23 +503,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     if (searchInput) {
-        searchInput.addEventListener('input', () => applySearch(searchInput.value));
+        searchInput.addEventListener('input', () => {
+            if (searchTimeout) {
+                clearTimeout(searchTimeout);
+            }
+            searchTimeout = setTimeout(() => applySearch(searchInput.value), 250);
+        });
     }
 
     if (eraFilter) {
         eraFilter.addEventListener('change', () => applyEraFilter(eraFilter.value));
     }
 
+    async function createTech(tech) {
+        const resp = await fetch('/api/tech-tree', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tech)
+        });
+        if (!resp.ok) {
+            throw new Error('Failed to save tech');
+        }
+    }
 
-    async function saveData() {
-        try {
-            await fetch('/api/tech-tree', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(dynamicData)
-            });
-        } catch (e) {
-            console.error('Failed to save tech tree:', e);
+    async function updateTech(tech) {
+        const resp = await fetch('/api/tech-tree', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tech)
+        });
+        if (!resp.ok) {
+            throw new Error('Failed to update tech');
+        }
+    }
+
+    async function deleteTech(id) {
+        const resp = await fetch(`/api/tech-tree?id=${encodeURIComponent(id)}`, {
+            method: 'DELETE'
+        });
+        if (!resp.ok) {
+            throw new Error('Failed to delete tech');
         }
     }
 
@@ -426,7 +558,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (addBtn) {
-        addBtn.addEventListener('click', () => {
+        addBtn.addEventListener('click', async () => {
             const id = document.getElementById('new-tech-id').value.trim();
             const name = document.getElementById('new-tech-name').value.trim();
             const era = document.getElementById('new-tech-era').value.trim();
@@ -446,37 +578,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             const prereqs = prereqStr ? prereqStr.split(',').map(p => p.trim()).filter(Boolean) : [];
 
             const newTech = { id, name, era, description: desc, prerequisites: prereqs };
-            dynamicData.push(newTech);
-            prereqMap[id] = prereqs;
-            prereqs.forEach(pr => {
-                if (!dependentsMap[pr]) dependentsMap[pr] = [];
-                dependentsMap[pr].push(id);
-            });
-
-            nodes.add({ id, label: name, title: desc, era, description: desc });
-            prereqs.forEach(pr => {
-                if (nodes.get(pr)) {
-                    edges.add({ from: pr, to: id, arrows: 'to' });
-                }
-            });
-
-            saveData();
-            clearForm();
-            network.fit();
+            try {
+                await createTech(newTech);
+                ingestTechs([newTech]);
+                applyLayout();
+                clearForm();
+                network.fit();
+            } catch (e) {
+                console.error('Failed to add tech:', e);
+            }
         });
     }
 
     if (editBtn) {
         editBtn.addEventListener('click', () => {
             if (!selectedNodeId) return;
-            const tech = dynamicData.find(t => t.id === selectedNodeId);
+            const tech = techStore.get(selectedNodeId);
             if (!tech) return;
 
             document.getElementById('new-tech-id').value = tech.id;
             document.getElementById('new-tech-name').value = tech.name;
             document.getElementById('new-tech-era').value = tech.era;
             document.getElementById('new-tech-description').value = tech.description;
-            document.getElementById('new-tech-prereq').value = tech.prerequisites.join(', ');
+            document.getElementById('new-tech-prereq').value = (tech.prerequisites || []).join(', ');
             document.getElementById('new-tech-id').disabled = true;
             addBtn.style.display = 'none';
             updateBtn.style.display = 'inline-block';
@@ -484,7 +608,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (updateBtn) {
-        updateBtn.addEventListener('click', () => {
+        updateBtn.addEventListener('click', async () => {
             if (!selectedNodeId) return;
             const name = document.getElementById('new-tech-name').value.trim();
             const era = document.getElementById('new-tech-era').value.trim();
@@ -492,76 +616,102 @@ document.addEventListener('DOMContentLoaded', async () => {
             const prereqStr = document.getElementById('new-tech-prereq').value.trim();
             const prereqs = prereqStr ? prereqStr.split(',').map(p => p.trim()).filter(Boolean) : [];
 
-            const techIndex = dynamicData.findIndex(t => t.id === selectedNodeId);
-            if (techIndex === -1) return;
-            const tech = dynamicData[techIndex];
-            const oldPrereqs = prereqMap[selectedNodeId] || [];
+            const tech = techStore.get(selectedNodeId);
+            if (!tech) return;
+            const oldPrereqs = prereqMap.get(selectedNodeId) || [];
+
             tech.name = name;
             tech.era = era;
             tech.description = desc;
             tech.prerequisites = prereqs;
-            prereqMap[selectedNodeId] = prereqs;
+            prereqMap.set(selectedNodeId, prereqs);
+
             oldPrereqs.forEach(pr => {
-                dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
+                const set = dependentsMap.get(pr);
+                if (set && set.has(selectedNodeId)) {
+                    set.delete(selectedNodeId);
+                    const count = Math.max(0, (dependentsCount.get(pr) || 1) - 1);
+                    dependentsCount.set(pr, count);
+                    if (nodes.get(pr)) {
+                        nodes.update({ id: pr, value: count + 1 });
+                    }
+                }
             });
+
             prereqs.forEach(pr => {
-                if (!dependentsMap[pr]) dependentsMap[pr] = [];
-                if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
+                const set = dependentsMap.get(pr) || new Set();
+                if (!set.has(selectedNodeId)) {
+                    set.add(selectedNodeId);
+                    dependentsMap.set(pr, set);
+                    const count = (dependentsCount.get(pr) || 0) + 1;
+                    dependentsCount.set(pr, count);
+                    if (nodes.get(pr)) {
+                        nodes.update({ id: pr, value: count + 1 });
+                    }
+                }
             });
 
             nodes.update({ id: selectedNodeId, label: name, era, description: desc, title: desc });
 
-            // Remove old edges
-            edges.get({ filter: e => e.to === selectedNodeId || e.from === selectedNodeId }).forEach(e => edges.remove(e.id));
-            // Re-add edges for this node
+            removeEdgesForNode(selectedNodeId);
             prereqs.forEach(pr => {
                 if (nodes.get(pr)) {
-                    edges.add({ from: pr, to: selectedNodeId, arrows: 'to' });
+                    addEdge(pr, selectedNodeId);
                 }
             });
-            // Reconnect edges from this node to its dependents
-            dynamicData.forEach(t => {
-                if (t.prerequisites.includes(selectedNodeId)) {
-                    edges.add({ from: selectedNodeId, to: t.id, arrows: 'to' });
+            techStore.forEach(t => {
+                if ((t.prerequisites || []).includes(selectedNodeId)) {
+                    addEdge(selectedNodeId, t.id);
                 }
-            });
-            oldPrereqs.forEach(pr => {
-                dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
-            });
-            prereqs.forEach(pr => {
-                if (!dependentsMap[pr]) dependentsMap[pr] = [];
-                if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
             });
 
-            saveData();
-            clearForm();
-            network.fit();
+            try {
+                await updateTech(tech);
+                applyLayout();
+                clearForm();
+                network.fit();
+            } catch (e) {
+                console.error('Failed to update tech:', e);
+            }
         });
     }
 
     if (deleteBtn) {
-        deleteBtn.addEventListener('click', () => {
+        deleteBtn.addEventListener('click', async () => {
             if (!selectedNodeId) return;
 
-            // Remove edges connected to the node
-            edges.get({ filter: e => e.to === selectedNodeId || e.from === selectedNodeId }).forEach(e => edges.remove(e.id));
-
-            // Remove from other tech prerequisites
-            dynamicData.forEach(t => {
-                t.prerequisites = t.prerequisites.filter(p => p !== selectedNodeId);
-            });
-            if (dependentsMap[selectedNodeId]) {
-                dependentsMap[selectedNodeId].forEach(dep => {
-                    prereqMap[dep] = (prereqMap[dep] || []).filter(p => p !== selectedNodeId);
-                });
-                delete dependentsMap[selectedNodeId];
+            try {
+                await deleteTech(selectedNodeId);
+            } catch (e) {
+                console.error('Failed to delete tech:', e);
+                return;
             }
-            delete prereqMap[selectedNodeId];
+
+            removeEdgesForNode(selectedNodeId);
+
+            const prereqs = prereqMap.get(selectedNodeId) || [];
+            prereqs.forEach(pr => {
+                const set = dependentsMap.get(pr);
+                if (set) {
+                    set.delete(selectedNodeId);
+                    const count = Math.max(0, (dependentsCount.get(pr) || 1) - 1);
+                    dependentsCount.set(pr, count);
+                    if (nodes.get(pr)) {
+                        nodes.update({ id: pr, value: count + 1 });
+                    }
+                }
+            });
+            dependentsMap.delete(selectedNodeId);
+            prereqMap.delete(selectedNodeId);
+            dependentsCount.delete(selectedNodeId);
+
+            techStore.forEach(t => {
+                t.prerequisites = (t.prerequisites || []).filter(p => p !== selectedNodeId);
+            });
 
             nodes.remove({ id: selectedNodeId });
-            dynamicData = dynamicData.filter(t => t.id !== selectedNodeId);
+            techStore.delete(selectedNodeId);
 
-            saveData();
             techNameEl.textContent = '';
             techEraEl.textContent = '';
             techDescriptionEl.textContent = '';
@@ -570,6 +720,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             deleteBtn.disabled = true;
             selectedNodeId = null;
             clearForm();
+            applyLayout();
             network.fit();
         });
     }
