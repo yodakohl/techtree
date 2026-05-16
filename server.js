@@ -5,6 +5,7 @@ const zlib = require('zlib');
 
 const DATA_FILE = path.join(__dirname, 'tech-tree.json');
 const DATA_DIR = path.join(__dirname, 'data');
+const READ_ONLY = /^(1|true|yes)$/i.test(process.env.TECHTREE_READ_ONLY || '');
 
 function loadData() {
     // Prefer split data files if available
@@ -60,11 +61,11 @@ function saveData() {
     saveDataArray(techData);
 }
 
-function sendCompressed(req, res, content, mime) {
+function sendCompressed(req, res, content, mime, cacheControl = 'public, max-age=3600') {
     const enc = req.headers['accept-encoding'] || '';
     const headers = {
         'Content-Type': mime,
-        'Cache-Control': 'public, max-age=3600'
+        'Cache-Control': cacheControl
     };
     if (/(^|,\s*)gzip(,|$)/.test(enc)) {
         zlib.gzip(content, (err, data) => {
@@ -83,7 +84,23 @@ function sendCompressed(req, res, content, mime) {
 }
 
 function serveStatic(req, res) {
-    const filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+    let pathname;
+    try {
+        pathname = new URL(req.url, `http://${req.headers.host || 'localhost'}`).pathname;
+    } catch (e) {
+        res.statusCode = 400;
+        res.end('Bad request');
+        return;
+    }
+
+    const requestedPath = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+    const filePath = path.resolve(__dirname, requestedPath);
+    if (!filePath.startsWith(`${__dirname}${path.sep}`)) {
+        res.statusCode = 403;
+        res.end('Forbidden');
+        return;
+    }
+
     fs.readFile(filePath, (err, content) => {
         if (err) {
             res.statusCode = 404;
@@ -97,7 +114,10 @@ function serveStatic(req, res) {
             '.css': 'text/css',
             '.json': 'application/json'
         }[ext] || 'text/plain';
-        sendCompressed(req, res, content, mime);
+        const cacheControl = ext === '.html'
+            ? 'no-cache'
+            : 'public, max-age=31536000, immutable';
+        sendCompressed(req, res, content, mime, cacheControl);
     });
 }
 
@@ -105,9 +125,14 @@ const server = http.createServer((req, res) => {
     if (req.url === '/api/tech-tree') {
         if (req.method === 'GET') {
             const json = JSON.stringify(techData);
-            sendCompressed(req, res, Buffer.from(json), 'application/json');
+            sendCompressed(req, res, Buffer.from(json), 'application/json', 'no-store');
             return;
         } else if (req.method === 'PUT') {
+            if (READ_ONLY) {
+                res.statusCode = 403;
+                res.end('Read-only mode');
+                return;
+            }
             let body = '';
             req.on('data', chunk => body += chunk);
             req.on('end', () => {
@@ -124,6 +149,12 @@ const server = http.createServer((req, res) => {
             });
             return;
         }
+    }
+
+    if (req.url === '/api/config' && req.method === 'GET') {
+        const json = JSON.stringify({ readOnly: READ_ONLY });
+        sendCompressed(req, res, Buffer.from(json), 'application/json', 'no-store');
+        return;
     }
 
     serveStatic(req, res);

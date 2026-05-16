@@ -11,10 +11,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const addBtn = document.getElementById('add-tech-btn');
     const searchInput = document.getElementById('search-tech');
     const eraFilter = document.getElementById('era-filter');
+    const addPanel = document.getElementById('tech-add-panel');
 
+    let appConfig = { readOnly: false };
     let dynamicData = [];
     try {
-        const resp = await fetch('/api/tech-tree');
+        const [configResult, resp] = await Promise.all([
+            fetch('api/config')
+                .then(configResp => configResp.ok ? configResp.json() : appConfig)
+                .catch(() => appConfig),
+            fetch('api/tech-tree')
+        ]);
+        appConfig = configResult;
         if (resp.ok) {
             dynamicData = await resp.json();
         } else {
@@ -80,6 +88,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderLegend();
     populateEraFilter();
 
+    if (appConfig.readOnly) {
+        if (addPanel) addPanel.style.display = 'none';
+        if (editBtn) editBtn.style.display = 'none';
+        if (deleteBtn) deleteBtn.style.display = 'none';
+    }
+
     // Compute radial layout levels using an adjacency list for efficiency
     const levelMap = {};
     const dependentsMap = {};
@@ -100,8 +114,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    while (queue.length > 0) {
-        const current = queue.shift();
+    for (let queueIndex = 0; queueIndex < queue.length; queueIndex += 1) {
+        const current = queue[queueIndex];
         const currentLevel = levelMap[current];
         const dependents = dependentsMap[current] || [];
         dependents.forEach(dep => {
@@ -121,40 +135,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Build node dataset now that levels are known
-    const nodes = new vis.DataSet(
-        dynamicData.map(tech => {
-            const baseColor = eraColors[tech.era] || '#cccccc';
-            return {
-                id: tech.id,
-                label: tech.name,
-                title: tech.description, // Tooltip
-                era: tech.era, // Store custom data
-                description: tech.description,
-                value: (dependentsCount[tech.id] || 0) + 1,
-                color: baseColor,
-                origColor: baseColor
-            };
-        })
-    );
-
-    // Edges use longer lengths for deeper technologies to spread the tree
-    const edges = new vis.DataSet();
-    dynamicData.forEach(tech => {
-        if (tech.prerequisites && tech.prerequisites.length > 0) {
-            tech.prerequisites.forEach(prereqId => {
-                const level = levelMap[tech.id] || 0;
-                const length = 200 + level * 50;
-                edges.add({ from: prereqId, to: tech.id, arrows: 'to', length });
-            });
-        }
-    });
-    // Store original edge colors for later highlighting
-    edges.forEach(e => {
-        const base = e.color && typeof e.color === 'object' ? (e.color.color || '#848484') : (e.color || '#848484');
-        edges.update({ id: e.id, origColor: base });
-    });
-
     const ERA_OFFSETS = {
         Ancient: 0,
         Classical: 1,
@@ -165,22 +145,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         Future: 6
     };
 
+    const nodesById = {};
+    dynamicData.forEach(t => {
+        nodesById[t.id] = t;
+    });
+
     const groups = {};
     dynamicData.forEach(t => {
-        const lvl = (levelMap[t.id] || 0) + (ERA_OFFSETS[t.era] || 0);
+        const lvl = (levelMap[t.id] || 0) + (ERA_OFFSETS[t.era] || 0) * 2;
         if (!groups[lvl]) groups[lvl] = [];
         groups[lvl].push(t.id);
     });
 
-    // Increase spacing between levels for a less cramped layout
-    const radiusStep = 400;
+    const positions = {};
+    const xStep = 300;
+    const yStep = 76;
     Object.entries(groups).forEach(([lvl, ids]) => {
-        const radius = radiusStep * parseInt(lvl, 10);
+        ids.sort((a, b) => nodesById[a].name.localeCompare(nodesById[b].name));
+        const x = xStep * parseInt(lvl, 10);
+        const yStart = -((ids.length - 1) * yStep) / 2;
         ids.forEach((id, index) => {
-            const angle = (2 * Math.PI / ids.length) * index;
-            const x = radius * Math.cos(angle);
-            const y = radius * Math.sin(angle);
-            nodes.update({ id, x, y });
+            positions[id] = { x, y: yStart + index * yStep };
         });
     });
 
@@ -191,19 +176,45 @@ document.addEventListener('DOMContentLoaded', async () => {
             .map(t => levelMap[t.id] || 0)
     );
 
-    dynamicData.forEach(t => {
-        const update = {};
-        if (t.era === 'Future') {
-            update.color = { background: '#dddddd', border: '#aaaaaa' };
-            update.font = { color: '#666666' };
-        } else if ((levelMap[t.id] || 0) === maxNonFuture) {
-            update.shadow = { enabled: true, color: 'rgba(255,215,0,0.8)', size: 20 };
-            update.borderWidth = 2;
+    const nodeItems = dynamicData.map(tech => {
+        const baseColor = eraColors[tech.era] || '#cccccc';
+        const position = positions[tech.id] || { x: 0, y: 0 };
+        const node = {
+            id: tech.id,
+            label: tech.name,
+            title: tech.description,
+            era: tech.era,
+            description: tech.description,
+            value: Math.min((dependentsCount[tech.id] || 0) + 1, 12),
+            color: baseColor,
+            origColor: baseColor,
+            x: position.x,
+            y: position.y
+        };
+        if (tech.era === 'Future') {
+            node.color = { background: '#dddddd', border: '#aaaaaa' };
+            node.font = { color: '#666666' };
+        } else if ((levelMap[tech.id] || 0) === maxNonFuture) {
+            node.borderWidth = 2;
         }
-        if (Object.keys(update).length > 0) {
-            nodes.update({ id: t.id, ...update });
-        }
+        return node;
     });
+
+    const edgeItems = [];
+    dynamicData.forEach(tech => {
+        (tech.prerequisites || []).forEach(prereqId => {
+            edgeItems.push({
+                from: prereqId,
+                to: tech.id,
+                arrows: 'to',
+                color: { color: '#9aa5af' },
+                origColor: '#9aa5af'
+            });
+        });
+    });
+
+    const nodes = new vis.DataSet(nodeItems);
+    const edges = new vis.DataSet(edgeItems);
 
     const data = { nodes: nodes, edges: edges };
 
@@ -212,13 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             improvedLayout: false
         },
         physics: {
-            enabled: true,
-            barnesHut: {
-                springLength: 200,
-                springConstant: 0.005,
-                centralGravity: 0.1,
-                avoidOverlap: 0.5
-            }
+            enabled: false
         },
         interaction: {
             dragNodes: true,
@@ -242,19 +247,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         },
         edges: {
-            smooth: {
-                type: 'continuous'
-            }
+            smooth: false
         }
     };
 
     const network = new vis.Network(container, data, options);
-
-    // Disable physics once the network stabilizes to prevent endless jiggle
-    network.once('stabilizationIterationsDone', function () {
-        network.setOptions({ physics: false });
-    });
-
 
     // Fit once after initial draw so the layout sizes correctly
     network.once('afterDrawing', () => {
@@ -263,10 +260,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     // Refit on window resize
+    let resizeTimer = null;
     window.addEventListener('resize', () => {
-        if (network) {
-            network.fit();
-        }
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(() => network.fit({ animation: false }), 120);
     });
 
     function highlightRelevantNodes(nodeId) {
@@ -314,18 +311,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         const lower = query.toLowerCase();
-        const matches = dynamicData
+        const matches = new Set(dynamicData
             .filter(t => t.name.toLowerCase().includes(lower) || t.id.toLowerCase().includes(lower))
-            .map(t => t.id);
+            .map(t => t.id));
         const nodeUpdates = [];
         nodes.forEach(n => {
             const base = n.origColor || n.color;
-            const color = matches.includes(n.id) ? base : '#dddddd';
+            const color = matches.has(n.id) ? base : '#dddddd';
             nodeUpdates.push({ id: n.id, color });
         });
         if (nodeUpdates.length) nodes.update(nodeUpdates);
-        if (matches.length === 1) {
-            network.focus(matches[0], { scale: 1.2, animation: true });
+        if (matches.size === 1) {
+            network.focus([...matches][0], { scale: 1.2, animation: true });
         }
     }
 
@@ -367,9 +364,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
             techDescriptionEl.textContent = nodeData.description;
 
-            const prereqIds = dynamicData.find(t => t.id === selectedNodeId).prerequisites;
+            const prereqIds = (nodesById[selectedNodeId] || {}).prerequisites || [];
             if (prereqIds && prereqIds.length > 0) {
-                const prereqNames = prereqIds.map(id => nodes.get(id).label).join(', ');
+                const prereqNames = prereqIds.map(id => nodes.get(id)?.label || id).join(', ');
                 techPrerequisitesEl.textContent = `Prerequisites: ${prereqNames}`;
             } else {
                 techPrerequisitesEl.textContent = "Prerequisites: None";
@@ -404,7 +401,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function saveData() {
         try {
-            await fetch('/api/tech-tree', {
+            await fetch('api/tech-tree', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dynamicData)
@@ -427,6 +424,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (addBtn) {
         addBtn.addEventListener('click', () => {
+            if (appConfig.readOnly) return;
             const id = document.getElementById('new-tech-id').value.trim();
             const name = document.getElementById('new-tech-name').value.trim();
             const era = document.getElementById('new-tech-era').value.trim();
@@ -485,6 +483,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (updateBtn) {
         updateBtn.addEventListener('click', () => {
+            if (appConfig.readOnly) return;
             if (!selectedNodeId) return;
             const name = document.getElementById('new-tech-name').value.trim();
             const era = document.getElementById('new-tech-era').value.trim();
@@ -541,6 +540,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (deleteBtn) {
         deleteBtn.addEventListener('click', () => {
+            if (appConfig.readOnly) return;
             if (!selectedNodeId) return;
 
             // Remove edges connected to the node

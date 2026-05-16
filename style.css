@@ -38,6 +38,10 @@ main {
     gap: 20px;
 }
 
+.sorted-main {
+    display: block;
+}
+
 #side-panels {
     display: flex;
     flex-direction: column;
@@ -66,6 +70,217 @@ main {
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     overflow: auto;
     padding: 15px;
+}
+
+.sorted-toolbar {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(145px, 170px) minmax(160px, 210px) minmax(180px, 230px) minmax(140px, 170px) minmax(150px, 190px);
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding-bottom: 12px;
+    background: #fff;
+}
+
+.sorted-toolbar input,
+.sorted-toolbar select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 10px;
+    border: 1px solid #c9d0d8;
+    border-radius: 4px;
+    background: #fff;
+    color: #26313d;
+    font: inherit;
+}
+
+.sorted-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #5c6670;
+    font-size: 14px;
+}
+
+.sorted-era-section {
+    margin-bottom: 22px;
+}
+
+.sorted-era-section h2 {
+    margin: 0 0 8px;
+    padding-left: 10px;
+    border-left: 5px solid var(--era-color);
+    font-size: 20px;
+}
+
+.sorted-table {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 14px;
+}
+
+.sorted-table th,
+.sorted-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e4e8ed;
+    vertical-align: top;
+    text-align: left;
+}
+
+.sorted-table thead th {
+    position: sticky;
+    top: 52px;
+    z-index: 1;
+    background: #f8fafc;
+    color: #3a4652;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.sorted-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.sorted-table th:nth-child(1) {
+    width: 19%;
+}
+
+.sorted-table th:nth-child(2) {
+    width: 9%;
+}
+
+.sorted-table th:nth-child(3) {
+    width: 6%;
+}
+
+.sorted-table th:nth-child(4),
+.sorted-table th:nth-child(5) {
+    width: 20%;
+}
+
+.sorted-table a {
+    color: #1f5f91;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.sorted-table a:hover {
+    text-decoration: underline;
+}
+
+.tech-id {
+    display: block;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+    color: #6d7780;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.era-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.era-badge::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--era-color);
+}
+
+.relationship-cell {
+    color: #4b5662;
+}
+
+.sorted-empty {
+    padding: 20px 0;
+    color: #65717d;
+}
+
+.sorted-more {
+    display: block;
+    margin: 8px auto 0;
+}
+
+.branch-section {
+    margin-bottom: 18px;
+    border: 1px solid #e2e7ec;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.branch-section h2 {
+    margin: 0;
+    padding: 10px 12px;
+    background: #f7f9fb;
+    border-bottom: 1px solid #e2e7ec;
+    font-size: 16px;
+}
+
+.branch-era-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(150px, 1fr));
+    min-width: 1120px;
+}
+
+.branch-era-column {
+    min-height: 90px;
+    padding: 8px;
+    border-right: 1px solid #edf0f3;
+}
+
+.branch-era-column:last-child {
+    border-right: 0;
+}
+
+.branch-era-column h3 {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 8px;
+    color: #46515d;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.branch-era-column h3::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    background: var(--era-color);
+}
+
+.branch-tech-chip {
+    display: block;
+    margin-bottom: 5px;
+    padding: 4px 6px;
+    border-left: 3px solid var(--era-color);
+    border-radius: 4px;
+    background: #f9fbfd;
+    color: #26313d;
+    font-size: 12px;
+    line-height: 1.25;
+    text-decoration: none;
+}
+
+.branch-tech-chip:hover {
+    background: #eef5fb;
+    color: #174b73;
+}
+
+.branch-empty {
+    color: #a0a8b0;
 }
 
 
@@ -161,6 +376,26 @@ button:disabled {
 
 button:hover:not(:disabled) {
     background-color: #1a252f;
+}
+
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    #tech-tree-container {
+        flex: none;
+        height: 62vh;
+    }
+
+    .sorted-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .sorted-table thead th {
+        top: 150px;
+    }
 }
 
 /* Basic Node Styling (if rendering manually - Vis.js/D3 will have their own ways) */

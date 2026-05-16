@@ -43,6 +43,13 @@ When first launched, the server populates the `data/` directory with the content
 
 Edit `app.js`, `style.css`, and `index.html` to adjust the interface. The server itself is implemented in `server.js`. Restart the server after making changes to server-side code.
 
+Run the data validator before committing changes:
+
+```bash
+npm test
+```
+
+The validator checks that every technology has the required fields, every ID is unique, and every prerequisite points to an existing technology.
 
 ## License
 
