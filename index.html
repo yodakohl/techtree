@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Tech Tree MVP</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260516c">
+    <link rel="stylesheet" href="style.css?v=20260517b">
     <script defer src="vendor/vis-network.min.js?v=20260516b"></script>
 </head>
 <body>
@@ -26,10 +26,25 @@
                 <select id="era-filter">
                     <option value="all">All Eras</option>
                 </select>
+                <label class="graph-focus-toggle">
+                    <input type="checkbox" id="focus-relevant" checked>
+                    Focus relevant
+                </label>
+                <p id="graph-context-summary" class="graph-context-summary"></p>
                 <p id="tech-name"></p>
                 <p id="tech-era"></p>
                 <p id="tech-description"></p>
                 <p id="tech-prerequisites"></p>
+                <div id="tech-relationships" class="tech-relationships" hidden>
+                    <section>
+                        <h3>Prerequisites</h3>
+                        <div id="tech-prereq-list" class="relationship-chip-list"></div>
+                    </section>
+                    <section>
+                        <h3>Unlocks</h3>
+                        <div id="tech-unlocks-list" class="relationship-chip-list"></div>
+                    </section>
+                </div>
                 <button id="edit-tech-btn" disabled>Edit</button>
                 <button id="delete-tech-btn" disabled>Delete</button>
             </div>
@@ -49,7 +64,7 @@
             </div>
         </div>
     </main>
-    <script defer src="app.js?v=20260516b"></script>   <!-- Application logic -->
+    <script defer src="app.js?v=20260517b"></script>   <!-- Application logic -->
 </body>
 </html>
 

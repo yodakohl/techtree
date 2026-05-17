@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const addBtn = document.getElementById('add-tech-btn');
     const searchInput = document.getElementById('search-tech');
     const eraFilter = document.getElementById('era-filter');
+    const focusRelevantInput = document.getElementById('focus-relevant');
+    const graphContextSummaryEl = document.getElementById('graph-context-summary');
+    const relationshipsEl = document.getElementById('tech-relationships');
+    const prereqListEl = document.getElementById('tech-prereq-list');
+    const unlocksListEl = document.getElementById('tech-unlocks-list');
     const addPanel = document.getElementById('tech-add-panel');
 
     let appConfig = { readOnly: false };
@@ -188,14 +193,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             value: Math.min((dependentsCount[tech.id] || 0) + 1, 12),
             color: baseColor,
             origColor: baseColor,
+            borderWidth: 1,
+            origBorderWidth: 1,
+            origX: position.x,
+            origY: position.y,
             x: position.x,
             y: position.y
         };
         if (tech.era === 'Future') {
             node.color = { background: '#dddddd', border: '#aaaaaa' };
+            node.origColor = node.color;
             node.font = { color: '#666666' };
         } else if ((levelMap[tech.id] || 0) === maxNonFuture) {
             node.borderWidth = 2;
+            node.origBorderWidth = 2;
         }
         return node;
     });
@@ -232,18 +243,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         nodes: {
             shape: 'box',
-            margin: 10,
+            margin: 7,
+            widthConstraint: {
+                maximum: 170
+            },
             scaling: {
                 min: 16,
-                max: 40,
+                max: 30,
                 label: {
                     enabled: true,
-                    min: 12,
-                    max: 24
+                    min: 10,
+                    max: 18
                 }
             },
             font: {
-                size: 12
+                size: 11
             }
         },
         edges: {
@@ -266,128 +280,270 @@ document.addEventListener('DOMContentLoaded', async () => {
         resizeTimer = window.setTimeout(() => network.fit({ animation: false }), 120);
     });
 
-    function highlightRelevantNodes(nodeId) {
-        const connected = new Set([nodeId]);
-        (prereqMap[nodeId] || []).forEach(id => connected.add(id));
-        (dependentsMap[nodeId] || []).forEach(id => connected.add(id));
+    let selectedNodeId = null;
+    let currentSearchQuery = '';
+    let currentEraFilter = 'all';
 
-        const nodeUpdates = [];
-        nodes.forEach(n => {
-            const base = n.origColor || n.color;
-            const color = connected.has(n.id) ? base : '#dddddd';
-            nodeUpdates.push({ id: n.id, color });
-        });
-        if (nodeUpdates.length) nodes.update(nodeUpdates);
-
-        const edgeUpdates = [];
-        edges.forEach(e => {
-            const isConnected = connected.has(e.from) && connected.has(e.to);
-            const base = e.origColor || (e.color && e.color.color) || e.color || '#848484';
-            edgeUpdates.push({ id: e.id, color: { color: isConnected ? base : '#dddddd' } });
-        });
-        if (edgeUpdates.length) edges.update(edgeUpdates);
+    function existingIds(ids) {
+        return ids.filter(id => Boolean(nodes.get(id)));
     }
 
-    function resetHighlight() {
-        const nodeUpdates = [];
-        nodes.forEach(n => {
-            if (n.origColor) {
-                nodeUpdates.push({ id: n.id, color: n.origColor });
-            }
+    function getOneHopContext(ids) {
+        const context = new Set();
+        ids.forEach(id => {
+            if (!nodes.get(id)) return;
+            context.add(id);
+            existingIds(prereqMap[id] || []).forEach(prereqId => context.add(prereqId));
+            existingIds(dependentsMap[id] || []).forEach(depId => context.add(depId));
         });
-        if (nodeUpdates.length) nodes.update(nodeUpdates);
-
-        const edgeUpdates = [];
-        edges.forEach(e => {
-            const base = e.origColor || (e.color && e.color.color) || '#848484';
-            edgeUpdates.push({ id: e.id, color: { color: base } });
-        });
-        if (edgeUpdates.length) edges.update(edgeUpdates);
+        return context;
     }
 
-    function applySearch(query) {
-        if (!query) {
-            resetHighlight();
+    function sortedTechIds(ids) {
+        return existingIds([...new Set(ids)])
+            .sort((a, b) => formatTechLabel(a).localeCompare(formatTechLabel(b)));
+    }
+
+    function assignPackedColumn(positionsMap, ids, baseX, direction) {
+        const orderedIds = sortedTechIds(ids);
+        if (!orderedIds.length) return;
+        const rowCount = Math.min(7, Math.ceil(Math.sqrt(orderedIds.length) * 1.2));
+        const xStep = 158;
+        const yStep = 48;
+        orderedIds.forEach((id, index) => {
+            const col = Math.floor(index / rowCount);
+            const row = index % rowCount;
+            positionsMap.set(id, {
+                x: baseX + (direction * col * xStep),
+                y: (row - (Math.min(rowCount, orderedIds.length) - 1) / 2) * yStep
+            });
+        });
+    }
+
+    function createCompactPositions(matchIds) {
+        const positionsMap = new Map();
+        const matches = sortedTechIds(matchIds);
+        const centerIds = selectedNodeId ? [selectedNodeId] : matches;
+        const centerSet = new Set(centerIds);
+        const prereqIds = new Set();
+        const unlockIds = new Set();
+
+        centerIds.forEach(id => {
+            existingIds(prereqMap[id] || []).forEach(prereqId => {
+                if (!centerSet.has(prereqId)) prereqIds.add(prereqId);
+            });
+            existingIds(dependentsMap[id] || []).forEach(depId => {
+                if (!centerSet.has(depId)) unlockIds.add(depId);
+            });
+        });
+
+        const orderedCenterIds = sortedTechIds(centerIds);
+        const centerRows = Math.min(7, Math.max(1, Math.ceil(Math.sqrt(orderedCenterIds.length))));
+        orderedCenterIds.forEach((id, index) => {
+            const col = Math.floor(index / centerRows);
+            const row = index % centerRows;
+            positionsMap.set(id, {
+                x: col * 158,
+                y: (row - (Math.min(centerRows, orderedCenterIds.length) - 1) / 2) * 52
+            });
+        });
+
+        assignPackedColumn(positionsMap, [...prereqIds], -200, -1);
+        assignPackedColumn(positionsMap, [...unlockIds], 200 + Math.max(0, Math.ceil(orderedCenterIds.length / centerRows) - 1) * 158, 1);
+
+        return positionsMap;
+    }
+
+    function getSearchMatches(query) {
+        const lower = query.trim().toLowerCase();
+        if (!lower) return new Set();
+        return new Set(dynamicData
+            .filter(t => {
+                const text = `${t.name} ${t.id} ${t.description || ''}`.toLowerCase();
+                return text.includes(lower);
+            })
+            .map(t => t.id));
+    }
+
+    function formatTechLabel(id) {
+        return nodes.get(id)?.label || nodesById[id]?.name || id;
+    }
+
+    function createRelationshipChip(id) {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'relationship-chip';
+        chip.textContent = formatTechLabel(id);
+        chip.addEventListener('click', () => selectTechnology(id));
+        return chip;
+    }
+
+    function renderRelationshipList(containerEl, ids) {
+        if (!containerEl) return;
+        containerEl.innerHTML = '';
+        const visibleIds = existingIds(ids);
+        if (!visibleIds.length) {
+            const empty = document.createElement('span');
+            empty.className = 'relationship-empty';
+            empty.textContent = 'None';
+            containerEl.appendChild(empty);
             return;
         }
-        const lower = query.toLowerCase();
-        const matches = new Set(dynamicData
-            .filter(t => t.name.toLowerCase().includes(lower) || t.id.toLowerCase().includes(lower))
-            .map(t => t.id));
-        const nodeUpdates = [];
-        nodes.forEach(n => {
-            const base = n.origColor || n.color;
-            const color = matches.has(n.id) ? base : '#dddddd';
-            nodeUpdates.push({ id: n.id, color });
-        });
-        if (nodeUpdates.length) nodes.update(nodeUpdates);
-        if (matches.size === 1) {
-            network.focus([...matches][0], { scale: 1.2, animation: true });
-        }
+        visibleIds
+            .sort((a, b) => formatTechLabel(a).localeCompare(formatTechLabel(b)))
+            .forEach(id => containerEl.appendChild(createRelationshipChip(id)));
     }
 
-    function applyEraFilter(era) {
-        const visible = new Set();
-        const nodeUpdates = [];
-        if (!era || era === 'all') {
-            nodes.forEach(n => {
-                nodeUpdates.push({ id: n.id, hidden: false });
-                visible.add(n.id);
-            });
-        } else {
-            nodes.forEach(n => {
-                const isVisible = n.era === era;
-                nodeUpdates.push({ id: n.id, hidden: !isVisible });
-                if (isVisible) visible.add(n.id);
-            });
+    function updateInfoPanel(nodeId) {
+        if (!nodeId) {
+            techNameEl.textContent = '';
+            techEraEl.textContent = '';
+            techDescriptionEl.textContent = '';
+            techPrerequisitesEl.textContent = '';
+            if (relationshipsEl) relationshipsEl.hidden = true;
+            editBtn.disabled = true;
+            deleteBtn.disabled = true;
+            return;
         }
+
+        const nodeData = nodes.get(nodeId);
+        if (!nodeData) return;
+
+        techNameEl.textContent = nodeData.label;
+        techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
+        techDescriptionEl.textContent = nodeData.description;
+
+        const prereqIds = (nodesById[nodeId] || {}).prerequisites || [];
+        const dependentIds = dependentsMap[nodeId] || [];
+        techPrerequisitesEl.textContent = `Prerequisites: ${prereqIds.length ? prereqIds.map(formatTechLabel).join(', ') : 'None'}`;
+        renderRelationshipList(prereqListEl, prereqIds);
+        renderRelationshipList(unlocksListEl, dependentIds);
+        if (relationshipsEl) relationshipsEl.hidden = false;
+
+        editBtn.disabled = false;
+        deleteBtn.disabled = false;
+    }
+
+    function updateGraphSummary(visibleCount, totalCount, matchCount) {
+        if (!graphContextSummaryEl) return;
+        const parts = [`${visibleCount} of ${totalCount} visible`];
+        if (currentEraFilter !== 'all') parts.push(currentEraFilter);
+        if (currentSearchQuery) parts.push(`${matchCount} search match${matchCount === 1 ? '' : 'es'}`);
+        if (selectedNodeId) {
+            const prereqCount = existingIds(prereqMap[selectedNodeId] || []).length;
+            const unlockCount = existingIds(dependentsMap[selectedNodeId] || []).length;
+            parts.push(`${prereqCount} prerequisites`);
+            parts.push(`${unlockCount} unlocks`);
+        }
+        graphContextSummaryEl.textContent = parts.join(' · ');
+    }
+
+    function updateGraphView({ fit = false, focusSelected = false } = {}) {
+        const focusRelevant = focusRelevantInput ? focusRelevantInput.checked : true;
+        const matchIds = getSearchMatches(currentSearchQuery);
+        let compactIds = null;
+
+        if (focusRelevant && selectedNodeId) {
+            compactIds = getOneHopContext([selectedNodeId]);
+        } else if (focusRelevant && currentSearchQuery) {
+            compactIds = getOneHopContext(matchIds);
+        }
+        const compactPositions = compactIds
+            ? createCompactPositions(selectedNodeId ? [selectedNodeId] : matchIds)
+            : null;
+
+        const nodeUpdates = [];
+        const visible = new Set();
+        nodes.forEach(n => {
+            const base = n.origColor || n.color;
+            const fontColor = n.font?.color;
+            const compactPosition = compactPositions?.get(n.id);
+            const eraVisible = currentEraFilter === 'all' || n.era === currentEraFilter;
+            const compactVisible = !compactIds || compactIds.has(n.id);
+            const isVisible = eraVisible && compactVisible;
+            if (isVisible) visible.add(n.id);
+            const isSelected = n.id === selectedNodeId;
+            const isMatch = matchIds.has(n.id);
+            nodeUpdates.push({
+                id: n.id,
+                hidden: !isVisible,
+                color: base,
+                borderWidth: isSelected ? 4 : (isMatch ? 3 : (n.origBorderWidth || 1)),
+                margin: compactPositions ? 4 : 7,
+                widthConstraint: {
+                    maximum: compactPositions ? 130 : 170
+                },
+                font: {
+                    size: isSelected || isMatch ? (compactPositions ? 12 : 15) : (compactPositions ? 9 : 11),
+                    bold: Boolean(isSelected || isMatch),
+                    ...(fontColor ? { color: fontColor } : {})
+                },
+                x: compactPosition ? compactPosition.x : (n.origX ?? n.x),
+                y: compactPosition ? compactPosition.y : (n.origY ?? n.y)
+            });
+        });
         if (nodeUpdates.length) nodes.update(nodeUpdates);
 
         const edgeUpdates = [];
         edges.forEach(e => {
             const isVisible = visible.has(e.from) && visible.has(e.to);
-            edgeUpdates.push({ id: e.id, hidden: !isVisible });
+            const isSelectedEdge = selectedNodeId && (e.from === selectedNodeId || e.to === selectedNodeId);
+            const base = e.origColor || (e.color && e.color.color) || e.color || '#848484';
+            edgeUpdates.push({
+                id: e.id,
+                hidden: !isVisible,
+                color: { color: isSelectedEdge ? '#34495e' : base },
+                width: isSelectedEdge ? 2 : 1
+            });
         });
         if (edgeUpdates.length) edges.update(edgeUpdates);
 
-        network.fit({ animation: false });
+        updateGraphSummary(visible.size, dynamicData.length, matchIds.size);
+
+        if ((focusSelected || fit) && visible.size > 0) {
+            network.fit({
+                nodes: Array.from(visible),
+                animation: focusSelected ? { duration: 250, easingFunction: 'easeInOutQuad' } : false
+            });
+        } else if (fit) {
+            network.fit({ animation: false });
+        }
     }
 
+    function resetHighlight() {
+        currentSearchQuery = '';
+        currentEraFilter = 'all';
+        updateGraphView({ fit: true });
+    }
 
-    let selectedNodeId = null;
+    function applySearch(query) {
+        currentSearchQuery = query.trim();
+        updateGraphView({ fit: true });
+    }
+
+    function applyEraFilter(era) {
+        currentEraFilter = era || 'all';
+        updateGraphView({ fit: true });
+    }
+
+    function selectTechnology(nodeId, syncSelection = true) {
+        if (!nodes.get(nodeId)) return;
+        selectedNodeId = nodeId;
+        if (syncSelection) network.selectNodes([nodeId]);
+        updateInfoPanel(nodeId);
+        updateGraphView({ focusSelected: true });
+    }
+
     network.on("selectNode", function (params) {
         if (params.nodes.length > 0) {
-            selectedNodeId = params.nodes[0];
-            const nodeData = nodes.get(selectedNodeId);
-
-            techNameEl.textContent = nodeData.label;
-            techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
-            techDescriptionEl.textContent = nodeData.description;
-
-            const prereqIds = (nodesById[selectedNodeId] || {}).prerequisites || [];
-            if (prereqIds && prereqIds.length > 0) {
-                const prereqNames = prereqIds.map(id => nodes.get(id)?.label || id).join(', ');
-                techPrerequisitesEl.textContent = `Prerequisites: ${prereqNames}`;
-            } else {
-                techPrerequisitesEl.textContent = "Prerequisites: None";
-            }
-
-            editBtn.disabled = false;
-            deleteBtn.disabled = false;
-
-            highlightRelevantNodes(selectedNodeId);
+            selectTechnology(params.nodes[0], false);
         }
     });
 
     network.on("deselectNode", function () {
         selectedNodeId = null;
-        techNameEl.textContent = '';
-        techEraEl.textContent = '';
-        techDescriptionEl.textContent = '';
-        techPrerequisitesEl.textContent = '';
-        editBtn.disabled = true;
-        deleteBtn.disabled = true;
-        resetHighlight();
+        updateInfoPanel(null);
+        updateGraphView({ fit: true });
     });
 
     if (searchInput) {
@@ -398,6 +554,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         eraFilter.addEventListener('change', () => applyEraFilter(eraFilter.value));
     }
 
+    if (focusRelevantInput) {
+        focusRelevantInput.addEventListener('change', () => updateGraphView({ fit: true, focusSelected: true }));
+    }
+
+    updateGraphView();
 
     async function saveData() {
         try {
@@ -445,13 +606,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const newTech = { id, name, era, description: desc, prerequisites: prereqs };
             dynamicData.push(newTech);
+            nodesById[id] = newTech;
             prereqMap[id] = prereqs;
             prereqs.forEach(pr => {
                 if (!dependentsMap[pr]) dependentsMap[pr] = [];
                 dependentsMap[pr].push(id);
             });
 
-            nodes.add({ id, label: name, title: desc, era, description: desc });
+            const baseColor = eraColors[era] || '#cccccc';
+            nodes.add({
+                id,
+                label: name,
+                title: desc,
+                era,
+                description: desc,
+                color: baseColor,
+                origColor: baseColor,
+                borderWidth: 1,
+                origBorderWidth: 1,
+                origX: 0,
+                origY: 0,
+                x: 0,
+                y: 0
+            });
             prereqs.forEach(pr => {
                 if (nodes.get(pr)) {
                     edges.add({ from: pr, to: id, arrows: 'to' });
@@ -460,7 +637,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             saveData();
             clearForm();
-            network.fit();
+            updateGraphView({ fit: true });
         });
     }
 
@@ -499,6 +676,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             tech.era = era;
             tech.description = desc;
             tech.prerequisites = prereqs;
+            nodesById[selectedNodeId] = tech;
             prereqMap[selectedNodeId] = prereqs;
             oldPrereqs.forEach(pr => {
                 dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
@@ -508,7 +686,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
             });
 
-            nodes.update({ id: selectedNodeId, label: name, era, description: desc, title: desc });
+            const baseColor = eraColors[era] || '#cccccc';
+            nodes.update({
+                id: selectedNodeId,
+                label: name,
+                era,
+                description: desc,
+                title: desc,
+                color: baseColor,
+                origColor: baseColor
+            });
 
             // Remove old edges
             edges.get({ filter: e => e.to === selectedNodeId || e.from === selectedNodeId }).forEach(e => edges.remove(e.id));
@@ -534,7 +721,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             saveData();
             clearForm();
-            network.fit();
+            updateInfoPanel(selectedNodeId);
+            updateGraphView({ fit: true, focusSelected: true });
         });
     }
 
@@ -557,20 +745,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delete dependentsMap[selectedNodeId];
             }
             delete prereqMap[selectedNodeId];
+            delete nodesById[selectedNodeId];
 
             nodes.remove({ id: selectedNodeId });
             dynamicData = dynamicData.filter(t => t.id !== selectedNodeId);
 
             saveData();
-            techNameEl.textContent = '';
-            techEraEl.textContent = '';
-            techDescriptionEl.textContent = '';
-            techPrerequisitesEl.textContent = '';
-            editBtn.disabled = true;
-            deleteBtn.disabled = true;
             selectedNodeId = null;
+            updateInfoPanel(null);
             clearForm();
-            network.fit();
+            updateGraphView({ fit: true });
         });
     }
 });
