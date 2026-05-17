@@ -51,6 +51,12 @@ npm test
 
 The validator checks that every technology has the required fields, every ID is unique, and every prerequisite points to an existing technology.
 
+To inspect branch and era coverage:
+
+```bash
+npm run coverage
+```
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).

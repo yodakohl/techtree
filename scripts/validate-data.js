@@ -2,11 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
+const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const REQUIRED_FIELDS = ['id', 'name', 'era', 'description', 'prerequisites'];
 
 function loadData() {
     const files = fs.readdirSync(DATA_DIR)
         .filter(file => file.endsWith('.json'))
+        .filter(file => file !== 'taxonomy.json')
         .sort();
 
     return files.flatMap(file => {
@@ -72,6 +74,8 @@ function findCycles(data, ids) {
 
 function validate() {
     const data = loadData();
+    const taxonomy = JSON.parse(fs.readFileSync(TAXONOMY_FILE, 'utf8'));
+    const validEras = new Set(taxonomy.eras);
     const errors = [];
     const ids = new Map();
 
@@ -91,6 +95,15 @@ function validate() {
             errors.push(`${item.id} is duplicated in ${ids.get(item.id)} and ${item.__file}`);
         } else {
             ids.set(item.id, item.__file);
+        }
+
+        if (!validEras.has(item.era)) {
+            errors.push(`${item.id} has invalid era ${item.era}`);
+        }
+
+        const expectedFile = `${String(item.era || '').toLowerCase()}.json`;
+        if (validEras.has(item.era) && item.__file !== expectedFile) {
+            errors.push(`${item.id} has era ${item.era} but is stored in ${item.__file}`);
         }
 
         if (!Array.isArray(item.prerequisites)) {
