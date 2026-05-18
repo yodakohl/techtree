@@ -6,6 +6,7 @@ const OUT_DIR = path.join(DATA_DIR, 'expansion');
 const TARGET = Number(process.argv[2] || 10000);
 const SHARD_SIZE = Number(process.argv[3] || 1000);
 const PREFIX = process.argv[4] || 'human-tech-10k';
+const START_INDEX = Number(process.argv[5] || 0);
 
 const eras = ['Ancient', 'Classical', 'Medieval', 'Renaissance', 'Industrial', 'Modern', 'Future'];
 const eraSlug = {
@@ -274,6 +275,13 @@ const modifiers = [
     'low_waste', 'high_throughput', 'field_ready', 'compact', 'large_scale', 'redundant'
 ];
 
+const eraModifiers = {
+    Ancient: modifiers.filter(modifier => !['automated', 'high_reliability', 'remote'].includes(modifier)),
+    Classical: modifiers.filter(modifier => !['automated'].includes(modifier)),
+    Medieval: modifiers.filter(modifier => !['automated'].includes(modifier)),
+    Renaissance: modifiers.filter(modifier => !['automated'].includes(modifier))
+};
+
 function slug(value) {
     return value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 }
@@ -316,7 +324,8 @@ function makeRow(era, branchDef, index, existingIds, generatedIds) {
     const override = eraBranchPools[era]?.[branchKey];
     if (override === null || (branchKey === 'space' && era !== 'Modern' && era !== 'Future')) return null;
     const [keywords, processes, subjects] = override || [defaultKeywords, defaultProcesses, defaultSubjects];
-    const modifier = modifiers[(index + branchKey.length + era.length) % modifiers.length];
+    const modifierPool = eraModifiers[era] || modifiers;
+    const modifier = modifierPool[(index + branchKey.length + era.length) % modifierPool.length];
     const process = processes[(index * 3 + era.length) % processes.length];
     const subject = subjects[(index * 5 + branchKey.length) % subjects.length];
     const keyword = keywords[(index * 7 + subject.length) % keywords.length];
@@ -347,7 +356,7 @@ function main() {
     while (rows.length < TARGET) {
         const era = eras[index % eras.length];
         const branchDef = branchDefs[Math.floor(index / eras.length) % branchDefs.length];
-        const row = makeRow(era, branchDef, Math.floor(index / (eras.length * branchDefs.length)), existingIds, generatedIds);
+        const row = makeRow(era, branchDef, START_INDEX + Math.floor(index / (eras.length * branchDefs.length)), existingIds, generatedIds);
         if (row) {
             const id = row.split('\t')[1];
             generatedIds.add(id);

@@ -23,6 +23,23 @@ const branchRules = [
     ['Arts & Culture', ['art', 'artistic', 'cultural', 'music', 'theater', 'literature', 'myth', 'ritual', 'religion', 'philosophy', 'sculpture', 'painting', 'mosaic', 'heraldry', 'chivalry', 'storytelling']]
 ];
 
+const generatedBranchNames = new Map([
+    ['agriculture', 'Agriculture & Food'],
+    ['materials', 'Materials & Manufacturing'],
+    ['energy', 'Energy & Power'],
+    ['transport', 'Transport & Logistics'],
+    ['computing', 'Computing & AI'],
+    ['media', 'Communication & Media'],
+    ['medicine', 'Medicine & Biology'],
+    ['science', 'Science & Mathematics'],
+    ['governance', 'Society & Governance'],
+    ['finance', 'Finance & Commerce'],
+    ['infrastructure', 'Infrastructure & Cities'],
+    ['security', 'Security & Defense'],
+    ['space', 'Space & Far Future'],
+    ['culture', 'Arts & Culture']
+]);
+
 function loadData() {
     return fs.readdirSync(DATA_DIR)
         .filter(file => file.endsWith('.json') && file !== 'taxonomy.json')
@@ -31,6 +48,11 @@ function loadData() {
 }
 
 function classify(item) {
+    const generatedMatch = item.id.match(/^(ancient|classical|medieval|renaissance|industrial|modern|future)_([a-z]+)_/);
+    if (generatedMatch && generatedBranchNames.has(generatedMatch[2])) {
+        return generatedBranchNames.get(generatedMatch[2]);
+    }
+
     const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
     let best = ['Other', 0];
     for (const [branch, terms] of branchRules) {

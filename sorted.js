@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         {
             name: 'Materials & Manufacturing',
-            terms: ['stone_tool', 'tool', 'metal', 'bronze', 'iron', 'steel', 'alloy', 'glass', 'ceramic', 'pottery', 'textile', 'weaving', 'manufactur', 'factory', 'assembly', '3d_print', 'materials', 'polymer', 'plastic', 'composite', 'nanotechnology', 'casting', 'molding']
+            terms: ['stone_tool', 'tool', 'metal', 'bronze', 'iron', 'steel', 'alloy', 'glass', 'ceramic', 'pottery', 'textile', 'weaving', 'manufactur', 'fabrication', 'factory', 'assembly', '3d_print', 'materials', 'polymer', 'plastic', 'composite', 'nanotechnology', 'casting', 'molding']
         },
         {
             name: 'Energy & Power',
@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         {
             name: 'Computing & AI',
-            terms: ['abacus', 'algorithm', 'computer', 'software', 'database', 'data_', 'cloud', 'virtualization', 'internet_protocol', 'microprocessor', 'semiconductor', 'transistor', 'integrated_circuit', 'ai', 'artificial_intelligence', 'machine_learning', 'deep_learning', 'language_model', 'neural', 'robotic_process', 'quantum_computing', 'vector_database']
+            terms: ['abacus', 'algorithm', 'computer', 'software', 'database', 'data_', 'cloud', 'virtualization', 'internet_protocol', 'microprocessor', 'semiconductor', 'transistor', 'integrated_circuit', 'ai', 'artificial_intelligence', 'machine_learning', 'deep_learning', 'language_model', 'neural', 'robotic_process', 'quantum_computing', 'vector_database', 'information-processing', 'calculation', 'automation', 'decision support']
         },
         {
             name: 'Communication & Media',
-            terms: ['writing', 'paper', 'printing', 'book', 'library', 'postal', 'telegraph', 'telephone', 'radio', 'television', 'media', 'cinema', 'photography', 'web', 'internet', 'hypertext', 'social_media', 'communication', 'storytelling']
+            terms: ['writing', 'paper', 'printing', 'book', 'library', 'postal', 'telegraph', 'telephone', 'radio', 'television', 'media', 'cinema', 'photography', 'web', 'internet', 'hypertext', 'social_media', 'communication', 'storytelling', 'publishing', 'signaling', 'cultural memory']
         },
         {
             name: 'Medicine & Biology',
@@ -72,11 +72,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         {
             name: 'Finance & Commerce',
-            terms: ['barter', 'currency', 'coin', 'bank', 'finance', 'commerce', 'trade', 'merchant', 'credit', 'insurance', 'stock', 'capital', 'corporation', 'bookkeeping', 'accounting', 'market', 'retail', 'e-commerce']
+            terms: ['barter', 'currency', 'coin', 'bank', 'finance', 'commerce', 'commercial', 'trade', 'merchant', 'credit', 'insurance', 'stock', 'capital', 'corporation', 'bookkeeping', 'accounting', 'market', 'retail', 'e-commerce', 'settlement']
         },
         {
             name: 'Infrastructure & Cities',
-            terms: ['shelter', 'construction', 'masonry', 'architecture', 'concrete', 'urban', 'city', 'aqueduct', 'sewer', 'water_', 'well', 'cistern', 'building', 'bridge', 'skyscraper', 'housing', 'public_works', 'municipal']
+            terms: ['shelter', 'construction', 'infrastructure', 'built environment', 'masonry', 'architecture', 'concrete', 'urban', 'city', 'aqueduct', 'sewer', 'water_', 'water system', 'well', 'cistern', 'building', 'bridge', 'skyscraper', 'housing', 'public_works', 'municipal']
         },
         {
             name: 'Security & Defense',
@@ -88,9 +88,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         },
         {
             name: 'Arts & Culture',
-            terms: ['art', 'music', 'theater', 'literature', 'myth', 'ritual', 'religion', 'philosophy', 'sculpture', 'painting', 'mosaic', 'heraldry', 'chivalry', 'storytelling']
+            terms: ['art', 'artistic', 'cultural', 'music', 'theater', 'literature', 'myth', 'ritual', 'religion', 'philosophy', 'sculpture', 'painting', 'mosaic', 'heraldry', 'chivalry', 'storytelling']
         }
     ];
+
+    const generatedBranchNames = new Map([
+        ['agriculture', 'Agriculture & Food'],
+        ['materials', 'Materials & Manufacturing'],
+        ['energy', 'Energy & Power'],
+        ['transport', 'Transport & Logistics'],
+        ['computing', 'Computing & AI'],
+        ['media', 'Communication & Media'],
+        ['medicine', 'Medicine & Biology'],
+        ['science', 'Science & Mathematics'],
+        ['governance', 'Society & Governance'],
+        ['finance', 'Finance & Commerce'],
+        ['infrastructure', 'Infrastructure & Cities'],
+        ['security', 'Security & Defense'],
+        ['space', 'Space & Far Future'],
+        ['culture', 'Arts & Culture']
+    ]);
 
     const fieldRules = [
         {
@@ -179,6 +196,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function classifyBranch(item) {
+        const generatedMatch = item.id.match(/^(ancient|classical|medieval|renaissance|industrial|modern|future)_([a-z]+)_/);
+        if (generatedMatch && generatedBranchNames.has(generatedMatch[2])) {
+            return generatedBranchNames.get(generatedMatch[2]);
+        }
+
         const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
         let best = { name: 'Other', score: 0 };
         for (const rule of branchRules) {

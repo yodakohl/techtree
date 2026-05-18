@@ -9,7 +9,7 @@ Goal: add large numbers of technologies with minimum token and edit overhead whi
 - Importer: `scripts/import-compact-tech.js`
 - Generator for large balanced shards: `scripts/generate-10k-tech-shards.js`
 - Generated-description repair: `scripts/improve-generated-tech-data.js`
-- Current validated size after the first follow-up expansion: 16,401 technologies
+- Current validated size after the second follow-up expansion: 21,401 technologies
 
 ## Compact Batch Format
 
@@ -63,6 +63,16 @@ The first follow-up quality pass rewrote generated descriptions and added 5,000 
 node scripts/improve-generated-tech-data.js
 node scripts/generate-10k-tech-shards.js 5000 1000 human-tech-expanded-01
 for file in data/expansion/human-tech-expanded-01-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
+npm test
+npm run coverage
+```
+
+The second follow-up pass normalized pre-modern generated names, added generated branch-aware sorting/coverage, and added another 5,000 rows:
+
+```bash
+node scripts/improve-generated-tech-data.js
+node scripts/generate-10k-tech-shards.js 5000 1000 human-tech-expanded-02 161
+for file in data/expansion/human-tech-expanded-02-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
 npm test
 npm run coverage
 ```

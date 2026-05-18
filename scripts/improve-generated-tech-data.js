@@ -54,6 +54,16 @@ function cleanName(name) {
     return String(name || '').trim().replace(/\s+/g, ' ');
 }
 
+function improveName(item) {
+    if (!['Ancient', 'Classical', 'Medieval', 'Renaissance'].includes(item.era)) {
+        return cleanName(item.name);
+    }
+    return cleanName(item.name)
+        .replace(/^Automated /, 'Organized ')
+        .replace(/^Remote /, 'Outlying ')
+        .replace(/^High Reliability /, 'Durable ');
+}
+
 function improveDescription(item, branch) {
     const opener = eraFrame[item.era] || 'People developed';
     const purpose = branchPurpose[branch] || 'specialized technical work';
@@ -69,7 +79,12 @@ for (const eraSlug of eraSlugs) {
         const match = item.id.match(generatedPattern);
         if (!match) continue;
         const branch = match[2];
+        const nextName = improveName(item);
         const nextDescription = improveDescription(item, branch);
+        if (item.name !== nextName) {
+            item.name = nextName;
+            improved += 1;
+        }
         if (item.description !== nextDescription) {
             item.description = nextDescription;
             improved += 1;
