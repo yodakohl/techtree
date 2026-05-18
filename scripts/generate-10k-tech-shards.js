@@ -49,7 +49,7 @@ const branchPurpose = {
 const branchNoun = {
     agriculture: 'agricultural',
     materials: 'manufacturing',
-    energy: 'energy',
+    energy: 'energy-management',
     transport: 'transport',
     computing: 'information-processing',
     media: 'communication',
@@ -57,10 +57,27 @@ const branchNoun = {
     science: 'scientific',
     governance: 'administrative',
     finance: 'commercial',
-    infrastructure: 'infrastructure',
+    infrastructure: 'civic-infrastructure',
     security: 'security',
     space: 'space',
     culture: 'cultural'
+};
+
+const branchActions = {
+    agriculture: ['Processing', 'Storage', 'Grading', 'Preservation', 'Distribution'],
+    materials: ['Fabrication', 'Finishing', 'Inspection', 'Repair', 'Casting'],
+    energy: ['Operation', 'Control', 'Maintenance', 'Metering', 'Heat Recovery'],
+    transport: ['Handling', 'Routing', 'Maintenance', 'Loading', 'Navigation'],
+    computing: ['Recording', 'Indexing', 'Tabulation', 'Scheduling', 'Audit'],
+    media: ['Cataloging', 'Publication', 'Archiving', 'Copying', 'Distribution'],
+    medicine: ['Sterilization', 'Handling', 'Treatment', 'Screening', 'Recording'],
+    science: ['Measurement', 'Calibration', 'Observation', 'Mapping', 'Standardization'],
+    governance: ['Registration', 'Inspection', 'Coordination', 'Reporting', 'Planning'],
+    finance: ['Accounting', 'Pricing', 'Clearing', 'Reconciliation', 'Risk Review'],
+    infrastructure: ['Maintenance', 'Inspection', 'Drainage', 'Paving', 'Reinforcement'],
+    security: ['Inspection', 'Patrol', 'Fortification', 'Signaling', 'Hardening'],
+    space: ['Navigation', 'Tracking', 'Shielding', 'Operations', 'Recycling'],
+    culture: ['Preservation', 'Performance', 'Cataloging', 'Restoration', 'Teaching']
 };
 
 const anchors = {
@@ -294,6 +311,10 @@ function plain(value) {
     return value.replace(/_/g, ' ');
 }
 
+function articleFor(value) {
+    return /^[aeiou]/i.test(value) ? 'an' : 'a';
+}
+
 function rootWord(value) {
     return String(value || '')
         .toLowerCase()
@@ -312,6 +333,11 @@ function buildName(adjective, subjectName, processName) {
         return [adjective, trimmedSubject, processName].filter(Boolean).join(' ');
     }
     return `${adjective} ${subjectName} ${processName}`;
+}
+
+function branchAction(branchKey, index, subject) {
+    const actions = branchActions[branchKey] || ['Operation'];
+    return actions[(index + subject.length) % actions.length];
 }
 
 function loadExistingIds() {
@@ -355,9 +381,10 @@ function makeRow(era, branchDef, index, existingIds, generatedIds) {
 
     const adjective = title(modifier);
     const subjectName = title(subject);
-    const processName = title(process);
+    const processName = branchAction(branchKey, index, subject);
     const name = buildName(adjective, subjectName, processName);
-    const description = `${eraFrame[era]} ${name.toLowerCase()} as a ${branchNoun[branchKey] || plain(keyword)} practice for ${branchPurpose[branchKey]}.`;
+    const noun = branchNoun[branchKey] || plain(keyword);
+    const description = `${eraFrame[era]} ${name.toLowerCase()} as ${articleFor(noun)} ${noun} practice for ${branchPurpose[branchKey]}.`;
     const prereqs = anchors[era][branchKey] || anchors[era].base;
     return [era, id, name, description, prereqs.join(',')].join('\t');
 }

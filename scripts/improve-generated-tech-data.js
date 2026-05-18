@@ -36,7 +36,7 @@ const branchPurpose = {
 const branchNoun = {
     agriculture: 'agricultural',
     materials: 'manufacturing',
-    energy: 'energy',
+    energy: 'energy-management',
     transport: 'transport',
     computing: 'information-processing',
     media: 'communication',
@@ -44,14 +44,69 @@ const branchNoun = {
     science: 'scientific',
     governance: 'administrative',
     finance: 'commercial',
-    infrastructure: 'infrastructure',
+    infrastructure: 'civic-infrastructure',
     security: 'security',
     space: 'space',
     culture: 'cultural'
 };
 
+const modifierPrefixes = [
+    'High Reliability', 'High Throughput', 'High Capacity', 'Large Scale', 'Low Waste', 'Low Cost',
+    'Field Ready', 'Standardized', 'Specialized', 'Distributed', 'Automated', 'Resilient',
+    'Community', 'Regional', 'Adaptive', 'Portable', 'Modular', 'Precision', 'Redundant',
+    'Continuous', 'Seasonal', 'Outlying', 'Organized', 'Regulated', 'Durable', 'Remote',
+    'Sealed', 'Rapid', 'Open', 'Compact'
+].sort((a, b) => b.length - a.length);
+
+const knownActionSuffixes = [
+    'Cross Referencing', 'Credit Rating', 'Risk Scoring', 'Habitat Control', 'Heat Recovery',
+    'Standardization', 'Risk Review',
+    'Standardizing', 'Preservation', 'Distribution', 'Registration', 'Reconciliation',
+    'Fortification', 'Sterilization', 'Maintenance', 'Calibration', 'Observation',
+    'Publication', 'Inspection', 'Measurement', 'Operations', 'Processing', 'Scheduling',
+    'Cataloging', 'Compounding', 'Navigation', 'Reinforcement', 'Restoration', 'Signaling',
+    'Screening', 'Treatment', 'Recording', 'Indexing', 'Tabulation', 'Archiving', 'Handling',
+    'Hardening', 'Teaching', 'Mapping', 'Planning', 'Pricing', 'Clearing', 'Copying',
+    'Routing', 'Loading', 'Casting', 'Finishing', 'Fabrication', 'Paving', 'Patrol', 'Audit',
+    'Storage', 'Grading', 'Repair', 'Control', 'Metering', 'Drainage', 'Tracking', 'Shielding',
+    'Recycling', 'Accounting', 'Performance', 'Operation',
+    'Sorting', 'Drying', 'Watering', 'Breeding', 'Milling', 'Testing', 'Forging',
+    'Weaving', 'Cutting', 'Polishing', 'Coating', 'Laminating', 'Annealing', 'Molding',
+    'Machining', 'Generation', 'Conversion', 'Balancing', 'Ignition', 'Signaling',
+    'Dispatch', 'Reasoning', 'Compression', 'Simulation', 'Training', 'Querying',
+    'Orchestration', 'Monitoring', 'Optimization', 'Broadcasting', 'Captioning',
+    'Publishing', 'Translation', 'Moderation', 'Diagnosis', 'Dosing', 'Triage',
+    'Imaging', 'Therapy', 'Sequencing', 'Culturing', 'Measuring', 'Modeling',
+    'Sampling', 'Observing', 'Forecasting', 'Computing', 'Licensing', 'Adjudication',
+    'Reporting', 'Auditing', 'Credentialing', 'Coordination', 'Settlement',
+    'Brokerage', 'Inventory', 'Exchange', 'Detection', 'Targeting', 'Authentication',
+    'Drilling', 'Warning', 'Camouflage', 'Response', 'Launching', 'Docking', 'Mining',
+    'Construction', 'Composition', 'Notation', 'Staging', 'Curation', 'Reproduction'
+].sort((a, b) => b.length - a.length);
+
+const branchActions = {
+    agriculture: ['Processing', 'Storage', 'Grading', 'Preservation', 'Distribution'],
+    materials: ['Fabrication', 'Finishing', 'Inspection', 'Repair', 'Casting'],
+    energy: ['Operation', 'Control', 'Maintenance', 'Metering', 'Heat Recovery'],
+    transport: ['Handling', 'Routing', 'Maintenance', 'Loading', 'Navigation'],
+    computing: ['Recording', 'Indexing', 'Tabulation', 'Scheduling', 'Audit'],
+    media: ['Cataloging', 'Publication', 'Archiving', 'Copying', 'Distribution'],
+    medicine: ['Sterilization', 'Handling', 'Treatment', 'Screening', 'Recording'],
+    science: ['Measurement', 'Calibration', 'Observation', 'Mapping', 'Standardization'],
+    governance: ['Registration', 'Inspection', 'Coordination', 'Reporting', 'Planning'],
+    finance: ['Accounting', 'Pricing', 'Clearing', 'Reconciliation', 'Risk Review'],
+    infrastructure: ['Maintenance', 'Inspection', 'Drainage', 'Paving', 'Reinforcement'],
+    security: ['Inspection', 'Patrol', 'Fortification', 'Signaling', 'Hardening'],
+    space: ['Navigation', 'Tracking', 'Shielding', 'Operations', 'Recycling'],
+    culture: ['Preservation', 'Performance', 'Cataloging', 'Restoration', 'Teaching']
+};
+
 function cleanName(name) {
     return String(name || '').trim().replace(/\s+/g, ' ');
+}
+
+function articleFor(value) {
+    return /^[aeiou]/i.test(value) ? 'an' : 'a';
 }
 
 function rootWord(value) {
@@ -76,22 +131,73 @@ function dedupeCompoundProcessName(name) {
     return cleanName(name).replace(/\bHabitat Habitat Control\b/g, 'Habitat Control');
 }
 
-function improveName(item) {
-    const normalized = dedupeCompoundProcessName(dedupeProcessName(item.name));
-    if (!['Ancient', 'Classical', 'Medieval', 'Renaissance'].includes(item.era)) {
-        return normalized;
+function splitGeneratedName(name) {
+    let value = cleanName(name);
+    let prefix = '';
+    for (const candidate of modifierPrefixes) {
+        if (value.startsWith(`${candidate} `)) {
+            prefix = candidate;
+            value = value.slice(candidate.length + 1);
+            break;
+        }
     }
-    return normalized
+    let stripped = true;
+    while (stripped) {
+        stripped = false;
+        for (const suffix of knownActionSuffixes) {
+            if (value === suffix) break;
+            if (value.endsWith(` ${suffix}`)) {
+                value = value.slice(0, -suffix.length - 1);
+                stripped = true;
+                break;
+            }
+        }
+    }
+    const words = value.split(' ');
+    if (words.length > 1 && /ing$/i.test(words[words.length - 1])) {
+        words.pop();
+        value = words.join(' ');
+    }
+    return { prefix, subject: value };
+}
+
+function branchAction(branch, id) {
+    const actions = branchActions[branch] || ['Operation'];
+    const suffix = Number((id.match(/_(\d{4})$/) || [0, 0])[1]);
+    return actions[suffix % actions.length];
+}
+
+function composeName(prefix, subject, action) {
+    const subjectWords = cleanName(subject).split(' ').filter(Boolean);
+    const actionWords = cleanName(action).split(' ').filter(Boolean);
+    if (subjectWords.length && actionWords.length) {
+        const subjectLast = subjectWords[subjectWords.length - 1];
+        const actionFirst = actionWords[0];
+        if (rootWord(subjectLast) === rootWord(actionFirst)) {
+            subjectWords.pop();
+        }
+    }
+    return [prefix, subjectWords.join(' '), action].filter(Boolean).join(' ');
+}
+
+function improveName(item, branch) {
+    const normalized = dedupeCompoundProcessName(dedupeProcessName(item.name));
+    const parts = splitGeneratedName(normalized);
+    const baseName = composeName(parts.prefix, parts.subject, branchAction(branch, item.id));
+    if (!['Ancient', 'Classical', 'Medieval', 'Renaissance'].includes(item.era)) {
+        return baseName;
+    }
+    return baseName
         .replace(/^Automated /, 'Organized ')
         .replace(/^Remote /, 'Outlying ')
         .replace(/^High Reliability /, 'Durable ');
 }
 
-function improveDescription(item, branch) {
+function improveDescription(item, branch, name) {
     const opener = eraFrame[item.era] || 'People developed';
     const purpose = branchPurpose[branch] || 'specialized technical work';
     const noun = branchNoun[branch] || 'technical';
-    return `${opener} ${cleanName(item.name).toLowerCase()} as a ${noun} practice for ${purpose}.`;
+    return `${opener} ${cleanName(name).toLowerCase()} as ${articleFor(noun)} ${noun} practice for ${purpose}.`;
 }
 
 let improved = 0;
@@ -102,8 +208,8 @@ for (const eraSlug of eraSlugs) {
         const match = item.id.match(generatedPattern);
         if (!match) continue;
         const branch = match[2];
-        const nextName = improveName(item);
-        const nextDescription = improveDescription(item, branch);
+        const nextName = improveName(item, branch);
+        const nextDescription = improveDescription(item, branch, nextName);
         if (item.name !== nextName) {
             item.name = nextName;
             improved += 1;
