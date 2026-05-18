@@ -9,7 +9,7 @@ Goal: add large numbers of technologies with minimum token and edit overhead whi
 - Importer: `scripts/import-compact-tech.js`
 - Generator for large balanced shards: `scripts/generate-10k-tech-shards.js`
 - Generated-description repair: `scripts/improve-generated-tech-data.js`
-- Current validated size after the fourth follow-up expansion: 31,401 technologies
+- Current validated size after the duplicate-name quality pass: 23,415 technologies
 
 ## Compact Batch Format
 
@@ -33,6 +33,7 @@ Rules:
 ```bash
 node scripts/import-compact-tech.js data/expansion/human-tech-bulk-N.tsv
 npm test
+npm run quality
 npm run coverage
 ```
 
@@ -106,7 +107,7 @@ For another large expansion:
 - Run an anachronism grep over generated TSVs before import.
 - Manually sample rows across every era after import; inspect names and descriptions, not only validation status.
 - Run repeated-word and article greps before committing.
-- After import, run `npm test` and `npm run coverage`.
+- After import, run `npm test`, `npm run quality`, and `npm run coverage`.
 
 Suggested shard pattern:
 
@@ -128,6 +129,7 @@ Token-efficient generation pattern:
 
 ```bash
 npm test
+npm run quality
 npm run coverage
 git status --short
 git add data scripts/import-compact-tech.js docs AGENTS.md

@@ -5,7 +5,7 @@ An interactive map of human technology across eras, from ancient foundations to 
 - **Graph View**: a Vis Network dependency graph with search, era filtering, focused dependency context, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, and field lens.
 
-The current validated dataset contains **31,401 technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **23,415 technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -93,6 +93,12 @@ npm test
 ```
 
 The validator checks required fields, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles.
+
+Run the data-quality audit to catch duplicate display names and technologies that use modern or future-only terminology too early:
+
+```bash
+npm run quality
+```
 
 Inspect dataset balance with:
 

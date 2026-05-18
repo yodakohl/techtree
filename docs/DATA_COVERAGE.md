@@ -34,9 +34,10 @@ Run:
 
 ```bash
 npm test
+npm run quality
 ```
 
-This checks required fields, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, and cyclic prerequisite groups.
+This checks required fields, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, duplicate display names, and technologies that use modern or future-only terminology before the era where it belongs.
 
 ## Coverage Audit
 

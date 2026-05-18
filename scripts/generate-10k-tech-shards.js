@@ -46,6 +46,24 @@ const branchPurpose = {
     culture: 'artistic production, ritual, education, and preservation'
 };
 
+const eraBranchPurpose = {
+    computing: {
+        Ancient: 'records, counting, tabulation, and scheduling',
+        Classical: 'records, calculation, cataloging, and administration',
+        Medieval: 'records, calculation, scheduling, and scholarly indexing',
+        Renaissance: 'calculation, accounting, tables, and cataloging',
+        Industrial: 'office records, tabulation, scheduling, and calculation'
+    },
+    space: {
+        Ancient: 'astronomy, calendars, navigation, and sky observation',
+        Classical: 'astronomy, calendars, navigation, and sky observation',
+        Medieval: 'astronomy, calendars, navigation, and instrument use',
+        Renaissance: 'astronomy, telescopic observation, navigation, and star catalogs',
+        Industrial: 'astronomy, rocketry, radio observation, and atmospheric research',
+        Modern: 'satellites, orbital operations, launch systems, and exploration'
+    }
+};
+
 const branchNoun = {
     agriculture: 'agricultural',
     materials: 'manufacturing',
@@ -384,7 +402,10 @@ function makeRow(era, branchDef, index, existingIds, generatedIds) {
     const processName = branchAction(branchKey, index, subject);
     const name = buildName(adjective, subjectName, processName);
     const noun = branchNoun[branchKey] || plain(keyword);
-    const description = `${eraFrame[era]} ${name.toLowerCase()} as ${articleFor(noun)} ${noun} practice for ${branchPurpose[branchKey]}.`;
+    const purpose = (eraBranchPurpose[branchKey] && eraBranchPurpose[branchKey][era])
+        || branchPurpose[branchKey]
+        || 'specialized technical work';
+    const description = `${eraFrame[era]} ${name.toLowerCase()} as ${articleFor(noun)} ${noun} practice for ${purpose}.`;
     const prereqs = anchors[era][branchKey] || anchors[era].base;
     return [era, id, name, description, prereqs.join(',')].join('\t');
 }

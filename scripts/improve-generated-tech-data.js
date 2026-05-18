@@ -33,6 +33,24 @@ const branchPurpose = {
     culture: 'artistic production, ritual, education, and preservation'
 };
 
+const eraBranchPurpose = {
+    computing: {
+        Ancient: 'records, counting, tabulation, and scheduling',
+        Classical: 'records, calculation, cataloging, and administration',
+        Medieval: 'records, calculation, scheduling, and scholarly indexing',
+        Renaissance: 'calculation, accounting, tables, and cataloging',
+        Industrial: 'office records, tabulation, scheduling, and calculation'
+    },
+    space: {
+        Ancient: 'astronomy, calendars, navigation, and sky observation',
+        Classical: 'astronomy, calendars, navigation, and sky observation',
+        Medieval: 'astronomy, calendars, navigation, and instrument use',
+        Renaissance: 'astronomy, telescopic observation, navigation, and star catalogs',
+        Industrial: 'astronomy, rocketry, radio observation, and atmospheric research',
+        Modern: 'satellites, orbital operations, launch systems, and exploration'
+    }
+};
+
 const branchNoun = {
     agriculture: 'agricultural',
     materials: 'manufacturing',
@@ -195,7 +213,9 @@ function improveName(item, branch) {
 
 function improveDescription(item, branch, name) {
     const opener = eraFrame[item.era] || 'People developed';
-    const purpose = branchPurpose[branch] || 'specialized technical work';
+    const purpose = (eraBranchPurpose[branch] && eraBranchPurpose[branch][item.era])
+        || branchPurpose[branch]
+        || 'specialized technical work';
     const noun = branchNoun[branch] || 'technical';
     return `${opener} ${cleanName(name).toLowerCase()} as ${articleFor(noun)} ${noun} practice for ${purpose}.`;
 }
