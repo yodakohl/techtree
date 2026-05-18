@@ -67,6 +67,17 @@ function normalizeName(name) {
         .trim();
 }
 
+function normalizeComparableName(name) {
+    return normalizeName(name)
+        .split(' ')
+        .map(word => {
+            if (word.length > 4 && word.endsWith('ies')) return `${word.slice(0, -3)}y`;
+            if (word.length > 3 && word.endsWith('s')) return word.slice(0, -1);
+            return word;
+        })
+        .join(' ');
+}
+
 function escapeRegExp(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -92,6 +103,7 @@ const data = loadData();
 const errors = [];
 const ids = new Map();
 const names = new Map();
+const comparableNames = new Map();
 
 for (const item of data) {
     if (GENERATED_ID.test(item.id)) {
@@ -110,6 +122,12 @@ for (const item of data) {
         names.get(normalizedName).push(item);
     }
 
+    const comparableName = normalizeComparableName(item.name);
+    if (comparableName) {
+        if (!comparableNames.has(comparableName)) comparableNames.set(comparableName, []);
+        comparableNames.get(comparableName).push(item);
+    }
+
     const itemEraOrder = ERA_ORDER.get(item.era);
     const text = `${item.id} ${item.name} ${item.description}`;
     for (const [term, minEra] of Object.entries(TERM_MIN_ERA)) {
@@ -126,6 +144,12 @@ for (const [name, items] of names.entries()) {
     errors.push(`duplicate display name "${name}": ${items.map(item => `${item.__file}:${item.id}`).join(', ')}`);
 }
 
+for (const [name, items] of comparableNames.entries()) {
+    const distinctNames = new Set(items.map(item => normalizeName(item.name)));
+    if (items.length < 2 || distinctNames.size < 2) continue;
+    errors.push(`near-duplicate display name "${name}": ${items.map(item => `${item.__file}:${item.id}:${item.name}`).join(', ')}`);
+}
+
 if (errors.length) {
     console.error(`Data quality audit failed with ${errors.length} issue(s):`);
     for (const error of errors.slice(0, 200)) {
@@ -137,4 +161,4 @@ if (errors.length) {
     process.exit(1);
 }
 
-console.log(`Audited ${data.length} technologies: no generated placeholder rows, duplicate ids, duplicate display names, or too-early future/modern terms.`);
+console.log(`Audited ${data.length} technologies: no generated placeholder rows, duplicate ids, duplicate or near-duplicate display names, or too-early future/modern terms.`);
