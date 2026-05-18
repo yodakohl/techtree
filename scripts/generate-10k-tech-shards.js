@@ -294,6 +294,26 @@ function plain(value) {
     return value.replace(/_/g, ' ');
 }
 
+function rootWord(value) {
+    return String(value || '')
+        .toLowerCase()
+        .replace(/ying$/, 'y')
+        .replace(/ing$/, '')
+        .replace(/ed$/, '');
+}
+
+function buildName(adjective, subjectName, processName) {
+    const subjectWords = subjectName.split(' ');
+    const processWords = processName.split(' ');
+    const subjectLast = subjectWords[subjectWords.length - 1];
+    const processFirst = processWords[0];
+    if (rootWord(subjectLast) === rootWord(processFirst)) {
+        const trimmedSubject = subjectWords.slice(0, -1).join(' ');
+        return [adjective, trimmedSubject, processName].filter(Boolean).join(' ');
+    }
+    return `${adjective} ${subjectName} ${processName}`;
+}
+
 function loadExistingIds() {
     const ids = new Set();
     for (const file of fs.readdirSync(DATA_DIR)) {
@@ -336,7 +356,7 @@ function makeRow(era, branchDef, index, existingIds, generatedIds) {
     const adjective = title(modifier);
     const subjectName = title(subject);
     const processName = title(process);
-    const name = `${adjective} ${subjectName} ${processName}`;
+    const name = buildName(adjective, subjectName, processName);
     const description = `${eraFrame[era]} ${name.toLowerCase()} as a ${branchNoun[branchKey] || plain(keyword)} practice for ${branchPurpose[branchKey]}.`;
     const prereqs = anchors[era][branchKey] || anchors[era].base;
     return [era, id, name, description, prereqs.join(',')].join('\t');

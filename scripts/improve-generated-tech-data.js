@@ -54,11 +54,34 @@ function cleanName(name) {
     return String(name || '').trim().replace(/\s+/g, ' ');
 }
 
+function rootWord(value) {
+    return String(value || '')
+        .toLowerCase()
+        .replace(/ying$/, 'y')
+        .replace(/ing$/, '')
+        .replace(/ed$/, '');
+}
+
+function dedupeProcessName(name) {
+    const words = cleanName(name).split(' ');
+    if (words.length < 3) return words.join(' ');
+    const process = words[words.length - 1];
+    const subjectLast = words[words.length - 2];
+    if (rootWord(subjectLast) !== rootWord(process)) return words.join(' ');
+    words.splice(words.length - 2, 1);
+    return words.join(' ');
+}
+
+function dedupeCompoundProcessName(name) {
+    return cleanName(name).replace(/\bHabitat Habitat Control\b/g, 'Habitat Control');
+}
+
 function improveName(item) {
+    const normalized = dedupeCompoundProcessName(dedupeProcessName(item.name));
     if (!['Ancient', 'Classical', 'Medieval', 'Renaissance'].includes(item.era)) {
-        return cleanName(item.name);
+        return normalized;
     }
-    return cleanName(item.name)
+    return normalized
         .replace(/^Automated /, 'Organized ')
         .replace(/^Remote /, 'Outlying ')
         .replace(/^High Reliability /, 'Durable ');
