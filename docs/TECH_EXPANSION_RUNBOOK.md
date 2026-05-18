@@ -7,7 +7,8 @@ Goal: add large numbers of technologies with minimum token and edit overhead whi
 - Canonical data files: `data/{ancient,classical,medieval,renaissance,industrial,modern,future}.json`
 - Compact import sources: `data/expansion/*.tsv`
 - Importer: `scripts/import-compact-tech.js`
-- Current validated size after commit `b52d9a5`: 1,401 technologies
+- Generator for large balanced shards: `scripts/generate-10k-tech-shards.js`
+- Current validated size after the 10k expansion: 11,401 technologies
 
 ## Compact Batch Format
 
@@ -46,14 +47,22 @@ The importer skips already-existing IDs, appends new JSON entries by era, reject
 
 Do not try to reason about every row in prose. Generate compact TSV shards and let the importer/validator police structure.
 
-Recommended target to reach roughly 10k total:
+The 10k expansion was generated with:
 
-- Need about 8,600 new technologies from the current 1,401.
-- Use 9 TSV shards of about 1,000 rows each, or 18 shards of about 500 rows if validation repair is easier.
+```bash
+node scripts/generate-10k-tech-shards.js 10000 1000
+for file in data/expansion/human-tech-10k-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
+npm test
+npm run coverage
+```
+
+For another large expansion:
+
+- Generate TSV shards rather than editing JSON.
 - Balance rows across eras and branches instead of filling one era at a time.
 - Use stable prerequisite anchor lists per era to reduce missing-ID repairs.
-- After each shard: import, fix prerequisites, run `npm test`.
-- Run `npm run coverage` after every few shards and at the end.
+- Run an anachronism grep over generated TSVs before import.
+- After import, run `npm test` and `npm run coverage`.
 
 Suggested shard pattern:
 
