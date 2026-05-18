@@ -47,3 +47,7 @@ npm run coverage
 ```
 
 This prints era totals and branch-by-era counts. Low or zero cells identify obvious places to add more technologies.
+
+## Large Expansions
+
+For bulk additions, use the compact TSV workflow in [Technology Expansion Runbook](TECH_EXPANSION_RUNBOOK.md). It is much cheaper and safer than hand-editing era JSON directly.
