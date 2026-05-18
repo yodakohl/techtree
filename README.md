@@ -5,7 +5,7 @@ An interactive map of human technology across eras, from ancient foundations to 
 - **Graph View**: a Vis Network dependency graph with search, era filtering, focused dependency context, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, and field lens.
 
-The current validated dataset contains **23,415 technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,398 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -94,7 +94,7 @@ npm test
 
 The validator checks required fields, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles.
 
-Run the data-quality audit to catch duplicate display names and technologies that use modern or future-only terminology too early:
+Run the data-quality audit to catch generated placeholder rows, duplicate display names, and technologies that use modern or future-only terminology too early:
 
 ```bash
 npm run quality
@@ -126,7 +126,7 @@ Compact TSV rows use:
 Era	id	Name	Description	prereq1,prereq2
 ```
 
-For generated or bulk additions, follow [Technology Expansion Runbook](docs/TECH_EXPANSION_RUNBOOK.md). It documents the shard generator, importer, generated-data repair script, manual sampling checks, and publish checklist.
+For bulk additions, follow [Technology Expansion Runbook](docs/TECH_EXPANSION_RUNBOOK.md). It documents the compact TSV importer, manual review expectations, quality audit, and publish checklist.
 
 ## Project Structure
 
@@ -140,6 +140,7 @@ docs/                          Coverage and expansion documentation
 scripts/validate-data.js       Data validator used by npm test
 scripts/coverage-report.js     Era and branch coverage report
 scripts/import-compact-tech.js TSV importer for bulk additions
+scripts/audit-data-quality.js  Data-quality audit for duplicates and placeholder rows
 ```
 
 ## API

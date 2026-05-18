@@ -58,6 +58,8 @@ const TERM_MIN_ERA = {
     'artificial general intelligence': 'Future'
 };
 
+const GENERATED_ID = /_0[0-9]{3}$/;
+
 function normalizeName(name) {
     return String(name || '')
         .toLowerCase()
@@ -92,6 +94,10 @@ const ids = new Map();
 const names = new Map();
 
 for (const item of data) {
+    if (GENERATED_ID.test(item.id)) {
+        errors.push(`${item.__file}: ${item.id} looks like a generated placeholder row`);
+    }
+
     if (ids.has(item.id)) {
         errors.push(`duplicate id ${item.id} in ${ids.get(item.id)} and ${item.__file}`);
     } else {
@@ -131,4 +137,4 @@ if (errors.length) {
     process.exit(1);
 }
 
-console.log(`Audited ${data.length} technologies: no duplicate ids, duplicate display names, or too-early future/modern terms.`);
+console.log(`Audited ${data.length} technologies: no generated placeholder rows, duplicate ids, duplicate display names, or too-early future/modern terms.`);

@@ -1,15 +1,26 @@
 # Technology Expansion Runbook
 
-Goal: add large numbers of technologies with minimum token and edit overhead while keeping the graph valid.
+Goal: add real, recognizable technologies with low edit overhead while keeping the graph valid. Do not add templated placeholder rows.
 
 ## Current State
 
 - Canonical data files: `data/{ancient,classical,medieval,renaissance,industrial,modern,future}.json`
-- Compact import sources: `data/expansion/*.tsv`
+- Curated compact import sources: `data/expansion/human-tech-bulk*.tsv`
 - Importer: `scripts/import-compact-tech.js`
-- Generator for large balanced shards: `scripts/generate-10k-tech-shards.js`
-- Generated-description repair: `scripts/improve-generated-tech-data.js`
-- Current validated size after the duplicate-name quality pass: 23,415 technologies
+- Quality audit: `scripts/audit-data-quality.js`
+- Generated placeholder cleanup: `scripts/prune-generated-tech-data.js`
+- Current validated size after pruning generated filler: 1,398 curated technologies
+
+## Retired Approach
+
+The old `human-tech-10k-*` and `human-tech-expanded-*` generated shards were removed. They produced structurally valid but semantically weak entries such as "Sealed Patient Register Handling". Do not recreate that workflow.
+
+Avoid rows that are only combinations of:
+
+- vague modifier + object + generic action
+- organization process names that are not recognized technologies
+- repeated variants of the same subject across eras
+- descriptions that say a society "developed X as a practice" without naming a concrete artifact, method, institution, or system
 
 ## Compact Batch Format
 
@@ -23,7 +34,8 @@ Rules:
 
 - Era must match `data/taxonomy.json`.
 - ID must be lowercase snake_case.
-- Keep descriptions one sentence.
+- Name should be a recognizable technology, method, infrastructure, institution, tool, material, or system.
+- Keep descriptions one sentence and concrete.
 - Prefer 2 prerequisites; use 1 for primitive nodes and 3 only when needed.
 - Reuse existing IDs as anchors. Search with `rg '"id": "keyword' data`.
 - It is OK for rows in the same TSV to depend on earlier or later rows in that TSV.
@@ -45,85 +57,29 @@ If import fails:
 
 The importer skips already-existing IDs, appends new JSON entries by era, rejects duplicate source IDs, invalid eras, missing prerequisites, and self-prerequisites. `npm test` then catches graph-wide issues and cycles.
 
-## 10k Next-Turn Strategy
+## Manual Review Standard
 
-Do not try to reason about every row in prose. Generate compact TSV shards and let the importer/validator police structure.
+Before import, sample rows from every era in the TSV and ask:
 
-The 10k expansion was generated with:
+- Would a knowledgeable reader recognize this as a real technology or historically meaningful practice?
+- Is the name specific enough to search for or explain?
+- Does the description identify what the thing is, not just a generic operational function?
+- Is the era plausible?
+- Are prerequisites earlier or contemporaneous enabling technologies?
+
+After import, run:
 
 ```bash
-node scripts/generate-10k-tech-shards.js 10000 1000
-for file in data/expansion/human-tech-10k-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
 npm test
+npm run quality
 npm run coverage
 ```
 
-The first follow-up quality pass rewrote generated descriptions and added 5,000 more rows:
+Also run targeted searches for suspicious generated language:
 
 ```bash
-node scripts/improve-generated-tech-data.js
-node scripts/generate-10k-tech-shards.js 5000 1000 human-tech-expanded-01
-for file in data/expansion/human-tech-expanded-01-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
-npm test
-npm run coverage
+rg '_0[0-9]{3}| Handling"| Screening"| Recording"| Sterilization"| developed .* as a .* practice' data/*.json
 ```
-
-The second follow-up pass normalized pre-modern generated names, added generated branch-aware sorting/coverage, and added another 5,000 rows:
-
-```bash
-node scripts/improve-generated-tech-data.js
-node scripts/generate-10k-tech-shards.js 5000 1000 human-tech-expanded-02 161
-for file in data/expansion/human-tech-expanded-02-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
-npm test
-npm run coverage
-```
-
-The third follow-up pass removed repeated generated name stems and added another 5,000 rows:
-
-```bash
-node scripts/improve-generated-tech-data.js
-node scripts/generate-10k-tech-shards.js 5000 1000 human-tech-expanded-03 215
-for file in data/expansion/human-tech-expanded-03-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
-npm test
-npm run coverage
-```
-
-The fourth follow-up pass manually sampled generated rows, found awkward subject/action pairings, repaired generated names to use branch-safe actions, fixed generated description articles, and added another 5,000 rows:
-
-```bash
-node scripts/improve-generated-tech-data.js
-node scripts/generate-10k-tech-shards.js 5000 1000 human-tech-expanded-04 269
-for file in data/expansion/human-tech-expanded-04-*.tsv; do node scripts/import-compact-tech.js "$file" || exit 1; done
-node scripts/improve-generated-tech-data.js
-npm test
-npm run coverage
-```
-
-For another large expansion:
-
-- Generate TSV shards rather than editing JSON.
-- Balance rows across eras and branches instead of filling one era at a time.
-- Use stable prerequisite anchor lists per era to reduce missing-ID repairs.
-- Run an anachronism grep over generated TSVs before import.
-- Manually sample rows across every era after import; inspect names and descriptions, not only validation status.
-- Run repeated-word and article greps before committing.
-- After import, run `npm test`, `npm run quality`, and `npm run coverage`.
-
-Suggested shard pattern:
-
-```text
-data/expansion/human-tech-10k-01.tsv
-data/expansion/human-tech-10k-02.tsv
-...
-```
-
-Token-efficient generation pattern:
-
-1. Build rows directly as TSV, no bullets or explanations.
-2. Use terse one-sentence descriptions.
-3. Prefer existing broad anchors such as `agriculture`, `writing`, `construction`, `guilds`, `printing_press`, `steam_engine`, `electricity`, `computers_early`, `internet`, `synthetic_biology`, `quantum_computing`, and `space_colonization`.
-4. Add domain clusters: tools, materials, food, transport, construction, medicine, measurement, communications, finance, governance, manufacturing, energy, computing, media, defense, science, household, infrastructure, environment, and space.
-5. Commit only after validation passes.
 
 ## Publish Checklist
 
@@ -132,8 +88,8 @@ npm test
 npm run quality
 npm run coverage
 git status --short
-git add data scripts/import-compact-tech.js docs AGENTS.md
-git commit -m "Expand technology coverage"
+git add data data/expansion docs scripts README.md package.json
+git commit -m "Improve technology data quality"
 git push git@github.com:yodakohl/techtree.git HEAD:main
 ```
 
