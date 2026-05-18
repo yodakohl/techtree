@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
+const EXPANSION_DIR = path.join(DATA_DIR, 'expansion');
 const ERA_ORDER = new Map([
     ['Ancient', 0],
     ['Classical', 1],
@@ -104,6 +105,7 @@ const errors = [];
 const ids = new Map();
 const names = new Map();
 const comparableNames = new Map();
+const sourceRows = [];
 
 for (const item of data) {
     if (GENERATED_ID.test(item.id)) {
@@ -150,6 +152,42 @@ for (const [name, items] of comparableNames.entries()) {
     errors.push(`near-duplicate display name "${name}": ${items.map(item => `${item.__file}:${item.id}:${item.name}`).join(', ')}`);
 }
 
+if (fs.existsSync(EXPANSION_DIR)) {
+    const sourceIds = new Map();
+    for (const file of fs.readdirSync(EXPANSION_DIR).filter(name => name.endsWith('.tsv')).sort()) {
+        const filePath = path.join(EXPANSION_DIR, file);
+        const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
+        for (const [index, line] of lines.entries()) {
+            if (!line.trim() || line.startsWith('#')) continue;
+            const columns = line.split('\t');
+            const [era, id, name, description, prerequisiteText = ''] = columns;
+            if (columns.length < 5) {
+                errors.push(`${file}:${index + 1} source row must have 5 tab-separated columns`);
+                continue;
+            }
+            const row = { file, line: index + 1, era, id, name, description, prerequisites: prerequisiteText.split(',').map(value => value.trim()).filter(Boolean) };
+            sourceRows.push(row);
+            if (GENERATED_ID.test(id)) {
+                errors.push(`${file}:${index + 1} ${id} looks like a generated placeholder source row`);
+            }
+            if (sourceIds.has(id)) {
+                errors.push(`duplicate source id ${id} in ${sourceIds.get(id)} and ${file}:${index + 1}`);
+            } else {
+                sourceIds.set(id, `${file}:${index + 1}`);
+            }
+        }
+    }
+
+    const validSourcePrerequisites = new Set([...ids.keys(), ...sourceIds.keys()]);
+    for (const row of sourceRows) {
+        for (const prerequisite of row.prerequisites) {
+            if (!validSourcePrerequisites.has(prerequisite)) {
+                errors.push(`${row.file}:${row.line} ${row.id} references missing source prerequisite ${prerequisite}`);
+            }
+        }
+    }
+}
+
 if (errors.length) {
     console.error(`Data quality audit failed with ${errors.length} issue(s):`);
     for (const error of errors.slice(0, 200)) {
@@ -161,4 +199,5 @@ if (errors.length) {
     process.exit(1);
 }
 
-console.log(`Audited ${data.length} technologies: no generated placeholder rows, duplicate ids, duplicate or near-duplicate display names, or too-early future/modern terms.`);
+const sourceSummary = sourceRows.length ? ` and ${sourceRows.length} TSV source rows` : '';
+console.log(`Audited ${data.length} technologies${sourceSummary}: no generated placeholder rows, duplicate ids, duplicate or near-duplicate display names, missing source prerequisites, or too-early future/modern terms.`);
