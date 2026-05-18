@@ -1,61 +1,148 @@
 # Tech Tree
 
-MVP for a visualization of all human technology. 95% of the work was done by codex. Data provided by codex/gemini. Technology data is stored under the `data/` directory split by era and loaded on startup. The client UI uses Vis.js to draw the tree and allows adding, searching or editing entries.
+An interactive map of human technology across eras, from ancient foundations to future systems. The project combines a large prerequisite graph with two browsing modes:
+
+- **Graph View**: a Vis Network dependency graph with search, era filtering, focused dependency context, and editable entries.
+- **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, and field lens.
+
+The current validated dataset contains **31,401 technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
-## Prerequisites
+## Quick Start
 
+Requirements:
 
 - [Node.js](https://nodejs.org/) 14 or newer
 
-## Installation
-
-1. Clone this repository and change into its directory.
-2. Install dependencies (there are none, but this sets up `package-lock.json`):
-   ```bash
-   npm install
-   ```
-
-## Running the server
-
-Start the server using npm:
+Install dependencies and start the local server:
 
 ```bash
+npm install
 npm start
 ```
 
-This runs `server.js` and listens on port `3000` by default. You can set the `PORT` environment variable to use a different port:
+Open:
+
+- Graph view: `http://localhost:3000`
+- Sorted view: `http://localhost:3000/sorted.html`
+
+The server listens on port `3000` by default. Use `PORT` to run on a different port:
 
 ```bash
 PORT=8080 npm start
 ```
 
-Once running, open `http://localhost:3000` in your browser to view and modify the tech tree.
+For a browse-only deployment, disable write operations:
 
-The info panel includes a search box to quickly highlight technologies by name or ID. A color legend explains the era assigned to each technology. You can also filter the tree by era using the dropdown next to the search box.
+```bash
+TECHTREE_READ_ONLY=true npm start
+```
 
-### Data persistence
+## Features
 
-When first launched, the server populates the `data/` directory with the contents of `tech-data.js`. Subsequent changes to the tech tree are saved back into these era-specific JSON files (as well as `tech-tree.json` for compatibility). Removing the `data/` directory will reset the data to the initial values.
+- Search technologies by name or ID.
+- Filter the graph by era.
+- Focus the graph around selected technologies and their direct dependency context.
+- Inspect prerequisites and unlocks from the side panel.
+- Add, edit, or delete technologies when not running in read-only mode.
+- Browse a compact sorted view grouped by derived technology branches.
+- Use field lenses for focused exploration, including mechanical engineering and finance/markets.
 
-## Development
+## Data Model
 
-Edit `app.js`, `style.css`, and `index.html` to adjust the interface. The server itself is implemented in `server.js`. Restart the server after making changes to server-side code.
+Canonical technology data lives in:
 
-Run the data validator before committing changes:
+```text
+data/ancient.json
+data/classical.json
+data/medieval.json
+data/renaissance.json
+data/industrial.json
+data/modern.json
+data/future.json
+```
+
+Each technology entry uses:
+
+```json
+{
+  "id": "printing_press",
+  "name": "Printing Press",
+  "era": "Renaissance",
+  "description": "Movable type printing enabled rapid reproduction of books and documents.",
+  "prerequisites": ["paper", "metal_casting"]
+}
+```
+
+Rules:
+
+- `id` values must be unique lowercase identifiers.
+- `era` must match the file where the technology is stored.
+- `prerequisites` must reference existing technology IDs.
+- The prerequisite graph must remain acyclic.
+
+The sorted view derives branches from IDs, names, and descriptions. See [Data Coverage](docs/DATA_COVERAGE.md) for the current branch model.
+
+## Validation
+
+Run the validator before committing data changes:
 
 ```bash
 npm test
 ```
 
-The validator checks that every technology has the required fields, every ID is unique, and every prerequisite points to an existing technology.
+The validator checks required fields, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles.
 
-To inspect branch and era coverage:
+Inspect dataset balance with:
 
 ```bash
 npm run coverage
 ```
+
+Coverage reports era totals and branch-by-era counts. Use it to identify underrepresented areas before large additions.
+
+## Expanding the Dataset
+
+For small edits, update the relevant era JSON directly and run `npm test`.
+
+For large expansions, use compact TSV sources in `data/expansion/` and import them into the canonical era files:
+
+```bash
+node scripts/import-compact-tech.js data/expansion/example.tsv
+npm test
+npm run coverage
+```
+
+Compact TSV rows use:
+
+```text
+Era	id	Name	Description	prereq1,prereq2
+```
+
+For generated or bulk additions, follow [Technology Expansion Runbook](docs/TECH_EXPANSION_RUNBOOK.md). It documents the shard generator, importer, generated-data repair script, manual sampling checks, and publish checklist.
+
+## Project Structure
+
+```text
+app.js                         Graph view client
+sorted.js                      Compact sorted browser
+server.js                      Static file server and JSON API
+data/                          Canonical era JSON and taxonomy data
+data/expansion/                Compact TSV expansion sources
+docs/                          Coverage and expansion documentation
+scripts/validate-data.js       Data validator used by npm test
+scripts/coverage-report.js     Era and branch coverage report
+scripts/import-compact-tech.js TSV importer for bulk additions
+```
+
+## API
+
+The server exposes:
+
+- `GET /api/tech-tree`: returns the full technology array.
+- `PUT /api/tech-tree`: replaces the dataset and persists it to era files, unless `TECHTREE_READ_ONLY=true`.
+- `GET /api/config`: returns client configuration such as read-only status.
 
 ## License
 
