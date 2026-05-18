@@ -5,6 +5,7 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 const OUT_DIR = path.join(DATA_DIR, 'expansion');
 const TARGET = Number(process.argv[2] || 10000);
 const SHARD_SIZE = Number(process.argv[3] || 1000);
+const PREFIX = process.argv[4] || 'human-tech-10k';
 
 const eras = ['Ancient', 'Classical', 'Medieval', 'Renaissance', 'Industrial', 'Modern', 'Future'];
 const eraSlug = {
@@ -18,13 +19,47 @@ const eraSlug = {
 };
 
 const eraFrame = {
-    Ancient: 'Early communities used',
-    Classical: 'Complex states and cities used',
-    Medieval: 'Guilds, courts, monasteries, and towns used',
-    Renaissance: 'Workshops, merchants, navies, and scholars used',
-    Industrial: 'Factories, utilities, laboratories, and cities used',
-    Modern: 'Networked institutions and automated systems used',
-    Future: 'Advanced automated societies could use'
+    Ancient: 'Early communities developed',
+    Classical: 'Complex states and cities developed',
+    Medieval: 'Guilds, courts, monasteries, and towns developed',
+    Renaissance: 'Workshops, merchants, navies, and scholars developed',
+    Industrial: 'Factories, utilities, laboratories, and cities developed',
+    Modern: 'Networked institutions and automated systems developed',
+    Future: 'Advanced automated societies could develop'
+};
+
+const branchPurpose = {
+    agriculture: 'food production, storage, and distribution',
+    materials: 'fabrication, repair, and material quality',
+    energy: 'heat, power, fuel use, and distribution',
+    transport: 'movement of people, goods, and route information',
+    computing: 'records, calculation, automation, and decision support',
+    media: 'communication, publishing, signaling, and cultural memory',
+    medicine: 'care delivery, diagnosis, prevention, and biological control',
+    science: 'measurement, observation, modeling, and standards',
+    governance: 'administration, law, public order, and coordination',
+    finance: 'trade, accounting, risk, and settlement',
+    infrastructure: 'built environments, water systems, and civic services',
+    security: 'protection, detection, defense, and emergency response',
+    space: 'orbital operations, planetary infrastructure, and exploration',
+    culture: 'artistic production, ritual, education, and preservation'
+};
+
+const branchNoun = {
+    agriculture: 'agricultural',
+    materials: 'manufacturing',
+    energy: 'energy',
+    transport: 'transport',
+    computing: 'information-processing',
+    media: 'communication',
+    medicine: 'medical',
+    science: 'scientific',
+    governance: 'administrative',
+    finance: 'commercial',
+    infrastructure: 'infrastructure',
+    security: 'security',
+    space: 'space',
+    culture: 'cultural'
 };
 
 const anchors = {
@@ -247,6 +282,10 @@ function title(value) {
     return value.split('_').map(part => part ? part[0].toUpperCase() + part.slice(1) : '').join(' ');
 }
 
+function plain(value) {
+    return value.replace(/_/g, ' ');
+}
+
 function loadExistingIds() {
     const ids = new Set();
     for (const file of fs.readdirSync(DATA_DIR)) {
@@ -289,7 +328,7 @@ function makeRow(era, branchDef, index, existingIds, generatedIds) {
     const subjectName = title(subject);
     const processName = title(process);
     const name = `${adjective} ${subjectName} ${processName}`;
-    const description = `${eraFrame[era]} ${modifier.replace(/_/g, ' ')} ${keyword} technology for ${process.replace(/_/g, ' ')} ${subject.replace(/_/g, ' ')} systems.`;
+    const description = `${eraFrame[era]} ${name.toLowerCase()} as a ${branchNoun[branchKey] || plain(keyword)} practice for ${branchPurpose[branchKey]}.`;
     const prereqs = anchors[era][branchKey] || anchors[era].base;
     return [era, id, name, description, prereqs.join(',')].join('\t');
 }
@@ -322,7 +361,7 @@ function main() {
         const start = shard * SHARD_SIZE;
         const end = start + SHARD_SIZE;
         const shardRows = rows.slice(start, end);
-        const file = path.join(OUT_DIR, `human-tech-10k-${String(shard + 1).padStart(2, '0')}.tsv`);
+        const file = path.join(OUT_DIR, `${PREFIX}-${String(shard + 1).padStart(2, '0')}.tsv`);
         fs.writeFileSync(file, `${shardRows.join('\n')}\n`);
     }
 
