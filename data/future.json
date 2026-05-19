@@ -66,42 +66,6 @@
     ]
   },
   {
-    "id": "viral_vectors",
-    "name": "Viral Vectors",
-    "era": "Future",
-    "description": "Using viruses as vehicles to deliver genetic material into cells for gene therapy or research.",
-    "prerequisites": [
-      "molecular_biology",
-      "immunology_advanced",
-      "dna_sequencing",
-      "microbiology_early_observations"
-    ]
-  },
-  {
-    "id": "genetic_engineering",
-    "name": "Genetic Engineering",
-    "era": "Future",
-    "description": "Direct manipulation of an organism's genes using biotechnology.",
-    "prerequisites": [
-      "gene_therapy_early",
-      "dna_sequencing",
-      "molecular_biology",
-      "bioinformatics",
-      "viral_vectors"
-    ]
-  },
-  {
-    "id": "crispr_gene_editing",
-    "name": "CRISPR Gene Editing",
-    "era": "Future",
-    "description": "Highly precise and versatile technology for editing genomes.",
-    "prerequisites": [
-      "genetic_engineering",
-      "molecular_biology",
-      "bioinformatics"
-    ]
-  },
-  {
     "id": "personalized_medicine",
     "name": "Personalized Medicine",
     "era": "Future",
@@ -113,6 +77,137 @@
       "bioinformatics",
       "human_genome_project_dna_mapping"
     ]
+  },
+  {
+    "id": "clinical_prime_editing",
+    "name": "Clinical Prime Editing",
+    "era": "Future",
+    "description": "Therapeutic use of prime editors to install precise substitutions, small insertions, or deletions without double-strand breaks.",
+    "prerequisites": [
+      "prime_editing",
+      "crispr_delivery_aav_lnp_rnp",
+      "crispr_off_target_profiling"
+    ],
+    "fields": [
+      "Genome Editing / CRISPR-Cas"
+    ],
+    "fieldLanes": {
+      "Genome Editing / CRISPR-Cas": "Roadmap"
+    },
+    "maturity": "forecast",
+    "sources": [
+      {
+        "title": "Search-and-replace genome editing without double-strand breaks or donor DNA",
+        "url": "https://www.nature.com/articles/s41586-019-1711-4",
+        "publisher": "Nature",
+        "year": 2019
+      },
+      {
+        "title": "Prime editing for precise and highly versatile genome manipulation",
+        "url": "https://www.nature.com/articles/s41576-022-00541-1",
+        "publisher": "Nature Reviews Genetics",
+        "year": 2023
+      }
+    ],
+    "roadmap": {
+      "role": "next",
+      "timeframe": "mid-term",
+      "confidence": "medium",
+      "blockers": [
+        "editing efficiency",
+        "large editor delivery",
+        "byproduct characterization",
+        "clinical durability"
+      ],
+      "rationale": "Prime editing is unusually versatile and precise, but current reviews still frame delivery, efficiency, and safety characterization as the key translational constraints."
+    }
+  },
+  {
+    "id": "tissue_targeted_editor_delivery",
+    "name": "Tissue-Targeted Editor Delivery",
+    "era": "Future",
+    "description": "Delivery systems that route CRISPR editors to specific organs, cell types, or disease tissues with controlled dose and duration.",
+    "prerequisites": [
+      "crispr_delivery_aav_lnp_rnp",
+      "lipid_nanoparticles",
+      "viral_vectors"
+    ],
+    "fields": [
+      "Genome Editing / CRISPR-Cas"
+    ],
+    "fieldLanes": {
+      "Genome Editing / CRISPR-Cas": "Roadmap"
+    },
+    "maturity": "forecast",
+    "sources": [
+      {
+        "title": "Drug delivery systems for CRISPR-based genome editors",
+        "url": "https://www.nature.com/articles/s41573-023-00762-x",
+        "publisher": "Nature Reviews Drug Discovery",
+        "year": 2023
+      },
+      {
+        "title": "The 60-year evolution of lipid nanoparticles for nucleic acid delivery",
+        "url": "https://www.nature.com/articles/s41573-024-00977-6",
+        "publisher": "Nature Reviews Drug Discovery",
+        "year": 2024
+      }
+    ],
+    "roadmap": {
+      "role": "blocker",
+      "timeframe": "near-term",
+      "confidence": "high",
+      "blockers": [
+        "extrahepatic targeting",
+        "repeat dosing",
+        "payload size",
+        "manufacturing consistency"
+      ],
+      "rationale": "Most broad CRISPR therapeutic expansion depends on delivery beyond easily accessible ex vivo cells or liver-biased nanoparticle delivery."
+    }
+  },
+  {
+    "id": "in_vivo_crispr_therapeutics",
+    "name": "In Vivo CRISPR Therapeutics",
+    "era": "Future",
+    "description": "Direct delivery of genome editors into the body to treat disease without removing cells for ex vivo manufacturing.",
+    "prerequisites": [
+      "crispr_delivery_aav_lnp_rnp",
+      "crispr_off_target_profiling",
+      "base_editing"
+    ],
+    "fields": [
+      "Genome Editing / CRISPR-Cas"
+    ],
+    "fieldLanes": {
+      "Genome Editing / CRISPR-Cas": "Roadmap"
+    },
+    "maturity": "forecast",
+    "sources": [
+      {
+        "title": "Drug delivery systems for CRISPR-based genome editors",
+        "url": "https://www.nature.com/articles/s41573-023-00762-x",
+        "publisher": "Nature Reviews Drug Discovery",
+        "year": 2023
+      },
+      {
+        "title": "The 60-year evolution of lipid nanoparticles for nucleic acid delivery",
+        "url": "https://www.nature.com/articles/s41573-024-00977-6",
+        "publisher": "Nature Reviews Drug Discovery",
+        "year": 2024
+      }
+    ],
+    "roadmap": {
+      "role": "next",
+      "timeframe": "near-term",
+      "confidence": "medium",
+      "blockers": [
+        "tissue-specific delivery",
+        "durable safety monitoring",
+        "immune response management"
+      ],
+      "rationale": "Delivery has become the central bottleneck after ex vivo CRISPR therapy approval; reviews emphasize AAV, LNP, and non-viral systems as the main route to broader in vivo editing."
+    }
   },
   {
     "id": "pharmacology_advanced",
@@ -149,31 +244,6 @@
       "synthetic_biology",
       "robotics",
       "drug_delivery_systems_targeted"
-    ]
-  },
-  {
-    "id": "systems_biology",
-    "name": "Systems Biology",
-    "era": "Future",
-    "description": "Computational and mathematical modeling of complex biological systems.",
-    "prerequisites": [
-      "molecular_biology",
-      "bioinformatics",
-      "advanced_ai",
-      "mathematics"
-    ]
-  },
-  {
-    "id": "synthetic_biology",
-    "name": "Synthetic Biology",
-    "era": "Future",
-    "description": "Designing and constructing new biological parts, devices, and systems, or re-designing existing, natural biological systems for useful purposes.",
-    "prerequisites": [
-      "genetic_engineering",
-      "nanotechnology",
-      "advanced_ai",
-      "crispr_gene_editing",
-      "systems_biology"
     ]
   },
   {

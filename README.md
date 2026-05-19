@@ -5,7 +5,7 @@ An interactive map of human technology across eras, from ancient foundations to 
 - **Graph View**: a Vis Network dependency graph with search, era filtering, focused dependency context, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, and field lens.
 
-The current validated dataset contains **1,398 curated technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,418 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -48,6 +48,7 @@ TECHTREE_READ_ONLY=true npm start
 - Add, edit, or delete technologies when not running in read-only mode.
 - Browse a compact sorted view grouped by derived technology branches.
 - Use field lenses for focused exploration, including mechanical engineering and finance/markets.
+- Explore a cited CRISPR/Cas9 genome-editing vertical with maturity labels and roadmap forecasts.
 
 ## Data Model
 
@@ -75,12 +76,36 @@ Each technology entry uses:
 }
 ```
 
+Curated field entries may add metadata:
+
+```json
+{
+  "id": "crispr_gene_editing",
+  "name": "CRISPR-Cas9 Genome Editing",
+  "era": "Modern",
+  "description": "Programmable genome editing with Cas9 and guide RNAs.",
+  "prerequisites": ["genetic_engineering", "cas9_programmable_nuclease"],
+  "fields": ["Genome Editing / CRISPR-Cas"],
+  "maturity": "established",
+  "sources": [
+    {
+      "title": "The Nobel Prize in Chemistry 2020",
+      "url": "https://www.nobelprize.org/prizes/chemistry/2020/summary/",
+      "publisher": "Nobel Prize",
+      "year": 2020
+    }
+  ]
+}
+```
+
 Rules:
 
 - `id` values must be unique lowercase identifiers.
 - `era` must match the file where the technology is stored.
 - `prerequisites` must reference existing technology IDs.
 - The prerequisite graph must remain acyclic.
+- Curated field nodes may include `fields`, `fieldLanes`, `maturity`, `sources`, and `roadmap` metadata.
+- Forecast technologies must include roadmap rationale, timeframe, confidence, and blockers.
 
 The sorted view derives branches from IDs, names, and descriptions. See [Data Coverage](docs/DATA_COVERAGE.md) for the current branch model.
 

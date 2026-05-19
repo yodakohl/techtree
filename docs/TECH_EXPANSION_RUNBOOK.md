@@ -9,7 +9,8 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Importer: `scripts/import-compact-tech.js`
 - Quality audit: `scripts/audit-data-quality.js`
 - Generated placeholder cleanup: `scripts/prune-generated-tech-data.js`
-- Current validated size after pruning generated filler: 1,398 curated technologies
+- Current validated size after CRISPR/Cas9 vertical pass: 1,418 curated technologies
+- First textbook-quality vertical: `Genome Editing / CRISPR-Cas`
 
 ## Retired Approach
 
@@ -66,6 +67,8 @@ Before import, sample rows from every era in the TSV and ask:
 - Does the description identify what the thing is, not just a generic operational function?
 - Is the era plausible?
 - Are prerequisites earlier or contemporaneous enabling technologies?
+- If the row belongs to a textbook-quality field, does it include `fields`, `fieldLanes`, `maturity`, and cited `sources`?
+- If the row is a forecast, does it include roadmap timeframe, confidence, blockers, and rationale?
 
 After import, run:
 

@@ -133,6 +133,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'securities', 'e-commerce', 'payment', 'auction', 'pricing', 'probability', 'statistics',
                 'forecast', 'supply_chain', 'api', 'identity', 'encryption', 'security'
             ]
+        },
+        {
+            name: 'Genome Editing / CRISPR-Cas',
+            branches: ['Medicine & Biology', 'Science & Mathematics', 'Computing & AI'],
+            terms: [
+                'crispr', 'cas9', 'cas12', 'cas13', 'genome editing', 'gene editing', 'guide rna',
+                'sgrna', 'pam', 'base editing', 'prime editing', 'off-target', 'viral vector',
+                'lipid nanoparticle', 'genetic engineering', 'dna sequencing', 'bioinformatics',
+                'cell culture', 'ex vivo', 'in vivo', 'casgevy', 'exa-cel'
+            ]
         }
     ];
 
@@ -188,6 +198,36 @@ document.addEventListener('DOMContentLoaded', async () => {
                 name: 'Financial Computing',
                 terms: ['computer', 'database', 'software', 'api', 'encryption', 'security', 'blockchain', 'cryptocurrency', 'ai', 'machine_learning', 'cloud', 'digital_identity']
             }
+        ],
+        'Genome Editing / CRISPR-Cas': [
+            {
+                name: 'Foundations',
+                terms: ['molecular_biology', 'dna_structure', 'dna_sequencing', 'bioinformatics', 'cell_culture', 'protein_engineering', 'dna_synthesis', 'nhej', 'hdr']
+            },
+            {
+                name: 'Editing Platforms',
+                terms: ['crispr', 'cas9', 'cas12', 'cas13', 'zinc_finger', 'talen', 'base_editing', 'prime_editing', 'crispri', 'crispra', 'nuclease']
+            },
+            {
+                name: 'Delivery',
+                terms: ['delivery', 'viral_vector', 'aav', 'lnp', 'lipid_nanoparticle', 'rnp', 'ex_vivo', 'in_vivo']
+            },
+            {
+                name: 'Assays & Safety',
+                terms: ['off_target', 'guide', 'sgrna', 'pam', 'screen', 'profiling', 'specificity', 'safety']
+            },
+            {
+                name: 'Therapeutics',
+                terms: ['therapy', 'therapeutic', 'casgevy', 'exa_cel', 'sickle', 'clinical', 'medicine']
+            },
+            {
+                name: 'Applications',
+                terms: ['synthetic_biology', 'personalized', 'agriculture', 'diagnostic', 'enhancement', 'ecosystem']
+            },
+            {
+                name: 'Roadmap',
+                terms: ['roadmap', 'forecast', 'next', 'tissue_targeted', 'clinical_prime', 'in_vivo']
+            }
         ]
     };
 
@@ -214,9 +254,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function classifyFields(item, branch) {
+        const explicitFields = Array.isArray(item.fields) ? item.fields : [];
         const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
-        const fields = [];
+        const fields = [...explicitFields];
         for (const rule of fieldRules) {
+            if (fields.includes(rule.name)) continue;
             let termScore = 0;
             for (const term of rule.terms) {
                 if (text.includes(term)) termScore += 1;
@@ -235,12 +277,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 && (termScore > 0 || broadFinanceBranch);
             if (includeMechanical || includeFinance) {
                 fields.push(rule.name);
+            } else if (rule.name === 'Genome Editing / CRISPR-Cas' && termScore > 0) {
+                fields.push(rule.name);
             }
         }
-        return fields;
+        return [...new Set(fields)];
     }
 
     function classifyFieldLane(item, fieldName) {
+        if (item.fieldLanes && item.fieldLanes[fieldName]) return item.fieldLanes[fieldName];
         const lanes = fieldLaneRules[fieldName] || [];
         if (!lanes.length) return 'General';
         const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
@@ -343,6 +388,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         id.className = 'tech-id';
         id.textContent = item.id;
         nameCell.appendChild(id);
+        if (item.maturity) {
+            const maturity = document.createElement('span');
+            maturity.className = `maturity-badge maturity-${item.maturity}`;
+            maturity.textContent = item.maturity;
+            nameCell.appendChild(maturity);
+        }
 
         const eraCell = document.createElement('td');
         const eraBadge = document.createElement('span');
@@ -377,6 +428,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         chip.title = `${item.name}\n${item.description || ''}`;
         chip.textContent = item.name;
         chip.style.setProperty('--era-color', eraColors[item.era] || '#777');
+        if (item.maturity) chip.dataset.maturity = item.maturity;
         return chip;
     }
 

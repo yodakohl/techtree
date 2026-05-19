@@ -3,6 +3,9 @@ const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const EXPANSION_DIR = path.join(DATA_DIR, 'expansion');
+const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
+const CRISPR_FIELD = 'Genome Editing / CRISPR-Cas';
+const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([
     ['Ancient', 0],
     ['Classical', 1],
@@ -101,6 +104,8 @@ function loadData() {
 }
 
 const data = loadData();
+const taxonomy = JSON.parse(fs.readFileSync(TAXONOMY_FILE, 'utf8'));
+const validFields = new Set(Object.keys(taxonomy.fields || {}));
 const errors = [];
 const ids = new Map();
 const names = new Map();
@@ -137,6 +142,49 @@ for (const item of data) {
         if (itemEraOrder === undefined || minEraOrder === undefined) continue;
         if (itemEraOrder < minEraOrder && hasTerm(text, term)) {
             errors.push(`${item.__file}: ${item.id} uses "${term}" before ${minEra}`);
+        }
+    }
+
+    if (item.fields !== undefined) {
+        if (!Array.isArray(item.fields)) {
+            errors.push(`${item.__file}: ${item.id} fields must be an array`);
+        } else {
+            for (const field of item.fields) {
+                if (!validFields.has(field)) errors.push(`${item.__file}: ${item.id} has invalid field ${field}`);
+                const lane = item.fieldLanes && item.fieldLanes[field];
+                const validLanes = taxonomy.fields?.[field] || [];
+                if (lane && !validLanes.includes(lane)) errors.push(`${item.__file}: ${item.id} has invalid lane ${lane} for field ${field}`);
+            }
+        }
+    }
+
+    if (item.maturity !== undefined && !VALID_MATURITIES.has(item.maturity)) {
+        errors.push(`${item.__file}: ${item.id} has invalid maturity ${item.maturity}`);
+    }
+
+    if (item.fields?.includes(CRISPR_FIELD) && (!Array.isArray(item.sources) || item.sources.length === 0)) {
+        errors.push(`${item.__file}: ${item.id} is in ${CRISPR_FIELD} but has no sources`);
+    }
+
+    if (Array.isArray(item.sources)) {
+        for (const [index, source] of item.sources.entries()) {
+            if (!source || typeof source !== 'object') {
+                errors.push(`${item.__file}: ${item.id} source ${index + 1} must be an object`);
+                continue;
+            }
+            for (const field of ['title', 'url', 'publisher', 'year']) {
+                if (!(field in source)) errors.push(`${item.__file}: ${item.id} source ${index + 1} is missing ${field}`);
+            }
+        }
+    }
+
+    if (item.maturity === 'forecast') {
+        const roadmap = item.roadmap || {};
+        for (const field of ['role', 'timeframe', 'confidence', 'rationale']) {
+            if (!roadmap[field]) errors.push(`${item.__file}: ${item.id} forecast roadmap is missing ${field}`);
+        }
+        if (!Array.isArray(roadmap.blockers) || roadmap.blockers.length === 0) {
+            errors.push(`${item.__file}: ${item.id} forecast roadmap must list blockers`);
         }
     }
 }

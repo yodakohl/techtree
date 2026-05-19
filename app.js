@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const techEraEl = document.getElementById('tech-era');
     const techDescriptionEl = document.getElementById('tech-description');
     const techPrerequisitesEl = document.getElementById('tech-prerequisites');
+    const techInfoPanel = document.getElementById('tech-info-panel');
     const editBtn = document.getElementById('edit-tech-btn');
     const deleteBtn = document.getElementById('delete-tech-btn');
     const updateBtn = document.getElementById('update-tech-btn');
@@ -17,6 +18,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const prereqListEl = document.getElementById('tech-prereq-list');
     const unlocksListEl = document.getElementById('tech-unlocks-list');
     const addPanel = document.getElementById('tech-add-panel');
+    const techMetadataEl = document.createElement('div');
+    techMetadataEl.className = 'tech-metadata';
+    techMetadataEl.hidden = true;
+    if (techInfoPanel && techPrerequisitesEl) {
+        techInfoPanel.insertBefore(techMetadataEl, techPrerequisitesEl.nextSibling);
+    }
 
     let appConfig = { readOnly: false };
     let dynamicData = [];
@@ -394,12 +401,67 @@ document.addEventListener('DOMContentLoaded', async () => {
             .forEach(id => containerEl.appendChild(createRelationshipChip(id)));
     }
 
+    function appendMetadataValue(labelText, valueText) {
+        const row = document.createElement('p');
+        const label = document.createElement('strong');
+        label.textContent = `${labelText}: `;
+        row.appendChild(label);
+        row.appendChild(document.createTextNode(valueText));
+        techMetadataEl.appendChild(row);
+    }
+
+    function renderTechMetadata(tech) {
+        techMetadataEl.replaceChildren();
+        if (!tech) {
+            techMetadataEl.hidden = true;
+            return;
+        }
+
+        if (Array.isArray(tech.fields) && tech.fields.length) {
+            appendMetadataValue('Field', tech.fields.join(', '));
+        }
+        if (tech.maturity) {
+            appendMetadataValue('Maturity', tech.maturity);
+        }
+        if (tech.roadmap) {
+            appendMetadataValue('Roadmap', `${tech.roadmap.role || 'forecast'} · ${tech.roadmap.timeframe || 'unknown'} · ${tech.roadmap.confidence || 'unknown'} confidence`);
+            if (tech.roadmap.rationale) appendMetadataValue('Rationale', tech.roadmap.rationale);
+            if (Array.isArray(tech.roadmap.blockers) && tech.roadmap.blockers.length) {
+                appendMetadataValue('Blockers', tech.roadmap.blockers.join(', '));
+            }
+        }
+        if (Array.isArray(tech.sources) && tech.sources.length) {
+            const section = document.createElement('section');
+            const title = document.createElement('h3');
+            title.textContent = 'Sources';
+            section.appendChild(title);
+            const list = document.createElement('ul');
+            for (const source of tech.sources) {
+                const item = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = source.url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = source.title || source.url;
+                item.appendChild(link);
+                const meta = [source.publisher, source.year].filter(Boolean).join(', ');
+                if (meta) item.appendChild(document.createTextNode(` (${meta})`));
+                list.appendChild(item);
+            }
+            section.appendChild(list);
+            techMetadataEl.appendChild(section);
+        }
+
+        techMetadataEl.hidden = techMetadataEl.childNodes.length === 0;
+    }
+
     function updateInfoPanel(nodeId) {
         if (!nodeId) {
             techNameEl.textContent = '';
             techEraEl.textContent = '';
             techDescriptionEl.textContent = '';
             techPrerequisitesEl.textContent = '';
+            renderTechMetadata(null);
             if (relationshipsEl) relationshipsEl.hidden = true;
             editBtn.disabled = true;
             deleteBtn.disabled = true;
@@ -416,6 +478,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const prereqIds = (nodesById[nodeId] || {}).prerequisites || [];
         const dependentIds = dependentsMap[nodeId] || [];
         techPrerequisitesEl.textContent = `Prerequisites: ${prereqIds.length ? prereqIds.map(formatTechLabel).join(', ') : 'None'}`;
+        renderTechMetadata(nodesById[nodeId]);
         renderRelationshipList(prereqListEl, prereqIds);
         renderRelationshipList(unlocksListEl, dependentIds);
         if (relationshipsEl) relationshipsEl.hidden = false;

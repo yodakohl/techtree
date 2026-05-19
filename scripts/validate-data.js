@@ -4,6 +4,7 @@ const path = require('path');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const REQUIRED_FIELDS = ['id', 'name', 'era', 'description', 'prerequisites'];
+const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 
 function loadData() {
     const files = fs.readdirSync(DATA_DIR)
@@ -76,6 +77,7 @@ function validate() {
     const data = loadData();
     const taxonomy = JSON.parse(fs.readFileSync(TAXONOMY_FILE, 'utf8'));
     const validEras = new Set(taxonomy.eras);
+    const validFields = new Set(Object.keys(taxonomy.fields || {}));
     const errors = [];
     const ids = new Map();
 
@@ -108,6 +110,56 @@ function validate() {
 
         if (!Array.isArray(item.prerequisites)) {
             errors.push(`${item.id} prerequisites must be an array`);
+        }
+
+        if ('fields' in item) {
+            if (!Array.isArray(item.fields)) {
+                errors.push(`${item.id} fields must be an array when present`);
+            } else {
+                for (const field of item.fields) {
+                    if (!validFields.has(field)) errors.push(`${item.id} has invalid field ${field}`);
+                    const lane = item.fieldLanes && item.fieldLanes[field];
+                    const validLanes = taxonomy.fields?.[field] || [];
+                    if (lane && !validLanes.includes(lane)) errors.push(`${item.id} has invalid lane ${lane} for field ${field}`);
+                }
+            }
+        }
+
+        if ('maturity' in item && !VALID_MATURITIES.has(item.maturity)) {
+            errors.push(`${item.id} has invalid maturity ${item.maturity}`);
+        }
+
+        if ('sources' in item) {
+            if (!Array.isArray(item.sources) || item.sources.length === 0) {
+                errors.push(`${item.id} sources must be a non-empty array when present`);
+            } else {
+                for (const [index, source] of item.sources.entries()) {
+                    if (!source || typeof source !== 'object') {
+                        errors.push(`${item.id} source ${index + 1} must be an object`);
+                        continue;
+                    }
+                    for (const sourceField of ['title', 'url', 'publisher', 'year']) {
+                        if (!(sourceField in source)) errors.push(`${item.id} source ${index + 1} is missing ${sourceField}`);
+                    }
+                    if (source.url && typeof source.url === 'string' && !/^https?:\/\//.test(source.url)) {
+                        errors.push(`${item.id} source ${index + 1} url must be http(s)`);
+                    }
+                }
+            }
+        }
+
+        if (item.fields?.includes('Genome Editing / CRISPR-Cas') && (!Array.isArray(item.sources) || item.sources.length === 0)) {
+            errors.push(`${item.id} is in Genome Editing / CRISPR-Cas but has no sources`);
+        }
+
+        if (item.maturity === 'forecast') {
+            const roadmap = item.roadmap || {};
+            for (const field of ['role', 'timeframe', 'confidence', 'rationale']) {
+                if (!roadmap[field]) errors.push(`${item.id} forecast roadmap is missing ${field}`);
+            }
+            if (!Array.isArray(roadmap.blockers) || roadmap.blockers.length === 0) {
+                errors.push(`${item.id} forecast roadmap must list blockers`);
+            }
         }
     }
 
