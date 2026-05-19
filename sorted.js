@@ -155,6 +155,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'flash_memory', 'hbm', 'chiplet', 'silicon_photonics', 'gpu', 'accelerator',
                 'system_on_chip', 'soc', 'through_silicon', 'packaging'
             ]
+        },
+        {
+            name: 'Artificial Intelligence & Machine Learning',
+            branches: ['Computing & AI', 'Science & Mathematics', 'Medicine & Biology', 'Security & Defense', 'Society & Governance'],
+            terms: [
+                'artificial_intelligence', 'machine_learning', 'neural_network', 'deep_learning',
+                'perceptron', 'backpropagation', 'support_vector', 'decision_tree', 'random_forest',
+                'reinforcement_learning', 'supervised_learning', 'unsupervised_learning', 'benchmark',
+                'data_labeling', 'convolutional', 'transformer', 'language_model', 'foundation_model',
+                'diffusion_model', 'generative_ai', 'retrieval_augmented', 'instruction_tuning',
+                'rlhf', 'multimodal', 'model_evaluation', 'mlops', 'model_serving', 'prompt',
+                'tool_using', 'ai_safety', 'alignment', 'ai_agent', 'explainable_ai', 'ai_model'
+            ]
         }
     ];
 
@@ -274,6 +287,44 @@ document.addEventListener('DOMContentLoaded', async () => {
                 name: 'Roadmap',
                 terms: ['roadmap', 'high_na', 'nanosheet', 'gate_all_around', 'backside_power', 'silicon_photonics', 'next']
             }
+        ],
+        'Artificial Intelligence & Machine Learning': [
+            {
+                name: 'Foundations',
+                terms: ['cybernetics', 'artificial_intelligence', 'symbolic', 'expert_system', 'artificial_neuron', 'logic', 'turing']
+            },
+            {
+                name: 'Classical ML',
+                terms: ['machine_learning', 'support_vector', 'decision_tree', 'random_forest', 'probabilistic', 'graphical_model', 'reinforcement_learning', 'supervised_learning', 'unsupervised_learning', 'clustering']
+            },
+            {
+                name: 'Neural Networks',
+                terms: ['neural_network', 'perceptron', 'backpropagation', 'convolutional', 'word_embedding', 'sequence_to_sequence', 'attention', 'deep_learning']
+            },
+            {
+                name: 'Foundation Models',
+                terms: ['transformer', 'language_model', 'foundation_model', 'pretraining', 'fine_tuning', 'self_supervised', 'diffusion', 'generative_ai', 'retrieval_augmented', 'instruction_tuning', 'rlhf', 'multimodal', 'prompt', 'tool_using']
+            },
+            {
+                name: 'Data & Evaluation',
+                terms: ['data_labeling', 'benchmark', 'evaluation', 'dataset', 'leaderboard', 'audit', 'helm', 'metric']
+            },
+            {
+                name: 'Deployment & MLOps',
+                terms: ['mlops', 'model_serving', 'training_cluster', 'edge_ai', 'accelerator', 'vector_database', 'inference', 'container']
+            },
+            {
+                name: 'Safety & Governance',
+                terms: ['safety', 'alignment', 'explainable', 'xai', 'governance', 'risk', 'audit', 'constitutional', 'trustworthy']
+            },
+            {
+                name: 'Applications',
+                terms: ['recommender', 'computer_vision', 'speech_recognition', 'drug_discovery', 'tutor', 'clinical', 'autonomous_vehicle']
+            },
+            {
+                name: 'Roadmap',
+                terms: ['roadmap', 'advanced_ai', 'agent', 'verifiable', 'on_device', 'ai_scientist', 'operating_system']
+            }
         ]
     };
 
@@ -323,7 +374,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 && (termScore > 0 || broadFinanceBranch);
             if (includeMechanical || includeFinance) {
                 fields.push(rule.name);
-            } else if ((rule.name === 'Genome Editing / CRISPR-Cas' || rule.name === 'Semiconductors & Integrated Circuits') && termScore > 0) {
+            } else if ([
+                'Genome Editing / CRISPR-Cas',
+                'Semiconductors & Integrated Circuits',
+                'Artificial Intelligence & Machine Learning'
+            ].includes(rule.name) && termScore > 0) {
                 fields.push(rule.name);
             }
         }

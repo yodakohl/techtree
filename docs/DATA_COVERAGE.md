@@ -29,6 +29,7 @@ Field lenses currently supported:
 - Finance & Markets
 - Genome Editing / CRISPR-Cas
 - Semiconductors & Integrated Circuits
+- Artificial Intelligence & Machine Learning
 
 ## Validation Standard
 

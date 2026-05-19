@@ -7,7 +7,8 @@ const REQUIRED_FIELDS = ['id', 'name', 'era', 'description', 'prerequisites'];
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const SOURCE_REQUIRED_FIELDS = new Set([
     'Genome Editing / CRISPR-Cas',
-    'Semiconductors & Integrated Circuits'
+    'Semiconductors & Integrated Circuits',
+    'Artificial Intelligence & Machine Learning'
 ]);
 
 function loadData() {

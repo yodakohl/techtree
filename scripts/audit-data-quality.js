@@ -6,7 +6,8 @@ const EXPANSION_DIR = path.join(DATA_DIR, 'expansion');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const SOURCE_REQUIRED_FIELDS = new Set([
     'Genome Editing / CRISPR-Cas',
-    'Semiconductors & Integrated Circuits'
+    'Semiconductors & Integrated Circuits',
+    'Artificial Intelligence & Machine Learning'
 ]);
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([
