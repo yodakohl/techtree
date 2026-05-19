@@ -5,6 +5,10 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const REQUIRED_FIELDS = ['id', 'name', 'era', 'description', 'prerequisites'];
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
+const SOURCE_REQUIRED_FIELDS = new Set([
+    'Genome Editing / CRISPR-Cas',
+    'Semiconductors & Integrated Circuits'
+]);
 
 function loadData() {
     const files = fs.readdirSync(DATA_DIR)
@@ -148,8 +152,10 @@ function validate() {
             }
         }
 
-        if (item.fields?.includes('Genome Editing / CRISPR-Cas') && (!Array.isArray(item.sources) || item.sources.length === 0)) {
-            errors.push(`${item.id} is in Genome Editing / CRISPR-Cas but has no sources`);
+        for (const sourceRequiredField of SOURCE_REQUIRED_FIELDS) {
+            if (item.fields?.includes(sourceRequiredField) && (!Array.isArray(item.sources) || item.sources.length === 0)) {
+                errors.push(`${item.id} is in ${sourceRequiredField} but has no sources`);
+            }
         }
 
         if (item.maturity === 'forecast') {

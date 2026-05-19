@@ -4,7 +4,10 @@ const path = require('path');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const EXPANSION_DIR = path.join(DATA_DIR, 'expansion');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
-const CRISPR_FIELD = 'Genome Editing / CRISPR-Cas';
+const SOURCE_REQUIRED_FIELDS = new Set([
+    'Genome Editing / CRISPR-Cas',
+    'Semiconductors & Integrated Circuits'
+]);
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([
     ['Ancient', 0],
@@ -162,8 +165,10 @@ for (const item of data) {
         errors.push(`${item.__file}: ${item.id} has invalid maturity ${item.maturity}`);
     }
 
-    if (item.fields?.includes(CRISPR_FIELD) && (!Array.isArray(item.sources) || item.sources.length === 0)) {
-        errors.push(`${item.__file}: ${item.id} is in ${CRISPR_FIELD} but has no sources`);
+    for (const sourceRequiredField of SOURCE_REQUIRED_FIELDS) {
+        if (item.fields?.includes(sourceRequiredField) && (!Array.isArray(item.sources) || item.sources.length === 0)) {
+            errors.push(`${item.__file}: ${item.id} is in ${sourceRequiredField} but has no sources`);
+        }
     }
 
     if (Array.isArray(item.sources)) {

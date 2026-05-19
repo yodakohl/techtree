@@ -5,7 +5,7 @@ An interactive map of human technology across eras, from ancient foundations to 
 - **Graph View**: a Vis Network dependency graph with search, era filtering, focused dependency context, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, and field lens.
 
-The current validated dataset contains **1,418 curated technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,450 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -47,8 +47,8 @@ TECHTREE_READ_ONLY=true npm start
 - Inspect prerequisites and unlocks from the side panel.
 - Add, edit, or delete technologies when not running in read-only mode.
 - Browse a compact sorted view grouped by derived technology branches.
-- Use field lenses for focused exploration, including mechanical engineering and finance/markets.
-- Explore a cited CRISPR/Cas9 genome-editing vertical with maturity labels and roadmap forecasts.
+- Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, and semiconductor technology.
+- Explore cited CRISPR/Cas9 and semiconductor/integrated-circuit verticals with maturity labels, source links, and roadmap forecasts.
 
 ## Data Model
 
@@ -105,6 +105,7 @@ Rules:
 - `prerequisites` must reference existing technology IDs.
 - The prerequisite graph must remain acyclic.
 - Curated field nodes may include `fields`, `fieldLanes`, `maturity`, `sources`, and `roadmap` metadata.
+- Textbook-quality field nodes in CRISPR/Cas9 and semiconductors require cited sources.
 - Forecast technologies must include roadmap rationale, timeframe, confidence, and blockers.
 
 The sorted view derives branches from IDs, names, and descriptions. See [Data Coverage](docs/DATA_COVERAGE.md) for the current branch model.

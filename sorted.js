@@ -143,6 +143,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'lipid nanoparticle', 'genetic engineering', 'dna sequencing', 'bioinformatics',
                 'cell culture', 'ex vivo', 'in vivo', 'casgevy', 'exa-cel'
             ]
+        },
+        {
+            name: 'Semiconductors & Integrated Circuits',
+            branches: ['Computing & AI', 'Materials & Manufacturing', 'Communication & Media', 'Science & Mathematics', 'Energy & Power'],
+            terms: [
+                'semiconductor', 'transistor', 'mosfet', 'cmos', 'integrated_circuit', 'microchip',
+                'microprocessor', 'photolithography', 'lithography', 'photoresist', 'photomask',
+                'wafer', 'planar', 'vlsi', 'eda', 'hardware_description', 'process_node',
+                'finfet', 'nanosheet', 'gate_all_around', 'euv', 'duv', 'dram', 'sram',
+                'flash_memory', 'hbm', 'chiplet', 'silicon_photonics', 'gpu', 'accelerator',
+                'system_on_chip', 'soc', 'through_silicon', 'packaging'
+            ]
         }
     ];
 
@@ -228,6 +240,40 @@ document.addEventListener('DOMContentLoaded', async () => {
                 name: 'Roadmap',
                 terms: ['roadmap', 'forecast', 'next', 'tissue_targeted', 'clinical_prime', 'in_vivo']
             }
+        ],
+        'Semiconductors & Integrated Circuits': [
+            {
+                name: 'Materials & Devices',
+                terms: ['semiconductor', 'transistor', 'mosfet', 'diode', 'led', 'photovoltaic', 'finfet', 'nanosheet', 'gate_all_around', 'crystal']
+            },
+            {
+                name: 'Fabrication & Lithography',
+                terms: ['fabrication', 'clean_room', 'wafer', 'photolithography', 'lithography', 'photoresist', 'photomask', 'implantation', 'etching', 'deposition', 'planarization', 'duv', 'euv', 'process_node']
+            },
+            {
+                name: 'Circuit Integration',
+                terms: ['integrated_circuit', 'microchip', 'cmos', 'logic', 'vlsi', 'system_on_chip', 'soc']
+            },
+            {
+                name: 'Design Automation',
+                terms: ['eda', 'design_automation', 'hardware_description', 'hdl', 'vlsi', 'cad', 'verification', 'synthesis']
+            },
+            {
+                name: 'Processors & Architectures',
+                terms: ['microprocessor', 'cpu', 'risc', 'gpu', 'accelerator', 'parallel_processor', 'digital_signal_processing', 'architecture']
+            },
+            {
+                name: 'Memory & Storage',
+                terms: ['dram', 'sram', 'flash_memory', 'ssd', 'hbm', 'memory', 'cache', 'storage']
+            },
+            {
+                name: 'Packaging & Interconnect',
+                terms: ['packaging', 'interconnect', 'through_silicon', 'tsv', 'chiplet', '2_5d', '3d', 'photonics', 'optical']
+            },
+            {
+                name: 'Roadmap',
+                terms: ['roadmap', 'high_na', 'nanosheet', 'gate_all_around', 'backside_power', 'silicon_photonics', 'next']
+            }
         ]
     };
 
@@ -277,7 +323,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 && (termScore > 0 || broadFinanceBranch);
             if (includeMechanical || includeFinance) {
                 fields.push(rule.name);
-            } else if (rule.name === 'Genome Editing / CRISPR-Cas' && termScore > 0) {
+            } else if ((rule.name === 'Genome Editing / CRISPR-Cas' || rule.name === 'Semiconductors & Integrated Circuits') && termScore > 0) {
                 fields.push(rule.name);
             }
         }

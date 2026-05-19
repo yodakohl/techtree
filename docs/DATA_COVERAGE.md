@@ -28,6 +28,7 @@ Field lenses currently supported:
 - Mechanical Engineering
 - Finance & Markets
 - Genome Editing / CRISPR-Cas
+- Semiconductors & Integrated Circuits
 
 ## Validation Standard
 
@@ -38,7 +39,7 @@ npm test
 npm run quality
 ```
 
-This checks required fields, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, generated placeholder rows, duplicate display names, metadata validity, cited CRISPR/Cas field entries, forecast roadmaps, and technologies that use modern or future-only terminology before the era where it belongs.
+This checks required fields, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, generated placeholder rows, duplicate display names, metadata validity, cited textbook-quality field entries, forecast roadmaps, and technologies that use modern or future-only terminology before the era where it belongs.
 
 ## Coverage Audit
 

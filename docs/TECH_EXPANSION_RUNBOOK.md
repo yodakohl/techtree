@@ -9,8 +9,9 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Importer: `scripts/import-compact-tech.js`
 - Quality audit: `scripts/audit-data-quality.js`
 - Generated placeholder cleanup: `scripts/prune-generated-tech-data.js`
-- Current validated size after CRISPR/Cas9 vertical pass: 1,418 curated technologies
+- Current validated size after semiconductor vertical pass: 1,450 curated technologies
 - First textbook-quality vertical: `Genome Editing / CRISPR-Cas`
+- Second textbook-quality vertical: `Semiconductors & Integrated Circuits`
 
 ## Retired Approach
 
