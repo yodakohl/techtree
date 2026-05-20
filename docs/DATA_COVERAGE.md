@@ -30,6 +30,9 @@ Field lenses currently supported:
 - Genome Editing / CRISPR-Cas
 - Semiconductors & Integrated Circuits
 - Artificial Intelligence & Machine Learning
+- Energy Systems & Grid
+- Spaceflight & Satellites
+- Robotics & Autonomous Systems
 
 ## Validation Standard
 

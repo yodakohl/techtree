@@ -7,7 +7,10 @@ const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const SOURCE_REQUIRED_FIELDS = new Set([
     'Genome Editing / CRISPR-Cas',
     'Semiconductors & Integrated Circuits',
-    'Artificial Intelligence & Machine Learning'
+    'Artificial Intelligence & Machine Learning',
+    'Energy Systems & Grid',
+    'Spaceflight & Satellites',
+    'Robotics & Autonomous Systems'
 ]);
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([

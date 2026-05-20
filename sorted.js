@@ -168,6 +168,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'rlhf', 'multimodal', 'model_evaluation', 'mlops', 'model_serving', 'prompt',
                 'tool_using', 'ai_safety', 'alignment', 'ai_agent', 'explainable_ai', 'ai_model'
             ]
+        },
+        {
+            name: 'Energy Systems & Grid',
+            branches: ['Energy & Power', 'Infrastructure & Cities', 'Materials & Manufacturing', 'Transport & Logistics'],
+            terms: ['electricity', 'grid', 'transmission', 'transformer', 'turbine', 'solar', 'wind', 'battery', 'storage', 'hydroelectric', 'geothermal', 'nuclear', 'fusion', 'microgrid', 'power_electronics', 'smart_grid']
+        },
+        {
+            name: 'Spaceflight & Satellites',
+            branches: ['Space & Far Future', 'Transport & Logistics', 'Communication & Media', 'Science & Mathematics', 'Security & Defense'],
+            terms: ['rocket', 'space', 'satellite', 'orbital', 'launch', 'spacecraft', 'gps', 'constellation', 'hubble', 'telescope', 'reusable_launch', 'cubesat', 'on_orbit']
+        },
+        {
+            name: 'Robotics & Autonomous Systems',
+            branches: ['Computing & AI', 'Materials & Manufacturing', 'Transport & Logistics', 'Medicine & Biology', 'Space & Far Future'],
+            terms: ['robot', 'robotic', 'servo', 'manipulator', 'autonomous', 'drone', 'slam', 'machine_vision', 'mobile_robot', 'cobot', 'warehouse_autonomous', 'humanoid', 'safe_robot']
         }
     ];
 
@@ -325,6 +340,37 @@ document.addEventListener('DOMContentLoaded', async () => {
                 name: 'Roadmap',
                 terms: ['roadmap', 'advanced_ai', 'agent', 'verifiable', 'on_device', 'ai_scientist', 'operating_system']
             }
+        ],
+        'Energy Systems & Grid': [
+            { name: 'Foundations', terms: ['electricity', 'motor', 'steam', 'alternating_current'] },
+            { name: 'Generation', terms: ['generation', 'turbine', 'hydroelectric', 'combined_cycle'] },
+            { name: 'Grid & Transmission', terms: ['grid', 'transmission', 'transformer', 'power_electronics', 'high_voltage'] },
+            { name: 'Storage', terms: ['battery', 'storage', 'pumped_hydro', 'lithium_ion'] },
+            { name: 'Renewables', terms: ['solar', 'wind', 'geothermal', 'renewable'] },
+            { name: 'Nuclear & Fusion', terms: ['nuclear', 'fusion', 'fission'] },
+            { name: 'Control & Markets', terms: ['smart_grid', 'microgrid', 'control', 'market'] },
+            { name: 'Roadmap', terms: ['roadmap', 'long_duration', 'fusion_power'] }
+        ],
+        'Spaceflight & Satellites': [
+            { name: 'Launch', terms: ['rocket', 'launch', 'liquid_fuel', 'reusable'] },
+            { name: 'Spacecraft Systems', terms: ['spacecraft', 'guidance', 'navigation', 'control'] },
+            { name: 'Satellites', terms: ['satellite', 'cubesat', 'constellation', 'communications', 'earth_observation'] },
+            { name: 'Navigation & Timing', terms: ['gps', 'navigation', 'timing'] },
+            { name: 'Space Science', terms: ['telescope', 'hubble', 'observatory', 'science'] },
+            { name: 'Human Spaceflight', terms: ['space_station', 'human', 'crew'] },
+            { name: 'Operations', terms: ['servicing', 'rendezvous', 'operations'] },
+            { name: 'Roadmap', terms: ['roadmap', 'on_orbit', 'servicing'] }
+        ],
+        'Robotics & Autonomous Systems': [
+            { name: 'Foundations', terms: ['robotics', 'servo', 'control'] },
+            { name: 'Manipulation', terms: ['manipulator', 'arm', 'grasp', 'dexterous'] },
+            { name: 'Mobility & Navigation', terms: ['mobile', 'navigation', 'slam', 'drone', 'vehicle'] },
+            { name: 'Perception', terms: ['vision', 'perception', 'camera', 'sensor'] },
+            { name: 'Industrial Automation', terms: ['industrial', 'factory', 'warehouse', 'cobot', 'manufacturing'] },
+            { name: 'Medical & Service Robots', terms: ['surgical', 'medical', 'service'] },
+            { name: 'Autonomy & AI', terms: ['autonomous', 'edge_ai', 'foundation_model', 'learning'] },
+            { name: 'Safety', terms: ['safe', 'verified', 'safety'] },
+            { name: 'Roadmap', terms: ['roadmap', 'humanoid', 'swarm', 'construction'] }
         ]
     };
 
@@ -377,7 +423,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             } else if ([
                 'Genome Editing / CRISPR-Cas',
                 'Semiconductors & Integrated Circuits',
-                'Artificial Intelligence & Machine Learning'
+                'Artificial Intelligence & Machine Learning',
+                'Energy Systems & Grid',
+                'Spaceflight & Satellites',
+                'Robotics & Autonomous Systems'
             ].includes(rule.name) && termScore > 0) {
                 fields.push(rule.name);
             }

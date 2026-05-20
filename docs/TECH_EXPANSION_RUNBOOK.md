@@ -9,10 +9,13 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Importer: `scripts/import-compact-tech.js`
 - Quality audit: `scripts/audit-data-quality.js`
 - Generated placeholder cleanup: `scripts/prune-generated-tech-data.js`
-- Current validated size after AI/ML vertical pass: 1,478 curated technologies
+- Current validated size after energy/space/robotics vertical pass: 1,511 curated technologies
 - First textbook-quality vertical: `Genome Editing / CRISPR-Cas`
 - Second textbook-quality vertical: `Semiconductors & Integrated Circuits`
 - Third textbook-quality vertical: `Artificial Intelligence & Machine Learning`
+- Fourth textbook-quality vertical: `Energy Systems & Grid`
+- Fifth textbook-quality vertical: `Spaceflight & Satellites`
+- Sixth textbook-quality vertical: `Robotics & Autonomous Systems`
 
 ## Retired Approach
 

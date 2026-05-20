@@ -8,7 +8,10 @@ const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'foreca
 const SOURCE_REQUIRED_FIELDS = new Set([
     'Genome Editing / CRISPR-Cas',
     'Semiconductors & Integrated Circuits',
-    'Artificial Intelligence & Machine Learning'
+    'Artificial Intelligence & Machine Learning',
+    'Energy Systems & Grid',
+    'Spaceflight & Satellites',
+    'Robotics & Autonomous Systems'
 ]);
 
 function loadData() {
