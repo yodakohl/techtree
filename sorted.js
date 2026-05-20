@@ -183,6 +183,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             name: 'Robotics & Autonomous Systems',
             branches: ['Computing & AI', 'Materials & Manufacturing', 'Transport & Logistics', 'Medicine & Biology', 'Space & Far Future'],
             terms: ['robot', 'robotic', 'servo', 'manipulator', 'autonomous', 'drone', 'slam', 'machine_vision', 'mobile_robot', 'cobot', 'warehouse_autonomous', 'humanoid', 'safe_robot']
+        },
+        {
+            name: 'Medical Imaging & Diagnostics',
+            branches: ['Medicine & Biology', 'Science & Mathematics', 'Computing & AI'],
+            terms: ['x_ray', 'imaging', 'diagnostic', 'ct', 'mri', 'ultrasound', 'mammography', 'pet', 'laboratory', 'immunoassay', 'pcr', 'point_of_care', 'pulse_oximetry', 'health_record', 'telemedicine']
+        },
+        {
+            name: 'Climate & Environmental Systems',
+            branches: ['Energy & Power', 'Infrastructure & Cities', 'Science & Mathematics', 'Agriculture & Food'],
+            terms: ['climate', 'environment', 'wastewater', 'pollution', 'air_quality', 'carbon', 'greenhouse_gas', 'remote_sensing', 'earth_observation', 'disaster', 'adaptation', 'desalination', 'recycling']
+        },
+        {
+            name: 'Agriculture & Food Systems',
+            branches: ['Agriculture & Food', 'Materials & Manufacturing', 'Transport & Logistics', 'Medicine & Biology'],
+            terms: ['agriculture', 'crop', 'seed', 'fertilizer', 'pesticide', 'herbicide', 'tractor', 'harvester', 'irrigation', 'hydroponics', 'green_revolution', 'precision_agriculture', 'food_cold_chain', 'drone', 'farming']
         }
     ];
 
@@ -371,6 +386,37 @@ document.addEventListener('DOMContentLoaded', async () => {
             { name: 'Autonomy & AI', terms: ['autonomous', 'edge_ai', 'foundation_model', 'learning'] },
             { name: 'Safety', terms: ['safe', 'verified', 'safety'] },
             { name: 'Roadmap', terms: ['roadmap', 'humanoid', 'swarm', 'construction'] }
+        ],
+        'Medical Imaging & Diagnostics': [
+            { name: 'Foundations', terms: ['x_rays_discovery', 'medicine_clinical', 'radioactivity'] },
+            { name: 'Imaging Modalities', terms: ['imaging', 'x_ray', 'ct', 'ultrasound', 'mri', 'pet', 'nuclear_medicine'] },
+            { name: 'Laboratory Diagnostics', terms: ['laboratory', 'immunoassay', 'lab_on_a_chip', 'point_of_care'] },
+            { name: 'Molecular Diagnostics', terms: ['pcr', 'dna_sequencing', 'molecular'] },
+            { name: 'Monitoring', terms: ['monitoring', 'pulse_oximetry', 'wearable'] },
+            { name: 'Digital Health', terms: ['electronic_health', 'telemedicine', 'decision_support'] },
+            { name: 'Screening', terms: ['screening', 'mammography'] },
+            { name: 'Roadmap', terms: ['roadmap', 'ai_diagnostic'] }
+        ],
+        'Climate & Environmental Systems': [
+            { name: 'Measurement', terms: ['meteorology', 'observation', 'remote_sensing', 'satellite'] },
+            { name: 'Pollution Control', terms: ['pollution', 'air_quality', 'catalytic', 'emissions'] },
+            { name: 'Water & Waste', terms: ['wastewater', 'sludge', 'desalination', 'water'] },
+            { name: 'Climate Modeling', terms: ['climate_model', 'circulation', 'forecast'] },
+            { name: 'Mitigation', terms: ['carbon', 'greenhouse_gas', 'renewable', 'capture'] },
+            { name: 'Adaptation', terms: ['adaptation', 'disaster', 'early_warning', 'resilience'] },
+            { name: 'Ecosystem Monitoring', terms: ['environmental_dna', 'ecology', 'ecosystem'] },
+            { name: 'Roadmap', terms: ['roadmap', 'direct_air', 'geoengineering'] }
+        ],
+        'Agriculture & Food Systems': [
+            { name: 'Foundations', terms: ['agriculture', 'plow', 'crop_rotation', 'seed_selection'] },
+            { name: 'Mechanization', terms: ['tractor', 'harvester', 'mechanized'] },
+            { name: 'Inputs', terms: ['fertilizer', 'pesticide', 'herbicide'] },
+            { name: 'Crop Science', terms: ['breeding', 'hybrid', 'genetically_modified', 'green_revolution'] },
+            { name: 'Irrigation', terms: ['irrigation', 'drip'] },
+            { name: 'Controlled Environments', terms: ['hydroponics', 'controlled_environment', 'vertical_farming'] },
+            { name: 'Supply Chains', terms: ['cold_chain', 'supply_chain', 'food'] },
+            { name: 'Digital Agriculture', terms: ['precision_agriculture', 'drone', 'gps'] },
+            { name: 'Roadmap', terms: ['roadmap', 'climate_resilient'] }
         ]
     };
 
@@ -426,7 +472,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Artificial Intelligence & Machine Learning',
                 'Energy Systems & Grid',
                 'Spaceflight & Satellites',
-                'Robotics & Autonomous Systems'
+                'Robotics & Autonomous Systems',
+                'Medical Imaging & Diagnostics',
+                'Climate & Environmental Systems',
+                'Agriculture & Food Systems'
             ].includes(rule.name) && termScore > 0) {
                 fields.push(rule.name);
             }

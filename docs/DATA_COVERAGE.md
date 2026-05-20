@@ -33,6 +33,9 @@ Field lenses currently supported:
 - Energy Systems & Grid
 - Spaceflight & Satellites
 - Robotics & Autonomous Systems
+- Medical Imaging & Diagnostics
+- Climate & Environmental Systems
+- Agriculture & Food Systems
 
 ## Validation Standard
 

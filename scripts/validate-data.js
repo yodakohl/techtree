@@ -11,7 +11,10 @@ const SOURCE_REQUIRED_FIELDS = new Set([
     'Artificial Intelligence & Machine Learning',
     'Energy Systems & Grid',
     'Spaceflight & Satellites',
-    'Robotics & Autonomous Systems'
+    'Robotics & Autonomous Systems',
+    'Medical Imaging & Diagnostics',
+    'Climate & Environmental Systems',
+    'Agriculture & Food Systems'
 ]);
 
 function loadData() {
