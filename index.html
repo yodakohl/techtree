@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Tech Tree MVP</title>
+    <title>TechTree - Human Technology Dependency Graph</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=20260519a">
     <script defer src="vendor/vis-network.min.js?v=20260516b"></script>
 </head>
 <body>
     <header>
-        <h1>World Tech Tree (MVP)</h1>
+        <h1>TechTree</h1>
         <nav>
             <a href="sorted.html">Sorted View</a>
         </nav>
@@ -25,6 +25,9 @@
                 <input type="text" id="search-tech" placeholder="Search by name or ID">
                 <select id="era-filter">
                     <option value="all">All Eras</option>
+                </select>
+                <select id="field-filter">
+                    <option value="all">All Fields</option>
                 </select>
                 <label class="graph-focus-toggle">
                     <input type="checkbox" id="focus-relevant" checked>
@@ -64,7 +67,7 @@
             </div>
         </div>
     </main>
-    <script defer src="app.js?v=20260519a"></script>   <!-- Application logic -->
+    <script defer src="app.js?v=20260520a"></script>   <!-- Application logic -->
 </body>
 </html>
 

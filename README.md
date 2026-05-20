@@ -21,7 +21,7 @@ The current validated dataset contains **1,541 curated technologies** stored as 
 
 ## Views
 
-- **Graph View**: a Vis Network dependency graph with search, era filtering, focused dependency context, source metadata, and editable entries.
+- **Graph View**: a Vis Network dependency graph with search, era and field filtering, focused dependency context, source metadata, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, field lens, maturity, and roadmap status.
 
 ## Keywords
@@ -61,7 +61,7 @@ TECHTREE_READ_ONLY=true npm start
 ## Features
 
 - Search technologies by name or ID.
-- Filter the graph by era.
+- Filter the graph by era or curated field lens.
 - Focus the graph around selected technologies and their direct dependency context.
 - Inspect prerequisites and unlocks from the side panel.
 - Add, edit, or delete technologies when not running in read-only mode.

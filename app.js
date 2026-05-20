@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const addBtn = document.getElementById('add-tech-btn');
     const searchInput = document.getElementById('search-tech');
     const eraFilter = document.getElementById('era-filter');
+    const fieldFilter = document.getElementById('field-filter');
     const focusRelevantInput = document.getElementById('focus-relevant');
     const graphContextSummaryEl = document.getElementById('graph-context-summary');
     const relationshipsEl = document.getElementById('tech-relationships');
@@ -97,8 +98,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    function populateFieldFilter() {
+        if (!fieldFilter) return;
+        const fields = [...new Set(dynamicData.flatMap(tech => Array.isArray(tech.fields) ? tech.fields : []))]
+            .sort((a, b) => a.localeCompare(b));
+        fieldFilter.innerHTML = '<option value="all">All Fields</option>';
+        for (const field of fields) {
+            const opt = document.createElement('option');
+            opt.value = field;
+            opt.textContent = field;
+            fieldFilter.appendChild(opt);
+        }
+    }
+
     renderLegend();
     populateEraFilter();
+    populateFieldFilter();
 
     if (appConfig.readOnly) {
         if (addPanel) addPanel.style.display = 'none';
@@ -290,6 +305,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let selectedNodeId = null;
     let currentSearchQuery = '';
     let currentEraFilter = 'all';
+    let currentFieldFilter = 'all';
 
     function existingIds(ids) {
         return ids.filter(id => Boolean(nodes.get(id)));
@@ -370,6 +386,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return text.includes(lower);
             })
             .map(t => t.id));
+    }
+
+    function getFieldMatches(field) {
+        if (!field || field === 'all') return new Set();
+        return new Set(dynamicData
+            .filter(t => Array.isArray(t.fields) && t.fields.includes(field))
+            .map(t => t.id));
+    }
+
+    function intersectSets(primary, secondary) {
+        if (!secondary || secondary.size === 0) return new Set(primary);
+        return new Set([...primary].filter(id => secondary.has(id)));
     }
 
     function formatTechLabel(id) {
@@ -491,6 +519,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!graphContextSummaryEl) return;
         const parts = [`${visibleCount} of ${totalCount} visible`];
         if (currentEraFilter !== 'all') parts.push(currentEraFilter);
+        if (currentFieldFilter !== 'all') parts.push(currentFieldFilter);
         if (currentSearchQuery) parts.push(`${matchCount} search match${matchCount === 1 ? '' : 'es'}`);
         if (selectedNodeId) {
             const prereqCount = existingIds(prereqMap[selectedNodeId] || []).length;
@@ -504,15 +533,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     function updateGraphView({ fit = false, focusSelected = false } = {}) {
         const focusRelevant = focusRelevantInput ? focusRelevantInput.checked : true;
         const matchIds = getSearchMatches(currentSearchQuery);
+        const fieldIds = getFieldMatches(currentFieldFilter);
+        const filteredMatchIds = currentFieldFilter === 'all'
+            ? matchIds
+            : intersectSets(matchIds, fieldIds);
         let compactIds = null;
 
         if (focusRelevant && selectedNodeId) {
             compactIds = getOneHopContext([selectedNodeId]);
         } else if (focusRelevant && currentSearchQuery) {
-            compactIds = getOneHopContext(matchIds);
+            compactIds = getOneHopContext(filteredMatchIds);
+        } else if (focusRelevant && currentFieldFilter !== 'all') {
+            compactIds = fieldIds;
         }
         const compactPositions = compactIds
-            ? createCompactPositions(selectedNodeId ? [selectedNodeId] : matchIds)
+            ? createCompactPositions(selectedNodeId ? [selectedNodeId] : (currentSearchQuery ? filteredMatchIds : fieldIds))
             : null;
 
         const nodeUpdates = [];
@@ -522,11 +557,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const fontColor = n.font?.color;
             const compactPosition = compactPositions?.get(n.id);
             const eraVisible = currentEraFilter === 'all' || n.era === currentEraFilter;
+            const fieldVisible = currentFieldFilter === 'all' || fieldIds.has(n.id) || Boolean(compactIds?.has(n.id));
             const compactVisible = !compactIds || compactIds.has(n.id);
-            const isVisible = eraVisible && compactVisible;
+            const isVisible = eraVisible && fieldVisible && compactVisible;
             if (isVisible) visible.add(n.id);
             const isSelected = n.id === selectedNodeId;
-            const isMatch = matchIds.has(n.id);
+            const isMatch = filteredMatchIds.has(n.id) || (currentFieldFilter !== 'all' && fieldIds.has(n.id));
             nodeUpdates.push({
                 id: n.id,
                 hidden: !isVisible,
@@ -561,7 +597,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         if (edgeUpdates.length) edges.update(edgeUpdates);
 
-        updateGraphSummary(visible.size, dynamicData.length, matchIds.size);
+        updateGraphSummary(visible.size, dynamicData.length, currentSearchQuery ? filteredMatchIds.size : fieldIds.size);
 
         if ((focusSelected || fit) && visible.size > 0) {
             network.fit({
@@ -576,6 +612,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     function resetHighlight() {
         currentSearchQuery = '';
         currentEraFilter = 'all';
+        currentFieldFilter = 'all';
+        if (fieldFilter) fieldFilter.value = 'all';
         updateGraphView({ fit: true });
     }
 
@@ -586,6 +624,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function applyEraFilter(era) {
         currentEraFilter = era || 'all';
+        updateGraphView({ fit: true });
+    }
+
+    function applyFieldFilter(field) {
+        currentFieldFilter = field || 'all';
+        if (selectedNodeId && currentFieldFilter !== 'all' && !getFieldMatches(currentFieldFilter).has(selectedNodeId)) {
+            selectedNodeId = null;
+            network.unselectAll();
+            updateInfoPanel(null);
+        }
         updateGraphView({ fit: true });
     }
 
@@ -615,6 +663,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (eraFilter) {
         eraFilter.addEventListener('change', () => applyEraFilter(eraFilter.value));
+    }
+
+    if (fieldFilter) {
+        fieldFilter.addEventListener('change', () => applyFieldFilter(fieldFilter.value));
     }
 
     if (focusRelevantInput) {
