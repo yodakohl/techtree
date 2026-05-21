@@ -198,6 +198,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             name: 'Agriculture & Food Systems',
             branches: ['Agriculture & Food', 'Materials & Manufacturing', 'Transport & Logistics', 'Medicine & Biology'],
             terms: ['agriculture', 'crop', 'seed', 'fertilizer', 'pesticide', 'herbicide', 'tractor', 'harvester', 'irrigation', 'hydroponics', 'green_revolution', 'precision_agriculture', 'food_cold_chain', 'drone', 'farming']
+        },
+        {
+            name: 'Cybersecurity & Cryptography',
+            branches: ['Computing & AI', 'Security & Defense', 'Finance & Commerce', 'Communication & Media'],
+            terms: ['cryptograph', 'encryption', 'signature', 'certificate', 'identity', 'firewall', 'intrusion', 'vulnerability', 'cyber', 'security', 'zero_trust', 'endpoint', 'post_quantum', 'tls', 'siem']
+        },
+        {
+            name: 'Transportation & Logistics',
+            branches: ['Transport & Logistics', 'Infrastructure & Cities', 'Finance & Commerce', 'Energy & Power'],
+            terms: ['transport', 'logistics', 'road', 'rail', 'automobile', 'highway', 'aviation', 'aircraft', 'container', 'freight', 'warehouse', 'shipping', 'port', 'cold_chain', 'route', 'charging']
+        },
+        {
+            name: 'Materials Science & Manufacturing',
+            branches: ['Materials & Manufacturing', 'Science & Mathematics', 'Energy & Power', 'Transport & Logistics'],
+            terms: ['material', 'steel', 'alloy', 'aluminum', 'polymer', 'plastic', 'rubber', 'ceramic', 'glass', 'composite', 'graphene', 'nanotechnology', 'metamaterial', 'powder_metallurgy', 'superalloy']
         }
     ];
 
@@ -417,6 +432,38 @@ document.addEventListener('DOMContentLoaded', async () => {
             { name: 'Supply Chains', terms: ['cold_chain', 'supply_chain', 'food'] },
             { name: 'Digital Agriculture', terms: ['precision_agriculture', 'drone', 'gps'] },
             { name: 'Roadmap', terms: ['roadmap', 'climate_resilient'] }
+        ],
+        'Cybersecurity & Cryptography': [
+            { name: 'Cryptographic Foundations', terms: ['cryptograph', 'encryption', 'hash', 'signature', 'tls', 'ssl'] },
+            { name: 'Identity & Trust', terms: ['identity', 'certificate', 'pki', 'multi_factor', 'authentication', 'trust'] },
+            { name: 'Network Security', terms: ['firewall', 'packet', 'network', 'transport'] },
+            { name: 'Detection & Response', terms: ['intrusion', 'detection', 'response', 'siem', 'threat', 'soc', 'vulnerability'] },
+            { name: 'Secure Software', terms: ['secure_software', 'development', 'lifecycle'] },
+            { name: 'Cloud & Platform Security', terms: ['zero_trust', 'confidential', 'cloud', 'platform'] },
+            { name: 'Governance & Risk', terms: ['governance', 'risk', 'framework'] },
+            { name: 'Roadmap', terms: ['roadmap', 'post_quantum', 'quantum_resistant', 'agility'] }
+        ],
+        'Transportation & Logistics': [
+            { name: 'Road & Rail', terms: ['road', 'rail', 'highway', 'automobile', 'vehicle'] },
+            { name: 'Maritime & Ports', terms: ['maritime', 'port', 'shipping', 'canal'] },
+            { name: 'Aviation', terms: ['aviation', 'aircraft', 'airliner', 'air_traffic'] },
+            { name: 'Intermodal Freight', terms: ['intermodal', 'container', 'freight'] },
+            { name: 'Warehousing', terms: ['warehouse'] },
+            { name: 'Cold Chain', terms: ['cold_chain', 'refrigeration'] },
+            { name: 'Digital Logistics', terms: ['gps', 'route', 'optimization', 'supply_chain', 'software'] },
+            { name: 'Electrification', terms: ['electric', 'charging'] },
+            { name: 'Roadmap', terms: ['roadmap', 'autonomous_freight', 'autonomous_vehicle'] }
+        ],
+        'Materials Science & Manufacturing': [
+            { name: 'Foundations', terms: ['stone', 'pottery', 'bronze', 'iron'] },
+            { name: 'Metals & Alloys', terms: ['steel', 'aluminum', 'stainless', 'alloy', 'superalloy', 'metallurgy'] },
+            { name: 'Polymers', terms: ['polymer', 'plastic', 'rubber'] },
+            { name: 'Ceramics & Glass', terms: ['ceramic', 'glass', 'concrete'] },
+            { name: 'Composites', terms: ['composite', 'carbon_fiber'] },
+            { name: 'Semiconductor Materials', terms: ['deposition', 'semiconductor', 'atomic_layer'] },
+            { name: 'Advanced Manufacturing', terms: ['powder_metallurgy', 'additive', 'manufacturing'] },
+            { name: 'Materials Discovery', terms: ['materials_informatics', 'graphene', 'nanotechnology', 'materials_genome'] },
+            { name: 'Roadmap', terms: ['roadmap', 'metamaterial', 'exotic', 'self_healing'] }
         ]
     };
 
@@ -475,7 +522,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Robotics & Autonomous Systems',
                 'Medical Imaging & Diagnostics',
                 'Climate & Environmental Systems',
-                'Agriculture & Food Systems'
+                'Agriculture & Food Systems',
+                'Cybersecurity & Cryptography',
+                'Transportation & Logistics',
+                'Materials Science & Manufacturing'
             ].includes(rule.name) && termScore > 0) {
                 fields.push(rule.name);
             }

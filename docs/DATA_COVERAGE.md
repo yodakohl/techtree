@@ -36,6 +36,9 @@ Field lenses currently supported:
 - Medical Imaging & Diagnostics
 - Climate & Environmental Systems
 - Agriculture & Food Systems
+- Cybersecurity & Cryptography
+- Transportation & Logistics
+- Materials Science & Manufacturing
 
 ## Validation Standard
 

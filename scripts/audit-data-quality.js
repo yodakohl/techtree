@@ -13,7 +13,10 @@ const SOURCE_REQUIRED_FIELDS = new Set([
     'Robotics & Autonomous Systems',
     'Medical Imaging & Diagnostics',
     'Climate & Environmental Systems',
-    'Agriculture & Food Systems'
+    'Agriculture & Food Systems',
+    'Cybersecurity & Cryptography',
+    'Transportation & Logistics',
+    'Materials Science & Manufacturing'
 ]);
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([
