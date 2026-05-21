@@ -1641,13 +1641,28 @@
   },
   {
     "id": "alternating_current_power",
-    "name": "Alternating Current Power",
+    "name": "Alternating-Current Power Systems",
     "era": "Industrial",
-    "description": "Electrical generation, transformers, and transmission systems using alternating current for efficient long-distance power distribution.",
+    "description": "Electrical generation, transformers, and transmission systems using alternating current for efficient voltage transformation and long-distance power distribution.",
     "prerequisites": [
       "electricity",
       "electrical_grid_early_distribution",
       "electric_motor"
+    ],
+    "fields": [
+      "Energy Systems & Grid"
+    ],
+    "fieldLanes": {
+      "Energy Systems & Grid": "Grid & Transmission"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Alternating Current",
+        "url": "https://www.britannica.com/science/alternating-current",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026
+      }
     ]
   },
   {
@@ -2588,38 +2603,12 @@
     ]
   },
   {
-    "id": "alternating_current_power_systems",
-    "name": "Alternating-Current Power Systems",
-    "era": "Industrial",
-    "description": "Electrical generation and distribution systems using alternating current for efficient voltage transformation and long-distance transmission.",
-    "prerequisites": [
-      "electricity",
-      "electrical_grid_early_distribution",
-      "electric_motor"
-    ],
-    "fields": [
-      "Energy Systems & Grid"
-    ],
-    "fieldLanes": {
-      "Energy Systems & Grid": "Grid & Transmission"
-    },
-    "maturity": "established",
-    "sources": [
-      {
-        "title": "Grid Modernization and the Smart Grid",
-        "url": "https://www.energy.gov/oe/grid-modernization-and-smart-grid",
-        "publisher": "U.S. Department of Energy",
-        "year": 2026
-      }
-    ]
-  },
-  {
     "id": "power_transformers",
     "name": "Power Transformers",
     "era": "Industrial",
     "description": "Electromagnetic devices that step AC voltage up or down for efficient transmission, distribution, and isolation.",
     "prerequisites": [
-      "alternating_current_power_systems",
+      "alternating_current_power",
       "electric_motor",
       "advanced_metallurgy_medieval"
     ],
