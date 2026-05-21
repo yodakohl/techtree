@@ -138,8 +138,11 @@ Rules:
 
 - `id` values must be unique lowercase identifiers.
 - `era` must match the file where the technology is stored.
-- `prerequisites` must reference existing technology IDs.
+- `dependencyEdges` must contain typed semantic dependency objects; `prerequisites` is kept as a compatibility mirror of those edge targets.
 - The prerequisite graph must remain acyclic.
+- Every node must include `firstKnownDate`, `datePrecision`, `region`, and `reviewStatus`.
+- Every dependency edge must include `type`, `confidence`, `evidence_level`, `note`, and `reviewStatus`.
+- Node and edge sources carry `source_type` and `supports` metadata so generic overviews do not get treated like primary evidence.
 - Curated field nodes may include `fields`, `fieldLanes`, `maturity`, `sources`, and `roadmap` metadata.
 - Textbook-quality field nodes in CRISPR/Cas9, semiconductors, AI/ML, energy/grid, spaceflight/satellites, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, and materials/manufacturing require cited sources.
 - Forecast technologies must include roadmap rationale, timeframe, confidence, and blockers.
@@ -154,9 +157,9 @@ Run the validator before committing data changes:
 npm test
 ```
 
-The validator checks required fields, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles.
+The validator checks required fields, typed dependency-edge metadata, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles. `npm test` also runs the temporal audit, which rejects earlier-era nodes depending on later-era nodes, Modern nodes depending on Future nodes, and edges where the prerequisite has a later `firstKnownDate`.
 
-Run the data-quality audit to catch generated placeholder rows, duplicate display names, and technologies that use modern or future-only terminology too early:
+Run the data-quality audit to catch generated placeholder rows, duplicate display names, weak source metadata, overconfident weak-inference edges, and technologies that use modern or future-only terminology too early:
 
 ```bash
 npm run quality
@@ -233,8 +236,10 @@ data/                          Canonical era JSON and taxonomy data
 data/expansion/                Compact TSV expansion sources
 docs/                          Coverage and expansion documentation
 scripts/validate-data.js       Data validator used by npm test
+scripts/audit-temporal-consistency.js Temporal and semantic edge audit
 scripts/coverage-report.js     Era and branch coverage report
 scripts/import-compact-tech.js TSV importer for bulk additions
+scripts/migrate-semantic-edges.js Rebuilds typed dependency edge metadata
 scripts/audit-data-quality.js  Data-quality audit for duplicates and placeholder rows
 ```
 

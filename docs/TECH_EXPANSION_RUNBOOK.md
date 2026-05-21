@@ -22,6 +22,7 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Tenth textbook-quality vertical: `Cybersecurity & Cryptography`
 - Eleventh textbook-quality vertical: `Transportation & Logistics`
 - Twelfth textbook-quality vertical: `Materials Science & Manufacturing`
+- Current quality model: typed `dependencyEdges`, approximate `firstKnownDate`, source quality metadata, and temporal edge audits are required before adding more bulk nodes.
 
 ## Retired Approach
 
@@ -52,10 +53,13 @@ Rules:
 - Reuse existing IDs as anchors. Search with `rg '"id": "keyword' data`.
 - It is OK for rows in the same TSV to depend on earlier or later rows in that TSV.
 
+After importing compact TSV rows, run `node scripts/migrate-semantic-edges.js` to rebuild typed `dependencyEdges`, first-known date metadata, source quality fields, and review statuses. Do not leave bare prerequisite-only edges in canonical data.
+
 ## Import Loop
 
 ```bash
 node scripts/import-compact-tech.js data/expansion/human-tech-bulk-N.tsv
+node scripts/migrate-semantic-edges.js
 npm test
 npm run quality
 npm run coverage
@@ -78,12 +82,15 @@ Before import, sample rows from every era in the TSV and ask:
 - Does the description identify what the thing is, not just a generic operational function?
 - Is the era plausible?
 - Are prerequisites earlier or contemporaneous enabling technologies?
+- Is each dependency a hard requirement, a contextual enabler, a historical predecessor, a scaling dependency, or only speculative?
+- Does every hard `required` edge have high confidence and a concrete note?
 - If the row belongs to a textbook-quality field, does it include `fields`, `fieldLanes`, `maturity`, and cited `sources`?
 - If the row is a forecast, does it include roadmap timeframe, confidence, blockers, and rationale?
 
 After import, run:
 
 ```bash
+node scripts/migrate-semantic-edges.js
 npm test
 npm run quality
 npm run coverage

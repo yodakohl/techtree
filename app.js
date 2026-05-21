@@ -47,16 +47,72 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    function getDependencyEdges(tech) {
+        if (Array.isArray(tech.dependencyEdges)) return tech.dependencyEdges;
+        return (tech.prerequisites || []).map(prerequisite => ({
+            prerequisite,
+            type: 'enabling',
+            confidence: 0.5,
+            evidence_level: 'weak_inference',
+            note: 'Legacy prerequisite edge.'
+        }));
+    }
+
+    function getPrerequisiteIds(tech) {
+        return getDependencyEdges(tech).map(edge => edge.prerequisite);
+    }
+
+    function edgeColor(type) {
+        return {
+            required: '#2f6fbb',
+            enabling: '#8d99a6',
+            accelerates: '#6a9f58',
+            historical_predecessor: '#9b6a3d',
+            common_dependency: '#9aa5af',
+            commercial_or_scaling_dependency: '#b7791f',
+            speculative: '#8a63b0'
+        }[type] || '#9aa5af';
+    }
+
+    const eraDefaultDates = {
+        Ancient: { firstKnownDate: -10000, datePrecision: 'millennium', region: 'Global / multiple regions' },
+        Classical: { firstKnownDate: -500, datePrecision: 'century', region: 'Global / multiple regions' },
+        Medieval: { firstKnownDate: 500, datePrecision: 'century', region: 'Global / multiple regions' },
+        Renaissance: { firstKnownDate: 1400, datePrecision: 'century', region: 'Global / multiple regions' },
+        Industrial: { firstKnownDate: 1760, datePrecision: 'decade', region: 'Global / multiple regions' },
+        Modern: { firstKnownDate: 1945, datePrecision: 'decade', region: 'Global / multiple regions' },
+        Future: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / not yet broadly established' }
+    };
+
+    function createDefaultDependencyEdge(prerequisite) {
+        return {
+            prerequisite,
+            type: 'enabling',
+            confidence: 0.5,
+            evidence_level: 'weak_inference',
+            note: 'User-entered dependency; semantic review required.',
+            reviewStatus: 'generated'
+        };
+    }
+
+    function applyDefaultMetadata(tech) {
+        const defaults = eraDefaultDates[tech.era] || eraDefaultDates.Modern;
+        tech.firstKnownDate = tech.firstKnownDate ?? defaults.firstKnownDate;
+        tech.datePrecision = tech.datePrecision || defaults.datePrecision;
+        tech.region = tech.region || defaults.region;
+        tech.reviewStatus = tech.reviewStatus || 'generated';
+        tech.dependencyEdges = (tech.prerequisites || []).map(createDefaultDependencyEdge);
+        return tech;
+    }
+
     // Calculate how many technologies depend on each tech to scale node size
     const dependentsCount = {};
     dynamicData.forEach(t => dependentsCount[t.id] = 0);
     dynamicData.forEach(t => {
-        if (t.prerequisites) {
-            t.prerequisites.forEach(p => {
-                if (dependentsCount[p] === undefined) dependentsCount[p] = 0;
-                dependentsCount[p] += 1;
-            });
-        }
+        getPrerequisiteIds(t).forEach(p => {
+            if (dependentsCount[p] === undefined) dependentsCount[p] = 0;
+            dependentsCount[p] += 1;
+        });
     });
 
     const eraColors = {
@@ -126,8 +182,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const dependentsMap = {};
     const prereqMap = {};
     dynamicData.forEach(t => {
-        prereqMap[t.id] = t.prerequisites || [];
-        (t.prerequisites || []).forEach(pr => {
+        prereqMap[t.id] = getPrerequisiteIds(t);
+        getPrerequisiteIds(t).forEach(pr => {
             if (!dependentsMap[pr]) dependentsMap[pr] = [];
             dependentsMap[pr].push(t.id);
         });
@@ -135,7 +191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const queue = [];
     dynamicData.forEach(t => {
-        if (!t.prerequisites || t.prerequisites.length === 0) {
+        if (getPrerequisiteIds(t).length === 0) {
             levelMap[t.id] = 0;
             queue.push(t.id);
         }
@@ -235,13 +291,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const edgeItems = [];
     dynamicData.forEach(tech => {
-        (tech.prerequisites || []).forEach(prereqId => {
+        getDependencyEdges(tech).forEach(edge => {
+            const prereqId = edge.prerequisite;
+            const type = edge.type || 'enabling';
+            const confidence = typeof edge.confidence === 'number' ? edge.confidence : 0.5;
             edgeItems.push({
                 from: prereqId,
                 to: tech.id,
                 arrows: 'to',
-                color: { color: '#9aa5af' },
-                origColor: '#9aa5af'
+                color: { color: edgeColor(type) },
+                origColor: edgeColor(type),
+                width: type === 'required' ? 2 : 1,
+                dashes: type === 'speculative' || type === 'common_dependency',
+                title: `${type.replaceAll('_', ' ')} · ${Math.round(confidence * 100)}% confidence · ${edge.evidence_level || 'unknown'}\n${edge.note || ''}`
             });
         });
     });
@@ -450,6 +512,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (tech.maturity) {
             appendMetadataValue('Maturity', tech.maturity);
+        }
+        if (tech.firstKnownDate !== undefined) {
+            appendMetadataValue('First known', `${tech.firstKnownDate} (${tech.datePrecision || 'unknown'}; ${tech.region || 'region unknown'})`);
+        }
+        if (tech.reviewStatus) {
+            appendMetadataValue('Review', tech.reviewStatus.replaceAll('_', ' '));
         }
         if (tech.roadmap) {
             appendMetadataValue('Roadmap', `${tech.roadmap.role || 'forecast'} · ${tech.roadmap.timeframe || 'unknown'} · ${tech.roadmap.confidence || 'unknown'} confidence`);
@@ -719,7 +787,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const prereqs = prereqStr ? prereqStr.split(',').map(p => p.trim()).filter(Boolean) : [];
 
-            const newTech = { id, name, era, description: desc, prerequisites: prereqs };
+            const newTech = applyDefaultMetadata({ id, name, era, description: desc, prerequisites: prereqs });
             dynamicData.push(newTech);
             nodesById[id] = newTech;
             prereqMap[id] = prereqs;
@@ -746,7 +814,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
             prereqs.forEach(pr => {
                 if (nodes.get(pr)) {
-                    edges.add({ from: pr, to: id, arrows: 'to' });
+                    edges.add({ from: pr, to: id, arrows: 'to', color: { color: edgeColor('enabling') } });
                 }
             });
 
@@ -791,6 +859,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             tech.era = era;
             tech.description = desc;
             tech.prerequisites = prereqs;
+            tech.dependencyEdges = prereqs.map(createDefaultDependencyEdge);
+            applyDefaultMetadata(tech);
             nodesById[selectedNodeId] = tech;
             prereqMap[selectedNodeId] = prereqs;
             oldPrereqs.forEach(pr => {
@@ -817,13 +887,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Re-add edges for this node
             prereqs.forEach(pr => {
                 if (nodes.get(pr)) {
-                    edges.add({ from: pr, to: selectedNodeId, arrows: 'to' });
+                    edges.add({ from: pr, to: selectedNodeId, arrows: 'to', color: { color: edgeColor('enabling') } });
                 }
             });
             // Reconnect edges from this node to its dependents
             dynamicData.forEach(t => {
-                if (t.prerequisites.includes(selectedNodeId)) {
-                    edges.add({ from: selectedNodeId, to: t.id, arrows: 'to' });
+                if (getPrerequisiteIds(t).includes(selectedNodeId)) {
+                    edges.add({ from: selectedNodeId, to: t.id, arrows: 'to', color: { color: edgeColor('enabling') } });
                 }
             });
             oldPrereqs.forEach(pr => {

@@ -49,7 +49,17 @@ npm test
 npm run quality
 ```
 
-This checks required fields, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, generated placeholder rows, duplicate display names, metadata validity, cited textbook-quality field entries, forecast roadmaps, and technologies that use modern or future-only terminology before the era where it belongs.
+This checks required fields, typed dependency-edge metadata, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, generated placeholder rows, duplicate display names, metadata validity, cited textbook-quality field entries, forecast roadmaps, technologies that use modern or future-only terminology before the era where it belongs, and temporal edge consistency.
+
+Every dependency edge now carries:
+
+- `type`: `required`, `enabling`, `accelerates`, `historical_predecessor`, `common_dependency`, `commercial_or_scaling_dependency`, or `speculative`
+- `confidence`: numeric 0.0-1.0
+- `evidence_level`: primary/review/textbook/expert/weak/speculative evidence class
+- `note`: a short explanation for the edge
+- `reviewStatus`: generated, structurally validated, source checked, domain reviewed, or disputed
+
+Every node has `firstKnownDate`, `datePrecision`, `region`, and `reviewStatus`. `prerequisites` remains as a compatibility mirror, but `dependencyEdges` is the authoritative relationship model.
 
 ## Coverage Audit
 

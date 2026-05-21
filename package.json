@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "coverage": "node scripts/coverage-report.js",
+    "temporal": "node scripts/audit-temporal-consistency.js",
     "quality": "node scripts/audit-data-quality.js",
-    "test": "node scripts/validate-data.js",
+    "test": "node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },
   "keywords": [

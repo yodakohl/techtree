@@ -1,5 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const {
+    SOURCE_TYPES,
+    SOURCE_SUPPORTS,
+    sourceQualityWeight,
+    getDependencyEdges
+} = require('./edge-schema');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const EXPANSION_DIR = path.join(DATA_DIR, 'expansion');
@@ -187,9 +193,38 @@ for (const item of data) {
                 errors.push(`${item.__file}: ${item.id} source ${index + 1} must be an object`);
                 continue;
             }
-            for (const field of ['title', 'url', 'publisher', 'year']) {
+            for (const field of ['title', 'url', 'publisher', 'year', 'source_type', 'supports']) {
                 if (!(field in source)) errors.push(`${item.__file}: ${item.id} source ${index + 1} is missing ${field}`);
             }
+            if (!SOURCE_TYPES.has(source.source_type)) {
+                errors.push(`${item.__file}: ${item.id} source ${index + 1} has invalid source_type ${source.source_type}`);
+            }
+            if (!Array.isArray(source.supports) || source.supports.some(value => !SOURCE_SUPPORTS.has(value))) {
+                errors.push(`${item.__file}: ${item.id} source ${index + 1} has invalid supports`);
+            }
+        }
+        if (item.reviewStatus === 'source_checked' && item.sources.every(source => sourceQualityWeight(source.source_type) < 0.45)) {
+            errors.push(`${item.__file}: ${item.id} is source_checked but all sources are weak_web`);
+        }
+        if (
+            item.reviewStatus === 'source_checked' &&
+            typeof item.firstKnownDate === 'number' &&
+            item.firstKnownDate < 1900 &&
+            item.sources.every(source => source.source_type === 'generic_overview' && source.year - item.firstKnownDate > 200)
+        ) {
+            errors.push(`${item.__file}: ${item.id} is source_checked from much later generic overview sources only`);
+        }
+    }
+
+    for (const edge of getDependencyEdges(item)) {
+        if (edge.evidence_level === 'weak_inference' && edge.confidence > 0.6) {
+            errors.push(`${item.__file}: ${item.id} -> ${edge.prerequisite} weak_inference edge has confidence above 0.6`);
+        }
+        if (edge.evidence_level === 'speculative' && edge.type !== 'speculative') {
+            errors.push(`${item.__file}: ${item.id} -> ${edge.prerequisite} speculative evidence must use speculative edge type`);
+        }
+        if (edge.type === 'required' && edge.confidence < 0.7) {
+            errors.push(`${item.__file}: ${item.id} -> ${edge.prerequisite} required edge has confidence below 0.7`);
         }
     }
 
@@ -263,4 +298,4 @@ if (errors.length) {
 }
 
 const sourceSummary = sourceRows.length ? ` and ${sourceRows.length} TSV source rows` : '';
-console.log(`Audited ${data.length} technologies${sourceSummary}: no generated placeholder rows, duplicate ids, duplicate or near-duplicate display names, missing source prerequisites, or too-early future/modern terms.`);
+console.log(`Audited ${data.length} technologies${sourceSummary}: no generated placeholder rows, duplicate ids, duplicate or near-duplicate display names, missing source prerequisites, too-early future/modern terms, or inconsistent source/edge confidence metadata.`);

@@ -1,9 +1,19 @@
 const fs = require('fs');
 const path = require('path');
+const {
+    EDGE_TYPES,
+    EVIDENCE_LEVELS,
+    DATE_PRECISIONS,
+    REVIEW_STATUSES,
+    SOURCE_TYPES,
+    SOURCE_SUPPORTS,
+    getDependencyEdges,
+    getPrerequisiteIds
+} = require('./edge-schema');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
-const REQUIRED_FIELDS = ['id', 'name', 'era', 'description', 'prerequisites'];
+const REQUIRED_FIELDS = ['id', 'name', 'era', 'description', 'prerequisites', 'dependencyEdges', 'firstKnownDate', 'datePrecision', 'region', 'reviewStatus'];
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const SOURCE_REQUIRED_FIELDS = new Set([
     'Genome Editing / CRISPR-Cas',
@@ -39,7 +49,7 @@ function loadData() {
 function findCycles(data, ids) {
     const graph = new Map();
     for (const item of data) {
-        graph.set(item.id, (item.prerequisites || []).filter(id => ids.has(id)));
+        graph.set(item.id, getPrerequisiteIds(item).filter(id => ids.has(id)));
     }
 
     let nextIndex = 0;
@@ -125,6 +135,65 @@ function validate() {
         if (!Array.isArray(item.prerequisites)) {
             errors.push(`${item.id} prerequisites must be an array`);
         }
+        if (!Array.isArray(item.dependencyEdges)) {
+            errors.push(`${item.id} dependencyEdges must be an array`);
+        } else {
+            const edgePrereqs = [];
+            for (const [index, edge] of item.dependencyEdges.entries()) {
+                const edgeLabel = `${item.id} dependencyEdges[${index}]`;
+                if (!edge || typeof edge !== 'object') {
+                    errors.push(`${edgeLabel} must be an object`);
+                    continue;
+                }
+                edgePrereqs.push(edge.prerequisite);
+                if (typeof edge.prerequisite !== 'string' || !edge.prerequisite.trim()) {
+                    errors.push(`${edgeLabel} is missing prerequisite`);
+                }
+                if (!EDGE_TYPES.has(edge.type)) {
+                    errors.push(`${edgeLabel} has invalid type ${edge.type}`);
+                }
+                if (typeof edge.confidence !== 'number' || edge.confidence < 0 || edge.confidence > 1) {
+                    errors.push(`${edgeLabel} confidence must be a number from 0.0 to 1.0`);
+                }
+                if (!EVIDENCE_LEVELS.has(edge.evidence_level)) {
+                    errors.push(`${edgeLabel} has invalid evidence_level ${edge.evidence_level}`);
+                }
+                if (typeof edge.note !== 'string' || !edge.note.trim()) {
+                    errors.push(`${edgeLabel} must have a short note`);
+                }
+                if (!REVIEW_STATUSES.has(edge.reviewStatus)) {
+                    errors.push(`${edgeLabel} has invalid reviewStatus ${edge.reviewStatus}`);
+                }
+                if (edge.sources !== undefined) {
+                    if (!Array.isArray(edge.sources)) {
+                        errors.push(`${edgeLabel} sources must be an array when present`);
+                    } else {
+                        for (const [sourceIndex, source] of edge.sources.entries()) {
+                            validateSource(source, `${edgeLabel} source ${sourceIndex + 1}`, errors);
+                            if (source && !source.supports?.includes('edge')) {
+                                errors.push(`${edgeLabel} source ${sourceIndex + 1} must include supports: edge`);
+                            }
+                        }
+                    }
+                }
+            }
+            if (Array.isArray(item.prerequisites) && JSON.stringify(item.prerequisites) !== JSON.stringify(edgePrereqs)) {
+                errors.push(`${item.id} prerequisites must mirror dependencyEdges prerequisite order`);
+            }
+        }
+
+        if (typeof item.firstKnownDate !== 'number' || !Number.isFinite(item.firstKnownDate)) {
+            errors.push(`${item.id} firstKnownDate must be a finite numeric year`);
+        }
+        if (!DATE_PRECISIONS.has(item.datePrecision)) {
+            errors.push(`${item.id} has invalid datePrecision ${item.datePrecision}`);
+        }
+        if (typeof item.region !== 'string' || !item.region.trim()) {
+            errors.push(`${item.id} region must be a non-empty string`);
+        }
+        if (!REVIEW_STATUSES.has(item.reviewStatus)) {
+            errors.push(`${item.id} has invalid reviewStatus ${item.reviewStatus}`);
+        }
 
         if ('fields' in item) {
             if (!Array.isArray(item.fields)) {
@@ -148,16 +217,7 @@ function validate() {
                 errors.push(`${item.id} sources must be a non-empty array when present`);
             } else {
                 for (const [index, source] of item.sources.entries()) {
-                    if (!source || typeof source !== 'object') {
-                        errors.push(`${item.id} source ${index + 1} must be an object`);
-                        continue;
-                    }
-                    for (const sourceField of ['title', 'url', 'publisher', 'year']) {
-                        if (!(sourceField in source)) errors.push(`${item.id} source ${index + 1} is missing ${sourceField}`);
-                    }
-                    if (source.url && typeof source.url === 'string' && !/^https?:\/\//.test(source.url)) {
-                        errors.push(`${item.id} source ${index + 1} url must be http(s)`);
-                    }
+                    validateSource(source, `${item.id} source ${index + 1}`, errors);
                 }
             }
         }
@@ -180,7 +240,7 @@ function validate() {
     }
 
     for (const item of data) {
-        for (const prerequisite of item.prerequisites || []) {
+        for (const prerequisite of getPrerequisiteIds(item)) {
             if (!ids.has(prerequisite)) {
                 errors.push(`${item.id} references missing prerequisite ${prerequisite}`);
             }
@@ -206,6 +266,29 @@ function validate() {
     }
 
     console.log(`Validated ${data.length} technologies across ${ids.size} unique ids with no missing prerequisites or cycles.`);
+}
+
+function validateSource(source, label, errors) {
+    if (!source || typeof source !== 'object') {
+        errors.push(`${label} must be an object`);
+        return;
+    }
+    for (const sourceField of ['title', 'url', 'publisher', 'year', 'source_type', 'supports']) {
+        if (!(sourceField in source)) errors.push(`${label} is missing ${sourceField}`);
+    }
+    if (source.url && typeof source.url === 'string' && !/^https?:\/\//.test(source.url)) {
+        errors.push(`${label} url must be http(s)`);
+    }
+    if (!SOURCE_TYPES.has(source.source_type)) {
+        errors.push(`${label} has invalid source_type ${source.source_type}`);
+    }
+    if (!Array.isArray(source.supports) || source.supports.length === 0) {
+        errors.push(`${label} supports must be a non-empty array`);
+    } else {
+        for (const support of source.supports) {
+            if (!SOURCE_SUPPORTS.has(support)) errors.push(`${label} has invalid supports value ${support}`);
+        }
+    }
 }
 
 validate();
