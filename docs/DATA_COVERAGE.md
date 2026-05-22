@@ -49,7 +49,7 @@ npm test
 npm run quality
 ```
 
-This checks required fields, typed dependency-edge metadata, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, generated placeholder rows, duplicate display names, metadata validity, cited textbook-quality field entries, forecast roadmaps, technologies that use modern or future-only terminology before the era where it belongs, and temporal edge consistency.
+This checks required fields, typed dependency-edge metadata, duplicate IDs, missing prerequisites, invalid eras, file/era mismatches, cyclic prerequisite groups, generated placeholder rows, duplicate display names, metadata validity, cited textbook-quality field entries, forecast roadmaps, technologies that use modern or future-only terminology before the era where it belongs, temporal edge consistency, and source coverage for high-impact dependency anchors.
 
 Every dependency edge now carries:
 

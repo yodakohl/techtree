@@ -150,6 +150,90 @@ const CRISPR_EDGE_TYPES = {
 };
 
 const SOURCE_OVERRIDES = {
+    advanced_chemistry: [
+        { title: 'Chemistry', url: 'https://www.britannica.com/science/chemistry', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    construction: [
+        { title: 'Construction', url: 'https://www.britannica.com/technology/construction', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    scientific_method: [
+        { title: 'Scientific Method', url: 'https://plato.stanford.edu/entries/scientific-method/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2025 }
+    ],
+    printing_press: [
+        { title: 'Gutenberg Bible', url: 'https://www.loc.gov/item/2021666734', publisher: 'Library of Congress', year: 2021 }
+    ],
+    mathematics: [
+        { title: 'Mathematics', url: 'https://www.britannica.com/science/mathematics', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    writing: [
+        { title: 'How to write cuneiform', url: 'https://www.britishmuseum.org/blog/how-write-cuneiform', publisher: 'British Museum', year: 2020 }
+    ],
+    record_keeping: [
+        { title: 'How to write cuneiform', url: 'https://www.britishmuseum.org/blog/how-write-cuneiform', publisher: 'British Museum', year: 2020 }
+    ],
+    woodworking_basic: [
+        { title: 'Woodworking', url: 'https://www.britannica.com/technology/woodworking', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    mass_production: [
+        { title: 'Mass production', url: 'https://www.britannica.com/technology/mass-production', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    codified_law: [
+        { title: 'Code of Hammurabi', url: 'https://www.britannica.com/topic/Code-of-Hammurabi', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    algorithms_computation_theory: [
+        { title: 'Algorithm', url: 'https://plato.stanford.edu/entries/algorithm/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2024 }
+    ],
+    electronics: [
+        { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
+    ],
+    masonry: [
+        { title: 'Masonry', url: 'https://www.britannica.com/technology/masonry', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    steam_engine: [
+        { title: 'Rotative Steam Engine by Boulton and Watt, 1788', url: 'https://collection.sciencemuseumgroup.org.uk/objects/co50948/rotative-steam-engine-by-boulton-and-watt-1788-beam-engine-steam-engine', publisher: 'Science Museum Group', year: 2026 }
+    ],
+    geometry: [
+        { title: 'Geometry', url: 'https://www.britannica.com/science/geometry', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    precision_machine_tools: [
+        { title: 'American Precision Museum', url: 'https://ledger.americanprecision.org/american-precision-museum/', publisher: 'American Precision Museum', year: 2026 }
+    ],
+    quantum_physics: [
+        { title: 'Quantum mechanics', url: 'https://www.britannica.com/science/quantum-mechanics-physics', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    philosophy: [
+        { title: 'Stanford Encyclopedia of Philosophy', url: 'https://plato.stanford.edu/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2026 }
+    ],
+    nanotechnology: [
+        { title: 'About Nanotechnology', url: 'https://www.nano.gov/about-nanotechnology', publisher: 'National Nanotechnology Initiative', year: 2026 }
+    ],
+    guilds: [
+        { title: 'Guild', url: 'https://www.britannica.com/topic/guild-trade-association', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    fire_control: [
+        { title: 'Fire', url: 'https://www.britannica.com/science/fire-combustion', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    animal_husbandry: [
+        { title: 'Animal breeding', url: 'https://www.britannica.com/science/animal-breeding', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    software_engineering: [
+        { title: 'Software Engineering Body of Knowledge (SWEBOK)', url: 'https://www.computer.org/education/bodies-of-knowledge/software-engineering', publisher: 'IEEE Computer Society', year: 2025 }
+    ],
+    electric_motor: [
+        { title: 'Motors', url: 'https://www.sparkmuseum.com/MOTORS.HTM', publisher: 'SPARK Museum of Electrical Invention', year: 2026 }
+    ],
+    internal_combustion_engine: [
+        { title: 'Memorial - Daimler garden house in Bad Cannstatt', url: 'https://group.mercedes-benz.com/company/tradition/museums-historical-sites/daimler-memorial.html', publisher: 'Mercedes-Benz Museum', year: 2026 }
+    ],
+    transistors: [
+        { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
+    ],
+    integrated_circuits: [
+        { title: '1960: First Planar Integrated Circuit is Fabricated', url: 'https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/', publisher: 'Computer History Museum', year: 2007 }
+    ],
+    semiconductors: [
+        { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
+    ],
     recommender_systems: [
         {
             title: 'Recommender Systems Handbook',
@@ -176,11 +260,11 @@ function inferSourceType(source) {
     const text = `${source.publisher || ''} ${source.title || ''} ${source.url || ''}`.toLowerCase();
     if (/nist\.gov\/materials\b/.test(text) || /title: materials/.test(text)) return 'generic_overview';
     if (/doi\.org|nature\.com|science\.org|nejm|cell\.com|proceedings\.neurips|arxiv|journal|transactions|machine learning/.test(text)) return 'primary_paper';
-    if (/handbook|textbook|springer/.test(text)) return 'textbook';
+    if (/handbook|textbook|springer|swebok|stanford encyclopedia|plato\.stanford/.test(text)) return 'textbook';
     if (/review|survey/.test(text)) return 'review';
-    if (/museum|computerhistory|nobelprize/.test(text)) return 'museum';
+    if (/museum|computerhistory|nobelprize|sciencemuseumgroup|american precision|sparkmuseum|mercedes-benz/.test(text)) return 'museum';
     if (/ipcc|climate change 20\d\d|systematic review|survey/.test(text)) return 'review';
-    if (/nist|energy\.gov|faa|fhwa|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|esa|nasa|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec/.test(text)) return 'official_agency';
+    if (/nist|energy\.gov|faa|fhwa|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|esa|nasa|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative/.test(text)) return 'official_agency';
     if (/britannica|encyclopaedia/.test(text)) return 'generic_overview';
     return 'weak_web';
 }
@@ -197,6 +281,12 @@ function inferEdgeType(item, prerequisite) {
     if (item.era === 'Future' || item.maturity === 'forecast' || prerequisite.era === 'Future') return 'speculative';
     const itemText = `${item.id} ${item.name}`.toLowerCase();
     const prereqText = `${prerequisite.id} ${prerequisite.name}`.toLowerCase();
+    if (/steam_engine|electric_motor|internal_combustion_engine|siege_engineering|construction|precision_machine_tools|software_engineering/.test(prereqText)) {
+        if (/diesel_engine|automobile_prototype|powered_flight|submarines|electric_traction|electric_generators|electric_elevators|electric_fans|operating_systems|object_oriented_programming|internet_protocols/.test(itemText)) return 'required';
+        return /factory|production|manufacturing|logistics|grid|railroad|ship|mass|industrial|appliances|lighting|tools|machining|skyscraper|cinematography/.test(itemText)
+            ? 'commercial_or_scaling_dependency'
+            : 'enabling';
+    }
     if (/manufacturing|production|factory|supply|logistics|grid|market|commercial|platform|therapy|therapeutic|approval|charging|warehouse/.test(itemText)) {
         if (/mass_production|factory|grid|logistics|supply|software|database|internet|clinical|regulatory|delivery|manufacturing/.test(prereqText)) {
             return 'commercial_or_scaling_dependency';
@@ -316,7 +406,7 @@ for (const item of allItems) {
     if (Array.isArray(item.sources)) {
         item.sources = item.sources.map(source => normalizeSource(source, item));
     }
-    if (SOURCE_OVERRIDES[item.id]) item.sources = SOURCE_OVERRIDES[item.id];
+    if (SOURCE_OVERRIDES[item.id]) item.sources = SOURCE_OVERRIDES[item.id].map(source => normalizeSource(source, item));
     const bestSourceWeight = Math.max(0, ...(item.sources || []).map(source => sourceQualityWeight(source.source_type)));
     item.reviewStatus = bestSourceWeight > 0.45 ? 'source_checked' : 'structurally_validated';
 

@@ -130,6 +130,13 @@ const ids = new Map();
 const names = new Map();
 const comparableNames = new Map();
 const sourceRows = [];
+const outgoingEdgeCounts = new Map();
+
+for (const item of data) {
+    for (const edge of getDependencyEdges(item)) {
+        outgoingEdgeCounts.set(edge.prerequisite, (outgoingEdgeCounts.get(edge.prerequisite) || 0) + 1);
+    }
+}
 
 for (const item of data) {
     if (GENERATED_ID.test(item.id)) {
@@ -185,6 +192,10 @@ for (const item of data) {
         if (item.fields?.includes(sourceRequiredField) && (!Array.isArray(item.sources) || item.sources.length === 0)) {
             errors.push(`${item.__file}: ${item.id} is in ${sourceRequiredField} but has no sources`);
         }
+    }
+
+    if ((outgoingEdgeCounts.get(item.id) || 0) >= 30 && (!Array.isArray(item.sources) || item.sources.length === 0)) {
+        errors.push(`${item.__file}: ${item.id} is a high-impact dependency anchor with ${outgoingEdgeCounts.get(item.id)} outgoing edges but no sources`);
     }
 
     if (Array.isArray(item.sources)) {
