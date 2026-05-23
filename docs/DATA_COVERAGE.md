@@ -39,6 +39,7 @@ Field lenses currently supported:
 - Cybersecurity & Cryptography
 - Transportation & Logistics
 - Materials Science & Manufacturing
+- Telecommunications & Networking
 
 ## Validation Standard
 

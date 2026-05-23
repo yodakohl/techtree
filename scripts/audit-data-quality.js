@@ -22,7 +22,8 @@ const SOURCE_REQUIRED_FIELDS = new Set([
     'Agriculture & Food Systems',
     'Cybersecurity & Cryptography',
     'Transportation & Logistics',
-    'Materials Science & Manufacturing'
+    'Materials Science & Manufacturing',
+    'Telecommunications & Networking'
 ]);
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([

@@ -45,7 +45,58 @@ const NODE_DATE_OVERRIDES = {
     approved_crispr_therapies: { firstKnownDate: 2023, datePrecision: 'exact', region: 'United Kingdom, United States, and global medicine' },
     in_vivo_crispr_therapeutics: { firstKnownDate: 2030, datePrecision: 'decade', region: 'Forecast / global medicine' },
     tool_using_language_models: { firstKnownDate: 2022, datePrecision: 'exact', region: 'Global AI research community' },
-    synthetic_biology: { firstKnownDate: 2000, datePrecision: 'decade', region: 'Global biotechnology research' }
+    synthetic_biology: { firstKnownDate: 2000, datePrecision: 'decade', region: 'Global biotechnology research' },
+    telegraph: { firstKnownDate: 1837, datePrecision: 'decade', region: 'United States and Europe' },
+    telephone: { firstKnownDate: 1876, datePrecision: 'exact', region: 'United States' },
+    telephone_exchange: { firstKnownDate: 1878, datePrecision: 'exact', region: 'United States' },
+    telegraph_cables_transoceanic: { firstKnownDate: 1866, datePrecision: 'exact', region: 'Atlantic Ocean / United Kingdom and North America' },
+    coaxial_cable: { firstKnownDate: 1880, datePrecision: 'decade', region: 'United Kingdom and United States' },
+    automatic_telephone_switching: { firstKnownDate: 1891, datePrecision: 'exact', region: 'United States' },
+    radio_telegraphy_wireless_communication: { firstKnownDate: 1895, datePrecision: 'decade', region: 'Europe and North America' },
+    radio: { firstKnownDate: 1906, datePrecision: 'decade', region: 'Global communications industry' },
+    telecommunications: { firstKnownDate: 1932, datePrecision: 'decade', region: 'Global standards and carrier networks' },
+    microwave_relay_networks: { firstKnownDate: 1947, datePrecision: 'decade', region: 'United States and Europe' },
+    information_theory: { firstKnownDate: 1948, datePrecision: 'exact', region: 'United States' },
+    frequency_division_multiplexing: { firstKnownDate: 1910, datePrecision: 'decade', region: 'Global carrier networks' },
+    time_division_multiplexing: { firstKnownDate: 1960, datePrecision: 'decade', region: 'Global digital carrier networks' },
+    packet_switching: { firstKnownDate: 1961, datePrecision: 'decade', region: 'United States and United Kingdom' },
+    computer_networking: { firstKnownDate: 1969, datePrecision: 'exact', region: 'United States' },
+    internet_protocols_tcp_ip_arpanet: { firstKnownDate: 1974, datePrecision: 'exact', region: 'United States' },
+    local_area_networks: { firstKnownDate: 1970, datePrecision: 'decade', region: 'United States and global computing industry' },
+    ethernet: { firstKnownDate: 1973, datePrecision: 'exact', region: 'United States' },
+    internet: { firstKnownDate: 1983, datePrecision: 'exact', region: 'United States and global research networks' },
+    domain_name_system: { firstKnownDate: 1983, datePrecision: 'exact', region: 'United States and global internet' },
+    border_gateway_protocol: { firstKnownDate: 1989, datePrecision: 'exact', region: 'Global internet' },
+    network_time_protocol: { firstKnownDate: 1985, datePrecision: 'exact', region: 'United States and global internet' },
+    world_wide_web: { firstKnownDate: 1989, datePrecision: 'exact', region: 'CERN / Switzerland' },
+    http_protocol: { firstKnownDate: 1991, datePrecision: 'exact', region: 'CERN / global web' },
+    web_browsers: { firstKnownDate: 1990, datePrecision: 'exact', region: 'CERN / global web' },
+    fiber_optics: { firstKnownDate: 1970, datePrecision: 'exact', region: 'United Kingdom, United States, and global carrier networks' },
+    dense_wavelength_division_multiplexing: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global optical-networking industry' },
+    submarine_fiber_optic_cables: { firstKnownDate: 1988, datePrecision: 'exact', region: 'Atlantic Ocean and global carrier networks' },
+    cellular_networks: { firstKnownDate: 1979, datePrecision: 'decade', region: 'Japan, Nordic countries, and United States' },
+    gsm_digital_cellular: { firstKnownDate: 1991, datePrecision: 'exact', region: 'Europe and global mobile industry' },
+    lte_4g_networks: { firstKnownDate: 2009, datePrecision: 'exact', region: 'Global mobile industry' },
+    five_g_new_radio: { firstKnownDate: 2018, datePrecision: 'exact', region: 'Global mobile industry' },
+    mobile_phones: { firstKnownDate: 1973, datePrecision: 'exact', region: 'United States and global mobile industry' },
+    mobile_broadband_networks: { firstKnownDate: 2001, datePrecision: 'decade', region: 'Global mobile industry' },
+    wifi_wireless_networking: { firstKnownDate: 1997, datePrecision: 'exact', region: 'Global IEEE 802.11 ecosystem' },
+    bluetooth_short_range: { firstKnownDate: 1998, datePrecision: 'exact', region: 'Global device industry' },
+    smartphones: { firstKnownDate: 1994, datePrecision: 'decade', region: 'Global mobile computing industry' },
+    internet_of_things_iot_ubiquitous_connectivity: { firstKnownDate: 1999, datePrecision: 'decade', region: 'Global embedded-networking industry' },
+    rfid_tracking: { firstKnownDate: 1973, datePrecision: 'decade', region: 'Global logistics and identification systems' },
+    email_messaging_protocols: { firstKnownDate: 1971, datePrecision: 'exact', region: 'United States / ARPANET' },
+    voice_over_ip: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global internet' },
+    content_delivery_networks: { firstKnownDate: 1998, datePrecision: 'exact', region: 'United States and global internet' },
+    mesh_wifi_networks: { firstKnownDate: 2003, datePrecision: 'decade', region: 'Global wireless-networking industry' },
+    cable_modems_docsis: { firstKnownDate: 1997, datePrecision: 'exact', region: 'North America and global cable networks' },
+    digital_subscriber_line_dsl: { firstKnownDate: 1990, datePrecision: 'decade', region: 'Global telephone-carrier networks' },
+    network_management_snmp: { firstKnownDate: 1988, datePrecision: 'exact', region: 'Global internet' },
+    software_defined_networking: { firstKnownDate: 2008, datePrecision: 'decade', region: 'Global networking research and industry' },
+    tls_ssl_secure_transport: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global internet' },
+    communications_satellites: { firstKnownDate: 1962, datePrecision: 'exact', region: 'United States and global satellite networks' },
+    quantum_internet: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / global quantum-networking research' },
+    '5g_6g_communication_networks': { firstKnownDate: 2030, datePrecision: 'decade', region: 'Forecast / global mobile industry' }
 };
 
 const DEPENDENCY_REPLACEMENTS = {
@@ -77,14 +128,18 @@ const REMOVE_DEPENDENCIES = new Map([
     ['experimental_controls', new Set(['probability_statistics_inference'])],
     ['art_conservation_workshops', new Set(['public_museum_catalogs'])],
     ['lipid_nanoparticles', new Set(['messenger_rna_therapeutics'])],
-    ['synthetic_biology', new Set(['crispr_gene_editing'])]
+    ['synthetic_biology', new Set(['crispr_gene_editing'])],
+    ['5g_6g_communication_networks', new Set(['mobile_phones', 'advanced_ai'])],
+    ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([
     ['solid_state_drives_ssd_flash_memory', ['flash_memory']],
     ['vector_databases', ['information_theory']],
     ['retrieval_augmented_generation', ['search_engines']],
-    ['experimental_controls', ['probability_theory']]
+    ['experimental_controls', ['probability_theory']],
+    ['5g_6g_communication_networks', ['five_g_new_radio']],
+    ['submarine_fiber_optic_cables', ['lasers']]
 ]);
 
 const EDGE_OVERRIDES = {
@@ -147,6 +202,86 @@ const CRISPR_EDGE_TYPES = {
     'ex_vivo_crispr_cell_therapy|crispr_delivery_aav_lnp_rnp': ['commercial_or_scaling_dependency', 'Cell therapies require delivery/manufacturing workflows for edited cells.'],
     'approved_crispr_therapies|ex_vivo_crispr_cell_therapy': ['commercial_or_scaling_dependency', 'Approved therapies depend on clinical manufacturing, evidence, and regulatory approval, not only edit chemistry.'],
     'in_vivo_crispr_therapeutics|crispr_delivery_aav_lnp_rnp': ['commercial_or_scaling_dependency', 'In vivo therapy depends heavily on safe tissue-targeted delivery.']
+};
+
+const TELECOM_FIELD = 'Telecommunications & Networking';
+
+const TELECOM_FIELD_LANES = {
+    telegraph: 'Foundations & Switching',
+    telephone: 'Foundations & Switching',
+    telephone_exchange: 'Foundations & Switching',
+    automatic_telephone_switching: 'Foundations & Switching',
+    radio_telegraphy_wireless_communication: 'Foundations & Switching',
+    telecommunications: 'Foundations & Switching',
+    radio: 'Foundations & Switching',
+    information_theory: 'Foundations & Switching',
+    computer_networking: 'Foundations & Switching',
+    packet_switching: 'Foundations & Switching',
+    telegraph_cables_transoceanic: 'Transmission Media',
+    coaxial_cable: 'Transmission Media',
+    microwave_relay_networks: 'Transmission Media',
+    fiber_optics: 'Transmission Media',
+    frequency_division_multiplexing: 'Transmission Media',
+    time_division_multiplexing: 'Transmission Media',
+    dense_wavelength_division_multiplexing: 'Transmission Media',
+    submarine_fiber_optic_cables: 'Transmission Media',
+    communications_satellites: 'Transmission Media',
+    internet_protocols_tcp_ip_arpanet: 'Protocols & Routing',
+    domain_name_system: 'Protocols & Routing',
+    border_gateway_protocol: 'Protocols & Routing',
+    http_protocol: 'Protocols & Routing',
+    email_messaging_protocols: 'Protocols & Routing',
+    tls_ssl_secure_transport: 'Protocols & Routing',
+    network_time_protocol: 'Protocols & Routing',
+    local_area_networks: 'Access Networks',
+    ethernet: 'Access Networks',
+    cellular_networks: 'Access Networks',
+    gsm_digital_cellular: 'Access Networks',
+    lte_4g_networks: 'Access Networks',
+    five_g_new_radio: 'Access Networks',
+    mobile_broadband_networks: 'Access Networks',
+    wifi_wireless_networking: 'Access Networks',
+    bluetooth_short_range: 'Access Networks',
+    cable_modems_docsis: 'Access Networks',
+    digital_subscriber_line_dsl: 'Access Networks',
+    internet: 'Services & Applications',
+    world_wide_web: 'Services & Applications',
+    web_browsers: 'Services & Applications',
+    voice_over_ip: 'Services & Applications',
+    smartphones: 'Services & Applications',
+    mobile_phones: 'Services & Applications',
+    internet_of_things_iot_ubiquitous_connectivity: 'Services & Applications',
+    rfid_tracking: 'Services & Applications',
+    content_delivery_networks: 'Operations & Scaling',
+    mesh_wifi_networks: 'Operations & Scaling',
+    network_management_snmp: 'Operations & Scaling',
+    software_defined_networking: 'Operations & Scaling',
+    quantum_internet: 'Roadmap',
+    '5g_6g_communication_networks': 'Roadmap'
+};
+
+const FIELD_OVERRIDES = Object.fromEntries(Object.entries(TELECOM_FIELD_LANES).map(([id, lane]) => [
+    id,
+    {
+        fields: [TELECOM_FIELD],
+        fieldLanes: { [TELECOM_FIELD]: lane },
+        maturity: lane === 'Roadmap' ? 'forecast' : 'established'
+    }
+]));
+
+FIELD_OVERRIDES.quantum_internet.roadmap = {
+    role: 'roadmap',
+    timeframe: '2030s+',
+    confidence: 'medium',
+    blockers: ['repeater scaling', 'loss-tolerant quantum memories', 'standards and interconnection'],
+    rationale: 'Quantum networking is an active research roadmap rather than a broadly deployed communication infrastructure.'
+};
+FIELD_OVERRIDES['5g_6g_communication_networks'].roadmap = {
+    role: 'roadmap',
+    timeframe: '2030s',
+    confidence: 'medium',
+    blockers: ['spectrum allocation', 'radio hardware maturity', 'energy efficiency', 'standards completion'],
+    rationale: '6G work is in pre-commercial standardization and research, while established 5G is represented separately by 5G New Radio.'
 };
 
 const SOURCE_OVERRIDES = {
@@ -234,6 +369,159 @@ const SOURCE_OVERRIDES = {
     semiconductors: [
         { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
     ],
+    telegraph: [
+        { title: 'Invention of the Telegraph', url: 'https://www.loc.gov/collections/samuel-morse-papers/articles-and-essays/invention-of-the-telegraph/', publisher: 'Library of Congress', year: 2026 }
+    ],
+    telephone: [
+        { title: 'Alexander Graham Bell and the Telephone', url: 'https://www.loc.gov/collections/alexander-graham-bell-papers/articles-and-essays/alexander-graham-bell-and-the-telephone/', publisher: 'Library of Congress', year: 2026 }
+    ],
+    telephone_exchange: [
+        { title: 'Telephone', url: 'https://www.britannica.com/technology/telephone', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    telegraph_cables_transoceanic: [
+        { title: 'Transatlantic Cable', url: 'https://ethw.org/Transatlantic_Cable', publisher: 'IEEE History Center', year: 2026 }
+    ],
+    coaxial_cable: [
+        { title: 'Coaxial Cable', url: 'https://www.britannica.com/technology/coaxial-cable', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    automatic_telephone_switching: [
+        { title: 'Telephone', url: 'https://www.britannica.com/technology/telephone', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    radio_telegraphy_wireless_communication: [
+        { title: 'Guglielmo Marconi - Biographical', url: 'https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/', publisher: 'Nobel Prize', year: 2026 }
+    ],
+    radio: [
+        { title: 'Guglielmo Marconi - Biographical', url: 'https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/', publisher: 'Nobel Prize', year: 2026 }
+    ],
+    telecommunications: [
+        { title: 'History of ITU', url: 'https://www.itu.int/en/history/Pages/ITUsHistory.aspx', publisher: 'International Telecommunication Union', year: 2026 }
+    ],
+    microwave_relay_networks: [
+        { title: 'Microwave Telecommunication', url: 'https://www.britannica.com/technology/microwave-telecommunication', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    information_theory: [
+        { title: 'A Mathematical Theory of Communication', url: 'https://doi.org/10.1002/j.1538-7305.1948.tb01338.x', publisher: 'Bell System Technical Journal', year: 1948 }
+    ],
+    frequency_division_multiplexing: [
+        { title: 'Telecommunications media - Frequency-division multiplexing', url: 'https://www.britannica.com/technology/telecommunications-media/Frequency-division-multiplexing', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    time_division_multiplexing: [
+        { title: 'Telecommunications media - Time-division multiplexing', url: 'https://www.britannica.com/technology/telecommunications-media/Time-division-multiplexing', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    computer_networking: [
+        { title: 'A Brief History of the Internet', url: 'https://www.internetsociety.org/internet/history-internet/brief-history-internet/', publisher: 'Internet Society', year: 2026 }
+    ],
+    packet_switching: [
+        { title: 'On Distributed Communications: I. Introduction to Distributed Communications Networks', url: 'https://www.rand.org/pubs/research_memoranda/RM3420.html', publisher: 'RAND Corporation', year: 1964 }
+    ],
+    internet_protocols_tcp_ip_arpanet: [
+        { title: 'A Protocol for Packet Network Intercommunication', url: 'https://doi.org/10.1109/TCOM.1974.1092259', publisher: 'IEEE Transactions on Communications', year: 1974 }
+    ],
+    local_area_networks: [
+        { title: 'Networking', url: 'https://www.computerhistory.org/revolution/networking/19', publisher: 'Computer History Museum', year: 2026 }
+    ],
+    ethernet: [
+        { title: 'Ethernet', url: 'https://www.computerhistory.org/revolution/networking/19/381', publisher: 'Computer History Museum', year: 2026 }
+    ],
+    internet: [
+        { title: 'ARPANET', url: 'https://www.darpa.mil/about-us/timeline/arpanet', publisher: 'DARPA', year: 2026 }
+    ],
+    domain_name_system: [
+        { title: 'RFC 1034: Domain Names - Concepts and Facilities', url: 'https://datatracker.ietf.org/doc/html/rfc1034', publisher: 'RFC Editor', year: 1987 }
+    ],
+    border_gateway_protocol: [
+        { title: 'RFC 4271: A Border Gateway Protocol 4 (BGP-4)', url: 'https://datatracker.ietf.org/doc/html/rfc4271', publisher: 'RFC Editor', year: 2006 }
+    ],
+    network_time_protocol: [
+        { title: 'RFC 5905: Network Time Protocol Version 4', url: 'https://datatracker.ietf.org/doc/html/rfc5905', publisher: 'RFC Editor', year: 2010 }
+    ],
+    world_wide_web: [
+        { title: 'The World Wide Web Project', url: 'https://info.cern.ch/hypertext/WWW/TheProject.html', publisher: 'CERN', year: 1991 }
+    ],
+    http_protocol: [
+        { title: 'RFC 9110: HTTP Semantics', url: 'https://datatracker.ietf.org/doc/html/rfc9110', publisher: 'RFC Editor', year: 2022 }
+    ],
+    web_browsers: [
+        { title: 'The WorldWideWeb browser', url: 'https://www.w3.org/People/Berners-Lee/WorldWideWeb.html', publisher: 'World Wide Web Consortium', year: 1990 }
+    ],
+    fiber_optics: [
+        { title: 'The Nobel Prize in Physics 2009 - Charles K. Kao', url: 'https://www.nobelprize.org/prizes/physics/2009/kao/facts/', publisher: 'Nobel Prize', year: 2026 }
+    ],
+    dense_wavelength_division_multiplexing: [
+        { title: 'ITU-T G.694.1 Spectral grids for WDM applications', url: 'https://www.itu.int/rec/T-REC-G.694.1', publisher: 'International Telecommunication Union', year: 2020 }
+    ],
+    submarine_fiber_optic_cables: [
+        { title: 'Submarine Cable', url: 'https://www.britannica.com/technology/submarine-cable', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
+    ],
+    cellular_networks: [
+        { title: 'Mobile Computing', url: 'https://www.computerhistory.org/revolution/mobile-computing/18', publisher: 'Computer History Museum', year: 2026 }
+    ],
+    gsm_digital_cellular: [
+        { title: '2G - Global System for Mobile Communication', url: 'https://www.etsi.org/technologies/mobile/2g', publisher: 'ETSI', year: 2026 }
+    ],
+    lte_4g_networks: [
+        { title: 'LTE', url: 'https://www.3gpp.org/technologies/lte', publisher: '3GPP', year: 2026 }
+    ],
+    five_g_new_radio: [
+        { title: '5G System Overview', url: 'https://www.3gpp.org/technologies/5g-system-overview', publisher: '3GPP', year: 2026 }
+    ],
+    mobile_phones: [
+        { title: 'Mobile Computing', url: 'https://www.computerhistory.org/revolution/mobile-computing/18', publisher: 'Computer History Museum', year: 2026 }
+    ],
+    mobile_broadband_networks: [
+        { title: 'IMT-2000', url: 'https://www.itu.int/rec/R-REC-M.1457', publisher: 'International Telecommunication Union', year: 2026 }
+    ],
+    wifi_wireless_networking: [
+        { title: 'IEEE 802.11 Wireless LAN', url: 'https://standards.ieee.org/ieee/802.11/7028/', publisher: 'IEEE Standards Association', year: 2020 }
+    ],
+    bluetooth_short_range: [
+        { title: 'Bluetooth Technology Overview', url: 'https://www.bluetooth.com/learn-about-bluetooth/tech-overview/', publisher: 'Bluetooth SIG', year: 2026 }
+    ],
+    smartphones: [
+        { title: 'Mobile Computing', url: 'https://www.computerhistory.org/revolution/mobile-computing/18', publisher: 'Computer History Museum', year: 2026 }
+    ],
+    internet_of_things_iot_ubiquitous_connectivity: [
+        { title: 'NIST Cybersecurity for IoT Program', url: 'https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program', publisher: 'NIST', year: 2026 }
+    ],
+    rfid_tracking: [
+        { title: 'EPC/RFID Standards', url: 'https://www.gs1.org/standards/epc-rfid', publisher: 'GS1', year: 2026 }
+    ],
+    email_messaging_protocols: [
+        { title: 'RFC 5321: Simple Mail Transfer Protocol', url: 'https://datatracker.ietf.org/doc/html/rfc5321', publisher: 'RFC Editor', year: 2008 }
+    ],
+    voice_over_ip: [
+        { title: 'RFC 3261: SIP: Session Initiation Protocol', url: 'https://datatracker.ietf.org/doc/html/rfc3261', publisher: 'RFC Editor', year: 2002 }
+    ],
+    content_delivery_networks: [
+        { title: 'Akamai: A Case Study in Internet Content Delivery', url: 'https://dl.acm.org/doi/10.1145/347057.347425', publisher: 'ACM SIGCOMM Computer Communication Review', year: 2000 }
+    ],
+    mesh_wifi_networks: [
+        { title: 'IEEE 802.11s Wireless LAN Mesh Networking', url: 'https://standards.ieee.org/ieee/802.11s/4243/', publisher: 'IEEE Standards Association', year: 2011 }
+    ],
+    cable_modems_docsis: [
+        { title: 'A 101 on DOCSIS Technology', url: 'https://www.cablelabs.com/blog/a-101-on-docsis-technology-the-heart-of-cable-broadband', publisher: 'CableLabs', year: 2018 }
+    ],
+    digital_subscriber_line_dsl: [
+        { title: 'ITU-T G.992.1 ADSL transceivers', url: 'https://www.itu.int/rec/T-REC-G.992.1', publisher: 'International Telecommunication Union', year: 1999 }
+    ],
+    network_management_snmp: [
+        { title: 'RFC 1157: Simple Network Management Protocol', url: 'https://datatracker.ietf.org/doc/html/rfc1157', publisher: 'RFC Editor', year: 1990 }
+    ],
+    software_defined_networking: [
+        { title: 'Software-Defined Networking Definition', url: 'https://opennetworking.org/sdn-definition/', publisher: 'Open Networking Foundation', year: 2026 }
+    ],
+    tls_ssl_secure_transport: [
+        { title: 'RFC 8446: The Transport Layer Security Protocol Version 1.3', url: 'https://datatracker.ietf.org/doc/html/rfc8446', publisher: 'RFC Editor', year: 2018 }
+    ],
+    communications_satellites: [
+        { title: 'Telstar Opened Era of Global Satellite Television', url: 'https://www.nasa.gov/history/telstar-opened-era-of-global-satellite-television/', publisher: 'NASA', year: 2012 }
+    ],
+    quantum_internet: [
+        { title: 'The Quantum Internet', url: 'https://doi.org/10.1126/science.aam9288', publisher: 'Science', year: 2018, source_type: 'primary_paper', supports: ['node', 'roadmap', 'maturity'] }
+    ],
+    '5g_6g_communication_networks': [
+        { title: 'IMT-2030', url: 'https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/Pages/default.aspx', publisher: 'International Telecommunication Union', year: 2026, supports: ['node', 'roadmap', 'maturity'] }
+    ],
     recommender_systems: [
         {
             title: 'Recommender Systems Handbook',
@@ -259,18 +547,18 @@ const SOURCE_OVERRIDES = {
 function inferSourceType(source) {
     const text = `${source.publisher || ''} ${source.title || ''} ${source.url || ''}`.toLowerCase();
     if (/nist\.gov\/materials\b/.test(text) || /title: materials/.test(text)) return 'generic_overview';
-    if (/doi\.org|nature\.com|science\.org|nejm|cell\.com|proceedings\.neurips|arxiv|journal|transactions|machine learning/.test(text)) return 'primary_paper';
+    if (/doi\.org|nature\.com|science\.org|nejm|cell\.com|proceedings\.neurips|arxiv|journal|transactions|sigcomm|acm|bell system technical/.test(text)) return 'primary_paper';
     if (/handbook|textbook|springer|swebok|stanford encyclopedia|plato\.stanford/.test(text)) return 'textbook';
     if (/review|survey/.test(text)) return 'review';
-    if (/museum|computerhistory|nobelprize|sciencemuseumgroup|american precision|sparkmuseum|mercedes-benz/.test(text)) return 'museum';
+    if (/museum|computerhistory|nobelprize|sciencemuseumgroup|american precision|sparkmuseum|mercedes-benz|ethw|ieee history/.test(text)) return 'museum';
     if (/ipcc|climate change 20\d\d|systematic review|survey/.test(text)) return 'review';
-    if (/nist|energy\.gov|faa|fhwa|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|esa|nasa|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative/.test(text)) return 'official_agency';
+    if (/nist|energy\.gov|faa|fhwa|fcc|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|esa|nasa|cern|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative|itu|international telecommunication union|etsi|3gpp|w3\.org|world wide web consortium|internet society|internetsociety|gs1|bluetooth|wi-fi alliance|cablelabs|open networking foundation/.test(text)) return 'official_agency';
     if (/britannica|encyclopaedia/.test(text)) return 'generic_overview';
     return 'weak_web';
 }
 
 function normalizeSource(source, item) {
-    const source_type = inferSourceType(source);
+    const source_type = source.source_type || inferSourceType(source);
     const supports = source.supports || ['node'];
     if (item.maturity && !supports.includes('maturity')) supports.push('maturity');
     if (item.roadmap && !supports.includes('roadmap')) supports.push('roadmap');
@@ -330,6 +618,15 @@ function noteFor(type, prerequisite) {
     }[type];
 }
 
+function applyFieldMetadata(item) {
+    const override = FIELD_OVERRIDES[item.id];
+    if (!override) return;
+    item.fields = [...new Set([...(item.fields || []), ...(override.fields || [])])];
+    item.fieldLanes = { ...(item.fieldLanes || {}), ...(override.fieldLanes || {}) };
+    if (override.maturity) item.maturity = override.maturity;
+    if (override.roadmap) item.roadmap = override.roadmap;
+}
+
 function makeEdge(item, prerequisiteId, byId) {
     const prerequisite = byId.get(prerequisiteId);
     if (!prerequisite) return null;
@@ -340,7 +637,7 @@ function makeEdge(item, prerequisiteId, byId) {
     let note = noteFor(type, prerequisite);
     let evidence_level = inferEvidenceLevel(item, prerequisite, type);
     let confidence = confidenceFor(type, evidence_level);
-    let reviewStatus = item.fields?.includes('Genome Editing / CRISPR-Cas') ? 'source_checked' : 'structurally_validated';
+    let reviewStatus = item.reviewStatus === 'source_checked' ? 'source_checked' : 'structurally_validated';
 
     if (crisprOverride) {
         [type, note] = crisprOverride;
@@ -403,6 +700,7 @@ const byId = new Map(allItems.map(item => [item.id, item]));
 for (const item of allItems) {
     const defaults = ERA_DEFAULT_DATES[item.era] || ERA_DEFAULT_DATES.Modern;
     Object.assign(item, defaults, NODE_DATE_OVERRIDES[item.id] || {});
+    applyFieldMetadata(item);
     if (Array.isArray(item.sources)) {
         item.sources = item.sources.map(source => normalizeSource(source, item));
     }

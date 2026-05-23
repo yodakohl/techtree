@@ -22,6 +22,7 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Tenth textbook-quality vertical: `Cybersecurity & Cryptography`
 - Eleventh textbook-quality vertical: `Transportation & Logistics`
 - Twelfth textbook-quality vertical: `Materials Science & Manufacturing`
+- Thirteenth textbook-quality vertical: `Telecommunications & Networking`
 - Current quality model: typed `dependencyEdges`, approximate `firstKnownDate`, source quality metadata, and temporal edge audits are required before adding more bulk nodes.
 
 ## Retired Approach
