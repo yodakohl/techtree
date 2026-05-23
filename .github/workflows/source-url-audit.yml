@@ -1,0 +1,28 @@
+name: Source URL Audit
+
+on:
+  schedule:
+    - cron: '23 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-urls:
+    name: Check cited source URLs
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Audit source URLs
+        run: npm run source-urls -- --all --concurrency 12 --timeout-ms 10000
+

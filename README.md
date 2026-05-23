@@ -4,6 +4,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-14%2B-43853d.svg)](https://nodejs.org/)
 [![Dataset](https://img.shields.io/badge/technologies-1596-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
+[![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
 **TechTree is an interactive technology tree, dependency graph, and history-of-technology dataset for exploring how human technologies connect across eras.** It maps inventions, methods, infrastructure, scientific tools, and future roadmap technologies from ancient foundations to modern and emerging systems.
 
@@ -182,6 +183,8 @@ npm run source-urls -- --field "Telecommunications & Networking"
 
 This checks cited source URLs and fails on 404 or 5xx responses. It is kept separate from offline validation because it depends on network availability.
 
+GitHub Actions runs the offline data-quality workflow on every push and pull request. The source URL audit runs weekly and can also be triggered manually from the Actions tab.
+
 ## Expanding the Dataset
 
 For small edits, update the relevant era JSON directly and run `npm test`.
@@ -253,6 +256,7 @@ scripts/import-compact-tech.js TSV importer for bulk additions
 scripts/migrate-semantic-edges.js Rebuilds typed dependency edge metadata
 scripts/audit-data-quality.js  Data-quality audit for duplicates and placeholder rows
 scripts/audit-source-urls.js   Optional network audit for cited source URLs
+.github/workflows/             CI workflows for data validation and source URL auditing
 ```
 
 ## API
