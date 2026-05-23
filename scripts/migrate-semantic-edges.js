@@ -316,7 +316,7 @@ const SOURCE_OVERRIDES = {
         { title: 'Code of Hammurabi', url: 'https://www.britannica.com/topic/Code-of-Hammurabi', publisher: 'Encyclopaedia Britannica', year: 2026 }
     ],
     algorithms_computation_theory: [
-        { title: 'Algorithm', url: 'https://plato.stanford.edu/entries/algorithm/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2024 }
+        { title: 'Computation in Physical Systems', url: 'https://plato.stanford.edu/entries/computation-physicalsystems/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2024 }
     ],
     electronics: [
         { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
@@ -355,7 +355,7 @@ const SOURCE_OVERRIDES = {
         { title: 'Software Engineering Body of Knowledge (SWEBOK)', url: 'https://www.computer.org/education/bodies-of-knowledge/software-engineering', publisher: 'IEEE Computer Society', year: 2025 }
     ],
     electric_motor: [
-        { title: 'Motors', url: 'https://www.sparkmuseum.com/MOTORS.HTM', publisher: 'SPARK Museum of Electrical Invention', year: 2026 }
+        { title: 'Electric Motor', url: 'https://www.britannica.com/technology/electric-motor', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
     ],
     internal_combustion_engine: [
         { title: 'Memorial - Daimler garden house in Bad Cannstatt', url: 'https://group.mercedes-benz.com/company/tradition/museums-historical-sites/daimler-memorial.html', publisher: 'Mercedes-Benz Museum', year: 2026 }
