@@ -2,20 +2,20 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-14%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1622-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1654-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
 **TechTree is an interactive technology tree, dependency graph, and history-of-technology dataset for exploring how human technologies connect across eras.** It maps inventions, methods, infrastructure, scientific tools, and future roadmap technologies from ancient foundations to modern and emerging systems.
 
-The current validated dataset contains **1,622 curated technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,654 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
 ## What You Can Do
 
 - Trace prerequisites and downstream unlocks for a technology.
-- Explore compact subfield maps for CRISPR, semiconductors, AI/ML, energy, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, and water/sanitation.
+- Explore compact subfield maps for CRISPR, semiconductors, AI/ML, energy, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceutical drug development.
 - Compare technologies across Ancient, Classical, Medieval, Renaissance, Industrial, Modern, and Future eras.
 - Use the validated JSON data as a knowledge graph seed for research, education, simulations, or AI tools.
 - Add new technologies safely with prerequisite validation, duplicate checks, cycle detection, and quality audits.
@@ -27,7 +27,7 @@ The current validated dataset contains **1,622 curated technologies** stored as 
 
 ## Keywords
 
-`technology tree`, `tech tree`, `technology graph`, `knowledge graph`, `history of technology`, `invention timeline`, `dependency graph`, `human technology`, `CRISPR`, `semiconductors`, `artificial intelligence`, `energy systems`, `spaceflight`, `robotics`, `climate technology`, `agriculture technology`, `telecommunications`, `networking`, `water technology`, `sanitation`
+`technology tree`, `tech tree`, `technology graph`, `knowledge graph`, `history of technology`, `invention timeline`, `dependency graph`, `human technology`, `CRISPR`, `semiconductors`, `artificial intelligence`, `energy systems`, `spaceflight`, `robotics`, `climate technology`, `agriculture technology`, `telecommunications`, `networking`, `water technology`, `sanitation`, `drug discovery`, `pharmaceuticals`, `pharmacology`, `clinical trials`
 
 ## Quick Start
 
@@ -67,8 +67,8 @@ TECHTREE_READ_ONLY=true npm start
 - Inspect prerequisites and unlocks from the side panel.
 - Add, edit, or delete technologies when not running in read-only mode.
 - Browse a compact sorted view grouped by derived technology branches.
-- Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, semiconductor technology, AI/ML, energy systems, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, and water/sanitation.
-- Explore cited CRISPR/Cas9, semiconductor/integrated-circuit, AI/ML, energy/grid, spaceflight/satellite, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, and water/sanitation verticals with maturity labels, source links, and roadmap forecasts.
+- Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, semiconductor technology, AI/ML, energy systems, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceuticals/drug development.
+- Explore cited CRISPR/Cas9, semiconductor/integrated-circuit, AI/ML, energy/grid, spaceflight/satellite, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, water/sanitation, and pharmaceuticals/drug-development verticals with maturity labels, source links, and roadmap forecasts.
 
 ## Curated Field Lenses
 
@@ -88,6 +88,7 @@ TECHTREE_READ_ONLY=true npm start
 | Materials Science & Manufacturing | Trace metals, polymers, ceramics, composites, nanomaterials, additive manufacturing, materials informatics, and advanced materials roadmaps. |
 | Telecommunications & Networking | Follow telegraph, telephone, radio, fiber, packet switching, internet protocols, routing, cellular networks, broadband access, and 6G roadmap nodes. |
 | Water & Sanitation Systems | Connect wells, cisterns, sewers, aqueducts, municipal treatment, chlorination, wastewater, membranes, reuse, smart water networks, and desalination roadmaps. |
+| Pharmaceuticals & Drug Development | Trace pharmacy, pharmacology, trials, GMP, small-molecule discovery, biologics, delivery, pharmacovigilance, real-world evidence, and AI drug-discovery roadmaps. |
 
 ## Data Model
 
@@ -147,7 +148,7 @@ Rules:
 - Every dependency edge must include `type`, `confidence`, `evidence_level`, `note`, and `reviewStatus`.
 - Node and edge sources carry `source_type` and `supports` metadata so generic overviews do not get treated like primary evidence.
 - Curated field nodes may include `fields`, `fieldLanes`, `maturity`, `sources`, and `roadmap` metadata.
-- Textbook-quality field nodes in CRISPR/Cas9, semiconductors, AI/ML, energy/grid, spaceflight/satellites, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, and water/sanitation require cited sources.
+- Textbook-quality field nodes in CRISPR/Cas9, semiconductors, AI/ML, energy/grid, spaceflight/satellites, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, water/sanitation, and pharmaceuticals/drug development require cited sources.
 - Forecast technologies must include roadmap rationale, timeframe, confidence, and blockers.
 
 The sorted view derives branches from IDs, names, and descriptions. See [Data Coverage](docs/DATA_COVERAGE.md) for the current branch model.
@@ -181,6 +182,7 @@ For source-heavy changes, run the optional network URL audit:
 ```bash
 npm run source-urls -- --field "Telecommunications & Networking"
 npm run source-urls -- --field "Water & Sanitation Systems"
+npm run source-urls -- --field "Pharmaceuticals & Drug Development"
 ```
 
 This checks cited source URLs and fails on 404 or 5xx responses. It is kept separate from offline validation because it depends on network availability.
@@ -243,6 +245,10 @@ networking
 water-technology
 sanitation
 wastewater
+drug-discovery
+pharmaceuticals
+pharmacology
+clinical-trials
 ```
 
 ## Project Structure

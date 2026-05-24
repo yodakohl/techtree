@@ -9,7 +9,7 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Importer: `scripts/import-compact-tech.js`
 - Quality audit: `scripts/audit-data-quality.js`
 - Generated placeholder cleanup: `scripts/prune-generated-tech-data.js`
-- Current validated size after water/sanitation vertical pass: 1,622 curated technologies
+- Current validated size after pharmaceuticals/drug-development vertical pass: 1,654 curated technologies
 - First textbook-quality vertical: `Genome Editing / CRISPR-Cas`
 - Second textbook-quality vertical: `Semiconductors & Integrated Circuits`
 - Third textbook-quality vertical: `Artificial Intelligence & Machine Learning`
@@ -24,6 +24,7 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Twelfth textbook-quality vertical: `Materials Science & Manufacturing`
 - Thirteenth textbook-quality vertical: `Telecommunications & Networking`
 - Fourteenth textbook-quality vertical: `Water & Sanitation Systems`
+- Fifteenth textbook-quality vertical: `Pharmaceuticals & Drug Development`
 - Current quality model: typed `dependencyEdges`, approximate `firstKnownDate`, source quality metadata, and temporal edge audits are required before adding more bulk nodes.
 
 ## Retired Approach

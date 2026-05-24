@@ -41,6 +41,7 @@ Field lenses currently supported:
 - Materials Science & Manufacturing
 - Telecommunications & Networking
 - Water & Sanitation Systems
+- Pharmaceuticals & Drug Development
 
 ## Validation Standard
 

@@ -143,7 +143,58 @@ const NODE_DATE_OVERRIDES = {
     scada_water_systems: { firstKnownDate: 1970, datePrecision: 'decade', region: 'Global water utility operations' },
     acoustic_leak_detection: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global water distribution utilities' },
     smart_water_networks: { firstKnownDate: 2010, datePrecision: 'decade', region: 'Global digital water utility systems' },
-    low_energy_desalination_membranes: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / global water-scarcity regions' }
+    low_energy_desalination_membranes: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / global water-scarcity regions' },
+    pharmacopoeia: { firstKnownDate: 50, datePrecision: 'century', region: 'Mediterranean, South Asia, China, and other classical medical traditions' },
+    pharmacopoeia_compilation: { firstKnownDate: 77, datePrecision: 'century', region: 'Mediterranean and other literate medical traditions' },
+    hospital_pharmacies: { firstKnownDate: 800, datePrecision: 'century', region: 'Islamic world, Europe, and other hospital systems' },
+    experimental_pharmacology: { firstKnownDate: 1600, datePrecision: 'century', region: 'Europe and other early modern medical centers' },
+    dose_response_testing: { firstKnownDate: 1700, datePrecision: 'century', region: 'Europe and global experimental medicine' },
+    organic_chemistry: { firstKnownDate: 1828, datePrecision: 'decade', region: 'Europe and global chemical industry' },
+    alkaloid_isolation: { firstKnownDate: 1804, datePrecision: 'decade', region: 'Europe and global pharmacy' },
+    tablet_pressing: { firstKnownDate: 1843, datePrecision: 'decade', region: 'United Kingdom, Europe, and global pharmaceutical manufacturing' },
+    sterile_injectable_drugs: { firstKnownDate: 1880, datePrecision: 'decade', region: 'Europe, North America, and global hospital medicine' },
+    randomized_controlled_trials: { firstKnownDate: 1948, datePrecision: 'exact', region: 'United Kingdom and global clinical research' },
+    double_blind_clinical_trials: { firstKnownDate: 1950, datePrecision: 'decade', region: 'Europe, North America, and global clinical research' },
+    good_manufacturing_practice: { firstKnownDate: 1963, datePrecision: 'decade', region: 'United States, Europe, and global pharmaceutical manufacturing' },
+    antibiotic_susceptibility_testing: { firstKnownDate: 1940, datePrecision: 'decade', region: 'Europe, North America, and global clinical laboratories' },
+    pharmacokinetics_pharmacodynamics: { firstKnownDate: 1950, datePrecision: 'decade', region: 'Global pharmacology and clinical development' },
+    controlled_release_formulations: { firstKnownDate: 1952, datePrecision: 'decade', region: 'Global pharmaceutical formulation industry' },
+    medicinal_chemistry: { firstKnownDate: 1900, datePrecision: 'decade', region: 'Europe, North America, and global pharmaceutical research' },
+    high_throughput_screening: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global pharmaceutical research laboratories' },
+    combinatorial_chemistry: { firstKnownDate: 1984, datePrecision: 'decade', region: 'Global pharmaceutical and chemical research' },
+    lead_optimization: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global pharmaceutical research laboratories' },
+    structure_based_drug_design: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global structural biology and pharmaceutical research' },
+    computer_aided_drug_design: { firstKnownDate: 1981, datePrecision: 'decade', region: 'Global computational chemistry and pharmaceutical research' },
+    in_vitro_adme_toxicology: { firstKnownDate: 1990, datePrecision: 'decade', region: 'Global pharmaceutical safety laboratories' },
+    good_laboratory_practice_toxicology: { firstKnownDate: 1978, datePrecision: 'decade', region: 'United States, Europe, and global regulatory laboratories' },
+    pharmacogenomics: { firstKnownDate: 1997, datePrecision: 'decade', region: 'Global genomics and clinical pharmacology' },
+    adverse_event_reporting_systems: { firstKnownDate: 1968, datePrecision: 'decade', region: 'United States, WHO member states, and global medicine regulation' },
+    phase_i_iii_clinical_trials: { firstKnownDate: 1962, datePrecision: 'decade', region: 'United States, Europe, and global clinical research' },
+    regulatory_drug_approval: { firstKnownDate: 1962, datePrecision: 'decade', region: 'United States, Europe, and global medicines regulation' },
+    recombinant_dna_genetic_engineering: { firstKnownDate: 1973, datePrecision: 'exact', region: 'United States and global molecular biology' },
+    recombinant_protein_drugs: { firstKnownDate: 1982, datePrecision: 'exact', region: 'United States, Europe, and global biopharmaceutical manufacturing' },
+    biopharmaceutical_manufacturing: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global biopharmaceutical industry' },
+    gene_therapy_vectors: { firstKnownDate: 1990, datePrecision: 'decade', region: 'United States, Europe, and global clinical research' },
+    immuno_oncology_checkpoint_inhibitors: { firstKnownDate: 2011, datePrecision: 'exact', region: 'United States, Japan, Europe, and global oncology' },
+    biosimilars: { firstKnownDate: 2006, datePrecision: 'exact', region: 'European Union, United States, and global medicines regulation' },
+    nanomedicine_drug_delivery: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global pharmaceutical research and nanomedicine' },
+    continuous_pharmaceutical_manufacturing: { firstKnownDate: 2015, datePrecision: 'decade', region: 'United States, Europe, and global pharmaceutical manufacturing' },
+    real_world_evidence_regulatory_science: { firstKnownDate: 2016, datePrecision: 'decade', region: 'United States, Europe, and global medicines regulation' },
+    cell_culture: { firstKnownDate: 1907, datePrecision: 'decade', region: 'United States, Europe, and global biomedical research' },
+    molecular_biology: { firstKnownDate: 1953, datePrecision: 'decade', region: 'United Kingdom, United States, and global biomedical research' },
+    dna_sequencing: { firstKnownDate: 1977, datePrecision: 'exact', region: 'United Kingdom, United States, and global genomics' },
+    bioinformatics: { firstKnownDate: 1970, datePrecision: 'decade', region: 'Global computational biology research' },
+    antibiotics: { firstKnownDate: 1928, datePrecision: 'exact', region: 'United Kingdom, United States, and global medicine' },
+    monoclonal_antibodies: { firstKnownDate: 1975, datePrecision: 'exact', region: 'United Kingdom and global biomedical research' },
+    vaccine_development_modern: { firstKnownDate: 1955, datePrecision: 'decade', region: 'Global vaccine research and manufacturing' },
+    insulin_therapy: { firstKnownDate: 1922, datePrecision: 'exact', region: 'Canada, United States, Europe, and global medicine' },
+    lipid_nanoparticles: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global drug-delivery research' },
+    messenger_rna_therapeutics: { firstKnownDate: 2010, datePrecision: 'decade', region: 'Global RNA therapeutics research' },
+    mrna_vaccines: { firstKnownDate: 2020, datePrecision: 'exact', region: 'United States, Germany, and global vaccine programs' },
+    mrna_vaccine_platforms: { firstKnownDate: 2020, datePrecision: 'exact', region: 'United States, Germany, and global vaccine programs' },
+    protein_structure_prediction_ai: { firstKnownDate: 2020, datePrecision: 'exact', region: 'United Kingdom, United States, and global computational biology' },
+    ai_driven_drug_discovery: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / global pharmaceutical research' },
+    ai_closed_loop_drug_discovery: { firstKnownDate: 2040, datePrecision: 'decade', region: 'Forecast / global pharmaceutical research' }
 };
 
 const DEPENDENCY_REPLACEMENTS = {
@@ -232,6 +283,76 @@ const EDGE_OVERRIDES = {
         note: 'Recommender systems draw on collaborative filtering, ranking, and machine-learning methods rather than one specific random-forest citation.',
         reviewStatus: 'source_checked'
     },
+    'randomized_controlled_trials|experimental_controls': {
+        type: 'required',
+        confidence: 0.88,
+        evidence_level: 'textbook',
+        note: 'Randomized controlled trials are controlled experiments in clinical populations; random assignment is layered on top of experimental control.',
+        reviewStatus: 'source_checked'
+    },
+    'randomized_controlled_trials|probability_statistics_inference': {
+        type: 'enabling',
+        confidence: 0.78,
+        evidence_level: 'textbook',
+        note: 'Statistical inference is needed to estimate treatment effects and uncertainty, but the clinical protocol is a separate technology.',
+        reviewStatus: 'source_checked'
+    },
+    'good_manufacturing_practice|industrial_quality_control': {
+        type: 'historical_predecessor',
+        confidence: 0.82,
+        evidence_level: 'expert_inference',
+        note: 'Industrial quality-control systems precede and inform pharmaceutical GMP, but GMP adds medicine-specific documentation and regulatory controls.',
+        reviewStatus: 'source_checked'
+    },
+    'regulatory_drug_approval|phase_i_iii_clinical_trials': {
+        type: 'required',
+        confidence: 0.9,
+        evidence_level: 'expert_inference',
+        note: 'Modern drug approval requires clinical evidence on safety and effectiveness from phased human studies or accepted equivalents.',
+        reviewStatus: 'source_checked'
+    },
+    'regulatory_drug_approval|good_manufacturing_practice': {
+        type: 'required',
+        confidence: 0.86,
+        evidence_level: 'expert_inference',
+        note: 'Approval depends on evidence that the product can be manufactured under controlled quality systems.',
+        reviewStatus: 'source_checked'
+    },
+    'recombinant_protein_drugs|recombinant_dna_genetic_engineering': {
+        type: 'required',
+        confidence: 0.9,
+        evidence_level: 'expert_inference',
+        note: 'Recombinant protein drugs require engineered DNA constructs to express therapeutic proteins in host cells.',
+        reviewStatus: 'source_checked'
+    },
+    'recombinant_protein_drugs|cell_culture': {
+        type: 'required',
+        confidence: 0.84,
+        evidence_level: 'expert_inference',
+        note: 'Therapeutic protein production depends on controlled growth of microbial or mammalian cells for expression and scale-up.',
+        reviewStatus: 'source_checked'
+    },
+    'biopharmaceutical_manufacturing|good_manufacturing_practice': {
+        type: 'commercial_or_scaling_dependency',
+        confidence: 0.86,
+        evidence_level: 'expert_inference',
+        note: 'Biologic medicines require controlled manufacturing, testing, and release systems before broad clinical distribution.',
+        reviewStatus: 'source_checked'
+    },
+    'mrna_vaccines|lipid_nanoparticles': {
+        type: 'enabling',
+        confidence: 0.86,
+        evidence_level: 'review',
+        note: 'Lipid nanoparticles are a central delivery method for approved mRNA vaccines, though not the only conceivable RNA-delivery route.',
+        reviewStatus: 'source_checked'
+    },
+    'ai_closed_loop_drug_discovery|ai_driven_drug_discovery': {
+        type: 'speculative',
+        confidence: 0.4,
+        evidence_level: 'speculative',
+        note: 'Closed-loop drug discovery is modeled as a forecast extension of AI-assisted discovery rather than an established production path.',
+        reviewStatus: 'source_checked'
+    },
     'stone_tool_making|': {
         type: 'historical_predecessor',
         confidence: 0.9,
@@ -255,6 +376,7 @@ const CRISPR_EDGE_TYPES = {
 
 const TELECOM_FIELD = 'Telecommunications & Networking';
 const WATER_FIELD = 'Water & Sanitation Systems';
+const PHARMA_FIELD = 'Pharmaceuticals & Drug Development';
 
 const TELECOM_FIELD_LANES = {
     telegraph: 'Foundations & Switching',
@@ -367,6 +489,60 @@ const WATER_FIELD_LANES = {
     low_energy_desalination_membranes: 'Roadmap'
 };
 
+const PHARMA_FIELD_LANES = {
+    pharmacopoeia: 'Materia Medica & Pharmacy',
+    pharmacopoeia_compilation: 'Materia Medica & Pharmacy',
+    hospital_pharmacies: 'Materia Medica & Pharmacy',
+    experimental_pharmacology: 'Experimental Pharmacology',
+    dose_response_testing: 'Experimental Pharmacology',
+    organic_chemistry: 'Industrial Drug Manufacturing',
+    alkaloid_isolation: 'Industrial Drug Manufacturing',
+    tablet_pressing: 'Industrial Drug Manufacturing',
+    sterile_injectable_drugs: 'Industrial Drug Manufacturing',
+    good_manufacturing_practice: 'Industrial Drug Manufacturing',
+    continuous_pharmaceutical_manufacturing: 'Industrial Drug Manufacturing',
+    randomized_controlled_trials: 'Clinical Development & Regulation',
+    double_blind_clinical_trials: 'Clinical Development & Regulation',
+    good_laboratory_practice_toxicology: 'Clinical Development & Regulation',
+    phase_i_iii_clinical_trials: 'Clinical Development & Regulation',
+    regulatory_drug_approval: 'Clinical Development & Regulation',
+    pharmaceuticals_drug_design: 'Small-Molecule Drugs',
+    antibiotics: 'Small-Molecule Drugs',
+    antibiotic_susceptibility_testing: 'Small-Molecule Drugs',
+    pharmacokinetics_pharmacodynamics: 'Small-Molecule Drugs',
+    medicinal_chemistry: 'Small-Molecule Drugs',
+    high_throughput_screening: 'Small-Molecule Drugs',
+    combinatorial_chemistry: 'Small-Molecule Drugs',
+    lead_optimization: 'Small-Molecule Drugs',
+    structure_based_drug_design: 'Small-Molecule Drugs',
+    recombinant_dna_genetic_engineering: 'Biologics & Vaccines',
+    recombinant_protein_drugs: 'Biologics & Vaccines',
+    biopharmaceutical_manufacturing: 'Biologics & Vaccines',
+    monoclonal_antibodies: 'Biologics & Vaccines',
+    vaccine_development_modern: 'Biologics & Vaccines',
+    insulin_therapy: 'Biologics & Vaccines',
+    gene_therapy_vectors: 'Biologics & Vaccines',
+    immuno_oncology_checkpoint_inhibitors: 'Biologics & Vaccines',
+    biosimilars: 'Biologics & Vaccines',
+    mrna_vaccines: 'Biologics & Vaccines',
+    mrna_vaccine_platforms: 'Biologics & Vaccines',
+    messenger_rna_therapeutics: 'Biologics & Vaccines',
+    cell_culture: 'Biologics & Vaccines',
+    molecular_biology: 'Biologics & Vaccines',
+    controlled_release_formulations: 'Drug Delivery & Formulation',
+    lipid_nanoparticles: 'Drug Delivery & Formulation',
+    nanomedicine_drug_delivery: 'Drug Delivery & Formulation',
+    pharmacogenomics: 'Pharmacovigilance & Real-World Evidence',
+    adverse_event_reporting_systems: 'Pharmacovigilance & Real-World Evidence',
+    real_world_evidence_regulatory_science: 'Pharmacovigilance & Real-World Evidence',
+    dna_sequencing: 'Pharmacovigilance & Real-World Evidence',
+    computer_aided_drug_design: 'Computational & AI Drug Discovery',
+    bioinformatics: 'Computational & AI Drug Discovery',
+    protein_structure_prediction_ai: 'Computational & AI Drug Discovery',
+    ai_driven_drug_discovery: 'Roadmap',
+    ai_closed_loop_drug_discovery: 'Roadmap'
+};
+
 function fieldOverrides(field, lanes) {
     return Object.fromEntries(Object.entries(lanes).map(([id, lane]) => [
         id,
@@ -380,7 +556,8 @@ function fieldOverrides(field, lanes) {
 
 const FIELD_OVERRIDES = {
     ...fieldOverrides(TELECOM_FIELD, TELECOM_FIELD_LANES),
-    ...fieldOverrides(WATER_FIELD, WATER_FIELD_LANES)
+    ...fieldOverrides(WATER_FIELD, WATER_FIELD_LANES),
+    ...fieldOverrides(PHARMA_FIELD, PHARMA_FIELD_LANES)
 };
 
 FIELD_OVERRIDES.quantum_internet.roadmap = {
@@ -403,6 +580,21 @@ FIELD_OVERRIDES.low_energy_desalination_membranes.roadmap = {
     confidence: 'medium',
     blockers: ['membrane fouling', 'brine management', 'energy intensity', 'capital cost'],
     rationale: 'Lower-energy desalination is a clear water-scarcity roadmap area, but deployment depends on membrane durability, process integration, and cost reduction.'
+};
+FIELD_OVERRIDES.continuous_pharmaceutical_manufacturing.maturity = 'emerging';
+FIELD_OVERRIDES.ai_driven_drug_discovery.roadmap = {
+    role: 'roadmap',
+    timeframe: '2030s',
+    confidence: 'medium',
+    blockers: ['model validation', 'assay reproducibility', 'data quality', 'regulatory acceptance'],
+    rationale: 'AI is already used in drug discovery, but broad end-to-end AI-driven discovery remains a roadmap capability that depends on validated models, assays, and clinical translation.'
+};
+FIELD_OVERRIDES.ai_closed_loop_drug_discovery.roadmap = {
+    role: 'roadmap',
+    timeframe: 'late 2030s to 2040s',
+    confidence: 'medium-low',
+    blockers: ['robotic synthesis integration', 'active-learning reliability', 'safety/toxicity prediction', 'regulatory evidence standards'],
+    rationale: 'Closed-loop systems can plausibly compress candidate optimization, but dependable clinical impact requires automation, assay, safety, and validation advances.'
 };
 
 const WATER_SOURCES = {
@@ -429,6 +621,52 @@ const WATER_SOURCES = {
     nawi: { title: 'National Alliance for Water Innovation', url: 'https://www.nawihub.org/', publisher: 'National Alliance for Water Innovation', year: 2026, source_type: 'official_agency' }
 };
 
+const PHARMA_SOURCES = {
+    britannicaPharmacy: { title: 'Pharmacy', url: 'https://www.britannica.com/science/pharmacy', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaPharmacology: { title: 'Pharmacology', url: 'https://www.britannica.com/science/pharmacology', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaOrganic: { title: 'Organic Chemistry', url: 'https://www.britannica.com/science/organic-chemistry', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaAlkaloid: { title: 'Alkaloid', url: 'https://www.britannica.com/science/alkaloid', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaPharmaIndustry: { title: 'Pharmaceutical Industry: Drug Discovery and Development', url: 'https://www.britannica.com/technology/pharmaceutical-industry/Drug-discovery-and-development', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    bmjStreptomycin: { title: 'Streptomycin Treatment of Pulmonary Tuberculosis', url: 'https://www.bmj.com/content/2/4582/769', publisher: 'British Medical Journal', year: 1948, source_type: 'primary_paper' },
+    clinicalTrialsGlossary: { title: 'ClinicalTrials.gov Glossary', url: 'https://clinicaltrials.gov/study-basics/glossary', publisher: 'ClinicalTrials.gov', year: 2026, source_type: 'official_agency' },
+    fdaDrugDevelopment: { title: 'The Drug Development Process', url: 'https://www.fda.gov/patients/learn-about-drug-and-device-approvals/drug-development-process', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaDevelopmentDefinitions: { title: 'Drug Development and Review Definitions', url: 'https://www.fda.gov/drugs/investigational-new-drug-ind-application/drug-development-and-review-definitions', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaCgmp: { title: 'Facts About Current Good Manufacturing Practices (CGMPs)', url: 'https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practice-cgmp', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaGlp: { title: 'Scope and Authority', url: 'https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/fda-bioresearch-monitoring-information/scope-and-authority', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaPharmacometrics: { title: 'Division of Pharmacometrics', url: 'https://www.fda.gov/about-fda/cder-offices-and-divisions/division-pharmacometrics', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaModifiedRelease: { title: 'SUPAC-MR: Modified Release Solid Oral Dosage Forms', url: 'https://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/ucm070640.pdf', publisher: 'U.S. Food and Drug Administration', year: 1997, source_type: 'official_agency' },
+    fdaFaers: { title: 'FDA Adverse Event Reporting System', url: 'https://www.fda.gov/drugs/surveillance-post-drug-approval-activities/fda-adverse-event-monitoring-system-aems', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaPharmacogenomics: { title: 'Table of Pharmacogenomic Biomarkers in Drug Labeling', url: 'https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaRealWorldEvidence: { title: 'Real-World Evidence', url: 'https://www.fda.gov/science-research/science-and-research-special-topics/real-world-evidence', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaBiologics: { title: 'Biologics', url: 'https://www.fda.gov/vaccines-blood-biologics', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaVaccines: { title: 'Vaccines', url: 'https://www.fda.gov/vaccines-blood-biologics/vaccines', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaGeneTherapy: { title: 'Cellular and Gene Therapy Products', url: 'https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaBiosimilars: { title: 'Review and Approval', url: 'https://www.fda.gov/drugs/biosimilars/review-and-approval', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    fdaContinuousManufacturing: { title: 'Q13 Continuous Manufacturing of Drug Substances and Drug Products', url: 'https://www.fda.gov/regulatory-information/search-fda-guidance-documents/q13-continuous-manufacturing-drug-substances-and-drug-products', publisher: 'U.S. Food and Drug Administration', year: 2023, source_type: 'official_agency' },
+    fdaAntimicrobialTesting: { title: 'Antibacterial Susceptibility Test Interpretive Criteria', url: 'https://www.fda.gov/drugs/development-resources/antibacterial-susceptibility-test-interpretive-criteria', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' },
+    ncatsScreening: { title: 'Assay Development and Screening Technology', url: 'https://ncats.nih.gov/adst', publisher: 'National Center for Advancing Translational Sciences', year: 2026, source_type: 'official_agency' },
+    ncbiPk: { title: 'Pharmacokinetics', url: 'https://www.ncbi.nlm.nih.gov/sites/books/NBK557744/', publisher: 'NCBI Bookshelf', year: 2023, source_type: 'textbook' },
+    ncbiPd: { title: 'Pharmacodynamics', url: 'https://www.ncbi.nlm.nih.gov/sites/books/NBK507791/', publisher: 'NCBI Bookshelf', year: 2023, source_type: 'textbook' },
+    ncbiAdmeTox: { title: 'Role of in vitro 2D and 3D cell culture systems for ADME-Tox screening in drug discovery and development', url: 'https://pubmed.ncbi.nlm.nih.gov/36778905/', publisher: 'PubMed', year: 2023, source_type: 'review' },
+    genomeRecombinantDna: { title: 'Recombinant DNA Technology', url: 'https://www.genome.gov/genetics-glossary/recombinant-dna-technology', publisher: 'National Human Genome Research Institute', year: 2026, source_type: 'official_agency' },
+    ncbiMolecularBiology: { title: 'Molecular Biology of the Cell', url: 'https://www.ncbi.nlm.nih.gov/sites/books/NBK21054/', publisher: 'NCBI Bookshelf', year: 2002, source_type: 'textbook' },
+    genomeBioinformatics: { title: 'Bioinformatics', url: 'https://www.genome.gov/genetics-glossary/Bioinformatics', publisher: 'National Human Genome Research Institute', year: 2026, source_type: 'official_agency' },
+    genomeDnaSequencing: { title: 'DNA Sequencing', url: 'https://www.genome.gov/genetics-glossary/DNA-Sequencing', publisher: 'National Human Genome Research Institute', year: 2026, source_type: 'official_agency' },
+    atccCellCulture: { title: 'Primary Cell Culture Guide', url: 'https://www.atcc.org/resources/culture-guides/primary-cell-culture-guide', publisher: 'ATCC', year: 2026, source_type: 'textbook' },
+    nciMonoclonal: { title: 'Monoclonal Antibodies', url: 'https://www.cancer.gov/about-cancer/treatment/types/immunotherapy/monoclonal-antibodies', publisher: 'National Cancer Institute', year: 2026, source_type: 'official_agency' },
+    nciCheckpoint: { title: 'Immune Checkpoint Inhibitors', url: 'https://www.cancer.gov/about-cancer/treatment/types/immunotherapy/checkpoint-inhibitors', publisher: 'National Cancer Institute', year: 2026, source_type: 'official_agency' },
+    nobelInsulin: { title: 'The Nobel Prize in Physiology or Medicine 1923', url: 'https://www.nobelprize.org/prizes/medicine/1923/summary/', publisher: 'Nobel Prize', year: 2026, source_type: 'museum' },
+    nobelPenicillin: { title: 'The Nobel Prize in Physiology or Medicine 1945', url: 'https://www.nobelprize.org/prizes/medicine/1945/summary/', publisher: 'Nobel Prize', year: 2026, source_type: 'museum' },
+    cdcVaccineDevelopment: { title: 'How Vaccines are Developed and Approved for Use', url: 'https://www.cdc.gov/vaccines/basics/how-developed-approved.html', publisher: 'CDC', year: 2026, source_type: 'official_agency' },
+    hhsVaccineTypes: { title: 'Vaccine Types', url: 'https://www.hhs.gov/immunization/basics/types/index.html', publisher: 'U.S. Department of Health and Human Services', year: 2026, source_type: 'official_agency' },
+    nistLipidNanoparticles: { title: 'Morphological Characterization of Self-Amplifying mRNA Lipid Nanoparticles', url: 'https://www.nist.gov/publications/morphological-characterization-self-amplifying-mrna-lipid-nanoparticles', publisher: 'NIST', year: 2024, source_type: 'official_agency' },
+    pubmedLipidNanoparticles: { title: 'Lipid nanoparticles for mRNA delivery', url: 'https://pubmed.ncbi.nlm.nih.gov/34394960/', publisher: 'PubMed', year: 2021, source_type: 'review' },
+    natureDrugDiscoveryComputational: { title: 'Computational approaches streamlining drug discovery', url: 'https://www.nature.com/articles/s41586-023-05905-z', publisher: 'Nature', year: 2023, source_type: 'review' },
+    natureAlphaFold: { title: 'Highly accurate protein structure prediction with AlphaFold', url: 'https://www.nature.com/articles/s41586-021-03819-2', publisher: 'Nature', year: 2021, source_type: 'primary_paper' },
+    natureAiDrugDiscovery: { title: 'AI can help to speed up drug discovery - but only if we give it the right data', url: 'https://www.nature.com/articles/d41586-023-02896-9', publisher: 'Nature', year: 2023, source_type: 'review' },
+    natureSelfDrivingLabs: { title: 'The rise of self-driving labs in chemical and materials sciences', url: 'https://www.nature.com/articles/s44160-022-00231-0', publisher: 'Nature Synthesis', year: 2023, source_type: 'review' }
+};
+
 const SOURCE_OVERRIDES = {
     advanced_chemistry: [
         { title: 'Chemistry', url: 'https://www.britannica.com/science/chemistry', publisher: 'Encyclopaedia Britannica', year: 2026 }
@@ -444,6 +682,10 @@ const SOURCE_OVERRIDES = {
     ],
     mathematics: [
         { title: 'Mathematics', url: 'https://www.britannica.com/science/mathematics', publisher: 'Encyclopaedia Britannica', year: 2026 }
+    ],
+    probability_statistics_inference: [
+        { title: 'Statistics', url: 'https://www.britannica.com/science/statistics', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+        { title: 'Probability Theory', url: 'https://www.britannica.com/science/probability-theory', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' }
     ],
     writing: [
         { title: 'How to write cuneiform', url: 'https://www.britishmuseum.org/blog/how-write-cuneiform', publisher: 'British Museum', year: 2020 }
@@ -723,6 +965,62 @@ const SOURCE_OVERRIDES = {
     low_energy_desalination_membranes: [
         { ...WATER_SOURCES.nawi, supports: ['node', 'roadmap', 'maturity'] }
     ],
+    pharmacopoeia: [PHARMA_SOURCES.britannicaPharmacy],
+    pharmacopoeia_compilation: [PHARMA_SOURCES.britannicaPharmacy],
+    hospital_pharmacies: [PHARMA_SOURCES.britannicaPharmacy],
+    experimental_pharmacology: [PHARMA_SOURCES.britannicaPharmacology],
+    dose_response_testing: [PHARMA_SOURCES.britannicaPharmacology],
+    organic_chemistry: [PHARMA_SOURCES.britannicaOrganic],
+    alkaloid_isolation: [PHARMA_SOURCES.britannicaAlkaloid],
+    tablet_pressing: [PHARMA_SOURCES.britannicaPharmaIndustry],
+    sterile_injectable_drugs: [PHARMA_SOURCES.fdaCgmp],
+    good_manufacturing_practice: [PHARMA_SOURCES.fdaCgmp],
+    continuous_pharmaceutical_manufacturing: [PHARMA_SOURCES.fdaContinuousManufacturing],
+    randomized_controlled_trials: [PHARMA_SOURCES.bmjStreptomycin, PHARMA_SOURCES.clinicalTrialsGlossary],
+    double_blind_clinical_trials: [PHARMA_SOURCES.clinicalTrialsGlossary],
+    good_laboratory_practice_toxicology: [PHARMA_SOURCES.fdaGlp],
+    phase_i_iii_clinical_trials: [PHARMA_SOURCES.fdaDrugDevelopment, PHARMA_SOURCES.clinicalTrialsGlossary],
+    regulatory_drug_approval: [PHARMA_SOURCES.fdaDrugDevelopment],
+    pharmaceuticals_drug_design: [PHARMA_SOURCES.britannicaPharmaIndustry, PHARMA_SOURCES.fdaDevelopmentDefinitions],
+    antibiotics: [PHARMA_SOURCES.nobelPenicillin, PHARMA_SOURCES.britannicaPharmaIndustry],
+    antibiotic_susceptibility_testing: [PHARMA_SOURCES.fdaAntimicrobialTesting],
+    pharmacokinetics_pharmacodynamics: [PHARMA_SOURCES.fdaPharmacometrics, PHARMA_SOURCES.ncbiPk, PHARMA_SOURCES.ncbiPd],
+    controlled_release_formulations: [PHARMA_SOURCES.fdaModifiedRelease],
+    medicinal_chemistry: [PHARMA_SOURCES.britannicaPharmaIndustry],
+    high_throughput_screening: [PHARMA_SOURCES.ncatsScreening],
+    combinatorial_chemistry: [PHARMA_SOURCES.britannicaPharmaIndustry],
+    lead_optimization: [PHARMA_SOURCES.britannicaPharmaIndustry, PHARMA_SOURCES.natureDrugDiscoveryComputational],
+    structure_based_drug_design: [PHARMA_SOURCES.natureDrugDiscoveryComputational],
+    computer_aided_drug_design: [PHARMA_SOURCES.natureDrugDiscoveryComputational],
+    in_vitro_adme_toxicology: [PHARMA_SOURCES.ncbiAdmeTox],
+    pharmacogenomics: [PHARMA_SOURCES.fdaPharmacogenomics],
+    adverse_event_reporting_systems: [PHARMA_SOURCES.fdaFaers],
+    real_world_evidence_regulatory_science: [PHARMA_SOURCES.fdaRealWorldEvidence],
+    recombinant_dna_genetic_engineering: [PHARMA_SOURCES.genomeRecombinantDna],
+    recombinant_protein_drugs: [PHARMA_SOURCES.genomeRecombinantDna, PHARMA_SOURCES.fdaBiologics],
+    biopharmaceutical_manufacturing: [PHARMA_SOURCES.fdaBiologics, PHARMA_SOURCES.fdaCgmp],
+    monoclonal_antibodies: [PHARMA_SOURCES.nciMonoclonal],
+    vaccine_development_modern: [PHARMA_SOURCES.fdaVaccines, PHARMA_SOURCES.cdcVaccineDevelopment],
+    insulin_therapy: [PHARMA_SOURCES.nobelInsulin, PHARMA_SOURCES.genomeRecombinantDna],
+    gene_therapy_vectors: [PHARMA_SOURCES.fdaGeneTherapy],
+    immuno_oncology_checkpoint_inhibitors: [PHARMA_SOURCES.nciCheckpoint],
+    biosimilars: [PHARMA_SOURCES.fdaBiosimilars],
+    mrna_vaccines: [PHARMA_SOURCES.hhsVaccineTypes, PHARMA_SOURCES.fdaVaccines],
+    mrna_vaccine_platforms: [PHARMA_SOURCES.hhsVaccineTypes, PHARMA_SOURCES.pubmedLipidNanoparticles],
+    messenger_rna_therapeutics: [PHARMA_SOURCES.hhsVaccineTypes, PHARMA_SOURCES.pubmedLipidNanoparticles],
+    cell_culture: [PHARMA_SOURCES.atccCellCulture],
+    molecular_biology: [PHARMA_SOURCES.ncbiMolecularBiology],
+    lipid_nanoparticles: [PHARMA_SOURCES.nistLipidNanoparticles, PHARMA_SOURCES.pubmedLipidNanoparticles],
+    nanomedicine_drug_delivery: [PHARMA_SOURCES.pubmedLipidNanoparticles, PHARMA_SOURCES.fdaGeneTherapy],
+    dna_sequencing: [PHARMA_SOURCES.genomeDnaSequencing],
+    bioinformatics: [PHARMA_SOURCES.genomeBioinformatics],
+    protein_structure_prediction_ai: [PHARMA_SOURCES.natureAlphaFold],
+    ai_driven_drug_discovery: [
+        { ...PHARMA_SOURCES.natureAiDrugDiscovery, supports: ['node', 'roadmap', 'maturity'] }
+    ],
+    ai_closed_loop_drug_discovery: [
+        { ...PHARMA_SOURCES.natureSelfDrivingLabs, supports: ['node', 'roadmap', 'maturity'] }
+    ],
     recommender_systems: [
         {
             title: 'Recommender Systems Handbook',
@@ -753,7 +1051,7 @@ function inferSourceType(source) {
     if (/review|survey/.test(text)) return 'review';
     if (/museum|computerhistory|nobelprize|sciencemuseumgroup|american precision|sparkmuseum|mercedes-benz|ethw|ieee history/.test(text)) return 'museum';
     if (/ipcc|climate change 20\d\d|systematic review|survey/.test(text)) return 'review';
-    if (/nist|energy\.gov|faa|fhwa|fcc|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|epa|usgs|nawi|esa|nasa|cern|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative|itu|international telecommunication union|etsi|3gpp|w3\.org|world wide web consortium|internet society|internetsociety|gs1|bluetooth|wi-fi alliance|cablelabs|open networking foundation/.test(text)) return 'official_agency';
+    if (/nist|energy\.gov|faa|fhwa|fcc|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|ncats|nci|cancer\.gov|ncbi|nlm\.nih|genome\.gov|clinicaltrials\.gov|cdc|hhs|epa|usgs|nawi|esa|nasa|cern|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative|itu|international telecommunication union|etsi|3gpp|w3\.org|world wide web consortium|internet society|internetsociety|gs1|bluetooth|wi-fi alliance|cablelabs|open networking foundation/.test(text)) return 'official_agency';
     if (/britannica|encyclopaedia/.test(text)) return 'generic_overview';
     return 'weak_web';
 }
