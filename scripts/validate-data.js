@@ -27,7 +27,9 @@ const SOURCE_REQUIRED_FIELDS = new Set([
     'Agriculture & Food Systems',
     'Cybersecurity & Cryptography',
     'Transportation & Logistics',
-    'Materials Science & Manufacturing'
+    'Materials Science & Manufacturing',
+    'Telecommunications & Networking',
+    'Water & Sanitation Systems'
 ]);
 
 function loadData() {

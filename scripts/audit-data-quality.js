@@ -23,7 +23,8 @@ const SOURCE_REQUIRED_FIELDS = new Set([
     'Cybersecurity & Cryptography',
     'Transportation & Logistics',
     'Materials Science & Manufacturing',
-    'Telecommunications & Networking'
+    'Telecommunications & Networking',
+    'Water & Sanitation Systems'
 ]);
 const VALID_MATURITIES = new Set(['established', 'emerging', 'approved', 'forecast']);
 const ERA_ORDER = new Map([

@@ -96,7 +96,54 @@ const NODE_DATE_OVERRIDES = {
     tls_ssl_secure_transport: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global internet' },
     communications_satellites: { firstKnownDate: 1962, datePrecision: 'exact', region: 'United States and global satellite networks' },
     quantum_internet: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / global quantum-networking research' },
-    '5g_6g_communication_networks': { firstKnownDate: 2030, datePrecision: 'decade', region: 'Forecast / global mobile industry' }
+    '5g_6g_communication_networks': { firstKnownDate: 2030, datePrecision: 'decade', region: 'Forecast / global mobile industry' },
+    water_carrying_techniques: { firstKnownDate: -10000, datePrecision: 'millennium', region: 'Global / multiple regions' },
+    wells_and_cisterns: { firstKnownDate: -8000, datePrecision: 'millennium', region: 'Southwest Asia and other early settled regions' },
+    rainwater_harvesting: { firstKnownDate: -4000, datePrecision: 'millennium', region: 'Southwest Asia, South Asia, and other dryland regions' },
+    dams_and_reservoirs: { firstKnownDate: -3000, datePrecision: 'millennium', region: 'Egypt, Mesopotamia, South Asia, China, and other early hydraulic societies' },
+    irrigation_canals_local: { firstKnownDate: -6000, datePrecision: 'millennium', region: 'Southwest Asia and early farming societies' },
+    irrigation_sluice_gates: { firstKnownDate: -3000, datePrecision: 'century', region: 'Mesopotamia, Egypt, South Asia, and China' },
+    latrines_and_waste_pits: { firstKnownDate: -3000, datePrecision: 'century', region: 'Early urban settlements across multiple regions' },
+    sewers_and_drainage: { firstKnownDate: -2600, datePrecision: 'century', region: 'Indus Valley, Mesopotamia, and other early cities' },
+    qanat_water_supply: { firstKnownDate: -800, datePrecision: 'century', region: 'Iran and arid regions of West and Central Asia' },
+    aqueducts: { firstKnownDate: -700, datePrecision: 'century', region: 'Assyria, Greece, Rome, and other classical hydraulic systems' },
+    aqueduct_siphons_lead_pipes: { firstKnownDate: -300, datePrecision: 'century', region: 'Hellenistic and Roman engineering networks' },
+    water_distribution_pipes: { firstKnownDate: -300, datePrecision: 'century', region: 'Mediterranean and other classical urban systems' },
+    plumbing: { firstKnownDate: -300, datePrecision: 'century', region: 'Mediterranean, South Asia, East Asia, and other urban societies' },
+    public_latrines: { firstKnownDate: -200, datePrecision: 'century', region: 'Mediterranean and other classical cities' },
+    water_filtration_sand_charcoal: { firstKnownDate: -500, datePrecision: 'century', region: 'Classical Mediterranean and South Asian medical traditions' },
+    canal_lock_gates: { firstKnownDate: 984, datePrecision: 'exact', region: 'China and later global canal systems' },
+    municipal_water_supply: { firstKnownDate: 1200, datePrecision: 'century', region: 'Medieval Europe, Islamic cities, China, and other urban regions' },
+    water_management_guilds: { firstKnownDate: 1200, datePrecision: 'century', region: 'Medieval Europe and other municipal water institutions' },
+    water_quality_ordinances: { firstKnownDate: 1300, datePrecision: 'century', region: 'Medieval and early modern cities' },
+    water_powered_pumps: { firstKnownDate: 1200, datePrecision: 'century', region: 'Afro-Eurasian watermill and mining regions' },
+    flush_toilet_trap_seal: { firstKnownDate: 1775, datePrecision: 'exact', region: 'United Kingdom and later global sanitation systems' },
+    sanitary_sewer_networks: { firstKnownDate: 1840, datePrecision: 'decade', region: 'United Kingdom, Europe, and North America' },
+    slow_sand_filtration: { firstKnownDate: 1804, datePrecision: 'exact', region: 'Scotland and England' },
+    rapid_sand_filtration: { firstKnownDate: 1885, datePrecision: 'decade', region: 'United States and Europe' },
+    coagulation_flocculation_water_treatment: { firstKnownDate: 1880, datePrecision: 'decade', region: 'Europe, North America, and global waterworks' },
+    septic_tank_systems: { firstKnownDate: 1860, datePrecision: 'decade', region: 'France, Europe, and global decentralized sanitation' },
+    water_quality_testing: { firstKnownDate: 1880, datePrecision: 'decade', region: 'Europe, North America, and global public-health laboratories' },
+    stormwater_drainage_systems: { firstKnownDate: 1850, datePrecision: 'decade', region: 'Industrial cities in Europe, North America, and global urban systems' },
+    water_towers_pressure_distribution: { firstKnownDate: 1850, datePrecision: 'decade', region: 'Industrial municipal water systems' },
+    municipal_water_treatment: { firstKnownDate: 1804, datePrecision: 'exact', region: 'Scotland, England, and later global municipal systems' },
+    urban_water_chlorination: { firstKnownDate: 1908, datePrecision: 'exact', region: 'United States and global municipal systems' },
+    ozone_water_treatment: { firstKnownDate: 1906, datePrecision: 'exact', region: 'France and global drinking-water treatment' },
+    ultraviolet_water_disinfection: { firstKnownDate: 1910, datePrecision: 'decade', region: 'Europe and global water treatment' },
+    ion_exchange_water_softening: { firstKnownDate: 1905, datePrecision: 'decade', region: 'Europe, North America, and industrial water treatment' },
+    fluoridated_drinking_water: { firstKnownDate: 1945, datePrecision: 'exact', region: 'United States and later global public-health systems' },
+    activated_sludge_process: { firstKnownDate: 1914, datePrecision: 'exact', region: 'United Kingdom and global wastewater treatment' },
+    reverse_osmosis_desalination: { firstKnownDate: 1965, datePrecision: 'decade', region: 'United States and global desalination industry' },
+    membrane_filtration_water_treatment: { firstKnownDate: 1960, datePrecision: 'decade', region: 'Global water-treatment industry' },
+    desalination_energy_recovery: { firstKnownDate: 1990, datePrecision: 'decade', region: 'Global desalination industry' },
+    membrane_bioreactors: { firstKnownDate: 1969, datePrecision: 'decade', region: 'Global wastewater treatment industry' },
+    water_reuse_reclamation: { firstKnownDate: 1960, datePrecision: 'decade', region: 'Global arid-region water utilities' },
+    advanced_oxidation_water_treatment: { firstKnownDate: 1970, datePrecision: 'decade', region: 'Global drinking-water and wastewater treatment' },
+    pfas_treatment_water_systems: { firstKnownDate: 2000, datePrecision: 'decade', region: 'Global drinking-water and remediation systems' },
+    scada_water_systems: { firstKnownDate: 1970, datePrecision: 'decade', region: 'Global water utility operations' },
+    acoustic_leak_detection: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global water distribution utilities' },
+    smart_water_networks: { firstKnownDate: 2010, datePrecision: 'decade', region: 'Global digital water utility systems' },
+    low_energy_desalination_membranes: { firstKnownDate: 2035, datePrecision: 'decade', region: 'Forecast / global water-scarcity regions' }
 };
 
 const DEPENDENCY_REPLACEMENTS = {
@@ -130,7 +177,8 @@ const REMOVE_DEPENDENCIES = new Map([
     ['lipid_nanoparticles', new Set(['messenger_rna_therapeutics'])],
     ['synthetic_biology', new Set(['crispr_gene_editing'])],
     ['5g_6g_communication_networks', new Set(['mobile_phones', 'advanced_ai'])],
-    ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])]
+    ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])],
+    ['ion_exchange_water_softening', new Set(['polymer_chemistry'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([
@@ -139,7 +187,8 @@ const ADD_DEPENDENCIES = new Map([
     ['retrieval_augmented_generation', ['search_engines']],
     ['experimental_controls', ['probability_theory']],
     ['5g_6g_communication_networks', ['five_g_new_radio']],
-    ['submarine_fiber_optic_cables', ['lasers']]
+    ['submarine_fiber_optic_cables', ['lasers']],
+    ['ion_exchange_water_softening', ['advanced_chemistry']]
 ]);
 
 const EDGE_OVERRIDES = {
@@ -205,6 +254,7 @@ const CRISPR_EDGE_TYPES = {
 };
 
 const TELECOM_FIELD = 'Telecommunications & Networking';
+const WATER_FIELD = 'Water & Sanitation Systems';
 
 const TELECOM_FIELD_LANES = {
     telegraph: 'Foundations & Switching',
@@ -260,14 +310,78 @@ const TELECOM_FIELD_LANES = {
     '5g_6g_communication_networks': 'Roadmap'
 };
 
-const FIELD_OVERRIDES = Object.fromEntries(Object.entries(TELECOM_FIELD_LANES).map(([id, lane]) => [
-    id,
-    {
-        fields: [TELECOM_FIELD],
-        fieldLanes: { [TELECOM_FIELD]: lane },
-        maturity: lane === 'Roadmap' ? 'forecast' : 'established'
-    }
-]));
+const WATER_FIELD_LANES = {
+    water_carrying_techniques: 'Supply & Storage',
+    wells_and_cisterns: 'Supply & Storage',
+    rainwater_harvesting: 'Supply & Storage',
+    dams_and_reservoirs: 'Supply & Storage',
+    qanat_water_supply: 'Supply & Storage',
+    municipal_water_supply: 'Supply & Storage',
+    water_towers_pressure_distribution: 'Supply & Storage',
+    irrigation: 'Conveyance & Distribution',
+    irrigation_canals_local: 'Conveyance & Distribution',
+    irrigation_sluice_gates: 'Conveyance & Distribution',
+    aqueducts: 'Conveyance & Distribution',
+    aqueduct_siphons_lead_pipes: 'Conveyance & Distribution',
+    water_distribution_pipes: 'Conveyance & Distribution',
+    plumbing: 'Conveyance & Distribution',
+    canal_lock_gates: 'Conveyance & Distribution',
+    water_powered_pumps: 'Conveyance & Distribution',
+    latrines_and_waste_pits: 'Sanitation & Sewerage',
+    public_latrines: 'Sanitation & Sewerage',
+    sewers_and_drainage: 'Sanitation & Sewerage',
+    flush_toilet_trap_seal: 'Sanitation & Sewerage',
+    sanitary_sewer_networks: 'Sanitation & Sewerage',
+    public_sanitation_modern: 'Sanitation & Sewerage',
+    septic_tank_systems: 'Sanitation & Sewerage',
+    stormwater_drainage_systems: 'Sanitation & Sewerage',
+    water_filtration_sand_charcoal: 'Drinking Water Treatment',
+    slow_sand_filtration: 'Drinking Water Treatment',
+    rapid_sand_filtration: 'Drinking Water Treatment',
+    coagulation_flocculation_water_treatment: 'Drinking Water Treatment',
+    municipal_water_treatment: 'Drinking Water Treatment',
+    urban_water_chlorination: 'Drinking Water Treatment',
+    fluoridated_drinking_water: 'Drinking Water Treatment',
+    ozone_water_treatment: 'Drinking Water Treatment',
+    ultraviolet_water_disinfection: 'Drinking Water Treatment',
+    water_quality_testing: 'Drinking Water Treatment',
+    municipal_wastewater_treatment: 'Wastewater & Reuse',
+    activated_sludge_process: 'Wastewater & Reuse',
+    membrane_bioreactors: 'Wastewater & Reuse',
+    water_reuse_reclamation: 'Wastewater & Reuse',
+    filters_membranes_early: 'Desalination & Advanced Treatment',
+    industrial_water_softening: 'Desalination & Advanced Treatment',
+    ion_exchange_water_softening: 'Desalination & Advanced Treatment',
+    membrane_filtration_water_treatment: 'Desalination & Advanced Treatment',
+    reverse_osmosis_desalination: 'Desalination & Advanced Treatment',
+    desalination_energy_recovery: 'Desalination & Advanced Treatment',
+    advanced_oxidation_water_treatment: 'Desalination & Advanced Treatment',
+    pfas_treatment_water_systems: 'Desalination & Advanced Treatment',
+    civic_water_meters: 'Monitoring & Utility Operations',
+    water_management_guilds: 'Monitoring & Utility Operations',
+    water_quality_ordinances: 'Monitoring & Utility Operations',
+    public_health_inspections: 'Monitoring & Utility Operations',
+    scada_water_systems: 'Monitoring & Utility Operations',
+    acoustic_leak_detection: 'Monitoring & Utility Operations',
+    smart_water_networks: 'Monitoring & Utility Operations',
+    low_energy_desalination_membranes: 'Roadmap'
+};
+
+function fieldOverrides(field, lanes) {
+    return Object.fromEntries(Object.entries(lanes).map(([id, lane]) => [
+        id,
+        {
+            fields: [field],
+            fieldLanes: { [field]: lane },
+            maturity: lane === 'Roadmap' ? 'forecast' : 'established'
+        }
+    ]));
+}
+
+const FIELD_OVERRIDES = {
+    ...fieldOverrides(TELECOM_FIELD, TELECOM_FIELD_LANES),
+    ...fieldOverrides(WATER_FIELD, WATER_FIELD_LANES)
+};
 
 FIELD_OVERRIDES.quantum_internet.roadmap = {
     role: 'roadmap',
@@ -282,6 +396,37 @@ FIELD_OVERRIDES['5g_6g_communication_networks'].roadmap = {
     confidence: 'medium',
     blockers: ['spectrum allocation', 'radio hardware maturity', 'energy efficiency', 'standards completion'],
     rationale: '6G work is in pre-commercial standardization and research, while established 5G is represented separately by 5G New Radio.'
+};
+FIELD_OVERRIDES.low_energy_desalination_membranes.roadmap = {
+    role: 'roadmap',
+    timeframe: '2030s',
+    confidence: 'medium',
+    blockers: ['membrane fouling', 'brine management', 'energy intensity', 'capital cost'],
+    rationale: 'Lower-energy desalination is a clear water-scarcity roadmap area, but deployment depends on membrane durability, process integration, and cost reduction.'
+};
+
+const WATER_SOURCES = {
+    whoDrinking: { title: 'Drinking-water', url: 'https://www.who.int/news-room/fact-sheets/detail/drinking-water', publisher: 'World Health Organization', year: 2023, source_type: 'official_agency' },
+    whoSanitationSafety: { title: 'Sanitation Safety', url: 'https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health/sanitation-safety', publisher: 'World Health Organization', year: 2026, source_type: 'official_agency' },
+    cdcDrinkingWater: { title: 'Preventing Waterborne Germs at Home', url: 'https://www.cdc.gov/drinking-water/prevention/index.html', publisher: 'CDC', year: 2026, source_type: 'official_agency' },
+    epaDrinkingWater: { title: 'Ground Water and Drinking Water', url: 'https://www.epa.gov/ground-water-and-drinking-water', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaSdwa: { title: 'Summary of the Safe Drinking Water Act', url: 'https://www.epa.gov/sdwa', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaDrinkingRegulations: { title: 'Drinking Water Regulations', url: 'https://www.epa.gov/dwreginfo/drinking-water-regulations', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaWastewater: { title: 'Municipal Wastewater', url: 'https://www.epa.gov/npdes/municipal-wastewater', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaWaterReuse: { title: 'Water Reuse', url: 'https://www.epa.gov/waterreuse', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaWaterReuseBasics: { title: 'Basic Information about Water Reuse', url: 'https://www.epa.gov/waterreuse/basic-information-about-water-reuse', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaSeptic: { title: 'Septic Systems', url: 'https://www.epa.gov/septic', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    epaPfas: { title: 'PFAS', url: 'https://www.epa.gov/pfas', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
+    britannicaDam: { title: 'Dam', url: 'https://www.britannica.com/technology/dam-engineering', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaQanat: { title: 'Qanat', url: 'https://www.britannica.com/technology/qanat', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaAqueduct: { title: 'Aqueduct', url: 'https://www.britannica.com/technology/aqueduct-engineering', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaPlumbing: { title: 'Plumbing', url: 'https://www.britannica.com/technology/plumbing', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaSewerage: { title: 'Sewerage System', url: 'https://www.britannica.com/technology/sewerage-system', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaToilet: { title: 'Toilet', url: 'https://www.britannica.com/technology/toilet-sanitation', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaSeptic: { title: 'Septic Tank', url: 'https://www.britannica.com/technology/septic-tank', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaWaterSupply: { title: 'Water Supply System', url: 'https://www.britannica.com/technology/water-supply-system', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    britannicaFiltration: { title: 'Filtration', url: 'https://www.britannica.com/technology/filtration-chemistry', publisher: 'Encyclopaedia Britannica', year: 2026, source_type: 'textbook' },
+    nawi: { title: 'National Alliance for Water Innovation', url: 'https://www.nawihub.org/', publisher: 'National Alliance for Water Innovation', year: 2026, source_type: 'official_agency' }
 };
 
 const SOURCE_OVERRIDES = {
@@ -522,6 +667,62 @@ const SOURCE_OVERRIDES = {
     '5g_6g_communication_networks': [
         { title: 'IMT-2030', url: 'https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/imt-2030/Pages/default.aspx', publisher: 'International Telecommunication Union', year: 2026, supports: ['node', 'roadmap', 'maturity'] }
     ],
+    water_carrying_techniques: [WATER_SOURCES.whoDrinking],
+    wells_and_cisterns: [WATER_SOURCES.britannicaWaterSupply],
+    rainwater_harvesting: [WATER_SOURCES.whoDrinking],
+    dams_and_reservoirs: [WATER_SOURCES.britannicaDam],
+    qanat_water_supply: [WATER_SOURCES.britannicaQanat],
+    municipal_water_supply: [WATER_SOURCES.britannicaWaterSupply],
+    water_towers_pressure_distribution: [WATER_SOURCES.britannicaWaterSupply],
+    irrigation: [WATER_SOURCES.britannicaWaterSupply],
+    irrigation_canals_local: [WATER_SOURCES.britannicaWaterSupply],
+    irrigation_sluice_gates: [WATER_SOURCES.britannicaWaterSupply],
+    aqueducts: [WATER_SOURCES.britannicaAqueduct],
+    aqueduct_siphons_lead_pipes: [WATER_SOURCES.britannicaAqueduct],
+    water_distribution_pipes: [WATER_SOURCES.britannicaWaterSupply],
+    plumbing: [WATER_SOURCES.britannicaPlumbing],
+    canal_lock_gates: [WATER_SOURCES.britannicaWaterSupply],
+    water_powered_pumps: [WATER_SOURCES.britannicaWaterSupply],
+    latrines_and_waste_pits: [WATER_SOURCES.whoSanitationSafety],
+    public_latrines: [WATER_SOURCES.whoSanitationSafety],
+    sewers_and_drainage: [WATER_SOURCES.britannicaSewerage],
+    flush_toilet_trap_seal: [WATER_SOURCES.britannicaToilet],
+    sanitary_sewer_networks: [WATER_SOURCES.britannicaSewerage],
+    public_sanitation_modern: [WATER_SOURCES.whoSanitationSafety],
+    septic_tank_systems: [WATER_SOURCES.epaSeptic],
+    stormwater_drainage_systems: [WATER_SOURCES.britannicaSewerage],
+    water_filtration_sand_charcoal: [WATER_SOURCES.britannicaFiltration],
+    slow_sand_filtration: [WATER_SOURCES.cdcDrinkingWater],
+    rapid_sand_filtration: [WATER_SOURCES.epaDrinkingWater],
+    coagulation_flocculation_water_treatment: [WATER_SOURCES.epaDrinkingWater],
+    municipal_water_treatment: [WATER_SOURCES.epaDrinkingWater],
+    urban_water_chlorination: [WATER_SOURCES.epaDrinkingRegulations],
+    fluoridated_drinking_water: [WATER_SOURCES.epaDrinkingRegulations],
+    ozone_water_treatment: [WATER_SOURCES.epaDrinkingWater],
+    ultraviolet_water_disinfection: [WATER_SOURCES.cdcDrinkingWater],
+    water_quality_testing: [WATER_SOURCES.epaSdwa],
+    municipal_wastewater_treatment: [WATER_SOURCES.epaWastewater],
+    activated_sludge_process: [WATER_SOURCES.epaWastewater],
+    membrane_bioreactors: [WATER_SOURCES.epaWastewater],
+    water_reuse_reclamation: [WATER_SOURCES.epaWaterReuseBasics],
+    filters_membranes_early: [WATER_SOURCES.britannicaFiltration],
+    industrial_water_softening: [WATER_SOURCES.epaDrinkingWater],
+    ion_exchange_water_softening: [WATER_SOURCES.epaDrinkingWater],
+    membrane_filtration_water_treatment: [WATER_SOURCES.epaDrinkingWater],
+    reverse_osmosis_desalination: [WATER_SOURCES.epaDrinkingWater],
+    desalination_energy_recovery: [WATER_SOURCES.nawi],
+    advanced_oxidation_water_treatment: [WATER_SOURCES.epaDrinkingWater],
+    pfas_treatment_water_systems: [WATER_SOURCES.epaPfas],
+    civic_water_meters: [WATER_SOURCES.britannicaWaterSupply],
+    water_management_guilds: [WATER_SOURCES.britannicaWaterSupply],
+    water_quality_ordinances: [WATER_SOURCES.whoDrinking],
+    public_health_inspections: [WATER_SOURCES.whoSanitationSafety],
+    scada_water_systems: [WATER_SOURCES.epaDrinkingWater],
+    acoustic_leak_detection: [WATER_SOURCES.britannicaWaterSupply],
+    smart_water_networks: [WATER_SOURCES.epaDrinkingWater],
+    low_energy_desalination_membranes: [
+        { ...WATER_SOURCES.nawi, supports: ['node', 'roadmap', 'maturity'] }
+    ],
     recommender_systems: [
         {
             title: 'Recommender Systems Handbook',
@@ -552,7 +753,7 @@ function inferSourceType(source) {
     if (/review|survey/.test(text)) return 'review';
     if (/museum|computerhistory|nobelprize|sciencemuseumgroup|american precision|sparkmuseum|mercedes-benz|ethw|ieee history/.test(text)) return 'museum';
     if (/ipcc|climate change 20\d\d|systematic review|survey/.test(text)) return 'review';
-    if (/nist|energy\.gov|faa|fhwa|fcc|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|esa|nasa|cern|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative|itu|international telecommunication union|etsi|3gpp|w3\.org|world wide web consortium|internet society|internetsociety|gs1|bluetooth|wi-fi alliance|cablelabs|open networking foundation/.test(text)) return 'official_agency';
+    if (/nist|energy\.gov|faa|fhwa|fcc|cisa|gps\.gov|who|iaea|iea|un|darpa|usda|fda|nih|cdc|epa|usgs|nawi|esa|nasa|cern|uic|ietf|rfc-editor|cgiar|fao|ifr|world robotics|jedec|loc\.gov|library of congress|britishmuseum|ieee|computer\.org|nano\.gov|national nanotechnology initiative|itu|international telecommunication union|etsi|3gpp|w3\.org|world wide web consortium|internet society|internetsociety|gs1|bluetooth|wi-fi alliance|cablelabs|open networking foundation/.test(text)) return 'official_agency';
     if (/britannica|encyclopaedia/.test(text)) return 'generic_overview';
     return 'weak_web';
 }
