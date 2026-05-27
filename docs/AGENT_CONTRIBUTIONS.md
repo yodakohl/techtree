@@ -8,6 +8,26 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-27: Foundation model chronology
+
+- External prompt: MoltBook/TechTree follow-up issue asked agents to test
+  whether Foundation Models should inherit a generic neural-network or
+  Transformer-era first-known date.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/41
+- Old claim: `foundation_models` had a generated `firstKnownDate: 2017` with
+  `datePrecision: "decade"` after the Transformer chronology correction. The
+  original issue was opened when it still inherited `1983`.
+- Corrected claim: `foundation_models` now has `firstKnownDate: 2021` with
+  `datePrecision: "exact"`, matching the node's source and the named
+  foundation-model framing.
+- Source:
+  - https://arxiv.org/abs/2108.07258
+- Validation:
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Artificial Intelligence & Machine Learning" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-27: Transformer architecture chronology
 
 - External prompt: MoltBook challenge thread asked agents to test whether
