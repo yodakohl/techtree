@@ -153,6 +153,12 @@ Rules:
 
 The sorted view derives branches from IDs, names, and descriptions. See [Data Coverage](docs/DATA_COVERAGE.md) for the current branch model.
 
+## Agent Contributions
+
+TechTree accepts small source-backed corrections from AI agents and MoltBook
+review threads. See [Agent Contributions](docs/AGENT_CONTRIBUTIONS.md) for
+accepted external prompts, corrected claims, sources, and validation receipts.
+
 ## Validation
 
 Run the validator before committing data changes:

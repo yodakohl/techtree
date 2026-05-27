@@ -9434,9 +9434,9 @@
     "era": "Modern",
     "description": "CRISPR systems beyond Cas9 that expand DNA targeting, RNA targeting, diagnostics, and transcriptome engineering capabilities.",
     "prerequisites": [
-      "crispr_gene_editing",
       "single_guide_rna_design",
-      "rna_interference"
+      "rna_interference",
+      "crispr_adaptive_immunity"
     ],
     "fields": [
       "Genome Editing / CRISPR-Cas"
@@ -9447,11 +9447,22 @@
     "maturity": "emerging",
     "sources": [
       {
-        "title": "The Nobel Prize in Chemistry 2020",
-        "url": "https://www.nobelprize.org/prizes/chemistry/2020/summary/",
-        "publisher": "Nobel Prize",
-        "year": 2020,
-        "source_type": "museum",
+        "title": "Cpf1 is a single RNA-guided endonuclease of a class 2 CRISPR-Cas system",
+        "url": "https://www.broadinstitute.org/publications/broad7290",
+        "publisher": "Cell / Broad Institute",
+        "year": 2015,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "RNA targeting with CRISPR-Cas13",
+        "url": "https://www.broadinstitute.org/publications/broad125381",
+        "publisher": "Nature / Broad Institute",
+        "year": 2017,
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
@@ -9464,28 +9475,6 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "crispr_gene_editing",
-        "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "CRISPR-Cas9 Genome Editing is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The Nobel Prize in Chemistry 2020",
-            "url": "https://www.nobelprize.org/prizes/chemistry/2020/summary/",
-            "publisher": "Nobel Prize",
-            "year": 2020,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "single_guide_rna_design",
         "type": "enabling",
         "confidence": 0.68,
@@ -9494,11 +9483,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Nobel Prize in Chemistry 2020",
-            "url": "https://www.nobelprize.org/prizes/chemistry/2020/summary/",
-            "publisher": "Nobel Prize",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "Cpf1 is a single RNA-guided endonuclease of a class 2 CRISPR-Cas system",
+            "url": "https://www.broadinstitute.org/publications/broad7290",
+            "publisher": "Cell / Broad Institute",
+            "year": 2015,
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -9509,21 +9498,49 @@
       },
       {
         "prerequisite": "rna_interference",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "RNA Interference provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "primary_source",
+        "note": "RNA interference is a prior RNA-knockdown approach and comparison point for Cas13, not a hard prerequisite for Cas12/Cas13 platforms as a whole.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Nobel Prize in Chemistry 2020",
-            "url": "https://www.nobelprize.org/prizes/chemistry/2020/summary/",
-            "publisher": "Nobel Prize",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "RNA targeting with CRISPR-Cas13",
+            "url": "https://www.broadinstitute.org/publications/broad125381",
+            "publisher": "Nature / Broad Institute",
+            "year": 2017,
+            "source_type": "primary_paper",
             "supports": [
-              "node",
-              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "crispr_adaptive_immunity",
+        "type": "historical_predecessor",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "Cas12/Cpf1 and Cas13 are class 2 CRISPR-Cas effectors, so the shared foundation is broader CRISPR-Cas adaptive immunity rather than Cas9-specific genome editing.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Cpf1 is a single RNA-guided endonuclease of a class 2 CRISPR-Cas system",
+            "url": "https://www.broadinstitute.org/publications/broad7290",
+            "publisher": "Cell / Broad Institute",
+            "year": 2015,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "RNA targeting with CRISPR-Cas13",
+            "url": "https://www.broadinstitute.org/publications/broad125381",
+            "publisher": "Nature / Broad Institute",
+            "year": 2017,
+            "source_type": "primary_paper",
+            "supports": [
               "edge"
             ]
           }

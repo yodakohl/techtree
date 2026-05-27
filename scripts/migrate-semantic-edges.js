@@ -227,6 +227,7 @@ const REMOVE_DEPENDENCIES = new Map([
     ['art_conservation_workshops', new Set(['public_museum_catalogs'])],
     ['lipid_nanoparticles', new Set(['messenger_rna_therapeutics'])],
     ['synthetic_biology', new Set(['crispr_gene_editing'])],
+    ['cas12_cas13_editing_platforms', new Set(['crispr_gene_editing'])],
     ['5g_6g_communication_networks', new Set(['mobile_phones', 'advanced_ai'])],
     ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])],
     ['ion_exchange_water_softening', new Set(['polymer_chemistry'])]
@@ -237,10 +238,28 @@ const ADD_DEPENDENCIES = new Map([
     ['vector_databases', ['information_theory']],
     ['retrieval_augmented_generation', ['search_engines']],
     ['experimental_controls', ['probability_theory']],
+    ['cas12_cas13_editing_platforms', ['crispr_adaptive_immunity']],
     ['5g_6g_communication_networks', ['five_g_new_radio']],
     ['submarine_fiber_optic_cables', ['lasers']],
     ['ion_exchange_water_softening', ['advanced_chemistry']]
 ]);
+
+const CRISPR_SOURCES = {
+    cpf1Cas12: {
+        title: 'Cpf1 is a single RNA-guided endonuclease of a class 2 CRISPR-Cas system',
+        url: 'https://www.broadinstitute.org/publications/broad7290',
+        publisher: 'Cell / Broad Institute',
+        year: 2015,
+        source_type: 'primary_paper'
+    },
+    cas13RnaTargeting: {
+        title: 'RNA targeting with CRISPR-Cas13',
+        url: 'https://www.broadinstitute.org/publications/broad125381',
+        publisher: 'Nature / Broad Institute',
+        year: 2017,
+        source_type: 'primary_paper'
+    }
+};
 
 const EDGE_OVERRIDES = {
     'foraging_and_botany|oral_tradition_storytelling': {
@@ -262,6 +281,23 @@ const EDGE_OVERRIDES = {
     },
     'vector_databases|large_language_models': null,
     'retrieval_augmented_generation|vector_databases': null,
+    'cas12_cas13_editing_platforms|crispr_gene_editing': null,
+    'cas12_cas13_editing_platforms|crispr_adaptive_immunity': {
+        type: 'historical_predecessor',
+        confidence: 0.86,
+        evidence_level: 'primary_source',
+        note: 'Cas12/Cpf1 and Cas13 are class 2 CRISPR-Cas effectors, so the shared foundation is broader CRISPR-Cas adaptive immunity rather than Cas9-specific genome editing.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.cpf1Cas12, CRISPR_SOURCES.cas13RnaTargeting]
+    },
+    'cas12_cas13_editing_platforms|rna_interference': {
+        type: 'historical_predecessor',
+        confidence: 0.72,
+        evidence_level: 'primary_source',
+        note: 'RNA interference is a prior RNA-knockdown approach and comparison point for Cas13, not a hard prerequisite for Cas12/Cas13 platforms as a whole.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.cas13RnaTargeting]
+    },
     'retrieval_augmented_generation|search_engines': {
         type: 'enabling',
         confidence: 0.85,
@@ -1014,6 +1050,7 @@ const SOURCE_OVERRIDES = {
     nanomedicine_drug_delivery: [PHARMA_SOURCES.pubmedLipidNanoparticles, PHARMA_SOURCES.fdaGeneTherapy],
     dna_sequencing: [PHARMA_SOURCES.genomeDnaSequencing],
     bioinformatics: [PHARMA_SOURCES.genomeBioinformatics],
+    cas12_cas13_editing_platforms: [CRISPR_SOURCES.cpf1Cas12, CRISPR_SOURCES.cas13RnaTargeting],
     protein_structure_prediction_ai: [PHARMA_SOURCES.natureAlphaFold],
     ai_driven_drug_discovery: [
         { ...PHARMA_SOURCES.natureAiDrugDiscovery, supports: ['node', 'roadmap', 'maturity'] }
@@ -1137,6 +1174,7 @@ function makeEdge(item, prerequisiteId, byId) {
     let evidence_level = inferEvidenceLevel(item, prerequisite, type);
     let confidence = confidenceFor(type, evidence_level);
     let reviewStatus = item.reviewStatus === 'source_checked' ? 'source_checked' : 'structurally_validated';
+    let sources = null;
 
     if (crisprOverride) {
         [type, note] = crisprOverride;
@@ -1145,7 +1183,7 @@ function makeEdge(item, prerequisiteId, byId) {
         reviewStatus = 'source_checked';
     }
     if (override) {
-        ({ type, note, evidence_level, confidence, reviewStatus } = { type, note, evidence_level, confidence, reviewStatus, ...override });
+        ({ type, note, evidence_level, confidence, reviewStatus, sources } = { type, note, evidence_level, confidence, reviewStatus, sources, ...override });
     }
 
     const edge = {
@@ -1156,8 +1194,13 @@ function makeEdge(item, prerequisiteId, byId) {
         note,
         reviewStatus
     };
-    if (reviewStatus === 'source_checked' && Array.isArray(item.sources) && item.sources.length) {
-        edge.sources = [item.sources[0]].map(source => {
+    const edgeSources = Array.isArray(sources) && sources.length
+        ? sources
+        : reviewStatus === 'source_checked' && Array.isArray(item.sources) && item.sources.length
+            ? [item.sources[0]]
+            : [];
+    if (edgeSources.length) {
+        edge.sources = edgeSources.map(source => {
             const edgeSource = { ...source };
             edgeSource.supports = [...new Set([...(edgeSource.supports || []), 'edge'])];
             return edgeSource;
