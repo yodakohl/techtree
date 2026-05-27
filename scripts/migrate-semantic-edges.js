@@ -27,6 +27,7 @@ const NODE_DATE_OVERRIDES = {
     vector_databases: { firstKnownDate: 2019, datePrecision: 'decade', region: 'Global software industry' },
     retrieval_augmented_generation: { firstKnownDate: 2020, datePrecision: 'exact', region: 'Global AI research community' },
     recommender_systems: { firstKnownDate: 1992, datePrecision: 'decade', region: 'Global software and research community' },
+    transformer_architectures: { firstKnownDate: 2017, datePrecision: 'exact', region: 'Global deep-learning research community' },
     crispr_adaptive_immunity: { firstKnownDate: 1987, datePrecision: 'exact', region: 'Japan and global microbiology research' },
     cas9_programmable_nuclease: { firstKnownDate: 2012, datePrecision: 'exact', region: 'Global molecular biology research' },
     single_guide_rna_design: { firstKnownDate: 2012, datePrecision: 'exact', region: 'Global molecular biology research' },
