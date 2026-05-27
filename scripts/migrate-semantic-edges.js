@@ -29,6 +29,7 @@ const NODE_DATE_OVERRIDES = {
     recommender_systems: { firstKnownDate: 1992, datePrecision: 'decade', region: 'Global software and research community' },
     transformer_architectures: { firstKnownDate: 2017, datePrecision: 'exact', region: 'Global deep-learning research community' },
     foundation_models: { firstKnownDate: 2021, datePrecision: 'exact', region: 'Global AI research community' },
+    instruction_tuning_rlhf: { firstKnownDate: 2020, datePrecision: 'exact', region: 'Global AI research community' },
     crispr_adaptive_immunity: { firstKnownDate: 1987, datePrecision: 'exact', region: 'Japan and global microbiology research' },
     cas9_programmable_nuclease: { firstKnownDate: 2012, datePrecision: 'exact', region: 'Global molecular biology research' },
     single_guide_rna_design: { firstKnownDate: 2012, datePrecision: 'exact', region: 'Global molecular biology research' },
@@ -263,6 +264,30 @@ const CRISPR_SOURCES = {
     }
 };
 
+const AI_POSTTRAINING_SOURCES = {
+    stiennonSummarization: {
+        title: 'Learning to summarize with human feedback',
+        url: 'https://arxiv.org/abs/2009.01325',
+        publisher: 'arXiv / OpenAI',
+        year: 2020,
+        source_type: 'primary_paper'
+    },
+    flanInstructionTuning: {
+        title: 'Finetuned Language Models Are Zero-Shot Learners',
+        url: 'https://arxiv.org/abs/2109.01652',
+        publisher: 'arXiv / Google Research',
+        year: 2021,
+        source_type: 'primary_paper'
+    },
+    instructGpt: {
+        title: 'Training language models to follow instructions with human feedback',
+        url: 'https://arxiv.org/abs/2203.02155',
+        publisher: 'arXiv / OpenAI',
+        year: 2022,
+        source_type: 'primary_paper'
+    }
+};
+
 const EDGE_OVERRIDES = {
     'foraging_and_botany|oral_tradition_storytelling': {
         type: 'common_dependency',
@@ -299,6 +324,30 @@ const EDGE_OVERRIDES = {
         note: 'RNA interference is a prior RNA-knockdown approach and comparison point for Cas13, not a hard prerequisite for Cas12/Cas13 platforms as a whole.',
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.cas13RnaTargeting]
+    },
+    'instruction_tuning_rlhf|large_language_models': {
+        type: 'enabling',
+        confidence: 0.82,
+        evidence_level: 'primary_source',
+        note: 'Instruction tuning and RLHF are post-training methods applied to pretrained language models; large language models are the main modern substrate, but the methods are not a hardware-like prerequisite.',
+        reviewStatus: 'source_checked',
+        sources: [AI_POSTTRAINING_SOURCES.stiennonSummarization, AI_POSTTRAINING_SOURCES.flanInstructionTuning, AI_POSTTRAINING_SOURCES.instructGpt]
+    },
+    'instruction_tuning_rlhf|reinforcement_learning': {
+        type: 'enabling',
+        confidence: 0.78,
+        evidence_level: 'primary_source',
+        note: 'Reinforcement learning and reward modeling underpin the RLHF part of the bundled node, while instruction tuning can also use supervised demonstrations.',
+        reviewStatus: 'source_checked',
+        sources: [AI_POSTTRAINING_SOURCES.stiennonSummarization, AI_POSTTRAINING_SOURCES.instructGpt]
+    },
+    'instruction_tuning_rlhf|supervised_learning_pipelines': {
+        type: 'enabling',
+        confidence: 0.8,
+        evidence_level: 'primary_source',
+        note: 'Instruction tuning and preference-model pipelines rely on curated demonstrations, rankings, and supervised fine-tuning workflows.',
+        reviewStatus: 'source_checked',
+        sources: [AI_POSTTRAINING_SOURCES.flanInstructionTuning, AI_POSTTRAINING_SOURCES.instructGpt]
     },
     'retrieval_augmented_generation|search_engines': {
         type: 'enabling',
@@ -706,6 +755,11 @@ const PHARMA_SOURCES = {
 };
 
 const SOURCE_OVERRIDES = {
+    instruction_tuning_rlhf: [
+        AI_POSTTRAINING_SOURCES.stiennonSummarization,
+        AI_POSTTRAINING_SOURCES.flanInstructionTuning,
+        AI_POSTTRAINING_SOURCES.instructGpt
+    ],
     advanced_chemistry: [
         { title: 'Chemistry', url: 'https://www.britannica.com/science/chemistry', publisher: 'Encyclopaedia Britannica', year: 2026 }
     ],

@@ -29551,45 +29551,143 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Aligning Language Models to Follow Instructions",
-        "url": "https://openai.com/index/instruction-following/",
-        "publisher": "OpenAI",
+        "title": "Learning to summarize with human feedback",
+        "url": "https://arxiv.org/abs/2009.01325",
+        "publisher": "arXiv / OpenAI",
+        "year": 2020,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Finetuned Language Models Are Zero-Shot Learners",
+        "url": "https://arxiv.org/abs/2109.01652",
+        "publisher": "arXiv / Google Research",
+        "year": 2021,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155",
+        "publisher": "arXiv / OpenAI",
         "year": 2022,
-        "source_type": "weak_web",
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 2017,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2020,
+    "datePrecision": "exact",
+    "region": "Global AI research community",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "large_language_models",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Large Language Models provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "Instruction tuning and RLHF are post-training methods applied to pretrained language models; large language models are the main modern substrate, but the methods are not a hardware-like prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Learning to summarize with human feedback",
+            "url": "https://arxiv.org/abs/2009.01325",
+            "publisher": "arXiv / OpenAI",
+            "year": 2020,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Finetuned Language Models Are Zero-Shot Learners",
+            "url": "https://arxiv.org/abs/2109.01652",
+            "publisher": "arXiv / Google Research",
+            "year": 2021,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Training language models to follow instructions with human feedback",
+            "url": "https://arxiv.org/abs/2203.02155",
+            "publisher": "arXiv / OpenAI",
+            "year": 2022,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "reinforcement_learning",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Reinforcement Learning provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Reinforcement learning and reward modeling underpin the RLHF part of the bundled node, while instruction tuning can also use supervised demonstrations.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Learning to summarize with human feedback",
+            "url": "https://arxiv.org/abs/2009.01325",
+            "publisher": "arXiv / OpenAI",
+            "year": 2020,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Training language models to follow instructions with human feedback",
+            "url": "https://arxiv.org/abs/2203.02155",
+            "publisher": "arXiv / OpenAI",
+            "year": 2022,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "supervised_learning_pipelines",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Supervised Learning Pipelines provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "primary_source",
+        "note": "Instruction tuning and preference-model pipelines rely on curated demonstrations, rankings, and supervised fine-tuning workflows.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Finetuned Language Models Are Zero-Shot Learners",
+            "url": "https://arxiv.org/abs/2109.01652",
+            "publisher": "arXiv / Google Research",
+            "year": 2021,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Training language models to follow instructions with human feedback",
+            "url": "https://arxiv.org/abs/2203.02155",
+            "publisher": "arXiv / OpenAI",
+            "year": 2022,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -30151,7 +30249,7 @@
         ]
       }
     ],
-    "firstKnownDate": 2017,
+    "firstKnownDate": 2020,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",

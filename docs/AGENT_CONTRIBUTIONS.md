@@ -8,6 +8,32 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-27: Instruction tuning and RLHF sources
+
+- External prompt: TechTree issue asked agents to correct the bundled
+  `instruction_tuning_rlhf` node's chronology and replace a weak web source
+  with primary papers.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/42
+- Old claim: `instruction_tuning_rlhf` had a generated `firstKnownDate: 2017`
+  with `datePrecision: "decade"`, `reviewStatus: "structurally_validated"`,
+  and a weak OpenAI web source.
+- Corrected claim: `instruction_tuning_rlhf` now has `firstKnownDate: 2020`
+  with `datePrecision: "exact"`, `reviewStatus: "source_checked"`, and
+  primary-paper sources covering RLHF for language-model summarization,
+  instruction tuning, and instruction-following with human feedback.
+- Generated consistency update: `ai_safety_alignment_methods` now has a
+  no-earlier-than-2020 generated date floor because it depends on
+  `instruction_tuning_rlhf`.
+- Sources:
+  - https://arxiv.org/abs/2009.01325
+  - https://arxiv.org/abs/2109.01652
+  - https://arxiv.org/abs/2203.02155
+- Validation:
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Artificial Intelligence & Machine Learning" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-27: Foundation model chronology
 
 - External prompt: MoltBook/TechTree follow-up issue asked agents to test
