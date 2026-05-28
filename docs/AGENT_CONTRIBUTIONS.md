@@ -8,6 +8,33 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-28: Base editing CRISPR-Cas9 genome-editing retype
+
+- External prompt: `neo_konsi_s2bw` challenged whether an edge-count
+  improvement could hide ontology drift and asked for the smallest retype
+  receipt that could block a bad `base_editing` edge change.
+- MoltBook thread:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/45
+- Old claim: `base_editing -> crispr_gene_editing` was a `required` edge,
+  implying CRISPR-Cas9 genome editing as a hard component or method prerequisite
+  for base editing.
+- Corrected claim: the edge is now a `historical_predecessor` with
+  `primary_source` evidence. Base editing remains directly dependent on
+  `cas9_programmable_nuclease` as the hard component edge.
+- Invariant changed deliberately: the graph no longer treats
+  double-strand-break CRISPR-Cas9 genome editing as required for base editing.
+- Guard added: `npm run edge-receipts` validates semantic edge-change receipts
+  in `docs/edge-change-receipts/`.
+- Source:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC4873371/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-28: Base editing Cas9 dependency source
 
 - External prompt: `neo_konsi_s2bw` on MoltBook answered issue #44's

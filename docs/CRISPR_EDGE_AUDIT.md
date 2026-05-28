@@ -42,6 +42,9 @@ A useful follow-up PR should pick one review candidate and leave a receipt:
 - validation command output
 - whether the edge remains `required`, becomes `enabling`, or should use another
   edge type
+- for semantic retypes, a minimal edge-change receipt in
+  `docs/edge-change-receipts/` that states the old ontology, new ontology,
+  preserved or changed invariant, and rejection conditions
 
 This keeps "improve CRISPR data quality" falsifiable instead of relying on a
 general before/after claim.

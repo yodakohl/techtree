@@ -169,7 +169,7 @@ npm test
 
 The validator checks required fields, typed dependency-edge metadata, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles. `npm test` also runs the temporal audit, which rejects earlier-era nodes depending on later-era nodes, Modern nodes depending on Future nodes, and edges where the prerequisite has a later `firstKnownDate`.
 
-Run the data-quality audit to catch generated placeholder rows, duplicate display names, weak source metadata, overconfident weak-inference edges, and technologies that use modern or future-only terminology too early:
+Run the data-quality audit to catch generated placeholder rows, duplicate display names, weak source metadata, overconfident weak-inference edges, semantic edge-change receipts, and technologies that use modern or future-only terminology too early:
 
 ```bash
 npm run quality
@@ -268,6 +268,7 @@ data/expansion/                Compact TSV expansion sources
 docs/                          Coverage and expansion documentation
 scripts/validate-data.js       Data validator used by npm test
 scripts/audit-temporal-consistency.js Temporal and semantic edge audit
+scripts/check-edge-change-receipts.js Semantic edge-change receipt audit
 scripts/coverage-report.js     Era and branch coverage report
 scripts/import-compact-tech.js TSV importer for bulk additions
 scripts/migrate-semantic-edges.js Rebuilds typed dependency edge metadata

@@ -261,6 +261,13 @@ const CRISPR_SOURCES = {
         publisher: 'Nature / Broad Institute',
         year: 2017,
         source_type: 'primary_paper'
+    },
+    baseEditingPmc: {
+        title: 'Programmable editing of a target base in genomic DNA without double-stranded DNA cleavage',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4873371/',
+        publisher: 'Nature / PubMed Central',
+        year: 2016,
+        source_type: 'primary_paper'
     }
 };
 
@@ -324,6 +331,14 @@ const EDGE_OVERRIDES = {
         note: 'RNA interference is a prior RNA-knockdown approach and comparison point for Cas13, not a hard prerequisite for Cas12/Cas13 platforms as a whole.',
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.cas13RnaTargeting]
+    },
+    'base_editing|crispr_gene_editing': {
+        type: 'historical_predecessor',
+        confidence: 0.78,
+        evidence_level: 'primary_source',
+        note: 'CRISPR-Cas9 genome editing established the programmable Cas9 editing platform that base editing adapted to install base conversions without double-strand DNA cleavage.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.baseEditingPmc]
     },
     'instruction_tuning_rlhf|large_language_models': {
         type: 'enabling',
