@@ -37,5 +37,22 @@ Allowed `support_relationship` values:
 - `supports_chronology`
 - `reviews_field_relationship`
 
+Relationship values are intentionally not interchangeable. `npm run
+edge-receipts` enforces asymmetric compatibility with the edge type:
+
+- `required`: `describes_component_architecture` or
+  `documents_approval_or_deployment`
+- `enabling`: `describes_component_architecture`,
+  `demonstrates_method_dependency`, `documents_application_use`, or
+  `reviews_field_relationship`
+- `accelerates`: `documents_application_use` or `reviews_field_relationship`
+- `historical_predecessor`: `establishes_historical_lineage`,
+  `supports_chronology`, or `reviews_field_relationship`
+- `common_dependency`: `supports_chronology` or `reviews_field_relationship`
+- `commercial_or_scaling_dependency`: `describes_component_architecture`,
+  `documents_application_use`, `documents_approval_or_deployment`, or
+  `reviews_field_relationship`
+- `speculative`: `supports_chronology` or `reviews_field_relationship`
+
 Use this for high-risk dependency edits where a metric can improve while the
 ontology silently gets worse.

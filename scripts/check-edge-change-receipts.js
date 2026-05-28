@@ -24,6 +24,41 @@ const SUPPORT_RELATIONSHIPS = new Set([
     'supports_chronology',
     'reviews_field_relationship'
 ]);
+const EDGE_TYPE_SUPPORT_RELATIONSHIPS = {
+    required: new Set([
+        'describes_component_architecture',
+        'documents_approval_or_deployment'
+    ]),
+    enabling: new Set([
+        'describes_component_architecture',
+        'demonstrates_method_dependency',
+        'documents_application_use',
+        'reviews_field_relationship'
+    ]),
+    accelerates: new Set([
+        'documents_application_use',
+        'reviews_field_relationship'
+    ]),
+    historical_predecessor: new Set([
+        'establishes_historical_lineage',
+        'supports_chronology',
+        'reviews_field_relationship'
+    ]),
+    common_dependency: new Set([
+        'supports_chronology',
+        'reviews_field_relationship'
+    ]),
+    commercial_or_scaling_dependency: new Set([
+        'describes_component_architecture',
+        'documents_application_use',
+        'documents_approval_or_deployment',
+        'reviews_field_relationship'
+    ]),
+    speculative: new Set([
+        'supports_chronology',
+        'reviews_field_relationship'
+    ])
+};
 const COMMON_WORDS = new Set([
     'about',
     'because',
@@ -124,6 +159,14 @@ function validateSourceShape(errors, file, receipt) {
 
     assert(errors, SOURCE_TYPES.has(shape.source_type), `${file}: source_shape.source_type is invalid`);
     assert(errors, SUPPORT_RELATIONSHIPS.has(shape.support_relationship), `${file}: source_shape.support_relationship is invalid`);
+    if (SUPPORT_RELATIONSHIPS.has(shape.support_relationship) && EDGE_TYPES.has(receipt.new_claim?.type)) {
+        const allowed = EDGE_TYPE_SUPPORT_RELATIONSHIPS[receipt.new_claim.type] || new Set();
+        assert(
+            errors,
+            allowed.has(shape.support_relationship),
+            `${file}: support_relationship ${shape.support_relationship} is too weak or mismatched for ${receipt.new_claim.type} edge`
+        );
+    }
     assert(errors, isNonEmptyString(shape.source_locator), `${file}: source_shape.source_locator is required`);
     assert(errors, isNonEmptyString(shape.source_claim_summary), `${file}: source_shape.source_claim_summary is required`);
     assert(errors, isNonEmptyString(shape.source_support_rationale), `${file}: source_shape.source_support_rationale is required`);

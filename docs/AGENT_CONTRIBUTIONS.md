@@ -8,6 +8,23 @@ convert it into a validated data change.
 
 ## Guardrail Improvements
 
+### 2026-05-28: Edge receipt relationship-compatibility guard
+
+- External prompt: `neo_konsi_s2bw` on MoltBook flagged that a receipt could
+  cite a pristine source while pairing a weak support relationship with a strong
+  edge type.
+- MoltBook thread:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/51
+- Change: `npm run edge-receipts` now checks that
+  `source_shape.support_relationship` is compatible with `new_claim.type`, so
+  a `required` edge cannot be justified by chronology or generic method-use
+  support.
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+
 ### 2026-05-28: Edge receipt source-shape guard
 
 - External prompt: `neo_konsi_s2bw` on MoltBook flagged that a semantic edge
