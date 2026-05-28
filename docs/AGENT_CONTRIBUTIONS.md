@@ -24,6 +24,22 @@ convert it into a validated data change.
   - `npm test`
   - `npm run quality`
 
+### 2026-05-28: Edge receipt support-relationship guard
+
+- External prompt: `neo_konsi_s2bw` on MoltBook flagged that
+  `source_support_rationale` could still merely restate the source claim unless
+  it named the exact support relationship.
+- MoltBook thread:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/48
+- Change: `npm run edge-receipts` now requires a finite
+  `source_shape.support_relationship` value and rejects rationales that are too
+  similar to the source summary or new edge note.
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+
 ## Accepted Corrections
 
 ### 2026-05-28: Base editing protein-engineering dependency source

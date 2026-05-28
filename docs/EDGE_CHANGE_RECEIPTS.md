@@ -20,9 +20,22 @@ The audit reads JSON receipts from `docs/edge-change-receipts/` and checks that:
 - the current graph still contains the edge described by the receipt
 - the current edge metadata matches the receipt's new claim
 - any supporting source URL is cited on the edge with `supports: ["edge"]`
-- `source_shape` records the source type, where in the source to inspect, the
-  claim summary, and why the source supports this edge claim
+- `source_shape` records the source type, support relationship, where in the
+  source to inspect, the claim summary, and why the source supports this edge
+  claim
+- `source_support_rationale` is not just a restatement of the source summary or
+  new edge note
 - every receipt has at least one `would_reject_if` condition
+
+Allowed `support_relationship` values:
+
+- `describes_component_architecture`
+- `demonstrates_method_dependency`
+- `establishes_historical_lineage`
+- `documents_application_use`
+- `documents_approval_or_deployment`
+- `supports_chronology`
+- `reviews_field_relationship`
 
 Use this for high-risk dependency edits where a metric can improve while the
 ontology silently gets worse.

@@ -15,6 +15,31 @@ const CHANGE_CLASSES = new Set([
     'no_change'
 ]);
 const SOURCE_SUPPORT_VALUES = new Set(['yes', 'partial', 'no']);
+const SUPPORT_RELATIONSHIPS = new Set([
+    'describes_component_architecture',
+    'demonstrates_method_dependency',
+    'establishes_historical_lineage',
+    'documents_application_use',
+    'documents_approval_or_deployment',
+    'supports_chronology',
+    'reviews_field_relationship'
+]);
+const COMMON_WORDS = new Set([
+    'about',
+    'because',
+    'between',
+    'claim',
+    'claims',
+    'directly',
+    'edge',
+    'from',
+    'into',
+    'source',
+    'supports',
+    'that',
+    'this',
+    'with'
+]);
 
 function loadData() {
     return fs.readdirSync(DATA_DIR)
@@ -51,6 +76,24 @@ function assert(errors, condition, message) {
     if (!condition) errors.push(message);
 }
 
+function normalizeText(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function meaningfulWords(value) {
+    return normalizeText(value)
+        .split(/\s+/)
+        .filter(word => word.length > 3 && !COMMON_WORDS.has(word));
+}
+
+function wordSimilarity(a, b) {
+    const aWords = new Set(meaningfulWords(a));
+    const bWords = new Set(meaningfulWords(b));
+    if (!aWords.size || !bWords.size) return 0;
+    const overlap = [...aWords].filter(word => bWords.has(word)).length;
+    return overlap / Math.min(aWords.size, bWords.size);
+}
+
 function validateClaim(errors, file, label, claim) {
     assert(errors, claim && typeof claim === 'object', `${file}: ${label} must be an object`);
     if (!claim || typeof claim !== 'object') return;
@@ -80,6 +123,7 @@ function validateSourceShape(errors, file, receipt) {
     if (!shape || typeof shape !== 'object') return;
 
     assert(errors, SOURCE_TYPES.has(shape.source_type), `${file}: source_shape.source_type is invalid`);
+    assert(errors, SUPPORT_RELATIONSHIPS.has(shape.support_relationship), `${file}: source_shape.support_relationship is invalid`);
     assert(errors, isNonEmptyString(shape.source_locator), `${file}: source_shape.source_locator is required`);
     assert(errors, isNonEmptyString(shape.source_claim_summary), `${file}: source_shape.source_claim_summary is required`);
     assert(errors, isNonEmptyString(shape.source_support_rationale), `${file}: source_shape.source_support_rationale is required`);
@@ -88,6 +132,14 @@ function validateSourceShape(errors, file, receipt) {
         if (typeof shape[field] === 'string') {
             assert(errors, shape[field].trim().length >= 30, `${file}: source_shape.${field} must be specific enough to dispute`);
         }
+    }
+
+    const rationale = shape.source_support_rationale;
+    if (typeof rationale === 'string') {
+        assert(errors, normalizeText(rationale) !== normalizeText(shape.source_claim_summary), `${file}: source_support_rationale must not merely restate source_claim_summary`);
+        assert(errors, normalizeText(rationale) !== normalizeText(receipt.new_claim?.note), `${file}: source_support_rationale must not merely restate new_claim.note`);
+        assert(errors, wordSimilarity(rationale, shape.source_claim_summary) < 0.86, `${file}: source_support_rationale is too similar to source_claim_summary`);
+        assert(errors, wordSimilarity(rationale, receipt.new_claim?.note) < 0.9, `${file}: source_support_rationale is too similar to new_claim.note`);
     }
 }
 
