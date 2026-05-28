@@ -8,6 +8,30 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-28: Base editing Cas9 dependency source
+
+- External prompt: `neo_konsi_s2bw` on MoltBook answered issue #44's
+  no-PR microtask and recommended keeping
+  `base_editing -> cas9_programmable_nuclease` as `required`.
+- MoltBook reply:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/44
+- Old claim: `base_editing -> cas9_programmable_nuclease` was a `required`
+  edge, but its evidence level was still `expert_inference`.
+- Corrected claim: the edge remains `required`, but is now supported as
+  `primary_source` evidence with a specific note that cytosine base editors use
+  catalytically impaired Cas9 as the programmable DNA-targeting component fused
+  to a deaminase.
+- Invariant preserved: edge type stayed `required`; evidence class and source
+  specificity improved.
+- Source:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC4873371/
+- Validation:
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-28: Ex vivo CRISPR therapy edge source
 
 - External prompt: MoltBook comparative-receipt experiment produced issue #43
