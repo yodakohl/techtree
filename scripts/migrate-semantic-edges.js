@@ -268,6 +268,36 @@ const CRISPR_SOURCES = {
         publisher: 'Nature / PubMed Central',
         year: 2016,
         source_type: 'primary_paper'
+    },
+    baseEditingNature: {
+        title: 'Programmable editing of a target base in genomic DNA without double-stranded DNA cleavage',
+        url: 'https://www.nature.com/articles/nature17946',
+        publisher: 'Nature',
+        year: 2016,
+        source_type: 'primary_paper',
+        supports: ['node', 'maturity']
+    },
+    fdaCasgevy: {
+        title: 'FDA Approves First Gene Therapies to Treat Patients with Sickle Cell Disease',
+        url: 'https://www.fda.gov/vaccines-blood-biologics/casgevy',
+        publisher: 'U.S. Food and Drug Administration',
+        year: 2023,
+        source_type: 'official_agency',
+        supports: ['node', 'maturity']
+    },
+    nejmExaCel: {
+        title: 'CRISPR-Cas9 Gene Editing for Sickle Cell Disease and beta-Thalassemia',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33283989/',
+        publisher: 'New England Journal of Medicine / PubMed',
+        year: 2021,
+        source_type: 'primary_paper'
+    },
+    jinekCas9Pmc: {
+        title: 'A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6286148/',
+        publisher: 'Science / PubMed Central',
+        year: 2012,
+        source_type: 'primary_paper'
     }
 };
 
@@ -332,13 +362,29 @@ const EDGE_OVERRIDES = {
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.cas13RnaTargeting]
     },
+    'ex_vivo_crispr_cell_therapy|crispr_gene_editing': {
+        type: 'required',
+        confidence: 0.92,
+        evidence_level: 'primary_source',
+        note: 'Ex vivo CRISPR cell therapy depends on CRISPR-Cas9 genome editing of patient-derived cells before reinfusion.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.fdaCasgevy, CRISPR_SOURCES.nejmExaCel]
+    },
     'base_editing|crispr_gene_editing': {
         type: 'historical_predecessor',
         confidence: 0.78,
         evidence_level: 'primary_source',
         note: 'CRISPR-Cas9 genome editing established the programmable Cas9 editing platform that base editing adapted to install base conversions without double-strand DNA cleavage.',
         reviewStatus: 'source_checked',
-        sources: [CRISPR_SOURCES.baseEditingPmc]
+        sources: [CRISPR_SOURCES.baseEditingNature, CRISPR_SOURCES.baseEditingPmc]
+    },
+    'base_editing|cas9_programmable_nuclease': {
+        type: 'required',
+        confidence: 0.92,
+        evidence_level: 'primary_source',
+        note: 'Cytosine base editors use catalytically impaired Cas9 as the programmable DNA-targeting component fused to a deaminase.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.baseEditingNature, CRISPR_SOURCES.baseEditingPmc]
     },
     'base_editing|protein_engineering': {
         type: 'required',
@@ -346,7 +392,15 @@ const EDGE_OVERRIDES = {
         evidence_level: 'primary_source',
         note: 'Base editors are engineered protein fusions, such as deaminase domains joined to catalytically impaired Cas9 variants, making protein engineering a direct component dependency.',
         reviewStatus: 'source_checked',
-        sources: [CRISPR_SOURCES.baseEditingPmc]
+        sources: [CRISPR_SOURCES.baseEditingNature, CRISPR_SOURCES.baseEditingPmc]
+    },
+    'cas9_programmable_nuclease|protein_engineering': {
+        type: 'enabling',
+        confidence: 0.74,
+        evidence_level: 'primary_source',
+        note: 'Protein engineering supports Cas9 domain characterization and later optimization, but the 2012 programmable nuclease platform is primarily RNA-guided rather than dependent on engineered Cas9 variants.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.jinekCas9Pmc]
     },
     'instruction_tuning_rlhf|large_language_models': {
         type: 'enabling',

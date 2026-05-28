@@ -42,6 +42,32 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-28: Programmable Cas9 protein-engineering edge retype
+
+- Internal follow-up: the CRISPR edge audit identified
+  `cas9_programmable_nuclease -> protein_engineering` as the next required edge
+  still relying on `expert_inference`.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/49
+- Old claim: `cas9_programmable_nuclease -> protein_engineering` was a
+  `required` edge, implying protein engineering was a hard prerequisite for the
+  original programmable Cas9 nuclease platform.
+- Corrected claim: the edge is now `enabling` with `primary_source` evidence.
+  Jinek et al. 2012 supports protein engineering as relevant to Cas9 domain
+  characterization and later optimization, while the core platform is
+  RNA-guided Cas9 activity rather than engineered Cas9 variants.
+- Invariant changed deliberately: the graph no longer treats engineered Cas9
+  protein variants as required for the 2012 programmable nuclease platform.
+- Source:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC6286148/
+- Validation:
+  - `node scripts/migrate-semantic-edges.js`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-28: Base editing protein-engineering dependency source
 
 - Internal follow-up: the CRISPR edge audit identified

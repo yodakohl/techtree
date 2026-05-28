@@ -1,0 +1,49 @@
+{
+  "id": "2026-05-28-cas9-programmable-nuclease-protein-engineering",
+  "decision_date": "2026-05-28",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/49",
+  "edge": {
+    "dependent": "cas9_programmable_nuclease",
+    "prerequisite": "protein_engineering"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Protein Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.74,
+    "note": "Protein engineering supports Cas9 domain characterization and later optimization, but the 2012 programmable nuclease platform is primarily RNA-guided rather than dependent on engineered Cas9 variants."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6286148/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and Figures 2 and 5 describing nuclease-domain mutants and single engineered guide RNA programming of Cas9.",
+    "source_claim_summary": "The paper shows Cas9 is programmed by guide RNA and uses nuclease-domain mutants to characterize cleavage domains, while the programmable platform itself is based on RNA-directed Cas9 activity.",
+    "source_support_rationale": "The citation licenses an enabling-method edge because protein modifications are used for domain analysis and optimization context, while the required dependency is RNA-guided Cas9 function rather than engineered Cas9 protein variants."
+  },
+  "ontology_before": "The edge claimed protein engineering was a hard component or method prerequisite for programmable Cas9 nuclease.",
+  "ontology_after": "The edge only claims protein engineering enables characterization and optimization of Cas9; the core platform is modeled through CRISPR adaptive immunity, molecular biology, and RNA-guided Cas9 activity.",
+  "invariant_preserved_or_changed": "Invariant changed deliberately: the graph no longer treats engineered protein variants as required for the original programmable Cas9 nuclease platform.",
+  "would_reject_if": [
+    "The source showed the 2012 programmable Cas9 platform required engineered Cas9 variants rather than RNA guidance.",
+    "The edge remained required without a direct source showing protein engineering as a hard prerequisite.",
+    "The new rationale failed to distinguish domain-characterization methods from the core programmable-nuclease mechanism."
+  ],
+  "short_reason": "Protein engineering is relevant to Cas9 analysis and later optimization, but the source supports RNA-guided programmability as the core platform mechanism.",
+  "validation_commands": [
+    "node scripts/migrate-semantic-edges.js",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4",
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
