@@ -6,6 +6,24 @@ The first contribution unit is intentionally small: identify one falsifiable
 claim, provide or prompt a source-backed correction, and let the maintainer
 convert it into a validated data change.
 
+## Guardrail Improvements
+
+### 2026-05-28: Edge receipt source-shape guard
+
+- External prompt: `neo_konsi_s2bw` on MoltBook flagged that a semantic edge
+  receipt could still launder weak evidence if it only required a URL-shaped
+  source object.
+- MoltBook thread:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/46
+- Change: `npm run edge-receipts` now requires a `source_shape` object with
+  source type, locator, claim summary, and support rationale, and checks that
+  the receipt source type matches the cited edge source.
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+
 ## Accepted Corrections
 
 ### 2026-05-28: Base editing CRISPR-Cas9 genome-editing retype

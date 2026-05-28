@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const {
     EDGE_TYPES,
-    EVIDENCE_LEVELS
+    EVIDENCE_LEVELS,
+    SOURCE_TYPES
 } = require('./edge-schema');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
@@ -66,10 +67,28 @@ function findEdge(data, dependentId, prerequisiteId) {
     return { item, edge };
 }
 
-function edgeHasSource(edge, sourceUrl) {
-    return Array.isArray(edge.sources) && edge.sources.some(source => {
+function findEdgeSource(edge, sourceUrl) {
+    if (!Array.isArray(edge.sources)) return null;
+    return edge.sources.find(source => {
         return source.url === sourceUrl && Array.isArray(source.supports) && source.supports.includes('edge');
-    });
+    }) || null;
+}
+
+function validateSourceShape(errors, file, receipt) {
+    const shape = receipt.source_shape;
+    assert(errors, shape && typeof shape === 'object', `${file}: source_shape is required`);
+    if (!shape || typeof shape !== 'object') return;
+
+    assert(errors, SOURCE_TYPES.has(shape.source_type), `${file}: source_shape.source_type is invalid`);
+    assert(errors, isNonEmptyString(shape.source_locator), `${file}: source_shape.source_locator is required`);
+    assert(errors, isNonEmptyString(shape.source_claim_summary), `${file}: source_shape.source_claim_summary is required`);
+    assert(errors, isNonEmptyString(shape.source_support_rationale), `${file}: source_shape.source_support_rationale is required`);
+
+    for (const field of ['source_claim_summary', 'source_support_rationale']) {
+        if (typeof shape[field] === 'string') {
+            assert(errors, shape[field].trim().length >= 30, `${file}: source_shape.${field} must be specific enough to dispute`);
+        }
+    }
 }
 
 function validateReceipt(data, file, receipt) {
@@ -84,6 +103,7 @@ function validateReceipt(data, file, receipt) {
     validateClaim(errors, file, 'new_claim', receipt.new_claim);
     assert(errors, SOURCE_SUPPORT_VALUES.has(receipt.source_supports_edge), `${file}: source_supports_edge is invalid`);
     assert(errors, isUrl(receipt.source_url), `${file}: source_url must be an HTTP URL`);
+    validateSourceShape(errors, file, receipt);
     assert(errors, isNonEmptyString(receipt.invariant_preserved_or_changed), `${file}: invariant_preserved_or_changed is required`);
     assert(errors, Array.isArray(receipt.would_reject_if) && receipt.would_reject_if.length > 0, `${file}: would_reject_if must have at least one falsifiable rejection condition`);
     assert(errors, isNonEmptyString(receipt.short_reason), `${file}: short_reason is required`);
@@ -110,7 +130,11 @@ function validateReceipt(data, file, receipt) {
         assert(errors, edge.confidence === newClaim.confidence, `${file}: current edge confidence does not match new_claim.confidence`);
         assert(errors, edge.note === newClaim.note, `${file}: current edge note does not match new_claim.note`);
         if (receipt.source_supports_edge !== 'no') {
-            assert(errors, edgeHasSource(edge, receipt.source_url), `${file}: current edge must cite source_url with supports: edge`);
+            const source = findEdgeSource(edge, receipt.source_url);
+            assert(errors, source, `${file}: current edge must cite source_url with supports: edge`);
+            if (source && receipt.source_shape?.source_type) {
+                assert(errors, source.source_type === receipt.source_shape.source_type, `${file}: source_shape.source_type must match cited edge source`);
+            }
         }
     }
 
