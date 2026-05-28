@@ -26,6 +26,28 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-28: Base editing protein-engineering dependency source
+
+- Internal follow-up: the CRISPR edge audit identified
+  `base_editing -> protein_engineering` as the next required edge still relying
+  on `expert_inference`.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/47
+- Old claim: `base_editing -> protein_engineering` was a `required` edge, but
+  its evidence level was still `expert_inference`.
+- Corrected claim: the edge remains `required`, but is now supported as
+  `primary_source` evidence because base editors are engineered protein fusions
+  combining catalytic and DNA-targeting protein components.
+- Invariant preserved: edge type stayed `required`; evidence class, confidence,
+  note, and source specificity improved.
+- Source:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC4873371/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-28: Base editing CRISPR-Cas9 genome-editing retype
 
 - External prompt: `neo_konsi_s2bw` challenged whether an edge-count

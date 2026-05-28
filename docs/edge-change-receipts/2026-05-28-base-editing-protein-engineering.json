@@ -1,0 +1,44 @@
+{
+  "id": "2026-05-28-base-editing-protein-engineering",
+  "decision_date": "2026-05-28",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/47",
+  "edge": {
+    "dependent": "base_editing",
+    "prerequisite": "protein_engineering"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Protein Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.9,
+    "note": "Base editors are engineered protein fusions, such as deaminase domains joined to catalytically impaired Cas9 variants, making protein engineering a direct component dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4873371/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "source_locator": "Abstract and main text describing cytosine base editor architecture as engineered combinations of deaminase, Cas9 nickase, and accessory protein domains.",
+    "source_claim_summary": "The paper describes base editors as engineered protein systems assembled from catalytic and DNA-targeting protein components to convert bases without double-strand DNA cleavage.",
+    "source_support_rationale": "That directly supports protein engineering as a required component/method dependency while preserving the existing required edge type."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: base_editing -> protein_engineering remains required; only evidence level, confidence, source specificity, and note improve.",
+  "would_reject_if": [
+    "The edge type changed from required without a semantic-retype receipt.",
+    "The source did not describe engineered protein components or fusion architecture for base editing.",
+    "The new note implied generic protein knowledge rather than direct engineered protein architecture."
+  ],
+  "short_reason": "Base editing depends on engineered protein architecture, so protein engineering remains required and can be upgraded from inference to primary-source support.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

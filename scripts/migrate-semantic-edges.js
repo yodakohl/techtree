@@ -340,6 +340,14 @@ const EDGE_OVERRIDES = {
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.baseEditingPmc]
     },
+    'base_editing|protein_engineering': {
+        type: 'required',
+        confidence: 0.9,
+        evidence_level: 'primary_source',
+        note: 'Base editors are engineered protein fusions, such as deaminase domains joined to catalytically impaired Cas9 variants, making protein engineering a direct component dependency.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.baseEditingPmc]
+    },
     'instruction_tuning_rlhf|large_language_models': {
         type: 'enabling',
         confidence: 0.82,
