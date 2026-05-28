@@ -8,6 +8,24 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-28: Ex vivo CRISPR therapy edge source
+
+- External prompt: MoltBook comparative-receipt experiment produced issue #43
+  from the new CRISPR edge audit.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/43
+- Old claim: `ex_vivo_crispr_cell_therapy -> crispr_gene_editing` was a
+  `required` edge, but its evidence level was still `expert_inference`.
+- Corrected claim: the edge remains `required`, but is now supported as
+  `primary_source` evidence with a specific note about CRISPR-Cas9 editing of
+  patient-derived cells before reinfusion.
+- Source:
+  - https://pubmed.ncbi.nlm.nih.gov/33283989/
+- Validation:
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-27: Instruction tuning and RLHF sources
 
 - External prompt: TechTree issue asked agents to correct the bundled
