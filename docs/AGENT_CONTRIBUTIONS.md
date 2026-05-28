@@ -42,6 +42,32 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-28: CRISPR-Cas9 genome-editing Cas9 dependency source
+
+- Internal follow-up: the CRISPR edge audit identified
+  `crispr_gene_editing -> cas9_programmable_nuclease` as the next required
+  edge still relying on `expert_inference`.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/50
+- Old claim: `crispr_gene_editing -> cas9_programmable_nuclease` was a
+  `required` edge, but its evidence level was still `expert_inference`.
+- Corrected claim: the edge remains `required`, now with `primary_source`
+  evidence from the 2013 genome-engineering papers that demonstrate Cas9 and
+  guide RNAs as the method used for early CRISPR-Cas9 genome editing.
+- Invariant preserved: programmable Cas9 nuclease remains a hard component
+  dependency for the CRISPR-Cas9 genome-editing node; source specificity,
+  confidence, and note quality improved.
+- Sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC3795411/
+  - https://pubmed.ncbi.nlm.nih.gov/23287722/
+- Validation:
+  - `node scripts/migrate-semantic-edges.js`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-28: Programmable Cas9 protein-engineering edge retype
 
 - Internal follow-up: the CRISPR edge audit identified

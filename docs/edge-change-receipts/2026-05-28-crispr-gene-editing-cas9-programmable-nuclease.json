@@ -1,0 +1,47 @@
+{
+  "id": "2026-05-28-crispr-gene-editing-cas9-programmable-nuclease",
+  "decision_date": "2026-05-28",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/50",
+  "edge": {
+    "dependent": "crispr_gene_editing",
+    "prerequisite": "cas9_programmable_nuclease"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.88,
+    "note": "Programmable Cas9 nuclease activity is the core platform for early CRISPR genome editing."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.94,
+    "note": "Early CRISPR-Cas9 genome editing requires Cas9 nuclease activity as the programmable DNA-cutting component directed by guide RNA."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3795411/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and early experimental sections describing mammalian-cell genome engineering with S. pyogenes Cas9 and guide RNAs.",
+    "source_claim_summary": "The paper demonstrates CRISPR/Cas genome editing by reconstituting Cas9 nuclease activity with guide RNAs in mammalian cells and measuring targeted genome modification.",
+    "source_support_rationale": "The source licenses a required method edge because Cas9 is not background context in the demonstrated workflow; it is the programmable DNA-cleaving enzyme paired with guide RNA to produce the edited locus."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: CRISPR-Cas9 genome editing keeps programmable Cas9 nuclease as a required component; only evidence level, confidence, source specificity, and note improve.",
+  "would_reject_if": [
+    "The cited source only described in vitro Cas9 programmability and did not demonstrate genome editing in cells.",
+    "The edge note claimed all CRISPR genome editing requires Cas9, rather than the Cas9-specific early genome-editing platform represented by this node.",
+    "The edge was weakened to enabling despite the node being explicitly scoped to CRISPR-Cas9 genome editing."
+  ],
+  "short_reason": "The 2013 primary genome-engineering paper directly supports Cas9 nuclease activity as a required component of early CRISPR-Cas9 genome editing.",
+  "validation_commands": [
+    "node scripts/migrate-semantic-edges.js",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4",
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

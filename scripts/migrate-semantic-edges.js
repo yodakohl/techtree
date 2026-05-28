@@ -298,6 +298,20 @@ const CRISPR_SOURCES = {
         publisher: 'Science / PubMed Central',
         year: 2012,
         source_type: 'primary_paper'
+    },
+    congGenomeEngineeringPmc: {
+        title: 'Multiplex Genome Engineering Using CRISPR/Cas Systems',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3795411/',
+        publisher: 'Science / PubMed Central',
+        year: 2013,
+        source_type: 'primary_paper'
+    },
+    maliHumanGenomeEngineeringPubmed: {
+        title: 'RNA-guided human genome engineering via Cas9',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23287722/',
+        publisher: 'Science / PubMed',
+        year: 2013,
+        source_type: 'primary_paper'
     }
 };
 
@@ -401,6 +415,14 @@ const EDGE_OVERRIDES = {
         note: 'Protein engineering supports Cas9 domain characterization and later optimization, but the 2012 programmable nuclease platform is primarily RNA-guided rather than dependent on engineered Cas9 variants.',
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.jinekCas9Pmc]
+    },
+    'crispr_gene_editing|cas9_programmable_nuclease': {
+        type: 'required',
+        confidence: 0.94,
+        evidence_level: 'primary_source',
+        note: 'Early CRISPR-Cas9 genome editing requires Cas9 nuclease activity as the programmable DNA-cutting component directed by guide RNA.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.congGenomeEngineeringPmc, CRISPR_SOURCES.maliHumanGenomeEngineeringPubmed]
     },
     'instruction_tuning_rlhf|large_language_models': {
         type: 'enabling',
@@ -1184,6 +1206,17 @@ const SOURCE_OVERRIDES = {
     dna_sequencing: [PHARMA_SOURCES.genomeDnaSequencing],
     bioinformatics: [PHARMA_SOURCES.genomeBioinformatics],
     cas12_cas13_editing_platforms: [CRISPR_SOURCES.cpf1Cas12, CRISPR_SOURCES.cas13RnaTargeting],
+    crispr_gene_editing: [
+        CRISPR_SOURCES.congGenomeEngineeringPmc,
+        CRISPR_SOURCES.maliHumanGenomeEngineeringPubmed,
+        {
+            title: 'The Nobel Prize in Chemistry 2020',
+            url: 'https://www.nobelprize.org/prizes/chemistry/2020/summary/',
+            publisher: 'Nobel Prize',
+            year: 2020,
+            source_type: 'museum'
+        }
+    ],
     protein_structure_prediction_ai: [PHARMA_SOURCES.natureAlphaFold],
     ai_driven_drug_discovery: [
         { ...PHARMA_SOURCES.natureAiDrugDiscovery, supports: ['node', 'roadmap', 'maturity'] }
