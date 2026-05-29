@@ -59,6 +59,32 @@ convert it into a validated data change.
 
 ## Accepted Corrections
 
+### 2026-05-29: CRISPR-Cas9 genetic-engineering edge retype
+
+- Internal follow-up: the CRISPR edge audit identified
+  `crispr_gene_editing -> genetic_engineering` as the next required edge still
+  relying on `expert_inference`.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/52
+- Old claim: `crispr_gene_editing -> genetic_engineering` was a `required`
+  edge, implying the broad genetic-engineering field was a hard component or
+  method prerequisite for CRISPR-Cas9 genome editing.
+- Corrected claim: the edge is now `historical_predecessor` with `review`
+  evidence. The review supports genetic engineering/genome engineering as the
+  broader field context while the direct hard dependencies remain on Cas9,
+  guide RNA, PAM targeting, and repair biology.
+- Invariant changed deliberately: broad field context is not treated as a hard
+  component dependency.
+- Source:
+  - https://pubmed.ncbi.nlm.nih.gov/24906146/
+- Validation:
+  - `node scripts/migrate-semantic-edges.js`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-05-28: CRISPR-Cas9 genome-editing Cas9 dependency source
 
 - Internal follow-up: the CRISPR edge audit identified

@@ -1,0 +1,49 @@
+{
+  "id": "2026-05-29-crispr-gene-editing-genetic-engineering",
+  "decision_date": "2026-05-29",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/52",
+  "edge": {
+    "dependent": "crispr_gene_editing",
+    "prerequisite": "genetic_engineering"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Genetic Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.76,
+    "note": "Genetic engineering is the broader predecessor field for genome-engineering methods, but it is not a discrete component required by the CRISPR-Cas9 editing mechanism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/24906146/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract and review framing describing CRISPR-Cas9 as a genome-engineering platform and Cas9-mediated genetic perturbation.",
+    "source_claim_summary": "The review places CRISPR-Cas9 within genome engineering technologies and describes Cas9-mediated perturbation as a platform for editing or modulating genomic sequences.",
+    "source_support_rationale": "The citation licenses a field-lineage edge because it reviews CRISPR-Cas9 as part of genome engineering, while the hard mechanism is carried by separate Cas9, guide RNA, PAM, and repair dependencies."
+  },
+  "ontology_before": "The edge treated the broad genetic-engineering field as a hard component or method prerequisite for CRISPR-Cas9 genome editing.",
+  "ontology_after": "The edge now records genetic engineering as the broader predecessor field and context for genome-engineering methods, while concrete CRISPR-Cas9 mechanism dependencies remain on the specific component nodes.",
+  "invariant_preserved_or_changed": "Invariant changed deliberately: CRISPR-Cas9 genome editing no longer treats a broad umbrella field as a hard component dependency.",
+  "would_reject_if": [
+    "A source directly showed that the broad genetic-engineering field is a necessary component rather than a predecessor context for CRISPR-Cas9 editing.",
+    "The correction removed the direct required edges to Cas9 nuclease, guide RNA, PAM targeting, or DNA repair.",
+    "The node was broadened from CRISPR-Cas9 genome editing to all genetic engineering, making the predecessor relationship tautological."
+  ],
+  "short_reason": "Genetic engineering is a broader predecessor field for CRISPR-Cas9 genome editing, not a discrete mechanism component.",
+  "validation_commands": [
+    "node scripts/migrate-semantic-edges.js",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4",
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

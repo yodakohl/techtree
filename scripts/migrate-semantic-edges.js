@@ -312,6 +312,13 @@ const CRISPR_SOURCES = {
         publisher: 'Science / PubMed',
         year: 2013,
         source_type: 'primary_paper'
+    },
+    hsuCas9GenomeEngineeringReview: {
+        title: 'Development and Applications of CRISPR-Cas9 for Genome Engineering',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/24906146/',
+        publisher: 'Cell / PubMed',
+        year: 2014,
+        source_type: 'review'
     }
 };
 
@@ -423,6 +430,14 @@ const EDGE_OVERRIDES = {
         note: 'Early CRISPR-Cas9 genome editing requires Cas9 nuclease activity as the programmable DNA-cutting component directed by guide RNA.',
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.congGenomeEngineeringPmc, CRISPR_SOURCES.maliHumanGenomeEngineeringPubmed]
+    },
+    'crispr_gene_editing|genetic_engineering': {
+        type: 'historical_predecessor',
+        confidence: 0.76,
+        evidence_level: 'review',
+        note: 'Genetic engineering is the broader predecessor field for genome-engineering methods, but it is not a discrete component required by the CRISPR-Cas9 editing mechanism.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.hsuCas9GenomeEngineeringReview]
     },
     'instruction_tuning_rlhf|large_language_models': {
         type: 'enabling',
