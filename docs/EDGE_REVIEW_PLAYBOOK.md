@@ -78,6 +78,11 @@ Reject a receipt if the source only says "X mentions Y" while the edge says
 Before preserving a hard edge, compare the endpoint scopes. A broad field should
 not usually depend on one narrower method family as `required`.
 
+Use a modal-scope test for `required`: if the prerequisite is absent, every
+in-scope realization of the dependent node should break. If that is not true,
+narrow the dependent node, demote the edge, or replace the prerequisite with the
+precise component or constraint.
+
 Example: `genetic_engineering -> recombinant_dna_genetic_engineering` is a
 `historical_predecessor` edge when `genetic_engineering` means the broad field.
 It would only be `required` if the dependent node were scoped narrowly to

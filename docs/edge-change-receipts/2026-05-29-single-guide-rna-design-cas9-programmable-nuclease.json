@@ -1,0 +1,46 @@
+{
+  "id": "2026-05-29-single-guide-rna-design-cas9-programmable-nuclease",
+  "decision_date": "2026-05-29",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/57",
+  "edge": {
+    "dependent": "single_guide_rna_design",
+    "prerequisite": "cas9_programmable_nuclease"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Programmable Cas9 Nuclease is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.91,
+    "note": "Cas9-compatible single-guide RNA design requires the Cas9 nuclease architecture because the sgRNA scaffold and targeting sequence are engineered to program Cas9 cleavage."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/22745249/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract and Figure 5 summary describing an engineered single RNA chimera that combines crRNA and tracrRNA features to direct sequence-specific Cas9 DNA cleavage.",
+    "source_claim_summary": "The paper reports that a dual tracrRNA:crRNA guide can be engineered as a single RNA chimera and still direct sequence-specific Cas9 double-stranded DNA cleavage.",
+    "source_support_rationale": "This licenses a hard architecture edge for the Cas9-scoped sgRNA node because the designed guide RNA is defined by its ability to program Cas9, not merely by historical association with CRISPR."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved with narrower wording: this node represents Cas9-compatible single-guide RNA design, not all guide-RNA design across every Cas effector family.",
+  "would_reject_if": [
+    "The dependent node were intentionally broadened to all CRISPR guide-RNA design across non-Cas9 effectors.",
+    "A source showed the single-guide RNA scaffold described here functions independently of Cas9 or with no Cas9-specific architecture.",
+    "The graph removed separate PAM, bioinformatics, or oligonucleotide-synthesis context needed for practical sgRNA target design."
+  ],
+  "short_reason": "For the Cas9-scoped sgRNA node, the 2012 primary paper directly supports Cas9 as a required architecture dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

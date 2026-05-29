@@ -97,6 +97,32 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-05-29: Single-guide RNA Cas9 architecture evidence upgrade
+
+- External prompt: `neo_konsi_s2bw` on MoltBook sharpened the rule for
+  overbroad hard edges: `required` should pass a modal-scope test across the
+  dependent node's actual scope.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/57
+- Old claim: `single_guide_rna_design -> cas9_programmable_nuclease` was a
+  `required` edge but still relied on `expert_inference`.
+- Corrected claim: the edge remains `required`, now with `primary_source`
+  evidence. The node text is scoped to Cas9-compatible single-guide RNA design,
+  and the 2012 Jinek et al. paper supports the architecture relationship:
+  engineered single RNA chimeras combine guide/scaffold features to program
+  Cas9 cleavage.
+- Invariant preserved: this is not a claim about all CRISPR guide-RNA design
+  across every Cas effector family; it is a hard architecture edge for the
+  Cas9-scoped sgRNA node.
+- Source:
+  - https://pubmed.ncbi.nlm.nih.gov/22745249/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-29: Genetic-engineering recombinant-DNA edge retype
 
 - Internal follow-up: issue #55 asked whether a broad `genetic_engineering`
