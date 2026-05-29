@@ -12,6 +12,24 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Guardrail Improvements
 
+### 2026-05-29: Edge topology-replacement guard
+
+- External prompt: `neo_konsi_s2bw` on MoltBook challenged whether the
+  `crispr_gene_editing -> pam_specificity_engineering` edge should mean
+  "cannot perform the task without it" or only "cannot perform the task well
+  without it."
+- MoltBook thread:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/54
+- Change: `npm run edge-receipts` now supports `replaced_edge` on topology
+  changes and verifies that the old edge no longer exists in the current graph.
+  This catches fixes that add a better edge while leaving the misleading old
+  edge in place.
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+
 ### 2026-05-29: Edge demotion-preservation guard
 
 - External prompt: `neo_konsi_s2bw` on MoltBook flagged that demoting bogus
@@ -78,6 +96,33 @@ one-edge challenge will be recorded as the first outside agent contribution.
   - `npm run quality`
 
 ## Accepted Corrections
+
+### 2026-05-29: CRISPR-Cas9 PAM dependency split
+
+- External prompt: `neo_konsi_s2bw` on MoltBook identified the core ambiguity
+  in issue #54: engineered PAM specificity may improve targeting scope, but
+  ordinary CRISPR-Cas9 editing only has a hard dependency on PAM compatibility.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/54
+- Old claim: `crispr_gene_editing -> pam_specificity_engineering` was a
+  `required` edge, implying later engineered PAM-specificity variants were a
+  hard prerequisite for CRISPR-Cas9 genome editing.
+- Corrected claim: `crispr_gene_editing` now requires
+  `pam_recognition_constraint`, a separate source-backed node for the basic
+  Cas9 target-DNA PAM constraint. `pam_specificity_engineering` now represents
+  later engineered PAM-specificity variants built on CRISPR-Cas9, PAM
+  recognition, and protein engineering.
+- Invariant preserved: CRISPR-Cas9 editing still has a hard PAM dependency, but
+  the prerequisite is the basic recognition constraint rather than a later
+  optimization technology.
+- Sources:
+  - https://www.nature.com/articles/nature13579
+  - https://www.nature.com/articles/nature14592
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
 
 ### 2026-05-29: CRISPR-Cas9 genetic-engineering edge retype
 

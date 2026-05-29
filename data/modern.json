@@ -8079,56 +8079,74 @@
   },
   {
     "id": "pam_specificity_engineering",
-    "name": "PAM Specificity Engineering",
+    "name": "Engineered PAM Specificity Variants",
     "era": "Modern",
-    "description": "Selection or engineering of Cas enzymes and targets around protospacer-adjacent motif requirements that constrain editable sites.",
+    "description": "Engineering or directed evolution of Cas enzymes with altered protospacer-adjacent motif specificities to expand the set of targetable genome sites.",
     "prerequisites": [
-      "cas9_programmable_nuclease",
-      "protein_engineering",
-      "single_guide_rna_design"
+      "crispr_gene_editing",
+      "pam_recognition_constraint",
+      "protein_engineering"
     ],
     "fields": [
       "Genome Editing / CRISPR-Cas"
     ],
     "fieldLanes": {
-      "Genome Editing / CRISPR-Cas": "Assays & Safety"
+      "Genome Editing / CRISPR-Cas": "Editing Platforms"
     },
     "maturity": "established",
     "sources": [
       {
-        "title": "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/22745249/",
-        "publisher": "Science / PubMed",
-        "year": 2012,
-        "source_type": "official_agency",
+        "title": "Engineered CRISPR-Cas9 nucleases with altered PAM specificities",
+        "url": "https://www.nature.com/articles/nature14592",
+        "publisher": "Nature",
+        "year": 2015,
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 2012,
-    "datePrecision": "decade",
-    "region": "Global molecular biology research",
+    "firstKnownDate": 2015,
+    "datePrecision": "exact",
+    "region": "United States and global genome-engineering research",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "cas9_programmable_nuclease",
-        "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Programmable Cas9 Nuclease is modeled as a necessary component or method for this technology in the current graph.",
+        "prerequisite": "crispr_gene_editing",
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Wild-type CRISPR-Cas9 genome editing exposed PAM targeting constraints that engineered PAM-specificity variants were designed to relax.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745249/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "official_agency",
+            "title": "Engineered CRISPR-Cas9 nucleases with altered PAM specificities",
+            "url": "https://www.nature.com/articles/nature14592",
+            "publisher": "Nature",
+            "year": 2015,
+            "source_type": "primary_paper",
             "supports": [
-              "node",
-              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "pam_recognition_constraint",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "Engineering altered PAM specificity depends on the Cas9 PAM-recognition constraint that defines which target sites wild-type Cas9 can recognize.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Engineered CRISPR-Cas9 nucleases with altered PAM specificities",
+            "url": "https://www.nature.com/articles/nature14592",
+            "publisher": "Nature",
+            "year": 2015,
+            "source_type": "primary_paper",
+            "supports": [
               "edge"
             ]
           }
@@ -8137,20 +8155,74 @@
       {
         "prerequisite": "protein_engineering",
         "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Protein Engineering is modeled as a necessary component or method for this technology in the current graph.",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "Altered PAM-specificity variants are engineered Cas9 proteins produced through structural design, selection, and directed evolution.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745249/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "official_agency",
+            "title": "Engineered CRISPR-Cas9 nucleases with altered PAM specificities",
+            "url": "https://www.nature.com/articles/nature14592",
+            "publisher": "Nature",
+            "year": 2015,
+            "source_type": "primary_paper",
             "supports": [
-              "node",
-              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pam_recognition_constraint",
+    "name": "PAM Recognition Constraint",
+    "era": "Modern",
+    "description": "Requirement that Cas9 target DNA include a compatible protospacer-adjacent motif so Cas9 can recognize, unwind, and cleave the target sequence.",
+    "prerequisites": [
+      "cas9_programmable_nuclease",
+      "single_guide_rna_design"
+    ],
+    "fields": [
+      "Genome Editing / CRISPR-Cas"
+    ],
+    "fieldLanes": {
+      "Genome Editing / CRISPR-Cas": "Foundations"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Structural basis of PAM-dependent target DNA recognition by the Cas9 endonuclease",
+        "url": "https://www.nature.com/articles/nature13579",
+        "publisher": "Nature",
+        "year": 2014,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 2012,
+    "datePrecision": "exact",
+    "region": "Global molecular biology research",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "cas9_programmable_nuclease",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "PAM recognition is a Cas9 target-DNA recognition constraint rather than a separate engineered variant.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Structural basis of PAM-dependent target DNA recognition by the Cas9 endonuclease",
+            "url": "https://www.nature.com/articles/nature13579",
+            "publisher": "Nature",
+            "year": 2014,
+            "source_type": "primary_paper",
+            "supports": [
               "edge"
             ]
           }
@@ -8159,20 +8231,18 @@
       {
         "prerequisite": "single_guide_rna_design",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Single-Guide RNA Design provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "primary_source",
+        "note": "Guide RNA design works with PAM compatibility to define targetable sites, but PAM recognition is the Cas9-side DNA constraint.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745249/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "official_agency",
+            "title": "Structural basis of PAM-dependent target DNA recognition by the Cas9 endonuclease",
+            "url": "https://www.nature.com/articles/nature13579",
+            "publisher": "Nature",
+            "year": 2014,
+            "source_type": "primary_paper",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }
@@ -8441,7 +8511,7 @@
       "genetic_engineering",
       "cas9_programmable_nuclease",
       "single_guide_rna_design",
-      "pam_specificity_engineering",
+      "pam_recognition_constraint",
       "dna_repair_nhej_hdr"
     ],
     "fields": [
@@ -8564,22 +8634,20 @@
         ]
       },
       {
-        "prerequisite": "pam_specificity_engineering",
+        "prerequisite": "pam_recognition_constraint",
         "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "PAM Specificity Engineering is modeled as a necessary component or method for this technology in the current graph.",
+        "confidence": 0.93,
+        "evidence_level": "primary_source",
+        "note": "CRISPR-Cas9 genome editing requires a target DNA sequence with a compatible PAM because Cas9 DNA recognition and cleavage strictly require PAM.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Multiplex Genome Engineering Using CRISPR/Cas Systems",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3795411/",
-            "publisher": "Science / PubMed Central",
-            "year": 2013,
+            "title": "Structural basis of PAM-dependent target DNA recognition by the Cas9 endonuclease",
+            "url": "https://www.nature.com/articles/nature13579",
+            "publisher": "Nature",
+            "year": 2014,
             "source_type": "primary_paper",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }

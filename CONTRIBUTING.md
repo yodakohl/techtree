@@ -17,6 +17,10 @@ Pick one edge from an audit queue or GitHub issue and answer:
 
 Good first PRs usually change one edge, one source, and one receipt.
 
+For the full edge-review method, including when to use `required`,
+`enabling`, demotion receipts, and topology replacements, see
+[Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md).
+
 ## One-Edge PR Checklist
 
 1. Open or claim a GitHub issue for the exact edge, for example

@@ -18,6 +18,8 @@ The audit reads JSON receipts from `docs/edge-change-receipts/` and checks that:
   and after the change
 - evidence upgrades preserve edge type while changing evidence level
 - the current graph still contains the edge described by the receipt
+- topology-change receipts can name a `replaced_edge`; when present, the audit
+  verifies that the old edge no longer exists in the current graph
 - the current edge metadata matches the receipt's new claim
 - any supporting source URL is cited on the edge with `supports: ["edge"]`
 - `source_shape` records the source type, support relationship, where in the
@@ -76,3 +78,18 @@ For demotions from `required` to any non-`required` edge type, include
 This prevents a demotion receipt from merely making the graph more permissive.
 The receipt must name the concrete edges that still carry the mechanism or
 field context after the broad edge is weakened.
+
+For topology replacements, use `change_class: "topology_change"` and add
+`replaced_edge`:
+
+```json
+"replaced_edge": {
+  "dependent": "crispr_gene_editing",
+  "prerequisite": "pam_specificity_engineering"
+}
+```
+
+Use this when the old prerequisite node was the wrong scope and the graph now
+points to a different, more precise prerequisite. The receipt should still state
+the old claim, new claim, ontology before/after, source shape, invariant, and
+falsifiable rejection conditions.

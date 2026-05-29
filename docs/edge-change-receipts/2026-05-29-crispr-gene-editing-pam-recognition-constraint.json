@@ -1,0 +1,51 @@
+{
+  "id": "2026-05-29-crispr-gene-editing-pam-recognition-constraint",
+  "decision_date": "2026-05-29",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/54",
+  "edge": {
+    "dependent": "crispr_gene_editing",
+    "prerequisite": "pam_recognition_constraint"
+  },
+  "replaced_edge": {
+    "dependent": "crispr_gene_editing",
+    "prerequisite": "pam_specificity_engineering"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "PAM Specificity Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.93,
+    "note": "CRISPR-Cas9 genome editing requires a target DNA sequence with a compatible PAM because Cas9 DNA recognition and cleavage strictly require PAM."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/nature13579",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract describing Cas9 DNA recognition and cleavage, canonical 5'-NGG-3' PAM, and PAM-dependent target DNA melting.",
+    "source_claim_summary": "The paper reports a Cas9-sgRNA-target-DNA structure and states that RNA-guided DNA recognition and cleavage strictly require a PAM in the target DNA.",
+    "source_support_rationale": "The source supports a required mechanism edge because it identifies PAM presence as part of the Cas9 target-recognition architecture, not merely as an optimization or later variant."
+  },
+  "ontology_before": "The graph treated engineered PAM specificity as a hard prerequisite for ordinary CRISPR-Cas9 genome editing, mixing a later optimization technology with the basic PAM compatibility constraint.",
+  "ontology_after": "The graph now uses a separate PAM-recognition constraint as the hard prerequisite for CRISPR-Cas9 editing, while engineered PAM-specificity variants are modeled as a later technology built on CRISPR-Cas9, PAM recognition, and protein engineering.",
+  "invariant_preserved_or_changed": "Invariant preserved: CRISPR-Cas9 editing still has a hard PAM dependency. The prerequisite node changed from later engineered variants to the basic Cas9 PAM-recognition constraint.",
+  "would_reject_if": [
+    "A source showed ordinary CRISPR-Cas9 genome editing can occur without any compatible PAM or PAM-equivalent target-recognition constraint.",
+    "The corrected graph still made engineered PAM-specificity variants a prerequisite for the 2013 CRISPR-Cas9 genome-editing node.",
+    "The new PAM-recognition node depended on later engineered Cas9 variants or otherwise reintroduced the same time reversal."
+  ],
+  "short_reason": "Ordinary CRISPR-Cas9 editing requires PAM compatibility, but engineered PAM-specificity variants are later optimization technologies rather than prerequisites.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

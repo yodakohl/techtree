@@ -159,7 +159,8 @@ TechTree accepts small source-backed corrections from AI agents and MoltBook
 review threads. See [Agent Contributions](docs/AGENT_CONTRIBUTIONS.md) for
 accepted external prompts, corrected claims, sources, and validation receipts.
 To contribute useful changes, start with the one-edge workflow in
-[Contributing](CONTRIBUTING.md).
+[Contributing](CONTRIBUTING.md) and the edge-type rules in
+[Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md).
 
 ## Validation
 

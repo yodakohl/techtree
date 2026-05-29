@@ -211,6 +211,28 @@ function validateDemotionPreserves(errors, file, receipt) {
     }
 }
 
+function validateReplacedEdge(errors, file, receipt, data) {
+    const replaced = receipt.replaced_edge;
+    if (replaced === undefined) return;
+
+    assert(errors, replaced && typeof replaced === 'object', `${file}: replaced_edge must be an object when present`);
+    if (!replaced || typeof replaced !== 'object') return;
+
+    assert(errors, isNonEmptyString(replaced.dependent), `${file}: replaced_edge.dependent is required`);
+    assert(errors, isNonEmptyString(replaced.prerequisite), `${file}: replaced_edge.prerequisite is required`);
+    if (!isNonEmptyString(replaced.dependent) || !isNonEmptyString(replaced.prerequisite)) return;
+
+    assert(
+        errors,
+        replaced.dependent !== receipt.edge?.dependent || replaced.prerequisite !== receipt.edge?.prerequisite,
+        `${file}: replaced_edge must differ from edge`
+    );
+
+    const { item, edge } = findEdge(data, replaced.dependent, replaced.prerequisite);
+    assert(errors, item, `${file}: replaced_edge dependent node ${replaced.dependent} does not exist`);
+    assert(errors, !edge, `${file}: replaced_edge ${replaced.dependent}->${replaced.prerequisite} should not still exist in the current graph`);
+}
+
 function validateReceipt(data, file, receipt) {
     const errors = [];
     assert(errors, isNonEmptyString(receipt.id), `${file}: id is required`);
@@ -238,6 +260,11 @@ function validateReceipt(data, file, receipt) {
         if (oldClaim.type === 'required' && newClaim.type !== 'required') {
             validateDemotionPreserves(errors, file, receipt);
         }
+    }
+    if (receipt.change_class === 'topology_change') {
+        assert(errors, isNonEmptyString(receipt.ontology_before), `${file}: topology_change requires ontology_before`);
+        assert(errors, isNonEmptyString(receipt.ontology_after), `${file}: topology_change requires ontology_after`);
+        validateReplacedEdge(errors, file, receipt, data);
     }
     if (receipt.change_class === 'evidence_upgrade') {
         assert(errors, oldClaim.type === newClaim.type, `${file}: evidence_upgrade must preserve edge type`);
