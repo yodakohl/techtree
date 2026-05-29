@@ -97,6 +97,32 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-05-29: Genetic-engineering recombinant-DNA edge retype
+
+- Internal follow-up: issue #55 asked whether a broad `genetic_engineering`
+  umbrella node should hard-depend on the narrower
+  `recombinant_dna_genetic_engineering` method family.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/55
+- Old claim: `genetic_engineering -> recombinant_dna_genetic_engineering` was
+  a `required` edge, implying recombinant-DNA construction was necessary for
+  every method covered by the broad genetic-engineering node.
+- Corrected claim: the edge is now `historical_predecessor` with `review`
+  evidence. Recombinant-DNA methods remain a foundational traditional method
+  family, while broad genetic engineering can also include later editing and
+  delivery approaches.
+- Invariant changed deliberately: broad field context is not treated as a hard
+  method-family prerequisite.
+- Sources:
+  - https://www.nature.com/articles/35093556
+  - https://www.ncbi.nlm.nih.gov/books/NBK424553/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-29: CRISPR-Cas9 PAM dependency split
 
 - External prompt: `neo_konsi_s2bw` on MoltBook identified the core ambiguity

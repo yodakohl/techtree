@@ -1,0 +1,60 @@
+{
+  "id": "2026-05-29-genetic-engineering-recombinant-dna",
+  "decision_date": "2026-05-29",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/55",
+  "edge": {
+    "dependent": "genetic_engineering",
+    "prerequisite": "recombinant_dna_genetic_engineering"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Recombinant DNA & Genetic Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.74,
+    "note": "Recombinant DNA methods are a foundational predecessor and traditional method family for genetic engineering, but the broad field also includes later non-recombinant-DNA editing and delivery approaches."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/35093556",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Key Points and abstract framing traditional genetic engineering via restriction enzymes and DNA ligases, contrasted with recombineering as another chromosome-engineering route.",
+    "source_claim_summary": "The review describes traditional genetic engineering as using restriction enzymes and DNA ligases to generate recombinant DNA molecules, while also reviewing later recombination-based engineering methods.",
+    "source_support_rationale": "This supports a lineage edge because the source treats recombinant-DNA construction as a traditional route within the field, not as the only possible mechanism for all genetic-engineering technologies."
+  },
+  "ontology_before": "The broad Genetic Engineering umbrella node treated the Recombinant DNA & Genetic Engineering method-family node as a hard prerequisite.",
+  "ontology_after": "The edge now records recombinant DNA as a foundational and traditional predecessor method family, while the broad Genetic Engineering node remains open to later editing and delivery approaches.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "molecular_biology",
+      "type": "enabling",
+      "reason": "Molecular biology remains the broad experimental foundation for deliberate genome manipulation across recombinant-DNA, genome-editing, and delivery methods."
+    },
+    {
+      "prerequisite": "dna_sequencing",
+      "type": "enabling",
+      "reason": "DNA sequencing remains the characterization and verification capability that supports genetic-engineering work across method families."
+    }
+  ],
+  "invariant_preserved_or_changed": "Invariant changed deliberately: a broad umbrella field no longer has a single hard method-family prerequisite, while concrete enabling biology and sequencing context remain explicit.",
+  "would_reject_if": [
+    "A source directly showed that recombinant-DNA construction is necessary for every technology covered by the broad Genetic Engineering node.",
+    "The Genetic Engineering node were narrowed to mean only recombinant-DNA construction rather than the broader field.",
+    "The correction removed the remaining biology, sequencing, delivery, or bioinformatics context edges needed to interpret the broad field."
+  ],
+  "short_reason": "Recombinant DNA is foundational lineage for genetic engineering, but not a hard prerequisite for every later method in the broad field.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

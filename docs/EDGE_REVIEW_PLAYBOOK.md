@@ -73,6 +73,16 @@ For each source, record:
 Reject a receipt if the source only says "X mentions Y" while the edge says
 "X requires Y."
 
+## Scope Check
+
+Before preserving a hard edge, compare the endpoint scopes. A broad field should
+not usually depend on one narrower method family as `required`.
+
+Example: `genetic_engineering -> recombinant_dna_genetic_engineering` is a
+`historical_predecessor` edge when `genetic_engineering` means the broad field.
+It would only be `required` if the dependent node were scoped narrowly to
+recombinant-DNA construction.
+
 ## Demotions
 
 When demoting `required` to a weaker edge type, include
