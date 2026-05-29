@@ -30,6 +30,23 @@
   },
   "ontology_before": "The edge treated the broad genetic-engineering field as a hard component or method prerequisite for CRISPR-Cas9 genome editing.",
   "ontology_after": "The edge now records genetic engineering as the broader predecessor field and context for genome-engineering methods, while concrete CRISPR-Cas9 mechanism dependencies remain on the specific component nodes.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "cas9_programmable_nuclease",
+      "type": "required",
+      "reason": "Cas9 nuclease remains the programmable DNA-cutting component required for the CRISPR-Cas9 editing mechanism."
+    },
+    {
+      "prerequisite": "pam_specificity_engineering",
+      "type": "required",
+      "reason": "PAM targeting remains modeled as a required targeting constraint for this CRISPR-Cas9 genome-editing node."
+    },
+    {
+      "prerequisite": "single_guide_rna_design",
+      "type": "enabling",
+      "reason": "Guide RNA design remains the targeting design layer that directs Cas9 to genomic sequences."
+    }
+  ],
   "invariant_preserved_or_changed": "Invariant changed deliberately: CRISPR-Cas9 genome editing no longer treats a broad umbrella field as a hard component dependency.",
   "would_reject_if": [
     "A source directly showed that the broad genetic-engineering field is a necessary component rather than a predecessor context for CRISPR-Cas9 editing.",

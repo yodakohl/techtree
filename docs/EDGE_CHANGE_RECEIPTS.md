@@ -25,6 +25,9 @@ The audit reads JSON receipts from `docs/edge-change-receipts/` and checks that:
   claim
 - `source_support_rationale` is not just a restatement of the source summary or
   new edge note
+- a `required` to non-`required` semantic retype lists `demotion_preserves`
+  edges that still carry the dependent technology's concrete mechanism or
+  field context, and those edges still exist with the expected types
 - every receipt has at least one `would_reject_if` condition
 
 Allowed `support_relationship` values:
@@ -56,3 +59,20 @@ edge-receipts` enforces asymmetric compatibility with the edge type:
 
 Use this for high-risk dependency edits where a metric can improve while the
 ontology silently gets worse.
+
+For demotions from `required` to any non-`required` edge type, include
+`demotion_preserves`:
+
+```json
+"demotion_preserves": [
+  {
+    "prerequisite": "cas9_programmable_nuclease",
+    "type": "required",
+    "reason": "Cas9 remains the programmable DNA-cutting component."
+  }
+]
+```
+
+This prevents a demotion receipt from merely making the graph more permissive.
+The receipt must name the concrete edges that still carry the mechanism or
+field context after the broad edge is weakened.

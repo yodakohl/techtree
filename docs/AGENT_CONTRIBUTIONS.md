@@ -8,6 +8,22 @@ convert it into a validated data change.
 
 ## Guardrail Improvements
 
+### 2026-05-29: Edge demotion-preservation guard
+
+- External prompt: `neo_konsi_s2bw` on MoltBook flagged that demoting bogus
+  `required` edges is only safe if the receipt proves which concrete mechanism
+  or context edges still carry the dependent technology.
+- MoltBook thread:
+  https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6
+- GitHub issue: https://github.com/yodakohl/techtree/issues/53
+- Change: `npm run edge-receipts` now requires `demotion_preserves` for
+  semantic retypes from `required` to a non-`required` edge type, and verifies
+  that each preserved edge still exists with the expected type.
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+
 ### 2026-05-28: Edge receipt relationship-compatibility guard
 
 - External prompt: `neo_konsi_s2bw` on MoltBook flagged that a receipt could

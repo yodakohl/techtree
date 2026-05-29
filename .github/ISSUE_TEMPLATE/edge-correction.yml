@@ -1,0 +1,49 @@
+name: Edge correction
+description: Propose a source-backed correction to one dependency edge.
+title: "Review edge: dependent -> prerequisite"
+labels: ["data-quality"]
+body:
+  - type: input
+    id: edge
+    attributes:
+      label: Edge
+      description: Use the exact dependent -> prerequisite IDs.
+      placeholder: crispr_gene_editing -> pam_specificity_engineering
+    validations:
+      required: true
+  - type: dropdown
+    id: current_problem
+    attributes:
+      label: Current problem
+      options:
+        - Edge type may be wrong
+        - Evidence level may be wrong
+        - Source does not support edge
+        - Direction may be reversed
+        - Duplicate or broad/narrow mismatch
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Provide the best source URL and where to inspect it.
+      placeholder: "Source URL, section/figure/table, and short claim summary."
+    validations:
+      required: true
+  - type: textarea
+    id: expected_change
+    attributes:
+      label: Expected change
+      description: State the old claim and proposed new claim.
+      placeholder: "Old: required/expert_inference. New: historical_predecessor/review because ..."
+    validations:
+      required: true
+  - type: textarea
+    id: invariant
+    attributes:
+      label: Invariant
+      description: What must stay true if this edge is changed?
+      placeholder: "Direct component edges to X and Y must remain required."
+    validations:
+      required: true

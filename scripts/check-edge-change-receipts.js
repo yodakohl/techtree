@@ -186,6 +186,31 @@ function validateSourceShape(errors, file, receipt) {
     }
 }
 
+function validateDemotionPreserves(errors, file, receipt) {
+    const preserves = receipt.demotion_preserves;
+    assert(errors, Array.isArray(preserves) && preserves.length > 0, `${file}: required-edge demotions must list demotion_preserves`);
+    if (!Array.isArray(preserves) || !preserves.length) return;
+
+    const seen = new Set();
+    for (const [index, preserved] of preserves.entries()) {
+        const prefix = `${file}: demotion_preserves[${index}]`;
+        assert(errors, preserved && typeof preserved === 'object', `${prefix} must be an object`);
+        if (!preserved || typeof preserved !== 'object') continue;
+
+        assert(errors, isNonEmptyString(preserved.prerequisite), `${prefix}.prerequisite is required`);
+        assert(errors, EDGE_TYPES.has(preserved.type), `${prefix}.type is invalid`);
+        assert(errors, isNonEmptyString(preserved.reason), `${prefix}.reason is required`);
+        if (isNonEmptyString(preserved.reason)) {
+            assert(errors, preserved.reason.trim().length >= 30, `${prefix}.reason must be specific enough to dispute`);
+        }
+        if (isNonEmptyString(preserved.prerequisite)) {
+            assert(errors, preserved.prerequisite !== receipt.edge?.prerequisite, `${prefix}.prerequisite must not be the demoted edge`);
+            assert(errors, !seen.has(preserved.prerequisite), `${prefix}.prerequisite is duplicated`);
+            seen.add(preserved.prerequisite);
+        }
+    }
+}
+
 function validateReceipt(data, file, receipt) {
     const errors = [];
     assert(errors, isNonEmptyString(receipt.id), `${file}: id is required`);
@@ -210,6 +235,9 @@ function validateReceipt(data, file, receipt) {
         assert(errors, oldClaim.type !== newClaim.type, `${file}: semantic_retype must change edge type`);
         assert(errors, isNonEmptyString(receipt.ontology_before), `${file}: semantic_retype requires ontology_before`);
         assert(errors, isNonEmptyString(receipt.ontology_after), `${file}: semantic_retype requires ontology_after`);
+        if (oldClaim.type === 'required' && newClaim.type !== 'required') {
+            validateDemotionPreserves(errors, file, receipt);
+        }
     }
     if (receipt.change_class === 'evidence_upgrade') {
         assert(errors, oldClaim.type === newClaim.type, `${file}: evidence_upgrade must preserve edge type`);
@@ -229,6 +257,15 @@ function validateReceipt(data, file, receipt) {
             assert(errors, source, `${file}: current edge must cite source_url with supports: edge`);
             if (source && receipt.source_shape?.source_type) {
                 assert(errors, source.source_type === receipt.source_shape.source_type, `${file}: source_shape.source_type must match cited edge source`);
+            }
+        }
+    }
+    if (item && Array.isArray(receipt.demotion_preserves)) {
+        for (const [index, preserved] of receipt.demotion_preserves.entries()) {
+            const preservedEdge = (item.dependencyEdges || []).find(candidate => candidate.prerequisite === preserved.prerequisite);
+            assert(errors, preservedEdge, `${file}: demotion_preserves[${index}] edge ${receipt.edge?.dependent}->${preserved.prerequisite} does not exist`);
+            if (preservedEdge) {
+                assert(errors, preservedEdge.type === preserved.type, `${file}: demotion_preserves[${index}] expected ${preserved.prerequisite} to be ${preserved.type}, got ${preservedEdge.type}`);
             }
         }
     }

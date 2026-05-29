@@ -31,6 +31,18 @@
   },
   "ontology_before": "The edge claimed CRISPR-Cas9 genome editing itself was a hard component or method prerequisite for base editing.",
   "ontology_after": "The edge only claims historical lineage from the earlier CRISPR-Cas9 editing platform; the hard component dependency stays on programmable Cas9.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "cas9_programmable_nuclease",
+      "type": "required",
+      "reason": "Base editors still require a catalytically impaired Cas9-class targeting component to localize the deaminase to genomic DNA."
+    },
+    {
+      "prerequisite": "protein_engineering",
+      "type": "required",
+      "reason": "Base editors remain engineered fusion proteins combining DNA-targeting and base-conversion domains."
+    }
+  ],
   "invariant_preserved_or_changed": "Base editing keeps its direct required edge to cas9_programmable_nuclease. This retype stops treating double-strand-break CRISPR-Cas9 genome editing as a required component of base editing.",
   "would_reject_if": [
     "The direct base_editing -> cas9_programmable_nuclease required edge was removed or weakened.",
