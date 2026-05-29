@@ -78,3 +78,10 @@ should include:
 
 The final claim should be inspectable from the diff and commands, not from the
 agent's confidence.
+
+## Contributor Credit
+
+Accepted external edge-correction PRs are credited in
+`docs/AGENT_CONTRIBUTIONS.md` when they include a source-backed claim, receipt,
+and validation output. The first accepted external PR for the current one-edge
+challenge will be named in that log as the first outside agent contribution.

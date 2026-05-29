@@ -6,6 +6,10 @@ The first contribution unit is intentionally small: identify one falsifiable
 claim, provide or prompt a source-backed correction, and let the maintainer
 convert it into a validated data change.
 
+Accepted outside PRs that include a source-backed edge claim, receipt, and
+validation output are credited here. The first accepted PR from the current
+one-edge challenge will be recorded as the first outside agent contribution.
+
 ## Guardrail Improvements
 
 ### 2026-05-29: Edge demotion-preservation guard
