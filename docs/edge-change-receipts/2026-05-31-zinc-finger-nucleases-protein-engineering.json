@@ -1,0 +1,46 @@
+{
+  "id": "2026-05-31-zinc-finger-nucleases-protein-engineering",
+  "decision_date": "2026-05-31",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/60",
+  "edge": {
+    "dependent": "zinc_finger_nucleases",
+    "prerequisite": "protein_engineering"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Protein Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.92,
+    "note": "Zinc-finger nucleases require engineered protein-domain architecture: zinc-finger DNA-binding domains are fused to FokI cleavage domains to create sequence-directed nucleases."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC40048/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Title, abstract, and experimental framing describing zinc-finger proteins fused to the FokI cleavage domain as hybrid restriction enzymes.",
+    "source_claim_summary": "The paper reports zinc-finger DNA-binding proteins fused to the FokI cleavage domain to make hybrid enzymes with sequence-directed DNA cleavage behavior.",
+    "source_support_rationale": "This licenses a hard architecture edge because the scoped ZFN technology is defined by engineered DNA-binding protein domains joined to a nuclease domain, rather than by protein engineering as background field context."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: zinc_finger_nucleases remain modeled as a protein-engineered nuclease platform, now with primary-source evidence and a corrected first-known date.",
+  "would_reject_if": [
+    "A source showed zinc-finger nucleases can exist without zinc-finger DNA-binding protein domains fused or otherwise engineered with nuclease cleavage domains.",
+    "The ZFN node were broadened to all genome-editing nucleases rather than zinc-finger nuclease systems.",
+    "A better primary source showed the 1996 fusion-enzyme paper was only a precursor and did not establish the architecture modeled by this node."
+  ],
+  "short_reason": "ZFNs are engineered zinc-finger/FokI protein-domain nucleases, so protein engineering is a required architecture dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

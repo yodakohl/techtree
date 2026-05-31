@@ -41,6 +41,7 @@ const NODE_DATE_OVERRIDES = {
     crispr_delivery_aav_lnp_rnp: { firstKnownDate: 2015, datePrecision: 'decade', region: 'Global therapeutic research' },
     ex_vivo_crispr_cell_therapy: { firstKnownDate: 2016, datePrecision: 'decade', region: 'Global clinical research' },
     base_editing: { firstKnownDate: 2016, datePrecision: 'exact', region: 'Global genome-editing research' },
+    zinc_finger_nucleases: { firstKnownDate: 1996, datePrecision: 'exact', region: 'United States' },
     prime_editing: { firstKnownDate: 2019, datePrecision: 'exact', region: 'Global genome-editing research' },
     cas12_cas13_editing_platforms: { firstKnownDate: 2015, datePrecision: 'decade', region: 'Global genome-editing research' },
     crispr_diagnostics: { firstKnownDate: 2016, datePrecision: 'decade', region: 'Global diagnostics research' },
@@ -319,6 +320,13 @@ const CRISPR_SOURCES = {
         publisher: 'Cell / PubMed',
         year: 2014,
         source_type: 'review'
+    },
+    zfnFokIFusionPmc: {
+        title: 'Hybrid restriction enzymes: zinc finger fusions to Fok I cleavage domain',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC40048/',
+        publisher: 'Proceedings of the National Academy of Sciences / PubMed Central',
+        year: 1996,
+        source_type: 'primary_paper'
     }
 };
 
@@ -422,6 +430,14 @@ const EDGE_OVERRIDES = {
         note: 'Protein engineering supports Cas9 domain characterization and later optimization, but the 2012 programmable nuclease platform is primarily RNA-guided rather than dependent on engineered Cas9 variants.',
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.jinekCas9Pmc]
+    },
+    'zinc_finger_nucleases|protein_engineering': {
+        type: 'required',
+        confidence: 0.92,
+        evidence_level: 'primary_source',
+        note: 'Zinc-finger nucleases require engineered protein-domain architecture: zinc-finger DNA-binding domains are fused to FokI cleavage domains to create sequence-directed nucleases.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.zfnFokIFusionPmc]
     },
     'crispr_gene_editing|cas9_programmable_nuclease': {
         type: 'required',

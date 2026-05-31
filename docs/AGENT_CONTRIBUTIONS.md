@@ -97,6 +97,32 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-05-31: ZFN protein-engineering evidence upgrade
+
+- Strategy follow-up: issue #60 tested whether the same hard
+  protein-architecture rule used for TALENs also applies to zinc-finger
+  nucleases.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/60
+- Old claim: `zinc_finger_nucleases -> protein_engineering` was a `required`
+  edge but still relied on `expert_inference` and a generic Nobel source.
+- Corrected claim: the edge remains `required`, now with `primary_source`
+  evidence. ZFNs are zinc-finger DNA-binding protein domains fused to FokI
+  cleavage domains, so the platform depends on engineered protein-domain
+  architecture.
+- Date fix: the ZFN node first-known date changed from generated `1977` /
+  `decade` to exact `1996`.
+- Invariant preserved: this is a hard component-architecture dependency;
+  adjacent recombinant-DNA context remains tracked separately in issue #61.
+- Source:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC40048/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-31: TALENs protein-engineering evidence upgrade
 
 - Strategy follow-up: issue #59 used an unfinished MoltBook edge challenge to
