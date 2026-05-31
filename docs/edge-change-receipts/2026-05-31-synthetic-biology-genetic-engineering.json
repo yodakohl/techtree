@@ -1,0 +1,60 @@
+{
+  "id": "2026-05-31-synthetic-biology-genetic-engineering",
+  "decision_date": "2026-05-31",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/58",
+  "edge": {
+    "dependent": "synthetic_biology",
+    "prerequisite": "genetic_engineering"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Genetic Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Genetic engineering provides a major construction toolkit and predecessor context for synthetic biology, but broad synthetic biology also includes DNA synthesis, systems modeling, standardized parts, circuits, pathways, and cell-free designs."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/nrg2775",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Key Points and abstract describing synthetic biology as assembly of genetic parts, biological building blocks, circuits, pathways, and engineered organisms, including its supplementation of traditional genetic and metabolic engineering.",
+    "source_claim_summary": "The review describes synthetic biology as construction of biological components, networks, pathways, and engineered organisms, and says it supplements traditional genetic and metabolic engineering efforts.",
+    "source_support_rationale": "This supports an enabling field relationship because genetic engineering is a major toolkit and predecessor context, while the review frames synthetic biology as a broader design-and-assembly discipline rather than a single hard method."
+  },
+  "ontology_before": "The broad Synthetic Biology node treated the broad Genetic Engineering field as a hard prerequisite across the whole synthetic-biology scope.",
+  "ontology_after": "The edge now records genetic engineering as an enabling toolkit and predecessor context, while the Synthetic Biology node remains broader than direct organism-genome manipulation.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "dna_synthesis_oligonucleotides",
+      "type": "enabling",
+      "reason": "DNA synthesis and oligonucleotide construction remain explicit enabling capabilities for building designed genetic parts, circuits, and pathways."
+    },
+    {
+      "prerequisite": "systems_biology",
+      "type": "enabling",
+      "reason": "Systems biology remains explicit model-and-network context for synthetic-biology design across circuits, pathways, and cellular programs."
+    }
+  ],
+  "invariant_preserved_or_changed": "Invariant changed deliberately: broad synthetic biology no longer has a single hard broad-field prerequisite, while construction and modeling context remains explicit.",
+  "would_reject_if": [
+    "A source showed that every in-scope realization of synthetic biology requires direct organism-genome manipulation as modeled by the Genetic Engineering node.",
+    "The Synthetic Biology node were narrowed to engineered genome modification only, rather than parts, circuits, pathways, and broader design-and-assembly work.",
+    "The correction removed the DNA synthesis or systems-biology context edges that preserve core synthetic-biology construction and modeling capabilities."
+  ],
+  "short_reason": "Genetic engineering enables and precedes much synthetic biology, but the broad synthetic-biology field should not hard-depend on one broad field node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

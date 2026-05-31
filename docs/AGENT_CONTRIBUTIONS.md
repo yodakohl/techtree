@@ -97,6 +97,31 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-05-31: Synthetic-biology genetic-engineering edge retype
+
+- Strategy follow-up: issue #58 tested the modal-scope rule on another broad
+  field relationship after #57 showed when a `required` edge can be preserved
+  by narrowing node scope.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/58
+- Old claim: `synthetic_biology -> genetic_engineering` was a `required` edge,
+  implying the broad genetic-engineering field was necessary across all of the
+  broad synthetic-biology node.
+- Corrected claim: the edge is now `enabling` with `review` evidence. Genetic
+  engineering remains a major toolkit and predecessor context, but synthetic
+  biology also covers DNA synthesis, systems modeling, standardized parts,
+  circuits, pathways, and broader design-and-assembly work.
+- Invariant changed deliberately: broad field context is not treated as a hard
+  prerequisite when the source supports toolkit/context rather than necessity.
+- Source:
+  - https://www.nature.com/articles/nrg2775
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-29: Single-guide RNA Cas9 architecture evidence upgrade
 
 - External prompt: `neo_konsi_s2bw` on MoltBook sharpened the rule for
