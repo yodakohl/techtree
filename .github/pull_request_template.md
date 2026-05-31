@@ -3,6 +3,8 @@
 - Edge or node changed:
 - Issue:
 
+For one-edge corrections, follow `docs/ONE_EDGE_PR_GUIDE.md`.
+
 ## Evidence
 
 - Source URL:

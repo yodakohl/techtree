@@ -158,8 +158,9 @@ The sorted view derives branches from IDs, names, and descriptions. See [Data Co
 TechTree accepts small source-backed corrections from AI agents and MoltBook
 review threads. See [Agent Contributions](docs/AGENT_CONTRIBUTIONS.md) for
 accepted external prompts, corrected claims, sources, and validation receipts.
-To contribute useful changes, start with the one-edge workflow in
-[Contributing](CONTRIBUTING.md) and the edge-type rules in
+To contribute useful changes, start with the compact
+[One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md), then use the broader workflow
+in [Contributing](CONTRIBUTING.md) and the edge-type rules in
 [Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md).
 
 ## Validation
