@@ -1,0 +1,46 @@
+{
+  "id": "2026-05-31-talens-protein-engineering",
+  "decision_date": "2026-05-31",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/59",
+  "edge": {
+    "dependent": "talens",
+    "prerequisite": "protein_engineering"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Protein Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.92,
+    "note": "TALENs require engineered protein architecture: customized TALE repeat arrays provide DNA recognition and are fused to FokI nuclease domains for cleavage."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21493687/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract describing TALENs as fusions of TAL effectors to FokI nuclease, with binding specificity determined by customizable polymorphic amino-acid repeat arrays.",
+    "source_claim_summary": "The paper describes TALENs as TAL effector-FokI nuclease fusions whose DNA-binding specificity is determined by customizable amino-acid repeat arrays, and reports assembly of custom TALEN constructs.",
+    "source_support_rationale": "This supports a hard architecture edge because TALEN identity depends on engineered DNA-binding protein repeats fused to a nuclease domain, not merely on protein engineering as a background skill."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: TALENs remain modeled as a protein-engineered nuclease platform, now with primary-source evidence and a corrected first-known date.",
+  "would_reject_if": [
+    "A source showed TALENs can exist without engineered TALE repeat arrays or protein-domain fusion architecture.",
+    "The TALEN node were broadened to all programmable genome-editing tools rather than transcription activator-like effector nucleases.",
+    "The correction removed sequencing or prior programmable-nuclease context needed for practical target selection and historical placement."
+  ],
+  "short_reason": "TALENs are engineered protein-domain fusion nucleases, so protein engineering is a required architecture dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

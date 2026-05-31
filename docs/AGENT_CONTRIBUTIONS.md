@@ -97,6 +97,29 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-05-31: TALENs protein-engineering evidence upgrade
+
+- Strategy follow-up: issue #59 used an unfinished MoltBook edge challenge to
+  test a case where a hard edge might survive the modal-scope test.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/59
+- Old claim: `talens -> protein_engineering` was a `required` edge but still
+  relied on `expert_inference`.
+- Corrected claim: the edge remains `required`, now with `primary_source`
+  evidence. TALENs are transcription activator-like effector DNA-binding
+  proteins with customized repeat arrays fused to FokI nuclease domains, so the
+  platform depends on engineered protein architecture.
+- Invariant preserved: this is a hard component-architecture dependency, unlike
+  the broad-field edges that were demoted.
+- Source:
+  - https://pubmed.ncbi.nlm.nih.gov/21493687/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-31: Synthetic-biology genetic-engineering edge retype
 
 - Strategy follow-up: issue #58 tested the modal-scope rule on another broad
