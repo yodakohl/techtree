@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-01-rocketry-jet-engine-removal",
+  "decision_date": "2026-06-01",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/62",
+  "edge": {
+    "dependent": "rocketry",
+    "prerequisite": "jet_engine"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Jet Engine is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "No direct dependency edge remains from rocketry to the local jet_engine node; rocketry stays modeled through propellants, chemistry, thermodynamics, construction, mathematics, and gunpowder instead.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.grc.nasa.gov/WWW/k-12/rocket/TRCRocket/practical_rocketry.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Rocket Engines and Their Propellants section contrasting jet engines with rockets and describing solid and liquid rocket engines.",
+    "source_claim_summary": "NASA distinguishes jet engines, which use oxygen from surrounding air, from rockets, which must carry oxidizer for operation where there is no air; the same page describes solid and liquid rocket engines and their propellants.",
+    "source_support_rationale": "This rejects the hard dependency because the local jet_engine node is explicitly airbreathing, while the rocketry node is about reaction-engine propulsion for high altitude and space and should not require an airbreathing engine."
+  },
+  "ontology_before": "Rocketry incorrectly depended on an airbreathing jet_engine node as a required prerequisite, conflating aircraft jet propulsion with rocket propulsion.",
+  "ontology_after": "Rocketry no longer has a direct jet_engine prerequisite; rocket propulsion remains connected to propellants, chemistry, thermodynamics, construction, mathematics, and gunpowder.",
+  "invariant_preserved_or_changed": "Invariant preserved: rocketry still has chemistry, propellant, historical gunpowder, thermodynamic, mathematical, and construction context. Changed: airbreathing jet engines are no longer treated as a hard prerequisite.",
+  "would_reject_if": [
+    "The local jet_engine node were redefined to mean any reaction engine, including rocket engines, instead of an airbreathing engine.",
+    "A source showed that the scoped broad rocketry technology historically or technically requires aircraft-style airbreathing jet engines.",
+    "A future graph split introduced a precise rocket_engine node and the removed edge was replaced by that more accurate dependency with source support."
+  ],
+  "short_reason": "Rocketry should not require airbreathing jet engines; NASA's practical rocketry material separates rocket engines from jet engines by oxidizer source and operating environment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Spaceflight & Satellites\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

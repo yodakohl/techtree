@@ -12,6 +12,21 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Guardrail Improvements
 
+### 2026-06-01: Edge removal receipt guard
+
+- Strategy follow-up: issue #62 tested whether a bad direct dependency should
+  be replaced with another edge or removed when the source rejects the
+  relationship.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/62
+- Change: `npm run edge-receipts` now supports `removed_edge: true` topology
+  receipts. The audit verifies that both the dependency edge and bare
+  prerequisite are absent, and requires `source_supports_edge: "no"` plus a
+  `refutes_dependency` source-shape relationship.
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+
 ### 2026-05-29: Edge topology-replacement guard
 
 - External prompt: `neo_konsi_s2bw` on MoltBook challenged whether the
@@ -96,6 +111,27 @@ one-edge challenge will be recorded as the first outside agent contribution.
   - `npm run quality`
 
 ## Accepted Corrections
+
+### 2026-06-01: Rocketry jet-engine dependency removal
+
+- Strategy follow-up: issue #62 tested whether broad `rocketry` should depend
+  on the local `jet_engine` node.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/62
+- Old claim: `rocketry -> jet_engine` was a `required` edge, but `jet_engine`
+  is scoped as an airbreathing engine.
+- Corrected claim: no direct dependency edge remains. NASA's practical
+  rocketry material distinguishes jets, which draw oxygen from surrounding air,
+  from rockets, which carry oxidizer and can operate where there is no air.
+- Invariant preserved: rocketry still carries propellant, chemistry,
+  thermodynamics, construction, mathematics, and historical gunpowder context.
+- Source:
+  - https://www.grc.nasa.gov/WWW/k-12/rocket/TRCRocket/practical_rocketry.html
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Spaceflight & Satellites" --timeout-ms 15000 --concurrency 4`
 
 ### 2026-06-01: ZFN recombinant-DNA evidence upgrade
 

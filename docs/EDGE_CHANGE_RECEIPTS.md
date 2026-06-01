@@ -20,6 +20,8 @@ The audit reads JSON receipts from `docs/edge-change-receipts/` and checks that:
 - the current graph still contains the edge described by the receipt
 - topology-change receipts can name a `replaced_edge`; when present, the audit
   verifies that the old edge no longer exists in the current graph
+- topology-change receipts can set `removed_edge: true` for source-backed edge
+  deletions; the audit verifies that the edge and bare prerequisite are absent
 - the current edge metadata matches the receipt's new claim
 - any supporting source URL is cited on the edge with `supports: ["edge"]`
 - `source_shape` records the source type, support relationship, where in the
@@ -39,13 +41,15 @@ Allowed `support_relationship` values:
 - `establishes_historical_lineage`
 - `documents_application_use`
 - `documents_approval_or_deployment`
+- `refutes_dependency`
 - `supports_chronology`
 - `reviews_field_relationship`
 
 Relationship values are intentionally not interchangeable. `npm run
 edge-receipts` enforces asymmetric compatibility with the edge type:
 
-- `required`: `describes_component_architecture` or
+- `required`: `describes_component_architecture`,
+  `demonstrates_method_dependency`, or
   `documents_approval_or_deployment`
 - `enabling`: `describes_component_architecture`,
   `demonstrates_method_dependency`, `documents_application_use`, or
@@ -93,3 +97,18 @@ Use this when the old prerequisite node was the wrong scope and the graph now
 points to a different, more precise prerequisite. The receipt should still state
 the old claim, new claim, ontology before/after, source shape, invariant, and
 falsifiable rejection conditions.
+
+For topology removals where the graph should not point to any replacement edge,
+use `removed_edge: true` and replace `new_claim` with `new_claim_absent`:
+
+```json
+"removed_edge": true,
+"new_claim_absent": "No direct dependency remains because the source distinguishes these technologies rather than supporting a prerequisite relationship.",
+"source_supports_edge": "no",
+"source_shape": {
+  "support_relationship": "refutes_dependency"
+}
+```
+
+Use this for false direct dependencies where adding a replacement edge would
+create a new unsupported claim.

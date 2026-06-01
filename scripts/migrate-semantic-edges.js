@@ -234,7 +234,8 @@ const REMOVE_DEPENDENCIES = new Map([
     ['cas12_cas13_editing_platforms', new Set(['crispr_gene_editing'])],
     ['5g_6g_communication_networks', new Set(['mobile_phones', 'advanced_ai'])],
     ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])],
-    ['ion_exchange_water_softening', new Set(['polymer_chemistry'])]
+    ['ion_exchange_water_softening', new Set(['polymer_chemistry'])],
+    ['rocketry', new Set(['jet_engine'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([

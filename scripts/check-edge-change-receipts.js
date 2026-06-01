@@ -21,6 +21,7 @@ const SUPPORT_RELATIONSHIPS = new Set([
     'establishes_historical_lineage',
     'documents_application_use',
     'documents_approval_or_deployment',
+    'refutes_dependency',
     'supports_chronology',
     'reviews_field_relationship'
 ]);
@@ -234,8 +235,13 @@ function validateReplacedEdge(errors, file, receipt, data) {
     assert(errors, !edge, `${file}: replaced_edge ${replaced.dependent}->${replaced.prerequisite} should not still exist in the current graph`);
 }
 
+function isRemovedEdgeReceipt(receipt) {
+    return receipt.change_class === 'topology_change' && receipt.removed_edge === true;
+}
+
 function validateReceipt(data, file, receipt) {
     const errors = [];
+    const removesEdge = isRemovedEdgeReceipt(receipt);
     assert(errors, isNonEmptyString(receipt.id), `${file}: id is required`);
     assert(errors, /^\d{4}-\d{2}-\d{2}$/.test(receipt.decision_date || ''), `${file}: decision_date must be YYYY-MM-DD`);
     assert(errors, CHANGE_CLASSES.has(receipt.change_class), `${file}: change_class is invalid`);
@@ -243,7 +249,15 @@ function validateReceipt(data, file, receipt) {
     assert(errors, isNonEmptyString(receipt.edge?.dependent), `${file}: edge.dependent is required`);
     assert(errors, isNonEmptyString(receipt.edge?.prerequisite), `${file}: edge.prerequisite is required`);
     validateClaim(errors, file, 'old_claim', receipt.old_claim);
-    validateClaim(errors, file, 'new_claim', receipt.new_claim);
+    if (removesEdge) {
+        assert(errors, receipt.new_claim === undefined, `${file}: removed-edge receipts must not include new_claim`);
+        assert(errors, isNonEmptyString(receipt.new_claim_absent), `${file}: removed-edge receipts require new_claim_absent`);
+        if (isNonEmptyString(receipt.new_claim_absent)) {
+            assert(errors, receipt.new_claim_absent.trim().length >= 30, `${file}: new_claim_absent must be specific enough to dispute`);
+        }
+    } else {
+        validateClaim(errors, file, 'new_claim', receipt.new_claim);
+    }
     assert(errors, SOURCE_SUPPORT_VALUES.has(receipt.source_supports_edge), `${file}: source_supports_edge is invalid`);
     assert(errors, isUrl(receipt.source_url), `${file}: source_url must be an HTTP URL`);
     validateSourceShape(errors, file, receipt);
@@ -265,6 +279,9 @@ function validateReceipt(data, file, receipt) {
     if (receipt.change_class === 'topology_change') {
         assert(errors, isNonEmptyString(receipt.ontology_before), `${file}: topology_change requires ontology_before`);
         assert(errors, isNonEmptyString(receipt.ontology_after), `${file}: topology_change requires ontology_after`);
+        if (removesEdge) {
+            assert(errors, receipt.source_supports_edge === 'no', `${file}: removed-edge topology changes must set source_supports_edge to no`);
+        }
         validateReplacedEdge(errors, file, receipt, data);
     }
     if (receipt.change_class === 'evidence_upgrade') {
@@ -273,9 +290,16 @@ function validateReceipt(data, file, receipt) {
     }
 
     const { item, edge } = findEdge(data, receipt.edge?.dependent, receipt.edge?.prerequisite);
+    const prerequisitePresent = item && Array.isArray(item.prerequisites) && item.prerequisites.includes(receipt.edge?.prerequisite);
     assert(errors, item, `${file}: dependent node ${receipt.edge?.dependent} does not exist`);
-    assert(errors, edge, `${file}: current edge ${receipt.edge?.dependent}->${receipt.edge?.prerequisite} does not exist`);
-    if (edge && receipt.new_claim) {
+    if (removesEdge) {
+        assert(errors, !prerequisitePresent, `${file}: removed prerequisite ${receipt.edge?.dependent}->${receipt.edge?.prerequisite} should not still exist in prerequisites`);
+        assert(errors, !edge, `${file}: removed edge ${receipt.edge?.dependent}->${receipt.edge?.prerequisite} should not still exist in the current graph`);
+    } else {
+        assert(errors, prerequisitePresent, `${file}: current prerequisite ${receipt.edge?.dependent}->${receipt.edge?.prerequisite} does not exist`);
+        assert(errors, edge, `${file}: current edge ${receipt.edge?.dependent}->${receipt.edge?.prerequisite} does not exist`);
+    }
+    if (!removesEdge && edge && receipt.new_claim) {
         assert(errors, edge.type === newClaim.type, `${file}: current edge type does not match new_claim.type`);
         assert(errors, edge.evidence_level === newClaim.evidence_level, `${file}: current edge evidence_level does not match new_claim.evidence_level`);
         assert(errors, edge.confidence === newClaim.confidence, `${file}: current edge confidence does not match new_claim.confidence`);
