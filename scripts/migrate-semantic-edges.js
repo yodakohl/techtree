@@ -26,6 +26,8 @@ const NODE_DATE_OVERRIDES = {
     solid_state_drives_ssd_flash_memory: { firstKnownDate: 1991, datePrecision: 'decade', region: 'Global electronics industry' },
     through_silicon_vias: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Japan, United States, and global semiconductor packaging' },
     advanced_semiconductor_packaging_2_5d_3d: { firstKnownDate: 2000, datePrecision: 'decade', region: 'Global semiconductor packaging industry' },
+    fan_out_wafer_level_packaging: { firstKnownDate: 2009, datePrecision: 'exact', region: 'Global semiconductor packaging industry' },
+    hybrid_bonding_advanced_packaging: { firstKnownDate: 2010, datePrecision: 'decade', region: 'Global semiconductor packaging industry' },
     vector_databases: { firstKnownDate: 2019, datePrecision: 'decade', region: 'Global software industry' },
     retrieval_augmented_generation: { firstKnownDate: 2020, datePrecision: 'exact', region: 'Global AI research community' },
     recommender_systems: { firstKnownDate: 1992, datePrecision: 'decade', region: 'Global software and research community' },
@@ -255,7 +257,7 @@ const ADD_DEPENDENCIES = new Map([
     ['5g_6g_communication_networks', ['five_g_new_radio']],
     ['submarine_fiber_optic_cables', ['lasers']],
     ['ion_exchange_water_softening', ['advanced_chemistry']],
-    ['advanced_semiconductor_packaging_2_5d_3d', ['through_silicon_vias']]
+    ['advanced_semiconductor_packaging_2_5d_3d', ['through_silicon_vias', 'fan_out_wafer_level_packaging', 'hybrid_bonding_advanced_packaging']]
 ]);
 
 const CRISPR_SOURCES = {
@@ -452,10 +454,38 @@ const GENOMICS_SOURCES = {
 };
 
 const SEMICONDUCTOR_PACKAGING_SOURCES = {
+    heterogeneousIntegrationRoadmap: {
+        title: 'Heterogeneous Integration Roadmap',
+        url: 'https://eps.ieee.org/technology/heterogeneous-integration-roadmap/',
+        publisher: 'IEEE Electronics Packaging Society',
+        year: 2026,
+        source_type: 'review'
+    },
     tsmc3dFabric: {
         title: '3DFabric',
         url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm',
         publisher: 'TSMC',
+        year: 2026,
+        source_type: 'weak_web'
+    },
+    tsmcInfo: {
+        title: 'Integrated Fan-Out (InFO) Wafer Level Packaging',
+        url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/InFO.htm',
+        publisher: 'TSMC',
+        year: 2026,
+        source_type: 'weak_web'
+    },
+    tsmcSoic: {
+        title: 'TSMC-SoIC',
+        url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/SoIC.htm',
+        publisher: 'TSMC',
+        year: 2026,
+        source_type: 'weak_web'
+    },
+    aseFanOut: {
+        title: 'Fan-Out Packaging',
+        url: 'https://ase.aseglobal.com/fan-out-packaging/',
+        publisher: 'ASE',
         year: 2026,
         source_type: 'weak_web'
     },
@@ -495,6 +525,62 @@ const EDGE_OVERRIDES = {
         note: 'Through-silicon vias are used in 2.5D/3D interconnect reference flows, but broad advanced packaging also includes approaches such as fan-out and wafer bonding.',
         reviewStatus: 'source_checked',
         sources: [SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect, SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric]
+    },
+    'advanced_semiconductor_packaging_2_5d_3d|fan_out_wafer_level_packaging': {
+        type: 'enabling',
+        confidence: 0.8,
+        evidence_level: 'review',
+        note: 'Fan-out wafer-level packaging is a non-TSV advanced-packaging route that uses redistribution layers and reconstituted wafers or panels to integrate dies.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap, SEMICONDUCTOR_PACKAGING_SOURCES.aseFanOut, SEMICONDUCTOR_PACKAGING_SOURCES.tsmcInfo]
+    },
+    'advanced_semiconductor_packaging_2_5d_3d|hybrid_bonding_advanced_packaging': {
+        type: 'enabling',
+        confidence: 0.78,
+        evidence_level: 'review',
+        note: 'Hybrid bonding is a high-density 3D integration route for advanced packaging, distinct from fan-out and from TSV-only interposer flows.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap, SEMICONDUCTOR_PACKAGING_SOURCES.tsmcSoic]
+    },
+    'fan_out_wafer_level_packaging|integrated_circuits': {
+        type: 'required',
+        confidence: 0.88,
+        evidence_level: 'review',
+        note: 'Fan-out wafer-level packaging embeds and reconnects known-good integrated-circuit dies; the packaged die is the component being integrated.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap, SEMICONDUCTOR_PACKAGING_SOURCES.aseFanOut, SEMICONDUCTOR_PACKAGING_SOURCES.tsmcInfo]
+    },
+    'fan_out_wafer_level_packaging|photolithography': {
+        type: 'enabling',
+        confidence: 0.74,
+        evidence_level: 'expert_inference',
+        note: 'Fan-out packages use patterned redistribution layers; photolithography is an enabling process for those fine package-level interconnects.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.aseFanOut, SEMICONDUCTOR_PACKAGING_SOURCES.tsmcInfo]
+    },
+    'hybrid_bonding_advanced_packaging|integrated_circuits': {
+        type: 'required',
+        confidence: 0.88,
+        evidence_level: 'review',
+        note: 'Hybrid bonding advanced packaging directly joins integrated-circuit dies or wafers into dense 3D chip stacks.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap, SEMICONDUCTOR_PACKAGING_SOURCES.tsmcSoic]
+    },
+    'hybrid_bonding_advanced_packaging|chemical_mechanical_planarization': {
+        type: 'enabling',
+        confidence: 0.72,
+        evidence_level: 'expert_inference',
+        note: 'Hybrid bonding depends on very flat, clean bonding surfaces; planarization is an enabling semiconductor process for those surfaces.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.tsmcSoic]
+    },
+    'hybrid_bonding_advanced_packaging|clean_rooms': {
+        type: 'commercial_or_scaling_dependency',
+        confidence: 0.72,
+        evidence_level: 'expert_inference',
+        note: 'High-density direct bonding is highly contamination-sensitive, so clean-room process control is a scaling dependency for reliable manufacturing.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.tsmcSoic]
     },
     'dna_sequencing|pcr_polymerase_chain_reaction': null,
     'recombinant_dna_genetic_engineering|pcr_polymerase_chain_reaction': null,
@@ -1018,6 +1104,16 @@ FIELD_OVERRIDES.molecular_diagnostics = {
     fieldLanes: { 'Medical Imaging & Diagnostics': 'Molecular Diagnostics' },
     maturity: 'established'
 };
+FIELD_OVERRIDES.fan_out_wafer_level_packaging = {
+    fields: ['Semiconductors & Integrated Circuits'],
+    fieldLanes: { 'Semiconductors & Integrated Circuits': 'Packaging & Interconnect' },
+    maturity: 'established'
+};
+FIELD_OVERRIDES.hybrid_bonding_advanced_packaging = {
+    fields: ['Semiconductors & Integrated Circuits'],
+    fieldLanes: { 'Semiconductors & Integrated Circuits': 'Packaging & Interconnect' },
+    maturity: 'established'
+};
 
 FIELD_OVERRIDES.quantum_internet.roadmap = {
     role: 'roadmap',
@@ -1460,8 +1556,21 @@ const SOURCE_OVERRIDES = {
     pharmacogenomics: [PHARMA_SOURCES.fdaPharmacogenomics],
     adverse_event_reporting_systems: [PHARMA_SOURCES.fdaFaers],
     real_world_evidence_regulatory_science: [PHARMA_SOURCES.fdaRealWorldEvidence],
-    advanced_semiconductor_packaging_2_5d_3d: [SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric, SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect],
+    advanced_semiconductor_packaging_2_5d_3d: [
+        SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap,
+        SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric,
+        SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect
+    ],
     through_silicon_vias: [SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect, SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric],
+    fan_out_wafer_level_packaging: [
+        SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap,
+        SEMICONDUCTOR_PACKAGING_SOURCES.aseFanOut,
+        SEMICONDUCTOR_PACKAGING_SOURCES.tsmcInfo
+    ],
+    hybrid_bonding_advanced_packaging: [
+        SEMICONDUCTOR_PACKAGING_SOURCES.heterogeneousIntegrationRoadmap,
+        SEMICONDUCTOR_PACKAGING_SOURCES.tsmcSoic
+    ],
     recombinant_dna_genetic_engineering: [PHARMA_SOURCES.genomeRecombinantDna],
     pcr_polymerase_chain_reaction: [GENOMICS_SOURCES.statpearlsPcr],
     pcr_diagnostics: [GENOMICS_SOURCES.saikiPcrDiagnostics, GENOMICS_SOURCES.statpearlsPcr],
