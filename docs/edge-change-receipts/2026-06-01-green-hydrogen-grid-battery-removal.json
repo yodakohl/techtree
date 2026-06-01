@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-01-green-hydrogen-grid-battery-removal",
+  "decision_date": "2026-06-01",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/64",
+  "edge": {
+    "dependent": "green_hydrogen",
+    "prerequisite": "grid_scale_battery_storage"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Grid-Scale Battery Storage is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "No direct dependency edge remains from green_hydrogen to grid_scale_battery_storage; green hydrogen stays modeled through electrochemical industry and renewable energy systems instead.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.irena.org/Energy-Transition/Technology/Hydrogen",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Hydrogen overview section describing renewable electricity conversion via electrolysis and electrolysers providing grid flexibility alongside batteries.",
+    "source_claim_summary": "IRENA describes hydrogen as an energy carrier, says renewable electricity can be converted to hydrogen via electrolysis, and frames electrolysers as providing flexibility that complements alternatives such as batteries.",
+    "source_support_rationale": "This rejects a hard battery-storage prerequisite because the source licenses electrolysis plus renewable electricity as the production route, while batteries appear as alternative or complementary grid-flexibility technology rather than as a component required to produce green hydrogen."
+  },
+  "ontology_before": "Green hydrogen incorrectly required grid-scale battery storage, conflating renewable-grid flexibility with the production route for electrolytic hydrogen.",
+  "ontology_after": "Green hydrogen no longer depends directly on grid-scale battery storage; renewable energy systems and electrochemical production context remain as the modeled foundations.",
+  "invariant_preserved_or_changed": "Invariant preserved: green hydrogen remains connected to electrochemical production and renewable energy context. Changed: battery storage is not treated as a hard prerequisite for producing green hydrogen.",
+  "would_reject_if": [
+    "A source showed that the scoped green_hydrogen node requires grid-scale battery storage as a component or method rather than using renewable electricity directly or through other grid arrangements.",
+    "The node were narrowed to off-grid renewable-to-hydrogen systems whose operation explicitly requires battery buffering.",
+    "A better source showed grid-scale batteries are a necessary production prerequisite rather than one possible grid-integration or flexibility technology."
+  ],
+  "short_reason": "Green hydrogen is produced by electrolysis using renewable or low-carbon electricity; grid-scale batteries can support renewable integration but are not a hard production prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Energy Systems & Grid\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

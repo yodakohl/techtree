@@ -112,6 +112,31 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-01: Green-hydrogen battery-storage dependency removal
+
+- Strategy follow-up: issue #64 tested the new source-locator funnel on a
+  suspicious Energy Systems edge.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/64
+- Old claim: `green_hydrogen -> grid_scale_battery_storage` was a `required`
+  edge with `expert_inference` and no edge source.
+- Corrected claim: no direct dependency edge remains. Green hydrogen is modeled
+  through electrochemical production and renewable-energy context, not as
+  requiring grid-scale batteries.
+- Source shape: IEA and IRENA support electrolysis plus renewable or
+  low-emissions electricity as the production route; IRENA frames electrolysers
+  as grid-flexibility resources alongside alternatives such as batteries.
+- Data-quality update: `green_hydrogen` now belongs to the
+  `Energy Systems & Grid` field and has official-agency sources.
+- Source:
+  - https://www.irena.org/Energy-Transition/Technology/Hydrogen
+  - https://www.iea.org/energy-system/low-emission-fuels/electrolysers
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Energy Systems & Grid" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-06-01: Rocketry jet-engine dependency removal
 
 - Strategy follow-up: issue #62 tested whether broad `rocketry` should depend

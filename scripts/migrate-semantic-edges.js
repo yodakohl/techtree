@@ -235,7 +235,8 @@ const REMOVE_DEPENDENCIES = new Map([
     ['5g_6g_communication_networks', new Set(['mobile_phones', 'advanced_ai'])],
     ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])],
     ['ion_exchange_water_softening', new Set(['polymer_chemistry'])],
-    ['rocketry', new Set(['jet_engine'])]
+    ['rocketry', new Set(['jet_engine'])],
+    ['green_hydrogen', new Set(['grid_scale_battery_storage'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([

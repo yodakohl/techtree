@@ -20392,13 +20392,43 @@
     "description": "Hydrogen produced with low-carbon electricity, usually through electrolysis, for industry, storage, shipping, and synthetic fuels.",
     "prerequisites": [
       "electrochemical_industry",
-      "renewable_energy_systems",
-      "grid_scale_battery_storage"
+      "renewable_energy_systems"
+    ],
+    "fields": [
+      "Energy Systems & Grid"
+    ],
+    "fieldLanes": {
+      "Energy Systems & Grid": "Storage"
+    },
+    "maturity": "emerging",
+    "sources": [
+      {
+        "title": "Electrolysers",
+        "url": "https://www.iea.org/energy-system/low-emission-fuels/electrolysers",
+        "publisher": "IEA",
+        "year": 2024,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Hydrogen",
+        "url": "https://www.irena.org/Energy-Transition/Technology/Hydrogen",
+        "publisher": "IRENA",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
     ],
     "firstKnownDate": 1945,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "electrochemical_industry",
@@ -20406,7 +20436,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Electrochemical Industry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "renewable_energy_systems",
@@ -20414,15 +20444,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Renewable Energy Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "grid_scale_battery_storage",
-        "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Grid-Scale Battery Storage is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       }
     ]
   },
