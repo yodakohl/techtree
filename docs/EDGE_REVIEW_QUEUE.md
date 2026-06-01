@@ -18,6 +18,7 @@ A starter PR is useful when it includes:
 - the old edge claim and new edge claim
 - one specific source URL plus locator
 - the exact source relationship to the edge
+- an adversarial check naming the strongest reason the PR could be wrong
 - an edge-change receipt if the claim changes
 - validation output from:
 
@@ -43,3 +44,6 @@ npm run source-urls -- --field "Field Name" --timeout-ms 15000 --concurrency 4
   as described.
 - Do not invent a replacement edge just because a receipt needs topology. Use
   `removed_edge: true` when the source rejects the direct dependency.
+
+See [Adversarial Edge Review](ADVERSARIAL_EDGE_REVIEW.md) for the reviewer
+checklist used to reject receipt-shaped but unsupported diffs.

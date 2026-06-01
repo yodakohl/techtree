@@ -21,6 +21,12 @@ For `required` edge demotions, list the mechanism/context edges preserved:
 
 - `dependent -> prerequisite` remains `type` because ...
 
+## Adversarial Check
+
+- Why this source licenses the edge verb:
+- Strongest reason this PR could be wrong:
+- What source or counterexample would overturn it:
+
 ## Validation
 
 - [ ] `npm run edge-receipts`

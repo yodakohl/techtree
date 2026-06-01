@@ -162,7 +162,8 @@ To contribute useful changes, pick one task from the
 [Edge Review Queue](docs/EDGE_REVIEW_QUEUE.md), follow the compact
 [One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md), then use the broader workflow in
 [Contributing](CONTRIBUTING.md) and the edge-type rules in
-[Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md).
+[Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md). The review bar is
+adversarial: see [Adversarial Edge Review](docs/ADVERSARIAL_EDGE_REVIEW.md).
 
 Fastest useful PR path:
 
