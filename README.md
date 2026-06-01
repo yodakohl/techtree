@@ -25,10 +25,6 @@ The current validated dataset contains **1,655 curated technologies** stored as 
 - **Graph View**: a Vis Network dependency graph with search, era and field filtering, focused dependency context, source metadata, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, field lens, maturity, and roadmap status.
 
-## Keywords
-
-`technology tree`, `tech tree`, `technology graph`, `knowledge graph`, `history of technology`, `invention timeline`, `dependency graph`, `human technology`, `CRISPR`, `semiconductors`, `artificial intelligence`, `energy systems`, `spaceflight`, `robotics`, `climate technology`, `agriculture technology`, `telecommunications`, `networking`, `water technology`, `sanitation`, `drug discovery`, `pharmaceuticals`, `pharmacology`, `clinical trials`
-
 ## Quick Start
 
 Requirements:
