@@ -7,6 +7,10 @@ decision.
 
 ## Best First Contribution
 
+Start with the [Edge Review Queue](docs/EDGE_REVIEW_QUEUE.md). It lists current
+starter issues with exact edge IDs, source candidates, expected decision shapes,
+and validation commands.
+
 Pick one edge from an audit queue or GitHub issue and answer:
 
 - Is the dependency real?

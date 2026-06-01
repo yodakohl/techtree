@@ -105,10 +105,10 @@ For semantic edge changes, include a receipt with:
     "source_support_rationale": "Why that statement licenses this edge type."
   },
   "invariant_preserved_or_changed": "State what still carries the hard mechanism, or what changed.",
-  "rejection_conditions": [
+  "would_reject_if": [
     "A better source shows the old hard dependency is actually necessary."
   ],
-  "validation": [
+  "validation_commands": [
     "npm run edge-receipts",
     "npm test",
     "npm run quality",
@@ -121,7 +121,9 @@ If a `required` edge is demoted, add `demotion_preserves` naming the remaining
 required mechanism edge or explain why no hard mechanism edge should remain.
 
 For topology replacements, add `replaced_edge` so validation proves the old
-misleading edge was removed.
+misleading edge was removed. For pure removals, set `removed_edge: true`,
+replace `new_claim` with `new_claim_absent`, set `source_supports_edge` to
+`"no"`, and use `refutes_dependency` in `source_shape.support_relationship`.
 
 ## PR Body
 

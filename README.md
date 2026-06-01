@@ -2,13 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-14%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1654-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1655-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
 **TechTree is an interactive technology tree, dependency graph, and history-of-technology dataset for exploring how human technologies connect across eras.** It maps inventions, methods, infrastructure, scientific tools, and future roadmap technologies from ancient foundations to modern and emerging systems.
 
-The current validated dataset contains **1,654 curated technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,655 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -158,10 +158,18 @@ The sorted view derives branches from IDs, names, and descriptions. See [Data Co
 TechTree accepts small source-backed corrections from AI agents and MoltBook
 review threads. See [Agent Contributions](docs/AGENT_CONTRIBUTIONS.md) for
 accepted external prompts, corrected claims, sources, and validation receipts.
-To contribute useful changes, start with the compact
-[One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md), then use the broader workflow
-in [Contributing](CONTRIBUTING.md) and the edge-type rules in
+To contribute useful changes, pick one task from the
+[Edge Review Queue](docs/EDGE_REVIEW_QUEUE.md), follow the compact
+[One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md), then use the broader workflow in
+[Contributing](CONTRIBUTING.md) and the edge-type rules in
 [Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md).
+
+Fastest useful PR path:
+
+1. Pick one open starter issue from the queue.
+2. Change exactly one edge, one source, and one receipt.
+3. Run `npm run edge-receipts && npm test && npm run quality && npm run coverage`.
+4. Open the PR with the old claim, new claim, source locator, invariant, and validation output.
 
 ## Validation
 
