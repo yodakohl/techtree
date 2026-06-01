@@ -113,6 +113,31 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-01: TSV advanced-packaging edge direction fix
+
+- Strategy follow-up: issue #65 tested whether
+  `through_silicon_vias -> advanced_semiconductor_packaging_2_5d_3d` had the
+  direction backwards.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/65
+- Old claim: TSVs were modeled as requiring the broad 2.5D/3D advanced
+  packaging category.
+- Corrected claim: the edge now points from
+  `advanced_semiconductor_packaging_2_5d_3d` to `through_silicon_vias` as an
+  `enabling` relationship. TSV fabrication itself remains grounded in
+  lithography and plasma etching.
+- Data-quality update: TSV and advanced-packaging nodes now have less
+  misleading first-known dates and cite NIST/TSMC sources instead of relying on
+  generated 1945 defaults.
+- Source:
+  - https://www.nist.gov/publications/metrology-needs-25d3d-interconnect
+  - https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Semiconductors & Integrated Circuits" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-06-01: PCR time-reversal cleanup in sequencing and recombinant DNA
 
 - Strategy follow-up: issue #63 tested whether PCR should be a hard

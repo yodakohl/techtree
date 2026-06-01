@@ -230,48 +230,6 @@ Era	id	Name	Description	prereq1,prereq2
 
 For bulk additions, follow [Technology Expansion Runbook](docs/TECH_EXPANSION_RUNBOOK.md). It documents the compact TSV importer, manual review expectations, quality audit, and publish checklist.
 
-## GitHub Discoverability
-
-Recommended repository description:
-
-> Interactive technology tree and validated human-technology dependency graph across history, modern science, and future roadmap fields.
-
-Recommended GitHub topics:
-
-```text
-technology-tree
-tech-tree
-knowledge-graph
-dependency-graph
-history-of-technology
-human-technology
-invention-timeline
-interactive-graph
-science-and-technology
-crispr
-semiconductors
-artificial-intelligence
-energy-systems
-spaceflight
-robotics
-climate-tech
-agriculture-technology
-cybersecurity
-cryptography
-transportation
-logistics
-materials-science
-telecommunications
-networking
-water-technology
-sanitation
-wastewater
-drug-discovery
-pharmaceuticals
-pharmacology
-clinical-trials
-```
-
 ## Project Structure
 
 ```text

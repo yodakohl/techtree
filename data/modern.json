@@ -27266,7 +27266,8 @@
     "prerequisites": [
       "integrated_circuits",
       "precision_machine_tools",
-      "clean_rooms"
+      "clean_rooms",
+      "through_silicon_vias"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -27281,6 +27282,17 @@
         "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
         "publisher": "TSMC",
         "year": 2026,
+        "source_type": "weak_web",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Metrology Needs for 2.5D/3D Interconnect",
+        "url": "https://www.nist.gov/publications/metrology-needs-25d3d-interconnect",
+        "publisher": "NIST",
+        "year": 2014,
         "source_type": "official_agency",
         "supports": [
           "node",
@@ -27288,9 +27300,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1945,
+    "firstKnownDate": 2000,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "region": "Global semiconductor packaging industry",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -27306,7 +27318,7 @@
             "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
             "publisher": "TSMC",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "weak_web",
             "supports": [
               "node",
               "maturity",
@@ -27328,7 +27340,7 @@
             "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
             "publisher": "TSMC",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "weak_web",
             "supports": [
               "node",
               "maturity",
@@ -27350,10 +27362,40 @@
             "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
             "publisher": "TSMC",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "weak_web",
             "supports": [
               "node",
               "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "through_silicon_vias",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Through-silicon vias are used in 2.5D/3D interconnect reference flows, but broad advanced packaging also includes approaches such as fan-out and wafer bonding.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Metrology Needs for 2.5D/3D Interconnect",
+            "url": "https://www.nist.gov/publications/metrology-needs-25d3d-interconnect",
+            "publisher": "NIST",
+            "year": 2014,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "3DFabric",
+            "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
+            "publisher": "TSMC",
+            "year": 2026,
+            "source_type": "weak_web",
+            "supports": [
               "edge"
             ]
           }
@@ -27367,7 +27409,6 @@
     "era": "Modern",
     "description": "Vertical electrical connections etched through silicon dies or interposers for dense 3D and 2.5D chip integration.",
     "prerequisites": [
-      "advanced_semiconductor_packaging_2_5d_3d",
       "photolithography",
       "plasma_etching"
     ],
@@ -27380,10 +27421,10 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "3DFabric",
-        "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
-        "publisher": "TSMC",
-        "year": 2026,
+        "title": "Metrology Needs for 2.5D/3D Interconnect",
+        "url": "https://www.nist.gov/publications/metrology-needs-25d3d-interconnect",
+        "publisher": "NIST",
+        "year": 2014,
         "source_type": "official_agency",
         "supports": [
           "node",
@@ -27391,44 +27432,22 @@
         ]
       },
       {
-        "title": "JEDEC Publishes HBM3 Update to High Bandwidth Memory Standard",
-        "url": "https://www.jedec.org/standards-documents/docs/jesd238",
-        "publisher": "JEDEC / Business Wire",
-        "year": 2022,
-        "source_type": "official_agency",
+        "title": "3DFabric",
+        "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
+        "publisher": "TSMC",
+        "year": 2026,
+        "source_type": "weak_web",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1945,
+    "firstKnownDate": 1980,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "region": "Japan, United States, and global semiconductor packaging",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "advanced_semiconductor_packaging_2_5d_3d",
-        "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Semiconductor Packaging 2.5D/3D is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "3DFabric",
-            "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
-            "publisher": "TSMC",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
       {
         "prerequisite": "photolithography",
         "type": "required",
@@ -27438,10 +27457,10 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "3DFabric",
-            "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
-            "publisher": "TSMC",
-            "year": 2026,
+            "title": "Metrology Needs for 2.5D/3D Interconnect",
+            "url": "https://www.nist.gov/publications/metrology-needs-25d3d-interconnect",
+            "publisher": "NIST",
+            "year": 2014,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -27460,10 +27479,10 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "3DFabric",
-            "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm",
-            "publisher": "TSMC",
-            "year": 2026,
+            "title": "Metrology Needs for 2.5D/3D Interconnect",
+            "url": "https://www.nist.gov/publications/metrology-needs-25d3d-interconnect",
+            "publisher": "NIST",
+            "year": 2014,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -27516,7 +27535,7 @@
         ]
       }
     ],
-    "firstKnownDate": 1945,
+    "firstKnownDate": 2000,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
@@ -27630,7 +27649,7 @@
         ]
       }
     ],
-    "firstKnownDate": 1948,
+    "firstKnownDate": 2000,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
@@ -27818,7 +27837,7 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
+    "firstKnownDate": 2000,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
@@ -27933,7 +27952,7 @@
         "standardization and cost"
       ]
     },
-    "firstKnownDate": 1945,
+    "firstKnownDate": 2000,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",

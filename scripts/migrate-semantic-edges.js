@@ -24,6 +24,8 @@ const NODE_DATE_OVERRIDES = {
     bureaucracy: { firstKnownDate: -3000, datePrecision: 'century', region: 'Mesopotamia, Egypt, China, and other early states' },
     flash_memory: { firstKnownDate: 1984, datePrecision: 'exact', region: 'Japan / global semiconductor industry' },
     solid_state_drives_ssd_flash_memory: { firstKnownDate: 1991, datePrecision: 'decade', region: 'Global electronics industry' },
+    through_silicon_vias: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Japan, United States, and global semiconductor packaging' },
+    advanced_semiconductor_packaging_2_5d_3d: { firstKnownDate: 2000, datePrecision: 'decade', region: 'Global semiconductor packaging industry' },
     vector_databases: { firstKnownDate: 2019, datePrecision: 'decade', region: 'Global software industry' },
     retrieval_augmented_generation: { firstKnownDate: 2020, datePrecision: 'exact', region: 'Global AI research community' },
     recommender_systems: { firstKnownDate: 1992, datePrecision: 'decade', region: 'Global software and research community' },
@@ -240,7 +242,8 @@ const REMOVE_DEPENDENCIES = new Map([
     ['submarine_fiber_optic_cables', new Set(['dense_wavelength_division_multiplexing'])],
     ['ion_exchange_water_softening', new Set(['polymer_chemistry'])],
     ['rocketry', new Set(['jet_engine'])],
-    ['green_hydrogen', new Set(['grid_scale_battery_storage'])]
+    ['green_hydrogen', new Set(['grid_scale_battery_storage'])],
+    ['through_silicon_vias', new Set(['advanced_semiconductor_packaging_2_5d_3d'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([
@@ -251,7 +254,8 @@ const ADD_DEPENDENCIES = new Map([
     ['cas12_cas13_editing_platforms', ['crispr_adaptive_immunity']],
     ['5g_6g_communication_networks', ['five_g_new_radio']],
     ['submarine_fiber_optic_cables', ['lasers']],
-    ['ion_exchange_water_softening', ['advanced_chemistry']]
+    ['ion_exchange_water_softening', ['advanced_chemistry']],
+    ['advanced_semiconductor_packaging_2_5d_3d', ['through_silicon_vias']]
 ]);
 
 const CRISPR_SOURCES = {
@@ -447,6 +451,23 @@ const GENOMICS_SOURCES = {
     }
 };
 
+const SEMICONDUCTOR_PACKAGING_SOURCES = {
+    tsmc3dFabric: {
+        title: '3DFabric',
+        url: 'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/3DFabric.htm',
+        publisher: 'TSMC',
+        year: 2026,
+        source_type: 'weak_web'
+    },
+    nistInterconnect: {
+        title: 'Metrology Needs for 2.5D/3D Interconnect',
+        url: 'https://www.nist.gov/publications/metrology-needs-25d3d-interconnect',
+        publisher: 'NIST',
+        year: 2014,
+        source_type: 'official_agency'
+    }
+};
+
 const EDGE_OVERRIDES = {
     'foraging_and_botany|oral_tradition_storytelling': {
         type: 'common_dependency',
@@ -467,6 +488,14 @@ const EDGE_OVERRIDES = {
     },
     'vector_databases|large_language_models': null,
     'retrieval_augmented_generation|vector_databases': null,
+    'advanced_semiconductor_packaging_2_5d_3d|through_silicon_vias': {
+        type: 'enabling',
+        confidence: 0.78,
+        evidence_level: 'textbook',
+        note: 'Through-silicon vias are used in 2.5D/3D interconnect reference flows, but broad advanced packaging also includes approaches such as fan-out and wafer bonding.',
+        reviewStatus: 'source_checked',
+        sources: [SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect, SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric]
+    },
     'dna_sequencing|pcr_polymerase_chain_reaction': null,
     'recombinant_dna_genetic_engineering|pcr_polymerase_chain_reaction': null,
     'molecular_diagnostics|pcr_polymerase_chain_reaction': {
@@ -1431,6 +1460,8 @@ const SOURCE_OVERRIDES = {
     pharmacogenomics: [PHARMA_SOURCES.fdaPharmacogenomics],
     adverse_event_reporting_systems: [PHARMA_SOURCES.fdaFaers],
     real_world_evidence_regulatory_science: [PHARMA_SOURCES.fdaRealWorldEvidence],
+    advanced_semiconductor_packaging_2_5d_3d: [SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric, SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect],
+    through_silicon_vias: [SEMICONDUCTOR_PACKAGING_SOURCES.nistInterconnect, SEMICONDUCTOR_PACKAGING_SOURCES.tsmc3dFabric],
     recombinant_dna_genetic_engineering: [PHARMA_SOURCES.genomeRecombinantDna],
     pcr_polymerase_chain_reaction: [GENOMICS_SOURCES.statpearlsPcr],
     pcr_diagnostics: [GENOMICS_SOURCES.saikiPcrDiagnostics, GENOMICS_SOURCES.statpearlsPcr],

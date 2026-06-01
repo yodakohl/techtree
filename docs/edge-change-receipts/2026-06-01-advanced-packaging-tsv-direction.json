@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-01-advanced-packaging-tsv-direction",
+  "decision_date": "2026-06-01",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/65",
+  "edge": {
+    "dependent": "advanced_semiconductor_packaging_2_5d_3d",
+    "prerequisite": "through_silicon_vias"
+  },
+  "replaced_edge": {
+    "dependent": "through_silicon_vias",
+    "prerequisite": "advanced_semiconductor_packaging_2_5d_3d"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Advanced Semiconductor Packaging 2.5D/3D is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "textbook",
+    "confidence": 0.78,
+    "note": "Through-silicon vias are used in 2.5D/3D interconnect reference flows, but broad advanced packaging also includes approaches such as fan-out and wafer bonding."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nist.gov/publications/metrology-needs-25d3d-interconnect",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Abstract describing 2.5D and 3D reference flows employing via-mid copper TSV processing, wafer thinning, backside processing, and chip-to-chip bonding.",
+    "source_claim_summary": "The NIST-hosted book chapter describes TSV processing as one element used in 2.5D/3D interconnect reference flows, alongside thinning, backside processing, and bonding.",
+    "source_support_rationale": "This supports the corrected direction because TSVs are a packaging/interconnect technique used by some advanced packaging flows, not a broad packaging category that TSV fabrication depends on."
+  },
+  "ontology_before": "The graph made TSV fabrication depend on the broad advanced-packaging category, turning a technique into a child that required its own application area.",
+  "ontology_after": "The graph now treats TSVs as an enabling technique for 2.5D/3D advanced packaging while keeping TSV fabrication grounded in lithography and plasma etching.",
+  "invariant_preserved_or_changed": "Invariant preserved: TSVs remain connected to 2.5D/3D packaging and to fabrication-process prerequisites. Changed: the edge direction now points from the broader packaging application toward the TSV technique.",
+  "would_reject_if": [
+    "A source showed through-silicon vias cannot be defined or fabricated outside the broad advanced-packaging category.",
+    "A source showed every technology covered by the broad advanced packaging node requires TSVs as a hard prerequisite.",
+    "A future graph split advanced packaging into TSV-based and non-TSV packaging nodes and moved this edge only to the TSV-based node."
+  ],
+  "short_reason": "TSVs are an enabling 2.5D/3D packaging technique, not a technology that hard-depends on the broad advanced-packaging category.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Semiconductors & Integrated Circuits\" --timeout-ms 15000 --concurrency 4"
+  ]
+}
