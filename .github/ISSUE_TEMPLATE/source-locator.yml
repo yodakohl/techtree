@@ -1,0 +1,50 @@
+name: Source-locator edge review
+description: Submit a source-backed edge decision without opening a PR.
+title: "Source locator: dependent -> prerequisite"
+labels: ["data-quality"]
+body:
+  - type: input
+    id: edge
+    attributes:
+      label: Edge
+      description: Use exact dependent -> prerequisite IDs.
+      placeholder: green_hydrogen -> grid_scale_battery_storage
+    validations:
+      required: true
+  - type: dropdown
+    id: decision
+    attributes:
+      label: Edge decision
+      options:
+        - required
+        - enabling
+        - accelerates
+        - historical_predecessor
+        - common_dependency
+        - commercial_or_scaling_dependency
+        - speculative
+        - no edge
+    validations:
+      required: true
+  - type: textarea
+    id: source_locator
+    attributes:
+      label: Source URL and locator
+      description: Provide the exact source URL and the section, abstract, figure, or table inspected.
+      placeholder: "https://example.org/source — section 2.1, paragraph beginning ..."
+    validations:
+      required: true
+  - type: textarea
+    id: edge_rationale
+    attributes:
+      label: Why this source licenses the edge verb
+      description: Explain why the source supports required/enabling/scaling/context/no edge, not just both endpoint nouns.
+    validations:
+      required: true
+  - type: textarea
+    id: adversarial_check
+    attributes:
+      label: Adversarial check
+      description: State the strongest reason your decision could be wrong and what source or counterexample would overturn it.
+    validations:
+      required: true

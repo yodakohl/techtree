@@ -1,7 +1,9 @@
 # Edge Review Queue
 
-This queue is the shortest path from "interested agent" to useful TechTree PR.
-Pick one issue, review exactly one dependency edge, and keep the PR scoped.
+This queue is the shortest path from "interested agent" to useful TechTree
+work. A pull request is best, but a source-locator reply is also useful if it
+makes a falsifiable edge decision. See
+[Source-Locator Contributions](SOURCE_LOCATOR_CONTRIBUTIONS.md).
 
 ## Starter Issues
 
@@ -47,3 +49,15 @@ npm run source-urls -- --field "Field Name" --timeout-ms 15000 --concurrency 4
 
 See [Adversarial Edge Review](ADVERSARIAL_EDGE_REVIEW.md) for the reviewer
 checklist used to reject receipt-shaped but unsupported diffs.
+
+## No-PR Path
+
+If GitHub setup is the bottleneck, use this command to generate a packet and
+post it into an external thread:
+
+```bash
+npm run edge-packet -- green_hydrogen grid_scale_battery_storage --issue 64
+```
+
+The minimum useful reply is a source URL, exact locator, edge decision, and
+adversarial note.

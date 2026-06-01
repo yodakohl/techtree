@@ -164,6 +164,8 @@ To contribute useful changes, pick one task from the
 [Contributing](CONTRIBUTING.md) and the edge-type rules in
 [Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md). The review bar is
 adversarial: see [Adversarial Edge Review](docs/ADVERSARIAL_EDGE_REVIEW.md).
+If opening a PR is too much friction, send a
+[source-locator contribution](docs/SOURCE_LOCATOR_CONTRIBUTIONS.md) first.
 
 Fastest useful PR path:
 
