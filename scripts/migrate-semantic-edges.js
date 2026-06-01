@@ -19,8 +19,28 @@ const NODE_DATE_OVERRIDES = {
     oral_tradition_storytelling: { firstKnownDate: -250000, datePrecision: 'millennium', region: 'Global / multiple regions' },
     foraging_and_botany: { firstKnownDate: -200000, datePrecision: 'millennium', region: 'Global / multiple regions' },
     early_astronomy_observation: { firstKnownDate: -3000, datePrecision: 'millennium', region: 'Mesopotamia, Egypt, China, and other early societies' },
+    x_rays_discovery: { firstKnownDate: 1895, datePrecision: 'exact', region: 'Germany and global medicine/physics' },
+    radioactivity_discovery: { firstKnownDate: 1896, datePrecision: 'exact', region: 'France and global physics/chemistry' },
     relativity_special_general: { firstKnownDate: 1905, datePrecision: 'exact', region: 'Switzerland, Germany, and global physics' },
     quantum_physics: { firstKnownDate: 1900, datePrecision: 'exact', region: 'Germany and global physics' },
+    superconductors_early: { firstKnownDate: 1911, datePrecision: 'exact', region: 'Netherlands and global condensed-matter physics' },
+    isotope_separation: { firstKnownDate: 1919, datePrecision: 'exact', region: 'United Kingdom and global analytical chemistry' },
+    nuclear_fission: { firstKnownDate: 1938, datePrecision: 'exact', region: 'Germany, Sweden, and global nuclear physics' },
+    particle_accelerators: { firstKnownDate: 1932, datePrecision: 'exact', region: 'United Kingdom and United States' },
+    plasma_physics: { firstKnownDate: 1923, datePrecision: 'exact', region: 'United States and global plasma physics' },
+    nuclear_fusion_research: { firstKnownDate: 1950, datePrecision: 'decade', region: 'United States, United Kingdom, Soviet Union, and global fusion research' },
+    electronics: { firstKnownDate: 1904, datePrecision: 'exact', region: 'United Kingdom and global electronics industry' },
+    vacuum_tubes_electron_control: { firstKnownDate: 1904, datePrecision: 'exact', region: 'United Kingdom and global electronics industry' },
+    transistors: { firstKnownDate: 1947, datePrecision: 'exact', region: 'United States and global electronics industry' },
+    integrated_circuits: { firstKnownDate: 1958, datePrecision: 'exact', region: 'United States and global semiconductor industry' },
+    masers_early: { firstKnownDate: 1953, datePrecision: 'exact', region: 'United States and Soviet Union' },
+    lasers: { firstKnownDate: 1960, datePrecision: 'exact', region: 'United States and global photonics industry' },
+    x_ray_crystallography: { firstKnownDate: 1912, datePrecision: 'exact', region: 'Germany and global structural science' },
+    dna_structure: { firstKnownDate: 1953, datePrecision: 'exact', region: 'United Kingdom and global molecular biology' },
+    atomic_clocks: { firstKnownDate: 1949, datePrecision: 'exact', region: 'United States and global timekeeping/metrology' },
+    solar_power: { firstKnownDate: 1954, datePrecision: 'exact', region: 'United States and global energy systems' },
+    solar_photovoltaics: { firstKnownDate: 1954, datePrecision: 'exact', region: 'United States and global energy systems' },
+    graphene_two_dimensional_materials: { firstKnownDate: 2004, datePrecision: 'exact', region: 'United Kingdom and global materials science' },
     writing: { firstKnownDate: -3200, datePrecision: 'century', region: 'Mesopotamia and Egypt' },
     record_keeping: { firstKnownDate: -8000, datePrecision: 'millennium', region: 'Southwest Asia and other early farming societies' },
     bureaucracy: { firstKnownDate: -3000, datePrecision: 'century', region: 'Mesopotamia, Egypt, China, and other early states' },
@@ -253,7 +273,9 @@ const REMOVE_DEPENDENCIES = new Map([
     ['rocketry', new Set(['jet_engine'])],
     ['green_hydrogen', new Set(['grid_scale_battery_storage'])],
     ['through_silicon_vias', new Set(['advanced_semiconductor_packaging_2_5d_3d'])],
-    ['quantum_physics', new Set(['relativity_special_general'])]
+    ['quantum_physics', new Set(['relativity_special_general'])],
+    ['atomic_clocks', new Set(['masers_early', 'lasers'])],
+    ['x_ray_crystallography', new Set(['crystal_growth_techniques'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([
@@ -507,6 +529,20 @@ const SEMICONDUCTOR_PACKAGING_SOURCES = {
 };
 
 const FOUNDATIONAL_PHYSICS_SOURCES = {
+    xRaysNobel1901: {
+        title: 'The Nobel Prize in Physics 1901',
+        url: 'https://www.nobelprize.org/prizes/physics/1901/summary/',
+        publisher: 'Nobel Prize',
+        year: 1901,
+        source_type: 'museum'
+    },
+    radioactivityNobel1903: {
+        title: 'The Nobel Prize in Physics 1903',
+        url: 'https://www.nobelprize.org/prizes/physics/1903/summary/',
+        publisher: 'Nobel Prize',
+        year: 1903,
+        source_type: 'museum'
+    },
     britannicaRelativity: {
         title: 'Relativity',
         url: 'https://www.britannica.com/science/relativity',
@@ -541,12 +577,137 @@ const FOUNDATIONAL_PHYSICS_SOURCES = {
         publisher: 'Encyclopaedia Britannica',
         year: 2026,
         source_type: 'textbook'
+    },
+    superconductivityNobel1913: {
+        title: 'The Nobel Prize in Physics 1913',
+        url: 'https://www.nobelprize.org/prizes/physics/1913/summary/',
+        publisher: 'Nobel Prize',
+        year: 1913,
+        source_type: 'museum'
+    },
+    astonMassSpectrograph: {
+        title: "Aston's First Mass Spectrograph, c. 1919",
+        url: 'https://collection.sciencemuseumgroup.org.uk/objects/co5659/astons-first-mass-spectrograph-c-1919',
+        publisher: 'Science Museum Group',
+        year: 2026,
+        source_type: 'museum'
+    },
+    nuclearFissionNobel1944: {
+        title: 'The Nobel Prize in Chemistry 1944',
+        url: 'https://www.nobelprize.org/prizes/chemistry/1944/summary/',
+        publisher: 'Nobel Prize',
+        year: 1944,
+        source_type: 'museum'
+    },
+    particleAcceleratorNobel1951: {
+        title: 'The Nobel Prize in Physics 1951',
+        url: 'https://www.nobelprize.org/prizes/physics/1951/summary/',
+        publisher: 'Nobel Prize',
+        year: 1951,
+        source_type: 'museum'
+    },
+    britannicaPlasma: {
+        title: 'Plasma',
+        url: 'https://www.britannica.com/science/plasma-state-of-matter',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    apsVacuumTube: {
+        title: 'John Ambrose Fleming Patents the Vacuum Tube',
+        url: 'https://www.aps.org/apsnews/2024/10/ambrose-fleming-patents-vacuum-tube',
+        publisher: 'American Physical Society',
+        year: 2024,
+        source_type: 'generic_overview'
+    },
+    ieeeDiodeHistory: {
+        title: 'Diode',
+        url: 'https://ethw.org/Diode',
+        publisher: 'IEEE History Center',
+        year: 2026,
+        source_type: 'museum'
+    },
+    chmTransistor1947: {
+        title: '1947: Invention of the Point-Contact Transistor',
+        url: 'https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/',
+        publisher: 'Computer History Museum',
+        year: 2007,
+        source_type: 'museum'
+    },
+    chmIntegratedCircuit1958: {
+        title: '1958: All Semiconductor Solid Circuit is Demonstrated',
+        url: 'https://www.computerhistory.org/siliconengine/all-semiconductor-solid-circuit-is-demonstrated/',
+        publisher: 'Computer History Museum',
+        year: 2007,
+        source_type: 'museum'
+    },
+    laserMaserNobel1964: {
+        title: 'The Nobel Prize in Physics 1964',
+        url: 'https://www.nobelprize.org/prizes/physics/1964/summary/',
+        publisher: 'Nobel Prize',
+        year: 1964,
+        source_type: 'museum'
+    },
+    xrayCrystallographyNobel1914: {
+        title: 'The Nobel Prize in Physics 1914',
+        url: 'https://www.nobelprize.org/prizes/physics/1914/summary/',
+        publisher: 'Nobel Prize',
+        year: 1914,
+        source_type: 'museum'
+    },
+    dnaStructureNature1953: {
+        title: 'Molecular Structure of Nucleic Acids',
+        url: 'https://www.nature.com/articles/171737a0',
+        publisher: 'Nature',
+        year: 1953,
+        source_type: 'primary_paper'
+    },
+    nistAtomicClockHistory: {
+        title: 'A Brief History of Atomic Clocks at NIST',
+        url: 'https://www.nist.gov/pml/time-and-frequency-division/time-services/brief-history-atomic-clocks-nist',
+        publisher: 'NIST',
+        year: 2009,
+        source_type: 'official_agency'
+    },
+    apsSiliconSolarCell: {
+        title: 'Bell Labs Demonstrates the First Practical Silicon Solar Cell',
+        url: 'https://www.aps.org/apsnews/2009/04/bell-labs-silicon-solar-cell',
+        publisher: 'American Physical Society',
+        year: 2009,
+        source_type: 'generic_overview'
+    },
+    grapheneNobel2010: {
+        title: 'The Nobel Prize in Physics 2010',
+        url: 'https://www.nobelprize.org/prizes/physics/2010/summary/',
+        publisher: 'Nobel Prize',
+        year: 2010,
+        source_type: 'museum'
     }
 };
 
 const NODE_SOURCE_ONLY_IDS = new Set([
+    'x_rays_discovery',
+    'radioactivity_discovery',
     'relativity_special_general',
-    'quantum_physics'
+    'quantum_physics',
+    'superconductors_early',
+    'isotope_separation',
+    'nuclear_fission',
+    'particle_accelerators',
+    'plasma_physics',
+    'nuclear_fusion_research',
+    'electronics',
+    'vacuum_tubes_electron_control',
+    'transistors',
+    'integrated_circuits',
+    'masers_early',
+    'lasers',
+    'x_ray_crystallography',
+    'dna_structure',
+    'atomic_clocks',
+    'solar_power',
+    'solar_photovoltaics',
+    'graphene_two_dimensional_materials'
 ]);
 
 const EDGE_OVERRIDES = {
@@ -1316,8 +1477,16 @@ const SOURCE_OVERRIDES = {
     algorithms_computation_theory: [
         { title: 'Computation in Physical Systems', url: 'https://plato.stanford.edu/entries/computation-physicalsystems/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2024 }
     ],
+    x_rays_discovery: [
+        FOUNDATIONAL_PHYSICS_SOURCES.xRaysNobel1901
+    ],
+    radioactivity_discovery: [
+        FOUNDATIONAL_PHYSICS_SOURCES.radioactivityNobel1903
+    ],
     electronics: [
-        { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
+        FOUNDATIONAL_PHYSICS_SOURCES.apsVacuumTube,
+        FOUNDATIONAL_PHYSICS_SOURCES.ieeeDiodeHistory,
+        { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007, source_type: 'museum' }
     ],
     masonry: [
         { title: 'Masonry', url: 'https://www.britannica.com/technology/masonry', publisher: 'Encyclopaedia Britannica', year: 2026 }
@@ -1339,6 +1508,24 @@ const SOURCE_OVERRIDES = {
     quantum_physics: [
         FOUNDATIONAL_PHYSICS_SOURCES.planckQuantumPaper,
         FOUNDATIONAL_PHYSICS_SOURCES.britannicaQuantumLight
+    ],
+    superconductors_early: [
+        FOUNDATIONAL_PHYSICS_SOURCES.superconductivityNobel1913
+    ],
+    isotope_separation: [
+        FOUNDATIONAL_PHYSICS_SOURCES.astonMassSpectrograph
+    ],
+    nuclear_fission: [
+        FOUNDATIONAL_PHYSICS_SOURCES.nuclearFissionNobel1944
+    ],
+    particle_accelerators: [
+        FOUNDATIONAL_PHYSICS_SOURCES.particleAcceleratorNobel1951
+    ],
+    plasma_physics: [
+        FOUNDATIONAL_PHYSICS_SOURCES.britannicaPlasma
+    ],
+    nuclear_fusion_research: [
+        { title: 'DOE Explains... Nuclear Fusion Reactions', url: 'https://www.energy.gov/science/doe-explainsnuclear-fusion-reactions', publisher: 'U.S. Department of Energy', year: 2026, source_type: 'official_agency' }
     ],
     philosophy: [
         { title: 'Stanford Encyclopedia of Philosophy', url: 'https://plato.stanford.edu/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2026 }
@@ -1364,14 +1551,44 @@ const SOURCE_OVERRIDES = {
     internal_combustion_engine: [
         { title: 'Memorial - Daimler garden house in Bad Cannstatt', url: 'https://group.mercedes-benz.com/company/tradition/museums-historical-sites/daimler-memorial.html', publisher: 'Mercedes-Benz Museum', year: 2026 }
     ],
+    vacuum_tubes_electron_control: [
+        FOUNDATIONAL_PHYSICS_SOURCES.apsVacuumTube,
+        FOUNDATIONAL_PHYSICS_SOURCES.ieeeDiodeHistory
+    ],
     transistors: [
-        { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
+        FOUNDATIONAL_PHYSICS_SOURCES.chmTransistor1947
     ],
     integrated_circuits: [
-        { title: '1960: First Planar Integrated Circuit is Fabricated', url: 'https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/', publisher: 'Computer History Museum', year: 2007 }
+        FOUNDATIONAL_PHYSICS_SOURCES.chmIntegratedCircuit1958
     ],
     semiconductors: [
         { title: 'The Silicon Engine', url: 'https://www.computerhistory.org/siliconengine/', publisher: 'Computer History Museum', year: 2007 }
+    ],
+    masers_early: [
+        FOUNDATIONAL_PHYSICS_SOURCES.laserMaserNobel1964
+    ],
+    lasers: [
+        FOUNDATIONAL_PHYSICS_SOURCES.laserMaserNobel1964
+    ],
+    x_ray_crystallography: [
+        FOUNDATIONAL_PHYSICS_SOURCES.xrayCrystallographyNobel1914
+    ],
+    dna_structure: [
+        FOUNDATIONAL_PHYSICS_SOURCES.dnaStructureNature1953
+    ],
+    atomic_clocks: [
+        FOUNDATIONAL_PHYSICS_SOURCES.nistAtomicClockHistory
+    ],
+    solar_power: [
+        FOUNDATIONAL_PHYSICS_SOURCES.apsSiliconSolarCell,
+        { title: 'Solar', url: 'https://www.iea.org/fuels-and-technologies/solar', publisher: 'International Energy Agency', year: 2026, source_type: 'official_agency' }
+    ],
+    solar_photovoltaics: [
+        FOUNDATIONAL_PHYSICS_SOURCES.apsSiliconSolarCell,
+        { title: 'Solar', url: 'https://www.iea.org/fuels-and-technologies/solar', publisher: 'International Energy Agency', year: 2026, source_type: 'official_agency' }
+    ],
+    graphene_two_dimensional_materials: [
+        FOUNDATIONAL_PHYSICS_SOURCES.grapheneNobel2010
     ],
     telegraph: [
         { title: 'Invention of the Telegraph', url: 'https://www.loc.gov/collections/samuel-morse-papers/articles-and-essays/invention-of-the-telegraph/', publisher: 'Library of Congress', year: 2026 }
