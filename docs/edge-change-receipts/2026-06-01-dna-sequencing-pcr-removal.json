@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-01-dna-sequencing-pcr-removal",
+  "decision_date": "2026-06-01",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/63",
+  "edge": {
+    "dependent": "dna_sequencing",
+    "prerequisite": "pcr_polymerase_chain_reaction"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "PCR (Polymerase Chain Reaction) is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No dependency edge is retained because broad DNA sequencing predates PCR and includes non-PCR template preparation routes.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK21117/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter 6.1.1, Chain termination DNA sequencing; template routes include plasmid, M13, phagemid, and PCR, followed by the thermal cycle sequencing subsection.",
+    "source_claim_summary": "The textbook describes chain-termination sequencing as a mid-1970s method, lists several ways to obtain template DNA, and includes PCR as one possible way to generate template DNA; it separately describes thermal cycle sequencing as similar to PCR.",
+    "source_support_rationale": "This refutes a dependency edge: PCR belongs in later PCR-enabled sequencing workflows, not as a prerequisite for the broad DNA sequencing node."
+  },
+  "ontology_before": "The broad DNA Sequencing node treated PCR as a hard method prerequisite across the whole sequencing scope.",
+  "ontology_after": "The broad DNA Sequencing node no longer depends on PCR. PCR remains connected downstream through PCR diagnostics and PCR-enabled molecular diagnostic workflows.",
+  "invariant_preserved_or_changed": "Invariant preserved: DNA sequencing remains connected to DNA structure, molecular biology, chemistry, and computing. Changed: PCR is removed from the broad sequencing node and represented only in later PCR-specific workflows.",
+  "would_reject_if": [
+    "A source showed the scoped DNA Sequencing node intentionally means only PCR-amplified sequencing workflows.",
+    "A source showed that broad DNA sequencing cannot be performed using cloned templates, M13/phagemid templates, or other non-PCR preparation routes.",
+    "The graph split DNA sequencing into PCR-dependent and non-PCR sequencing nodes, requiring the PCR edge only on the narrower PCR-dependent node."
+  ],
+  "short_reason": "PCR is an important sequencing enabler, but broad DNA sequencing predates PCR and includes non-PCR template routes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Medical Imaging & Diagnostics\" --timeout-ms 15000 --concurrency 4",
+    "npm run source-urls -- --field \"Pharmaceuticals & Drug Development\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-01-recombinant-dna-pcr-removal",
+  "decision_date": "2026-06-01",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/63",
+  "edge": {
+    "dependent": "recombinant_dna_genetic_engineering",
+    "prerequisite": "pcr_polymerase_chain_reaction"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "PCR (Polymerase Chain Reaction) is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No dependency edge is retained because recombinant DNA technology was demonstrated before PCR and uses restriction enzymes, ligases, plasmids, and host cells rather than PCR as a necessary component.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.si.edu/spotlight/birth-of-biotech/recombinant-dna-in-the-lab",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Birth of Biotech, Recombinant DNA in the Lab; Cohen-Boyer experiments between 1972 and 1974.",
+    "source_claim_summary": "The source describes the Cohen-Boyer recombinant DNA work as 1972-1974 experiments built from plasmids and restriction endonucleases.",
+    "source_support_rationale": "Because the historical method predates PCR and names different enabling components, PCR cannot be a required prerequisite for the broad recombinant DNA node."
+  },
+  "ontology_before": "The 1973 recombinant DNA node depended on the 1985 PCR node, reversing the historical order.",
+  "ontology_after": "The recombinant DNA node keeps earlier molecular biology and DNA-structure context, while PCR is represented as a later amplification technology.",
+  "invariant_preserved_or_changed": "Invariant preserved: recombinant DNA remains connected to molecular biology and DNA structure. Changed: the later PCR dependency is removed from the 1973 technology.",
+  "would_reject_if": [
+    "A source showed the graph node intentionally meant only PCR-based recombinant DNA workflows rather than broad recombinant DNA technology.",
+    "A source showed PCR was used in the original 1972-1974 recombinant DNA experiments.",
+    "The graph split recombinant DNA into a later PCR-amplified cloning node where a PCR edge would be scoped correctly."
+  ],
+  "short_reason": "PCR cannot be required for recombinant DNA technology because recombinant DNA was demonstrated before PCR existed.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Medical Imaging & Diagnostics\" --timeout-ms 15000 --concurrency 4",
+    "npm run source-urls -- --field \"Pharmaceuticals & Drug Development\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

@@ -33,7 +33,7 @@ const NODE_DATE_OVERRIDES = {
     crispr_adaptive_immunity: { firstKnownDate: 1987, datePrecision: 'exact', region: 'Japan and global microbiology research' },
     cas9_programmable_nuclease: { firstKnownDate: 2012, datePrecision: 'exact', region: 'Global molecular biology research' },
     single_guide_rna_design: { firstKnownDate: 2012, datePrecision: 'exact', region: 'Global molecular biology research' },
-    pam_specificity_engineering: { firstKnownDate: 2012, datePrecision: 'decade', region: 'Global molecular biology research' },
+    pam_specificity_engineering: { firstKnownDate: 2015, datePrecision: 'exact', region: 'Global molecular biology research' },
     crispr_gene_editing: { firstKnownDate: 2013, datePrecision: 'exact', region: 'Global molecular biology research' },
     crispr_off_target_profiling: { firstKnownDate: 2013, datePrecision: 'decade', region: 'Global genome-editing research' },
     pooled_crispr_screens: { firstKnownDate: 2014, datePrecision: 'exact', region: 'Global functional-genomics research' },
@@ -42,6 +42,7 @@ const NODE_DATE_OVERRIDES = {
     ex_vivo_crispr_cell_therapy: { firstKnownDate: 2016, datePrecision: 'decade', region: 'Global clinical research' },
     base_editing: { firstKnownDate: 2016, datePrecision: 'exact', region: 'Global genome-editing research' },
     zinc_finger_nucleases: { firstKnownDate: 1996, datePrecision: 'exact', region: 'United States' },
+    talens: { firstKnownDate: 2011, datePrecision: 'exact', region: 'Global genome-editing research' },
     prime_editing: { firstKnownDate: 2019, datePrecision: 'exact', region: 'Global genome-editing research' },
     cas12_cas13_editing_platforms: { firstKnownDate: 2015, datePrecision: 'decade', region: 'Global genome-editing research' },
     crispr_diagnostics: { firstKnownDate: 2016, datePrecision: 'decade', region: 'Global diagnostics research' },
@@ -179,6 +180,9 @@ const NODE_DATE_OVERRIDES = {
     recombinant_protein_drugs: { firstKnownDate: 1982, datePrecision: 'exact', region: 'United States, Europe, and global biopharmaceutical manufacturing' },
     biopharmaceutical_manufacturing: { firstKnownDate: 1980, datePrecision: 'decade', region: 'Global biopharmaceutical industry' },
     gene_therapy_vectors: { firstKnownDate: 1990, datePrecision: 'decade', region: 'United States, Europe, and global clinical research' },
+    pcr_polymerase_chain_reaction: { firstKnownDate: 1985, datePrecision: 'exact', region: 'United States' },
+    molecular_diagnostics: { firstKnownDate: 1995, datePrecision: 'exact', region: 'United States and global clinical laboratories' },
+    pcr_diagnostics: { firstKnownDate: 1985, datePrecision: 'exact', region: 'United States and global clinical diagnostics' },
     immuno_oncology_checkpoint_inhibitors: { firstKnownDate: 2011, datePrecision: 'exact', region: 'United States, Japan, Europe, and global oncology' },
     biosimilars: { firstKnownDate: 2006, datePrecision: 'exact', region: 'European Union, United States, and global medicines regulation' },
     nanomedicine_drug_delivery: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global pharmaceutical research and nanomedicine' },
@@ -336,6 +340,48 @@ const CRISPR_SOURCES = {
         publisher: 'Nature Protocols / PubMed',
         year: 2006,
         source_type: 'primary_paper'
+    },
+    pamCas9StructureNature: {
+        title: 'Structures of Cas9 endonucleases reveal RNA-mediated conformational activation',
+        url: 'https://www.nature.com/articles/nature13579',
+        publisher: 'Nature',
+        year: 2014,
+        source_type: 'primary_paper'
+    },
+    pamSpecificityNature: {
+        title: 'Engineered CRISPR-Cas9 nucleases with altered PAM specificities',
+        url: 'https://www.nature.com/articles/nature14592',
+        publisher: 'Nature',
+        year: 2015,
+        source_type: 'primary_paper'
+    },
+    jinekCas9Pubmed: {
+        title: 'A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22745249/',
+        publisher: 'Science / PubMed',
+        year: 2012,
+        source_type: 'primary_paper'
+    },
+    talensDesignPubmed: {
+        title: 'Efficient design and assembly of custom TALEN and other TAL effector-based constructs for DNA targeting',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/21493687/',
+        publisher: 'Nucleic Acids Research / PubMed',
+        year: 2011,
+        source_type: 'primary_paper'
+    },
+    recombineeringReviewNature: {
+        title: 'Recombineering: a powerful new tool for mouse functional genomics',
+        url: 'https://www.nature.com/articles/35093556',
+        publisher: 'Nature Reviews Genetics',
+        year: 2001,
+        source_type: 'review'
+    },
+    syntheticBiologyReviewNature: {
+        title: 'Synthetic biology: applications come of age',
+        url: 'https://www.nature.com/articles/nrg2775',
+        publisher: 'Nature Reviews Genetics',
+        year: 2010,
+        source_type: 'review'
     }
 };
 
@@ -363,6 +409,44 @@ const AI_POSTTRAINING_SOURCES = {
     }
 };
 
+const GENOMICS_SOURCES = {
+    sangerDnaSequencing: {
+        title: 'DNA sequencing with chain-terminating inhibitors',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/271968/',
+        publisher: 'Proceedings of the National Academy of Sciences / PubMed',
+        year: 1977,
+        source_type: 'primary_paper'
+    },
+    sequencingGenomes: {
+        title: 'Sequencing Genomes',
+        url: 'https://www.ncbi.nlm.nih.gov/books/NBK21117/',
+        publisher: 'NCBI Bookshelf',
+        year: 2002,
+        source_type: 'textbook'
+    },
+    saikiPcrDiagnostics: {
+        title: 'Enzymatic amplification of beta-globin genomic sequences and restriction site analysis for diagnosis of sickle cell anemia',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/2999980/',
+        publisher: 'Science / PubMed',
+        year: 1985,
+        source_type: 'primary_paper'
+    },
+    statpearlsPcr: {
+        title: 'Polymerase Chain Reaction (PCR)',
+        url: 'https://www.ncbi.nlm.nih.gov/books/NBK589663/',
+        publisher: 'NCBI Bookshelf / StatPearls',
+        year: 2025,
+        source_type: 'textbook'
+    },
+    molecularDiagnosticsReview: {
+        title: 'Diseases and Molecular Diagnostics: A Step Closer to Precision Medicine',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5634985/',
+        publisher: 'Diagnostics (Basel) / PubMed Central',
+        year: 2017,
+        source_type: 'review'
+    }
+};
+
 const EDGE_OVERRIDES = {
     'foraging_and_botany|oral_tradition_storytelling': {
         type: 'common_dependency',
@@ -383,6 +467,112 @@ const EDGE_OVERRIDES = {
     },
     'vector_databases|large_language_models': null,
     'retrieval_augmented_generation|vector_databases': null,
+    'dna_sequencing|pcr_polymerase_chain_reaction': null,
+    'recombinant_dna_genetic_engineering|pcr_polymerase_chain_reaction': null,
+    'molecular_diagnostics|pcr_polymerase_chain_reaction': {
+        type: 'enabling',
+        confidence: 0.8,
+        evidence_level: 'review',
+        note: 'PCR is a central molecular diagnostic platform, but molecular diagnostics also includes hybridization, sequencing, and other molecular assays.',
+        reviewStatus: 'source_checked',
+        sources: [GENOMICS_SOURCES.molecularDiagnosticsReview]
+    },
+    'pcr_diagnostics|pcr_polymerase_chain_reaction': {
+        type: 'required',
+        confidence: 0.95,
+        evidence_level: 'primary_source',
+        note: 'PCR diagnostics are defined by nucleic-acid amplification using PCR; the 1985 beta-globin diagnostic paper demonstrates the dependency directly.',
+        reviewStatus: 'source_checked',
+        sources: [GENOMICS_SOURCES.saikiPcrDiagnostics]
+    },
+    'pcr_diagnostics|dna_sequencing': {
+        type: 'enabling',
+        confidence: 0.68,
+        evidence_level: 'expert_inference',
+        note: 'Sequence information supports target, primer, and probe design for PCR diagnostics, but the diagnostic readout can be amplification rather than sequencing.',
+        reviewStatus: 'source_checked',
+        sources: [GENOMICS_SOURCES.statpearlsPcr]
+    },
+    'crispr_gene_editing|pam_recognition_constraint': {
+        type: 'required',
+        confidence: 0.93,
+        evidence_level: 'primary_source',
+        note: 'CRISPR-Cas9 genome editing requires a target DNA sequence with a compatible PAM because Cas9 DNA recognition and cleavage strictly require PAM.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.pamCas9StructureNature]
+    },
+    'genetic_engineering|recombinant_dna_genetic_engineering': {
+        type: 'historical_predecessor',
+        confidence: 0.74,
+        evidence_level: 'review',
+        note: 'Recombinant DNA methods are a foundational predecessor and traditional method family for genetic engineering, but the broad field also includes later non-recombinant-DNA editing and delivery approaches.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.recombineeringReviewNature]
+    },
+    'single_guide_rna_design|cas9_programmable_nuclease': {
+        type: 'required',
+        confidence: 0.91,
+        evidence_level: 'primary_source',
+        note: 'Cas9-compatible single-guide RNA design requires the Cas9 nuclease architecture because the sgRNA scaffold and targeting sequence are engineered to program Cas9 cleavage.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.jinekCas9Pubmed]
+    },
+    'synthetic_biology|genetic_engineering': {
+        type: 'enabling',
+        confidence: 0.78,
+        evidence_level: 'review',
+        note: 'Genetic engineering provides a major construction toolkit and predecessor context for synthetic biology, but broad synthetic biology also includes DNA synthesis, systems modeling, standardized parts, circuits, pathways, and cell-free designs.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.syntheticBiologyReviewNature]
+    },
+    'talens|protein_engineering': {
+        type: 'required',
+        confidence: 0.92,
+        evidence_level: 'primary_source',
+        note: 'TALENs require engineered protein architecture: customized TALE repeat arrays provide DNA recognition and are fused to FokI nuclease domains for cleavage.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.talensDesignPubmed]
+    },
+    'pam_specificity_engineering|crispr_gene_editing': {
+        type: 'required',
+        confidence: 0.78,
+        evidence_level: 'primary_source',
+        note: 'Wild-type CRISPR-Cas9 genome editing exposed PAM targeting constraints that engineered PAM-specificity variants were designed to relax.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.pamSpecificityNature]
+    },
+    'pam_specificity_engineering|pam_recognition_constraint': {
+        type: 'required',
+        confidence: 0.9,
+        evidence_level: 'primary_source',
+        note: 'Engineering altered PAM specificity depends on the Cas9 PAM-recognition constraint that defines which target sites wild-type Cas9 can recognize.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.pamSpecificityNature]
+    },
+    'pam_specificity_engineering|protein_engineering': {
+        type: 'required',
+        confidence: 0.86,
+        evidence_level: 'primary_source',
+        note: 'Altered PAM-specificity variants are engineered Cas9 proteins produced through structural design, selection, and directed evolution.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.pamSpecificityNature]
+    },
+    'pam_recognition_constraint|cas9_programmable_nuclease': {
+        type: 'required',
+        confidence: 0.9,
+        evidence_level: 'primary_source',
+        note: 'PAM recognition is a Cas9 target-DNA recognition constraint rather than a separate engineered variant.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.pamCas9StructureNature]
+    },
+    'pam_recognition_constraint|single_guide_rna_design': {
+        type: 'enabling',
+        confidence: 0.72,
+        evidence_level: 'primary_source',
+        note: 'Guide RNA design works with PAM compatibility to define targetable sites, but PAM recognition is the Cas9-side DNA constraint.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.pamCas9StructureNature]
+    },
     'cas12_cas13_editing_platforms|crispr_gene_editing': null,
     'cas12_cas13_editing_platforms|crispr_adaptive_immunity': {
         type: 'historical_predecessor',
@@ -792,6 +982,12 @@ const FIELD_OVERRIDES = {
     ...fieldOverrides(TELECOM_FIELD, TELECOM_FIELD_LANES),
     ...fieldOverrides(WATER_FIELD, WATER_FIELD_LANES),
     ...fieldOverrides(PHARMA_FIELD, PHARMA_FIELD_LANES)
+};
+
+FIELD_OVERRIDES.molecular_diagnostics = {
+    fields: ['Medical Imaging & Diagnostics'],
+    fieldLanes: { 'Medical Imaging & Diagnostics': 'Molecular Diagnostics' },
+    maturity: 'established'
 };
 
 FIELD_OVERRIDES.quantum_internet.roadmap = {
@@ -1236,6 +1432,9 @@ const SOURCE_OVERRIDES = {
     adverse_event_reporting_systems: [PHARMA_SOURCES.fdaFaers],
     real_world_evidence_regulatory_science: [PHARMA_SOURCES.fdaRealWorldEvidence],
     recombinant_dna_genetic_engineering: [PHARMA_SOURCES.genomeRecombinantDna],
+    pcr_polymerase_chain_reaction: [GENOMICS_SOURCES.statpearlsPcr],
+    pcr_diagnostics: [GENOMICS_SOURCES.saikiPcrDiagnostics, GENOMICS_SOURCES.statpearlsPcr],
+    molecular_diagnostics: [GENOMICS_SOURCES.molecularDiagnosticsReview],
     recombinant_protein_drugs: [PHARMA_SOURCES.genomeRecombinantDna, PHARMA_SOURCES.fdaBiologics],
     biopharmaceutical_manufacturing: [PHARMA_SOURCES.fdaBiologics, PHARMA_SOURCES.fdaCgmp],
     monoclonal_antibodies: [PHARMA_SOURCES.nciMonoclonal],
@@ -1251,7 +1450,7 @@ const SOURCE_OVERRIDES = {
     molecular_biology: [PHARMA_SOURCES.ncbiMolecularBiology],
     lipid_nanoparticles: [PHARMA_SOURCES.nistLipidNanoparticles, PHARMA_SOURCES.pubmedLipidNanoparticles],
     nanomedicine_drug_delivery: [PHARMA_SOURCES.pubmedLipidNanoparticles, PHARMA_SOURCES.fdaGeneTherapy],
-    dna_sequencing: [PHARMA_SOURCES.genomeDnaSequencing],
+    dna_sequencing: [GENOMICS_SOURCES.sangerDnaSequencing, GENOMICS_SOURCES.sequencingGenomes, PHARMA_SOURCES.genomeDnaSequencing],
     bioinformatics: [PHARMA_SOURCES.genomeBioinformatics],
     cas12_cas13_editing_platforms: [CRISPR_SOURCES.cpf1Cas12, CRISPR_SOURCES.cas13RnaTargeting],
     crispr_gene_editing: [

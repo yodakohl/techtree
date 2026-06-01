@@ -9,9 +9,14 @@ makes a falsifiable edge decision. See
 
 | Issue | Edge | Why it matters | Likely decision shape |
 | --- | --- | --- | --- |
-| [#63](https://github.com/yodakohl/techtree/issues/63) | `dna_sequencing -> pcr_polymerase_chain_reaction` | Sanger sequencing predates PCR, so PCR may be workflow/scaling context rather than a hard prerequisite for broad DNA sequencing. | Demote, remove, or source as required only if the scoped claim truly breaks without PCR. |
-| [#64](https://github.com/yodakohl/techtree/issues/64) | `green_hydrogen -> grid_scale_battery_storage` | Green hydrogen needs electrolysis plus low-carbon electricity; grid batteries look like integration/scaling context, not a hard prerequisite. | Remove or retype to enabling/scaling if source support exists. |
 | [#65](https://github.com/yodakohl/techtree/issues/65) | `through_silicon_vias -> advanced_semiconductor_packaging_2_5d_3d` | TSVs are often used by 3D/2.5D packaging, so the current direction may be wrong or too broad. | Replace direction, retype as context, or source the existing edge if correct. |
+
+## Completed Starters
+
+| Issue | Edge | Outcome |
+| --- | --- | --- |
+| [#63](https://github.com/yodakohl/techtree/issues/63) | `dna_sequencing -> pcr_polymerase_chain_reaction` | Removed. Broad DNA sequencing predates PCR and includes non-PCR template routes. The pass also removed the time-reversed `recombinant_dna_genetic_engineering -> pcr_polymerase_chain_reaction` edge. |
+| [#64](https://github.com/yodakohl/techtree/issues/64) | `green_hydrogen -> grid_scale_battery_storage` | Removed. Green hydrogen depends on electrolysis and low-emissions electricity; grid batteries are integration context rather than a direct prerequisite. |
 
 ## Done Means
 

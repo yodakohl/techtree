@@ -24,6 +24,7 @@ one-edge challenge will be recorded as the first outside agent contribution.
   `refutes_dependency` source-shape relationship.
 - Validation:
   - `npm run edge-receipts`
+  - `npm run audit:crispr`
   - `npm test`
   - `npm run quality`
 
@@ -111,6 +112,38 @@ one-edge challenge will be recorded as the first outside agent contribution.
   - `npm run quality`
 
 ## Accepted Corrections
+
+### 2026-06-01: PCR time-reversal cleanup in sequencing and recombinant DNA
+
+- Strategy follow-up: issue #63 tested whether PCR should be a hard
+  prerequisite for broad DNA sequencing after Sanger sequencing had already
+  been established.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/63
+- Old claims: `dna_sequencing -> pcr_polymerase_chain_reaction` and
+  `recombinant_dna_genetic_engineering -> pcr_polymerase_chain_reaction` were
+  modeled as `required` edges despite PCR's corrected 1985 first-known date.
+- Corrected claim: both direct dependency edges are removed. Broad DNA
+  sequencing and recombinant DNA predate PCR; PCR remains connected through
+  later PCR diagnostics and molecular-diagnostics workflows.
+- Data-quality update: PCR now has a 1985 exact date and a specific NCBI
+  Bookshelf source; PCR diagnostics now has a 1985 primary-paper source;
+  molecular diagnostics now has a source-backed 1995 field date.
+- Guardrail update: `scripts/migrate-semantic-edges.js` now preserves all
+  receipt-backed edge overrides during regeneration, so `npm run edge-receipts`
+  remains valid after migration.
+- Sources:
+  - https://www.ncbi.nlm.nih.gov/books/NBK21117/
+  - https://pubmed.ncbi.nlm.nih.gov/271968/
+  - https://pubmed.ncbi.nlm.nih.gov/2999980/
+  - https://www.ncbi.nlm.nih.gov/books/NBK589663/
+  - https://www.si.edu/spotlight/birth-of-biotech/recombinant-dna-in-the-lab
+- Validation:
+  - `npm run edge-receipts`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Medical Imaging & Diagnostics" --timeout-ms 15000 --concurrency 4`
+  - `npm run source-urls -- --field "Pharmaceuticals & Drug Development" --timeout-ms 15000 --concurrency 4`
 
 ### 2026-06-01: Green-hydrogen battery-storage dependency removal
 
