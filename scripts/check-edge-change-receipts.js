@@ -27,6 +27,7 @@ const SUPPORT_RELATIONSHIPS = new Set([
 const EDGE_TYPE_SUPPORT_RELATIONSHIPS = {
     required: new Set([
         'describes_component_architecture',
+        'demonstrates_method_dependency',
         'documents_approval_or_deployment'
     ]),
     enabling: new Set([

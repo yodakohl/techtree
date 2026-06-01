@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-01-zinc-finger-nucleases-recombinant-dna",
+  "decision_date": "2026-06-01",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/61",
+  "edge": {
+    "dependent": "zinc_finger_nucleases",
+    "prerequisite": "recombinant_dna_genetic_engineering"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Recombinant DNA & Genetic Engineering is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.9,
+    "note": "ZFN construction requires recombinant-DNA cloning and expression methods: selected zinc-finger coding sequences are joined to FokI cleavage-domain coding sequence in cloning vectors before expression and testing."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/17406419/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract describing construction of ZFN coding sequences, linkage to the FokI cleavage-domain coding sequence in cloning vectors, expression in Escherichia coli, and in vitro testing.",
+    "source_claim_summary": "The protocol describes ZFN construction by building selected zinc-finger coding sequences, joining them to FokI cleavage-domain coding sequence in cloning vectors, expressing the resulting ZFNs, and testing DNA cleavage.",
+    "source_support_rationale": "This supports a hard construction-method edge because the scoped ZFN reagent is made from recombinant coding-sequence constructs before expression and testing, while the separate protein_engineering edge carries the protein-domain architecture claim."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: zinc_finger_nucleases remain modeled as requiring recombinant-DNA construction methods, now separated from and complementary to the protein-engineering architecture dependency.",
+  "would_reject_if": [
+    "A source showed the scoped ZFN reagent can be constructed and expressed without recombinant coding-sequence assembly or equivalent genetic-engineering methods.",
+    "The ZFN node were narrowed to purified in vitro protein chemistry that does not include coding-sequence construction or expression.",
+    "The edge note implied broad genetic-engineering field lineage rather than the specific cloning/expression method dependency supported by the source."
+  ],
+  "short_reason": "ZFN construction uses recombinant coding-sequence cloning and expression, so recombinant-DNA genetic engineering remains a required method dependency for the scoped node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Genome Editing / CRISPR-Cas\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

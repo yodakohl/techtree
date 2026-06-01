@@ -66,7 +66,7 @@ For each source, record:
   not support the dependency.
 - `source_shape.support_relationship`: the exact way the source supports the
   edge, such as `describes_component_architecture` or
-  `establishes_historical_lineage`.
+  `demonstrates_method_dependency`.
 - `source_support_rationale`: why that support relationship licenses the edge
   type.
 

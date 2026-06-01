@@ -97,6 +97,35 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-01: ZFN recombinant-DNA evidence upgrade
+
+- Strategy follow-up: issue #61 tested whether recombinant-DNA genetic
+  engineering is only broad context for zinc-finger nucleases or a direct
+  construction-method dependency.
+- GitHub issue: https://github.com/yodakohl/techtree/issues/61
+- Old claim: `zinc_finger_nucleases -> recombinant_dna_genetic_engineering`
+  was a `required` edge but still relied on `expert_inference` and a generic
+  Nobel source.
+- Corrected claim: the edge remains `required`, now with `primary_source`
+  evidence. The source describes ZFN construction by building selected
+  zinc-finger coding sequences, linking them to the FokI cleavage-domain coding
+  sequence in cloning vectors, expressing the ZFNs, and testing cleavage.
+- Invariant preserved: #60 carries the hard protein-domain architecture claim;
+  this edge carries the recombinant coding-sequence construction and expression
+  method dependency.
+- Guardrail update: the edge-receipt checker now permits
+  `demonstrates_method_dependency` as a valid support relationship for a
+  `required` edge, matching the edge-review playbook's method-dependency rule.
+- Source:
+  - https://pubmed.ncbi.nlm.nih.gov/17406419/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run audit:crispr`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-05-31: ZFN protein-engineering evidence upgrade
 
 - Strategy follow-up: issue #60 tested whether the same hard

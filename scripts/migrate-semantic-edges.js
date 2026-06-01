@@ -327,6 +327,13 @@ const CRISPR_SOURCES = {
         publisher: 'Proceedings of the National Academy of Sciences / PubMed Central',
         year: 1996,
         source_type: 'primary_paper'
+    },
+    zfnDesignConstructionPubmed: {
+        title: 'Design, construction and in vitro testing of zinc finger nucleases',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/17406419/',
+        publisher: 'Nature Protocols / PubMed',
+        year: 2006,
+        source_type: 'primary_paper'
     }
 };
 
@@ -438,6 +445,14 @@ const EDGE_OVERRIDES = {
         note: 'Zinc-finger nucleases require engineered protein-domain architecture: zinc-finger DNA-binding domains are fused to FokI cleavage domains to create sequence-directed nucleases.',
         reviewStatus: 'source_checked',
         sources: [CRISPR_SOURCES.zfnFokIFusionPmc]
+    },
+    'zinc_finger_nucleases|recombinant_dna_genetic_engineering': {
+        type: 'required',
+        confidence: 0.9,
+        evidence_level: 'primary_source',
+        note: 'ZFN construction requires recombinant-DNA cloning and expression methods: selected zinc-finger coding sequences are joined to FokI cleavage-domain coding sequence in cloning vectors before expression and testing.',
+        reviewStatus: 'source_checked',
+        sources: [CRISPR_SOURCES.zfnDesignConstructionPubmed]
     },
     'crispr_gene_editing|cas9_programmable_nuclease': {
         type: 'required',
