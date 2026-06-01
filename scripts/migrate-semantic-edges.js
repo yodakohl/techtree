@@ -19,6 +19,8 @@ const NODE_DATE_OVERRIDES = {
     oral_tradition_storytelling: { firstKnownDate: -250000, datePrecision: 'millennium', region: 'Global / multiple regions' },
     foraging_and_botany: { firstKnownDate: -200000, datePrecision: 'millennium', region: 'Global / multiple regions' },
     early_astronomy_observation: { firstKnownDate: -3000, datePrecision: 'millennium', region: 'Mesopotamia, Egypt, China, and other early societies' },
+    relativity_special_general: { firstKnownDate: 1905, datePrecision: 'exact', region: 'Switzerland, Germany, and global physics' },
+    quantum_physics: { firstKnownDate: 1900, datePrecision: 'exact', region: 'Germany and global physics' },
     writing: { firstKnownDate: -3200, datePrecision: 'century', region: 'Mesopotamia and Egypt' },
     record_keeping: { firstKnownDate: -8000, datePrecision: 'millennium', region: 'Southwest Asia and other early farming societies' },
     bureaucracy: { firstKnownDate: -3000, datePrecision: 'century', region: 'Mesopotamia, Egypt, China, and other early states' },
@@ -209,6 +211,11 @@ const NODE_DATE_OVERRIDES = {
     ai_closed_loop_drug_discovery: { firstKnownDate: 2040, datePrecision: 'decade', region: 'Forecast / global pharmaceutical research' }
 };
 
+const NODE_DESCRIPTION_OVERRIDES = {
+    relativity_special_general: 'Einsteinian relativity spanning special relativity (1905) and general relativity (1915), reshaping the physics of space, time, gravity, and technologies such as GPS.',
+    quantum_physics: 'Broad physical theory beginning with Planck quantization in 1900 and developing into modern quantum mechanics in the 1925-1927 matrix and wave-mechanics formalisms.'
+};
+
 const DEPENDENCY_REPLACEMENTS = {
     bureaucracy: 'record_keeping',
     public_health_systems: 'sewers_and_drainage',
@@ -245,7 +252,8 @@ const REMOVE_DEPENDENCIES = new Map([
     ['ion_exchange_water_softening', new Set(['polymer_chemistry'])],
     ['rocketry', new Set(['jet_engine'])],
     ['green_hydrogen', new Set(['grid_scale_battery_storage'])],
-    ['through_silicon_vias', new Set(['advanced_semiconductor_packaging_2_5d_3d'])]
+    ['through_silicon_vias', new Set(['advanced_semiconductor_packaging_2_5d_3d'])],
+    ['quantum_physics', new Set(['relativity_special_general'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([
@@ -497,6 +505,49 @@ const SEMICONDUCTOR_PACKAGING_SOURCES = {
         source_type: 'official_agency'
     }
 };
+
+const FOUNDATIONAL_PHYSICS_SOURCES = {
+    britannicaRelativity: {
+        title: 'Relativity',
+        url: 'https://www.britannica.com/science/relativity',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    einsteinSpecialRelativity: {
+        title: 'Zur Elektrodynamik bewegter Koerper',
+        url: 'https://doi.org/10.1002/andp.19053221004',
+        publisher: 'Annalen der Physik',
+        year: 1905,
+        source_type: 'primary_paper'
+    },
+    einsteinGeneralRelativityHistory: {
+        title: 'One Hundred Years of Einstein Field Equations',
+        url: 'https://www.einstein.caltech.edu/news/one-hundred-years-of-einsteins-field-equations-and-of-the-explanation-of-mercurys-perihelion',
+        publisher: 'Einstein Papers Project',
+        year: 2015,
+        source_type: 'museum'
+    },
+    planckQuantumPaper: {
+        title: 'Ueber das Gesetz der Energieverteilung im Normalspectrum',
+        url: 'https://doi.org/10.1002/andp.19013090310',
+        publisher: 'Annalen der Physik',
+        year: 1901,
+        source_type: 'primary_paper'
+    },
+    britannicaQuantumLight: {
+        title: 'Light: Quantum Theory of Light',
+        url: 'https://www.britannica.com/science/light/Quantum-theory-of-light',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    }
+};
+
+const NODE_SOURCE_ONLY_IDS = new Set([
+    'relativity_special_general',
+    'quantum_physics'
+]);
 
 const EDGE_OVERRIDES = {
     'foraging_and_botany|oral_tradition_storytelling': {
@@ -1280,8 +1331,14 @@ const SOURCE_OVERRIDES = {
     precision_machine_tools: [
         { title: 'American Precision Museum', url: 'https://ledger.americanprecision.org/american-precision-museum/', publisher: 'American Precision Museum', year: 2026 }
     ],
+    relativity_special_general: [
+        FOUNDATIONAL_PHYSICS_SOURCES.britannicaRelativity,
+        FOUNDATIONAL_PHYSICS_SOURCES.einsteinSpecialRelativity,
+        FOUNDATIONAL_PHYSICS_SOURCES.einsteinGeneralRelativityHistory
+    ],
     quantum_physics: [
-        { title: 'Quantum mechanics', url: 'https://www.britannica.com/science/quantum-mechanics-physics', publisher: 'Encyclopaedia Britannica', year: 2026 }
+        FOUNDATIONAL_PHYSICS_SOURCES.planckQuantumPaper,
+        FOUNDATIONAL_PHYSICS_SOURCES.britannicaQuantumLight
     ],
     philosophy: [
         { title: 'Stanford Encyclopedia of Philosophy', url: 'https://plato.stanford.edu/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2026 }
@@ -1728,6 +1785,7 @@ function makeEdge(item, prerequisiteId, byId) {
     let confidence = confidenceFor(type, evidence_level);
     let reviewStatus = item.reviewStatus === 'source_checked' ? 'source_checked' : 'structurally_validated';
     let sources = null;
+    if (NODE_SOURCE_ONLY_IDS.has(item.id)) reviewStatus = 'structurally_validated';
 
     if (crisprOverride) {
         [type, note] = crisprOverride;
@@ -1795,6 +1853,7 @@ const byId = new Map(allItems.map(item => [item.id, item]));
 for (const item of allItems) {
     const defaults = ERA_DEFAULT_DATES[item.era] || ERA_DEFAULT_DATES.Modern;
     Object.assign(item, defaults, NODE_DATE_OVERRIDES[item.id] || {});
+    if (NODE_DESCRIPTION_OVERRIDES[item.id]) item.description = NODE_DESCRIPTION_OVERRIDES[item.id];
     applyFieldMetadata(item);
     if (Array.isArray(item.sources)) {
         item.sources = item.sources.map(source => normalizeSource(source, item));
