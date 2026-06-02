@@ -41,6 +41,17 @@ const NODE_DATE_OVERRIDES = {
     solar_power: { firstKnownDate: 1954, datePrecision: 'exact', region: 'United States and global energy systems' },
     solar_photovoltaics: { firstKnownDate: 1954, datePrecision: 'exact', region: 'United States and global energy systems' },
     graphene_two_dimensional_materials: { firstKnownDate: 2004, datePrecision: 'exact', region: 'United Kingdom and global materials science' },
+    algorithms_computation_theory: { firstKnownDate: 1936, datePrecision: 'exact', region: 'United Kingdom and global computer science' },
+    biochemistry: { firstKnownDate: 1897, datePrecision: 'decade', region: 'Europe and global life sciences' },
+    photolithography: { firstKnownDate: 1955, datePrecision: 'exact', region: 'United States and global semiconductor industry' },
+    liquid_fuel_propellants: { firstKnownDate: 1923, datePrecision: 'exact', region: 'United States and global rocketry' },
+    rocketry: { firstKnownDate: 1926, datePrecision: 'exact', region: 'United States and global spaceflight' },
+    liquid_fuel_rockets: { firstKnownDate: 1926, datePrecision: 'exact', region: 'United States and global spaceflight' },
+    x_ray_imaging: { firstKnownDate: 1895, datePrecision: 'exact', region: 'Germany and global medicine' },
+    operations_research: { firstKnownDate: 1937, datePrecision: 'exact', region: 'United Kingdom, United States, and global applied mathematics' },
+    cathode_ray_tube_crt_displays: { firstKnownDate: 1897, datePrecision: 'exact', region: 'Germany and global electronics' },
+    radar_radio_detection_and_ranging: { firstKnownDate: 1935, datePrecision: 'exact', region: 'United Kingdom, Germany, United States, and global defense/aviation' },
+    television: { firstKnownDate: 1925, datePrecision: 'exact', region: 'United Kingdom, United States, and global broadcasting' },
     writing: { firstKnownDate: -3200, datePrecision: 'century', region: 'Mesopotamia and Egypt' },
     record_keeping: { firstKnownDate: -8000, datePrecision: 'millennium', region: 'Southwest Asia and other early farming societies' },
     bureaucracy: { firstKnownDate: -3000, datePrecision: 'century', region: 'Mesopotamia, Egypt, China, and other early states' },
@@ -214,7 +225,7 @@ const NODE_DATE_OVERRIDES = {
     nanomedicine_drug_delivery: { firstKnownDate: 1995, datePrecision: 'decade', region: 'Global pharmaceutical research and nanomedicine' },
     continuous_pharmaceutical_manufacturing: { firstKnownDate: 2015, datePrecision: 'decade', region: 'United States, Europe, and global pharmaceutical manufacturing' },
     real_world_evidence_regulatory_science: { firstKnownDate: 2016, datePrecision: 'decade', region: 'United States, Europe, and global medicines regulation' },
-    cell_culture: { firstKnownDate: 1907, datePrecision: 'decade', region: 'United States, Europe, and global biomedical research' },
+    cell_culture: { firstKnownDate: 1907, datePrecision: 'exact', region: 'United States and global biomedical research' },
     molecular_biology: { firstKnownDate: 1953, datePrecision: 'decade', region: 'United Kingdom, United States, and global biomedical research' },
     dna_sequencing: { firstKnownDate: 1977, datePrecision: 'exact', region: 'United Kingdom, United States, and global genomics' },
     bioinformatics: { firstKnownDate: 1970, datePrecision: 'decade', region: 'Global computational biology research' },
@@ -233,7 +244,8 @@ const NODE_DATE_OVERRIDES = {
 
 const NODE_DESCRIPTION_OVERRIDES = {
     relativity_special_general: 'Einsteinian relativity spanning special relativity (1905) and general relativity (1915), reshaping the physics of space, time, gravity, and technologies such as GPS.',
-    quantum_physics: 'Broad physical theory beginning with Planck quantization in 1900 and developing into modern quantum mechanics in the 1925-1927 matrix and wave-mechanics formalisms.'
+    quantum_physics: 'Broad physical theory beginning with Planck quantization in 1900 and developing into modern quantum mechanics in the 1925-1927 matrix and wave-mechanics formalisms.',
+    rocketry: 'Modern rocketry using controlled liquid-fuel propulsion for high-altitude flight and space launch, following Goddard-style experimental rockets.'
 };
 
 const DEPENDENCY_REPLACEMENTS = {
@@ -275,7 +287,9 @@ const REMOVE_DEPENDENCIES = new Map([
     ['through_silicon_vias', new Set(['advanced_semiconductor_packaging_2_5d_3d'])],
     ['quantum_physics', new Set(['relativity_special_general'])],
     ['atomic_clocks', new Set(['masers_early', 'lasers'])],
-    ['x_ray_crystallography', new Set(['crystal_growth_techniques'])]
+    ['x_ray_crystallography', new Set(['crystal_growth_techniques'])],
+    ['radio', new Set(['telecommunications'])],
+    ['cathode_ray_tube_crt_displays', new Set(['electronics', 'vacuum_tubes_electron_control'])]
 ]);
 
 const ADD_DEPENDENCIES = new Map([
@@ -287,7 +301,8 @@ const ADD_DEPENDENCIES = new Map([
     ['5g_6g_communication_networks', ['five_g_new_radio']],
     ['submarine_fiber_optic_cables', ['lasers']],
     ['ion_exchange_water_softening', ['advanced_chemistry']],
-    ['advanced_semiconductor_packaging_2_5d_3d', ['through_silicon_vias', 'fan_out_wafer_level_packaging', 'hybrid_bonding_advanced_packaging']]
+    ['advanced_semiconductor_packaging_2_5d_3d', ['through_silicon_vias', 'fan_out_wafer_level_packaging', 'hybrid_bonding_advanced_packaging']],
+    ['cathode_ray_tube_crt_displays', ['vacuum_technology_early', 'electricity']]
 ]);
 
 const CRISPR_SOURCES = {
@@ -685,6 +700,93 @@ const FOUNDATIONAL_PHYSICS_SOURCES = {
     }
 };
 
+const MODERN_ANCHOR_SOURCES = {
+    turingComputableNumbers: {
+        title: 'On Computable Numbers, with an Application to the Entscheidungsproblem',
+        url: 'https://doi.org/10.1112/plms/s2-42.1.230',
+        publisher: 'Proceedings of the London Mathematical Society',
+        year: 1937,
+        source_type: 'primary_paper'
+    },
+    britannicaBiochemistry: {
+        title: 'Biochemistry',
+        url: 'https://www.britannica.com/science/biochemistry',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    pmcTissueCultureModels: {
+        title: 'Tissue Culture Models',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7122392/',
+        publisher: 'NCBI / Methods in Molecular Biology',
+        year: 2008,
+        source_type: 'review'
+    },
+    chmPhotolithography1955: {
+        title: '1955: Photolithography Techniques Are Used to Make Silicon Devices',
+        url: 'https://www.computerhistory.org/semiconductor/timeline/1955-Photolithography.html',
+        publisher: 'Computer History Museum',
+        year: 2007,
+        source_type: 'museum'
+    },
+    nasaGoddardLiquidRocket: {
+        title: "95 Years Ago: Goddard's First Liquid-Fueled Rocket",
+        url: 'https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/',
+        publisher: 'NASA',
+        year: 2021,
+        source_type: 'official_agency'
+    },
+    britannicaOperationsResearchHistory: {
+        title: 'Operations Research: History',
+        url: 'https://www.britannica.com/topic/operations-research/History',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    britannicaCathodeRayTube: {
+        title: 'Cathode-Ray Tube',
+        url: 'https://www.britannica.com/technology/cathode-ray-tube',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    britannicaRadarHistory: {
+        title: 'Radar: History of Radar',
+        url: 'https://www.britannica.com/technology/radar/History-of-radar',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    britannicaTelevisionTechnology: {
+        title: 'Television',
+        url: 'https://www.britannica.com/technology/television-technology',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    britannicaRadio: {
+        title: 'Radio',
+        url: 'https://www.britannica.com/topic/radio',
+        publisher: 'Encyclopaedia Britannica',
+        year: 2026,
+        source_type: 'textbook'
+    },
+    toffoliProgrammableMatter: {
+        title: 'Programmable Matter: Concepts and Realization',
+        url: 'https://doi.org/10.1016/0167-2789(91)90296-L',
+        publisher: 'Physica D',
+        year: 1991,
+        source_type: 'primary_paper'
+    },
+    modularReconfigurableRoboticsReview: {
+        title: 'Modular Reconfigurable Robotics',
+        url: 'https://doi.org/10.1146/annurev-control-053018-023834',
+        publisher: 'Annual Review of Control, Robotics, and Autonomous Systems',
+        year: 2018,
+        source_type: 'review'
+    }
+};
+
 const NODE_SOURCE_ONLY_IDS = new Set([
     'x_rays_discovery',
     'radioactivity_discovery',
@@ -707,7 +809,21 @@ const NODE_SOURCE_ONLY_IDS = new Set([
     'atomic_clocks',
     'solar_power',
     'solar_photovoltaics',
-    'graphene_two_dimensional_materials'
+    'graphene_two_dimensional_materials',
+    'algorithms_computation_theory',
+    'biochemistry',
+    'cell_culture',
+    'photolithography',
+    'liquid_fuel_propellants',
+    'rocketry',
+    'liquid_fuel_rockets',
+    'x_ray_imaging',
+    'operations_research',
+    'cathode_ray_tube_crt_displays',
+    'radar_radio_detection_and_ranging',
+    'television',
+    'radio',
+    'materials_science_exotic'
 ]);
 
 const EDGE_OVERRIDES = {
@@ -1475,7 +1591,40 @@ const SOURCE_OVERRIDES = {
         { title: 'Code of Hammurabi', url: 'https://www.britannica.com/topic/Code-of-Hammurabi', publisher: 'Encyclopaedia Britannica', year: 2026 }
     ],
     algorithms_computation_theory: [
+        MODERN_ANCHOR_SOURCES.turingComputableNumbers,
         { title: 'Computation in Physical Systems', url: 'https://plato.stanford.edu/entries/computation-physicalsystems/', publisher: 'Stanford Encyclopedia of Philosophy', year: 2024 }
+    ],
+    biochemistry: [
+        MODERN_ANCHOR_SOURCES.britannicaBiochemistry
+    ],
+    photolithography: [
+        MODERN_ANCHOR_SOURCES.chmPhotolithography1955,
+        { title: 'Light and Lasers: Lithography Principles', url: 'https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers', publisher: 'ASML', year: 2026, source_type: 'generic_overview' }
+    ],
+    liquid_fuel_propellants: [
+        MODERN_ANCHOR_SOURCES.nasaGoddardLiquidRocket
+    ],
+    rocketry: [
+        MODERN_ANCHOR_SOURCES.nasaGoddardLiquidRocket
+    ],
+    liquid_fuel_rockets: [
+        MODERN_ANCHOR_SOURCES.nasaGoddardLiquidRocket
+    ],
+    x_ray_imaging: [
+        FOUNDATIONAL_PHYSICS_SOURCES.xRaysNobel1901,
+        { title: 'Medical X-ray Imaging', url: 'https://www.fda.gov/medical-x-ray-imaging', publisher: 'U.S. Food and Drug Administration', year: 2026, source_type: 'official_agency' }
+    ],
+    operations_research: [
+        MODERN_ANCHOR_SOURCES.britannicaOperationsResearchHistory
+    ],
+    cathode_ray_tube_crt_displays: [
+        MODERN_ANCHOR_SOURCES.britannicaCathodeRayTube
+    ],
+    radar_radio_detection_and_ranging: [
+        MODERN_ANCHOR_SOURCES.britannicaRadarHistory
+    ],
+    television: [
+        MODERN_ANCHOR_SOURCES.britannicaTelevisionTechnology
     ],
     x_rays_discovery: [
         FOUNDATIONAL_PHYSICS_SOURCES.xRaysNobel1901
@@ -1532,6 +1681,10 @@ const SOURCE_OVERRIDES = {
     ],
     nanotechnology: [
         { title: 'About Nanotechnology', url: 'https://www.nano.gov/about-nanotechnology', publisher: 'National Nanotechnology Initiative', year: 2026 }
+    ],
+    materials_science_exotic: [
+        MODERN_ANCHOR_SOURCES.toffoliProgrammableMatter,
+        MODERN_ANCHOR_SOURCES.modularReconfigurableRoboticsReview
     ],
     guilds: [
         { title: 'Guild', url: 'https://www.britannica.com/topic/guild-trade-association', publisher: 'Encyclopaedia Britannica', year: 2026 }
@@ -1612,6 +1765,7 @@ const SOURCE_OVERRIDES = {
         { title: 'Guglielmo Marconi - Biographical', url: 'https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/', publisher: 'Nobel Prize', year: 2026 }
     ],
     radio: [
+        MODERN_ANCHOR_SOURCES.britannicaRadio,
         { title: 'Guglielmo Marconi - Biographical', url: 'https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/', publisher: 'Nobel Prize', year: 2026 }
     ],
     telecommunications: [
@@ -1860,7 +2014,7 @@ const SOURCE_OVERRIDES = {
     mrna_vaccines: [PHARMA_SOURCES.hhsVaccineTypes, PHARMA_SOURCES.fdaVaccines],
     mrna_vaccine_platforms: [PHARMA_SOURCES.hhsVaccineTypes, PHARMA_SOURCES.pubmedLipidNanoparticles],
     messenger_rna_therapeutics: [PHARMA_SOURCES.hhsVaccineTypes, PHARMA_SOURCES.pubmedLipidNanoparticles],
-    cell_culture: [PHARMA_SOURCES.atccCellCulture],
+    cell_culture: [MODERN_ANCHOR_SOURCES.pmcTissueCultureModels, PHARMA_SOURCES.atccCellCulture],
     molecular_biology: [PHARMA_SOURCES.ncbiMolecularBiology],
     lipid_nanoparticles: [PHARMA_SOURCES.nistLipidNanoparticles, PHARMA_SOURCES.pubmedLipidNanoparticles],
     nanomedicine_drug_delivery: [PHARMA_SOURCES.pubmedLipidNanoparticles, PHARMA_SOURCES.fdaGeneTherapy],
