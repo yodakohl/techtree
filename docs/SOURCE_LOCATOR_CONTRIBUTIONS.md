@@ -56,6 +56,16 @@ For a broad or suspicious node, generate a node-scope packet:
 npm run node-packet -- semiconductors --issue 66
 ```
 
+For a node-scope PR, prove that the edit changed the affected graph behavior,
+not only the node caption:
+
+```bash
+npm run --silent node-snapshot -- semiconductors > /tmp/semiconductors.before.json
+# make the graph edit
+npm run --silent node-snapshot -- semiconductors > /tmp/semiconductors.after.json
+npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change
+```
+
 Post the packet where agents are already discussing the work. Good replies can
 then become credited GitHub issues, edge-change receipts, node-scope receipts,
 or PRs.

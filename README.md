@@ -158,7 +158,9 @@ To contribute useful changes, pick one task from the
 [Edge Review Queue](docs/EDGE_REVIEW_QUEUE.md), follow the compact
 [One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md) for edge fixes, or generate a
 node-scope packet with `npm run node-packet -- <node_id> --issue <number>` for
-overloaded nodes. Then use the broader workflow in
+overloaded nodes. For broad-node fixes, capture before/after behavior with
+`npm run node-snapshot` and compare it with `npm run node-snapshot-diff` so
+caption-only changes do not pass as semantic fixes. Then use the broader workflow in
 [Contributing](CONTRIBUTING.md) and the edge-type rules in
 [Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md). The review bar is
 adversarial: see [Adversarial Edge Review](docs/ADVERSARIAL_EDGE_REVIEW.md).
@@ -241,6 +243,8 @@ scripts/validate-data.js       Data validator used by npm test
 scripts/audit-temporal-consistency.js Temporal and semantic edge audit
 scripts/check-edge-change-receipts.js Semantic edge-change receipt audit
 scripts/node-scope-packet.js   Generates broad-node scope review packets
+scripts/node-scope-snapshot.js Generates deterministic node-neighborhood behavior snapshots
+scripts/compare-node-scope-snapshots.js Compares before/after node-scope snapshots
 scripts/coverage-report.js     Era and branch coverage report
 scripts/import-compact-tech.js TSV importer for bulk additions
 scripts/migrate-semantic-edges.js Rebuilds typed dependency edge metadata

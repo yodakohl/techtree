@@ -9,7 +9,7 @@ makes a falsifiable edge decision. See
 
 | Issue | Target | Task |
 | --- | --- | --- |
-| [#66](https://github.com/yodakohl/techtree/issues/66) | `semiconductors` node scope | Decide whether the broad semiconductor node should be split or rescoped, and whether `clean_rooms`, `electronics`, and downstream chip-manufacturing dependents preserve the right causal boundary. Generate the packet with `npm run node-packet -- semiconductors --issue 66`. |
+| [#66](https://github.com/yodakohl/techtree/issues/66) | `semiconductors` node scope | Decide whether the broad semiconductor node should be split or rescoped, and whether `clean_rooms`, `electronics`, and downstream chip-manufacturing dependents preserve the right causal boundary. Generate the packet with `npm run node-packet -- semiconductors --issue 66`; broad-node PRs should also include a before/after `npm run node-snapshot-diff` behavior check. |
 
 ## Completed Starters
 
@@ -76,3 +76,12 @@ npm run node-packet -- semiconductors --issue 66
 
 The minimum useful reply is a source URL, exact locator, scope lock, global
 ontology check, dependent rewiring list, and adversarial note.
+
+For PRs, also attach a before/after behavior replay:
+
+```bash
+npm run --silent node-snapshot -- semiconductors > /tmp/semiconductors.before.json
+# edit
+npm run --silent node-snapshot -- semiconductors > /tmp/semiconductors.after.json
+npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change
+```

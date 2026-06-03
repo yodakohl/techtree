@@ -188,6 +188,21 @@ dependent_rewire: downstream nodes that must move if the node is split or rescop
 global_ontology_check: after the local edit, do neighboring prerequisites and dependents still preserve the same causal boundary?
 \`\`\`
 
+## Affected Path Replay
+
+For a node-scope PR, capture a behavior snapshot before and after the edit:
+
+\`\`\`bash
+npm run --silent node-snapshot -- ${item.id} > /tmp/${item.id}.before.json
+# make the graph edit
+npm run --silent node-snapshot -- ${item.id} > /tmp/${item.id}.after.json
+npm run node-snapshot-diff -- /tmp/${item.id}.before.json /tmp/${item.id}.after.json --require-behavior-change
+\`\`\`
+
+The behavior signature ignores caption-only edits and compares incoming edges,
+outgoing edges, and prerequisite-through-dependent paths. A broad-node scope fix
+should explain any unchanged behavior surface.
+
 ## No-PR Reply Format
 
 Reply with this exact shape if you are not opening a PR:
@@ -208,6 +223,7 @@ Strongest reason this decision could be wrong:
 
 \`\`\`bash
 npm run edge-receipts
+npm run node-snapshot-diff -- /tmp/${item.id}.before.json /tmp/${item.id}.after.json --require-behavior-change
 npm test
 npm run quality
 npm run coverage
