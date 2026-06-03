@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-03-semiconductors-crystal-growth-removal",
+  "decision_date": "2026-06-03",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "semiconductors",
+    "prerequisite": "crystal_growth_techniques"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Crystal Growth Techniques provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from the broad semiconductors node to crystal_growth_techniques; high-purity crystal growth belongs to later semiconductor manufacturing, not the initial material/rectifier effect.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/siliconengine/semiconductor-point-contact-rectifier-effect-is-discovered/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Milestone text describing the 1874 point contact between a metal wire and a galena crystal.",
+    "source_claim_summary": "The CHM milestone describes an early semiconductor rectifier using a naturally occurring galena crystal contact, not high-purity engineered crystal growth.",
+    "source_support_rationale": "This rejects crystal growth as a prerequisite for the broad node because engineered crystal production is later manufacturing capability, while the scoped node includes early mineral-crystal rectification."
+  },
+  "ontology_before": "The broad Semiconductors node mixed early semiconductor behavior with later high-purity semiconductor manufacturing inputs.",
+  "ontology_after": "The Semiconductors node covers materials and early rectifier behavior; crystal growth remains available for later fabrication and device-manufacturing nodes.",
+  "invariant_preserved_or_changed": "Changed: later crystal-growth manufacturing capability no longer reaches every semiconductor dependent through the broad semiconductors node.",
+  "would_reject_if": [
+    "The semiconductors node were narrowed to mean high-purity single-crystal semiconductor wafers only.",
+    "A source showed that early semiconductor rectifier effects required engineered crystal growth rather than existing mineral crystals.",
+    "Removing the edge also removed crystal-growth context from narrower wafer or device-fabrication nodes where it remains appropriate."
+  ],
+  "short_reason": "High-purity crystal growth is manufacturing context for later devices, not a prerequisite for the broad 1874 semiconductor rectifier effect.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

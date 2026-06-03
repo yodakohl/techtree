@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-03-semiconductors-quantum-physics-removal",
+  "decision_date": "2026-06-03",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "semiconductors",
+    "prerequisite": "quantum_physics"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Quantum Physics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from the broad semiconductors node to quantum_physics; quantum theory explains and improves later semiconductor engineering but postdates the 1874 rectifier effect.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/siliconengine/semiconductor-point-contact-rectifier-effect-is-discovered/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Milestone text describing Braun's 1874 observation of current flowing one way at a metal-galena contact.",
+    "source_claim_summary": "The CHM milestone describes the semiconductor point-contact rectifier effect as an 1874 experimental observation, before quantum theory as dated in the graph.",
+    "source_support_rationale": "This refutes a prerequisite edge because the broad node now covers the observed semiconductor effect, while quantum physics belongs as explanatory and enabling context for later semiconductor-device engineering."
+  },
+  "ontology_before": "The broad Semiconductors node treated quantum physics as upstream of all semiconductor behavior, which made a 1900 scientific theory a prerequisite for an 1874 observed device effect.",
+  "ontology_after": "The Semiconductors node can predate quantum theory; quantum physics remains directly connected to later nodes where device theory or design depends on it.",
+  "invariant_preserved_or_changed": "Changed: the graph no longer makes a later explanatory theory a prerequisite for an earlier observed semiconductor effect. Preserved: modern semiconductor devices can still cite quantum physics independently.",
+  "would_reject_if": [
+    "The semiconductors node were narrowed to mean quantum-theory-based semiconductor device engineering rather than materials and early rectifiers.",
+    "A source showed that Braun's 1874 semiconductor rectifier observation depended on quantum physics as an available theory or method.",
+    "Removing the edge also removed quantum-physics context from transistor, diode, photovoltaic, or other later semiconductor-device nodes."
+  ],
+  "short_reason": "Quantum physics is explanatory and enabling for later semiconductor engineering, but it is not a prerequisite for the 1874 semiconductor rectifier effect.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

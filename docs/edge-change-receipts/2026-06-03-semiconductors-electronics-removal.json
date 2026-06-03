@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-03-semiconductors-electronics-removal",
+  "decision_date": "2026-06-03",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "semiconductors",
+    "prerequisite": "electronics"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electronics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from the broad semiconductor-materials node to electronics; the scoped semiconductor effect predates practical electronics as modeled in this graph.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/siliconengine/semiconductor-point-contact-rectifier-effect-is-discovered/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Milestone text describing Braun's 1874 galena point-contact rectifier and later noting Fleming's 1904 valve as the first practical electronic device.",
+    "source_claim_summary": "The CHM milestone places semiconductor point-contact rectification in 1874 and distinguishes it from the later 1904 Fleming valve practical electronic device.",
+    "source_support_rationale": "This rejects electronics as a prerequisite because the scoped semiconductor node is now the earlier material/rectifier effect rather than the later electronics industry built from it."
+  },
+  "ontology_before": "The broad Semiconductors node carried a later electronics prerequisite, making the 1904 electronics field appear upstream of the 1874 semiconductor rectifier effect.",
+  "ontology_after": "The Semiconductors node is scoped to semiconductor materials and early rectifier behavior; electronics remains downstream/enabling context for later transistor and circuit nodes.",
+  "invariant_preserved_or_changed": "Changed: later electronics no longer reaches every semiconductor dependent through the broad semiconductors node. Preserved: transistor and circuit nodes still directly model electronics where relevant.",
+  "would_reject_if": [
+    "The semiconductors node were intentionally narrowed to mean post-1904 electronic semiconductor devices only.",
+    "A stronger source showed that the scoped 1874 semiconductor rectifier effect required prior electronics technology rather than electrical measurement and crystalline materials.",
+    "Removing the edge also removed electronics context from transistor or integrated-circuit nodes where that context remains relevant."
+  ],
+  "short_reason": "Semiconductor rectification predates practical electronics in this graph, so electronics is not a prerequisite for the broad semiconductors node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

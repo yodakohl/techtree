@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-03-semiconductors-cleanrooms-removal",
+  "decision_date": "2026-06-03",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "semiconductors",
+    "prerequisite": "clean_rooms"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Clean Rooms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from the broad semiconductors node to clean_rooms; clean rooms belong to chip fabrication and microchip manufacturing, not the broad material/rectifier concept.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/siliconengine/semiconductor-point-contact-rectifier-effect-is-discovered/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Milestone text describing Braun's 1874 point-contact rectifier in galena, before modern semiconductor clean-room manufacturing.",
+    "source_claim_summary": "The CHM milestone supports an early semiconductor-material and rectifier scope centered on galena point-contact behavior rather than clean-room chip fabrication.",
+    "source_support_rationale": "This rejects the clean-room edge because the source pins the node's earliest scoped claim to pre-clean-room semiconductor behavior; clean rooms remain appropriate on narrower manufacturing nodes such as planar processing and integrated circuits."
+  },
+  "ontology_before": "The broad Semiconductors node let clean-room manufacturing context flow into every downstream semiconductor-dependent technology.",
+  "ontology_after": "The Semiconductors node no longer has clean rooms as a prerequisite. Clean rooms remain directly attached to narrower fabrication nodes where contamination control is relevant.",
+  "invariant_preserved_or_changed": "Changed: clean_rooms no longer reaches every semiconductor dependent through the broad semiconductors node. Preserved: clean_rooms remains connected to silicon_planar_process and integrated_circuits.",
+  "would_reject_if": [
+    "The semiconductors node were narrowed to mean clean-room semiconductor device manufacturing rather than broad materials and early rectifiers.",
+    "A source showed that clean rooms are necessary for the 1874 point-contact semiconductor rectifier effect.",
+    "The correction removed clean-room dependencies from narrower semiconductor manufacturing nodes where contamination control is still relevant."
+  ],
+  "short_reason": "Clean rooms are semiconductor manufacturing infrastructure, not a prerequisite for the broad semiconductor-materials and early rectifier node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -12,6 +12,25 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Guardrail Improvements
 
+### 2026-06-03: Node-scope behavior replay guard
+
+- External prompt: `neo_konsi_s2bw` on MoltBook challenged whether a
+  node-scope invariant could still grade the node caption while the graph
+  rerouted ambiguity through neighboring prerequisites and dependents.
+- MoltBook thread:
+  https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8
+- GitHub issue: https://github.com/yodakohl/techtree/issues/66
+- Change: added `npm run node-packet`, `npm run node-snapshot`, and
+  `npm run node-snapshot-diff` so broad-node changes can be checked against
+  incoming edges, outgoing edges, and prerequisite-through-dependent paths.
+- Validation:
+  - `npm run node-packet -- semiconductors --issue 66`
+  - `npm run --silent node-snapshot -- semiconductors`
+  - `npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-06-01: Edge removal receipt guard
 
 - Strategy follow-up: issue #62 tested whether a bad direct dependency should
@@ -112,6 +131,31 @@ one-edge challenge will be recorded as the first outside agent contribution.
   - `npm run quality`
 
 ## Accepted Corrections
+
+### 2026-06-03: Semiconductor scope and chronology correction
+
+- External prompt: MoltBook review and GitHub issue #66 challenged the broad
+  `semiconductors` node for mixing 1874 semiconductor rectification with later
+  chip-manufacturing infrastructure such as clean rooms.
+- MoltBook thread:
+  https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8
+- GitHub issue: https://github.com/yodakohl/techtree/issues/66
+- Old claim: `semiconductors` was a Modern 1945 node depending on
+  `electronics`, `quantum_physics`, `crystal_growth_techniques`, and
+  `clean_rooms`.
+- Corrected claim: `semiconductors` is now an Industrial 1874 node scoped to
+  semiconductor materials and point-contact rectifier behavior. Later
+  electronics, quantum theory, crystal growth, and clean-room manufacturing no
+  longer flow through every downstream semiconductor-dependent technology.
+- Source:
+  - https://www.computerhistory.org/siliconengine/semiconductor-point-contact-rectifier-effect-is-discovered/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run node-snapshot-diff -- /tmp/semiconductors.before.json /tmp/semiconductors.after.json --require-behavior-change`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Semiconductors & Integrated Circuits" --timeout-ms 15000 --concurrency 4`
 
 ### 2026-06-01: TSV advanced-packaging edge direction fix
 
