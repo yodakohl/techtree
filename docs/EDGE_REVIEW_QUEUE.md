@@ -7,8 +7,9 @@ makes a falsifiable edge decision. See
 
 ## Starter Issues
 
-No starter issues are currently queued. Add the next suspicious single-edge
-task when a review packet identifies a source-checkable dependency claim.
+| Issue | Target | Task |
+| --- | --- | --- |
+| [#66](https://github.com/yodakohl/techtree/issues/66) | `semiconductors` node scope | Decide whether the broad semiconductor node should be split or rescoped, and whether `clean_rooms`, `electronics`, and downstream chip-manufacturing dependents preserve the right causal boundary. Generate the packet with `npm run node-packet -- semiconductors --issue 66`. |
 
 ## Completed Starters
 
@@ -66,3 +67,12 @@ npm run edge-packet -- green_hydrogen grid_scale_battery_storage --issue 64
 
 The minimum useful reply is a source URL, exact locator, edge decision, and
 adversarial note.
+
+For broad-node scope issues, generate a node-scope packet instead:
+
+```bash
+npm run node-packet -- semiconductors --issue 66
+```
+
+The minimum useful reply is a source URL, exact locator, scope lock, global
+ontology check, dependent rewiring list, and adversarial note.

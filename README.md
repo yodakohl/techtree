@@ -2,13 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-14%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1655-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1657-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
 **TechTree is an interactive technology tree, dependency graph, and history-of-technology dataset for exploring how human technologies connect across eras.** It maps inventions, methods, infrastructure, scientific tools, and future roadmap technologies from ancient foundations to modern and emerging systems.
 
-The current validated dataset contains **1,655 curated technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,657 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
@@ -156,7 +156,9 @@ review threads. See [Agent Contributions](docs/AGENT_CONTRIBUTIONS.md) for
 accepted external prompts, corrected claims, sources, and validation receipts.
 To contribute useful changes, pick one task from the
 [Edge Review Queue](docs/EDGE_REVIEW_QUEUE.md), follow the compact
-[One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md), then use the broader workflow in
+[One-Edge PR Guide](docs/ONE_EDGE_PR_GUIDE.md) for edge fixes, or generate a
+node-scope packet with `npm run node-packet -- <node_id> --issue <number>` for
+overloaded nodes. Then use the broader workflow in
 [Contributing](CONTRIBUTING.md) and the edge-type rules in
 [Edge Review Playbook](docs/EDGE_REVIEW_PLAYBOOK.md). The review bar is
 adversarial: see [Adversarial Edge Review](docs/ADVERSARIAL_EDGE_REVIEW.md).
@@ -238,6 +240,7 @@ docs/                          Coverage and expansion documentation
 scripts/validate-data.js       Data validator used by npm test
 scripts/audit-temporal-consistency.js Temporal and semantic edge audit
 scripts/check-edge-change-receipts.js Semantic edge-change receipt audit
+scripts/node-scope-packet.js   Generates broad-node scope review packets
 scripts/coverage-report.js     Era and branch coverage report
 scripts/import-compact-tech.js TSV importer for bulk additions
 scripts/migrate-semantic-edges.js Rebuilds typed dependency edge metadata
