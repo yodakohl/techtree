@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-mri-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "magnetic_resonance_imaging",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from magnetic_resonance_imaging to hospital_information_systems; clinical information systems are deployment infrastructure rather than part of the MRI physical method.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nobel 2003 press-release description of MRI as NMR-based imaging using magnetic fields, radio waves, and reconstruction.",
+    "source_claim_summary": "The source describes the method basis for MRI through nuclear magnetic resonance and image reconstruction, not through hospital information-system infrastructure.",
+    "source_support_rationale": "This rejects a direct HIS prerequisite because the source's method account explains MRI without any hospital information-system component, while HIS belongs to clinical workflow around imaging."
+  },
+  "ontology_before": "MRI included hospital information systems as a direct prerequisite, mixing a later clinical workflow system with the imaging modality.",
+  "ontology_after": "MRI is scoped to NMR-based image acquisition and reconstruction; hospital information systems remain separate clinical infrastructure.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct MRI prerequisite.",
+  "would_reject_if": [
+    "The MRI node were re-scoped to a hospital PACS/HIS deployment workflow rather than the imaging modality.",
+    "A source showed MRI acquisition physically requires a hospital information system.",
+    "Removing the edge also removed all clinical context from MRI instead of only the direct HIS prerequisite."
+  ],
+  "short_reason": "Hospital information systems support clinical operations but are not a prerequisite for MRI technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

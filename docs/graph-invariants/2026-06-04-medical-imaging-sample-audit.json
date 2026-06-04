@@ -1,0 +1,132 @@
+{
+  "id": "2026-06-04-medical-imaging-sample-audit",
+  "description": "Adversarial invariant for the manual medical-imaging sample audit: CT, MRI, ultrasound, and electron microscopy must stay separated by physical method and reconstruction dependency.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "magnetic_resonance_imaging",
+      "prerequisite": "computerized_tomography_ct_mri",
+      "reason": "MRI is NMR-based and must not depend on the removed CT/MRI bundle."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "magnetic_resonance_imaging",
+      "prerequisite": "nuclear_magnetic_resonance",
+      "expected": "required",
+      "reason": "NMR is the hard physical foundation for MRI."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "magnetic_resonance_imaging",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are clinical workflow infrastructure, not MRI method prerequisites."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ultrasound_medical_imaging",
+      "prerequisite": "x_ray_imaging",
+      "reason": "Ultrasound is acoustic imaging and must not depend on X-ray imaging."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ultrasound_medical_imaging",
+      "prerequisite": "piezoelectric_ultrasonic_transducers",
+      "expected": "required",
+      "reason": "Medical ultrasound needs ultrasonic transduction to generate and receive sound pulses."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ultrasound_medical_imaging",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems should not be a direct modality prerequisite for ultrasound."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electron_microscopy_advanced",
+      "prerequisite": "computerized_tomography_ct_mri",
+      "reason": "Electron microscopy reconstruction should not depend on a medical CT/MRI bundle."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electron_microscopy_advanced",
+      "prerequisite": "algorithms_computation_theory",
+      "expected": "enabling",
+      "reason": "Computational reconstruction algorithms are the relevant advanced electron microscopy enabler."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "computed_tomography_ct",
+      "prerequisite": "x_ray_imaging",
+      "expected": "required",
+      "reason": "Medical CT reconstructs images from X-ray measurements."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "computed_tomography_ct",
+      "prerequisite": "computers_early",
+      "expected": "enabling",
+      "reason": "Computer reconstruction is an enabling dependency for practical medical CT."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "brain_mapping",
+      "prerequisite": "magnetic_resonance_imaging",
+      "reason": "The future brain-mapping node should use the concrete MRI node rather than a removed CT/MRI bundle."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "positron_emission_tomography_pet",
+      "prerequisite": "computed_tomography_ct",
+      "reason": "Standalone PET should not depend directly on CT; PET/CT would be a separate hybrid modality."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "positron_emission_tomography_pet",
+      "prerequisite": "particle_accelerators",
+      "expected": "enabling",
+      "reason": "PET should keep radionuclide-production context instead of a CT prerequisite."
+    },
+    {
+      "type": "first_known_date",
+      "node": "piezoelectric_effect",
+      "operator": "eq",
+      "value": 1880,
+      "reason": "Piezoelectricity should stay anchored to the Curie discovery date."
+    },
+    {
+      "type": "first_known_date",
+      "node": "piezoelectric_ultrasonic_transducers",
+      "operator": "eq",
+      "value": 1917,
+      "reason": "Ultrasonic transducers should stay earlier than medical ultrasound."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ultrasound_medical_imaging",
+      "operator": "eq",
+      "value": 1942,
+      "reason": "Medical ultrasound should not regress to a generated postwar placeholder date."
+    },
+    {
+      "type": "first_known_date",
+      "node": "nuclear_magnetic_resonance",
+      "operator": "eq",
+      "value": 1946,
+      "reason": "NMR should remain earlier than MRI."
+    },
+    {
+      "type": "first_known_date",
+      "node": "computed_tomography_ct",
+      "operator": "eq",
+      "value": 1971,
+      "reason": "CT should stay anchored to the early clinical scanner chronology, not a 1958 generated date."
+    },
+    {
+      "type": "first_known_date",
+      "node": "magnetic_resonance_imaging",
+      "operator": "eq",
+      "value": 1973,
+      "reason": "MRI should stay anchored to the Lauterbur/Mansfield imaging chronology."
+    }
+  ]
+}

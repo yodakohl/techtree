@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-computed-tomography-computers-enabling",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "computed_tomography_ct",
+    "prerequisite": "computers_early"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Practical CT required enough computer capacity to reconstruct images from multiple X-ray measurements."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/1979/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Nobel 1979 press-release description of computerized transverse axial tomography and practical computer processing.",
+    "source_claim_summary": "The source frames CT as computerized transverse axial tomography and describes the technical achievement of reconstructing cross-sectional images from many measurements.",
+    "source_support_rationale": "This supports an enabling edge because computing is not merely historical background; it is the reconstruction capability that made practical CT imaging possible."
+  },
+  "ontology_before": "CT's computer edge was typed as a generic historical predecessor, making the reconstruction role less clear.",
+  "ontology_after": "CT now treats computers as an enabling reconstruction technology, separate from the hard X-ray modality input.",
+  "invariant_preserved_or_changed": "Changed: CT's computer edge is now an enabling dependency.",
+  "would_reject_if": [
+    "The node were scoped to pre-computer mathematical tomography rather than practical medical CT scanners.",
+    "A source showed clinical CT reconstruction did not require computer processing.",
+    "The graph changed computers into a hard component edge while losing the X-ray foundation."
+  ],
+  "short_reason": "Practical medical CT depends on computer reconstruction, not merely historical computing context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

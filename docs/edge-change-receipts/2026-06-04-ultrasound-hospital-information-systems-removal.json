@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-ultrasound-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "ultrasound_medical_imaging",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from ultrasound_medical_imaging to hospital_information_systems; HIS belongs to clinical documentation and workflow rather than the ultrasound modality itself.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.bmus.org/for-patients/history-of-ultrasound/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "BMUS history of ultrasound from early medical ultrasonics through clinical scanner development.",
+    "source_claim_summary": "The source explains ultrasound development through high-frequency sound, clinical scanning, electronics, and transducers, not hospital information systems.",
+    "source_support_rationale": "This rejects a direct HIS dependency because the medical ultrasound modality emerged before digital hospital information-system workflows and does not require them for sound acquisition."
+  },
+  "ontology_before": "Ultrasound included hospital information systems as a direct prerequisite, mixing modality physics with clinical data infrastructure.",
+  "ontology_after": "Ultrasound is scoped to acoustic imaging technology and clinical interpretation; hospital information systems remain separate digital-health infrastructure.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct ultrasound prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to a modern ultrasound-reporting workflow that explicitly requires HIS integration.",
+    "A source showed ultrasound acquisition physically requires a hospital information system.",
+    "Removing the edge also removed all clinical medicine context from ultrasound."
+  ],
+  "short_reason": "Hospital information systems are workflow infrastructure, not a prerequisite for ultrasound imaging.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

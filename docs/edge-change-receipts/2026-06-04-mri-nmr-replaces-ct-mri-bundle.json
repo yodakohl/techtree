@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-04-mri-nmr-replaces-ct-mri-bundle",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "magnetic_resonance_imaging",
+    "prerequisite": "nuclear_magnetic_resonance"
+  },
+  "replaced_edge": {
+    "dependent": "magnetic_resonance_imaging",
+    "prerequisite": "computerized_tomography_ct_mri"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Computerized Tomography (CT/MRI) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "MRI is an imaging application of nuclear magnetic resonance using magnetic fields and radio-frequency signals."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Nobel 2003 press-release sections describing NMR, magnetic fields, radio waves, and Lauterbur/Mansfield imaging.",
+    "source_claim_summary": "The Nobel release explains that MRI uses nuclear magnetic resonance signals from atomic nuclei in magnetic fields and credits Lauterbur and Mansfield for turning NMR into imaging.",
+    "source_support_rationale": "This supports NMR as the required foundation because the source describes MRI as the imaging use of NMR, while it does not make CT part of the MRI method."
+  },
+  "ontology_before": "MRI was made dependent on a synthetic CT/MRI bundle, incorrectly implying CT-like imaging was a foundation for MRI.",
+  "ontology_after": "MRI now depends directly on nuclear magnetic resonance, with computing and signal processing as reconstruction enablers.",
+  "invariant_preserved_or_changed": "Changed: the false CT/MRI bundle edge is absent. Preserved: MRI remains connected to imaging reconstruction through computing and DSP.",
+  "would_reject_if": [
+    "A source showed MRI requires computed tomography as a method prerequisite.",
+    "The graph reintroduced computerized_tomography_ct_mri as a direct MRI prerequisite.",
+    "The NMR node were removed without another source-backed NMR foundation replacing it."
+  ],
+  "short_reason": "MRI is built on nuclear magnetic resonance, not on computed tomography.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

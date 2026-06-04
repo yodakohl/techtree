@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-04-ultrasound-transducers-replace-xray",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "ultrasound_medical_imaging",
+    "prerequisite": "piezoelectric_ultrasonic_transducers"
+  },
+  "replaced_edge": {
+    "dependent": "ultrasound_medical_imaging",
+    "prerequisite": "x_ray_imaging"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.86,
+    "note": "Medical ultrasound requires ultrasonic transduction to generate and receive sound pulses, not ionizing X-ray imaging."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ipem.ac.uk/news/150th-anniversary-of-the-father-of-modern-ultrasound/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "IPEM history describing Langevin's piezoelectric ultrasonic transducers and their role in modern ultrasound.",
+    "source_claim_summary": "The source describes piezoelectric ultrasonic transducers as the core technology behind modern ultrasound and traces their development from Langevin's sonar work.",
+    "source_support_rationale": "This supports the required transducer edge because ultrasound imaging needs sound generation and echo detection, while X-ray imaging is a different ionizing-radiation modality."
+  },
+  "ontology_before": "Ultrasound medical imaging depended on X-ray imaging, conflating neighboring radiology modalities.",
+  "ontology_after": "Ultrasound now depends on ultrasonic transducers and clinical/electronic foundations, keeping it distinct from X-ray imaging.",
+  "invariant_preserved_or_changed": "Changed: ultrasound is no longer downstream of X-rays. Preserved: it remains in the medical imaging field with source-backed modality foundations.",
+  "would_reject_if": [
+    "A source showed diagnostic ultrasound physically requires X-ray imaging as a prerequisite.",
+    "The graph reintroduced x_ray_imaging as a direct ultrasound prerequisite.",
+    "The transducer node were broadened so much that it no longer represented ultrasonic pulse generation and echo detection."
+  ],
+  "short_reason": "Ultrasound is a sound-transducer modality, not an X-ray modality.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

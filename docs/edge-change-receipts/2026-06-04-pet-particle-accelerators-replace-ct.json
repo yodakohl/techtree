@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-04-pet-particle-accelerators-replace-ct",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "positron_emission_tomography_pet",
+    "prerequisite": "particle_accelerators"
+  },
+  "replaced_edge": {
+    "dependent": "positron_emission_tomography_pet",
+    "prerequisite": "computed_tomography_ct"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Computed Tomography (CT) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "textbook",
+    "confidence": 0.72,
+    "note": "PET depends on positron-emitting radionuclides, many of which are produced using particle accelerators or cyclotrons."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK232475/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "NCBI Bookshelf chapter on PET tracer isotopes, annihilation photons, and imaging workflow.",
+    "source_claim_summary": "The chapter explains PET as imaging based on injected positron-emitting tracers and lists short-lived isotopes used for biological imaging.",
+    "source_support_rationale": "This supports accelerator/radionuclide production context as the relevant enabler and rejects CT as a prerequisite for PET unless the node is explicitly PET/CT."
+  },
+  "ontology_before": "The PET node depended on CT, conflating standalone PET with later combined PET/CT scanner systems.",
+  "ontology_after": "PET now depends on nuclear medicine, positron-emitting radionuclide production context, and signal/image reconstruction.",
+  "invariant_preserved_or_changed": "Changed: PET no longer depends directly on CT. Preserved: PET remains connected to medical imaging reconstruction and nuclear medicine.",
+  "would_reject_if": [
+    "The node were renamed or scoped to PET/CT rather than standalone PET.",
+    "A source showed PET requires CT as a method prerequisite rather than as a later hybrid modality.",
+    "The graph removed nuclear medicine or radionuclide context from PET."
+  ],
+  "short_reason": "Standalone PET is a radiotracer nuclear-medicine modality, not a CT-dependent modality.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

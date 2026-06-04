@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-04-electron-microscopy-computation-replaces-ct-mri",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "electron_microscopy_advanced",
+    "prerequisite": "algorithms_computation_theory"
+  },
+  "replaced_edge": {
+    "dependent": "electron_microscopy_advanced",
+    "prerequisite": "computerized_tomography_ct_mri"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Computerized Tomography (CT/MRI) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.74,
+    "note": "Electron tomography reconstructs three-dimensional volumes from projection images, so computational reconstruction algorithms enable advanced electron microscopy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/22658288/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "PubMed abstract for a review of computational methods in electron tomography.",
+    "source_claim_summary": "The review describes electron tomography as a workflow where projection images are processed and combined into a three-dimensional tomogram.",
+    "source_support_rationale": "This supports computation theory as the relevant enabler because the source focuses on reconstruction algorithms for electron microscopy data, not on medical CT or MRI as prerequisites."
+  },
+  "ontology_before": "Advanced electron microscopy depended on a medical CT/MRI bundle, conflating a reconstruction idea with unrelated clinical imaging modalities.",
+  "ontology_after": "Advanced electron microscopy keeps electron microscope and DSP foundations while using computation theory for tomographic reconstruction.",
+  "invariant_preserved_or_changed": "Changed: the false medical-imaging bundle edge is absent. Preserved: computational reconstruction remains represented.",
+  "would_reject_if": [
+    "A source showed advanced electron microscopy requires medical CT or MRI hardware as a method prerequisite.",
+    "The graph reintroduced computerized_tomography_ct_mri as a direct advanced electron microscopy prerequisite.",
+    "The replacement edge were changed to a non-computational application node."
+  ],
+  "short_reason": "Electron microscopy tomography needs reconstruction algorithms, not medical CT/MRI technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

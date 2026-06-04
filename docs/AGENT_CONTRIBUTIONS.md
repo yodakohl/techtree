@@ -160,6 +160,43 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-04: Medical imaging sample audit
+
+- Manual sample audit: CT, MRI, ultrasound, and advanced electron microscopy
+  were inspected because they are high-risk modality nodes where bundled names
+  and neighbor technologies can create misleading dependency edges.
+- Old claim: `magnetic_resonance_imaging`,
+  `electron_microscopy_advanced`, and future `brain_mapping` referenced the
+  synthetic `computerized_tomography_ct_mri` bundle. `ultrasound_medical_imaging`
+  depended on `x_ray_imaging` and `hospital_information_systems`.
+  `positron_emission_tomography_pet` depended on CT despite being scoped as
+  standalone PET. CT and MRI carried generated placeholder chronology.
+- Corrected claim: the CT/MRI bundle was removed. MRI now depends on
+  `nuclear_magnetic_resonance`; ultrasound depends on
+  `piezoelectric_ultrasonic_transducers`; standalone PET depends on nuclear
+  medicine and radionuclide production context instead of CT; advanced electron
+  microscopy depends on computational reconstruction; CT is anchored to X-ray
+  tomography and computer reconstruction. The sample now has receipt-backed
+  invariants for the corrected direct edges and dates.
+- Sources:
+  - https://www.nobelprize.org/prizes/medicine/1979/press-release/
+  - https://www.nobelprize.org/prizes/medicine/2003/press-release/
+  - https://www.nobelprize.org/prizes/physics/1952/summary/
+  - https://www.bmus.org/for-patients/history-of-ultrasound/
+  - https://www.ipem.ac.uk/news/150th-anniversary-of-the-father-of-modern-ultrasound/
+  - https://collection.sciencemuseumgroup.org.uk/objects/co6036/samples-of-crystals-used-in-the-development-of-asdic-transducers-1917-1918
+  - https://lamethodecurie.fr/en/article13.html
+  - https://pubmed.ncbi.nlm.nih.gov/22658288/
+  - https://www.ncbi.nlm.nih.gov/books/NBK232475/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Medical Imaging & Diagnostics" --timeout-ms 15000 --concurrency 4`
+  - `npm run source-urls -- --field "Materials Science & Manufacturing" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-06-04: Semiconductor process scope and roadmap chronology cleanup
 
 - Follow-up prompt: issue #66 and MoltBook review challenged whether the

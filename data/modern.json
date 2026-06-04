@@ -9721,61 +9721,213 @@
     ]
   },
   {
-    "id": "computerized_tomography_ct_mri",
-    "name": "Computerized Tomography (CT/MRI)",
+    "id": "nuclear_magnetic_resonance",
+    "name": "Nuclear Magnetic Resonance",
     "era": "Modern",
-    "description": "Advanced imaging technologies (CT, MRI) that use computer processing to generate cross-sectional images (slices) of the body.",
+    "description": "Spectroscopic method that detects radio-frequency resonance signals from atomic nuclei in magnetic fields; it later became the physical foundation for MRI.",
     "prerequisites": [
-      "x_ray_imaging",
-      "computers_early",
-      "superconductors_early",
-      "algorithms_computation_theory",
-      "quantum_physics"
+      "quantum_physics",
+      "radio",
+      "electronics"
     ],
-    "firstKnownDate": 1947,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Medical Imaging & Diagnostics"
+    ],
+    "fieldLanes": {
+      "Medical Imaging & Diagnostics": "Foundations"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "The Nobel Prize in Physics 1952",
+        "url": "https://www.nobelprize.org/prizes/physics/1952/summary/",
+        "publisher": "Nobel Prize",
+        "year": 1952,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+        "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
+        "publisher": "Nobel Prize",
+        "year": 2003,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": 1946,
+    "datePrecision": "exact",
+    "region": "United States and global physics laboratories",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "x_ray_imaging",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "computers_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "superconductors_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Superconductors is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "algorithms_computation_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
         "prerequisite": "quantum_physics",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "NMR depends on quantum behavior of atomic nuclei in magnetic fields and radio-frequency resonance.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
+            "publisher": "Nobel Prize",
+            "year": 2003,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "radio",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "NMR measurement uses radio-frequency excitation and detection of resonance signals from nuclei.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
+            "publisher": "Nobel Prize",
+            "year": 2003,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electronics",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Quantum Physics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Electronic instrumentation enables controlled radio-frequency excitation and detection for NMR experiments.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Nobel Prize in Physics 1952",
+            "url": "https://www.nobelprize.org/prizes/physics/1952/summary/",
+            "publisher": "Nobel Prize",
+            "year": 1952,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "piezoelectric_ultrasonic_transducers",
+    "name": "Piezoelectric Ultrasonic Transducers",
+    "era": "Modern",
+    "description": "Quartz and later piezoelectric devices that convert electrical signals into ultrasonic pulses and echoes for sonar, nondestructive testing, and medical ultrasound.",
+    "prerequisites": [
+      "piezoelectric_effect",
+      "electronics"
+    ],
+    "fields": [
+      "Medical Imaging & Diagnostics",
+      "Materials Science & Manufacturing"
+    ],
+    "fieldLanes": {
+      "Medical Imaging & Diagnostics": "Foundations",
+      "Materials Science & Manufacturing": "Foundations"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Samples of Crystals Used in the Development of ASDIC Transducers, 1917-1918",
+        "url": "https://collection.sciencemuseumgroup.org.uk/objects/co6036/samples-of-crystals-used-in-the-development-of-asdic-transducers-1917-1918",
+        "publisher": "Science Museum Group",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "150th Anniversary of the Father of Modern Ultrasound",
+        "url": "https://www.ipem.ac.uk/news/150th-anniversary-of-the-father-of-modern-ultrasound/",
+        "publisher": "Institute of Physics and Engineering in Medicine",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": 1917,
+    "datePrecision": "exact",
+    "region": "France, United Kingdom, and global ultrasound engineering",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "piezoelectric_effect",
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "review",
+        "note": "The scoped transducer converts between electrical and ultrasonic mechanical energy using piezoelectric crystals.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "150th Anniversary of the Father of Modern Ultrasound",
+            "url": "https://www.ipem.ac.uk/news/150th-anniversary-of-the-father-of-modern-ultrasound/",
+            "publisher": "Institute of Physics and Engineering in Medicine",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electronics",
+        "type": "enabling",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Pulse-echo ultrasonic transducers require electrical transmission and reception hardware to drive pulses and detect echoes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Samples of Crystals Used in the Development of ASDIC Transducers, 1917-1918",
+            "url": "https://collection.sciencemuseumgroup.org.uk/objects/co6036/samples-of-crystals-used-in-the-development-of-asdic-transducers-1917-1918",
+            "publisher": "Science Museum Group",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -15752,7 +15904,7 @@
     "prerequisites": [
       "electron_microscope",
       "digital_signal_processing",
-      "computerized_tomography_ct_mri"
+      "algorithms_computation_theory"
     ],
     "firstKnownDate": 1958,
     "datePrecision": "decade",
@@ -15776,12 +15928,24 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "computerized_tomography_ct_mri",
+        "prerequisite": "algorithms_computation_theory",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Computerized Tomography (CT/MRI) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Electron tomography reconstructs three-dimensional volumes from projection images, so computational reconstruction algorithms enable advanced electron microscopy.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computational Methods for Electron Tomography",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22658288/",
+            "publisher": "PubMed",
+            "year": 2012,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -22130,8 +22294,8 @@
     "description": "Diagnostic imaging using high-frequency sound transducers, signal processing, displays, and clinical interpretation.",
     "prerequisites": [
       "electronics",
-      "x_ray_imaging",
-      "hospital_information_systems"
+      "piezoelectric_ultrasonic_transducers",
+      "medicine_clinical"
     ],
     "fields": [
       "Medical Imaging & Diagnostics"
@@ -22142,47 +22306,49 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Medical Imaging",
-        "url": "https://www.fda.gov/medical-imaging",
-        "publisher": "U.S. Food and Drug Administration",
+        "title": "The History of Ultrasound",
+        "url": "https://www.bmus.org/for-patients/history-of-ultrasound/",
+        "publisher": "British Medical Ultrasound Society",
         "year": 2026,
-        "source_type": "official_agency",
+        "source_type": "review",
         "supports": [
           "node",
-          "maturity"
+          "maturity",
+          "edge"
         ]
       },
       {
-        "title": "Diagnostics",
-        "url": "https://www.who.int/health-topics/diagnostics",
-        "publisher": "World Health Organization",
-        "year": 2026,
-        "source_type": "official_agency",
+        "title": "150th Anniversary of the Father of Modern Ultrasound",
+        "url": "https://www.ipem.ac.uk/news/150th-anniversary-of-the-father-of-modern-ultrasound/",
+        "publisher": "Institute of Physics and Engineering in Medicine",
+        "year": 2023,
+        "source_type": "review",
         "supports": [
           "node",
-          "maturity"
+          "maturity",
+          "edge"
         ]
       }
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1942,
+    "datePrecision": "exact",
+    "region": "Austria, Scotland, and global clinical ultrasound centers",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "electronics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electronics provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Clinical ultrasound systems depend on electronic transmission, reception, display, and later microchip-enabled signal handling.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
+            "title": "The History of Ultrasound",
+            "url": "https://www.bmus.org/for-patients/history-of-ultrasound/",
+            "publisher": "British Medical Ultrasound Society",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -22192,19 +22358,19 @@
         ]
       },
       {
-        "prerequisite": "x_ray_imaging",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "piezoelectric_ultrasonic_transducers",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Medical ultrasound requires ultrasonic transduction to generate and receive sound pulses, not ionizing X-ray imaging.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "150th Anniversary of the Father of Modern Ultrasound",
+            "url": "https://www.ipem.ac.uk/news/150th-anniversary-of-the-father-of-modern-ultrasound/",
+            "publisher": "Institute of Physics and Engineering in Medicine",
+            "year": 2023,
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -22214,19 +22380,19 @@
         ]
       },
       {
-        "prerequisite": "hospital_information_systems",
+        "prerequisite": "medicine_clinical",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Medical ultrasound emerged through clinical diagnostic investigation and interpretation, not from hospital information-system infrastructure.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
+            "title": "The History of Ultrasound",
+            "url": "https://www.bmus.org/for-patients/history-of-ultrasound/",
+            "publisher": "British Medical Ultrasound Society",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -22366,9 +22532,9 @@
     "era": "Modern",
     "description": "Medical imaging based on nuclear magnetic resonance, magnets, radio signals, computers, and clinical reconstruction.",
     "prerequisites": [
-      "computerized_tomography_ct_mri",
-      "electronics",
-      "hospital_information_systems"
+      "nuclear_magnetic_resonance",
+      "computers_early",
+      "digital_signal_processing"
     ],
     "fields": [
       "Medical Imaging & Diagnostics"
@@ -22379,8 +22545,8 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "The Nobel Prize in Physiology or Medicine 2003",
-        "url": "https://www.nobelprize.org/prizes/medicine/2003/summary/",
+        "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+        "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
         "publisher": "Nobel Prize",
         "year": 2003,
         "source_type": "museum",
@@ -22401,22 +22567,22 @@
         ]
       }
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1973,
+    "datePrecision": "exact",
+    "region": "United States, United Kingdom, and global clinical imaging",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "computerized_tomography_ct_mri",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Computerized Tomography (CT/MRI) provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "nuclear_magnetic_resonance",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "MRI is an imaging application of nuclear magnetic resonance using magnetic fields and radio-frequency signals.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Nobel Prize in Physiology or Medicine 2003",
-            "url": "https://www.nobelprize.org/prizes/medicine/2003/summary/",
+            "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
             "publisher": "Nobel Prize",
             "year": 2003,
             "source_type": "museum",
@@ -22429,16 +22595,16 @@
         ]
       },
       {
-        "prerequisite": "electronics",
+        "prerequisite": "computers_early",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electronics provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "MRI image formation depends on computational reconstruction of spatially encoded NMR signals.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Nobel Prize in Physiology or Medicine 2003",
-            "url": "https://www.nobelprize.org/prizes/medicine/2003/summary/",
+            "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
             "publisher": "Nobel Prize",
             "year": 2003,
             "source_type": "museum",
@@ -22451,16 +22617,16 @@
         ]
       },
       {
-        "prerequisite": "hospital_information_systems",
+        "prerequisite": "digital_signal_processing",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Signal processing and mathematical reconstruction turn MRI radio-frequency measurements into spatial images.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Nobel Prize in Physiology or Medicine 2003",
-            "url": "https://www.nobelprize.org/prizes/medicine/2003/summary/",
+            "title": "The Nobel Prize in Physiology or Medicine 2003 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/2003/press-release/",
             "publisher": "Nobel Prize",
             "year": 2003,
             "source_type": "museum",
@@ -32582,36 +32748,37 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Medical Imaging",
-        "url": "https://www.fda.gov/medical-imaging",
-        "publisher": "U.S. Food and Drug Administration",
-        "year": 2026,
-        "source_type": "official_agency",
+        "title": "The Nobel Prize in Physiology or Medicine 1979 - Press Release",
+        "url": "https://www.nobelprize.org/prizes/medicine/1979/press-release/",
+        "publisher": "Nobel Prize",
+        "year": 1979,
+        "source_type": "museum",
         "supports": [
           "node",
-          "maturity"
+          "maturity",
+          "edge"
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1971,
+    "datePrecision": "exact",
+    "region": "United Kingdom, United States, and global radiology",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "x_ray_imaging",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "CT reconstructs cross-sectional body images from many X-ray attenuation measurements.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "The Nobel Prize in Physiology or Medicine 1979 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/1979/press-release/",
+            "publisher": "Nobel Prize",
+            "year": 1979,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -32622,18 +32789,18 @@
       },
       {
         "prerequisite": "computers_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Practical CT required enough computer capacity to reconstruct images from multiple X-ray measurements.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "The Nobel Prize in Physiology or Medicine 1979 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/1979/press-release/",
+            "publisher": "Nobel Prize",
+            "year": 1979,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -32645,17 +32812,17 @@
       {
         "prerequisite": "digital_signal_processing",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "CT image formation depends on algorithmic reconstruction and numerical processing of projection measurements.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "The Nobel Prize in Physiology or Medicine 1979 - Press Release",
+            "url": "https://www.nobelprize.org/prizes/medicine/1979/press-release/",
+            "publisher": "Nobel Prize",
+            "year": 1979,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -32879,7 +33046,7 @@
     "description": "Functional imaging method that detects coincident gamma rays from positron-emitting tracers to map metabolism and physiology.",
     "prerequisites": [
       "nuclear_medicine_imaging",
-      "computed_tomography_ct",
+      "particle_accelerators",
       "digital_signal_processing"
     ],
     "fields": [
@@ -32891,14 +33058,15 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Medical Imaging",
-        "url": "https://www.fda.gov/medical-imaging",
-        "publisher": "U.S. Food and Drug Administration",
-        "year": 2026,
-        "source_type": "official_agency",
+        "title": "Positron Emission Tomography",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK232475/",
+        "publisher": "National Academies Press / NCBI Bookshelf",
+        "year": 1996,
+        "source_type": "textbook",
         "supports": [
           "node",
-          "maturity"
+          "maturity",
+          "edge"
         ]
       }
     ],
@@ -32916,11 +33084,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "Positron Emission Tomography",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK232475/",
+            "publisher": "National Academies Press / NCBI Bookshelf",
+            "year": 1996,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
@@ -32930,19 +33098,19 @@
         ]
       },
       {
-        "prerequisite": "computed_tomography_ct",
+        "prerequisite": "particle_accelerators",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Computed Tomography (CT) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "PET depends on positron-emitting radionuclides, many of which are produced using particle accelerators or cyclotrons.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "Positron Emission Tomography",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK232475/",
+            "publisher": "National Academies Press / NCBI Bookshelf",
+            "year": 1996,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
@@ -32960,11 +33128,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Medical Imaging",
-            "url": "https://www.fda.gov/medical-imaging",
-            "publisher": "U.S. Food and Drug Administration",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "Positron Emission Tomography",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK232475/",
+            "publisher": "National Academies Press / NCBI Bookshelf",
+            "year": 1996,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",

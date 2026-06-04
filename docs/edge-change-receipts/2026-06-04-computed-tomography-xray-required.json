@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-computed-tomography-xray-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "computed_tomography_ct",
+    "prerequisite": "x_ray_imaging"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "CT reconstructs cross-sectional body images from many X-ray attenuation measurements."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/1979/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Nobel 1979 press-release description of computerized transverse axial tomography using X-ray measurements.",
+    "source_claim_summary": "The source describes computed tomography as reconstructing internal cross sections from many X-ray measurements made around the body.",
+    "source_support_rationale": "This supports a required edge because X-ray attenuation measurements are the physical input for the scoped CT imaging modality."
+  },
+  "ontology_before": "The graph treated X-ray imaging as a soft enabler for CT, which understated CT's dependence on X-ray measurements.",
+  "ontology_after": "CT now has X-ray imaging as the hard modality foundation, while computers and DSP remain reconstruction enablers.",
+  "invariant_preserved_or_changed": "Changed: CT's X-ray edge is required rather than a generic enabling edge.",
+  "would_reject_if": [
+    "The node were broadened to include non-X-ray tomography such as MRI or ultrasound tomography.",
+    "A source showed ordinary computed tomography does not require X-ray attenuation measurements.",
+    "The graph removed computing and reconstruction context while strengthening the X-ray edge."
+  ],
+  "short_reason": "Medical CT is an X-ray tomography modality, so X-ray imaging is a hard method dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
