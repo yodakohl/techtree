@@ -1,0 +1,74 @@
+{
+  "id": "2026-06-04-endoscopy-laparoscopy-surgical-robotics-audit",
+  "description": "Adversarial invariant for the manual video-endoscopy, laparoscopic-surgery, and surgical-robotics audit: procedure/device nodes should stay anchored to source-backed method edges rather than hospital IT.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "endoscopy_video_systems",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are not a video-endoscope device component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "endoscopy_video_systems",
+      "prerequisite": "digital_photography_ccd_cmos_sensors",
+      "expected": "required",
+      "reason": "Video endoscopy requires electronic image-sensor capture."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "endoscopy_video_systems",
+      "prerequisite": "fiber_optics",
+      "expected": "enabling",
+      "reason": "Fiberoptic endoscopy is predecessor/enabling context, not the electronic sensor itself."
+    },
+    {
+      "type": "first_known_date",
+      "node": "endoscopy_video_systems",
+      "operator": "eq",
+      "value": 1983,
+      "reason": "Video endoscopy should stay anchored to the 1983 first video endoscope chronology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "laparoscopic_surgery",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are not part of laparoscopic operative technique."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "laparoscopic_surgery",
+      "prerequisite": "endoscopy_video_systems",
+      "expected": "required",
+      "reason": "Modern laparoscopic surgery requires endoscopic operative visualization."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "laparoscopic_surgery",
+      "prerequisite": "aseptic_surgery",
+      "expected": "enabling",
+      "reason": "Aseptic surgery is clinical practice context rather than the video laparoscope component."
+    },
+    {
+      "type": "first_known_date",
+      "node": "laparoscopic_surgery",
+      "operator": "eq",
+      "value": 1985,
+      "reason": "Modern laparoscopic surgery should stay anchored to the 1985 first laparoscopic cholecystectomy."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surgical_robotics",
+      "prerequisite": "laparoscopic_surgery",
+      "expected": "enabling",
+      "reason": "Laparoscopy is deployment context for surgical robotics, not a hard prerequisite for all surgical robots."
+    },
+    {
+      "type": "first_known_date",
+      "node": "surgical_robotics",
+      "operator": "eq",
+      "value": 1985,
+      "reason": "Surgical robotics should stay anchored to the 1985 PUMA 560 robot-assisted surgery chronology."
+    }
+  ]
+}

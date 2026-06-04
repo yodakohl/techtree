@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-endoscopy-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "endoscopy_video_systems",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from endoscopy_video_systems to hospital_information_systems; video endoscope architecture depends on optics and image sensors, not hospital IT.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7754801/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Review history section on fiberoptic endoscopy and the first video endoscope.",
+    "source_claim_summary": "The review explains video endoscopy through miniaturized CCDs and prior flexible endoscopes, without making hospital information systems part of the device.",
+    "source_support_rationale": "This refutes HIS as a direct prerequisite because the relevant device mechanism is electronic image capture in an endoscope, not clinical records or hospital workflow software."
+  },
+  "ontology_before": "Video endoscopy depended on hospital information systems, mixing device architecture with later clinical workflow infrastructure.",
+  "ontology_after": "Video endoscopy is modeled through fiberoptic predecessor context and electronic image-sensor capture.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct video-endoscopy prerequisite.",
+  "would_reject_if": [
+    "The node were re-scoped to endoscopy reporting software rather than video endoscopy systems.",
+    "A source showed the video endoscope device itself requires hospital information-system infrastructure.",
+    "Removing HIS also removed the electronic image-sensor foundation."
+  ],
+  "short_reason": "Hospital information systems are not a video-endoscope component.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

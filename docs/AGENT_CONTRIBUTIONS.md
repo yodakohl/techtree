@@ -160,6 +160,39 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-04: Endoscopy, laparoscopy, and surgical-robotics sample audit
+
+- Manual sample audit: video endoscopy and laparoscopic surgery were inspected
+  because both still had generated dates and direct dependencies on
+  `hospital_information_systems`. Surgical robotics was checked as a downstream
+  node because its date and laparoscopy edge became temporally inconsistent once
+  laparoscopy was corrected.
+- Old claim: `endoscopy_video_systems` used a generated 1970 decade date and
+  depended on `hospital_information_systems`. `laparoscopic_surgery` used a
+  generated 1970 date and also depended on `hospital_information_systems`.
+  `surgical_robotics` used a generated 1983 date while depending on
+  laparoscopy.
+- Corrected claim: video endoscopy is anchored to the 1983 first video endoscope
+  chronology, with CCD/CMOS image sensors required and fiberoptic endoscopy as
+  enabling predecessor context. Laparoscopic surgery is anchored to the 1985
+  first laparoscopic cholecystectomy, with endoscopic visualization required and
+  aseptic surgery as clinical context. Surgical robotics is anchored to the
+  1985 PUMA 560 robot-assisted surgery chronology while keeping laparoscopy as
+  an enabling deployment context, not a hard prerequisite for the whole field.
+  Hospital information systems were removed from the device/procedure nodes.
+- Sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC7754801/
+  - https://artsci.case.edu/dittrick/online-exhibits/explore-the-artifacts/hirschowitz-fiberoptic-endoscope-1960/
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC3015420/
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC10445506/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 30000 --concurrency 2`
+
 ### 2026-06-04: Dialysis and radiotherapy device sample audit
 
 - Manual sample audit: dialysis machines and medical linear accelerators were

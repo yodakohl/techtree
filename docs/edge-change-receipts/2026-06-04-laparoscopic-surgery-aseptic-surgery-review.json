@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-laparoscopic-surgery-aseptic-surgery-review",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "laparoscopic_surgery",
+    "prerequisite": "aseptic_surgery"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Aseptic Surgery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.76,
+    "note": "Laparoscopic operations are surgical procedures performed under sterile operating-room practice; asepsis is clinical context rather than hospital IT."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3015420/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "JSLS history article describing laparoscopic cholecystectomy as an operative surgical procedure with specialized instruments.",
+    "source_claim_summary": "The article discusses laparoscopic cholecystectomy as a surgical operation and traces the instruments and courses that supported clinical adoption.",
+    "source_support_rationale": "This supports aseptic surgery as clinical context because the node is an operative procedure; it does not support replacing surgical practice with hospital IT."
+  },
+  "ontology_before": "The aseptic-surgery edge was an unsourced generic enabling claim.",
+  "ontology_after": "Aseptic surgery remains enabling clinical context for laparoscopic operations and is separated from hospital information infrastructure.",
+  "invariant_preserved_or_changed": "Preserved: aseptic surgery remains an enabling edge.",
+  "would_reject_if": [
+    "The node were narrowed to simulator-only laparoscopic training outside patient operations.",
+    "A source showed laparoscopic surgery is not an operative clinical procedure.",
+    "The edge were upgraded to required in a way that over-modeled sterile practice as a device component."
+  ],
+  "short_reason": "Laparoscopy is surgery, so aseptic surgical practice remains relevant context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

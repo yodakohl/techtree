@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-surgical-robotics-laparoscopy-review",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "surgical_robotics",
+    "prerequisite": "laparoscopic_surgery"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Laparoscopic Surgery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.72,
+    "note": "Laparoscopic minimally invasive surgery became an important deployment context for teleoperated surgical robots, although the earliest robotic surgery was CT-guided neurosurgery."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10445506/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Robotic surgery review sections on PUMA 560, teleoperation, and later minimally invasive robotic systems.",
+    "source_claim_summary": "The review anchors robotic surgery to PUMA 560 in 1985 and describes subsequent robotic systems for laparoscopic and minimally invasive surgical procedures.",
+    "source_support_rationale": "This supports an enabling laparoscopy edge while avoiding a hard prerequisite claim because the first robotic surgery was neurosurgical rather than laparoscopic."
+  },
+  "ontology_before": "Surgical robotics used a generic laparoscopy edge and a placeholder 1983 date.",
+  "ontology_after": "Surgical robotics is anchored to 1985 robot-assisted neurosurgery while keeping laparoscopy as later deployment context for minimally invasive robotic systems.",
+  "invariant_preserved_or_changed": "Preserved: surgical robotics remains connected to laparoscopy, but only as an enabling deployment context.",
+  "would_reject_if": [
+    "The node were narrowed to da Vinci-style laparoscopic teleoperation only.",
+    "A source showed the first surgical robot was a laparoscopic system rather than PUMA 560 neurosurgery.",
+    "The edge were upgraded to required and made all surgical robotics depend on laparoscopy."
+  ],
+  "short_reason": "Laparoscopy matters for surgical robotics deployment but is not the origin of the whole field.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

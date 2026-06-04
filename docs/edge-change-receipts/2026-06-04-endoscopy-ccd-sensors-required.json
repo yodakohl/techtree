@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-endoscopy-ccd-sensors-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "endoscopy_video_systems",
+    "prerequisite": "digital_photography_ccd_cmos_sensors"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Digital Photography (CCD/CMOS Sensors) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.88,
+    "note": "The first video endoscopes depended on miniaturized CCD image sensors that converted the distal optical image into an electronic video signal."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7754801/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Review history section discussing miniaturized charge-coupled devices and the first video endoscope.",
+    "source_claim_summary": "The review states that miniaturization of a charged-coupled device allowed Welch Allyn to release the first video endoscope in 1983.",
+    "source_support_rationale": "This supports a required CCD-sensor edge because the electronic sensor is the mechanism that makes the endoscope a video endoscope rather than a purely optical fiberscope."
+  },
+  "ontology_before": "Video endoscopy treated CCD/CMOS image sensors as a generic enabler.",
+  "ontology_after": "Video endoscopy now treats electronic image sensors as the required video-capture component.",
+  "invariant_preserved_or_changed": "Changed: the CCD/CMOS sensor edge is required.",
+  "would_reject_if": [
+    "The node were re-scoped to all flexible fiberoptic endoscopy rather than video endoscopy systems.",
+    "A source showed the first video endoscopes did not use electronic image sensors.",
+    "The graph removed the fiber-optic predecessor context while strengthening the sensor edge."
+  ],
+  "short_reason": "Video endoscopy requires an electronic image sensor, not merely generic photography context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

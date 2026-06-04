@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-endoscopy-fiber-optics-review",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "endoscopy_video_systems",
+    "prerequisite": "fiber_optics"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Fiber Optics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Flexible fiber-optic endoscopy was the clinical optical platform that preceded and enabled electronic video endoscopy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://artsci.case.edu/dittrick/online-exhibits/explore-the-artifacts/hirschowitz-fiberoptic-endoscope-1960/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Dittrick Medical History Center artifact page for the Hirschowitz fiberoptic endoscope.",
+    "source_claim_summary": "The museum page describes practical fiberoptic endoscopy beginning in 1957 and the 1960 Hirschowitz fiberoptic endoscope artifact.",
+    "source_support_rationale": "This supports the edge as an evidence upgrade because video endoscopy inherited the flexible clinical optical platform before adding electronic image sensors."
+  },
+  "ontology_before": "The fiber-optics edge was an unsourced generic enabling claim.",
+  "ontology_after": "Fiber optics remains an enabling predecessor platform for video endoscopy with source-checked historical support.",
+  "invariant_preserved_or_changed": "Preserved: fiber optics remains an enabling endoscopy predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to capsule cameras that do not inherit flexible endoscope optics.",
+    "A source showed video endoscopy developed independently of prior fiberoptic endoscopy practice.",
+    "The edge were upgraded to required and confused predecessor platform with the electronic video component."
+  ],
+  "short_reason": "Fiberoptic endoscopy is source-backed predecessor context for video endoscopy.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

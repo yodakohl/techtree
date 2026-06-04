@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-laparoscopic-surgery-endoscopy-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "laparoscopic_surgery",
+    "prerequisite": "endoscopy_video_systems"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Video Endoscopy Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.86,
+    "note": "Modern laparoscopic surgery requires an endoscopic visual system so surgeons can operate through small ports while viewing the operative field."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3015420/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "JSLS history article sections on basic laparoscopic cholecystectomy instruments and early procedures.",
+    "source_claim_summary": "The article identifies the laparoscope as one of the three most important basic instruments in the first laparoscopic cholecystectomy and describes later spread through endoscopic technology and training.",
+    "source_support_rationale": "This supports a required endoscopic-visual-system edge because operating through small ports depends on a laparoscope or equivalent endoscopic video view."
+  },
+  "ontology_before": "Laparoscopic surgery treated video endoscopy as a generic enabler.",
+  "ontology_after": "Modern laparoscopic surgery now treats endoscopic visualization as a hard method dependency.",
+  "invariant_preserved_or_changed": "Changed: laparoscopic surgery's endoscopy edge is required.",
+  "would_reject_if": [
+    "The node were re-scoped to non-video diagnostic laparoscopy rather than modern laparoscopic surgery.",
+    "A source showed modern laparoscopic operations can be performed without an endoscopic visual system.",
+    "The graph removed aseptic surgery context while making visualization required."
+  ],
+  "short_reason": "Laparoscopic surgery requires endoscopic visualization of the operative field.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
