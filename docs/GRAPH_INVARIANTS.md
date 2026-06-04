@@ -32,3 +32,12 @@ Good candidates for new invariant files are receipt-backed corrections that
 removed or reversed a dependency edge. Preserve both sides of the intended
 meaning: add at least one negative check for the false edge or path and one
 positive check for the true nearby path that should remain.
+
+Receipt-backed topology and semantic changes are tracked by:
+
+```bash
+npm run invariant-coverage
+```
+
+That audit fails when a removed edge, replaced edge, or semantic edge retype in
+`docs/edge-change-receipts/` lacks a matching graph invariant.

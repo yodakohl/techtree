@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-01-energy-and-rocketry-removals",
+  "description": "Adversarial invariant for issue #64 and #62 removals: avoid reintroducing broad application dependencies as hard prerequisites.",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/64",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "green_hydrogen",
+      "prerequisite": "grid_scale_battery_storage",
+      "reason": "Green hydrogen does not require grid-scale battery storage as a method prerequisite."
+    },
+    {
+      "type": "path_present",
+      "from": "renewable_energy_systems",
+      "to": "green_hydrogen",
+      "reason": "Green hydrogen should remain connected to renewable energy systems as the relevant energy-source context."
+    },
+    {
+      "type": "path_present",
+      "from": "green_hydrogen",
+      "to": "electrolyzer_manufacturing",
+      "reason": "Green hydrogen should remain upstream of electrolyzer-manufacturing scale-up as a positive control."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "rocketry",
+      "prerequisite": "jet_engine",
+      "reason": "Rocketry predates jet engines and should not depend on the later aviation engine category."
+    },
+    {
+      "type": "path_present",
+      "from": "rocketry",
+      "to": "liquid_fuel_rockets",
+      "reason": "Rocketry should remain upstream of narrower liquid-fuel rocket technology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "rocketry",
+      "operator": "eq",
+      "value": 1926,
+      "reason": "Rocketry should remain earlier than jet engines in the current scoped chronology."
+    }
+  ]
+}

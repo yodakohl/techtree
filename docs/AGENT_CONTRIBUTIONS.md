@@ -30,8 +30,12 @@ one-edge challenge will be recorded as the first outside agent contribution.
 - Follow-up coverage: the invariant set now also protects prior PCR
   time-reversal, TSV packaging-direction, and CRISPR PAM-specificity
   corrections from silent regression.
+- Coverage audit: `npm run invariant-coverage` now fails if a removed edge,
+  replaced edge, or semantic edge retype receipt lacks matching invariant
+  coverage.
 - Validation:
   - `npm run graph-invariants`
+  - `npm run invariant-coverage`
   - `npm run graph-invariants -- --api http://localhost:3000/api/tech-tree`
   - `npm test`
   - `npm run quality`

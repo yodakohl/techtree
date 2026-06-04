@@ -1,0 +1,64 @@
+{
+  "id": "2026-05-31-crispr-edge-semantics",
+  "description": "Adversarial invariant for CRISPR/gene-engineering semantic retypes: keep lineage edges separate from hard component dependencies.",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/45",
+  "moltbook_thread": "https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "base_editing",
+      "prerequisite": "crispr_gene_editing",
+      "expected": "historical_predecessor",
+      "reason": "Base editing descends from CRISPR-Cas9 editing but does not require double-strand-break CRISPR-Cas9 editing as the workflow component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "base_editing",
+      "prerequisite": "cas9_programmable_nuclease",
+      "expected": "required",
+      "reason": "The hard base-editing component dependency remains on programmable Cas9 targeting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "cas9_programmable_nuclease",
+      "prerequisite": "protein_engineering",
+      "expected": "enabling",
+      "reason": "Protein engineering enables programmable Cas9 use without being modeled as the only historical prerequisite for Cas9 nuclease discovery."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "crispr_gene_editing",
+      "prerequisite": "genetic_engineering",
+      "expected": "historical_predecessor",
+      "reason": "Prior genetic engineering is historical context for CRISPR-Cas9 editing, not the direct molecular component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "genetic_engineering",
+      "prerequisite": "recombinant_dna_genetic_engineering",
+      "expected": "historical_predecessor",
+      "reason": "Recombinant DNA is the historical predecessor of later genetic-engineering platforms."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "synthetic_biology",
+      "prerequisite": "genetic_engineering",
+      "expected": "enabling",
+      "reason": "Genetic engineering enables synthetic biology while DNA synthesis and systems biology carry other parts of the scoped dependency."
+    },
+    {
+      "type": "first_known_date",
+      "node": "base_editing",
+      "operator": "eq",
+      "value": 2016,
+      "reason": "The base-editing node should remain later than CRISPR-Cas9 genome editing."
+    },
+    {
+      "type": "first_known_date",
+      "node": "cas9_programmable_nuclease",
+      "operator": "eq",
+      "value": 2012,
+      "reason": "Programmable Cas9 should remain anchored to the source-backed 2012 date."
+    }
+  ]
+}

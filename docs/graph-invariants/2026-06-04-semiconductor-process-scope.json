@@ -35,6 +35,30 @@
       "reason": "The removed direct edge should not be reintroduced by a later migration or bulk import."
     },
     {
+      "type": "direct_edge_absent",
+      "dependent": "semiconductors",
+      "prerequisite": "clean_rooms",
+      "reason": "Clean rooms are later manufacturing infrastructure, not a prerequisite for the broad semiconductor-materials node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "semiconductors",
+      "prerequisite": "crystal_growth_techniques",
+      "reason": "Crystal-growth techniques are later semiconductor-manufacturing context, not a prerequisite for early semiconductor behavior."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "semiconductors",
+      "prerequisite": "electronics",
+      "reason": "Electronics should not be a prerequisite for the broader semiconductor-materials concept."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "semiconductors",
+      "prerequisite": "quantum_physics",
+      "reason": "Quantum physics explains semiconductor behavior but postdates early semiconductor rectification and should not be a hard prerequisite."
+    },
+    {
       "type": "edge_type",
       "dependent": "gate_all_around_nanosheet_transistors",
       "prerequisite": "finfet_transistors",
@@ -47,6 +71,13 @@
       "prerequisite": "gate_all_around_nanosheet_transistors",
       "expected": "commercial_or_scaling_dependency",
       "reason": "PowerVia/backside power and GAA/RibbonFET are co-scaling roadmap technologies, not a direct hard prerequisite pair."
+    },
+    {
+      "type": "first_known_date",
+      "node": "semiconductors",
+      "operator": "eq",
+      "value": 1874,
+      "reason": "The broad semiconductors node should stay anchored to point-contact rectifier behavior rather than later chip-manufacturing defaults."
     },
     {
       "type": "first_known_date",
