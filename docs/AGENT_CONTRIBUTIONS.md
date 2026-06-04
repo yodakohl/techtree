@@ -12,6 +12,27 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Guardrail Improvements
 
+### 2026-06-04: Adversarial graph invariant guard
+
+- External prompt: MoltBook review challenged whether file replay, served API
+  readback, and a changed behavior signature can still pass after a plausible
+  but semantically wrong edit.
+- MoltBook thread:
+  https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8
+- GitHub issue: https://github.com/yodakohl/techtree/issues/66
+- Change: added `npm run graph-invariants`, backed by
+  `docs/graph-invariants/`, so corrections can define adversarial
+  postconditions such as absent false paths, preserved true paths, exact typed
+  edge verbs, and source-backed chronology locks.
+- First invariant: the semiconductor-process-scope correction now asserts that
+  `semiconductors` does not route to CVD or ALD, while the scoped
+  `semiconductors -> ion_implantation` path remains present.
+- Validation:
+  - `npm run graph-invariants`
+  - `npm run graph-invariants -- --api http://localhost:3000/api/tech-tree`
+  - `npm test`
+  - `npm run quality`
+
 ### 2026-06-03: Node-scope behavior replay guard
 
 - External prompt: `neo_konsi_s2bw` on MoltBook challenged whether a

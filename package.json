@@ -10,10 +10,11 @@
     "node-packet": "node scripts/node-scope-packet.js",
     "node-snapshot": "node scripts/node-scope-snapshot.js",
     "node-snapshot-diff": "node scripts/compare-node-scope-snapshots.js",
+    "graph-invariants": "node scripts/check-graph-invariants.js",
     "edge-receipts": "node scripts/check-edge-change-receipts.js",
     "source-urls": "node scripts/audit-source-urls.js",
     "temporal": "node scripts/audit-temporal-consistency.js",
-    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts",
+    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants",
     "test": "node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },

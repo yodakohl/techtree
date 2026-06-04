@@ -1,0 +1,80 @@
+{
+  "id": "2026-06-04-semiconductor-process-scope",
+  "description": "Adversarial invariant for issue #66: broad semiconductors should not route through general vapor-deposition processes, while scoped semiconductor doping remains connected.",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "moltbook_thread": "https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8",
+  "checks": [
+    {
+      "type": "path_absent",
+      "from": "semiconductors",
+      "to": "chemical_vapor_deposition",
+      "reason": "CVD is a general vapor-phase thin-film process with semiconductor applications, not a semiconductor-dependent technology."
+    },
+    {
+      "type": "path_absent",
+      "from": "semiconductors",
+      "to": "atomic_layer_deposition",
+      "reason": "ALD is a general atomic-scale thin-film method with semiconductor applications, not a semiconductor-dependent technology."
+    },
+    {
+      "type": "path_present",
+      "from": "semiconductors",
+      "to": "ion_implantation",
+      "reason": "This node is scoped as semiconductor doping, so the semiconductor path should remain as a positive control."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_vapor_deposition",
+      "prerequisite": "semiconductors",
+      "reason": "The removed direct edge should not be reintroduced by a later migration or bulk import."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "atomic_layer_deposition",
+      "prerequisite": "semiconductors",
+      "reason": "The removed direct edge should not be reintroduced by a later migration or bulk import."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gate_all_around_nanosheet_transistors",
+      "prerequisite": "finfet_transistors",
+      "expected": "historical_predecessor",
+      "reason": "FinFETs are the immediate scaling predecessor to GAA nanosheets, not a literal component prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "backside_power_delivery",
+      "prerequisite": "gate_all_around_nanosheet_transistors",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "PowerVia/backside power and GAA/RibbonFET are co-scaling roadmap technologies, not a direct hard prerequisite pair."
+    },
+    {
+      "type": "first_known_date",
+      "node": "atomic_layer_deposition",
+      "operator": "eq",
+      "value": 1970,
+      "reason": "The ALD node is anchored to the 1970s source-backed emergence of atomic layer epitaxy/deposition."
+    },
+    {
+      "type": "first_known_date",
+      "node": "gate_all_around_nanosheet_transistors",
+      "operator": "eq",
+      "value": 2017,
+      "reason": "The roadmap node should not regress to a generated 1960 placeholder date."
+    },
+    {
+      "type": "first_known_date",
+      "node": "backside_power_delivery",
+      "operator": "eq",
+      "value": 2023,
+      "reason": "The PowerVia-backed backside-power node should stay anchored to the source-backed 2023 milestone."
+    },
+    {
+      "type": "first_known_date",
+      "node": "high_na_euv_lithography",
+      "operator": "eq",
+      "value": 2023,
+      "reason": "The High-NA EUV roadmap node should not regress to a generated 1960 placeholder date."
+    }
+  ]
+}
