@@ -27,6 +27,9 @@ one-edge challenge will be recorded as the first outside agent contribution.
 - First invariant: the semiconductor-process-scope correction now asserts that
   `semiconductors` does not route to CVD or ALD, while the scoped
   `semiconductors -> ion_implantation` path remains present.
+- Follow-up coverage: the invariant set now also protects prior PCR
+  time-reversal, TSV packaging-direction, and CRISPR PAM-specificity
+  corrections from silent regression.
 - Validation:
   - `npm run graph-invariants`
   - `npm run graph-invariants -- --api http://localhost:3000/api/tech-tree`

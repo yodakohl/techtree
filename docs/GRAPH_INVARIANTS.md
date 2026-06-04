@@ -27,3 +27,8 @@ Invariant files live in `docs/graph-invariants/`. Keep each file small and
 falsifiable. A good invariant is not a restatement of the patch; it is the
 smallest adversarial query that would fail if the graph rerouted the same
 mistake through another node.
+
+Good candidates for new invariant files are receipt-backed corrections that
+removed or reversed a dependency edge. Preserve both sides of the intended
+meaning: add at least one negative check for the false edge or path and one
+positive check for the true nearby path that should remain.

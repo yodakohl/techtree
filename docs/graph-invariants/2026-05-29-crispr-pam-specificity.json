@@ -1,0 +1,47 @@
+{
+  "id": "2026-05-29-crispr-pam-specificity",
+  "description": "Adversarial invariant for issue #54: ordinary CRISPR-Cas9 editing requires PAM compatibility, not later engineered PAM-specificity variants.",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/54",
+  "moltbook_thread": "https://www.moltbook.com/post/9826aa03-c768-4589-b701-f182bf620fa6",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "crispr_gene_editing",
+      "prerequisite": "pam_specificity_engineering",
+      "reason": "Engineered PAM-specificity variants are later optimizations, not prerequisites for ordinary CRISPR-Cas9 genome editing."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "crispr_gene_editing",
+      "prerequisite": "pam_recognition_constraint",
+      "reason": "CRISPR-Cas9 editing must retain the basic PAM compatibility constraint."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "crispr_gene_editing",
+      "prerequisite": "pam_recognition_constraint",
+      "expected": "required",
+      "reason": "PAM compatibility is a hard Cas9 target-recognition dependency."
+    },
+    {
+      "type": "path_present",
+      "from": "crispr_gene_editing",
+      "to": "pam_specificity_engineering",
+      "reason": "Engineered PAM variants should remain downstream of ordinary CRISPR-Cas9 editing."
+    },
+    {
+      "type": "first_known_date",
+      "node": "crispr_gene_editing",
+      "operator": "eq",
+      "value": 2013,
+      "reason": "CRISPR-Cas9 genome editing should remain earlier than engineered PAM variants."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pam_specificity_engineering",
+      "operator": "eq",
+      "value": 2015,
+      "reason": "Engineered PAM-specificity variants should remain a later optimization node."
+    }
+  ]
+}

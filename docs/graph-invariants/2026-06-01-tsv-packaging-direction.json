@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-01-tsv-packaging-direction",
+  "description": "Adversarial invariant for issue #65: through-silicon vias should enable advanced packaging, not depend on the broad packaging category.",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/65",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "through_silicon_vias",
+      "prerequisite": "advanced_semiconductor_packaging_2_5d_3d",
+      "reason": "TSV fabrication must not depend on the broad advanced-packaging application category."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advanced_semiconductor_packaging_2_5d_3d",
+      "prerequisite": "through_silicon_vias",
+      "reason": "TSVs should remain represented as one enabling route for 2.5D/3D packaging."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_semiconductor_packaging_2_5d_3d",
+      "prerequisite": "through_silicon_vias",
+      "expected": "enabling",
+      "reason": "Broad advanced packaging includes TSV and non-TSV routes, so this should not become a hard required edge."
+    },
+    {
+      "type": "path_present",
+      "from": "photolithography",
+      "to": "through_silicon_vias",
+      "reason": "TSV fabrication should stay grounded in fabrication-process prerequisites."
+    },
+    {
+      "type": "path_present",
+      "from": "through_silicon_vias",
+      "to": "advanced_semiconductor_packaging_2_5d_3d",
+      "reason": "The corrected direction should route from TSV technique toward packaging use."
+    },
+    {
+      "type": "first_known_date",
+      "node": "through_silicon_vias",
+      "operator": "eq",
+      "value": 1980,
+      "reason": "The TSV node should not regress to a generated 1945 default."
+    },
+    {
+      "type": "first_known_date",
+      "node": "advanced_semiconductor_packaging_2_5d_3d",
+      "operator": "eq",
+      "value": 2010,
+      "reason": "The broad 2.5D/3D packaging node should remain later than TSV process development."
+    }
+  ]
+}

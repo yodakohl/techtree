@@ -1,0 +1,60 @@
+{
+  "id": "2026-06-01-pcr-time-reversal",
+  "description": "Adversarial invariant for issue #63: PCR must not become a prerequisite for earlier broad DNA sequencing or recombinant DNA nodes, while PCR-specific workflows remain connected.",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/63",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dna_sequencing",
+      "prerequisite": "pcr_polymerase_chain_reaction",
+      "reason": "Broad DNA sequencing predates PCR and includes non-PCR template routes."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "recombinant_dna_genetic_engineering",
+      "prerequisite": "pcr_polymerase_chain_reaction",
+      "reason": "Recombinant DNA was demonstrated before PCR and should not require a later amplification method."
+    },
+    {
+      "type": "path_present",
+      "from": "pcr_polymerase_chain_reaction",
+      "to": "pcr_diagnostics",
+      "reason": "PCR must remain connected to the PCR-specific diagnostic workflow as a positive control."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pcr_diagnostics",
+      "prerequisite": "pcr_polymerase_chain_reaction",
+      "expected": "required",
+      "reason": "PCR diagnostics is the narrow workflow where PCR is a hard method dependency."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "molecular_diagnostics",
+      "prerequisite": "pcr_polymerase_chain_reaction",
+      "expected": "enabling",
+      "reason": "PCR is an important molecular-diagnostics enabler without becoming a prerequisite for all DNA sequencing."
+    },
+    {
+      "type": "first_known_date",
+      "node": "recombinant_dna_genetic_engineering",
+      "operator": "eq",
+      "value": 1973,
+      "reason": "The recombinant DNA node must remain earlier than PCR."
+    },
+    {
+      "type": "first_known_date",
+      "node": "dna_sequencing",
+      "operator": "eq",
+      "value": 1977,
+      "reason": "Broad DNA sequencing must remain earlier than PCR."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pcr_polymerase_chain_reaction",
+      "operator": "eq",
+      "value": 1985,
+      "reason": "PCR should stay anchored to the source-backed 1985 chronology."
+    }
+  ]
+}
