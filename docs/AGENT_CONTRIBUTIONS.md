@@ -160,6 +160,39 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-04: Dialysis and radiotherapy device sample audit
+
+- Manual sample audit: dialysis machines and medical linear accelerators were
+  inspected because both had generated placeholder dates and direct dependencies
+  on `hospital_information_systems`.
+- Old claim: `dialysis_machines` was anchored to a generated 1948 decade date
+  and depended on `laboratory_diagnostic_medicine`,
+  `filters_membranes_early`, and `hospital_information_systems`.
+  `medical_linear_accelerators` was anchored to a generated 1948 date and
+  treated particle accelerators, radiology departments, and hospital information
+  systems as generic enablers.
+- Corrected claim: dialysis machines are anchored to Kolff's 1943 rotating-drum
+  artificial kidney and now depend on membrane separation, pump/flow scaling,
+  and clinical treatment context. The shared early filters/membranes foundation
+  is anchored to Graham's 1861 dialysis membrane work rather than a generated
+  1945 placeholder. Medical linear accelerators are anchored to the 1953
+  Hammersmith therapy-linac patient, with particle acceleration as the required
+  device architecture and radiology departments as clinical deployment context.
+  Hospital information systems were removed from both device nodes.
+- Sources:
+  - https://edren.org/ren/unit/history/the-early-development-of-dialysis-and-transplantation/
+  - https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf
+  - https://homedialysis.org/types/museum/p5
+  - https://museum.aapm.org/exhibit/12-external-beam-radiotherapy/
+  - https://www.bir.org.uk/useful-information/history-of-radiology/1950s/1950s-radiotherapy/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 30000 --concurrency 2`
+
 ### 2026-06-04: IVF and implantable-pacemaker sample audit
 
 - Manual sample audit: IVF and implantable pacemakers were inspected after the

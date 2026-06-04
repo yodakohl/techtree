@@ -1090,16 +1090,16 @@
     "id": "filters_membranes_early",
     "name": "Filters & Membranes (Early)",
     "era": "Modern",
-    "description": "Development of materials and techniques for selective separation of substances, e.g., for water purification or air filtering.",
+    "description": "Development of materials and techniques for selective separation of substances, including dialysis membranes, water purification, and air filtering.",
     "prerequisites": [
       "advanced_chemistry",
       "textiles_weaving",
       "paper_making",
       "scientific_method"
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1861,
+    "datePrecision": "exact",
+    "region": "United Kingdom and later global membrane separation",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -1205,6 +1205,17 @@
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Early Development of Dialysis and Transplantation",
+        "url": "https://edren.org/ren/unit/history/the-early-development-of-dialysis-and-transplantation/",
+        "publisher": "Edinburgh Renal Unit",
+        "year": 2026,
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
@@ -22409,38 +22420,98 @@
     "era": "Modern",
     "description": "Medical devices that filter blood or peritoneal fluid for kidney failure using membranes, pumps, sensors, and sterile workflows.",
     "prerequisites": [
-      "laboratory_diagnostic_medicine",
       "filters_membranes_early",
-      "hospital_information_systems"
+      "pumps",
+      "medicine_clinical"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1943,
+    "datePrecision": "exact",
+    "region": "Netherlands; later global clinical use",
+    "reviewStatus": "source_checked",
+    "sources": [
+      {
+        "title": "The Development of Renal Hemodialysis",
+        "url": "https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf",
+        "publisher": "Nature Medicine / Lasker Foundation",
+        "year": 2002,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Dialysis Machine Museum",
+        "url": "https://homedialysis.org/types/museum/p5",
+        "publisher": "Home Dialysis Central",
+        "year": 2026,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
-        "prerequisite": "laboratory_diagnostic_medicine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Laboratory Diagnostic Medicine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
         "prerequisite": "filters_membranes_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Filters & Membranes (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.91,
+        "evidence_level": "review",
+        "note": "Hemodialysis machines require a semipermeable membrane; Kolff's rotating-drum artificial kidney used cellophane tubing immersed in dialyzing fluid.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Development of Renal Hemodialysis",
+            "url": "https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf",
+            "publisher": "Nature Medicine / Lasker Foundation",
+            "year": 2002,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "hospital_information_systems",
+        "prerequisite": "pumps",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Pumps and motorized flow became device-architecture and scaling dependencies for practical hemodialysis machines beyond the original gravity-fed drum.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Dialysis Machine Museum",
+            "url": "https://homedialysis.org/types/museum/p5",
+            "publisher": "Home Dialysis Central",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "medicine_clinical",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Dialysis machines are clinical renal-failure treatment devices; the 1943 artificial kidney was used to treat patients rather than as a diagnostic lab method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Development of Renal Hemodialysis",
+            "url": "https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf",
+            "publisher": "Nature Medicine / Lasker Foundation",
+            "year": 2002,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -23268,37 +23339,76 @@
     "description": "Hospital radiation therapy machines using particle acceleration, imaging, planning software, and clinical safety systems.",
     "prerequisites": [
       "particle_accelerators",
-      "radiology_departments",
-      "hospital_information_systems"
+      "radiology_departments"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1953,
+    "datePrecision": "exact",
+    "region": "United Kingdom; later global radiotherapy",
+    "reviewStatus": "source_checked",
+    "sources": [
+      {
+        "title": "External Beam Radiotherapy",
+        "url": "https://museum.aapm.org/exhibit/12-external-beam-radiotherapy/",
+        "publisher": "AAPM Virtual Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Radiotherapy in the 1950s",
+        "url": "https://www.bir.org.uk/useful-information/history-of-radiology/1950s/1950s-radiotherapy/",
+        "publisher": "British Institute of Radiology",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
         "prerequisite": "particle_accelerators",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Particle Accelerators provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.91,
+        "evidence_level": "review",
+        "note": "A medical linear accelerator is a clinical radiation-therapy implementation of a linear particle accelerator.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "External Beam Radiotherapy",
+            "url": "https://museum.aapm.org/exhibit/12-external-beam-radiotherapy/",
+            "publisher": "AAPM Virtual Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "radiology_departments",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Radiology Departments provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "hospital_information_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.77,
+        "evidence_level": "review",
+        "note": "The first therapy linac was installed in a hospital radiotherapy unit and used for patient treatment, making clinical radiology infrastructure enabling context.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Radiotherapy in the 1950s",
+            "url": "https://www.bir.org.uk/useful-information/history-of-radiology/1950s/1950s-radiotherapy/",
+            "publisher": "British Institute of Radiology",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-medical-linac-particle-accelerators-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "medical_linear_accelerators",
+    "prerequisite": "particle_accelerators"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Particle Accelerators provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.91,
+    "note": "A medical linear accelerator is a clinical radiation-therapy implementation of a linear particle accelerator."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://museum.aapm.org/exhibit/12-external-beam-radiotherapy/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "AAPM Virtual Museum external-beam radiotherapy exhibit, first therapy linac section.",
+    "source_claim_summary": "The source describes the first therapy linac as an 8 MeV stationary machine built by Metropolitan Vickers, installed at Hammersmith Hospital, and used for the first patient in 1953.",
+    "source_support_rationale": "This supports a required accelerator edge because the medical device is not merely helped by accelerator science; it is a linear accelerator adapted for radiotherapy."
+  },
+  "ontology_before": "Medical linacs treated particle accelerators as a generic enabler.",
+  "ontology_after": "Medical linacs now treat linear particle acceleration as the required device architecture.",
+  "invariant_preserved_or_changed": "Changed: the particle-accelerator edge is required.",
+  "would_reject_if": [
+    "The node were re-scoped to radiotherapy workflow software rather than the treatment machine.",
+    "A source showed medical linacs can exist without linear particle acceleration.",
+    "The graph removed the clinical radiotherapy context while strengthening the accelerator edge."
+  ],
+  "short_reason": "A medical linac is a linear particle accelerator used for radiotherapy.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

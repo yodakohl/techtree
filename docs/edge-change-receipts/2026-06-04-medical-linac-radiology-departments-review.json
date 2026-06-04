@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-medical-linac-radiology-departments-review",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "medical_linear_accelerators",
+    "prerequisite": "radiology_departments"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Radiology Departments provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.77,
+    "note": "The first therapy linac was installed in a hospital radiotherapy unit and used for patient treatment, making clinical radiology infrastructure enabling context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.bir.org.uk/useful-information/history-of-radiology/1950s/1950s-radiotherapy/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "British Institute of Radiology 1950s radiotherapy history section on the Hammersmith 8 MeV linear accelerator.",
+    "source_claim_summary": "The source says the Hammersmith 8 MeV linear accelerator was installed in 1952 as the first hospital installation and was followed by clinical results publications.",
+    "source_support_rationale": "This supports the radiology-department edge as deployment context because the machine entered clinical use through hospital radiotherapy practice, not as a standalone physics laboratory instrument."
+  },
+  "ontology_before": "The radiology-department edge was an unsourced generic enabling claim.",
+  "ontology_after": "The edge remains enabling but is now source-checked against hospital radiotherapy deployment history.",
+  "invariant_preserved_or_changed": "Preserved: radiology departments remain an enabling clinical deployment context.",
+  "would_reject_if": [
+    "The node were scoped only to accelerator hardware outside medical deployment.",
+    "A source showed the first medical linacs were not hospital radiotherapy devices.",
+    "The edge were upgraded to required and confused clinical deployment context with the accelerator component itself."
+  ],
+  "short_reason": "Hospital radiotherapy infrastructure enabled medical linac deployment without being the accelerator mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

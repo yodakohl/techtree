@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-dialysis-membranes-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "dialysis_machines",
+    "prerequisite": "filters_membranes_early"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Filters & Membranes (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.91,
+    "note": "Hemodialysis machines require a semipermeable membrane; Kolff's rotating-drum artificial kidney used cellophane tubing immersed in dialyzing fluid."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Kolff and Scribner Nature Medicine/Lasker commentary, artificial-kidney birth section.",
+    "source_claim_summary": "The source describes urea removal through cellophane tubing, then a rotating-drum artificial kidney with cellophane tubing immersed in dialyzing fluid and used on a patient in 1943.",
+    "source_support_rationale": "This supports a required membrane edge because diffusion across the semipermeable tubing is the separation mechanism that makes hemodialysis work, not merely historical background."
+  },
+  "ontology_before": "Dialysis machines treated early membranes as a loose historical predecessor.",
+  "ontology_after": "Dialysis machines now treat semipermeable filtration membrane capability as the hard separation-method foundation.",
+  "invariant_preserved_or_changed": "Changed: the membrane edge is required rather than a generic historical predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to a non-membrane renal-support method rather than dialysis machines.",
+    "A source showed hemodialysis machines can perform blood purification without a semipermeable separation interface.",
+    "The graph removed clinical treatment context while making membranes required."
+  ],
+  "short_reason": "Hemodialysis is built around membrane separation, so the membrane edge is required.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

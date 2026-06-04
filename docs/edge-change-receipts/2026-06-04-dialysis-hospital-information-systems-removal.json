@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-dialysis-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "dialysis_machines",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from dialysis_machines to hospital_information_systems; dialysis machine architecture and early chronology depend on membranes, fluid flow, and clinical treatment, not hospital IT.",
+  "source_supports_edge": "no",
+  "source_url": "https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Kolff and Scribner account of artificial kidney construction and clinical dialysis history.",
+    "source_claim_summary": "The source describes hemodialysis through cellophane tubing, dialyzing fluid, artificial kidneys, patient treatments, and later access systems without hospital information systems.",
+    "source_support_rationale": "This refutes the HIS edge because the cited device history predates modern hospital IT and explains the working technology through physical dialysis components and clinical care."
+  },
+  "ontology_before": "Dialysis machines depended on hospital information systems, mixing a treatment device with later administration and record infrastructure.",
+  "ontology_after": "Dialysis machines are modeled through membrane separation, pump/flow scaling, and clinical treatment context.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct dialysis-machine prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to modern dialysis-clinic information platforms rather than dialysis machines.",
+    "A source showed the dialysis machine itself requires hospital information-system infrastructure.",
+    "Removing the HIS edge also removed clinical medicine from the node."
+  ],
+  "short_reason": "Hospital information systems are care-administration infrastructure, not a dialysis-machine prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

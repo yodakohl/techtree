@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-medical-linac-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "medical_linear_accelerators",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from medical_linear_accelerators to hospital_information_systems; the treatment machine is grounded in accelerator hardware and radiotherapy practice, not hospital IT.",
+  "source_supports_edge": "no",
+  "source_url": "https://museum.aapm.org/exhibit/12-external-beam-radiotherapy/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "AAPM Virtual Museum first therapy linac chronology.",
+    "source_claim_summary": "The source describes the first therapy linac as an 8 MeV accelerator installed at Hammersmith Hospital and first used on a patient in 1953.",
+    "source_support_rationale": "This refutes HIS as a direct prerequisite because the 1953 treatment chronology and device description involve accelerator and radiotherapy infrastructure, not information systems."
+  },
+  "ontology_before": "Medical linacs depended on hospital information systems, mixing treatment-machine architecture with later administrative and workflow systems.",
+  "ontology_after": "Medical linacs depend on particle acceleration plus radiotherapy clinical deployment context; hospital IT remains outside the direct method edge set.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct medical-linac prerequisite.",
+  "would_reject_if": [
+    "The node were re-scoped to modern radiotherapy information-management systems rather than medical linac machines.",
+    "A source showed the linac hardware itself requires hospital information-system infrastructure.",
+    "Removing HIS also removed the clinical radiotherapy context edge."
+  ],
+  "short_reason": "Hospital information systems are not a medical linac hardware prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

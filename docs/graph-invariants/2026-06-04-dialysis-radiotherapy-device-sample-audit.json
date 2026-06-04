@@ -1,0 +1,80 @@
+{
+  "id": "2026-06-04-dialysis-radiotherapy-device-sample-audit",
+  "description": "Adversarial invariant for the manual dialysis-machine and medical-linear-accelerator audit: therapeutic device nodes must not depend on hospital IT or diagnostic-lab proxies when source-backed method edges exist.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dialysis_machines",
+      "prerequisite": "laboratory_diagnostic_medicine",
+      "reason": "Dialysis machines are therapeutic renal-support devices rather than diagnostic laboratory methods."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dialysis_machines",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are not part of dialysis-machine architecture or the 1943 artificial-kidney method."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dialysis_machines",
+      "prerequisite": "filters_membranes_early",
+      "expected": "required",
+      "reason": "Hemodialysis requires semipermeable membrane separation."
+    },
+    {
+      "type": "first_known_date",
+      "node": "filters_membranes_early",
+      "operator": "eq",
+      "value": 1861,
+      "reason": "The early selective membrane foundation should remain anchored to Graham's 1861 dialysis membrane work rather than a generated 1945 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dialysis_machines",
+      "prerequisite": "pumps",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Pump and flow architecture supports practical dialysis-machine scaling without being the original 1943 gravity-fed separation method."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dialysis_machines",
+      "prerequisite": "medicine_clinical",
+      "expected": "enabling",
+      "reason": "Clinical medicine is the therapeutic care context for dialysis machines."
+    },
+    {
+      "type": "first_known_date",
+      "node": "dialysis_machines",
+      "operator": "eq",
+      "value": 1943,
+      "reason": "Dialysis machines should stay anchored to Kolff's first patient treatment with the rotating-drum artificial kidney."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "medical_linear_accelerators",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are not medical-linear-accelerator hardware or treatment-beam prerequisites."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_linear_accelerators",
+      "prerequisite": "particle_accelerators",
+      "expected": "required",
+      "reason": "A medical linac is a clinical implementation of linear particle-accelerator hardware."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_linear_accelerators",
+      "prerequisite": "radiology_departments",
+      "expected": "enabling",
+      "reason": "Hospital radiotherapy/radiology departments are deployment context rather than the accelerator component itself."
+    },
+    {
+      "type": "first_known_date",
+      "node": "medical_linear_accelerators",
+      "operator": "eq",
+      "value": 1953,
+      "reason": "Medical linacs should stay anchored to the 1953 first therapy-linac patient at Hammersmith Hospital."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-04-dialysis-clinical-medicine-replaces-lab-diagnostics",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "dialysis_machines",
+    "prerequisite": "medicine_clinical"
+  },
+  "replaced_edge": {
+    "dependent": "dialysis_machines",
+    "prerequisite": "laboratory_diagnostic_medicine"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Laboratory Diagnostic Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Dialysis machines are clinical renal-failure treatment devices; the 1943 artificial kidney was used to treat patients rather than as a diagnostic lab method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://laskerfoundation.org/wp-content/uploads/2021/01/2002_kolff.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Kolff and Scribner discussion of renal failure, artificial kidneys, and patient treatments beginning in 1943.",
+    "source_claim_summary": "The source frames the artificial kidney as a treatment for renal failure, describes patient use in Kampen, and later describes durable hemodialysis as clinical life support.",
+    "source_support_rationale": "This supports clinical medicine as the contextual enabler while rejecting laboratory diagnostics as the direct field parent because the device lineage is therapeutic patient care."
+  },
+  "ontology_before": "Dialysis machines were connected to laboratory diagnostic medicine, making a treatment device look like a diagnostic-lab technique.",
+  "ontology_after": "Dialysis machines are connected to clinical medicine as a therapeutic care context, with membranes and pump/flow architecture as technical foundations.",
+  "invariant_preserved_or_changed": "Changed: laboratory diagnostic medicine is absent and clinical medicine is the enabling clinical context.",
+  "would_reject_if": [
+    "The node were re-scoped to laboratory dialysis assays rather than patient dialysis machines.",
+    "A source showed clinical dialysis machines originated primarily as diagnostic laboratory instruments.",
+    "The graph removed the membrane method dependency while changing the clinical context."
+  ],
+  "short_reason": "Dialysis machines are treatment devices, not diagnostic laboratory methods.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
