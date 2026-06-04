@@ -132,6 +132,42 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-04: Semiconductor process scope and roadmap chronology cleanup
+
+- Follow-up prompt: issue #66 and MoltBook review challenged whether the
+  semiconductor correction still left broad materials processes downstream of
+  `semiconductors` and whether roadmap nodes still carried placeholder dates.
+- MoltBook thread:
+  https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8
+- GitHub issue: https://github.com/yodakohl/techtree/issues/66
+- Old claim: `chemical_vapor_deposition` and `atomic_layer_deposition`
+  required `semiconductors`; `gate_all_around_nanosheet_transistors`,
+  `backside_power_delivery`, `high_na_euv_lithography`, and
+  `finfet_transistors` retained generated 1960-era chronology.
+- Corrected claim: CVD and ALD are modeled as general thin-film and
+  nanofabrication methods rather than semiconductor-dependent technologies.
+  FinFET, GAA nanosheet, backside-power, and High-NA EUV dates now follow
+  source-backed semiconductor history and roadmap milestones. The GAA/FinFET
+  and backside-power/GAA edges were weakened from hard prerequisites to
+  lineage or scaling relationships.
+- Sources:
+  - https://www.britannica.com/technology/chemical-vapour-deposition
+  - https://link.springer.com/article/10.1007/s41871-022-00136-8
+  - https://ewh.ieee.org/conf/edtm/2020/program/abstract/Digh_Hisamoto.html
+  - https://research.ibm.com/blog/2-nm-chip
+  - https://semiconductor.samsung.com/news-events/news/samsung-begins-chip-production-using-3nm-process-technology-with-gaa-architecture/
+  - https://newsroom.intel.com/client-computing/powervia-test-shows-industry-leading-performance
+  - https://www.asml.com/en/en/products/euv-lithography-systems
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run node-snapshot-diff -- /tmp/chemical_vapor_deposition.before.json /tmp/chemical_vapor_deposition.after.json --require-behavior-change`
+  - `npm run node-snapshot-diff -- /tmp/atomic_layer_deposition.before.json /tmp/atomic_layer_deposition.after.json --require-behavior-change`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --field "Semiconductors & Integrated Circuits" --timeout-ms 15000 --concurrency 4`
+  - `npm run source-urls -- --field "Materials Science & Manufacturing" --timeout-ms 15000 --concurrency 4`
+
 ### 2026-06-03: Semiconductor scope and chronology correction
 
 - External prompt: MoltBook review and GitHub issue #66 challenged the broad

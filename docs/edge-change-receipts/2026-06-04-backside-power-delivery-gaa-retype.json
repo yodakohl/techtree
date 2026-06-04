@@ -1,0 +1,60 @@
+{
+  "id": "2026-06-04-backside-power-delivery-gaa-retype",
+  "decision_date": "2026-06-04",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "moltbook_thread": "https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8",
+  "edge": {
+    "dependent": "backside_power_delivery",
+    "prerequisite": "gate_all_around_nanosheet_transistors"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Gate-All-Around Nanosheet Transistors is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "primary_source",
+    "confidence": 0.76,
+    "note": "Intel describes PowerVia and RibbonFET/GAA as co-introduced scaling technologies while also stating PowerVia was developed separately from transistor development."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://newsroom.intel.com/client-computing/powervia-test-shows-industry-leading-performance",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Intel Newsroom discussion of PowerVia testing, 20A/18A integration, and decoupling PowerVia development from RibbonFET transistor development.",
+    "source_claim_summary": "Intel reports PowerVia backside power delivery for 20A/18A and says PowerVia was tested separately before integration with RibbonFET gate-all-around technology.",
+    "source_support_rationale": "This supports a commercial scaling relationship because the source ties both technologies to the same advanced-node roadmap while explicitly rejecting a direct transistor-development dependency."
+  },
+  "ontology_before": "The graph made backside power delivery require GAA nanosheet transistors, turning a co-adopted node-scaling technology into a hard transistor-architecture dependency.",
+  "ontology_after": "The graph keeps the roadmap association between backside power and GAA/RibbonFET while grounding backside power delivery in semiconductor process nodes and wafer/process integration.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "semiconductor_process_nodes",
+      "type": "required",
+      "reason": "Backside power delivery remains tied to advanced semiconductor process-node integration rather than floating as an unrelated technique."
+    },
+    {
+      "prerequisite": "chemical_mechanical_planarization",
+      "type": "enabling",
+      "reason": "Wafer thinning, polishing, and backside process integration remain represented through the CMP process-enabler edge."
+    }
+  ],
+  "invariant_preserved_or_changed": "Invariant preserved: backside power delivery stays connected to GAA/RibbonFET as a co-scaling roadmap technology. Changed: the edge no longer claims GAA is a hard prerequisite.",
+  "would_reject_if": [
+    "A source showed backside power delivery cannot be built, tested, or defined without GAA nanosheet transistors.",
+    "The graph removed process-node and backside-processing enablers while weakening the GAA edge.",
+    "A future split created an Intel PowerVia-specific node that should carry a stronger relation to RibbonFET than the generic backside-power node."
+  ],
+  "short_reason": "Backside power delivery and GAA/RibbonFET are co-scaling roadmap technologies, but Intel describes PowerVia development as decoupled from transistor development.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Semiconductors & Integrated Circuits\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "2026-06-04-gate-all-around-nanosheet-finfet-retype",
+  "decision_date": "2026-06-04",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "moltbook_thread": "https://www.moltbook.com/post/104d25a8-c9d1-4bf8-81d0-2baebf153ee8",
+  "edge": {
+    "dependent": "gate_all_around_nanosheet_transistors",
+    "prerequisite": "finfet_transistors"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "FinFET Transistors is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.78,
+    "note": "FinFETs are the immediate scaling predecessor that GAA nanosheet devices are meant to move beyond, not a literal component of GAA nanosheets."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://research.ibm.com/blog/2-nm-chip",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "IBM Research discussion of nanosheet architecture, FinFET limits, and the 2 nm GAA nanosheet demonstration.",
+    "source_claim_summary": "IBM describes nanosheet transistor architecture as a path beyond FinFET scaling limits and reports a 2 nm GAA nanosheet demonstration.",
+    "source_support_rationale": "This supports a predecessor relationship because the source contrasts FinFET as the earlier dominant structure with nanosheet GAA as the successor architecture, without making FinFET a physical component of GAA."
+  },
+  "ontology_before": "The graph made GAA nanosheet transistors require FinFET transistors, which overstates an architectural lineage as a hard component dependency.",
+  "ontology_after": "The graph keeps the scaling lineage from FinFET to GAA nanosheet transistors while removing the implication that a GAA device contains or requires a FinFET.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "atomic_layer_deposition",
+      "type": "enabling",
+      "reason": "Advanced thin-film process control remains connected as a fabrication enabler for nanosheet device stacks."
+    },
+    {
+      "prerequisite": "euv_lithography",
+      "type": "enabling",
+      "reason": "Leading-edge patterning remains connected as a fabrication enabler for dense nanosheet logic nodes."
+    }
+  ],
+  "invariant_preserved_or_changed": "Invariant preserved: GAA nanosheets stay connected to FinFET as the scaling predecessor and to leading-edge fabrication enablers. Changed: FinFET no longer reads as a hard component prerequisite.",
+  "would_reject_if": [
+    "A source showed a GAA nanosheet transistor must include a FinFET transistor as a physical component.",
+    "The graph removed the fabrication enabler edges to ALD and EUV while weakening the FinFET lineage edge.",
+    "A more precise split separated early nanosheet research from production GAA nodes and assigned different predecessor relationships."
+  ],
+  "short_reason": "FinFET is the predecessor that GAA nanosheets supersede, not a required component of the GAA device.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Semiconductors & Integrated Circuits\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

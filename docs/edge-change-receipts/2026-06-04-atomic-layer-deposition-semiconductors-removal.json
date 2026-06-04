@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-04-atomic-layer-deposition-semiconductors-removal",
+  "decision_date": "2026-06-04",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "atomic_layer_deposition",
+    "prerequisite": "semiconductors"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Semiconductors is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "No dependency edge remains from atomic_layer_deposition to semiconductors; ALD is a vapor-deposition and nanofabrication technique with semiconductor applications among several application domains.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/s41871-022-00136-8",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and Introduction, especially the description of ALD as a thin-film fabrication technique with applications in semiconductors, pan-semiconductors, environment, energy, and other fields.",
+    "source_claim_summary": "The review presents ALD as a self-limiting vapor-deposition technique for atomic-scale thin films, notes its 1970s atomic-layer-epitaxy history, and lists semiconductors as one application area among others.",
+    "source_support_rationale": "This rejects a semiconductor prerequisite because the source scopes ALD as a general thin-film/nanofabrication method whose use in semiconductors is an application, not a requirement for the technology itself."
+  },
+  "ontology_before": "The ALD node incorrectly treated semiconductors as a hard prerequisite, laundering a major application domain into the process definition.",
+  "ontology_after": "ALD remains connected to CVD/thin-film and nanoscale manufacturing context while no longer requiring semiconductor materials as an upstream dependency.",
+  "invariant_preserved_or_changed": "Changed: ALD is modeled as a broad deposition process with semiconductor applications rather than a semiconductor-dependent technology. Preserved: semiconductor process nodes can still depend on ALD where the narrower manufacturing claim requires it.",
+  "would_reject_if": [
+    "The ALD node were narrowed to only semiconductor-fab ALD rather than the broader thin-film technique.",
+    "A source showed ALD cannot exist or be practiced without semiconductor materials or semiconductor device fabrication.",
+    "Removing the edge also removed ALD from downstream semiconductor process nodes where it is a valid process dependency."
+  ],
+  "short_reason": "ALD is a broad atomic-scale thin-film deposition technique; semiconductors are an application domain, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/atomic_layer_deposition.before.json /tmp/atomic_layer_deposition.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Semiconductors & Integrated Circuits\" --timeout-ms 15000 --concurrency 4",
+    "npm run source-urls -- --field \"Materials Science & Manufacturing\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-04-chemical-vapor-deposition-semiconductors-removal",
+  "decision_date": "2026-06-04",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "chemical_vapor_deposition",
+    "prerequisite": "semiconductors"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Semiconductors is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "No dependency edge remains from chemical_vapor_deposition to semiconductors; CVD is a general vapor-phase thin-film and materials process used in semiconductor manufacturing but not dependent on semiconductor materials.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/chemical-vapour-deposition",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article sections on chemical vapour deposition as a chemical process, including advanced ceramics, crystal growth, industrial glass, and integrated-circuit uses.",
+    "source_claim_summary": "Britannica describes CVD as a chemical process and gives non-semiconductor examples such as silica glass formation, while also listing integrated-circuit use as one application.",
+    "source_support_rationale": "This refutes a semiconductor prerequisite because the source treats CVD as a broader deposition process with multiple substrate and material applications, not as a process that requires semiconductors to exist."
+  },
+  "ontology_before": "The broad CVD node incorrectly required semiconductors, turning a semiconductor-industry application into a prerequisite for the deposition process itself.",
+  "ontology_after": "CVD remains connected to chemistry and vacuum-process foundations; semiconductors no longer flow upstream into the general CVD process node.",
+  "invariant_preserved_or_changed": "Changed: the graph no longer says CVD requires semiconductors. Preserved: CVD remains available as a prerequisite for narrower semiconductor and materials-process nodes.",
+  "would_reject_if": [
+    "The CVD node were narrowed to mean only semiconductor-wafer CVD rather than general chemical vapor deposition.",
+    "A source showed CVD cannot exist outside semiconductor materials or semiconductor device fabrication.",
+    "Removing the edge also removed downstream semiconductor-fabrication links that correctly use CVD as a process."
+  ],
+  "short_reason": "CVD is a general deposition process with semiconductor applications, not a semiconductor-dependent technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/chemical_vapor_deposition.before.json /tmp/chemical_vapor_deposition.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Semiconductors & Integrated Circuits\" --timeout-ms 15000 --concurrency 4",
+    "npm run source-urls -- --field \"Materials Science & Manufacturing\" --timeout-ms 15000 --concurrency 4"
+  ]
+}
