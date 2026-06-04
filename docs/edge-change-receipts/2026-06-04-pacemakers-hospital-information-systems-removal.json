@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-pacemakers-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "pacemakers_implantable",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from pacemakers_implantable to hospital_information_systems; HIS is monitoring and care-administration infrastructure, not part of the pacemaker device architecture.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.research.va.gov/research_in_action/The-invention-of-the-cardiac-pacemaker.cfm/default.cfm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "VA history of implantable pacemaker development, pulse generator/electrode design, and patient implants.",
+    "source_claim_summary": "The source describes pacemakers through pulse generators, electrodes, implantation, and monitoring programs, without making hospital information systems part of the device.",
+    "source_support_rationale": "This rejects HIS as a direct device prerequisite because the implantable pacemaker architecture and 1958-1960 history depend on electronics, power, and clinical implantation."
+  },
+  "ontology_before": "Pacemakers included hospital information systems as a direct prerequisite, mixing device architecture with later care-management infrastructure.",
+  "ontology_after": "Pacemakers are modeled through electronics, portable batteries, and clinical therapy; hospital information systems remain separate monitoring infrastructure.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct pacemaker prerequisite.",
+  "would_reject_if": [
+    "The pacemaker node were re-scoped to a remote-monitoring or clinic-management platform.",
+    "A source showed the implanted pulse generator itself requires hospital information-system infrastructure.",
+    "Removing the edge also removed the clinical medicine context for implantation."
+  ],
+  "short_reason": "Hospital information systems may monitor patients, but they are not a prerequisite for implantable pacemaker technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

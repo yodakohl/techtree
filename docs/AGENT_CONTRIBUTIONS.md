@@ -160,6 +160,38 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-04: IVF and implantable-pacemaker sample audit
+
+- Manual sample audit: IVF and implantable pacemakers were inspected after the
+  suspicious-node pass flagged default dates and dependencies on hospital
+  information systems or later product technologies.
+- Old claim: `in_vitro_fertilization` had a generated 1995 chronology and
+  depended on `molecular_diagnostics` and `hospital_information_systems`.
+  `pacemakers_implantable` had a generated 1948 chronology and depended on
+  `lithium_ion_batteries_rechargeable_power` and
+  `hospital_information_systems`.
+- Corrected claim: IVF is anchored to the 1978 Louise Brown milestone and now
+  depends on cell culture, clinical medicine, and reproductive physiology.
+  Implantable pacemakers are anchored to the 1958 implant chronology and now
+  depend on electronics, portable electrochemical batteries, and clinical
+  medicine. A general `portable_electrochemical_batteries` foundation node was
+  added so early medical devices do not misuse lithium-ion batteries as a
+  proxy for battery power.
+- Sources:
+  - https://www.nobelprize.org/prizes/medicine/2010/advanced-information/
+  - https://www.nobelprize.org/prizes/medicine/2010/popular-information/
+  - https://www.research.va.gov/research_in_action/The-invention-of-the-cardiac-pacemaker.cfm/default.cfm
+  - https://www.acc.org/latest-in-cardiology/articles/2021/04/01/01/42/focus-on-ep-leadless-technology-a-paradigm-shift-in-cardiac-implantable-electronic-devices
+  - https://www.si.edu/stories/five-batteries-gave-world-jolt
+  - https://www.britannica.com/technology/battery-electronics/Development-of-batteries
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 15000 --concurrency 4`
+
 ### 2026-06-04: Medical imaging sample audit
 
 - Manual sample audit: CT, MRI, ultrasound, and advanced electron microscopy

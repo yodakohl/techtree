@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-04-pacemakers-portable-batteries-replace-lithium-ion",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "pacemakers_implantable",
+    "prerequisite": "portable_electrochemical_batteries"
+  },
+  "replaced_edge": {
+    "dependent": "pacemakers_implantable",
+    "prerequisite": "lithium_ion_batteries_rechargeable_power"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Lithium-Ion Batteries (Rechargeable Power) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "Implantable pacemakers need a self-contained battery power source; lithium-ion cells are later battery technology, not the original prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.acc.org/latest-in-cardiology/articles/2021/04/01/01/42/focus-on-ep-leadless-technology-a-paradigm-shift-in-cardiac-implantable-electronic-devices",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "ACC history of battery-powered portable pacemakers and the first implanted pacemaker in 1958.",
+    "source_claim_summary": "The source describes battery-powered portable cardiac pacing in 1957 and the first implanted pacemaker in 1958, before modern lithium-ion cells.",
+    "source_support_rationale": "This supports a portable-battery edge while rejecting lithium-ion as the historical prerequisite because the early devices used self-contained battery power before lithium-ion technology existed."
+  },
+  "ontology_before": "Pacemakers depended on lithium-ion batteries, creating a false later-technology dependency for a 1958 implantable device.",
+  "ontology_after": "Pacemakers depend on portable electrochemical battery power; lithium-ion remains a later battery family and not the original prerequisite.",
+  "invariant_preserved_or_changed": "Changed: the lithium-ion edge is absent and replaced with general portable electrochemical batteries.",
+  "would_reject_if": [
+    "The node were narrowed to modern rechargeable lithium-ion pacemaker systems only.",
+    "A source showed the first implantable pacemakers required lithium-ion cells.",
+    "The graph removed self-contained battery power from implantable pacemakers."
+  ],
+  "short_reason": "Pacemakers need battery power, but early implantable pacemakers did not depend on lithium-ion batteries.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

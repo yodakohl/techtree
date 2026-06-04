@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-pacemakers-electronics-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "pacemakers_implantable",
+    "prerequisite": "electronics"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electronics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.88,
+    "note": "Implantable pacemakers require electronic pulse-generator circuitry to deliver controlled pacing impulses."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.research.va.gov/research_in_action/The-invention-of-the-cardiac-pacemaker.cfm/default.cfm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "VA history describing the Chardack-Greatbatch implantable pacemaker pulse generator and electrode work.",
+    "source_claim_summary": "The source describes an implanted electrode connected to a pulse generator refined into an implantable unit for long-term correction of heart block.",
+    "source_support_rationale": "This supports a required electronics edge because the pacemaker's therapeutic function is controlled electrical pulse generation delivered to the heart."
+  },
+  "ontology_before": "Pacemaker electronics were modeled as a generic enabler.",
+  "ontology_after": "Electronics is now the hard pulse-generator foundation for implantable pacemakers.",
+  "invariant_preserved_or_changed": "Changed: pacemaker electronics is required rather than generic enabling.",
+  "would_reject_if": [
+    "The node were re-scoped to biological pacemakers rather than electronic implantable pacemakers.",
+    "A source showed implantable electronic pacemakers do not require pulse-generator circuitry.",
+    "The graph removed battery power while strengthening the electronics edge."
+  ],
+  "short_reason": "An implantable pacemaker is an electronic pulse generator, so electronics is a hard component dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

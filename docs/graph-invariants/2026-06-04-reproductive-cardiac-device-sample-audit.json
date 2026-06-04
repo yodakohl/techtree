@@ -1,0 +1,72 @@
+{
+  "id": "2026-06-04-reproductive-cardiac-device-sample-audit",
+  "description": "Adversarial invariant for the manual IVF and implantable-pacemaker sample audit: do not let later diagnostics, lithium-ion batteries, or hospital information systems become method prerequisites.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "in_vitro_fertilization",
+      "prerequisite": "molecular_diagnostics",
+      "reason": "Standalone IVF predates and does not require molecular diagnostics or PGD workflows."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "in_vitro_fertilization",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are not part of the IVF laboratory method."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "in_vitro_fertilization",
+      "prerequisite": "cell_culture",
+      "expected": "required",
+      "reason": "IVF requires controlled in vitro culture handling of eggs, sperm, and embryos."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pacemakers_implantable",
+      "prerequisite": "lithium_ion_batteries_rechargeable_power",
+      "reason": "Early implantable pacemakers predate lithium-ion batteries and should depend on general portable battery power instead."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pacemakers_implantable",
+      "prerequisite": "hospital_information_systems",
+      "reason": "Hospital information systems are monitoring/workflow infrastructure, not pacemaker device architecture."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pacemakers_implantable",
+      "prerequisite": "electronics",
+      "expected": "required",
+      "reason": "Implantable pacemakers require electronic pulse-generator circuitry."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pacemakers_implantable",
+      "prerequisite": "portable_electrochemical_batteries",
+      "expected": "required",
+      "reason": "Implantable pacemakers require self-contained portable battery power."
+    },
+    {
+      "type": "first_known_date",
+      "node": "portable_electrochemical_batteries",
+      "operator": "eq",
+      "value": 1800,
+      "reason": "Portable battery power should stay anchored to Volta's battery rather than later lithium-ion chronology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pacemakers_implantable",
+      "operator": "eq",
+      "value": 1958,
+      "reason": "Implantable pacemakers should stay anchored to the first human implant chronology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "in_vitro_fertilization",
+      "operator": "eq",
+      "value": 1978,
+      "reason": "IVF should stay anchored to the birth of Louise Brown, not a generated 1995 diagnostics date."
+    }
+  ]
+}

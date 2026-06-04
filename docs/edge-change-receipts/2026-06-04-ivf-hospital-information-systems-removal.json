@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-ivf-hospital-information-systems-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "in_vitro_fertilization",
+    "prerequisite": "hospital_information_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from in_vitro_fertilization to hospital_information_systems; HIS is clinical administration infrastructure rather than part of IVF's laboratory and reproductive-medicine method.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/2010/popular-information/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nobel 2010 popular-information description of the 1978 IVF birth, Bourn Hall clinic, and method spread.",
+    "source_claim_summary": "The source describes IVF through fertilized eggs, embryo transfer, clinical infertility treatment, and later clinical center development, without making hospital information systems part of the method.",
+    "source_support_rationale": "This rejects a direct HIS prerequisite because the successful 1978 method and early IVF center predate modern digital hospital information-system dependency."
+  },
+  "ontology_before": "IVF included hospital information systems as a direct prerequisite, mixing a reproductive technology with later clinical data infrastructure.",
+  "ontology_after": "IVF is modeled through culture, clinical medicine, and reproductive physiology; hospital information systems remain separate workflow infrastructure.",
+  "invariant_preserved_or_changed": "Changed: hospital information systems no longer appear as a direct IVF prerequisite.",
+  "would_reject_if": [
+    "The IVF node were re-scoped to a modern clinic-management workflow requiring HIS integration.",
+    "A source showed IVF laboratory fertilization and embryo transfer require a hospital information system.",
+    "Removing the edge also removed clinical medicine from IVF."
+  ],
+  "short_reason": "Hospital information systems support care administration, not the IVF method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

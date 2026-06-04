@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-04-ivf-cell-culture-required",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "in_vitro_fertilization",
+    "prerequisite": "cell_culture"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Cell Culture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.88,
+    "note": "IVF requires eggs, sperm, and early embryos to be handled and developed in a controlled culture dish environment before transfer."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/2010/advanced-information/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Nobel 2010 advanced-information sections describing oocytes, culture dishes, fertilization, embryo cell division, and transfer.",
+    "source_claim_summary": "The source describes IVF as retrieving oocytes, placing them in medium with sperm, allowing fertilization and early embryo division in vitro, then transferring the embryo.",
+    "source_support_rationale": "This supports a required cell-culture edge because controlled in vitro handling and early embryo development are part of the method itself, not optional clinical context."
+  },
+  "ontology_before": "The graph treated cell culture as a generic enabler for IVF.",
+  "ontology_after": "Cell culture is now the hard in vitro method foundation for IVF, while clinical medicine and reproductive physiology remain enabling context.",
+  "invariant_preserved_or_changed": "Changed: IVF's cell-culture edge is required rather than generic enabling.",
+  "would_reject_if": [
+    "The IVF node were narrowed to a surrounding clinic workflow rather than the in vitro fertilization method.",
+    "A source showed IVF can occur without any controlled in vitro handling or culture of eggs, sperm, or embryos.",
+    "The graph removed clinical medicine and reproductive physiology while strengthening the culture edge."
+  ],
+  "short_reason": "The in vitro culture step is core to IVF rather than a soft neighboring capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

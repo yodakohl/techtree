@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-04-ivf-molecular-diagnostics-removal",
+  "decision_date": "2026-06-04",
+  "edge": {
+    "dependent": "in_vitro_fertilization",
+    "prerequisite": "molecular_diagnostics"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Molecular Diagnostics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from in_vitro_fertilization to molecular_diagnostics; molecular testing and preimplantation genetic diagnosis are later optional IVF-adjacent workflows, not prerequisites for IVF itself.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/2010/advanced-information/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nobel 2010 advanced-information sections on the 1978 IVF birth and later developments such as PGD.",
+    "source_claim_summary": "The source describes successful human IVF in 1978 through oocyte retrieval, in vitro fertilization, embryo transfer, and later notes PGD as a subsequent IVF-related development.",
+    "source_support_rationale": "This rejects molecular diagnostics as a prerequisite because the source places successful IVF before and independent of later embryo genetic testing workflows."
+  },
+  "ontology_before": "IVF incorrectly depended on molecular diagnostics, making a later diagnostic workflow appear necessary for the core fertility method.",
+  "ontology_after": "IVF is scoped to assisted reproduction via in vitro fertilization and embryo transfer; molecular diagnostics remains available for later PGD-style workflows.",
+  "invariant_preserved_or_changed": "Changed: molecular diagnostics is no longer a direct IVF prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to preimplantation genetic testing with IVF rather than IVF itself.",
+    "A source showed the 1978 IVF method required molecular diagnostic testing.",
+    "Removing the edge also removed all biological in vitro method context from IVF."
+  ],
+  "short_reason": "Molecular diagnostics can be IVF-adjacent, but it is not a prerequisite for IVF.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
