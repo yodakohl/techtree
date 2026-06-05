@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-05-rpm-ambulatory-monitoring-replaces-molecular-diagnostics",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "remote_patient_monitoring",
+    "prerequisite": "ambulatory_physiological_monitoring"
+  },
+  "replaced_edge": {
+    "dependent": "remote_patient_monitoring",
+    "prerequisite": "molecular_diagnostics"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Molecular Diagnostics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.8,
+    "note": "RPM depends on patient-generated physiological data from ambulatory or wearable monitoring devices, not on molecular diagnostic assays."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "RPM meta-analysis definition describing wearable devices that automatically transmit data to portals or mobile apps.",
+    "source_claim_summary": "The review defines remote patient monitoring around non-invasive wearable devices transmitting patient data for self-monitoring, provider assessment, and clinical decision-making.",
+    "source_support_rationale": "This supports ambulatory monitoring as the correct predecessor while rejecting molecular diagnostics because RPM centers on transmitted physiological measurements rather than nucleic-acid or protein assays."
+  },
+  "ontology_before": "Remote patient monitoring depended on molecular diagnostics, conflating remote monitoring workflows with laboratory molecular testing.",
+  "ontology_after": "Remote patient monitoring now depends on ambulatory physiological monitoring plus connected telehealth infrastructure.",
+  "invariant_preserved_or_changed": "Changed: molecular diagnostics is absent and ambulatory physiological monitoring is the enabling patient-data foundation.",
+  "would_reject_if": [
+    "The RPM node were narrowed to remote molecular test result reporting rather than patient monitoring.",
+    "A source showed remote patient monitoring requires molecular diagnostics as part of the method.",
+    "The graph removed connected data transmission while replacing the molecular diagnostic edge."
+  ],
+  "short_reason": "RPM monitors transmitted physiological data; molecular diagnostics is the wrong field parent.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-05-cgm-electronics-required",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "continuous_glucose_monitors",
+    "prerequisite": "electronics"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electronics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.84,
+    "note": "CGMs require electronic sensing, signal processing, and transmission or readout hardware to convert glucose measurements into continuous readings."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.fda.gov/media/112110/download",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "FDA executive summary descriptions of CGM sensors, transmitters, and mobile or receiver readout systems.",
+    "source_claim_summary": "The FDA document describes CGMs as systems using sensors and electronics that transmit or present glucose readings continuously for diabetes management.",
+    "source_support_rationale": "This supports a required electronics edge because the measurement must be converted, processed, and communicated by device electronics to become continuous readings."
+  },
+  "ontology_before": "CGM electronics were modeled as a generic enabler.",
+  "ontology_after": "Electronics are now modeled as required device architecture for CGM sensing and readout.",
+  "invariant_preserved_or_changed": "Changed: CGM's electronics edge is required.",
+  "would_reject_if": [
+    "The node were re-scoped to non-electronic chemical glucose test strips.",
+    "A source showed continuous glucose monitors can produce continuous readings without electronic sensing or readout.",
+    "The graph removed the glucose biosensor component while strengthening electronics."
+  ],
+  "short_reason": "A CGM is an electronic sensor system, not only a clinical workflow.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

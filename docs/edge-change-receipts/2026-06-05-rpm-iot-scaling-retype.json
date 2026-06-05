@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-05-rpm-iot-scaling-retype",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "remote_patient_monitoring",
+    "prerequisite": "internet_of_things_iot_ubiquitous_connectivity"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Internet of Things (IoT) & Ubiquitous Connectivity provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Wireless connected devices, portals, and apps let RPM scale from local measurement into continuous remote clinical workflows."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "RPM review definition and related discussion of wearable devices, web portals, mobile apps, and transmitted data.",
+    "source_claim_summary": "The review describes RPM as wearable-device data automatically transmitted to portals or mobile apps for self-monitoring and clinical assessment.",
+    "source_support_rationale": "This supports a scaling edge because connected-device infrastructure turns local ambulatory measurements into remote monitoring workflows at care-system scale."
+  },
+  "ontology_before": "The IoT edge was a generic enabling claim.",
+  "ontology_after": "IoT/connectivity is a scaling and workflow dependency for RPM deployment rather than the physiological measurement method itself.",
+  "invariant_preserved_or_changed": "Changed: the IoT edge is typed as commercial_or_scaling_dependency.",
+  "would_reject_if": [
+    "The node were scoped to local ambulatory monitoring with no remote data flow.",
+    "A source showed remote patient monitoring at scale does not use connected-device data transmission.",
+    "The edge were made required and over-modeled IoT as the only possible route for RPM."
+  ],
+  "short_reason": "Connected-device infrastructure scales RPM workflows beyond local measurement.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

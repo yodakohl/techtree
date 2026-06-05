@@ -21589,6 +21589,114 @@
     ]
   },
   {
+    "id": "ambulatory_physiological_monitoring",
+    "name": "Ambulatory Physiological Monitoring",
+    "era": "Modern",
+    "description": "Portable clinical monitoring of physiological signals such as ECG while patients move through daily activity outside continuous bedside observation.",
+    "prerequisites": [
+      "electrocardiography_early",
+      "electronics",
+      "portable_electrochemical_batteries"
+    ],
+    "fields": [
+      "Medical Imaging & Diagnostics"
+    ],
+    "fieldLanes": {
+      "Medical Imaging & Diagnostics": "Monitoring"
+    },
+    "maturity": "established",
+    "firstKnownDate": 1961,
+    "datePrecision": "exact",
+    "region": "United States and later global ambulatory care",
+    "reviewStatus": "source_checked",
+    "sources": [
+      {
+        "title": "The History of Clinical Holter Monitoring",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6932614/",
+        "publisher": "Annals of Noninvasive Electrocardiology / PubMed Central",
+        "year": 2004,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Medical-Grade ECG Sensor for Long-Term Monitoring",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7146736/",
+        "publisher": "Sensors (Basel) / PubMed Central",
+        "year": 2019,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "dependencyEdges": [
+      {
+        "prerequisite": "electrocardiography_early",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Ambulatory monitoring grew from ECG measurement into portable Holter-style recording of patient physiology during normal activity.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The History of Clinical Holter Monitoring",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6932614/",
+            "publisher": "Annals of Noninvasive Electrocardiology / PubMed Central",
+            "year": 2004,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electronics",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Portable physiological monitors require electronic sensing and recording circuits to capture signals away from fixed bedside instruments.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Medical-Grade ECG Sensor for Long-Term Monitoring",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7146736/",
+            "publisher": "Sensors (Basel) / PubMed Central",
+            "year": 2019,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "portable_electrochemical_batteries",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Battery-powered portability made long-duration ambulatory monitoring practical outside fixed clinical equipment.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The History of Clinical Holter Monitoring",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6932614/",
+            "publisher": "Annals of Noninvasive Electrocardiology / PubMed Central",
+            "year": 2004,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "remote_patient_monitoring",
     "name": "Remote Patient Monitoring",
     "era": "Modern",
@@ -21596,36 +21704,85 @@
     "prerequisites": [
       "telemedicine_platforms",
       "internet_of_things_iot_ubiquitous_connectivity",
-      "molecular_diagnostics"
+      "ambulatory_physiological_monitoring"
     ],
     "firstKnownDate": 1999,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "United States, Europe, and global connected care",
+    "reviewStatus": "source_checked",
+    "sources": [
+      {
+        "title": "Impact of Remote Patient Monitoring on Clinical Outcomes: An Updated Meta-Analysis of Randomized Controlled Trials",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/",
+        "publisher": "NPJ Digital Medicine / PubMed Central",
+        "year": 2018,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
         "prerequisite": "telemedicine_platforms",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Telemedicine Platforms provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "RPM is part of telehealth care delivery, using remote data flows to support provider assessment and clinical decisions.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Impact of Remote Patient Monitoring on Clinical Outcomes: An Updated Meta-Analysis of Randomized Controlled Trials",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/",
+            "publisher": "NPJ Digital Medicine / PubMed Central",
+            "year": 2018,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "internet_of_things_iot_ubiquitous_connectivity",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Internet of Things (IoT) & Ubiquitous Connectivity provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Wireless connected devices, portals, and apps let RPM scale from local measurement into continuous remote clinical workflows.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Impact of Remote Patient Monitoring on Clinical Outcomes: An Updated Meta-Analysis of Randomized Controlled Trials",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/",
+            "publisher": "NPJ Digital Medicine / PubMed Central",
+            "year": 2018,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "molecular_diagnostics",
+        "prerequisite": "ambulatory_physiological_monitoring",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Molecular Diagnostics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "RPM depends on patient-generated physiological data from ambulatory or wearable monitoring devices, not on molecular diagnostic assays.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Impact of Remote Patient Monitoring on Clinical Outcomes: An Updated Meta-Analysis of Randomized Controlled Trials",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/",
+            "publisher": "NPJ Digital Medicine / PubMed Central",
+            "year": 2018,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -23521,43 +23678,200 @@
     ]
   },
   {
+    "id": "glucose_biosensors",
+    "name": "Glucose Biosensors",
+    "era": "Modern",
+    "description": "Biosensors that use enzyme chemistry, membranes, and electronic or optical transduction to measure glucose in blood or interstitial fluid.",
+    "prerequisites": [
+      "biochemistry",
+      "electronics",
+      "filters_membranes_early"
+    ],
+    "fields": [
+      "Medical Imaging & Diagnostics"
+    ],
+    "fieldLanes": {
+      "Medical Imaging & Diagnostics": "Monitoring"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Glucose Biosensors: An Overview of Use in Clinical Practice",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3292132/",
+        "publisher": "Sensors (Basel) / PubMed Central",
+        "year": 2010,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1962,
+    "datePrecision": "exact",
+    "region": "United States and global diabetes care",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "biochemistry",
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "review",
+        "note": "The original glucose biosensor concept used glucose oxidase enzyme chemistry coupled to a detector.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Glucose Biosensors: An Overview of Use in Clinical Practice",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3292132/",
+            "publisher": "Sensors (Basel) / PubMed Central",
+            "year": 2010,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electronics",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Glucose biosensors convert biochemical reactions into measurable electrical or optical signals through sensor hardware.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Glucose Biosensors: An Overview of Use in Clinical Practice",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3292132/",
+            "publisher": "Sensors (Basel) / PubMed Central",
+            "year": 2010,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "filters_membranes_early",
+        "type": "enabling",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Semipermeable membrane separation helped early enzyme-electrode glucose biosensors manage diffusion and isolate the sensing chemistry.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Glucose Biosensors: An Overview of Use in Clinical Practice",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3292132/",
+            "publisher": "Sensors (Basel) / PubMed Central",
+            "year": 2010,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "continuous_glucose_monitors",
     "name": "Continuous Glucose Monitors",
     "era": "Modern",
     "description": "Wearable sensors and software for tracking blood glucose and guiding diabetes treatment.",
     "prerequisites": [
+      "glucose_biosensors",
       "insulin_therapy",
-      "remote_patient_monitoring",
       "electronics"
     ],
     "firstKnownDate": 1999,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "datePrecision": "exact",
+    "region": "United States and global diabetes care",
+    "reviewStatus": "source_checked",
+    "sources": [
+      {
+        "title": "FDA Executive Summary: Eversense Continuous Glucose Monitoring System",
+        "url": "https://www.fda.gov/media/112110/download",
+        "publisher": "U.S. Food and Drug Administration",
+        "year": 2018,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Glucose Biosensors: An Overview of Use in Clinical Practice",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3292132/",
+        "publisher": "Sensors (Basel) / PubMed Central",
+        "year": 2010,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
+      {
+        "prerequisite": "glucose_biosensors",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "CGMs require a glucose-sensing element; the first FDA-approved CGM systems used sensor technology to measure glucose continuously rather than occasional finger-stick readings.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "FDA Executive Summary: Eversense Continuous Glucose Monitoring System",
+            "url": "https://www.fda.gov/media/112110/download",
+            "publisher": "U.S. Food and Drug Administration",
+            "year": 2018,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
       {
         "prerequisite": "insulin_therapy",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Insulin Therapy provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "remote_patient_monitoring",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Remote Patient Monitoring provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "CGMs are primarily diabetes-management tools that support glucose tracking and treatment decisions, including insulin dosing workflows.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "FDA Executive Summary: Eversense Continuous Glucose Monitoring System",
+            "url": "https://www.fda.gov/media/112110/download",
+            "publisher": "U.S. Food and Drug Administration",
+            "year": 2018,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "electronics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electronics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "CGMs require electronic sensing, signal processing, and transmission or readout hardware to convert glucose measurements into continuous readings.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "FDA Executive Summary: Eversense Continuous Glucose Monitoring System",
+            "url": "https://www.fda.gov/media/112110/download",
+            "publisher": "U.S. Food and Drug Administration",
+            "year": 2018,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },

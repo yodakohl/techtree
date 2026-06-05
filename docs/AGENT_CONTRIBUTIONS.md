@@ -160,6 +160,36 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-05: Remote monitoring and CGM sample audit
+
+- Manual sample audit: remote patient monitoring and continuous glucose
+  monitors were inspected because `continuous_glucose_monitors` depended on the
+  broader `remote_patient_monitoring` workflow, and `remote_patient_monitoring`
+  depended on `molecular_diagnostics`.
+- Old claim: CGMs were modeled as downstream of RPM, reversing the normal
+  sensor-to-monitoring relationship. RPM was tied to molecular diagnostics even
+  though RPM is defined around transmitted physiological measurements from
+  wearable or ambulatory devices.
+- Corrected claim: added `glucose_biosensors` anchored to the 1962 Clark/Lyons
+  enzyme-electrode concept and `ambulatory_physiological_monitoring` anchored
+  to early clinical Holter monitoring. CGMs now depend on glucose biosensors and
+  electronics, while RPM depends on ambulatory physiological monitoring,
+  telemedicine platforms, and connected-device infrastructure. Molecular
+  diagnostics was removed from RPM.
+- Sources:
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC3292132/
+  - https://www.fda.gov/media/112110/download
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC6550143/
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC6932614/
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC7146736/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 30000 --concurrency 2`
+
 ### 2026-06-04: Endoscopy, laparoscopy, and surgical-robotics sample audit
 
 - Manual sample audit: video endoscopy and laparoscopic surgery were inspected

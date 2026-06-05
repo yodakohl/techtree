@@ -1,0 +1,67 @@
+{
+  "id": "2026-06-05-remote-monitoring-cgm-audit",
+  "description": "Adversarial invariant for the manual remote-patient-monitoring and continuous-glucose-monitor audit: sensor devices should depend on biosensors, while RPM should depend on transmitted physiological monitoring rather than molecular diagnostics.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "continuous_glucose_monitors",
+      "prerequisite": "remote_patient_monitoring",
+      "reason": "CGMs are sensor devices that can feed RPM; they should not depend on the broader remote monitoring workflow."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "continuous_glucose_monitors",
+      "prerequisite": "glucose_biosensors",
+      "expected": "required",
+      "reason": "CGMs require a glucose-sensing component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "continuous_glucose_monitors",
+      "prerequisite": "electronics",
+      "expected": "required",
+      "reason": "CGMs require electronic sensing, processing, and readout."
+    },
+    {
+      "type": "first_known_date",
+      "node": "continuous_glucose_monitors",
+      "operator": "eq",
+      "value": 1999,
+      "reason": "CGMs should stay anchored to the first FDA-approved CGM chronology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "glucose_biosensors",
+      "operator": "eq",
+      "value": 1962,
+      "reason": "Glucose biosensors should stay anchored to the Clark/Lyons enzyme-electrode concept."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "remote_patient_monitoring",
+      "prerequisite": "molecular_diagnostics",
+      "reason": "RPM centers on transmitted patient-monitoring data, not molecular diagnostic assays."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "remote_patient_monitoring",
+      "prerequisite": "ambulatory_physiological_monitoring",
+      "expected": "enabling",
+      "reason": "Ambulatory physiological monitoring is the patient-data lineage for RPM."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "remote_patient_monitoring",
+      "prerequisite": "internet_of_things_iot_ubiquitous_connectivity",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Connected-device infrastructure scales RPM deployment rather than serving as the physiological sensor itself."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ambulatory_physiological_monitoring",
+      "operator": "eq",
+      "value": 1961,
+      "reason": "Ambulatory physiological monitoring should stay anchored to early clinical Holter monitoring."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-05-cgm-glucose-biosensors-replace-rpm",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "continuous_glucose_monitors",
+    "prerequisite": "glucose_biosensors"
+  },
+  "replaced_edge": {
+    "dependent": "continuous_glucose_monitors",
+    "prerequisite": "remote_patient_monitoring"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Remote Patient Monitoring provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "CGMs require a glucose-sensing element; the first FDA-approved CGM systems used sensor technology to measure glucose continuously rather than occasional finger-stick readings."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.fda.gov/media/112110/download",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "FDA Eversense CGM executive summary background on previously approved CGMs and sensor-based continuous glucose monitoring.",
+    "source_claim_summary": "The FDA summary states that the first CGM was the Medtronic MiniMed approved in 1999 and describes CGM as continuous monitoring accomplished by glucose-sensing sensor technology.",
+    "source_support_rationale": "This supports replacing RPM with glucose biosensors because the CGM product depends on the glucose sensor component; RPM is a downstream care model that can consume CGM data."
+  },
+  "ontology_before": "Continuous glucose monitors depended on remote patient monitoring, reversing a product/application relationship.",
+  "ontology_after": "Continuous glucose monitors depend on glucose biosensors, while remote monitoring remains a broader connected-care workflow.",
+  "invariant_preserved_or_changed": "Changed: CGM no longer directly depends on remote patient monitoring and now requires glucose biosensors.",
+  "would_reject_if": [
+    "The node were re-scoped to a remote monitoring platform that displays CGM readings rather than CGM devices.",
+    "A source showed continuous glucose monitoring can exist without any glucose-sensing element.",
+    "The graph reintroduced remote patient monitoring as a direct CGM prerequisite."
+  ],
+  "short_reason": "CGMs are sensor devices that can feed RPM; they should not depend on RPM.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
