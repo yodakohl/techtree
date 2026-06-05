@@ -1,0 +1,73 @@
+{
+  "id": "2026-06-05-his-ehr-audit",
+  "description": "Adversarial invariant for the hospital-information-system and electronic-health-record audit: broad clinical information systems should be grounded in computing/software/records lineage, not imaging modality, lab workflow, or later PKI security infrastructure.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "x_ray_imaging",
+      "reason": "X-ray imaging is one possible application served by HIS, not the platform prerequisite for broad HIS."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "laboratory_diagnostic_medicine",
+      "reason": "Laboratory diagnostics is one possible workflow served by HIS, not the broad software-system prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "computers_early",
+      "expected": "required",
+      "reason": "Operational HIS implementations require electronic computing infrastructure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "software_engineering",
+      "expected": "enabling",
+      "reason": "HIS is implemented through coordinated software subsystems and application programs."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "databases_relational_dbms",
+      "expected": "enabling",
+      "reason": "The current graph uses relational DBMS as the nearest database-management node, so the HIS edge must stay enabling rather than overclaiming a hard relational-model dependency."
+    },
+    {
+      "type": "first_known_date",
+      "node": "hospital_information_systems",
+      "operator": "eq",
+      "value": 1967,
+      "reason": "HIS should stay anchored to the HELP operational chronology rather than the generated 1948 placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electronic_health_records",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "PKI is later secure-exchange infrastructure and should not be a prerequisite for early computer-based medical records."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electronic_health_records",
+      "prerequisite": "medical_case_records",
+      "expected": "historical_predecessor",
+      "reason": "EHRs digitize the older medical-record lineage rather than emerging from PKI."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electronic_health_records",
+      "prerequisite": "hospital_information_systems",
+      "expected": "enabling",
+      "reason": "Hospital information systems are deployment lineage and integration infrastructure for electronic records."
+    },
+    {
+      "type": "first_known_date",
+      "node": "electronic_health_records",
+      "operator": "eq",
+      "value": 1973,
+      "reason": "EHR should stay anchored to the Regenstrief Medical Record system operation date."
+    }
+  ]
+}

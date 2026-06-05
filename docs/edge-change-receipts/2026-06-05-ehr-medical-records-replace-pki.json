@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-05-ehr-medical-records-replace-pki",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "electronic_health_records",
+    "prerequisite": "medical_case_records"
+  },
+  "replaced_edge": {
+    "dependent": "electronic_health_records",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.74,
+    "note": "Electronic health records digitize the older patient-record lineage; the Regenstrief system is described as a computer-based medical record for maintaining patient records."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1653568/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Abstract description of the Regenstrief Medical Record system as a computer-based medical record system for ambulatory care in operation since 1973.",
+    "source_claim_summary": "The Regenstrief article describes a computer-based medical record system containing core medical-record data and addressing efficient use and maintenance of patient records.",
+    "source_support_rationale": "This supports the electronic-record lineage from patient records to computer-based records; it does not support PKI as an early prerequisite because secure public-key infrastructure is absent from the 1973 system description."
+  },
+  "ontology_before": "Electronic health records depended on public-key infrastructure, projecting later secure-exchange infrastructure onto early computer-based medical records.",
+  "ontology_after": "Electronic health records are modeled as digitized patient records enabled by hospital information systems and data-management infrastructure; PKI is later exchange/security context.",
+  "invariant_preserved_or_changed": "Changed: electronic_health_records no longer directly depends on public_key_infrastructure and now preserves the medical-case-record lineage.",
+  "would_reject_if": [
+    "The node were re-scoped specifically to internet-scale secure EHR exchange rather than electronic records as a technology.",
+    "A source showed the 1973 Regenstrief computer-based medical record required public-key infrastructure.",
+    "The graph reintroduced public_key_infrastructure as a direct prerequisite for early EHRs."
+  ],
+  "short_reason": "PKI is later security infrastructure; EHRs are the digitized continuation of patient records.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

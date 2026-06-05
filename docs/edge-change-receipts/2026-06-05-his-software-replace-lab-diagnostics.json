@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-05-his-software-replace-lab-diagnostics",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "hospital_information_systems",
+    "prerequisite": "software_engineering"
+  },
+  "replaced_edge": {
+    "dependent": "hospital_information_systems",
+    "prerequisite": "laboratory_diagnostic_medicine"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Laboratory Diagnostic Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.72,
+    "note": "HELP's application programs were organized around database, decision-making, manual-entry, and communications subsystems, making systematic software development an enabling foundation."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract description of HELP application-program subsystems and clinical applications including laboratory, x-ray, pharmacy, and records.",
+    "source_claim_summary": "The HELP article describes application programs built from database-management, decision-making, manual-entry, and communications subsystems, with laboratory as one application area.",
+    "source_support_rationale": "This supports software engineering as the enabling platform discipline because the system is implemented as coordinated application programs and rejects laboratory diagnostics as merely one served clinical workflow."
+  },
+  "ontology_before": "Hospital information systems were modeled through laboratory diagnostics, confusing a hospital department workflow with the software platform.",
+  "ontology_after": "Hospital information systems are modeled through software and database infrastructure that can serve laboratory, imaging, pharmacy, records, and administrative workflows.",
+  "invariant_preserved_or_changed": "Changed: hospital_information_systems no longer directly depends on laboratory_diagnostic_medicine and now depends on software_engineering.",
+  "would_reject_if": [
+    "The node were narrowed to laboratory information systems rather than broad HIS.",
+    "A source showed the broad hospital information-system platform requires laboratory diagnostic medicine as a method prerequisite.",
+    "The graph reintroduced laboratory_diagnostic_medicine as a direct HIS prerequisite."
+  ],
+  "short_reason": "Laboratory diagnostics is a workflow HIS can serve; software is the implementation foundation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

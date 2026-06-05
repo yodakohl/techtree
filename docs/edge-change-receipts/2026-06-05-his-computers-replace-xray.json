@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-05-his-computers-replace-xray",
+  "decision_date": "2026-06-05",
+  "edge": {
+    "dependent": "hospital_information_systems",
+    "prerequisite": "computers_early"
+  },
+  "replaced_edge": {
+    "dependent": "hospital_information_systems",
+    "prerequisite": "x_ray_imaging"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.88,
+    "note": "Operational hospital information systems require electronic computing infrastructure; HELP was implemented on a Tandem computer system with CPUs, disk storage, and communication ports."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract description of HELP implementation on Tandem non-stop computer system and its CPU, disk, and communication-port architecture.",
+    "source_claim_summary": "The HELP article describes a data-driven hospital and medical information system implemented on a Tandem computer system with CPUs, storage, communication ports, and multiple software subsystems.",
+    "source_support_rationale": "This supports computers as a direct HIS infrastructure dependency and rejects X-ray imaging as the direct prerequisite because X-ray appears only as one application area served by the system."
+  },
+  "ontology_before": "Hospital information systems were modeled as enabled by an imaging modality, which confused one clinical application with the information-system platform.",
+  "ontology_after": "Hospital information systems are modeled as computer-based software infrastructure that can integrate imaging, laboratory, pharmacy, records, and other workflows.",
+  "invariant_preserved_or_changed": "Changed: hospital_information_systems no longer directly depends on x_ray_imaging and now requires computers_early.",
+  "would_reject_if": [
+    "The node were re-scoped to a radiology information system rather than a broad hospital information system.",
+    "A source showed hospital information systems can be implemented without electronic computing infrastructure.",
+    "The graph reintroduced x_ray_imaging as a direct prerequisite for the broad HIS node."
+  ],
+  "short_reason": "X-ray is an application HIS can serve; computers are the platform HIS requires.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

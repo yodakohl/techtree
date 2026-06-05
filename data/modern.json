@@ -22039,38 +22039,111 @@
     "era": "Modern",
     "description": "Integrated hospital software for patient records, orders, labs, imaging, billing, scheduling, pharmacy, and clinical workflows.",
     "prerequisites": [
+      "computers_early",
       "databases_relational_dbms",
-      "laboratory_diagnostic_medicine",
-      "x_ray_imaging"
+      "software_engineering"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Medical Imaging & Diagnostics"
+    ],
+    "fieldLanes": {
+      "Medical Imaging & Diagnostics": "Digital Health"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "The HELP hospital information system: update 1998",
+        "url": "https://doi.org/10.1016/S1386-5056(99)00013-1",
+        "publisher": "International Journal of Medical Informatics",
+        "year": 1999,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "HELP--A Total Hospital Information System",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+        "publisher": "Proceedings of the Annual Symposium on Computer Application in Medical Care",
+        "year": 1980,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1967,
+    "datePrecision": "exact",
+    "region": "United States and later global hospital computing",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
+      {
+        "prerequisite": "computers_early",
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "primary_source",
+        "note": "Operational hospital information systems require electronic computing infrastructure; HELP was implemented on a Tandem computer system with CPUs, disk storage, and communication ports.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "HELP--A Total Hospital Information System",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+            "publisher": "Proceedings of the Annual Symposium on Computer Application in Medical Care",
+            "year": 1980,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
       {
         "prerequisite": "databases_relational_dbms",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "HELP used a database-management subsystem; the current graph's nearest database node is relational DBMS, so this edge is enabling rather than a strict claim about HELP's database model.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "HELP--A Total Hospital Information System",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+            "publisher": "Proceedings of the Annual Symposium on Computer Application in Medical Care",
+            "year": 1980,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "laboratory_diagnostic_medicine",
+        "prerequisite": "software_engineering",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Laboratory Diagnostic Medicine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "x_ray_imaging",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "X-Ray Imaging provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "primary_source",
+        "note": "HELP's application programs were organized around database, decision-making, manual-entry, and communications subsystems, making systematic software development an enabling foundation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "HELP--A Total Hospital Information System",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+            "publisher": "Proceedings of the Annual Symposium on Computer Application in Medical Care",
+            "year": 1980,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -24047,7 +24120,7 @@
     "prerequisites": [
       "hospital_information_systems",
       "databases_relational_dbms",
-      "public_key_infrastructure"
+      "medical_case_records"
     ],
     "fields": [
       "Medical Imaging & Diagnostics"
@@ -24058,36 +24131,36 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Diagnostics",
-        "url": "https://www.who.int/health-topics/diagnostics",
-        "publisher": "World Health Organization",
-        "year": 2026,
-        "source_type": "official_agency",
+        "title": "A computer-based record and clinical monitoring system for ambulatory care",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1653568/",
+        "publisher": "American Journal of Public Health",
+        "year": 1977,
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1974,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1973,
+    "datePrecision": "exact",
+    "region": "United States and later global clinical computing",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "hospital_information_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hospital Information Systems provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Hospital information systems are an enabling deployment lineage for electronic records; HELP included medical-record applications within a broader hospital information system.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Diagnostics",
-            "url": "https://www.who.int/health-topics/diagnostics",
-            "publisher": "World Health Organization",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "HELP--A Total Hospital Information System",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+            "publisher": "Proceedings of the Annual Symposium on Computer Application in Medical Care",
+            "year": 1980,
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -24099,17 +24172,17 @@
       {
         "prerequisite": "databases_relational_dbms",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "primary_source",
+        "note": "The Regenstrief system maintained a core computerized medical record and captured structured patient data; relational DBMS is the closest current graph node for this data-management capability.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Diagnostics",
-            "url": "https://www.who.int/health-topics/diagnostics",
-            "publisher": "World Health Organization",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "A computer-based record and clinical monitoring system for ambulatory care",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1653568/",
+            "publisher": "American Journal of Public Health",
+            "year": 1977,
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -24119,19 +24192,19 @@
         ]
       },
       {
-        "prerequisite": "public_key_infrastructure",
-        "type": "enabling",
-        "confidence": 0.68,
+        "prerequisite": "medical_case_records",
+        "type": "historical_predecessor",
+        "confidence": 0.74,
         "evidence_level": "expert_inference",
-        "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path.",
+        "note": "Electronic health records digitize the older patient-record lineage; the Regenstrief system is described as a computer-based medical record for maintaining patient records.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Diagnostics",
-            "url": "https://www.who.int/health-topics/diagnostics",
-            "publisher": "World Health Organization",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "A computer-based record and clinical monitoring system for ambulatory care",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1653568/",
+            "publisher": "American Journal of Public Health",
+            "year": 1977,
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",

@@ -160,6 +160,30 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-05: HIS and EHR semantic-edge audit
+
+- Manual sample audit: hospital information systems and electronic health
+  records were inspected because HIS depended on X-ray imaging and laboratory
+  diagnostics, while EHRs depended on public-key infrastructure.
+- Old claim: HIS was modeled through served clinical workflows rather than its
+  computing/software platform. EHRs were modeled as downstream of PKI, projecting
+  later secure-exchange infrastructure onto early computer-based medical records.
+- Corrected claim: HIS is anchored to the 1967 HELP operational chronology and
+  now depends on early computers, database-management infrastructure, and
+  software engineering. EHRs are anchored to the 1973 Regenstrief Medical Record
+  system and now preserve the medical-case-record lineage instead of PKI.
+- Sources:
+  - https://doi.org/10.1016/S1386-5056(99)00013-1
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC1653568/
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 30000 --concurrency 2`
+
 ### 2026-06-05: Remote monitoring and CGM sample audit
 
 - Manual sample audit: remote patient monitoring and continuous glucose
