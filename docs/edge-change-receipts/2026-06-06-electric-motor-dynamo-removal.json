@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-06-electric-motor-dynamo-removal",
+  "decision_date": "2026-06-06",
+  "edge": {
+    "dependent": "electric_motor",
+    "prerequisite": "dynamo"
+  },
+  "removed_edge": true,
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Dynamo provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from electric_motor to dynamo; Faraday's 1821 electromagnetic-rotation motor predates the local dynamo/electric-generator node and uses current plus magnetism rather than a generator as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.rigb.org/explore-science/explore/blog/birth-electric-motion",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Royal Institution account of Faraday's 3 September 1821 electromagnetic-rotation experiment producing the first electric motor.",
+    "source_claim_summary": "The source dates the first electric motor to Faraday's 1821 current-and-magnet apparatus.",
+    "source_support_rationale": "A 1821 motor cannot depend on the graph's dynamo/electric-generator capability, now dated to Faraday's 1831 generator work; the source supports the motor's earlier chronology and mechanism."
+  },
+  "ontology_before": "Electric motors appeared downstream of dynamos, implying generated electrical power was needed before Faraday's motor principle.",
+  "ontology_after": "Electric motors depend on electricity and early electromagnetism; dynamos are a later generation technology and can support later power systems without being a motor prerequisite.",
+  "invariant_preserved_or_changed": "Changed: electric_motor no longer directly depends on dynamo and remains connected through electricity, construction, and electromagnetism_early_discoveries.",
+  "would_reject_if": [
+    "A primary historical source showed Faraday's 1821 motor required an electric generator.",
+    "The electric_motor node were re-scoped to commercial factory motors powered by generated electricity rather than the first motor principle.",
+    "The dynamo node were re-scoped to pre-1821 battery or current-supply technology instead of electric generators."
+  ],
+  "short_reason": "Faraday's motor predates dynamos and does not require a generator.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

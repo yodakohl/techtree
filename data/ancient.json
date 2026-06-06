@@ -73,11 +73,11 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "3.3-million-year-old stone tools from Lomekwi 3, West Turkana, Kenya",
+        "url": "https://www.nature.com/articles/nature14464",
+        "publisher": "Nature",
+        "year": 2015,
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
@@ -86,8 +86,8 @@
     ],
     "firstKnownDate": -3300000,
     "datePrecision": "millennium",
-    "region": "East Africa",
-    "reviewStatus": "structurally_validated",
+    "region": "West Turkana, Kenya",
+    "reviewStatus": "source_checked",
     "dependencyEdges": []
   },
   {
@@ -2623,10 +2623,23 @@
       "woodworking_basic",
       "pottery"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "Wheel",
+        "url": "https://www.britannica.com/technology/wheel",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": -3500,
+    "datePrecision": "century",
+    "region": "Mesopotamia",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "woodworking_basic",
@@ -2634,15 +2647,43 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Wheel",
+            "url": "https://www.britannica.com/technology/wheel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "pottery",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Early rotary wheel technology is documented first in pottery use before later transportation use.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Wheel",
+            "url": "https://www.britannica.com/technology/wheel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -2664,36 +2705,36 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Part I - History - Engineering Data - Interstate System",
-        "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-        "publisher": "Federal Highway Administration",
-        "year": 2017,
-        "source_type": "official_agency",
+        "title": "Wheel",
+        "url": "https://www.britannica.com/technology/wheel",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
+    "firstKnownDate": -3500,
+    "datePrecision": "century",
+    "region": "Mesopotamia",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "wheel_and_axle",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wheel and Axle provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "A wheeled vehicle, by definition, requires wheel-and-axle technology.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
+            "title": "Wheel",
+            "url": "https://www.britannica.com/technology/wheel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
@@ -2704,25 +2745,11 @@
       },
       {
         "prerequisite": "animal_husbandry",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.55,
         "evidence_level": "expert_inference",
-        "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
+        "note": "Draft animals made carts and wagons much more useful at scale, but human-pulled wheeled vehicles are possible without animal husbandry.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -4278,9 +4305,9 @@
       "bronze_working",
       "archery"
     ],
-    "firstKnownDate": -8000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
+    "firstKnownDate": -2000,
+    "datePrecision": "century",
+    "region": "Eurasian steppe and Near East",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -4324,8 +4351,7 @@
     "description": "The conduct of war using trained, disciplined bodies of soldiers with standardized equipment and basic tactical formations.",
     "prerequisites": [
       "city_states",
-      "iron_working",
-      "chariot"
+      "iron_working"
     ],
     "firstKnownDate": -3000,
     "datePrecision": "century",
@@ -4346,14 +4372,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "chariot",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Chariot provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -5034,26 +5052,67 @@
       "wheel_and_axle",
       "clay_gathering_and_preparation"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "Wheel",
+        "url": "https://www.britannica.com/technology/wheel",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": -3500,
+    "datePrecision": "century",
+    "region": "Mesopotamia",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "pottery",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "textbook",
+        "note": "The pottery wheel is specifically a rotary platform used for ceramic production.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Wheel",
+            "url": "https://www.britannica.com/technology/wheel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "wheel_and_axle",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wheel and Axle provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "A pottery wheel applies rotary wheel technology to vessel forming.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Wheel",
+            "url": "https://www.britannica.com/technology/wheel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "clay_gathering_and_preparation",
@@ -5061,7 +5120,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Clay Gathering and Preparation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -6470,9 +6529,9 @@
       "pottery_wheel",
       "masonry"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
+    "firstKnownDate": -3000,
+    "datePrecision": "century",
+    "region": "Early urban building traditions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -6716,9 +6775,9 @@
       "leather_tanning",
       "bronze_casting_molds"
     ],
-    "firstKnownDate": -8000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
+    "firstKnownDate": -3500,
+    "datePrecision": "century",
+    "region": "Early wheeled-vehicle regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {

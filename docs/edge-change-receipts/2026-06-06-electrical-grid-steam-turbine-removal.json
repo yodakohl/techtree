@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-06-electrical-grid-steam-turbine-removal",
+  "decision_date": "2026-06-06",
+  "edge": {
+    "dependent": "electrical_grid_early_distribution",
+    "prerequisite": "steam_turbine_power_generation"
+  },
+  "removed_edge": true,
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Steam Turbine Power Generation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from early electrical grids to steam turbine power generation; Pearl Street-style central distribution began in 1882, while the sampled steam-turbine node is dated to Parsons's 1884 turbine work.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/edis/learn/historyculture/edison-biography.htm?simple=True",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS Edison biography section describing the September 1882 Pearl Street commercial power station.",
+    "source_claim_summary": "The source dates the first commercial power station at Pearl Street to September 1882, before the graph's steam-turbine power-generation node.",
+    "source_support_rationale": "The chronology rules out steam_turbine_power_generation as a prerequisite for the first modeled central electrical distribution systems; the grid node remains supported by dynamos, lighting demand, construction, and wiring."
+  },
+  "ontology_before": "Early electrical distribution depended on steam turbine generation, making an 1882 grid downstream of an 1884 turbine technology.",
+  "ontology_after": "Early electrical distribution depends on generators, lighting demand, construction, and wiring; steam turbines remain a later generation technology for power plants.",
+  "invariant_preserved_or_changed": "Changed: electrical_grid_early_distribution no longer directly depends on steam_turbine_power_generation.",
+  "would_reject_if": [
+    "The grid node were re-scoped to turbine-era AC power stations rather than early central distribution.",
+    "A source showed Pearl Street or earlier commercial central stations used steam turbines as a prerequisite.",
+    "The steam_turbine_power_generation node were re-dated before the first commercial central electrical distribution systems."
+  ],
+  "short_reason": "Early grids predate steam turbine power generation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -160,6 +160,36 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-06: Manual accuracy sample and electrical chronology audit
+
+- Published metric: [Manual Accuracy Sample 2026-06-06](ACCURACY_SAMPLE_2026-06-06.md)
+  reports a risk-weighted 40-claim sample, 25 pre-correction defects, 40/40
+  sampled claims passing after correction, and zero temporal audit failures
+  across 1,664 technologies.
+- Manual sample audit: ancient wheel/vehicle records, Industrial electrical
+  power records, and broad Future roadmap labels were checked because they are
+  high-risk for inherited default dates, generic sources, and reversed
+  component/product edges.
+- Corrected claim examples: stone tools now cite the Lomekwi 3 Nature paper;
+  wheel, wheeled vehicles, and pottery wheel are anchored around -3500 rather
+  than the Ancient era default; early electromagnetism, dynamos, electric
+  motors, steam turbines, light bulbs, central-station power, grids, Hall-Heroult
+  aluminum, transformers, hydroelectric plants, electric tramways, and several
+  downstream transport/factory records now use chronology consistent with their
+  prerequisites.
+- Dependency cleanup: removed or replaced false edges including
+  `electric_motor -> dynamo`,
+  `electrical_grid_early_distribution -> steam_turbine_power_generation`,
+  `telephone_exchange -> electrical_grid_early_distribution`,
+  `organized_warfare -> chariot`,
+  `electrochemical_industry -> aluminum_production_hall_heroult`,
+  `scientific_management_time_studies -> assembly_line`, and
+  `sewing_machine_factories -> assembly_line`.
+- Validation:
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+
 ### 2026-06-06: AI data and foundation-workflow chronology audit
 
 - Manual sample audit: after the database-scope cleanup, the temporal audit

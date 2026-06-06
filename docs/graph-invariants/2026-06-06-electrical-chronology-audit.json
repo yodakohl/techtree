@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-06-electrical-chronology-audit",
+  "description": "Adversarial invariants from the manual accuracy sample: keep early electrical motors and grids from depending on later generation technologies.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_motor",
+      "prerequisite": "dynamo",
+      "reason": "Faraday's 1821 electric motor predates the graph's 1831 dynamo/electric-generator node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electrical_grid_early_distribution",
+      "prerequisite": "steam_turbine_power_generation",
+      "reason": "Early 1882 central distribution systems predate Parsons's 1884 steam turbine."
+    },
+    {
+      "type": "first_known_date",
+      "node": "electric_motor",
+      "operator": "eq",
+      "value": 1821,
+      "reason": "The electric motor node is scoped to Faraday's first electromagnetic-rotation motor."
+    },
+    {
+      "type": "first_known_date",
+      "node": "dynamo",
+      "operator": "eq",
+      "value": 1831,
+      "reason": "The dynamo node is scoped to Faraday's generator lineage, after the motor principle."
+    },
+    {
+      "type": "first_known_date",
+      "node": "electrical_grid_early_distribution",
+      "operator": "eq",
+      "value": 1882,
+      "reason": "The grid node is scoped to early central distribution such as Pearl Street."
+    },
+    {
+      "type": "first_known_date",
+      "node": "steam_turbine_power_generation",
+      "operator": "eq",
+      "value": 1884,
+      "reason": "The steam-turbine node should remain later than early central electrical distribution."
+    }
+  ]
+}

@@ -15,6 +15,7 @@
 | **Try the demo** | Opens on CRISPR/Cas9 with foundations, editing platforms, delivery, safety, therapeutics, and roadmap candidates. |
 | **Inspect evidence** | Dependencies are typed and include confidence, evidence level, notes, and sources where available. |
 | **Use the data** | **1,664 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
+| **Check accuracy** | Latest manual sample: **40/40 sampled claims pass after correction**; see [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md). |
 | **Improve one edge** | Small PRs can correct one dependency/source; validation catches missing IDs, cycles, duplicates, and time-travel edges. |
 
 TechTree is built as public-good infrastructure for researchers, builders, educators, and AI agents that need a trustworthy technology-dependency graph instead of a plausible list of inventions.
