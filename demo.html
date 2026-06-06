@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTree Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260606b">
+</head>
+<body>
+    <header>
+        <h1>TechTree Demo</h1>
+        <nav>
+            <a href="index.html">Graph View</a>
+            <a href="sorted.html">Sorted View</a>
+        </nav>
+    </header>
+    <main class="demo-main">
+        <section class="demo-shell">
+            <div class="demo-toolbar">
+                <select id="demo-field" aria-label="Choose field"></select>
+                <input type="search" id="demo-search" placeholder="Search this field">
+                <span id="demo-status" role="status"></span>
+            </div>
+            <div class="demo-layout">
+                <aside class="demo-field-panel">
+                    <h2 id="demo-field-title"></h2>
+                    <div id="demo-metrics" class="demo-metrics"></div>
+                    <section class="demo-next-section">
+                        <h3>Next Candidates</h3>
+                        <div id="demo-next-list" class="demo-next-list"></div>
+                    </section>
+                </aside>
+                <section class="demo-map-panel">
+                    <div id="demo-lanes" class="demo-lanes"></div>
+                </section>
+                <aside id="demo-detail" class="demo-detail-panel" aria-live="polite"></aside>
+            </div>
+        </section>
+    </main>
+    <script defer src="demo.js?v=20260606a"></script>
+</body>
+</html>

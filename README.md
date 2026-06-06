@@ -2,19 +2,20 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-14%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1657-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1664-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
 **TechTree is an interactive technology tree, dependency graph, and history-of-technology dataset for exploring how human technologies connect across eras.** It maps inventions, methods, infrastructure, scientific tools, and future roadmap technologies from ancient foundations to modern and emerging systems.
 
-The current validated dataset contains **1,657 curated technologies** stored as era-specific JSON files under `data/`.
+The current validated dataset contains **1,664 curated technologies** stored as era-specific JSON files under `data/`.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
 ## What You Can Do
 
 - Trace prerequisites and downstream unlocks for a technology.
+- Open a field demo that shows the current stack, roadmap candidates, and evidence for connected technologies.
 - Explore compact subfield maps for CRISPR, semiconductors, AI/ML, energy, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceutical drug development.
 - Compare technologies across Ancient, Classical, Medieval, Renaissance, Industrial, Modern, and Future eras.
 - Use the validated JSON data as a knowledge graph seed for research, education, simulations, or AI tools.
@@ -24,6 +25,7 @@ The current validated dataset contains **1,657 curated technologies** stored as 
 
 - **Graph View**: a Vis Network dependency graph with search, era and field filtering, focused dependency context, source metadata, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, field lens, maturity, and roadmap status.
+- **Demo View**: a field-focused dashboard that opens directly on CRISPR/Cas9 and shows lane maps, likely next technologies, dependency confidence, and sources.
 
 ## Quick Start
 
@@ -40,6 +42,7 @@ npm start
 
 Open:
 
+- Demo view: `http://localhost:3000/demo.html`
 - Graph view: `http://localhost:3000`
 - Sorted view: `http://localhost:3000/sorted.html`
 
@@ -63,6 +66,7 @@ TECHTREE_READ_ONLY=true npm start
 - Inspect prerequisites and unlocks from the side panel.
 - Add, edit, or delete technologies when not running in read-only mode.
 - Browse a compact sorted view grouped by derived technology branches.
+- Present a concise field demo for researchers, contributors, and reviewers.
 - Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, semiconductor technology, AI/ML, energy systems, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceuticals/drug development.
 - Explore cited CRISPR/Cas9, semiconductor/integrated-circuit, AI/ML, energy/grid, spaceflight/satellite, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, water/sanitation, and pharmaceuticals/drug-development verticals with maturity labels, source links, and roadmap forecasts.
 
