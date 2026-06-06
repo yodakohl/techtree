@@ -6,9 +6,18 @@
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
-**TechTree is an interactive technology tree, dependency graph, and history-of-technology dataset for exploring how human technologies connect across eras.** It maps inventions, methods, infrastructure, scientific tools, and future roadmap technologies from ancient foundations to modern and emerging systems.
+**TechTree is a source-backed map of human technology: see what a technology depends on, what it unlocks, and what likely comes next.**
 
-The current validated dataset contains **1,664 curated technologies** stored as era-specific JSON files under `data/`.
+[Live Demo](https://pushme.site/demo) · [CRISPR Example](https://pushme.site/demo?field=Genome%20Editing%20%2F%20CRISPR-Cas#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html)
+
+| In 10 seconds | Why it matters |
+| --- | --- |
+| **Try the demo** | Opens on CRISPR/Cas9 with foundations, editing platforms, delivery, safety, therapeutics, and roadmap candidates. |
+| **Inspect evidence** | Dependencies are typed and include confidence, evidence level, notes, and sources where available. |
+| **Use the data** | **1,664 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
+| **Improve one edge** | Small PRs can correct one dependency/source; validation catches missing IDs, cycles, duplicates, and time-travel edges. |
+
+TechTree is built as public-good infrastructure for researchers, builders, educators, and AI agents that need a trustworthy technology-dependency graph instead of a plausible list of inventions.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)
 
