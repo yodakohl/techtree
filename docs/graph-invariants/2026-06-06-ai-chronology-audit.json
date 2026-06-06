@@ -1,0 +1,162 @@
+{
+  "id": "2026-06-06-ai-chronology-audit",
+  "description": "Adversarial invariant for AI/ML chronology cleanup: source-checked AI data, deep-learning, diffusion, and foundation-model workflow nodes should not fall back to generated placeholder dates.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "deep_learning_neural_networks",
+      "operator": "eq",
+      "value": 1986,
+      "reason": "Deep learning node is anchored to the 1986 backpropagation paper currently used as its primary source."
+    },
+    {
+      "type": "first_known_date",
+      "node": "diffusion_models_generative_ai",
+      "operator": "eq",
+      "value": 2020,
+      "reason": "Diffusion-model generative AI node is anchored to the 2020 DDPM paper currently used as its primary source."
+    },
+    {
+      "type": "first_known_date",
+      "node": "computer_vision_deep_learning",
+      "operator": "eq",
+      "value": 2012,
+      "reason": "Deep-learning computer vision is currently anchored to the 2012 AlexNet/ImageNet source."
+    },
+    {
+      "type": "first_known_date",
+      "node": "computer_vision",
+      "operator": "eq",
+      "value": 1966,
+      "reason": "Generic computer vision should stay anchored to MIT's 1966 Summer Vision Project, not the 2012 deep-learning specialization."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "computer_vision_deep_learning",
+      "prerequisite": "computer_vision",
+      "expected": "historical_predecessor",
+      "reason": "Deep-learning computer vision should remain a specialization downstream of generic computer vision."
+    },
+    {
+      "type": "first_known_date",
+      "node": "speech_recognition_deep_learning",
+      "operator": "eq",
+      "value": 2012,
+      "reason": "Deep-learning speech recognition is currently anchored to the 2012 deep-neural acoustic-modeling review."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ai_training_clusters",
+      "operator": "eq",
+      "value": 2015,
+      "reason": "AI training clusters are currently anchored to the 2015 FireCaffe compute-cluster training source."
+    },
+    {
+      "type": "first_known_date",
+      "node": "sequence_to_sequence_attention",
+      "operator": "eq",
+      "value": 2014,
+      "reason": "Sequence-to-sequence attention is currently anchored to the 2014 neural machine translation attention paper."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "machine_vision_robotics",
+      "prerequisite": "computer_vision_deep_learning",
+      "reason": "Machine vision for robotics predates deep-learning vision and should route through generic computer vision."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "machine_vision_robotics",
+      "prerequisite": "computer_vision",
+      "expected": "enabling",
+      "reason": "Machine vision should retain the broader computer-vision dependency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "slam_robotics",
+      "prerequisite": "computer_vision_deep_learning",
+      "reason": "SLAM predates deep-learning vision and should route through generic computer vision when visual methods are modeled."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "slam_robotics",
+      "prerequisite": "computer_vision",
+      "expected": "enabling",
+      "reason": "SLAM should retain a broad computer-vision dependency rather than an AlexNet-era dependency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "autonomous_vehicle_stack",
+      "prerequisite": "computer_vision_deep_learning",
+      "reason": "Autonomous-vehicle stacks should not require deep-learning computer vision as a historical prerequisite."
+    },
+    {
+      "type": "first_known_date",
+      "node": "autonomous_vehicle_stack",
+      "operator": "eq",
+      "value": 2004,
+      "reason": "Autonomous-vehicle stack chronology should stay anchored to the DARPA Grand Challenge era rather than a generated 1983 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "autonomous_vehicle_stack",
+      "prerequisite": "computer_vision",
+      "expected": "speculative",
+      "reason": "Forecast autonomous-vehicle stack dependencies should keep the broad perception dependency speculative."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "drone_aerial_mapping",
+      "prerequisite": "autonomous_vehicle_stack",
+      "reason": "Drone aerial mapping should not depend on the road-vehicle autonomy stack."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "drone_aerial_mapping",
+      "prerequisite": "mobile_robot_navigation",
+      "expected": "enabling",
+      "reason": "Drone aerial mapping should route through broader mobile robot navigation capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "drone_autonomy",
+      "prerequisite": "autonomous_vehicle_stack",
+      "reason": "Drone autonomy should not depend on the road-vehicle autonomy stack."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "drone_autonomy",
+      "prerequisite": "mobile_robot_navigation",
+      "expected": "enabling",
+      "reason": "Drone autonomy should route through broader mobile robot navigation capability."
+    },
+    {
+      "type": "first_known_date",
+      "node": "data_labeling_platforms",
+      "operator": "eq",
+      "value": 2009,
+      "reason": "Data labeling platform coverage is currently sourced to ImageNet 2009 and should not use the generated 1983 placeholder."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ml_benchmark_datasets",
+      "operator": "eq",
+      "value": 2009,
+      "reason": "ML benchmark dataset coverage is currently sourced to ImageNet 2009 and should not use the generated 1983 placeholder."
+    },
+    {
+      "type": "first_known_date",
+      "node": "self_supervised_learning",
+      "operator": "eq",
+      "value": 2020,
+      "reason": "Self-supervised learning coverage is currently anchored to GPT-3 style large-scale self-supervised language modeling."
+    },
+    {
+      "type": "first_known_date",
+      "node": "model_pretraining_finetuning",
+      "operator": "eq",
+      "value": 2021,
+      "reason": "Model pretraining and fine-tuning workflow coverage is currently anchored to the 2021 foundation-model source."
+    }
+  ]
+}

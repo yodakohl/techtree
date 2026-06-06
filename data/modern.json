@@ -2427,14 +2427,26 @@
       "electronics",
       "mathematics",
       "algorithms_computation_theory",
-      "transistors",
       "vacuum_tubes_electron_control",
       "magnetic_tape_data_storage"
     ],
-    "firstKnownDate": 1947,
+    "sources": [
+      {
+        "title": "ENIAC",
+        "url": "https://www.computerhistory.org/revolution/birth-of-the-computer/4/78",
+        "publisher": "Computer History Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1945,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "United States, United Kingdom, Germany, and global computing",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "electronics",
@@ -2459,17 +2471,9 @@
         "evidence_level": "expert_inference",
         "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "transistors",
-        "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Transistors is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "vacuum_tubes_electron_control",
+    },
+    {
+      "prerequisite": "vacuum_tubes_electron_control",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
@@ -4399,29 +4403,152 @@
     ]
   },
   {
+    "id": "database_management_systems",
+    "name": "Database Management Systems",
+    "era": "Modern",
+    "description": "Software systems for organizing, storing, retrieving, updating, and managing persistent structured data independently of individual application programs.",
+    "prerequisites": [
+      "computers_early",
+      "magnetic_tape_data_storage",
+      "software_engineering"
+    ],
+    "sources": [
+      {
+        "title": "Computer Pioneers - Bachman, Charles",
+        "url": "https://history.computer.org/pioneers/bachman.html",
+        "publisher": "IEEE Computer Society",
+        "year": 1995,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1960,
+    "datePrecision": "decade",
+    "region": "United States and global enterprise computing",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "computers_early",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "Database management systems require electronic computers to store, retrieve, and manage online collections of interrelated data.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computer Pioneers - Bachman, Charles",
+            "url": "https://history.computer.org/pioneers/bachman.html",
+            "publisher": "IEEE Computer Society",
+            "year": 1995,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "magnetic_tape_data_storage",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "expert_inference",
+        "note": "Early database systems depended on persistent machine-readable storage, with magnetic storage serving as a practical foundation for large online datasets.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computer Pioneers - Bachman, Charles",
+            "url": "https://history.computer.org/pioneers/bachman.html",
+            "publisher": "IEEE Computer Society",
+            "year": 1995,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "software_engineering",
+        "type": "enabling",
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "DBMS work made data management a reusable software layer rather than application-specific file handling.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computer Pioneers - Bachman, Charles",
+            "url": "https://history.computer.org/pioneers/bachman.html",
+            "publisher": "IEEE Computer Society",
+            "year": 1995,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "databases_relational_dbms",
     "name": "Databases (Relational DBMS)",
     "era": "Modern",
     "description": "Systems for organizing, storing, and retrieving large amounts of structured data using relational models.",
     "prerequisites": [
-      "computers_early",
+      "database_management_systems",
       "software_engineering",
       "algorithms_computation_theory",
       "information_theory",
       "mathematics"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "A relational model of data for large shared data banks",
+        "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
+        "publisher": "Communications of the ACM",
+        "year": 1970,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1970,
+    "datePrecision": "exact",
+    "region": "United States and global database research",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "computers_early",
+        "prerequisite": "database_management_systems",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "primary_source",
+        "note": "Relational database systems build on earlier database-management systems while replacing tree and network data models with Codd's relational model.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A relational model of data for large shared data banks",
+            "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
+            "publisher": "Communications of the ACM",
+            "year": 1970,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "software_engineering",
@@ -4429,7 +4556,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Software Engineering provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A relational model of data for large shared data banks",
+            "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
+            "publisher": "Communications of the ACM",
+            "year": 1970,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "algorithms_computation_theory",
@@ -4437,7 +4578,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A relational model of data for large shared data banks",
+            "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
+            "publisher": "Communications of the ACM",
+            "year": 1970,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "information_theory",
@@ -4445,15 +4600,43 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Information Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A relational model of data for large shared data banks",
+            "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
+            "publisher": "Communications of the ACM",
+            "year": 1970,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Codd's relational model uses mathematical relations and predicate-calculus-style reasoning as the data model foundation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A relational model of data for large shared data banks",
+            "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
+            "publisher": "Communications of the ACM",
+            "year": 1970,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -7690,6 +7873,17 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22745249/",
+        "publisher": "Science / PubMed",
+        "year": 2012,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
         "title": "Structural basis of PAM-dependent target DNA recognition by the Cas9 endonuclease",
         "url": "https://www.nature.com/articles/nature13579",
         "publisher": "Nature",
@@ -7702,8 +7896,8 @@
       }
     ],
     "firstKnownDate": 2012,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "datePrecision": "exact",
+    "region": "United States, Europe, and global CRISPR research",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -16244,8 +16438,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 1986,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -16564,8 +16758,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2020,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -17398,18 +17592,45 @@
       "algorithms_computation_theory",
       "software_engineering"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "Sequel: A structured english query language",
+        "url": "https://research.ibm.com/publications/sequel-a-struciured-english-query-language",
+        "publisher": "IBM Research",
+        "year": 1974,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1974,
+    "datePrecision": "exact",
+    "region": "United States and global database systems",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "databases_relational_dbms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "primary_source",
+        "note": "SEQUEL was introduced as a data sublanguage for accessing data in an integrated relational database.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Sequel: A structured english query language",
+            "url": "https://research.ibm.com/publications/sequel-a-struciured-english-query-language",
+            "publisher": "IBM Research",
+            "year": 1974,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "algorithms_computation_theory",
@@ -17417,7 +17638,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Sequel: A structured english query language",
+            "url": "https://research.ibm.com/publications/sequel-a-struciured-english-query-language",
+            "publisher": "IBM Research",
+            "year": 1974,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "software_engineering",
@@ -17425,7 +17660,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Software Engineering provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Sequel: A structured english query language",
+            "url": "https://research.ibm.com/publications/sequel-a-struciured-english-query-language",
+            "publisher": "IBM Research",
+            "year": 1974,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -17534,11 +17783,140 @@
     ]
   },
   {
+    "id": "computer_vision",
+    "name": "Computer Vision",
+    "era": "Modern",
+    "description": "Computational methods for extracting structure, objects, motion, and scene information from images or video.",
+    "prerequisites": [
+      "computers_early",
+      "artificial_intelligence_early",
+      "photography",
+      "algorithms_computation_theory"
+    ],
+    "fields": [
+      "Artificial Intelligence & Machine Learning",
+      "Robotics & Autonomous Systems"
+    ],
+    "fieldLanes": {
+      "Artificial Intelligence & Machine Learning": "Foundations",
+      "Robotics & Autonomous Systems": "Perception"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "The Summer Vision Project",
+        "url": "https://people.csail.mit.edu/brooks/idocs/AIM-100.pdf",
+        "publisher": "MIT Project MAC",
+        "year": 1966,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1966,
+    "datePrecision": "exact",
+    "region": "United States and global AI research",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "computers_early",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "The Summer Vision Project was explicitly framed as using computers to process and describe visual scenes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Summer Vision Project",
+            "url": "https://people.csail.mit.edu/brooks/idocs/AIM-100.pdf",
+            "publisher": "MIT Project MAC",
+            "year": 1966,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "artificial_intelligence_early",
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "The 1966 MIT vision memo came from the Artificial Intelligence Project, making early AI research the immediate institutional and conceptual predecessor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Summer Vision Project",
+            "url": "https://people.csail.mit.edu/brooks/idocs/AIM-100.pdf",
+            "publisher": "MIT Project MAC",
+            "year": 1966,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "photography",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "expert_inference",
+        "note": "Computer vision needs captured visual input; photographic and camera technologies provide the image-acquisition lineage.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Summer Vision Project",
+            "url": "https://people.csail.mit.edu/brooks/idocs/AIM-100.pdf",
+            "publisher": "MIT Project MAC",
+            "year": 1966,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "algorithms_computation_theory",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "expert_inference",
+        "note": "Computer vision depends on algorithms for segmentation, matching, recognition, and scene description.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Summer Vision Project",
+            "url": "https://people.csail.mit.edu/brooks/idocs/AIM-100.pdf",
+            "publisher": "MIT Project MAC",
+            "year": 1966,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "computer_vision_deep_learning",
     "name": "Deep Learning Computer Vision",
     "era": "Modern",
     "description": "Neural network systems that classify, detect, segment, and generate visual content using large datasets and accelerated training.",
     "prerequisites": [
+      "computer_vision",
       "deep_learning_neural_networks",
       "digital_photography_ccd_cmos_sensors",
       "graphics_processing_units_gpu"
@@ -17576,11 +17954,33 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2012,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
+      {
+        "prerequisite": "computer_vision",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "Deep-learning computer vision is a later neural-network specialization of the broader computer-vision field.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+            "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+            "publisher": "NeurIPS",
+            "year": 2012,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
       {
         "prerequisite": "deep_learning_neural_networks",
         "type": "enabling",
@@ -17676,27 +18076,38 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition",
+        "url": "https://doi.org/10.1109/MSP.2012.2205597",
+        "publisher": "IEEE Signal Processing Magazine",
+        "year": 2012,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2012,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "deep_learning_neural_networks",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Deep Learning Neural Networks provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The 2012 speech-recognition review describes deep neural networks as acoustic models for speech recognition, making deep learning the direct modeling substrate.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Learning Representations by Back-Propagating Errors",
-            "url": "https://www.nature.com/articles/323533a0",
-            "publisher": "Nature",
-            "year": 1986,
-            "source_type": "primary_paper",
+            "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition",
+            "url": "https://doi.org/10.1109/MSP.2012.2205597",
+            "publisher": "IEEE Signal Processing Magazine",
+            "year": 2012,
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -17708,17 +18119,17 @@
       {
         "prerequisite": "digital_signal_processing",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Deep speech-recognition systems build on speech signal processing and acoustic features while replacing or augmenting earlier acoustic modeling methods.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Learning Representations by Back-Propagating Errors",
-            "url": "https://www.nature.com/articles/323533a0",
-            "publisher": "Nature",
-            "year": 1986,
-            "source_type": "primary_paper",
+            "title": "Deep Neural Networks for Acoustic Modeling in Speech Recognition",
+            "url": "https://doi.org/10.1109/MSP.2012.2205597",
+            "publisher": "IEEE Signal Processing Magazine",
+            "year": 2012,
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -19190,7 +19601,7 @@
     "description": "Machine-readable optical codes for tracking products, inventory, shipments, tickets, documents, and manufacturing flows.",
     "prerequisites": [
       "laser_scanners",
-      "databases_relational_dbms",
+      "database_management_systems",
       "industrial_quality_control"
     ],
     "firstKnownDate": 1960,
@@ -19207,11 +19618,11 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "databases_relational_dbms",
-        "type": "enabling",
-        "confidence": 0.68,
+        "prerequisite": "database_management_systems",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
+        "note": "Database management systems support large-scale barcode lookup, inventory association, and tracking workflows without being part of the optical code itself.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -19858,21 +20269,21 @@
     "era": "Modern",
     "description": "Integrated business software for finance, inventory, manufacturing, procurement, human resources, and reporting.",
     "prerequisites": [
-      "databases_relational_dbms",
+      "database_management_systems",
       "software_engineering",
       "warehouse_management_systems_early"
     ],
-    "firstKnownDate": 1948,
+    "firstKnownDate": 1960,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
+        "note": "Database management systems provide persistent shared business data for MRP and ERP-style integrated enterprise software.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -20632,45 +21043,87 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "CUDA Programming Guide: Introduction",
-        "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
-        "publisher": "NVIDIA",
-        "year": 2026,
-        "source_type": "weak_web",
+        "title": "FireCaffe: near-linear acceleration of deep neural network training on compute clusters",
+        "url": "https://arxiv.org/abs/1511.00175",
+        "publisher": "arXiv / UC Berkeley",
+        "year": 2015,
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2015,
+    "datePrecision": "exact",
+    "region": "United States and global AI infrastructure",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "graphics_processing_units_gpu",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Graphics Processing Units (GPUs) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "FireCaffe demonstrates distributed deep neural network training on GPU-equipped compute clusters, making GPUs a direct scaling dependency for this node scope.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "FireCaffe: near-linear acceleration of deep neural network training on compute clusters",
+            "url": "https://arxiv.org/abs/1511.00175",
+            "publisher": "arXiv / UC Berkeley",
+            "year": 2015,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "deep_learning_neural_networks",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Deep Learning Neural Networks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "The cluster infrastructure is scoped to training deep neural networks, so deep-learning workloads define the practical use case for the node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "FireCaffe: near-linear acceleration of deep neural network training on compute clusters",
+            "url": "https://arxiv.org/abs/1511.00175",
+            "publisher": "arXiv / UC Berkeley",
+            "year": 2015,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "cloud_computing_distributed_systems",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Training clusters depend on distributed-system orchestration, storage, and networking patterns; the edge is not cloud-specific but uses the bundled distributed-systems node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "FireCaffe: near-linear acceleration of deep neural network training on compute clusters",
+            "url": "https://arxiv.org/abs/1511.00175",
+            "publisher": "arXiv / UC Berkeley",
+            "year": 2015,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -21461,7 +21914,7 @@
     "era": "Modern",
     "description": "Integrated sensing, localization, perception, planning, control, maps, simulation, and safety systems for self-driving vehicles.",
     "prerequisites": [
-      "computer_vision_deep_learning",
+      "computer_vision",
       "gps",
       "robotics"
     ],
@@ -21474,14 +21927,14 @@
       "Transportation & Logistics": "Roadmap"
     },
     "maturity": "forecast",
-    "sources": [
-      {
-        "title": "Grand Challenge",
-        "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge",
-        "publisher": "DARPA",
-        "year": 2026,
-        "source_type": "official_agency",
-        "supports": [
+      "sources": [
+        {
+          "title": "Robotics",
+          "url": "https://www.nist.gov/robotics",
+          "publisher": "NIST",
+          "year": 2026,
+          "source_type": "official_agency",
+          "supports": [
           "node",
           "maturity",
           "roadmap"
@@ -21512,17 +21965,17 @@
         "liability"
       ]
     },
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 2004,
+    "datePrecision": "exact",
+    "region": "United States and global autonomous-vehicle research",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "computer_vision_deep_learning",
+        "prerequisite": "computer_vision",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Deep Learning Computer Vision is a plausible dependency for a forecast technology and should be treated as speculative.",
+        "note": "Computer vision is a plausible perception dependency for autonomous-vehicle stacks; deep-learning vision is a later specialization rather than a historical prerequisite for early autonomous-vehicle demonstrations.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -22040,7 +22493,7 @@
     "description": "Integrated hospital software for patient records, orders, labs, imaging, billing, scheduling, pharmacy, and clinical workflows.",
     "prerequisites": [
       "computers_early",
-      "databases_relational_dbms",
+      "database_management_systems",
       "software_engineering"
     ],
     "fields": [
@@ -22102,11 +22555,11 @@
         ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "enabling",
-        "confidence": 0.74,
+        "confidence": 0.76,
         "evidence_level": "primary_source",
-        "note": "HELP used a database-management subsystem; the current graph's nearest database node is relational DBMS, so this edge is enabling rather than a strict claim about HELP's database model.",
+        "note": "HELP used a database-management subsystem, so HIS depends on general database-management capability rather than specifically relational DBMS.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -23527,7 +23980,7 @@
     "prerequisites": [
       "gps_guided_logistics",
       "digital_photography_ccd_cmos_sensors",
-      "autonomous_vehicle_stack"
+      "mobile_robot_navigation"
     ],
     "firstKnownDate": 1983,
     "datePrecision": "decade",
@@ -23549,16 +24002,16 @@
         "evidence_level": "expert_inference",
         "note": "Digital Photography (CCD/CMOS Sensors) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "autonomous_vehicle_stack",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Autonomous Vehicle Stack provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      }
-    ]
+    },
+    {
+      "prerequisite": "mobile_robot_navigation",
+      "type": "enabling",
+      "confidence": 0.68,
+      "evidence_level": "expert_inference",
+      "note": "Mobile robot navigation provides the navigation and motion-planning lineage for drone mapping without requiring the road-vehicle autonomy stack.",
+      "reviewStatus": "structurally_validated"
+    }
+  ]
   },
   {
     "id": "relational_data_warehousing",
@@ -24119,7 +24572,7 @@
     "description": "Structured clinical records integrating notes, medications, labs, imaging, orders, billing, and care coordination.",
     "prerequisites": [
       "hospital_information_systems",
-      "databases_relational_dbms",
+      "database_management_systems",
       "medical_case_records"
     ],
     "fields": [
@@ -24170,11 +24623,11 @@
         ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "enabling",
-        "confidence": 0.72,
+        "confidence": 0.74,
         "evidence_level": "primary_source",
-        "note": "The Regenstrief system maintained a core computerized medical record and captured structured patient data; relational DBMS is the closest current graph node for this data-management capability.",
+        "note": "The Regenstrief system maintained a core computerized medical record and captured structured patient data, requiring database-management capability without implying a relational DBMS.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -24325,12 +24778,25 @@
     "description": "Electromechanical cash terminals linked to banking networks for account access outside staffed branches.",
     "prerequisites": [
       "computers_early",
-      "databases_relational_dbms"
+      "database_management_systems"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "First cash dispenser",
+        "url": "https://www.guinnessworldrecords.com/world-records/first-cash-dispenser",
+        "publisher": "Guinness World Records",
+        "year": 1967,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1967,
+    "datePrecision": "exact",
+    "region": "United Kingdom and later global banking networks",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "computers_early",
@@ -24338,15 +24804,43 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "First cash dispenser",
+            "url": "https://www.guinnessworldrecords.com/world-records/first-cash-dispenser",
+            "publisher": "Guinness World Records",
+            "year": 1967,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.7,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "ATMs require persistent account and transaction data infrastructure, but the first cash dispensers predate relational DBMS.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computer Pioneers - Bachman, Charles",
+            "url": "https://history.computer.org/pioneers/bachman.html",
+            "publisher": "IEEE Computer Society",
+            "year": 1995,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -24356,7 +24850,7 @@
     "era": "Modern",
     "description": "Machine-readable product codes and scanners for retail checkout, warehousing, logistics, and manufacturing control.",
     "prerequisites": [
-      "databases_relational_dbms",
+      "database_management_systems",
       "laser_scanners"
     ],
     "firstKnownDate": 1960,
@@ -24365,11 +24859,11 @@
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
+        "note": "Database management systems enable product-code lookup and inventory records for barcode inventory systems without requiring relational DBMS.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -24748,9 +25242,9 @@
         ]
       },
       {
-        "title": "Robotics",
-        "url": "https://www.nist.gov/robotics",
-        "publisher": "NIST",
+        "title": "Grand Challenge",
+        "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge",
+        "publisher": "DARPA",
         "year": 2026,
         "source_type": "official_agency",
         "supports": [
@@ -28406,7 +28900,7 @@
     "prerequisites": [
       "artificial_intelligence_early",
       "formal_logic_syllogism",
-      "databases_relational_dbms"
+      "software_engineering"
     ],
     "fields": [
       "Artificial Intelligence & Machine Learning"
@@ -28416,6 +28910,17 @@
     },
     "maturity": "established",
     "sources": [
+      {
+        "title": "Dendral",
+        "url": "https://aihistoryproject.org/concepts/concept-dendral",
+        "publisher": "AI History Project",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
         "url": "https://raysolomonoff.com/dartmouth/boxa/dart564props.pdf",
@@ -28428,10 +28933,10 @@
         ]
       }
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1965,
+    "datePrecision": "exact",
+    "region": "United States and global AI research",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "artificial_intelligence_early",
@@ -28439,7 +28944,21 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Artificial Intelligence (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Dendral",
+            "url": "https://aihistoryproject.org/concepts/concept-dendral",
+            "publisher": "AI History Project",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "formal_logic_syllogism",
@@ -28447,15 +28966,43 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Formal Logic (Syllogism) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Dendral",
+            "url": "https://aihistoryproject.org/concepts/concept-dendral",
+            "publisher": "AI History Project",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "software_engineering",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.7,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Expert systems encode knowledge bases and inference rules in software; relational DBMS is not a prerequisite for early systems such as DENDRAL.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Dendral",
+            "url": "https://aihistoryproject.org/concepts/concept-dendral",
+            "publisher": "AI History Project",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -28653,8 +29200,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
+    "firstKnownDate": 1995,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -28756,8 +29303,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
+    "firstKnownDate": 2001,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -28859,8 +29406,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
+    "firstKnownDate": 1995,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -28931,8 +29478,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
+    "firstKnownDate": 1995,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -29088,15 +29635,15 @@
         "url": "https://ieeexplore.ieee.org/document/5206848",
         "publisher": "IEEE CVPR",
         "year": 2009,
-        "source_type": "official_agency",
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2009,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -29113,7 +29660,7 @@
             "url": "https://ieeexplore.ieee.org/document/5206848",
             "publisher": "IEEE CVPR",
             "year": 2009,
-            "source_type": "official_agency",
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -29135,7 +29682,7 @@
             "url": "https://ieeexplore.ieee.org/document/5206848",
             "publisher": "IEEE CVPR",
             "year": 2009,
-            "source_type": "official_agency",
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -29157,7 +29704,7 @@
             "url": "https://ieeexplore.ieee.org/document/5206848",
             "publisher": "IEEE CVPR",
             "year": 2009,
-            "source_type": "official_agency",
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -29191,7 +29738,7 @@
         "url": "https://ieeexplore.ieee.org/document/5206848",
         "publisher": "IEEE CVPR",
         "year": 2009,
-        "source_type": "official_agency",
+        "source_type": "primary_paper",
         "supports": [
           "node",
           "maturity"
@@ -29209,8 +29756,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2009,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -29227,7 +29774,7 @@
             "url": "https://ieeexplore.ieee.org/document/5206848",
             "publisher": "IEEE CVPR",
             "year": 2009,
-            "source_type": "official_agency",
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -29249,7 +29796,7 @@
             "url": "https://ieeexplore.ieee.org/document/5206848",
             "publisher": "IEEE CVPR",
             "year": 2009,
-            "source_type": "official_agency",
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -29271,7 +29818,7 @@
             "url": "https://ieeexplore.ieee.org/document/5206848",
             "publisher": "IEEE CVPR",
             "year": 2009,
-            "source_type": "official_agency",
+            "source_type": "primary_paper",
             "supports": [
               "node",
               "maturity",
@@ -29518,8 +30065,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2014,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -29632,8 +30179,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2020,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -29746,8 +30293,8 @@
         ]
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 2021,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -32683,7 +33230,7 @@
     "prerequisites": [
       "robotic_manipulators",
       "digital_photography_ccd_cmos_sensors",
-      "computer_vision_deep_learning"
+      "computer_vision"
     ],
     "fields": [
       "Robotics & Autonomous Systems"
@@ -32755,11 +33302,11 @@
         ]
       },
       {
-        "prerequisite": "computer_vision_deep_learning",
+        "prerequisite": "computer_vision",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Deep Learning Computer Vision provides a capability that enables this technology without being the only possible path.",
+        "note": "Machine vision for robotics uses computer-vision methods for object location, inspection, and guidance; deep learning is a later accelerator rather than a hard historical prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -32888,7 +33435,7 @@
     "description": "Simultaneous localization and mapping methods that let robots build maps while estimating their own position.",
     "prerequisites": [
       "mobile_robot_navigation",
-      "computer_vision_deep_learning",
+      "computer_vision",
       "algorithms_computation_theory"
     ],
     "fields": [
@@ -32939,11 +33486,11 @@
         ]
       },
       {
-        "prerequisite": "computer_vision_deep_learning",
+        "prerequisite": "computer_vision",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Deep Learning Computer Vision provides a capability that enables this technology without being the only possible path.",
+        "note": "Computer vision enables camera-based SLAM and visual feature tracking, while broader SLAM can also use non-visual sensors.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -33332,7 +33879,7 @@
     "era": "Modern",
     "description": "Autonomous flight control, perception, planning, and fleet operations for uncrewed aerial vehicles.",
     "prerequisites": [
-      "autonomous_vehicle_stack",
+      "mobile_robot_navigation",
       "gps_guided_logistics",
       "edge_ai_inference"
     ],
@@ -33373,17 +33920,17 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "autonomous_vehicle_stack",
+        "prerequisite": "mobile_robot_navigation",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Autonomous Vehicle Stack provides a capability that enables this technology without being the only possible path.",
+        "note": "Drone autonomy shares localization, planning, and control patterns with mobile robot navigation rather than depending on road-vehicle autonomy stacks.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Grand Challenge",
-            "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge",
-            "publisher": "DARPA",
+            "title": "Robotics",
+            "url": "https://www.nist.gov/robotics",
+            "publisher": "NIST",
             "year": 2026,
             "source_type": "official_agency",
             "supports": [
@@ -37749,7 +38296,7 @@
     "prerequisites": [
       "warehouse_barcode_automation",
       "supply_chain_management_software",
-      "databases_relational_dbms"
+      "database_management_systems"
     ],
     "fields": [
       "Transportation & Logistics"
@@ -37821,11 +38368,11 @@
         ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "commercial_or_scaling_dependency",
         "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) supports manufacturing, deployment, commercialization, or operational scaling.",
+        "note": "Database management systems support inventory, location, order, and labor records for warehouse-management systems without requiring relational DBMS specifically.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -38589,17 +39136,6 @@
           "node",
           "maturity"
         ]
-      },
-      {
-        "title": "Materials Data Repository",
-        "url": "https://materialsdata.nist.gov/",
-        "publisher": "NIST",
-        "year": 2026,
-        "source_type": "official_agency",
-        "supports": [
-          "node",
-          "maturity"
-        ]
       }
     ],
     "firstKnownDate": 1983,
@@ -38697,17 +39233,6 @@
       {
         "title": "Materials Genome Initiative",
         "url": "https://www.nist.gov/mgi",
-        "publisher": "NIST",
-        "year": 2026,
-        "source_type": "official_agency",
-        "supports": [
-          "node",
-          "maturity"
-        ]
-      },
-      {
-        "title": "Materials Data Repository",
-        "url": "https://materialsdata.nist.gov/",
         "publisher": "NIST",
         "year": 2026,
         "source_type": "official_agency",
@@ -43590,7 +44115,7 @@
     "description": "Post-market systems for collecting, analyzing, and acting on reports of suspected drug side effects and safety signals.",
     "prerequisites": [
       "medicine_clinical",
-      "databases_relational_dbms",
+      "database_management_systems",
       "public_health_statistics"
     ],
     "firstKnownDate": 1968,
@@ -43641,11 +44166,11 @@
         ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
+        "prerequisite": "database_management_systems",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
+        "note": "Adverse-event reporting systems require structured report storage and retrieval, but the 1960s pharmacovigilance lineage predates relational DBMS.",
         "reviewStatus": "source_checked",
         "sources": [
           {

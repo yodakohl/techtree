@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-06-ehr-dbms-replaces-relational-dbms",
+  "decision_date": "2026-06-06",
+  "edge": {
+    "dependent": "electronic_health_records",
+    "prerequisite": "database_management_systems"
+  },
+  "replaced_edge": {
+    "dependent": "electronic_health_records",
+    "prerequisite": "databases_relational_dbms"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.72,
+    "note": "The Regenstrief system maintained a core computerized medical record and captured structured patient data; relational DBMS is the closest current graph node for this data-management capability."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.74,
+    "note": "The Regenstrief system maintained a core computerized medical record and captured structured patient data, requiring database-management capability without implying a relational DBMS."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1653568/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Regenstrief abstract describing a computer-based medical record system in operation since 1973.",
+    "source_claim_summary": "The article describes a computer-based record system containing core medical-record data and supporting efficient use and maintenance of patient records.",
+    "source_support_rationale": "This supports database-management capability for structured electronic records while not supporting a relational-DBMS claim for the 1973 system."
+  },
+  "ontology_before": "EHR depended on relational DBMS, over-specifying the data-management implementation for early computer-based medical records.",
+  "ontology_after": "EHR depends on generic database-management systems, with relational DBMS remaining a later implementation family.",
+  "invariant_preserved_or_changed": "Changed: electronic_health_records no longer directly depends on databases_relational_dbms and now depends on database_management_systems.",
+  "would_reject_if": [
+    "A source showed the 1973 Regenstrief system required relational DBMS.",
+    "The graph reintroduced direct EHR to relational-DBMS dependency.",
+    "The EHR node were re-scoped specifically to modern relational EHR database products."
+  ],
+  "short_reason": "Early EHR needs database management, not necessarily relational DBMS.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

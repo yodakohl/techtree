@@ -160,6 +160,88 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-06: AI data and foundation-workflow chronology audit
+
+- Manual sample audit: after the database-scope cleanup, the temporal audit
+  exposed AI data/evaluation nodes that still carried generated 1983
+  placeholders while depending on source-checked later nodes.
+- Old claim: `data_labeling_platforms`, `ml_benchmark_datasets`,
+  `computer_vision_deep_learning`, `speech_recognition_deep_learning`,
+  `ai_training_clusters`, `sequence_to_sequence_attention`,
+  `self_supervised_learning`, and `model_pretraining_finetuning` all had
+  generated 1983 dates. `deep_learning_neural_networks` and
+  `diffusion_models_generative_ai` also had placeholder chronology inconsistent
+  with their cited sources.
+- Corrected claim: `deep_learning_neural_networks` is anchored to the 1986
+  backpropagation source; `diffusion_models_generative_ai` to the 2020 DDPM
+  paper; generic `computer_vision` to MIT's 1966 Summer Vision Project;
+  `computer_vision_deep_learning` to AlexNet/ImageNet 2012;
+  `speech_recognition_deep_learning` to the 2012 deep-neural acoustic-modeling
+  review; `ai_training_clusters` to FireCaffe 2015;
+  `sequence_to_sequence_attention` to the 2014 neural machine-translation
+  attention paper; `data_labeling_platforms` and `ml_benchmark_datasets` to
+  ImageNet 2009; `self_supervised_learning` to GPT-3 in 2020; and
+  `model_pretraining_finetuning` to the 2021 foundation-model source.
+- Dependency cleanup: `machine_vision_robotics`, `slam_robotics`, and
+  `autonomous_vehicle_stack` now depend on generic `computer_vision` rather
+  than the 2012 deep-learning specialization. `autonomous_vehicle_stack` is
+  anchored to the 2004 DARPA Grand Challenge era. `drone_aerial_mapping` and
+  `drone_autonomy` now route through `mobile_robot_navigation` instead of the
+  road-vehicle autonomy stack.
+- Spillover cleanup: `pam_recognition_constraint` now carries the existing
+  2012 Jinek programmable-Cas9 source so its 2012 exact date is source-backed
+  and temporally compatible with the 2013 CRISPR-Cas9 genome-editing node.
+- Sources:
+  - https://www.nature.com/articles/323533a0
+  - https://people.csail.mit.edu/brooks/idocs/AIM-100.pdf
+  - https://proceedings.neurips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html
+  - https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
+  - https://doi.org/10.1109/MSP.2012.2205597
+  - https://arxiv.org/abs/1511.00175
+  - https://arxiv.org/abs/1409.0473
+  - https://ieeexplore.ieee.org/document/5206848
+  - https://arxiv.org/abs/2005.14165
+  - https://arxiv.org/abs/2108.07258
+  - https://www.darpa.mil/about/innovation-timeline/grand-challenge
+  - https://pubmed.ncbi.nlm.nih.gov/22745249/
+- Validation:
+  - `npm run graph-invariants`
+  - `npm run invariant-coverage`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 30000 --concurrency 2`
+
+### 2026-06-06: Database-management and relational-DBMS scope audit
+
+- Manual sample audit: `databases_relational_dbms` was still dated to a
+  generated 1948 placeholder, which made 1960s systems such as HIS, ATMs,
+  barcodes, adverse-event reporting, and expert systems appear downstream of a
+  1970 relational database model.
+- Old claim: generic database-management capability and relational DBMS were
+  collapsed into one node. SQL was dated to 1948, and early expert systems were
+  incorrectly modeled as depending on relational DBMS.
+- Corrected claim: added `database_management_systems` for the early-1960s DBMS
+  lineage, re-anchored `databases_relational_dbms` to Codd's 1970 relational
+  model, and anchored `relational_query_languages_sql` to IBM SEQUEL in 1974.
+  Early HIS/EHR/ATM/barcode/warehouse/pharmacovigilance nodes now route through
+  generic DBMS where relevant, while `symbolic_ai_expert_systems` routes through
+  software engineering instead of relational DBMS.
+- Sources:
+  - https://history.computer.org/pioneers/bachman.html
+  - https://cir.nii.ac.jp/crid/1361137046260998912
+  - https://research.ibm.com/publications/sequel-a-struciured-english-query-language
+  - https://www.guinnessworldrecords.com/world-records/first-cash-dispenser
+  - https://aihistoryproject.org/concepts/concept-dendral
+- Validation:
+  - `npm run edge-receipts`
+  - `npm run graph-invariants`
+  - `npm run invariant-coverage`
+  - `npm test`
+  - `npm run quality`
+  - `npm run coverage`
+  - `npm run source-urls -- --timeout-ms 30000 --concurrency 2`
+
 ### 2026-06-05: HIS and EHR semantic-edge audit
 
 - Manual sample audit: hospital information systems and electronic health

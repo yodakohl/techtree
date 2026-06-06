@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-06-symbolic-ai-software-replaces-relational-dbms",
+  "decision_date": "2026-06-06",
+  "edge": {
+    "dependent": "symbolic_ai_expert_systems",
+    "prerequisite": "software_engineering"
+  },
+  "replaced_edge": {
+    "dependent": "symbolic_ai_expert_systems",
+    "prerequisite": "databases_relational_dbms"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.7,
+    "note": "Expert systems encode knowledge bases and inference rules in software; relational DBMS is not a prerequisite for early systems such as DENDRAL."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://aihistoryproject.org/concepts/concept-dendral",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Dendral overview identifying Dendral as an early expert system used for chemical analysis.",
+    "source_claim_summary": "The overview frames Dendral as an expert-system milestone, which supports anchoring the node to rule-based AI software rather than relational database systems.",
+    "source_support_rationale": "This partially supports the software edge because expert systems are software artifacts with encoded rules; it rejects relational DBMS as a prerequisite by chronology and scope."
+  },
+  "ontology_before": "Symbolic expert systems depended on relational DBMS, making 1960s expert systems downstream of a 1970 database model.",
+  "ontology_after": "Symbolic expert systems depend on AI, formal logic, and software engineering; relational DBMS is not a hard lineage edge.",
+  "invariant_preserved_or_changed": "Changed: symbolic_ai_expert_systems no longer directly depends on databases_relational_dbms and now depends on software_engineering.",
+  "would_reject_if": [
+    "A source showed early expert systems required relational DBMS.",
+    "The graph reintroduced symbolic_ai_expert_systems to databases_relational_dbms.",
+    "The node were re-scoped specifically to database-backed commercial expert-system shells."
+  ],
+  "short_reason": "Early expert systems are rule-based software, not relational database systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

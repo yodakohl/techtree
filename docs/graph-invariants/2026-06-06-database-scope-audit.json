@@ -1,0 +1,101 @@
+{
+  "id": "2026-06-06-database-scope-audit",
+  "description": "Adversarial invariant for database-scope cleanup: generic DBMS belongs to the early-1960s database-management lineage, while relational DBMS and SQL stay anchored to 1970 and 1974 respectively.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "database_management_systems",
+      "operator": "eq",
+      "value": 1960,
+      "reason": "Generic DBMS should stay in the early-1960s IDS/database-management lineage."
+    },
+    {
+      "type": "first_known_date",
+      "node": "databases_relational_dbms",
+      "operator": "eq",
+      "value": 1970,
+      "reason": "Relational DBMS should stay anchored to Codd's 1970 relational-model publication, not the generated 1948 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "databases_relational_dbms",
+      "prerequisite": "database_management_systems",
+      "expected": "historical_predecessor",
+      "reason": "Relational DBMS is a later data-model branch of general database-management systems."
+    },
+    {
+      "type": "first_known_date",
+      "node": "relational_query_languages_sql",
+      "operator": "eq",
+      "value": 1974,
+      "reason": "SQL/SEQUEL should stay anchored to the 1974 IBM SEQUEL paper."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "relational_query_languages_sql",
+      "prerequisite": "databases_relational_dbms",
+      "expected": "required",
+      "reason": "Relational query languages require the relational database model they query."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "databases_relational_dbms",
+      "reason": "Early HIS used database management but should not imply relational DBMS."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hospital_information_systems",
+      "prerequisite": "database_management_systems",
+      "expected": "enabling",
+      "reason": "HIS database support should route through generic DBMS."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electronic_health_records",
+      "prerequisite": "databases_relational_dbms",
+      "reason": "Early EHR systems should not be forced through relational DBMS."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electronic_health_records",
+      "prerequisite": "database_management_systems",
+      "expected": "enabling",
+      "reason": "EHR structured records need database-management capability without a relational-specific claim."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "symbolic_ai_expert_systems",
+      "prerequisite": "databases_relational_dbms",
+      "reason": "1960s expert systems predate relational DBMS and are rule-based software systems."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "symbolic_ai_expert_systems",
+      "prerequisite": "software_engineering",
+      "expected": "enabling",
+      "reason": "Expert systems should route through software implementation rather than relational database technology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "automated_teller_machines",
+      "operator": "eq",
+      "value": 1967,
+      "reason": "ATMs should stay anchored to the 1967 Barclays cash dispenser chronology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "decision_tree_ensemble_methods",
+      "operator": "eq",
+      "value": 2001,
+      "reason": "This node is sourced to Random Forests and should not use the generated 1958 ML placeholder."
+    },
+    {
+      "type": "first_known_date",
+      "node": "supervised_learning_pipelines",
+      "operator": "eq",
+      "value": 1995,
+      "reason": "This node is sourced to support-vector networks and should not use the generated 1958 ML placeholder."
+    }
+  ]
+}

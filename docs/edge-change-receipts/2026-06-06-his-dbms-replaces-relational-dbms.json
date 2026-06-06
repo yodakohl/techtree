@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-06-his-dbms-replaces-relational-dbms",
+  "decision_date": "2026-06-06",
+  "edge": {
+    "dependent": "hospital_information_systems",
+    "prerequisite": "database_management_systems"
+  },
+  "replaced_edge": {
+    "dependent": "hospital_information_systems",
+    "prerequisite": "databases_relational_dbms"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.74,
+    "note": "HELP used a database-management subsystem; the current graph's nearest database node is relational DBMS, so this edge is enabling rather than a strict claim about HELP's database model."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.76,
+    "note": "HELP used a database-management subsystem, so HIS depends on general database-management capability rather than specifically relational DBMS."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2203749/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "HELP abstract describing database-management, decision-making, manual-entry, and communications subsystems.",
+    "source_claim_summary": "The HELP article describes a hospital information system implemented with a data base management subsystem and other application subsystems.",
+    "source_support_rationale": "This supports a generic DBMS dependency while rejecting a relational-specific dependency because the source names database management but does not claim Codd-style relational DBMS."
+  },
+  "ontology_before": "HIS depended on relational DBMS even though the source only supported a generic database-management subsystem.",
+  "ontology_after": "HIS depends on generic database-management systems; relational DBMS is reserved for post-1970 relational data models.",
+  "invariant_preserved_or_changed": "Changed: hospital_information_systems no longer directly depends on databases_relational_dbms and now depends on database_management_systems.",
+  "would_reject_if": [
+    "A source showed HELP or early HIS specifically required relational DBMS.",
+    "The graph reintroduced a direct HIS to relational-DBMS prerequisite.",
+    "The database_management_systems node were removed without replacing the generic database-management capability."
+  ],
+  "short_reason": "HELP supports generic DBMS, not relational DBMS.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
