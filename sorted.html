@@ -15,36 +15,39 @@
         </nav>
     </header>
     <main class="sorted-main">
-        <div id="sorted-tech-container">
-            <div class="sorted-toolbar">
-                <input type="search" id="sorted-search" placeholder="Search technologies, IDs, prerequisites">
-                <select id="sorted-view" aria-label="Choose view">
-                    <option value="branches">Compact Branches</option>
-                    <option value="details">Detailed Table</option>
-                </select>
-                <select id="sorted-field-filter" aria-label="Choose field lens">
-                    <option value="all">All Fields</option>
-                </select>
-                <select id="sorted-branch-filter" aria-label="Filter by branch">
-                    <option value="all">All Branches</option>
-                </select>
-                <select id="sorted-era-filter" aria-label="Filter by era">
-                    <option value="all">All Eras</option>
-                </select>
-                <select id="sorted-sort" aria-label="Sort technologies">
-                    <option value="era">Era + Depth</option>
-                    <option value="dependency">Dependency Depth</option>
-                    <option value="name">Name</option>
-                </select>
+        <div class="sorted-layout">
+            <div id="sorted-tech-container">
+                <div class="sorted-toolbar">
+                    <input type="search" id="sorted-search" placeholder="Search technologies, IDs, prerequisites">
+                    <select id="sorted-view" aria-label="Choose view">
+                        <option value="branches">Compact Branches</option>
+                        <option value="details">Detailed Table</option>
+                    </select>
+                    <select id="sorted-field-filter" aria-label="Choose field lens">
+                        <option value="all">All Fields</option>
+                    </select>
+                    <select id="sorted-branch-filter" aria-label="Filter by branch">
+                        <option value="all">All Branches</option>
+                    </select>
+                    <select id="sorted-era-filter" aria-label="Filter by era">
+                        <option value="all">All Eras</option>
+                    </select>
+                    <select id="sorted-sort" aria-label="Sort technologies">
+                        <option value="era">Era + Depth</option>
+                        <option value="dependency">Dependency Depth</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+                <div class="sorted-summary">
+                    <span id="sorted-count"></span>
+                    <span id="sorted-status" role="status"></span>
+                </div>
+                <div id="sorted-sections"></div>
+                <button id="sorted-more" class="sorted-more" type="button" hidden>Show More</button>
             </div>
-            <div class="sorted-summary">
-                <span id="sorted-count"></span>
-                <span id="sorted-status" role="status"></span>
-            </div>
-            <div id="sorted-sections"></div>
-            <button id="sorted-more" class="sorted-more" type="button" hidden>Show More</button>
+            <aside id="sorted-detail-panel" class="sorted-detail-panel" aria-live="polite"></aside>
         </div>
     </main>
-    <script defer src="sorted.js?v=20260521a"></script>
+    <script defer src="sorted.js?v=20260606a"></script>
 </body>
 </html>

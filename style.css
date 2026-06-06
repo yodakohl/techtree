@@ -42,6 +42,13 @@ main {
     display: block;
 }
 
+.sorted-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+    gap: 16px;
+    align-items: start;
+}
+
 #side-panels {
     display: flex;
     flex-direction: column;
@@ -64,12 +71,14 @@ main {
 
 #sorted-tech-container {
     flex: 1;
+    min-width: 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     overflow: auto;
     padding: 15px;
+    max-height: calc(100vh - 150px);
 }
 
 .sorted-toolbar {
@@ -145,6 +154,12 @@ main {
     background: #f8fafc;
 }
 
+.sorted-table tbody tr.is-selected {
+    background: #eaf3fb;
+    outline: 2px solid #2b6f9c;
+    outline-offset: -2px;
+}
+
 .sorted-table th:nth-child(1) {
     width: 19%;
 }
@@ -170,6 +185,10 @@ main {
 
 .sorted-table a:hover {
     text-decoration: underline;
+}
+
+.sorted-table a.is-selected {
+    color: #123f60;
 }
 
 .tech-id {
@@ -312,8 +331,165 @@ main {
     color: #174b73;
 }
 
+.branch-tech-chip.is-selected {
+    background: #eaf3fb;
+    color: #123f60;
+    box-shadow: inset 0 0 0 1px #2b6f9c;
+}
+
 .branch-empty {
     color: #a0a8b0;
+}
+
+.sorted-detail-panel {
+    border: 1px solid #d6dde5;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    color: #26313d;
+    max-height: calc(100vh - 150px);
+    overflow: auto;
+    padding: 14px;
+    position: sticky;
+    top: 20px;
+}
+
+.sorted-detail-empty {
+    margin: 0;
+    color: #65717d;
+    font-size: 14px;
+}
+
+.sorted-detail-header {
+    display: grid;
+    gap: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e7ec;
+}
+
+.sorted-detail-header h2 {
+    margin: 0;
+    color: #26313d;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.sorted-detail-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sorted-detail-badge {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    padding: 2px 6px;
+    border: 1px solid #c8d2dc;
+    border-radius: 4px;
+    background: #f7f9fb;
+    color: #46515d;
+    overflow-wrap: anywhere;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+.sorted-detail-description {
+    margin: 10px 0;
+    color: #36434f;
+    font-size: 14px;
+}
+
+.sorted-detail-section {
+    display: grid;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #e2e7ec;
+}
+
+.sorted-detail-section h3 {
+    margin: 0;
+    color: #46515d;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.sorted-detail-facts {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.sorted-detail-row {
+    margin: 0;
+    color: #46515d;
+    font-size: 13px;
+}
+
+.sorted-edge-list,
+.sorted-source-list {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sorted-edge-list li {
+    padding: 7px;
+    border: 1px solid #e2e7ec;
+    border-radius: 6px;
+    background: #fbfcfd;
+}
+
+.sorted-edge-list li.sorted-edge-overflow {
+    border-style: dashed;
+    background: #f7f9fb;
+}
+
+.sorted-edge-more {
+    width: 100%;
+    padding: 6px 8px;
+    background: #edf3f8;
+    color: #1f5f91;
+    font-size: 12px;
+}
+
+.sorted-edge-more:hover:not(:disabled) {
+    background: #dfeaf3;
+    color: #123f60;
+}
+
+.sorted-edge-head {
+    display: grid;
+    gap: 5px;
+}
+
+.sorted-edge-meta {
+    color: #65717d;
+    font-size: 12px;
+}
+
+.sorted-edge-note {
+    margin: 5px 0 0;
+    color: #46515d;
+    font-size: 12px;
+}
+
+.sorted-source-list {
+    gap: 5px;
+}
+
+.sorted-source-list li {
+    color: #46515d;
+    font-size: 12px;
+}
+
+.sorted-source-list a {
+    color: #1f5f91;
 }
 
 
@@ -547,6 +723,19 @@ button:hover:not(:disabled) {
 
     .sorted-toolbar {
         grid-template-columns: 1fr;
+    }
+
+    .sorted-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #sorted-tech-container,
+    .sorted-detail-panel {
+        max-height: none;
+    }
+
+    .sorted-detail-panel {
+        position: static;
     }
 
     .sorted-table thead th {

@@ -9,8 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sortMode = document.getElementById('sorted-sort');
     const sectionsEl = document.getElementById('sorted-sections');
     const showMoreBtn = document.getElementById('sorted-more');
+    const detailPanel = document.getElementById('sorted-detail-panel');
     const pageSize = 175;
     let visibleLimit = pageSize;
+    let selectedTechId = null;
+    let activeGraph = null;
 
     const eraOrder = {
         Ancient: 0,
@@ -471,6 +474,83 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (statusEl) statusEl.textContent = message;
     }
 
+    function getDependencyEdges(item) {
+        if (Array.isArray(item?.dependencyEdges) && item.dependencyEdges.length) {
+            return item.dependencyEdges;
+        }
+        return (item?.prerequisites || []).map(prerequisite => ({
+            prerequisite,
+            type: 'required',
+            confidence: 0.5,
+            evidence_level: 'weak_inference',
+            note: 'Legacy prerequisite without edge-level metadata.',
+            reviewStatus: 'generated'
+        }));
+    }
+
+    function getPrerequisiteIds(item) {
+        const ids = new Set(item?.prerequisites || []);
+        for (const edge of getDependencyEdges(item)) {
+            if (edge.prerequisite) ids.add(edge.prerequisite);
+        }
+        return [...ids];
+    }
+
+    function formatStatus(value) {
+        return String(value || '').replaceAll('_', ' ');
+    }
+
+    function formatDate(value) {
+        if (typeof value !== 'number') return String(value);
+        if (value < 0) return `${Math.abs(value).toLocaleString()} BCE`;
+        return String(value);
+    }
+
+    function formatConfidence(value) {
+        return typeof value === 'number' ? `${Math.round(value * 100)}%` : 'unknown';
+    }
+
+    function getHashTechId() {
+        const raw = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+        if (!raw) return null;
+        return raw.startsWith('tech-') ? raw.slice(5) : raw;
+    }
+
+    function setHashTechId(id) {
+        const nextHash = `#tech-${encodeURIComponent(id)}`;
+        if (window.location.hash === nextHash) return;
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${nextHash}`);
+    }
+
+    function clearSelectedMarkers() {
+        document
+            .querySelectorAll('.branch-tech-chip.is-selected, .sorted-table tr.is-selected, .sorted-tech-link.is-selected')
+            .forEach(el => el.classList.remove('is-selected'));
+    }
+
+    function updateSelectedMarkers() {
+        clearSelectedMarkers();
+        if (!selectedTechId) return;
+        const chip = document.getElementById(`branch-tech-${selectedTechId}`);
+        if (chip) chip.classList.add('is-selected');
+        const row = document.getElementById(`tech-${selectedTechId}`);
+        if (row) {
+            row.classList.add('is-selected');
+            row.querySelector('.sorted-tech-link')?.classList.add('is-selected');
+        }
+    }
+
+    function selectTechnology(id, options = {}) {
+        if (!id || !activeGraph?.byId.has(id)) return;
+        selectedTechId = id;
+        if (options.updateHash !== false) setHashTechId(id);
+        renderDetail(activeGraph.byId.get(id));
+        updateSelectedMarkers();
+        if (options.revealDetail && detailPanel && window.matchMedia('(max-width: 900px)').matches) {
+            detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
     function classifyBranch(item) {
         const generatedMatch = item.id.match(/^(ancient|classical|medieval|renaissance|industrial|modern|future)_([a-z]+)_/);
         if (generatedMatch && generatedBranchNames.has(generatedMatch[2])) {
@@ -615,6 +695,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         return `${item.name} ${item.id} ${item.era} ${item.description} ${prereqNames} ${dependentNames}`.toLowerCase();
     }
 
+    function formatTechLabel(id) {
+        return activeGraph?.byId.get(id)?.name || id;
+    }
+
     function techLabel(ids, graph) {
         if (!ids.length) return 'None';
         return ids
@@ -631,7 +715,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         nameCell.scope = 'row';
         const name = document.createElement('a');
         name.href = `#tech-${item.id}`;
+        name.className = 'sorted-tech-link';
         name.textContent = item.name;
+        name.addEventListener('click', event => {
+            event.preventDefault();
+            selectTechnology(item.id, { revealDetail: true });
+        });
         nameCell.appendChild(name);
         const id = document.createElement('span');
         id.className = 'tech-id';
@@ -666,6 +755,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         descriptionCell.textContent = item.description || '';
 
         row.append(nameCell, eraCell, levelCell, prereqCell, unlocksCell, descriptionCell);
+        if (selectedTechId === item.id) row.classList.add('is-selected');
         return row;
     }
 
@@ -678,7 +768,224 @@ document.addEventListener('DOMContentLoaded', async () => {
         chip.textContent = item.name;
         chip.style.setProperty('--era-color', eraColors[item.era] || '#777');
         if (item.maturity) chip.dataset.maturity = item.maturity;
+        if (selectedTechId === item.id) chip.classList.add('is-selected');
+        chip.addEventListener('click', event => {
+            event.preventDefault();
+            selectTechnology(item.id, { revealDetail: true });
+        });
         return chip;
+    }
+
+    function appendDetailRow(parent, labelText, valueText) {
+        if (valueText === undefined || valueText === null || valueText === '') return;
+        const row = document.createElement('p');
+        row.className = 'sorted-detail-row';
+        const label = document.createElement('strong');
+        label.textContent = `${labelText}: `;
+        row.append(label, document.createTextNode(valueText));
+        parent.appendChild(row);
+    }
+
+    function createDetailBadge(text, className = '') {
+        const badge = document.createElement('span');
+        badge.className = `sorted-detail-badge${className ? ` ${className}` : ''}`;
+        badge.textContent = text;
+        return badge;
+    }
+
+    function createSelectableTechButton(id) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'relationship-chip';
+        button.textContent = formatTechLabel(id);
+        button.addEventListener('click', () => selectTechnology(id, { revealDetail: true }));
+        return button;
+    }
+
+    function appendSourceLinks(parent, sources) {
+        if (!Array.isArray(sources) || !sources.length) return;
+        const list = document.createElement('ul');
+        list.className = 'sorted-source-list';
+        for (const source of sources) {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = source.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = source.title || source.url;
+            item.appendChild(link);
+            const meta = [source.publisher, source.year, source.source_type && formatStatus(source.source_type)]
+                .filter(Boolean)
+                .join(', ');
+            if (meta) item.appendChild(document.createTextNode(` (${meta})`));
+            list.appendChild(item);
+        }
+        parent.appendChild(list);
+    }
+
+    function appendEdgeList(parent, titleText, entries) {
+        const section = document.createElement('section');
+        section.className = 'sorted-detail-section';
+        const title = document.createElement('h3');
+        title.textContent = titleText;
+        section.appendChild(title);
+
+        if (!entries.length) {
+            const empty = document.createElement('p');
+            empty.className = 'relationship-empty';
+            empty.textContent = 'None';
+            section.appendChild(empty);
+            parent.appendChild(section);
+            return;
+        }
+
+        const list = document.createElement('ul');
+        list.className = 'sorted-edge-list';
+        const renderEntries = limit => {
+            list.replaceChildren();
+            for (const entry of entries.slice(0, limit)) {
+                const edge = entry.edge || {};
+                const item = document.createElement('li');
+                const head = document.createElement('div');
+                head.className = 'sorted-edge-head';
+                head.appendChild(createSelectableTechButton(entry.id));
+
+                const meta = document.createElement('span');
+                meta.className = 'sorted-edge-meta';
+                meta.textContent = [
+                    edge.type && formatStatus(edge.type),
+                    `confidence ${formatConfidence(edge.confidence)}`,
+                    edge.evidence_level && formatStatus(edge.evidence_level)
+                ].filter(Boolean).join(' · ');
+                head.appendChild(meta);
+                item.appendChild(head);
+
+                if (edge.note) {
+                    const note = document.createElement('p');
+                    note.className = 'sorted-edge-note';
+                    note.textContent = edge.note;
+                    item.appendChild(note);
+                }
+                if (Array.isArray(edge.sources) && edge.sources.length) {
+                    appendSourceLinks(item, edge.sources);
+                }
+                list.appendChild(item);
+            }
+            if (entries.length > limit) {
+                const item = document.createElement('li');
+                item.className = 'sorted-edge-overflow';
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'sorted-edge-more';
+                button.textContent = `Show ${entries.length - limit} more`;
+                button.addEventListener('click', () => renderEntries(entries.length));
+                item.appendChild(button);
+                list.appendChild(item);
+            }
+        };
+        renderEntries(24);
+        section.appendChild(list);
+        parent.appendChild(section);
+    }
+
+    function renderDetail(item) {
+        if (!detailPanel) return;
+        detailPanel.replaceChildren();
+
+        if (!item) {
+            const empty = document.createElement('p');
+            empty.className = 'sorted-detail-empty';
+            empty.textContent = 'No technology selected';
+            detailPanel.appendChild(empty);
+            return;
+        }
+
+        const header = document.createElement('div');
+        header.className = 'sorted-detail-header';
+        const title = document.createElement('h2');
+        title.textContent = item.name;
+        header.appendChild(title);
+        const id = document.createElement('span');
+        id.className = 'tech-id';
+        id.textContent = item.id;
+        header.appendChild(id);
+
+        const badges = document.createElement('div');
+        badges.className = 'sorted-detail-badges';
+        badges.appendChild(createDetailBadge(item.era || 'Unknown era'));
+        if (item.maturity) badges.appendChild(createDetailBadge(formatStatus(item.maturity), `maturity-${item.maturity}`));
+        if (item.reviewStatus) badges.appendChild(createDetailBadge(formatStatus(item.reviewStatus)));
+        header.appendChild(badges);
+        detailPanel.appendChild(header);
+
+        if (item.description) {
+            const description = document.createElement('p');
+            description.className = 'sorted-detail-description';
+            description.textContent = item.description;
+            detailPanel.appendChild(description);
+        }
+
+        const facts = document.createElement('section');
+        facts.className = 'sorted-detail-section sorted-detail-facts';
+        appendDetailRow(facts, 'First known', item.firstKnownDate !== undefined
+            ? `${formatDate(item.firstKnownDate)} (${item.datePrecision || 'unknown'}; ${item.region || 'region unknown'})`
+            : 'Unknown');
+        appendDetailRow(facts, 'Branch', item.branch || 'Other');
+        appendDetailRow(facts, 'Depth', String(item.level ?? 0));
+        if (Array.isArray(item.fields) && item.fields.length) {
+            appendDetailRow(facts, 'Fields', item.fields.join(', '));
+        }
+        const lanes = Object.entries(item.fieldLanes || {})
+            .map(([field, lane]) => `${field}: ${lane}`);
+        if (lanes.length) appendDetailRow(facts, 'Lanes', lanes.join('; '));
+        detailPanel.appendChild(facts);
+
+        if (item.roadmap) {
+            const roadmap = document.createElement('section');
+            roadmap.className = 'sorted-detail-section';
+            const roadmapTitle = document.createElement('h3');
+            roadmapTitle.textContent = 'Roadmap';
+            roadmap.appendChild(roadmapTitle);
+            appendDetailRow(roadmap, 'Role', item.roadmap.role || 'forecast');
+            appendDetailRow(roadmap, 'Timeframe', item.roadmap.timeframe || 'unknown');
+            appendDetailRow(roadmap, 'Confidence', item.roadmap.confidence || 'unknown');
+            if (item.roadmap.rationale) appendDetailRow(roadmap, 'Rationale', item.roadmap.rationale);
+            if (Array.isArray(item.roadmap.blockers) && item.roadmap.blockers.length) {
+                appendDetailRow(roadmap, 'Blockers', item.roadmap.blockers.join(', '));
+            }
+            detailPanel.appendChild(roadmap);
+        }
+
+        const prereqEntries = getPrerequisiteIds(item)
+            .filter(id => activeGraph?.byId.has(id))
+            .map(id => ({
+                id,
+                edge: getDependencyEdges(item).find(edge => edge.prerequisite === id)
+            }))
+            .sort((a, b) => formatTechLabel(a.id).localeCompare(formatTechLabel(b.id)));
+        appendEdgeList(detailPanel, 'Depends On', prereqEntries);
+
+        const unlockEntries = (activeGraph?.dependents.get(item.id) || [])
+            .filter(id => activeGraph.byId.has(id))
+            .map(id => {
+                const dependent = activeGraph.byId.get(id);
+                return {
+                    id,
+                    edge: getDependencyEdges(dependent).find(edge => edge.prerequisite === item.id)
+                };
+            })
+            .sort((a, b) => formatTechLabel(a.id).localeCompare(formatTechLabel(b.id)));
+        appendEdgeList(detailPanel, 'Unlocks', unlockEntries);
+
+        if (Array.isArray(item.sources) && item.sources.length) {
+            const sources = document.createElement('section');
+            sources.className = 'sorted-detail-section';
+            const sourceTitle = document.createElement('h3');
+            sourceTitle.textContent = 'Sources';
+            sources.appendChild(sourceTitle);
+            appendSourceLinks(sources, item.sources);
+            detailPanel.appendChild(sources);
+        }
     }
 
     function renderBranchView(items, totalCount, selectedField) {
@@ -772,6 +1079,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (selectedView === 'branches') {
             renderBranchView(filtered, data.length, selectedField);
+            renderDetail(selectedTechId ? graph.byId.get(selectedTechId) : null);
+            updateSelectedMarkers();
             return;
         }
 
@@ -790,6 +1099,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             empty.className = 'sorted-empty';
             empty.textContent = 'No technologies match the current filters.';
             sectionsEl.appendChild(empty);
+            renderDetail(selectedTechId ? graph.byId.get(selectedTechId) : null);
+            updateSelectedMarkers();
             return;
         }
 
@@ -836,6 +1147,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         sectionsEl.appendChild(fragment);
+        renderDetail(selectedTechId ? graph.byId.get(selectedTechId) : null);
+        updateSelectedMarkers();
     }
 
     try {
@@ -844,6 +1157,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!resp.ok) throw new Error('Failed to load tech tree');
         const data = await resp.json();
         const graph = buildGraph(data);
+        activeGraph = graph;
 
         for (const item of data) {
             item.level = graph.level.get(item.id) || 0;
@@ -884,6 +1198,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         setStatus('');
+        const hashTechId = getHashTechId();
+        if (hashTechId && graph.byId.has(hashTechId)) selectedTechId = hashTechId;
         render(data, graph);
 
         const scheduleRender = () => {
@@ -899,6 +1215,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         showMoreBtn?.addEventListener('click', () => {
             visibleLimit += pageSize;
             window.requestAnimationFrame(() => render(data, graph));
+        });
+        window.addEventListener('hashchange', () => {
+            const hashId = getHashTechId();
+            if (hashId && graph.byId.has(hashId)) {
+                selectTechnology(hashId, { updateHash: false, revealDetail: true });
+            }
         });
     } catch (err) {
         console.error('Error loading sorted tech view:', err);
