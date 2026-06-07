@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-07-pulse-oximetry-efficient-led-removal",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "pulse_oximetry",
+    "prerequisite": "led_lighting_efficient_illumination"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "LED Lighting (Efficient Illumination) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because pulse oximetry uses red/infrared optical absorption and predates the high-efficiency blue/white LED lighting node.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11330276/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Historical review section on Aoyagi’s 1972 pulse oximetry discovery and red/infrared absorption method.",
+    "source_claim_summary": "The review places pulse oximetry in the early 1970s and describes the method around optical absorption in red and infrared spectral regions.",
+    "source_support_rationale": "That mechanism supports an optics predecessor but not a dependency on efficient blue/white LED lighting, which this graph scopes to 1993 high-brightness LED capability."
+  },
+  "ontology_before": "Pulse oximetry depended on a later efficient-lighting node, incorrectly making a 1970s medical monitor require 1990s high-brightness LED lighting.",
+  "ontology_after": "Pulse oximetry now depends on early optics, clinical medicine, and digital signal processing, while later LED improvements can remain downstream refinements.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-07-semiconductor-energy-agriculture-chronology.json keeps this removed edge absent and documents the corrected dependency scope.",
+  "would_reject_if": [
+    "The LED node were split and this dependency were retargeted to an earlier red or infrared LED node.",
+    "The pulse_oximetry node were narrowed to post-1993 fingertip oximeters that specifically require high-brightness LEDs.",
+    "A primary device source showed the 1972 pulse oximetry invention depended on high-efficiency LED lighting as scoped here."
+  ],
+  "short_reason": "Pulse oximetry predates high-efficiency LED lighting.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

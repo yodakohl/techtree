@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-07-mobile-phones-lithium-ion-removal",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "mobile_phones",
+    "prerequisite": "lithium_ion_batteries_rechargeable_power"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Lithium-Ion Batteries (Rechargeable Power) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because handheld mobile phones predate commercial lithium-ion cells and now depend on portable electrochemical batteries instead.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nobelprize.org/prizes/chemistry/2019/summary/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nobel Chemistry 2019 summary describing commercial lithium-ion batteries entering the market in 1991.",
+    "source_claim_summary": "The source anchors commercial lithium-ion batteries to 1991, later than the 1973 handheld mobile-phone milestone.",
+    "source_support_rationale": "That chronology contradicts lithium-ion as a prerequisite for the mobile-phone node while still allowing lithium-ion to improve later phone battery life and scaling."
+  },
+  "ontology_before": "Mobile phones inherited a late battery-chemistry dependency, making a 1973 handheld phone depend on a 1991 commercial cell technology.",
+  "ontology_after": "Mobile phones now depend on the broader portable electrochemical battery lineage; lithium-ion can be modeled downstream as a later improvement path.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-07-semiconductor-energy-agriculture-chronology.json keeps this removed edge absent and documents the corrected dependency scope.",
+  "would_reject_if": [
+    "The mobile_phones node were narrowed to mean post-1991 lithium-ion-powered mobile phones only.",
+    "A stronger source showed the graph should use a separate smartphone-era node for all portable handset dependencies.",
+    "A generic rechargeable-battery node replaced portable_electrochemical_batteries and became the better prerequisite."
+  ],
+  "short_reason": "Commercial lithium-ion cells are later than the first handheld mobile phones.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

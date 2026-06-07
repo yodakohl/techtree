@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-07-grid-storage-lithium-ion-removal",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "grid_scale_battery_storage",
+    "prerequisite": "lithium_ion_batteries_rechargeable_power"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Lithium-Ion Batteries (Rechargeable Power) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because grid-scale battery storage covers multiple battery chemistries and is not inherently lithium-ion.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0378775301008801",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract of a review of lead-acid battery energy-storage systems for utility applications, including historical utility-scale BESSs.",
+    "source_claim_summary": "The review describes utility battery storage as a lead-acid and broader BESS lineage rather than an exclusively lithium-ion lineage.",
+    "source_support_rationale": "Because grid BESS deployments can be lead-acid, sodium-sulfur, flow, or lithium-ion, a lithium-ion hard prerequisite would incorrectly exclude established non-lithium systems."
+  },
+  "ontology_before": "Grid-scale battery storage depended on one later dominant chemistry, which overconstrained the field and caused temporal inconsistency after lithium-ion was dated to 1991.",
+  "ontology_after": "Grid-scale battery storage now uses the graph’s broader electrochemical battery lineage and keeps lithium-ion as an implementation family rather than a prerequisite.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-07-semiconductor-energy-agriculture-chronology.json keeps this removed edge absent and documents the corrected dependency scope.",
+  "would_reject_if": [
+    "The node were narrowed to mean lithium-ion grid battery systems only.",
+    "A separate generic stationary-battery node were added and should replace portable_electrochemical_batteries.",
+    "A field review showed non-lithium utility BESSs should be excluded from this node."
+  ],
+  "short_reason": "Grid battery storage is chemistry-diverse and should not require lithium-ion.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-07-shape-memory-alloys-nanotechnology-removal",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "shape_memory_alloys",
+    "prerequisite": "nanotechnology_early"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Nanotechnology (Early Research) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct dependency remains because shape-memory alloys are metallurgy/materials technologies rather than technologies requiring the later nanotechnology field label.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6982820/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nanotechnology history review describing the later emergence of nanotechnology terminology and field identity.",
+    "source_claim_summary": "The review establishes nanotechnology as a named field later than the broad postwar alloy-development era represented by this node.",
+    "source_support_rationale": "Shape-memory behavior is modeled better through metallurgy and clinical application context; nanotechnology may support later characterization but is too narrow as a prerequisite."
+  },
+  "ontology_before": "Shape-memory alloys inherited a later nanotechnology predecessor edge that conflated nanoscale explanation with required technology lineage.",
+  "ontology_after": "Shape-memory alloys now depend on metallurgy and clinical medicine only, pending a more precise alloy-history source pass.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-07-semiconductor-energy-agriculture-chronology.json keeps this removed edge absent and documents the corrected dependency scope.",
+  "would_reject_if": [
+    "The node were narrowed to mean nanoscale-engineered shape-memory alloy devices.",
+    "A stronger shape-memory alloy history source showed nanotechnology was prerequisite to the scoped technology.",
+    "A new materials-characterization node made the dependency precise and chronologically valid."
+  ],
+  "short_reason": "Shape-memory alloys should not require the nanotechnology field label.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

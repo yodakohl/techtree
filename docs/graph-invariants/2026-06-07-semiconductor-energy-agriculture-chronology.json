@@ -1,0 +1,193 @@
+{
+  "id": "2026-06-07-semiconductor-energy-agriculture-chronology",
+  "description": "Lock chronology corrections for semiconductor, nuclear/space, polymer, nanotechnology, and hybrid-seed nodes reviewed on 2026-06-07.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "catalysis",
+      "operator": "eq",
+      "value": 1835,
+      "reason": "The catalysis node is anchored to Berzelius introducing the term in 1835."
+    },
+    {
+      "type": "first_known_date",
+      "node": "p_n_junction_diode",
+      "operator": "eq",
+      "value": 1940,
+      "reason": "The p-n junction node is anchored to Russell Ohl's 1940 silicon junction discovery."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ion_implantation",
+      "operator": "eq",
+      "value": 1954,
+      "reason": "The semiconductor ion-implantation node is anchored to Shockley's 1954 patent filing for ionic bombardment of semiconductors."
+    },
+    {
+      "type": "first_known_date",
+      "node": "led_lighting_efficient_illumination",
+      "operator": "eq",
+      "value": 1993,
+      "reason": "The efficient LED lighting node is scoped to high-brightness blue/white LED capability rather than earlier red indicator LEDs."
+    },
+    {
+      "type": "first_known_date",
+      "node": "computers_early",
+      "operator": "eq",
+      "value": 1946,
+      "reason": "The early computers node is anchored to ENIAC's public 1946 electronic general-purpose computer milestone."
+    },
+    {
+      "type": "first_known_date",
+      "node": "lithium_ion_batteries_rechargeable_power",
+      "operator": "eq",
+      "value": 1991,
+      "reason": "The lithium-ion battery node is scoped to commercial rechargeable lithium-ion cells."
+    },
+    {
+      "type": "first_known_date",
+      "node": "nuclear_power",
+      "operator": "eq",
+      "value": 1951,
+      "reason": "The nuclear-power node is scoped to electricity generated from fission at EBR-I."
+    },
+    {
+      "type": "first_known_date",
+      "node": "orbital_launch_vehicles",
+      "operator": "eq",
+      "value": 1957,
+      "reason": "The orbital-launch node is scoped to the first successful satellite launch."
+    },
+    {
+      "type": "first_known_date",
+      "node": "spacecraft_guidance_navigation_control",
+      "operator": "eq",
+      "value": 1958,
+      "reason": "The spacecraft GNC node is scoped to early satellite spacecraft systems rather than pre-orbital missile guidance."
+    },
+    {
+      "type": "first_known_date",
+      "node": "reusable_launch_vehicles",
+      "operator": "eq",
+      "value": 1981,
+      "reason": "The reusable launch vehicles node is anchored to the first orbital Space Shuttle mission, STS-1."
+    },
+    {
+      "type": "first_known_date",
+      "node": "space_shuttle_reusable_spacecraft",
+      "operator": "eq",
+      "value": 1981,
+      "reason": "The Space Shuttle reusable spacecraft node is anchored to STS-1."
+    },
+    {
+      "type": "first_known_date",
+      "node": "nuclear_medicine_imaging",
+      "operator": "eq",
+      "value": 1951,
+      "reason": "The nuclear-medicine imaging node is anchored to the Cassen radioisotope scanner."
+    },
+    {
+      "type": "first_known_date",
+      "node": "electron_microscope",
+      "operator": "eq",
+      "value": 1931,
+      "reason": "The electron-microscope node is anchored to Ruska and Knoll's first construction."
+    },
+    {
+      "type": "first_known_date",
+      "node": "nanotechnology_early",
+      "operator": "eq",
+      "value": 1974,
+      "reason": "The early nanotechnology node is anchored to Taniguchi's first use of the term."
+    },
+    {
+      "type": "first_known_date",
+      "node": "polymer_chemistry",
+      "operator": "eq",
+      "value": 1920,
+      "reason": "The polymer-chemistry node is anchored to Staudinger's macromolecular/polymer theory."
+    },
+    {
+      "type": "first_known_date",
+      "node": "high_performance_polymers",
+      "operator": "eq",
+      "value": 1938,
+      "reason": "The high-performance polymer node is anchored to PTFE discovery as an early high-performance fluoropolymer."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pulse_oximetry",
+      "operator": "eq",
+      "value": 1972,
+      "reason": "The pulse-oximetry node is anchored to Aoyagi's pulse oximetry discovery at Nihon Kohden."
+    },
+    {
+      "type": "first_known_date",
+      "node": "electric_vehicle_charging_networks",
+      "operator": "eq",
+      "value": 1991,
+      "reason": "The EV charging networks node is anchored to the early 1990s U.S. charging-infrastructure tracking era."
+    },
+    {
+      "type": "first_known_date",
+      "node": "hybrid_seed_production",
+      "operator": "eq",
+      "value": 1926,
+      "reason": "Commercial hybrid seed production is anchored to the early hybrid corn seed industry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hybrid_seed_production",
+      "prerequisite": "green_revolution_agriculture",
+      "reason": "Hybrid seed production predates the Green Revolution and should not depend on it."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mobile_phones",
+      "prerequisite": "lithium_ion_batteries_rechargeable_power",
+      "reason": "Mobile phones predate commercial lithium-ion batteries; lithium-ion is a later scaling improvement, not a hard prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "grid_scale_battery_storage",
+      "prerequisite": "lithium_ion_batteries_rechargeable_power",
+      "reason": "Grid-scale battery storage can use several electrochemical battery chemistries and should not be constrained to lithium-ion."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "atomic_layer_deposition",
+      "prerequisite": "nanotechnology_early",
+      "reason": "Atomic layer deposition predates the nanotechnology term and should not depend on the later field label."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pulse_oximetry",
+      "prerequisite": "led_lighting_efficient_illumination",
+      "reason": "Pulse oximetry predates high-efficiency blue/white LED lighting and depends on optical measurement, not that later lighting node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_vehicle_charging_networks",
+      "prerequisite": "lithium_ion_batteries_rechargeable_power",
+      "reason": "EV charging infrastructure serves rechargeable electric-vehicle batteries generally; lithium-ion is not a hard prerequisite for the infrastructure category."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "advanced_ceramics",
+      "prerequisite": "nanotechnology_early",
+      "reason": "Advanced ceramics is broader and earlier than nanotechnology and should not depend on a later narrow subfield."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "shape_memory_alloys",
+      "prerequisite": "nanotechnology_early",
+      "reason": "Shape-memory alloys are a metallurgy/materials lineage and should not depend on the later nanotechnology field label."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "advanced_materials_science",
+      "prerequisite": "nanotechnology_early",
+      "reason": "Advanced materials science is a broad field that can include nanotechnology without depending on it as a prerequisite."
+    }
+  ]
+}
