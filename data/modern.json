@@ -1361,11 +1361,10 @@
     "id": "clean_rooms",
     "name": "Clean Rooms",
     "era": "Modern",
-    "description": "Controlled environments with low levels of pollutants, essential for manufacturing sensitive equipment like semiconductors and for scientific research.",
+    "description": "Laminar-flow clean rooms and clean benches that continuously sweep highly filtered air through controlled workspaces for contamination-sensitive manufacturing and research.",
     "prerequisites": [
       "construction",
       "filters_membranes_early",
-      "aseptic_surgery",
       "air_conditioning"
     ],
     "fields": [
@@ -1377,36 +1376,47 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "The Silicon Engine",
-        "url": "https://www.computerhistory.org/siliconengine/",
-        "publisher": "Computer History Museum",
-        "year": 2007,
-        "source_type": "museum",
+        "title": "Willis Whitfield: A simple man with a simple solution that changed the world",
+        "url": "https://www.sandia.gov/labnews/2024/04/04/willis-whitfield-a-simple-man-with-a-simple-solution-that-changed-the-world/",
+        "publisher": "Sandia National Laboratories",
+        "year": 2024,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "1960s - About Sandia",
+        "url": "https://www.sandia.gov/about/history/1960s/",
+        "publisher": "Sandia National Laboratories",
+        "year": 2026,
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1960,
+    "datePrecision": "exact",
+    "region": "United States / Sandia National Laboratories",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.54,
         "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
+        "note": "A clean room is a controlled built workspace, but generic construction is contextual infrastructure rather than the core laminar-flow principle.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
+            "title": "Willis Whitfield: A simple man with a simple solution that changed the world",
+            "url": "https://www.sandia.gov/labnews/2024/04/04/willis-whitfield-a-simple-man-with-a-simple-solution-that-changed-the-world/",
+            "publisher": "Sandia National Laboratories",
+            "year": 2024,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -1417,40 +1427,18 @@
       },
       {
         "prerequisite": "filters_membranes_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Filters & Membranes (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "Whitfield-style clean rooms require highly filtered air sweeping through the workspace to remove particulates.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "aseptic_surgery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Aseptic Surgery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
+            "title": "Willis Whitfield: A simple man with a simple solution that changed the world",
+            "url": "https://www.sandia.gov/labnews/2024/04/04/willis-whitfield-a-simple-man-with-a-simple-solution-that-changed-the-world/",
+            "publisher": "Sandia National Laboratories",
+            "year": 2024,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -1462,17 +1450,17 @@
       {
         "prerequisite": "air_conditioning",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Air Conditioning provides a capability that enables this technology without being the only possible path.",
+        "note": "Controlled airflow and ventilation practice enabled modern clean-room environmental control, without making general air conditioning the defining invention.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
+            "title": "Willis Whitfield: A simple man with a simple solution that changed the world",
+            "url": "https://www.sandia.gov/labnews/2024/04/04/willis-whitfield-a-simple-man-with-a-simple-solution-that-changed-the-world/",
+            "publisher": "Sandia National Laboratories",
+            "year": 2024,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -2157,8 +2145,7 @@
       "transistors",
       "semiconductors",
       "photolithography",
-      "mass_production",
-      "clean_rooms"
+      "mass_production"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -2215,14 +2202,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Mass Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "clean_rooms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Clean Rooms provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -2643,20 +2622,20 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Announcing a New Era of Integrated Electronics",
-        "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-        "publisher": "Intel",
+        "title": "1971: Microprocessor Integrates CPU Function onto a Single Chip",
+        "url": "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/",
+        "publisher": "Computer History Museum",
         "year": 1971,
-        "source_type": "official_agency",
+        "source_type": "museum",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1971,
+    "datePrecision": "exact",
+    "region": "United States / Intel 4004 and related early microprocessor work",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -2668,11 +2647,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Announcing a New Era of Integrated Electronics",
-            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-            "publisher": "Intel",
+            "title": "1971: Microprocessor Integrates CPU Function onto a Single Chip",
+            "url": "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/",
+            "publisher": "Computer History Museum",
             "year": 1971,
-            "source_type": "official_agency",
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -2690,11 +2669,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Announcing a New Era of Integrated Electronics",
-            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-            "publisher": "Intel",
+            "title": "1971: Microprocessor Integrates CPU Function onto a Single Chip",
+            "url": "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/",
+            "publisher": "Computer History Museum",
             "year": 1971,
-            "source_type": "official_agency",
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -2712,11 +2691,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Announcing a New Era of Integrated Electronics",
-            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-            "publisher": "Intel",
+            "title": "1971: Microprocessor Integrates CPU Function onto a Single Chip",
+            "url": "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/",
+            "publisher": "Computer History Museum",
             "year": 1971,
-            "source_type": "official_agency",
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -2872,10 +2851,10 @@
       "plastics",
       "operating_systems_os_computer_management"
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1975,
+    "datePrecision": "exact",
+    "region": "United States / Altair 8800 and early microcomputer market",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "microprocessors_cpu_on_a_chip",
@@ -2883,7 +2862,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computers | Timeline of Computer History",
+            "url": "https://www.computerhistory.org/timeline/computers/",
+            "publisher": "Computer History Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mass_production",
@@ -2891,7 +2884,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Mass Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computers | Timeline of Computer History",
+            "url": "https://www.computerhistory.org/timeline/computers/",
+            "publisher": "Computer History Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "television",
@@ -2899,7 +2906,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Television provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computers | Timeline of Computer History",
+            "url": "https://www.computerhistory.org/timeline/computers/",
+            "publisher": "Computer History Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "plastics",
@@ -2907,7 +2928,21 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Early Plastics (Bakelite) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computers | Timeline of Computer History",
+            "url": "https://www.computerhistory.org/timeline/computers/",
+            "publisher": "Computer History Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "operating_systems_os_computer_management",
@@ -2915,7 +2950,34 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Operating Systems (OS Computer Management) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Computers | Timeline of Computer History",
+            "url": "https://www.computerhistory.org/timeline/computers/",
+            "publisher": "Computer History Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Computers | Timeline of Computer History",
+        "url": "https://www.computerhistory.org/timeline/computers/",
+        "publisher": "Computer History Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
     ]
   },
@@ -2926,8 +2988,7 @@
     "description": "A programming paradigm based on the concept of 'objects', which can contain data and code: a major evolution in software design.",
     "prerequisites": [
       "software_engineering",
-      "algorithms_computation_theory",
-      "personal_computers"
+      "algorithms_computation_theory"
     ],
     "firstKnownDate": 1958,
     "datePrecision": "decade",
@@ -2949,14 +3010,6 @@
         "evidence_level": "expert_inference",
         "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
       }
     ]
   },
@@ -2966,7 +3019,6 @@
     "era": "Modern",
     "description": "Visual way of interacting with computers using windows, icons, and menus.",
     "prerequisites": [
-      "personal_computers",
       "operating_systems_os_computer_management",
       "psychology",
       "software_engineering",
@@ -2977,14 +3029,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "operating_systems_os_computer_management",
         "type": "enabling",
@@ -3026,7 +3070,6 @@
     "description": "Generating and displaying three-dimensional images in a two-dimensional space (like a screen), crucial for modern gaming, simulation, and design.",
     "prerequisites": [
       "graphical_user_interface_gui",
-      "personal_computers",
       "geometry",
       "algorithms_computation_theory"
     ],
@@ -3041,14 +3084,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Graphical User Interface (GUI) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -3075,7 +3110,6 @@
     "era": "Modern",
     "description": "Use of computer systems to aid in the creation, modification, analysis, or optimization of a design.",
     "prerequisites": [
-      "personal_computers",
       "software_engineering",
       "graphical_user_interface_gui",
       "geometry"
@@ -3085,14 +3119,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "software_engineering",
         "type": "enabling",
@@ -3127,8 +3153,7 @@
     "prerequisites": [
       "computer_aided_design_cad_software",
       "robotics",
-      "numerical_control_automated_machining",
-      "personal_computers"
+      "numerical_control_automated_machining"
     ],
     "firstKnownDate": 1958,
     "datePrecision": "decade",
@@ -3158,14 +3183,6 @@
         "evidence_level": "expert_inference",
         "note": "Numerical Control (Automated Machining) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
       }
     ]
   },
@@ -3177,8 +3194,7 @@
     "prerequisites": [
       "computer_aided_design_cad_software",
       "robotics",
-      "polymer_chemistry",
-      "personal_computers"
+      "polymer_chemistry"
     ],
     "firstKnownDate": 1958,
     "datePrecision": "decade",
@@ -3207,14 +3223,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Polymer Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -4343,7 +4351,6 @@
     "era": "Modern",
     "description": "Text displayed on a computer with references (hyperlinks) to other text that the reader can immediately access.",
     "prerequisites": [
-      "personal_computers",
       "software_engineering",
       "information_theory",
       "algorithms_computation_theory"
@@ -4353,14 +4360,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "software_engineering",
         "type": "enabling",
@@ -5319,7 +5318,6 @@
     "prerequisites": [
       "artificial_intelligence_early",
       "algorithms_computation_theory",
-      "personal_computers",
       "probability_statistics_inference",
       "information_theory"
     ],
@@ -5387,28 +5385,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Support-Vector Networks",
-            "url": "https://doi.org/10.1007/BF00994018",
-            "publisher": "Machine Learning",
-            "year": 1995,
-            "source_type": "primary_paper",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -11370,7 +11346,6 @@
     "description": "Development of partially reusable low Earth orbital spacecraft systems, designed to be launched vertically and land as a glider.",
     "prerequisites": [
       "space_flight",
-      "personal_computers",
       "composite_materials_carbon_fiber",
       "aerodynamics_supersonic",
       "guidance_systems_early"
@@ -11386,14 +11361,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Space Flight provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -13226,205 +13193,10 @@
     ]
   },
   {
-    "id": "automobile",
-    "name": "Automobile",
-    "era": "Modern",
-    "description": "Self-propelled road vehicle powered by an internal combustion engine, enabling personal mobility on a mass scale.",
-    "prerequisites": [
-      "internal_combustion_engine",
-      "mass_production",
-      "steel_production",
-      "vulcanized_rubber",
-      "assembly_line",
-      "roads",
-      "petroleum_refining_fractional_distillation"
-    ],
-    "fields": [
-      "Transportation & Logistics"
-    ],
-    "fieldLanes": {
-      "Transportation & Logistics": "Road & Rail"
-    },
-    "maturity": "established",
-    "sources": [
-      {
-        "title": "Part I - History - Engineering Data - Interstate System",
-        "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-        "publisher": "Federal Highway Administration",
-        "year": 2017,
-        "source_type": "official_agency",
-        "supports": [
-          "node",
-          "maturity"
-        ]
-      }
-    ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "source_checked",
-    "dependencyEdges": [
-      {
-        "prerequisite": "internal_combustion_engine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Internal Combustion Engine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "mass_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mass Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "vulcanized_rubber",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Vulcanized Rubber provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "assembly_line",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Assembly Line provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "roads",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "petroleum_refining_fractional_distillation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Petroleum Refining provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "containerization_shipping",
     "name": "Containerization",
     "era": "Modern",
-    "description": "System of standardized intermodal freight transport using shipping containers, revolutionizing global trade.",
+    "description": "Modern commercial intermodal container shipping system anchored to the 1956 Ideal X voyage and later standardized container networks.",
     "prerequisites": [
       "mass_production",
       "steel_production",
@@ -13443,6 +13215,17 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "Ideal X",
+        "url": "https://porthouston.com/ideal-x/",
+        "publisher": "Port Houston",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
         "title": "Containerization",
         "url": "https://www.britannica.com/technology/containerization",
         "publisher": "Encyclopaedia Britannica",
@@ -13452,30 +13235,19 @@
           "node",
           "maturity"
         ]
-      },
-      {
-        "title": "Review of Maritime Transport",
-        "url": "https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport",
-        "publisher": "UNCTAD",
-        "year": 2026,
-        "source_type": "review",
-        "supports": [
-          "node",
-          "maturity"
-        ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1956,
+    "datePrecision": "exact",
+    "region": "United States / Port Newark to Port Houston",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "mass_production",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Mass Production provides a capability that enables this technology without being the only possible path.",
+        "note": "Standardized container production supports scaling but should not be modeled as the defining prerequisite for the 1956 shipping-system anchor.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -13494,18 +13266,18 @@
       },
       {
         "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.78,
         "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
+        "note": "The 1956 Ideal X system used metal containers; steel production is a material dependency for the scoped container-shipping system.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Containerization",
-            "url": "https://www.britannica.com/technology/containerization",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Ideal X",
+            "url": "https://porthouston.com/ideal-x/",
+            "publisher": "Port Houston",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -13516,10 +13288,10 @@
       },
       {
         "prerequisite": "railroads",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Railroads provides a capability that enables this technology without being the only possible path.",
+        "note": "Rail integration is important for later intermodal networks but not required for the first modern commercial container-ship voyage.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -13539,17 +13311,17 @@
       {
         "prerequisite": "internal_combustion_engine",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
+        "confidence": 0.64,
         "evidence_level": "expert_inference",
-        "note": "Internal Combustion Engine supports manufacturing, deployment, commercialization, or operational scaling.",
+        "note": "Truck-to-ship intermodal movement made containerization commercially useful, but engines are scaling and operating infrastructure rather than the container concept itself.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Containerization",
-            "url": "https://www.britannica.com/technology/containerization",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Ideal X",
+            "url": "https://porthouston.com/ideal-x/",
+            "publisher": "Port Houston",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -13560,18 +13332,18 @@
       },
       {
         "prerequisite": "steel_ships",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.8,
         "evidence_level": "expert_inference",
-        "note": "Steel Ships provides a capability that enables this technology without being the only possible path.",
+        "note": "The first modern commercial container-shipping voyage used a converted tanker, so steel ships are a hard dependency for the shipping-system scope.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Containerization",
-            "url": "https://www.britannica.com/technology/containerization",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Ideal X",
+            "url": "https://porthouston.com/ideal-x/",
+            "publisher": "Port Houston",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -13582,10 +13354,10 @@
       },
       {
         "prerequisite": "crane_lifting_devices",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Crane & Lifting Devices provides a capability that enables this technology without being the only possible path.",
+        "note": "Container handling requires lifting infrastructure at commercial scale, but cranes are not the date-defining invention of the 1956 voyage.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -13604,18 +13376,18 @@
       },
       {
         "prerequisite": "logistics_supply_lines",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.56,
         "evidence_level": "expert_inference",
-        "note": "Logistics & Supply Lines provides a capability that enables this technology without being the only possible path.",
+        "note": "Containerization reorganized freight logistics; earlier logistics practice is contextual background rather than a hard technical prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Containerization",
-            "url": "https://www.britannica.com/technology/containerization",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Ideal X",
+            "url": "https://porthouston.com/ideal-x/",
+            "publisher": "Port Houston",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -14682,7 +14454,6 @@
     "description": "The business sector encompassing farming and farming-related commercial activities, involving large-scale production, processing, and distribution.",
     "prerequisites": [
       "green_revolution_agriculture",
-      "containerization_shipping",
       "capitalism_industrial",
       "logistics_supply_lines",
       "biochemistry"
@@ -14698,14 +14469,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Green Revolution provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "containerization_shipping",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Containerization provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -15606,7 +15369,6 @@
     "era": "Modern",
     "description": "Immersive computer-simulated environments that can simulate physical presence in real or imagined worlds.",
     "prerequisites": [
-      "personal_computers",
       "graphical_user_interface_gui",
       "electronics",
       "software_engineering",
@@ -15617,14 +15379,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "graphical_user_interface_gui",
         "type": "enabling",
@@ -15669,7 +15423,6 @@
       "integrated_circuits",
       "plastics",
       "software_engineering",
-      "personal_computers",
       "computer_graphics_3d"
     ],
     "firstKnownDate": 1958,
@@ -15710,14 +15463,6 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
         "prerequisite": "computer_graphics_3d",
         "type": "enabling",
         "confidence": 0.68,
@@ -15735,7 +15480,6 @@
     "prerequisites": [
       "photography",
       "semiconductors",
-      "personal_computers",
       "integrated_circuits"
     ],
     "fields": [
@@ -15808,28 +15552,6 @@
         ]
       },
       {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "integrated_circuits",
         "type": "required",
         "confidence": 0.82,
@@ -15861,7 +15583,6 @@
     "prerequisites": [
       "magnetic_tape_data_storage",
       "electronics",
-      "personal_computers",
       "precision_machine_tools",
       "electric_motor"
     ],
@@ -15884,14 +15605,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Electronics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -21630,7 +21343,6 @@
     "description": "Visual computer interaction through windows, icons, menus, pointing devices, typography, and direct manipulation.",
     "prerequisites": [
       "computer_graphics_3d",
-      "personal_computers",
       "software_engineering"
     ],
     "firstKnownDate": 1958,
@@ -21644,14 +21356,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "3D Computer Graphics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -23487,34 +23191,100 @@
       "microprocessors_cpu_on_a_chip",
       "satellite_technology"
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1989,
+    "datePrecision": "exact",
+    "region": "United States / Magellan NAV 1000 handheld GPS receiver",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "gps",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Global Positioning System (GPS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Satellite navigation receivers require the GPS/satellite-navigation signal infrastructure they decode.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Brief History of GPS",
+            "url": "https://aerospace.org/article/brief-history-gps",
+            "publisher": "The Aerospace Corporation",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "microprocessors_cpu_on_a_chip",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Commercial handheld GPS receivers depended on compact digital electronics and microprocessor-era integration.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Magellan \"NAV 1000\" Hand-Held GPS Receiver",
+            "url": "https://americanhistory.si.edu/collections/search/object/nmah_1405613",
+            "publisher": "National Museum of American History",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "satellite_technology",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Satellite Technology provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Satellite navigation receivers depend on deployed satellite-navigation spacecraft and timing signals.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Magellan \"NAV 1000\" Hand-Held GPS Receiver",
+            "url": "https://americanhistory.si.edu/collections/search/object/nmah_1405613",
+            "publisher": "National Museum of American History",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Magellan \"NAV 1000\" Hand-Held GPS Receiver",
+        "url": "https://americanhistory.si.edu/collections/search/object/nmah_1405613",
+        "publisher": "National Museum of American History",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Brief History of GPS",
+        "url": "https://aerospace.org/article/brief-history-gps",
+        "publisher": "The Aerospace Corporation",
+        "year": 2026,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
     ]
   },
@@ -25491,9 +25261,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 2019,
+    "datePrecision": "exact",
+    "region": "Global edge-computing and machine-learning research community",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -25520,10 +25290,10 @@
       },
       {
         "prerequisite": "microprocessors_cpu_on_a_chip",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.64,
         "evidence_level": "expert_inference",
-        "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
+        "note": "Edge inference runs on embedded and mobile processors; microprocessors are deployment infrastructure rather than the machine-learning method itself.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -25775,8 +25545,7 @@
     "description": "Fabrication method using silicon dioxide masking and surface passivation to make reliable, mass-producible silicon devices.",
     "prerequisites": [
       "semiconductors",
-      "photolithography",
-      "clean_rooms"
+      "photolithography"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -25798,9 +25567,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1955,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1959,
+    "datePrecision": "exact",
+    "region": "United States / Fairchild Semiconductor",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -25831,28 +25600,6 @@
         "confidence": 0.82,
         "evidence_level": "expert_inference",
         "note": "Photolithography is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "1959: Invention of the Planar Manufacturing Process",
-            "url": "https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/",
-            "publisher": "Computer History Museum",
-            "year": 1959,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "clean_rooms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Clean Rooms provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -25901,9 +25648,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1955,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1960,
+    "datePrecision": "exact",
+    "region": "United States / Bell Telephone Laboratories",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -25953,9 +25700,9 @@
       {
         "prerequisite": "silicon_planar_process",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Silicon Planar Process provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "The MOS transistor demonstration followed the silicon planar process and used oxide-passivated silicon device fabrication context.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -26003,9 +25750,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1963,
+    "datePrecision": "exact",
+    "region": "United States / Fairchild Semiconductor",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -26061,8 +25808,7 @@
     "description": "Light-sensitive polymer systems that define fine circuit patterns during semiconductor lithography.",
     "prerequisites": [
       "photolithography",
-      "advanced_chemistry",
-      "clean_rooms"
+      "advanced_chemistry"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -26103,14 +25849,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "clean_rooms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Clean Rooms provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -26286,8 +26024,7 @@
     "description": "Dry etching process that uses reactive plasmas to remove selected thin-film materials in microfabrication.",
     "prerequisites": [
       "photolithography",
-      "plasma_physics",
-      "clean_rooms"
+      "plasma_physics"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -26342,28 +26079,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Plasma Physics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "clean_rooms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Clean Rooms provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -27018,6 +26733,17 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "Introduction to VLSI systems - CHM Revolution",
+        "url": "https://www.computerhistory.org/revolution/digital-logic/12/287/1613",
+        "publisher": "Computer History Museum",
+        "year": 1979,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
         "title": "MOSIS Semiconductor Service",
         "url": "https://www.darpa.mil/about/innovation-timeline/mosis-semiconductor-service",
         "publisher": "DARPA",
@@ -27029,9 +26755,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1979,
+    "datePrecision": "exact",
+    "region": "United States / Caltech and Xerox PARC Mead-Conway VLSI design methods",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -27043,11 +26769,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "MOSIS Semiconductor Service",
-            "url": "https://www.darpa.mil/about/innovation-timeline/mosis-semiconductor-service",
-            "publisher": "DARPA",
-            "year": 1981,
-            "source_type": "official_agency",
+            "title": "Introduction to VLSI systems - CHM Revolution",
+            "url": "https://www.computerhistory.org/revolution/digital-logic/12/287/1613",
+            "publisher": "Computer History Museum",
+            "year": 1979,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -27059,17 +26785,17 @@
       {
         "prerequisite": "cmos_logic",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "CMOS Logic provides a capability that enables this technology without being the only possible path.",
+        "note": "CMOS became important for dense low-power VLSI, but VLSI design methodology is broader than CMOS-only logic.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "MOSIS Semiconductor Service",
-            "url": "https://www.darpa.mil/about/innovation-timeline/mosis-semiconductor-service",
-            "publisher": "DARPA",
-            "year": 1981,
-            "source_type": "official_agency",
+            "title": "Introduction to VLSI systems - CHM Revolution",
+            "url": "https://www.computerhistory.org/revolution/digital-logic/12/287/1613",
+            "publisher": "Computer History Museum",
+            "year": 1979,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -27087,11 +26813,11 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "MOSIS Semiconductor Service",
-            "url": "https://www.darpa.mil/about/innovation-timeline/mosis-semiconductor-service",
-            "publisher": "DARPA",
-            "year": 1981,
-            "source_type": "official_agency",
+            "title": "Introduction to VLSI systems - CHM Revolution",
+            "url": "https://www.computerhistory.org/revolution/digital-logic/12/287/1613",
+            "publisher": "Computer History Museum",
+            "year": 1979,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -27124,18 +26850,18 @@
         "title": "RISC",
         "url": "https://www.ibm.com/history/risc",
         "publisher": "IBM",
-        "year": 1986,
-        "source_type": "weak_web",
+        "year": 2026,
+        "source_type": "generic_overview",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1980,
+    "datePrecision": "exact",
+    "region": "United States / IBM 801 prototype",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "microprocessors_cpu_on_a_chip",
@@ -27143,7 +26869,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "RISC",
+            "url": "https://www.ibm.com/history/risc",
+            "publisher": "IBM",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "algorithms_computation_theory",
@@ -27151,7 +26891,21 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "RISC",
+            "url": "https://www.ibm.com/history/risc",
+            "publisher": "IBM",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "integrated_circuits",
@@ -27159,7 +26913,21 @@
         "confidence": 0.82,
         "evidence_level": "expert_inference",
         "note": "Integrated Circuits (Microchips) is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "RISC",
+            "url": "https://www.ibm.com/history/risc",
+            "publisher": "IBM",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -27169,7 +26937,6 @@
     "era": "Modern",
     "description": "Integrated circuit that combines processor cores, memory controllers, interfaces, accelerators, and peripherals on one die.",
     "prerequisites": [
-      "vlsi_design",
       "microprocessors_cpu_on_a_chip",
       "cmos_logic"
     ],
@@ -27182,6 +26949,17 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "1974: Digital Watch is First System-On-Chip Integrated Circuit",
+        "url": "https://www.computerhistory.org/siliconengine/digital-watch-is-first-system-on-chip-integrated-circuit/",
+        "publisher": "Computer History Museum",
+        "year": 1974,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
         "title": "Announcing a New Era of Integrated Electronics",
         "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
         "publisher": "Intel",
@@ -27191,60 +26969,27 @@
           "node",
           "maturity"
         ]
-      },
-      {
-        "title": "MOSIS Semiconductor Service",
-        "url": "https://www.darpa.mil/about/innovation-timeline/mosis-semiconductor-service",
-        "publisher": "DARPA",
-        "year": 1981,
-        "source_type": "official_agency",
-        "supports": [
-          "node",
-          "maturity"
-        ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1974,
+    "datePrecision": "exact",
+    "region": "United States / Microma watch Intel 5810 CMOS chip",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "vlsi_design",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "VLSI Design provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Announcing a New Era of Integrated Electronics",
-            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-            "publisher": "Intel",
-            "year": 1971,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "microprocessors_cpu_on_a_chip",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.7,
         "evidence_level": "expert_inference",
-        "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
+        "note": "Microprocessors and single-chip integration are immediate historical context for SoC designs, but the 1974 watch SoC integrated timing and display functions rather than a general CPU system.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Announcing a New Era of Integrated Electronics",
-            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-            "publisher": "Intel",
-            "year": 1971,
-            "source_type": "official_agency",
+            "title": "1974: Digital Watch is First System-On-Chip Integrated Circuit",
+            "url": "https://www.computerhistory.org/siliconengine/digital-watch-is-first-system-on-chip-integrated-circuit/",
+            "publisher": "Computer History Museum",
+            "year": 1974,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -27255,18 +27000,18 @@
       },
       {
         "prerequisite": "cmos_logic",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.82,
         "evidence_level": "expert_inference",
-        "note": "CMOS Logic provides a capability that enables this technology without being the only possible path.",
+        "note": "The first true SoC cited for this scope was an Intel 5810 CMOS chip, so CMOS logic is a component dependency for the chosen anchor.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Announcing a New Era of Integrated Electronics",
-            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html",
-            "publisher": "Intel",
-            "year": 1971,
-            "source_type": "official_agency",
+            "title": "1974: Digital Watch is First System-On-Chip Integrated Circuit",
+            "url": "https://www.computerhistory.org/siliconengine/digital-watch-is-first-system-on-chip-integrated-circuit/",
+            "publisher": "Computer History Museum",
+            "year": 1974,
+            "source_type": "museum",
             "supports": [
               "node",
               "maturity",
@@ -27307,9 +27052,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1968,
+    "datePrecision": "exact",
+    "region": "United States / IBM",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -27342,11 +27087,10 @@
     "id": "sram_cache_memory",
     "name": "SRAM Cache Memory",
     "era": "Modern",
-    "description": "Static memory built from transistor latches for fast on-chip caches and buffers.",
+    "description": "Static RAM integrated-circuit memory used for fast buffers and later processor caches.",
     "prerequisites": [
       "integrated_circuits",
-      "cmos_logic",
-      "microprocessors_cpu_on_a_chip"
+      "cmos_logic"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -27356,6 +27100,17 @@
     },
     "maturity": "established",
     "sources": [
+      {
+        "title": "Intel's First Product - the 3101",
+        "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/intels-first-product-3101.html",
+        "publisher": "Intel",
+        "year": 1969,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "1963: Complementary MOS Circuit Configuration is Invented",
         "url": "https://www.computerhistory.org/siliconengine/complementary-mos-circuit-configuration-is-invented/",
@@ -27368,25 +27123,25 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1969,
+    "datePrecision": "exact",
+    "region": "United States / Intel 3101 SRAM",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "integrated_circuits",
         "type": "required",
-        "confidence": 0.82,
+        "confidence": 0.84,
         "evidence_level": "expert_inference",
-        "note": "Integrated Circuits (Microchips) is modeled as a necessary component or method for this technology in the current graph.",
+        "note": "The scoped SRAM memory node is an integrated-circuit memory product, so integrated circuits are a hard component dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "1963: Complementary MOS Circuit Configuration is Invented",
-            "url": "https://www.computerhistory.org/siliconengine/complementary-mos-circuit-configuration-is-invented/",
-            "publisher": "Computer History Museum",
-            "year": 1963,
-            "source_type": "museum",
+            "title": "Intel's First Product - the 3101",
+            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/intels-first-product-3101.html",
+            "publisher": "Intel",
+            "year": 1969,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -27398,39 +27153,17 @@
       {
         "prerequisite": "cmos_logic",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "CMOS Logic provides a capability that enables this technology without being the only possible path.",
+        "note": "CMOS logic enabled later low-power SRAM/cache implementations, while early SRAM integrated circuits also existed in bipolar and MOS families.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "1963: Complementary MOS Circuit Configuration is Invented",
-            "url": "https://www.computerhistory.org/siliconengine/complementary-mos-circuit-configuration-is-invented/",
-            "publisher": "Computer History Museum",
-            "year": 1963,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "microprocessors_cpu_on_a_chip",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "1963: Complementary MOS Circuit Configuration is Invented",
-            "url": "https://www.computerhistory.org/siliconengine/complementary-mos-circuit-configuration-is-invented/",
-            "publisher": "Computer History Museum",
-            "year": 1963,
-            "source_type": "museum",
+            "title": "Intel's First Product - the 3101",
+            "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/intels-first-product-3101.html",
+            "publisher": "Intel",
+            "year": 1969,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -27482,9 +27215,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1960,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1979,
+    "datePrecision": "exact",
+    "region": "United States and global semiconductor manufacturing roadmaps",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -27492,14 +27225,14 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "VLSI Design provides a capability that enables this technology without being the only possible path.",
+        "note": "Process-node generations are meaningful in the VLSI-era design-rule and scaling context, not at the first integrated-circuit date.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
+            "title": "Introduction to VLSI systems - CHM Revolution",
+            "url": "https://www.computerhistory.org/revolution/digital-logic/12/287/1613",
             "publisher": "Computer History Museum",
-            "year": 2007,
+            "year": 1979,
             "source_type": "museum",
             "supports": [
               "node",
@@ -28641,7 +28374,7 @@
         "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
         "publisher": "NVIDIA",
         "year": 2026,
-        "source_type": "weak_web",
+        "source_type": "generic_overview",
         "supports": [
           "node",
           "maturity"
@@ -28652,17 +28385,17 @@
         "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
         "publisher": "NVIDIA",
         "year": 2026,
-        "source_type": "weak_web",
+        "source_type": "generic_overview",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1999,
+    "datePrecision": "exact",
+    "region": "United States / NVIDIA GeForce 256",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "computer_graphics_3d",
@@ -28670,23 +28403,65 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "3D Computer Graphics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Our History: Innovations Over the Years",
+            "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
+            "publisher": "NVIDIA",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "microprocessors_cpu_on_a_chip",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.64,
         "evidence_level": "expert_inference",
-        "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "GPU processors build on microprocessor-era chip integration but specialize parallel graphics/data-parallel execution.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Our History: Innovations Over the Years",
+            "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
+            "publisher": "NVIDIA",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "vlsi_design",
-        "type": "enabling",
+        "type": "commercial_or_scaling_dependency",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "VLSI Design provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Dense VLSI design and manufacturing methods are scaling infrastructure for GPU-class processors.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Our History: Innovations Over the Years",
+            "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/",
+            "publisher": "NVIDIA",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -34118,8 +33893,7 @@
     "description": "Autonomous flight control, perception, planning, and fleet operations for uncrewed aerial vehicles.",
     "prerequisites": [
       "mobile_robot_navigation",
-      "gps_guided_logistics",
-      "edge_ai_inference"
+      "gps_guided_logistics"
     ],
     "fields": [
       "Robotics & Autonomous Systems"
@@ -34185,28 +33959,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "GPS-Guided Logistics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Grand Challenge",
-            "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge",
-            "publisher": "DARPA",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "edge_ai_inference",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Edge AI Inference provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -38210,7 +37962,7 @@
     "id": "intermodal_freight_transport",
     "name": "Intermodal Freight Transport",
     "era": "Modern",
-    "description": "Movement of standardized cargo units across ships, rail, trucks, ports, and terminals without handling the freight itself.",
+    "description": "Movement of standardized cargo units across ships, trucks, rail, ports, and terminals without handling the freight itself, anchored to modern containerized intermodal freight.",
     "prerequisites": [
       "containerization_shipping",
       "railroads",
@@ -38225,6 +37977,17 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "Ideal X",
+        "url": "https://porthouston.com/ideal-x/",
+        "publisher": "Port Houston",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
         "title": "Containerization",
         "url": "https://www.britannica.com/technology/containerization",
         "publisher": "Encyclopaedia Britannica",
@@ -38234,38 +37997,27 @@
           "node",
           "maturity"
         ]
-      },
-      {
-        "title": "Review of Maritime Transport",
-        "url": "https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport",
-        "publisher": "UNCTAD",
-        "year": 2026,
-        "source_type": "review",
-        "supports": [
-          "node",
-          "maturity"
-        ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1956,
+    "datePrecision": "exact",
+    "region": "United States / Port Newark to Port Houston, later global intermodal networks",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "containerization_shipping",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Containerization provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "The scoped node is modern standardized intermodal freight, so containerized shipping is the core enabling system rather than a generic contextual predecessor.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Containerization",
-            "url": "https://www.britannica.com/technology/containerization",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Ideal X",
+            "url": "https://porthouston.com/ideal-x/",
+            "publisher": "Port Houston",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -38276,10 +38028,10 @@
       },
       {
         "prerequisite": "railroads",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Railroads provides a capability that enables this technology without being the only possible path.",
+        "note": "Railroads are central to mature intermodal networks, but the 1956 commercial anchor combined truck and ship movement before full rail integration.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -38298,18 +38050,18 @@
       },
       {
         "prerequisite": "highway_systems",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Highway Systems provides a capability that enables this technology without being the only possible path.",
+        "note": "Truck-compatible road networks support door-to-door intermodal container movement and scaling.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Containerization",
-            "url": "https://www.britannica.com/technology/containerization",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Ideal X",
+            "url": "https://porthouston.com/ideal-x/",
+            "publisher": "Port Houston",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
@@ -38839,10 +38591,11 @@
     "id": "high_speed_rail",
     "name": "High-Speed Rail",
     "era": "Modern",
-    "description": "Rail systems with dedicated track, electric traction, signaling, and trainsets designed for sustained high-speed passenger service.",
+    "description": "Modern high-speed passenger rail systems anchored to Japan’s 1964 Tokaido Shinkansen, with dedicated rail infrastructure, electric traction, signaling, and high-speed trainsets.",
     "prerequisites": [
       "railroads",
       "electric_motor",
+      "electric_railway_signaling",
       "high_voltage_transmission"
     ],
     "fields": [
@@ -38853,6 +38606,17 @@
     },
     "maturity": "established",
     "sources": [
+      {
+        "title": "High-Speed Rail History",
+        "url": "https://css2.uic.org/passenger/highspeed/article/high-speed-rail-history",
+        "publisher": "International Union of Railways",
+        "year": 2015,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "Intercity and High-Speed",
         "url": "https://uic.org/passenger/highspeed/",
@@ -38865,24 +38629,24 @@
         ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1964,
+    "datePrecision": "exact",
+    "region": "Japan / Tokaido Shinkansen",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "railroads",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Railroads provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Modern high-speed rail is a specialized passenger-rail system built on the earlier railroad lineage.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Intercity and High-Speed",
-            "url": "https://uic.org/passenger/highspeed/",
+            "title": "High-Speed Rail History",
+            "url": "https://css2.uic.org/passenger/highspeed/article/high-speed-rail-history",
             "publisher": "International Union of Railways",
-            "year": 2026,
+            "year": 2015,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -38894,10 +38658,32 @@
       },
       {
         "prerequisite": "electric_motor",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.78,
         "evidence_level": "expert_inference",
-        "note": "Electric Motor provides a capability that enables this technology without being the only possible path.",
+        "note": "The scoped Shinkansen-style node uses electric traction, making electric motors a core technical dependency for the trainsets.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "High-Speed Rail History",
+            "url": "https://css2.uic.org/passenger/highspeed/article/high-speed-rail-history",
+            "publisher": "International Union of Railways",
+            "year": 2015,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electric_railway_signaling",
+        "type": "required",
+        "confidence": 0.74,
+        "evidence_level": "expert_inference",
+        "note": "Sustained high-speed passenger rail requires railway signaling and control suitable for safe high-speed operations.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -38916,10 +38702,10 @@
       },
       {
         "prerequisite": "high_voltage_transmission",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "High-Voltage Transmission provides a capability that enables this technology without being the only possible path.",
+        "note": "Bulk electrical transmission supports network-scale electrified high-speed rail, but the node is not a general grid technology.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -39891,8 +39677,7 @@
     "description": "Computer networks connecting devices across a room, building, campus, or factory using shared media and packet protocols.",
     "prerequisites": [
       "computer_networking",
-      "packet_switching",
-      "personal_computers"
+      "packet_switching"
     ],
     "firstKnownDate": 1970,
     "datePrecision": "decade",
@@ -39947,28 +39732,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Packet Switching provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Networking",
-            "url": "https://www.computerhistory.org/revolution/networking/19",
-            "publisher": "Computer History Museum",
-            "year": 2026,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "personal_computers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {

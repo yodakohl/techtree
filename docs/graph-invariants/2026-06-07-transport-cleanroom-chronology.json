@@ -1,0 +1,78 @@
+{
+  "id": "2026-06-07-transport-cleanroom-chronology",
+  "description": "Adversarial invariants for GitHub issues #69-#72: broad automobile, modern clean rooms, modern containerization, and high-speed rail should keep source-backed chronology and scope.",
+  "github_issues": [
+    "https://github.com/yodakohl/techtree/issues/69",
+    "https://github.com/yodakohl/techtree/issues/70",
+    "https://github.com/yodakohl/techtree/issues/71",
+    "https://github.com/yodakohl/techtree/issues/72"
+  ],
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "automobile",
+      "operator": "eq",
+      "value": 1886,
+      "reason": "The broad automobile node is scoped to the Benz Patent-Motorwagen practical motorcar, not postwar mass motorization."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "automobile",
+      "prerequisite": "assembly_line",
+      "reason": "Assembly-line production belongs on mass-produced automobiles, not the broad 1886 automobile concept."
+    },
+    {
+      "type": "first_known_date",
+      "node": "clean_rooms",
+      "operator": "eq",
+      "value": 1960,
+      "reason": "The clean_rooms node is scoped to Whitfield-style laminar-flow clean rooms at Sandia."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "integrated_circuits",
+      "prerequisite": "clean_rooms",
+      "reason": "The 1958 integrated-circuit demonstration cannot depend on the later 1960 laminar-flow cleanroom node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "silicon_planar_process",
+      "prerequisite": "clean_rooms",
+      "reason": "The 1959 planar process should not require later Whitfield-style clean rooms."
+    },
+    {
+      "type": "first_known_date",
+      "node": "containerization_shipping",
+      "operator": "eq",
+      "value": 1956,
+      "reason": "Modern commercial container shipping is anchored to the Ideal X voyage."
+    },
+    {
+      "type": "first_known_date",
+      "node": "intermodal_freight_transport",
+      "operator": "eq",
+      "value": 1956,
+      "reason": "The scoped modern intermodal freight node is anchored to containerized truck-ship movement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "agribusiness",
+      "prerequisite": "containerization_shipping",
+      "reason": "Agribusiness should not be forced to postdate container shipping; containerization is only one later logistics accelerant."
+    },
+    {
+      "type": "first_known_date",
+      "node": "high_speed_rail",
+      "operator": "eq",
+      "value": 1964,
+      "reason": "Modern high-speed rail is anchored to the 1964 Tokaido Shinkansen."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "high_speed_rail",
+      "prerequisite": "electric_railway_signaling",
+      "expected": "required",
+      "reason": "Modern high-speed passenger rail should explicitly model railway signaling/control as a core dependency."
+    }
+  ]
+}
