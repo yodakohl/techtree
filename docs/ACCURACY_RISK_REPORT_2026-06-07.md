@@ -1,6 +1,6 @@
 # Accuracy Risk Report
 
-Generated: 2026-06-07T12:32:26.746Z
+Generated: 2026-06-07T13:11:28.180Z
 
 This is an informational risk report. It does not estimate global truth accuracy; it identifies where manual review is likely to pay off next.
 
@@ -14,9 +14,9 @@ This is an informational risk report. It does not estimate global truth accuracy
 | Source-checked nodes without sources | 0 |
 | Source-checked nodes with only weak sources | 0 |
 | Pre-1900 source-checked nodes with only generic sources | 0 |
-| Era-default dates | 830/1664 (49.9%) |
-| Source-checked era-default dates | 87/491 (17.7%) |
-| Dependency edges with edge-level sources | 1489/5763 (25.8%) |
+| Era-default dates | 773/1664 (46.5%) |
+| Source-checked era-default dates | 73/491 (14.9%) |
+| Dependency edges with edge-level sources | 1502/5752 (26.1%) |
 
 ## Era Default Date Debt
 
@@ -25,8 +25,8 @@ This is an informational risk report. It does not estimate global truth accuracy
 | Ancient | 200 | 73 (36.5%) | 19 | 0 |
 | Classical | 181 | 155 (85.6%) | 14 | 0 |
 | Medieval | 160 | 142 (88.8%) | 6 | 0 |
-| Renaissance | 150 | 18 (12.0%) | 5 | 1 |
-| Industrial | 234 | 132 (56.4%) | 57 | 13 |
+| Renaissance | 150 | 15 (10.0%) | 5 | 0 |
+| Industrial | 234 | 78 (33.3%) | 57 | 0 |
 | Modern | 497 | 71 (14.3%) | 352 | 38 |
 | Future | 242 | 239 (98.8%) | 38 | 35 |
 
@@ -34,23 +34,23 @@ This is an informational risk report. It does not estimate global truth accuracy
 
 | Priority | Node | Era | Date | Risks |
 | --- | --- | --- | --- | --- |
-| 70 | `scientific_method` | Renaissance | 1400 | source_checked_era_default_date |
-| 70 | `chemical_fertilizers` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `combine_harvesters` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `electricity` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `food_cold_chain` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `internal_combustion_engine` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `mechanized_tractors` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `municipal_wastewater_treatment` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `plastics` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `precision_machine_tools` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `public_sanitation_modern` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `railroads` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `steam_engine` | Industrial | 1760 | source_checked_era_default_date |
-| 70 | `synthetic_rubber_polymer_chemistry` | Industrial | 1760 | source_checked_era_default_date |
 | 70 | `advanced_materials_science` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `air_traffic_control` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `automobile` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `chemical_vapor_deposition` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `clean_rooms` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `combined_cycle_gas_turbines` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `commercial_aviation_systems` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `computers_early` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `containerization_shipping` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `controlled_environment_agriculture` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `crystal_growth_techniques` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `drip_irrigation` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `environmentalism_ecology` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `fluoridated_drinking_water` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `geothermal_power_earth_heat_energy` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `green_revolution_agriculture` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `high_performance_polymers` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `high_speed_rail` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `high_voltage_transmission` | Modern | 1945 | source_checked_era_default_date |
+| 70 | `highway_systems` | Modern | 1945 | source_checked_era_default_date |

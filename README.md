@@ -18,18 +18,22 @@
 | **Check accuracy** | Latest manual sample: **40/40 sampled claims pass after correction**; see [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md). |
 | **Improve one edge** | Small PRs can correct one dependency/source; validation catches missing IDs, cycles, duplicates, and time-travel edges. |
 
+<!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Current as of 2026-06-07 after the latest chronology pass. This is a trust snapshot, not proof of global accuracy.
+Generated 2026-06-07 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,664 |
-| Source-checked nodes | 491 / 1,664 |
-| Nodes with node-level sources | 536 / 1,664 |
-| Dependency edges with edge-level sources | 1,489 / 5,763 |
-| Era-default dates | 830 / 1,664 |
-| Manual risk-weighted sample | 40 / 40 passed after correction |
+| Source-checked nodes | 491 / 1,664 (29.5%) |
+| Nodes with node-level sources | 536 / 1,664 (32.2%) |
+| Dependency edges with edge-level sources | 1,502 / 5,752 (26.1%) |
+| Era-default dates | 773 / 1,664 (46.5%) |
+| Manual risk-weighted sample | 40 / 40 (passed after correction) |
+
+Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).
+<!-- QUALITY_SNAPSHOT_END -->
 
 TechTree is built as public-good infrastructure for researchers, builders, educators, and AI agents that need a trustworthy technology-dependency graph instead of a plausible list of inventions.
 

@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-07-power-transformers-metallurgy-contextual",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "power_transformers",
+    "prerequisite": "advanced_metallurgy_medieval"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.48,
+    "note": "Transformer cores and conductors require metalworking/material supply, but medieval metallurgy is contextual ancestry rather than a direct transformer prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/transformer-electronics",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica transformer article describing primary/secondary coils and iron transformer cores.",
+    "source_claim_summary": "The source supports transformer component needs around windings and cores, not a broad medieval-metallurgy prerequisite.",
+    "source_support_rationale": "This justifies keeping metalworking as contextual material ancestry while avoiding a misleading causal claim that medieval advanced metallurgy directly enables transformer invention."
+  },
+  "ontology_before": "The old edge made a broad medieval metallurgy node look like a direct transformer-enabling technology.",
+  "ontology_after": "The edge is now a common dependency for material ancestry; copper windings and electromagnetism carry the stronger transformer dependencies.",
+  "invariant_preserved_or_changed": "Graph invariant added in 2026-06-07-energy-edge-source-scope.json to lock the corrected Energy Systems edge semantics.",
+  "would_reject_if": [
+    "A more specific primary or textbook source showed the original dependency type was globally required for the scoped technology.",
+    "The dependent node were narrowed to a later industrial product where the old prerequisite is truly mandatory.",
+    "A future source-check splits the node and moves this edge onto a more precise downstream technology."
+  ],
+  "short_reason": "Transformer source supports metal components, not a direct medieval-metallurgy dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

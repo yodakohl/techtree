@@ -6,11 +6,11 @@ const {
     getPrerequisiteIds,
     sourceQualityWeight
 } = require('./edge-schema');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DATA_FILES = fs.readdirSync(DATA_DIR)
-    .filter(file => file.endsWith('.json'))
-    .filter(file => file !== 'taxonomy.json')
+    .filter(isTechnologyDataFile)
     .sort();
 
 const NODE_DATE_OVERRIDES = {

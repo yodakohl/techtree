@@ -19,16 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         Future: 6
     };
 
-    const eraDefaultDates = {
-        Ancient: -10000,
-        Classical: -500,
-        Medieval: 500,
-        Renaissance: 1400,
-        Industrial: 1760,
-        Modern: 1945,
-        Future: 2035
-    };
-
     const fieldOrder = [
         'Genome Editing / CRISPR-Cas',
         'Semiconductors & Integrated Circuits',
@@ -234,31 +224,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function renderQualitySnapshot() {
+    function renderQualitySnapshot(snapshot) {
         if (!qualitySnapshotEl) return;
         qualitySnapshotEl.replaceChildren();
 
-        const totalNodes = techData.length;
-        const sourceChecked = techData.filter(item => item.reviewStatus === 'source_checked').length;
-        const nodeSources = techData.filter(item => Array.isArray(item.sources) && item.sources.length).length;
-        const edges = techData.flatMap(item => getDependencyEdges(item));
-        const edgeSources = edges.filter(edge => Array.isArray(edge.sources) && edge.sources.length).length;
-        const eraDefaultDatesCount = techData.filter(item => item.firstKnownDate === eraDefaultDates[item.era]).length;
-        const metrics = [
-            ['Technologies', totalNodes.toLocaleString()],
-            ['Source checked', `${sourceChecked.toLocaleString()} / ${totalNodes.toLocaleString()}`],
-            ['Node sources', `${nodeSources.toLocaleString()} / ${totalNodes.toLocaleString()}`],
-            ['Edge sources', `${edgeSources.toLocaleString()} / ${edges.length.toLocaleString()}`],
-            ['Era defaults', `${eraDefaultDatesCount.toLocaleString()} / ${totalNodes.toLocaleString()}`],
-            ['Manual sample', '40 / 40 passed']
-        ];
-
-        for (const [label, value] of metrics) {
+        const metrics = Array.isArray(snapshot?.metrics) ? snapshot.metrics : [];
+        if (!metrics.length) {
             const row = document.createElement('div');
             const caption = document.createElement('span');
-            caption.textContent = label;
+            caption.textContent = 'Snapshot';
+            const value = document.createElement('strong');
+            value.textContent = 'Unavailable';
+            row.append(caption, value);
+            qualitySnapshotEl.appendChild(row);
+            return;
+        }
+
+        for (const metric of metrics) {
+            const row = document.createElement('div');
+            const caption = document.createElement('span');
+            caption.textContent = metric.label;
             const number = document.createElement('strong');
-            number.textContent = value;
+            number.textContent = metric.formatted;
             row.append(caption, number);
             qualitySnapshotEl.appendChild(row);
         }
@@ -536,11 +523,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         setStatus('Loading...');
-        const response = await fetch('api/tech-tree');
+        const [response, snapshotResponse] = await Promise.all([
+            fetch('api/tech-tree'),
+            fetch('data/quality-snapshot.json', { cache: 'no-store' })
+        ]);
         if (!response.ok) throw new Error('Failed to load tech tree');
+        if (!snapshotResponse.ok) throw new Error('Failed to load quality snapshot');
         techData = await response.json();
+        const qualitySnapshot = await snapshotResponse.json();
         graph = buildGraph(techData);
-        renderQualitySnapshot();
+        renderQualitySnapshot(qualitySnapshot);
 
         currentField = getFieldFromUrl();
         selectedId = getHashTechId();

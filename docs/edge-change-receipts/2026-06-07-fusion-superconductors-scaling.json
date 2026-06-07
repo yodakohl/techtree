@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-07-fusion-superconductors-scaling",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "nuclear_fusion_research",
+    "prerequisite": "superconductors_early"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Early Superconductors is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "review",
+    "confidence": 0.66,
+    "note": "Superconducting magnets are important to modern magnetic-confinement fusion systems such as ITER, but early fusion research predated them."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.energy.gov/node/4439602",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "DOE fusion nuclear science and technology page describing ITER central solenoid superconducting cables and fusion-system development.",
+    "source_claim_summary": "The source supports superconductors as important modern fusion magnet infrastructure rather than the historical origin of fusion research.",
+    "source_support_rationale": "The edge is now scaling infrastructure for magnetic-confinement systems, preserving its relevance without implying early fusion research historically descended from superconductivity."
+  },
+  "ontology_before": "The old edge represented superconductors as a historical predecessor for all fusion research.",
+  "ontology_after": "The edge is constrained to commercial/scaling dependency for modern fusion magnet systems.",
+  "invariant_preserved_or_changed": "Graph invariant added in 2026-06-07-energy-edge-source-scope.json to lock the corrected Energy Systems edge semantics.",
+  "would_reject_if": [
+    "A more specific primary or textbook source showed the original dependency type was globally required for the scoped technology.",
+    "The dependent node were narrowed to a later industrial product where the old prerequisite is truly mandatory.",
+    "A future source-check splits the node and moves this edge onto a more precise downstream technology."
+  ],
+  "short_reason": "Superconductors scale modern fusion magnets but did not precede fusion research as a whole.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

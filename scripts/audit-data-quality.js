@@ -6,6 +6,7 @@ const {
     sourceQualityWeight,
     getDependencyEdges
 } = require('./edge-schema');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const EXPANSION_DIR = path.join(DATA_DIR, 'expansion');
@@ -115,8 +116,7 @@ function hasTerm(text, term) {
 
 function loadData() {
     return fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json'))
-        .filter(file => file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => {
             const items = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));

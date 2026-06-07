@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-07-solar-power-electronics-scaling",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "solar_power",
+    "prerequisite": "electronics"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electronics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.58,
+    "note": "Power electronics and electrical integration help deploy solar generation, but photovoltaic conversion itself does not require later electronics as a hard prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.iea.org/fuels-and-technologies/solar",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "IEA solar technology page reviewing solar PV and solar power deployment as energy technologies.",
+    "source_claim_summary": "The source supports electronics and grid integration as deployment context for solar generation, not the physical photovoltaic conversion dependency.",
+    "source_support_rationale": "The corrected edge keeps electronics relevant for scaling solar systems while leaving semiconductors and electricity as the stronger technical dependencies."
+  },
+  "ontology_before": "The graph treated electronics as a direct enabling dependency for solar power.",
+  "ontology_after": "Electronics is now a commercial/scaling dependency for deployed solar systems.",
+  "invariant_preserved_or_changed": "Graph invariant added in 2026-06-07-energy-edge-source-scope.json to lock the corrected Energy Systems edge semantics.",
+  "would_reject_if": [
+    "A more specific primary or textbook source showed the original dependency type was globally required for the scoped technology.",
+    "The dependent node were narrowed to a later industrial product where the old prerequisite is truly mandatory.",
+    "A future source-check splits the node and moves this edge onto a more precise downstream technology."
+  ],
+  "short_reason": "Electronics scales deployed solar systems but is not the photovoltaic conversion mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

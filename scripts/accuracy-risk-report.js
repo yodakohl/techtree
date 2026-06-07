@@ -6,6 +6,7 @@ const {
     getDependencyEdges,
     sourceQualityWeight
 } = require('./edge-schema');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
@@ -27,7 +28,7 @@ function readJson(file) {
 
 function loadData() {
     return fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json') && file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => {
             const items = readJson(path.join(DATA_DIR, file));
@@ -309,12 +310,28 @@ function renderText(report) {
     }
 }
 
-const report = makeReport(loadData(), readJson(TAXONOMY_FILE));
+function main() {
+    const report = makeReport(loadData(), readJson(TAXONOMY_FILE));
 
-if (outputJson) {
-    console.log(JSON.stringify(report, null, 2));
-} else if (outputMarkdown) {
-    console.log(renderMarkdown(report));
-} else {
-    renderText(report);
+    if (outputJson) {
+        console.log(JSON.stringify(report, null, 2));
+    } else if (outputMarkdown) {
+        console.log(renderMarkdown(report));
+    } else {
+        renderText(report);
+    }
 }
+
+if (require.main === module) {
+    main();
+}
+
+module.exports = {
+    DATA_DIR,
+    TAXONOMY_FILE,
+    loadData,
+    makeReport,
+    percentage,
+    readJson,
+    renderMarkdown
+};

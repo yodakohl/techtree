@@ -296,9 +296,9 @@
       "alchemy",
       "fluid_mechanics_early"
     ],
-    "firstKnownDate": 1400,
-    "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
+    "firstKnownDate": 1500,
+    "datePrecision": "unknown",
+    "region": "Dependency lower bound from scientific_method; needs source check",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -992,9 +992,9 @@
       "libraries",
       "scholasticism"
     ],
-    "firstKnownDate": 1493,
-    "datePrecision": "decade",
-    "region": "European print centers",
+    "firstKnownDate": 1500,
+    "datePrecision": "unknown",
+    "region": "Dependency lower bound from scientific_societies; needs source check",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -2843,7 +2843,7 @@
     "id": "scientific_method",
     "name": "Scientific Method",
     "era": "Renaissance",
-    "description": "A systematic approach to inquiry based on empirical or measurable evidence subject to specific principles of reasoning. It involves systematic observation, measurement, experiment, and the formulation, testing, and modification of hypotheses.",
+    "description": "A systematic approach to inquiry based on observation, measurement, experiment, mathematical reasoning, and the testing and revision of explanations.",
     "prerequisites": [
       "philosophy",
       "mathematics",
@@ -2852,27 +2852,28 @@
       "alchemy",
       "scholasticism"
     ],
-    "firstKnownDate": 1400,
+    "firstKnownDate": 1500,
     "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
+    "region": "Europe, especially Renaissance and early modern natural philosophy",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "philosophy",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Philosophy provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Scientific method grew out of natural philosophy and debates over explanation during the Scientific Revolution.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Scientific Method",
-            "url": "https://plato.stanford.edu/entries/scientific-method/",
-            "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2025,
+            "title": "Scientific Revolution",
+            "url": "https://www.britannica.com/science/Scientific-Revolution",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
             "source_type": "textbook",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2881,19 +2882,20 @@
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "The Scientific Revolution made quantitative and geometric reasoning central to scientific explanation and experiment.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Scientific Method",
-            "url": "https://plato.stanford.edu/entries/scientific-method/",
-            "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2025,
+            "title": "Scientific Revolution",
+            "url": "https://www.britannica.com/science/Scientific-Revolution",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
             "source_type": "textbook",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2901,10 +2903,10 @@
       },
       {
         "prerequisite": "universities",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Universities provides a capability that enables this technology without being the only possible path.",
+        "note": "Universities and learned institutions preserved and transmitted the scholarly setting in which early modern method debates developed.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -2915,6 +2917,7 @@
             "source_type": "textbook",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2923,9 +2926,9 @@
       {
         "prerequisite": "writing",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "note": "Written argument, records, and publication were necessary infrastructure for cumulative method claims, but not the method itself.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -2936,6 +2939,7 @@
             "source_type": "textbook",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2943,10 +2947,10 @@
       },
       {
         "prerequisite": "alchemy",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.56,
         "evidence_level": "expert_inference",
-        "note": "Alchemy provides a capability that enables this technology without being the only possible path.",
+        "note": "Alchemy contributed laboratory and experimental traditions that preceded early modern chemistry and method, without being a strict requirement.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -2957,6 +2961,7 @@
             "source_type": "textbook",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2964,20 +2969,21 @@
       },
       {
         "prerequisite": "scholasticism",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scholasticism provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.62,
+        "evidence_level": "textbook",
+        "note": "Scientific Revolution method reacted against and transformed scholastic natural philosophy rather than appearing without that intellectual background.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Scientific Method",
-            "url": "https://plato.stanford.edu/entries/scientific-method/",
-            "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2025,
+            "title": "Scientific Revolution",
+            "url": "https://www.britannica.com/science/Scientific-Revolution",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
             "source_type": "textbook",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2986,13 +2992,25 @@
     ],
     "sources": [
       {
+        "title": "Scientific Revolution",
+        "url": "https://www.britannica.com/science/Scientific-Revolution",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
         "title": "Scientific Method",
         "url": "https://plato.stanford.edu/entries/scientific-method/",
         "publisher": "Stanford Encyclopedia of Philosophy",
         "year": 2025,
         "source_type": "textbook",
         "supports": [
-          "node"
+          "node",
+          "maturity"
         ]
       }
     ]
@@ -3008,9 +3026,9 @@
       "humanism",
       "libraries"
     ],
-    "firstKnownDate": 1400,
-    "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
+    "firstKnownDate": 1500,
+    "datePrecision": "unknown",
+    "region": "Dependency lower bound from scientific_method; needs source check",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {

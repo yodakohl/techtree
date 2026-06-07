@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-07-nuclear-fission-construction-removal",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "nuclear_fission",
+    "prerequisite": "construction"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency remains from nuclear_fission to construction; fission is scoped as a nuclear process/discovery, while construction belongs on reactor and facility nodes.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.energy.gov/science/doe-explainsnuclear-fission",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "DOE Explains Nuclear Fission description of fission as a process beginning when a neutron or other particle strikes a nucleus.",
+    "source_claim_summary": "The source describes the nuclear process and reactor use of fission but does not make generic construction an enabling prerequisite for fission itself.",
+    "source_support_rationale": "Removing the edge prevents civil-construction context from being inherited by every fission-dependent node; reactor construction should be modeled on reactor technologies, not the basic fission node."
+  },
+  "ontology_before": "The graph treated generic construction as a prerequisite for the nuclear fission process.",
+  "ontology_after": "The graph keeps scientific and fuel-cycle dependencies while leaving construction to downstream reactor or facility nodes.",
+  "invariant_preserved_or_changed": "Graph invariant added in 2026-06-07-energy-edge-source-scope.json to lock the corrected Energy Systems edge semantics.",
+  "would_reject_if": [
+    "A more specific primary or textbook source showed the original dependency type was globally required for the scoped technology.",
+    "The dependent node were narrowed to a later industrial product where the old prerequisite is truly mandatory.",
+    "A future source-check splits the node and moves this edge onto a more precise downstream technology."
+  ],
+  "short_reason": "Generic construction is not a prerequisite for the nuclear fission process.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

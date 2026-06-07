@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { ERA_ORDER, getDependencyEdges } = require('./edge-schema');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const FIELD = 'Genome Editing / CRISPR-Cas';
@@ -8,8 +9,7 @@ const args = new Set(process.argv.slice(2));
 
 function loadData() {
     return fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json'))
-        .filter(file => file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => {
             const items = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));

@@ -10,6 +10,7 @@ const {
     getDependencyEdges,
     getPrerequisiteIds
 } = require('./edge-schema');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
@@ -35,8 +36,7 @@ const SOURCE_REQUIRED_FIELDS = new Set([
 
 function loadData() {
     const files = fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json'))
-        .filter(file => file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort();
 
     return files.flatMap(file => {

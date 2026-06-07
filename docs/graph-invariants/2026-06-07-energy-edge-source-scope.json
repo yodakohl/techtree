@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-07-energy-edge-source-scope",
+  "description": "Lock corrected Energy Systems & Grid edge semantics after source-checking formerly unsourced edges.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "power_transformers",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "expected": "common_dependency",
+      "reason": "metallurgy is contextual material ancestry, not direct transformer enablement"
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nuclear_fission",
+      "prerequisite": "construction",
+      "reason": "generic construction belongs on reactor/facility nodes, not fission itself"
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nuclear_fission",
+      "prerequisite": "isotope_separation",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "isotope separation is fuel-cycle scaling context"
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nuclear_fusion_research",
+      "prerequisite": "superconductors_early",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "superconductors scale modern fusion magnets"
+    },
+    {
+      "type": "edge_type",
+      "dependent": "solar_power",
+      "prerequisite": "electronics",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "electronics scales deployment rather than photovoltaic conversion"
+    },
+    {
+      "type": "edge_type",
+      "dependent": "solar_photovoltaics",
+      "prerequisite": "photolithography",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "photolithography is not universal to all PV technologies"
+    }
+  ]
+}

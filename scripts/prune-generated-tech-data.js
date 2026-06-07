@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const GENERATED_ID = /_0[0-9]{3}$/;
 
 const files = fs.readdirSync(DATA_DIR)
-    .filter(file => file.endsWith('.json'))
-    .filter(file => file !== 'taxonomy.json')
+    .filter(isTechnologyDataFile)
     .sort();
 
 let removed = 0;

@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-07-nuclear-fission-isotope-separation-scaling",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "nuclear_fission",
+    "prerequisite": "isotope_separation"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Isotope Separation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "review",
+    "confidence": 0.62,
+    "note": "Isotope separation and enrichment matter for many nuclear fuel cycles and weapons programs, but fission itself and some reactors do not require it as a universal prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.eia.gov/energyexplained/nuclear/the-nuclear-fuel-cycle.php",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "EIA nuclear fuel cycle page describing uranium fuel, U-235, and fuel-cycle processing for nuclear power plants.",
+    "source_claim_summary": "The source places isotope handling in the nuclear fuel-cycle context rather than as a universal prerequisite for the physical fission process.",
+    "source_support_rationale": "This supports a scaling/fuel-cycle edge because enriched fuel is important for many applications, while fission discovery and some reactor designs are broader than isotope separation."
+  },
+  "ontology_before": "The edge implied isotope separation was a general enabling prerequisite for nuclear fission.",
+  "ontology_after": "The edge is limited to commercial and fuel-cycle scaling dependencies.",
+  "invariant_preserved_or_changed": "Graph invariant added in 2026-06-07-energy-edge-source-scope.json to lock the corrected Energy Systems edge semantics.",
+  "would_reject_if": [
+    "A more specific primary or textbook source showed the original dependency type was globally required for the scoped technology.",
+    "The dependent node were narrowed to a later industrial product where the old prerequisite is truly mandatory.",
+    "A future source-check splits the node and moves this edge onto a more precise downstream technology."
+  ],
+  "short_reason": "Isotope separation belongs to fuel-cycle scaling, not fission itself.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

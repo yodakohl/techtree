@@ -3,6 +3,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const path = require('path');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DEFAULT_INVARIANT_DIR = path.join(__dirname, '..', 'docs', 'graph-invariants');
@@ -18,7 +19,7 @@ function readJson(file) {
 
 function loadItemsFromFiles() {
     return fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json') && file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => {
             const parsed = readJson(path.join(DATA_DIR, file));

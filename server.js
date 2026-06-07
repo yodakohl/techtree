@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const { isTechnologyDataFile } = require('./scripts/data-files');
 
 const DATA_FILE = path.join(__dirname, 'tech-tree.json');
 const DATA_DIR = path.join(__dirname, 'data');
@@ -10,7 +11,7 @@ const READ_ONLY = /^(1|true|yes)$/i.test(process.env.TECHTREE_READ_ONLY || '');
 function loadData() {
     // Prefer split data files if available
     if (fs.existsSync(DATA_DIR)) {
-        const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json'));
+        const files = fs.readdirSync(DATA_DIR).filter(isTechnologyDataFile);
         if (files.length) {
             const combined = [];
             for (const f of files) {
@@ -114,7 +115,8 @@ function serveStatic(req, res) {
             '.css': 'text/css',
             '.json': 'application/json'
         }[ext] || 'text/plain';
-        const cacheControl = ext === '.html'
+        const basename = path.basename(filePath);
+        const cacheControl = ext === '.html' || basename === 'quality-snapshot.json'
             ? 'no-cache'
             : 'public, max-age=31536000, immutable';
         sendCompressed(req, res, content, mime, cacheControl);

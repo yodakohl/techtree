@@ -5,6 +5,7 @@ const {
     EVIDENCE_LEVELS,
     SOURCE_TYPES
 } = require('./edge-schema');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RECEIPT_DIR = path.join(__dirname, '..', 'docs', 'edge-change-receipts');
@@ -80,8 +81,7 @@ const COMMON_WORDS = new Set([
 
 function loadData() {
     return fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json'))
-        .filter(file => file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => {
             const items = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));

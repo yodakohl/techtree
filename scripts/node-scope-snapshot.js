@@ -2,6 +2,7 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
@@ -12,7 +13,7 @@ function usage() {
 
 function loadItems() {
     const items = [];
-    for (const file of fs.readdirSync(DATA_DIR).filter(name => name.endsWith('.json') && name !== 'taxonomy.json').sort()) {
+    for (const file of fs.readdirSync(DATA_DIR).filter(isTechnologyDataFile).sort()) {
         const filePath = path.join(DATA_DIR, file);
         const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         for (const item of parsed) items.push({ ...item, __file: file });

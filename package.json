@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "coverage": "node scripts/coverage-report.js",
-    "accuracy:risks": "node scripts/accuracy-risk-report.js",
+    "accuracy:risks": "node scripts/generate-quality-snapshot.js --silent && node scripts/accuracy-risk-report.js",
+    "quality:snapshot": "node scripts/generate-quality-snapshot.js",
     "audit:crispr": "node scripts/audit-crispr-edge-quality.js",
     "edge-packet": "node scripts/edge-review-packet.js",
     "node-packet": "node scripts/node-scope-packet.js",
@@ -16,7 +17,7 @@
     "edge-receipts": "node scripts/check-edge-change-receipts.js",
     "source-urls": "node scripts/audit-source-urls.js",
     "temporal": "node scripts/audit-temporal-consistency.js",
-    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage",
+    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && node scripts/generate-quality-snapshot.js --check",
     "test": "node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },

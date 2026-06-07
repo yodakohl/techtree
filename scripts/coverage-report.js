@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { isTechnologyDataFile } = require('./data-files');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
@@ -42,7 +43,7 @@ const generatedBranchNames = new Map([
 
 function loadData() {
     return fs.readdirSync(DATA_DIR)
-        .filter(file => file.endsWith('.json') && file !== 'taxonomy.json')
+        .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8')));
 }
