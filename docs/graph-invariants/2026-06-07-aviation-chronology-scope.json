@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-07-aviation-chronology-scope",
+  "description": "Lock aviation chronology scope: powered flight, scheduled commercial aviation, and early air traffic control predate jet aircraft and mature radar-based aviation systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "flight_powered",
+      "operator": "eq",
+      "value": 1903,
+      "reason": "The powered-flight node is scoped to the Wright brothers' controlled, sustained powered flight."
+    },
+    {
+      "type": "first_known_date",
+      "node": "commercial_aviation_systems",
+      "operator": "eq",
+      "value": 1914,
+      "reason": "The broad commercial-aviation node is scoped to scheduled passenger air service, not postwar jet airlines."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commercial_aviation_systems",
+      "prerequisite": "flight_powered",
+      "expected": "enabling",
+      "reason": "Powered aircraft are the concrete prerequisite/enabler for scheduled commercial air service."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "commercial_aviation_systems",
+      "prerequisite": "jet_aircraft_high_speed_flight",
+      "reason": "Scheduled commercial aviation predates jet aircraft by decades."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "commercial_aviation_systems",
+      "prerequisite": "radar_radio_detection_and_ranging",
+      "reason": "Radar belongs to later aviation safety and traffic-management systems, not the first scheduled service."
+    },
+    {
+      "type": "first_known_date",
+      "node": "air_traffic_control",
+      "operator": "eq",
+      "value": 1930,
+      "reason": "The early ATC node is anchored to the radio-equipped Cleveland airport tower."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "air_traffic_control",
+      "prerequisite": "radar_radio_detection_and_ranging",
+      "reason": "Early ATC used tower/radio/procedural control before radar became a later surveillance aid."
+    }
+  ]
+}
