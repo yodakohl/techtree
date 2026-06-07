@@ -18,6 +18,19 @@
 | **Check accuracy** | Latest manual sample: **40/40 sampled claims pass after correction**; see [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md). |
 | **Improve one edge** | Small PRs can correct one dependency/source; validation catches missing IDs, cycles, duplicates, and time-travel edges. |
 
+## Quality Snapshot
+
+Current as of 2026-06-07 after the latest chronology pass. This is a trust snapshot, not proof of global accuracy.
+
+| Metric | Current |
+| --- | --- |
+| Technologies | 1,664 |
+| Source-checked nodes | 491 / 1,664 |
+| Nodes with node-level sources | 536 / 1,664 |
+| Dependency edges with edge-level sources | 1,489 / 5,763 |
+| Era-default dates | 830 / 1,664 |
+| Manual risk-weighted sample | 40 / 40 passed after correction |
+
 TechTree is built as public-good infrastructure for researchers, builders, educators, and AI agents that need a trustworthy technology-dependency graph instead of a plausible list of inventions.
 
 ![techtree](https://github.com/user-attachments/assets/e189ec5e-6124-4d2d-9521-434d65a7df01)

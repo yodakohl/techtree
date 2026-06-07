@@ -497,91 +497,22 @@
     "id": "aqueducts",
     "name": "Aqueducts",
     "era": "Classical",
-    "description": "Massive structures built to convey water over long distances to supply cities and farms.",
+    "description": "Canals, bridges, and conduits built to convey water over long distances to cities, farms, and royal landscapes.",
     "prerequisites": [
-      "construction",
-      "roman_concrete_opus_caementicium",
-      "geometry",
       "hydraulics",
       "surveying"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -700,
     "datePrecision": "century",
-    "region": "Assyria, Greece, Rome, and other classical hydraulic systems",
+    "region": "Neo-Assyrian Nineveh; later Greek and Roman hydraulic systems",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Aqueduct",
-            "url": "https://www.britannica.com/technology/aqueduct-engineering",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "roman_concrete_opus_caementicium",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roman Concrete (Opus Caementicium) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Aqueduct",
-            "url": "https://www.britannica.com/technology/aqueduct-engineering",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "geometry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Aqueduct",
-            "url": "https://www.britannica.com/technology/aqueduct-engineering",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "hydraulics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hydraulics provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Aqueducts are gravity water-conveyance systems; practical hydraulics is intrinsic to the scoped technology.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -600,10 +531,10 @@
       },
       {
         "prerequisite": "surveying",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.74,
         "evidence_level": "expert_inference",
-        "note": "Surveying provides a capability that enables this technology without being the only possible path.",
+        "note": "Long-distance aqueducts require route alignment and gradient control, including tunnels, canals, and valley crossings.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -2319,42 +2250,94 @@
       "writing",
       "early_astronomy_observation"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -3000,
+    "datePrecision": "millennium",
+    "region": "Egypt and Mesopotamia",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.78,
         "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Geometry is modeled as a branch of early written mathematics used for measurement, land, and construction problems.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "masonry",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Masonry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "masonry is contextual support for early measurement geometry rather than a Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "writing",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "writing is contextual support for early measurement geometry rather than a Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "early_astronomy_observation",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Early Astronomical Observation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "early astronomy observation is contextual support for early measurement geometry rather than a Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
@@ -2363,7 +2346,7 @@
         "url": "https://www.britannica.com/science/geometry",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "textbook",
         "supports": [
           "node"
         ]
@@ -2537,56 +2520,67 @@
     "era": "Classical",
     "description": "The study and application of fluid mechanics, particularly for moving and controlling water.",
     "prerequisites": [
-      "mathematics",
-      "construction",
-      "pottery",
-      "bronze_working",
-      "irrigation"
+      "irrigation",
+      "pottery"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -6000,
+    "datePrecision": "millennium",
+    "region": "Mesopotamian irrigation and other early water-control regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
-        "prerequisite": "mathematics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "irrigation",
+        "type": "historical_predecessor",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Systematic irrigation is the practical water-control predecessor for early hydraulics in Mesopotamian canal agriculture.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Mesopotamia",
+            "url": "https://www.britannica.com/place/Mesopotamia-historical-region-Asia",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
+        "type": "common_dependency",
+        "confidence": 0.5,
+        "evidence_level": "weak_inference",
+        "note": "Ceramic vessels support water handling and measurement, but early hydraulics is primarily anchored to irrigation and canals.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Mesopotamia",
+            "url": "https://www.britannica.com/place/Mesopotamia-historical-region-Asia",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
       {
-        "prerequisite": "bronze_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "irrigation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Irrigation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Mesopotamia",
+        "url": "https://www.britannica.com/place/Mesopotamia-historical-region-Asia",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ]
       }
     ]
   },
@@ -3128,42 +3122,94 @@
       "record_keeping",
       "calendars"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -3000,
+    "datePrecision": "millennium",
+    "region": "Mesopotamia and Egypt",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
         "prerequisite": "writing",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "writing is treated as an early administrative or observational context for written mathematics, not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Mathematics",
+            "url": "https://www.britannica.com/science/mathematics",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "agriculture",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.6,
         "evidence_level": "expert_inference",
-        "note": "Agriculture provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "agriculture is treated as an early administrative or observational context for written mathematics, not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Mathematics",
+            "url": "https://www.britannica.com/science/mathematics",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "record_keeping",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "record keeping is treated as an early administrative or observational context for written mathematics, not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Mathematics",
+            "url": "https://www.britannica.com/science/mathematics",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "calendars",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.6,
         "evidence_level": "expert_inference",
-        "note": "Calendars provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "calendars is treated as an early administrative or observational context for written mathematics, not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Mathematics",
+            "url": "https://www.britannica.com/science/mathematics",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
@@ -3172,7 +3218,7 @@
         "url": "https://www.britannica.com/science/mathematics",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "textbook",
         "supports": [
           "node"
         ]
@@ -3752,24 +3798,24 @@
       "early_astronomy_observation",
       "tribalism"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -600,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "region": "Ancient Greece/Ionia, with parallel classical traditions in South Asia and China",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "writing",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "Surviving philosophical traditions are reconstructed through written fragments and testimonia, though philosophy itself was not purely a writing technology.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Stanford Encyclopedia of Philosophy",
-            "url": "https://plato.stanford.edu/",
+            "title": "Presocratic Philosophy",
+            "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
             "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2026,
+            "year": 2012,
             "source_type": "textbook",
             "supports": [
               "node",
@@ -3780,17 +3826,17 @@
       },
       {
         "prerequisite": "oral_tradition_storytelling",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Oral Tradition & Storytelling provides a capability that enables this technology without being the only possible path.",
+        "note": "Mythic, poetic, and oral explanation formed an earlier intellectual background that philosophy partly departed from.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Stanford Encyclopedia of Philosophy",
-            "url": "https://plato.stanford.edu/",
+            "title": "Presocratic Philosophy",
+            "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
             "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2026,
+            "year": 2012,
             "source_type": "textbook",
             "supports": [
               "node",
@@ -3801,17 +3847,17 @@
       },
       {
         "prerequisite": "early_astronomy_observation",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
+        "type": "common_dependency",
+        "confidence": 0.5,
         "evidence_level": "expert_inference",
-        "note": "Early Astronomical Observation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "note": "Early Greek inquiry included celestial and terrestrial explanation; astronomy is contextual knowledge, not a prerequisite for all philosophy.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Stanford Encyclopedia of Philosophy",
-            "url": "https://plato.stanford.edu/",
+            "title": "Presocratic Philosophy",
+            "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
             "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2026,
+            "year": 2012,
             "source_type": "textbook",
             "supports": [
               "node",
@@ -3822,17 +3868,17 @@
       },
       {
         "prerequisite": "tribalism",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Tribalism provides a capability that enables this technology without being the only possible path.",
+        "type": "common_dependency",
+        "confidence": 0.4,
+        "evidence_level": "weak_inference",
+        "note": "Small-scale social organization is background human context and should not be treated as a hard prerequisite for philosophy.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Stanford Encyclopedia of Philosophy",
-            "url": "https://plato.stanford.edu/",
+            "title": "Presocratic Philosophy",
+            "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
             "publisher": "Stanford Encyclopedia of Philosophy",
-            "year": 2026,
+            "year": 2012,
             "source_type": "textbook",
             "supports": [
               "node",
@@ -3844,10 +3890,10 @@
     ],
     "sources": [
       {
-        "title": "Stanford Encyclopedia of Philosophy",
-        "url": "https://plato.stanford.edu/",
+        "title": "Presocratic Philosophy",
+        "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
         "publisher": "Stanford Encyclopedia of Philosophy",
-        "year": 2026,
+        "year": 2012,
         "source_type": "textbook",
         "supports": [
           "node"
@@ -4226,12 +4272,8 @@
     "id": "roads",
     "name": "Roads",
     "era": "Classical",
-    "description": "Engineered pathways for efficient land travel, trade, and military movement.",
+    "description": "Constructed paths, stone-paved streets, timber trackways, and later road systems for moving people, animals, carts, goods, and armies.",
     "prerequisites": [
-      "construction",
-      "wheel_and_axle",
-      "surveying",
-      "concrete",
       "masonry"
     ],
     "fields": [
@@ -4243,124 +4285,36 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Part I - History - Engineering Data - Interstate System",
-        "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-        "publisher": "Federal Highway Administration",
-        "year": 2017,
-        "source_type": "official_agency",
+        "title": "Road",
+        "url": "https://www.britannica.com/technology/road",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -4000,
+    "datePrecision": "millennium",
+    "region": "Mesopotamia and other early constructed-road regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "wheel_and_axle",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wheel and Axle provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "surveying",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Surveying provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "masonry",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.64,
         "evidence_level": "expert_inference",
-        "note": "Masonry provides a capability that enables this technology without being the only possible path.",
+        "note": "Early constructed roads include stone-paved streets; masonry enables durable surfaces but paths and timber trackways could follow other construction routes.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
-            "source_type": "official_agency",
+            "title": "Road",
+            "url": "https://www.britannica.com/technology/road",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
@@ -4750,42 +4704,106 @@
       "mathematics",
       "record_keeping"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -3000,
+    "datePrecision": "millennium",
+    "region": "Egypt and Mesopotamia",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
         "prerequisite": "geometry",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.74,
         "evidence_level": "expert_inference",
-        "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Surveying depends on practical geometry for measuring land, alignments, and gradients.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "writing",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "writing supports administrative land measurement but is not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "mathematics supports administrative land measurement but is not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "record_keeping",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.62,
         "evidence_level": "expert_inference",
-        "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "record keeping supports administrative land measurement but is not a later Classical-only prerequisite.",
+        "reviewStatus": "structurally_validated",
+        "sources": [
+          {
+            "title": "Geometry",
+            "url": "https://www.britannica.com/science/geometry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Geometry",
+        "url": "https://www.britannica.com/science/geometry",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ]
       }
     ]
   },
@@ -5502,28 +5520,27 @@
     "id": "water_filtration_sand_charcoal",
     "name": "Sand & Charcoal Water Filtration",
     "era": "Classical",
-    "description": "Practical treatment of water using settling, sand, charcoal, and ceramic vessels to improve taste and reduce visible impurities.",
+    "description": "Practical treatment of water by letting water pass through sand and related porous media to remove visible impurities.",
     "prerequisites": [
       "pottery",
-      "charcoal_production",
-      "sewers_and_drainage"
+      "charcoal_production"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -400,
     "datePrecision": "century",
-    "region": "Classical Mediterranean and South Asian medical traditions",
+    "region": "Ancient river-bank and urban water-treatment traditions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.52,
         "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
+        "note": "Vessels help collect and handle filtered water, but the Britannica example of river-bank sand filtration does not require pottery.",
         "reviewStatus": "source_checked",
         "sources": [
           {
             "title": "Filtration",
-            "url": "https://www.britannica.com/technology/filtration-chemistry",
+            "url": "https://www.britannica.com/science/filtration-chemistry",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
@@ -5537,37 +5554,15 @@
       },
       {
         "prerequisite": "charcoal_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Charcoal Production provides a capability that enables this technology without being the only possible path.",
+        "type": "common_dependency",
+        "confidence": 0.48,
+        "evidence_level": "weak_inference",
+        "note": "Charcoal is a later or alternate filter medium; sand filtration is independently attested, so charcoal is contextual rather than required.",
         "reviewStatus": "source_checked",
         "sources": [
           {
             "title": "Filtration",
-            "url": "https://www.britannica.com/technology/filtration-chemistry",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "sewers_and_drainage",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sewers and Drainage provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Filtration",
-            "url": "https://www.britannica.com/technology/filtration-chemistry",
+            "url": "https://www.britannica.com/science/filtration-chemistry",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
@@ -5590,7 +5585,7 @@
     "sources": [
       {
         "title": "Filtration",
-        "url": "https://www.britannica.com/technology/filtration-chemistry",
+        "url": "https://www.britannica.com/science/filtration-chemistry",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
@@ -7189,9 +7184,9 @@
   },
   {
     "id": "concrete_road_surfaces",
-    "name": "Concrete Road Surfaces",
+    "name": "Layered Roman Road Surfaces",
     "era": "Classical",
-    "description": "Layered road construction using stone, lime, concrete-like binders, drainage, curbs, and durable wearing surfaces.",
+    "description": "Durable Roman road surfacing with stone layers, drainage, curbs, paving blocks, and mortar or concrete-like binders where available.",
     "prerequisites": [
       "roads",
       "concrete",
@@ -7206,10 +7201,10 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Part I - History - Engineering Data - Interstate System",
-        "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-        "publisher": "Federal Highway Administration",
-        "year": 2017,
+        "title": "Via Appia. Regina Viarum",
+        "url": "https://whc.unesco.org/en/list/1708/",
+        "publisher": "UNESCO World Heritage Centre",
+        "year": 2024,
         "source_type": "official_agency",
         "supports": [
           "node",
@@ -7217,24 +7212,24 @@
         ]
       }
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -312,
+    "datePrecision": "exact",
+    "region": "Roman Republic, beginning with the Via Appia road-building program",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.82,
         "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
+        "note": "Layered Roman surfacing is a refinement of engineered road construction, anchored by the Via Appia program beginning in 312 BCE.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
+            "title": "Via Appia. Regina Viarum",
+            "url": "https://whc.unesco.org/en/list/1708/",
+            "publisher": "UNESCO World Heritage Centre",
+            "year": 2024,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -7246,17 +7241,17 @@
       },
       {
         "prerequisite": "concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
+        "type": "common_dependency",
+        "confidence": 0.5,
+        "evidence_level": "weak_inference",
+        "note": "Concrete-like binders may support some Roman road layers, but stone paving and drainage are the core scoped features.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
+            "title": "Via Appia. Regina Viarum",
+            "url": "https://whc.unesco.org/en/list/1708/",
+            "publisher": "UNESCO World Heritage Centre",
+            "year": 2024,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -7268,17 +7263,17 @@
       },
       {
         "prerequisite": "military_engineering_corps",
-        "type": "required",
-        "confidence": 0.82,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Military Engineering Corps is modeled as a necessary component or method for this technology in the current graph.",
+        "note": "The Via Appia was conceived as strategic military infrastructure, so organized state/military engineering explains scale rather than being a literal material prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Part I - History - Engineering Data - Interstate System",
-            "url": "https://www.fhwa.dot.gov/highwayhistory/data/page01.cfm",
-            "publisher": "Federal Highway Administration",
-            "year": 2017,
+            "title": "Via Appia. Regina Viarum",
+            "url": "https://whc.unesco.org/en/list/1708/",
+            "publisher": "UNESCO World Heritage Centre",
+            "year": 2024,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -9332,9 +9327,9 @@
       "surveying",
       "hydraulics"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Iran and arid regions of West and Central Asia",
+    "firstKnownDate": -1000,
+    "datePrecision": "millennium",
+    "region": "Iran / ancient Persia; later spread across arid Asia and North Africa",
     "fields": [
       "Water & Sanitation Systems"
     ],
@@ -9359,10 +9354,10 @@
     "dependencyEdges": [
       {
         "prerequisite": "wells_and_cisterns",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wells & Cisterns provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Qanats tap underground water sources and belong to a family of earlier groundwater supply practices.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -9381,10 +9376,10 @@
       },
       {
         "prerequisite": "surveying",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.74,
         "evidence_level": "expert_inference",
-        "note": "Surveying provides a capability that enables this technology without being the only possible path.",
+        "note": "A gently sloping tunnel system over kilometres requires alignment and gradient control.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -9403,10 +9398,10 @@
       },
       {
         "prerequisite": "hydraulics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hydraulics provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Gravity-fed underground channels are the defining hydraulic mechanism of qanat water supply.",
         "reviewStatus": "source_checked",
         "sources": [
           {
