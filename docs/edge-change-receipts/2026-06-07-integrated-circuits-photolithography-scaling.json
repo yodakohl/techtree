@@ -1,0 +1,57 @@
+{
+  "id": "2026-06-07-integrated-circuits-photolithography-scaling",
+  "decision_date": "2026-06-07",
+  "edge": {
+    "dependent": "integrated_circuits",
+    "prerequisite": "photolithography"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Photolithography is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.64,
+    "note": "Photolithography and the planar process made integrated circuits manufacturable and scalable, but the 1958 Kilby solid-circuit demonstration means photolithography is not a universal hard prerequisite for the broad integrated-circuit concept."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Computer History Museum Silicon Engine pages on the 1958 all-semiconductor solid circuit and the 1959 planar manufacturing process.",
+    "source_claim_summary": "The sources separate Kilby's 1958 solid-circuit demonstration from Hoerni's 1959 planar process, which made one-sided wafer fabrication and later high-scale ICs practical.",
+    "source_support_rationale": "That evidence supports a manufacturing and scaling role for planar photolithographic processing, while rejecting a universal hard prerequisite claim for the broader first-known integrated-circuit node."
+  },
+  "ontology_before": "The old required edge made every in-scope integrated circuit depend on photolithography.",
+  "ontology_after": "Photolithography remains as manufacturing and scaling infrastructure, while transistors and semiconductors preserve the hard component/material dependencies.",
+  "invariant_preserved_or_changed": "Graph invariant added in 2026-06-07-integrated-circuit-photolithography-scope.json.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "transistors",
+      "type": "required",
+      "reason": "The integrated-circuit node is scoped to circuits built from transistor-era active components, so the transistor dependency carries the concrete electronic mechanism."
+    },
+    {
+      "prerequisite": "semiconductors",
+      "type": "required",
+      "reason": "The 1958 solid-circuit demonstration fabricated active and passive circuit elements from semiconductor material, so this material dependency remains hard."
+    }
+  ],
+  "would_reject_if": [
+    "A primary or textbook source showed that every historically in-scope integrated-circuit realization required photolithographic planar processing.",
+    "The dependent node were narrowed from broad integrated circuits to planar monolithic silicon integrated circuits.",
+    "A future source-check split the node and moved photolithography onto a narrower manufacturing-process dependent."
+  ],
+  "short_reason": "Photolithography scales integrated-circuit manufacturing but is too narrow as a universal hard prerequisite for the broad 1958 IC node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

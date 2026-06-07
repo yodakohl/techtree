@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-07-integrated-circuit-photolithography-scope",
+  "description": "Lock issue #38/#67 edge review: photolithography is IC manufacturing/scaling context, not a universal hard prerequisite for the broad 1958 integrated-circuit node.",
+  "github_issues": [
+    "https://github.com/yodakohl/techtree/issues/38",
+    "https://github.com/yodakohl/techtree/issues/67"
+  ],
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "integrated_circuits",
+      "prerequisite": "photolithography",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "The 1958 Kilby solid-circuit demonstration predates planar photolithographic manufacturing as the scaling path."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "integrated_circuits",
+      "prerequisite": "transistors",
+      "expected": "required",
+      "reason": "Transistors remain the hard component dependency for the broad IC node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "integrated_circuits",
+      "prerequisite": "semiconductors",
+      "expected": "required",
+      "reason": "Semiconductors remain the hard material dependency for the broad IC node."
+    }
+  ]
+}

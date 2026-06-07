@@ -1,6 +1,6 @@
 # Accuracy Risk Report
 
-Generated: 2026-06-07T17:19:55.504Z
+Generated: 2026-06-07T17:39:52.343Z
 
 This is an informational risk report. It does not estimate global truth accuracy; it identifies where manual review is likely to pay off next.
 
@@ -16,7 +16,7 @@ This is an informational risk report. It does not estimate global truth accuracy
 | Pre-1900 source-checked nodes with only generic sources | 0 |
 | Era-default dates | 768/1664 (46.2%) |
 | Source-checked era-default dates | 68/495 (13.7%) |
-| Dependency edges with edge-level sources | 1507/5728 (26.3%) |
+| Dependency edges with edge-level sources | 1508/5728 (26.3%) |
 
 ## Era Default Date Debt
 
