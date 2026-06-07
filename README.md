@@ -212,6 +212,15 @@ npm run coverage
 
 Coverage reports era totals and branch-by-era counts. Use it to identify underrepresented areas before large additions.
 
+Publish an informational accuracy-risk report to choose the next manual review sample:
+
+```bash
+npm run accuracy:risks
+npm run accuracy:risks -- --markdown --limit 20
+```
+
+The latest baseline is [Accuracy Risk Report 2026-06-07](docs/ACCURACY_RISK_REPORT_2026-06-07.md).
+
 For source-heavy changes, run the optional network URL audit:
 
 ```bash

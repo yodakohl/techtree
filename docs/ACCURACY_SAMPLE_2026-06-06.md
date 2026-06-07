@@ -92,4 +92,6 @@ that a deliberately hard 40-claim sample now passes manual inspection and that
 the automated temporal/quality audits pass after the resulting repairs.
 
 The useful follow-up metric is a stratified random sample by era and field,
-reported separately from risk-weighted samples like this one.
+reported separately from risk-weighted samples like this one. The current
+triage baseline is tracked in
+[Accuracy Risk Report 2026-06-07](ACCURACY_RISK_REPORT_2026-06-07.md).

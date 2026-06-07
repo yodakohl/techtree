@@ -160,6 +160,26 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-07: Accuracy-risk report and source-quality baseline
+
+- Added `npm run accuracy:risks`, an informational report that tracks
+  source-check coverage, era-default date debt, edge-source coverage, and a
+  deterministic manual review queue.
+- Published [Accuracy Risk Report 2026-06-07](ACCURACY_RISK_REPORT_2026-06-07.md).
+  Current headline: 491/1,664 source-checked nodes, zero pre-1900
+  source-checked nodes supported only by generic sources, 1,025 era-default
+  dates, and 1,485/5,780 dependency edges with edge-level sources.
+- Source cleanup: `alternating_current_power` now treats the Britannica
+  alternating-current page as a textbook source, and
+  `hydroelectric_power_plants` adds the U.S. Department of Energy hydropower
+  history source alongside the Vulcan Street milestone.
+- Validation:
+  - `npm run accuracy:risks -- --limit 12`
+  - `npm test`
+  - `npm run quality`
+  - `npm run source-urls -- --field "Energy Systems & Grid"`
+  - `npm run coverage`
+
 ### 2026-06-06: Manual accuracy sample and electrical chronology audit
 
 - Published metric: [Manual Accuracy Sample 2026-06-06](ACCURACY_SAMPLE_2026-06-06.md)
