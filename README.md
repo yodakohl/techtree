@@ -1,14 +1,14 @@
 # TechTree
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-14%2B-43853d.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-43853d.svg)](https://nodejs.org/)
 [![Dataset](https://img.shields.io/badge/technologies-1664-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
 **TechTree is a source-backed map of human technology: see what a technology depends on, what it unlocks, and what likely comes next.**
 
-[Live Demo](https://pushme.site/demo) · [CRISPR Target Trace](https://pushme.site/demo?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html)
+[Live Demo](https://pushme.site/techtree/demo.html) · [CRISPR Target Trace](https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html)
 
 | In 10 seconds | Why it matters |
 | --- | --- |
@@ -58,7 +58,7 @@ TechTree is built as public-good infrastructure for researchers, builders, educa
 
 Requirements:
 
-- [Node.js](https://nodejs.org/) 14 or newer
+- [Node.js](https://nodejs.org/) 18 or newer
 
 Install dependencies and start the local server:
 
@@ -131,19 +131,54 @@ data/modern.json
 data/future.json
 ```
 
-Each technology entry uses:
+Each technology entry uses canonical node metadata and typed dependency edges.
+`prerequisites` is kept as a compatibility mirror of `dependencyEdges[*].prerequisite`.
 
 ```json
 {
   "id": "printing_press",
   "name": "Printing Press",
   "era": "Renaissance",
-  "description": "Movable type printing enabled rapid reproduction of books and documents.",
-  "prerequisites": ["paper", "metal_casting"]
+  "description": "A mechanical device using movable metal type to transfer ink to paper.",
+  "firstKnownDate": 1450,
+  "datePrecision": "decade",
+  "region": "Mainz, Holy Roman Empire / Germany",
+  "reviewStatus": "source_checked",
+  "prerequisites": ["paper_making"],
+  "dependencyEdges": [
+    {
+      "prerequisite": "paper_making",
+      "type": "commercial_or_scaling_dependency",
+      "confidence": 0.78,
+      "evidence_level": "expert_inference",
+      "note": "Mass book printing scaled on paper supply, even though Gutenberg also printed vellum copies.",
+      "reviewStatus": "source_checked",
+      "sources": [
+        {
+          "title": "Gutenberg Bible",
+          "url": "https://www.loc.gov/item/2021666734",
+          "publisher": "Library of Congress",
+          "year": 2021,
+          "source_type": "official_agency",
+          "supports": ["node", "edge"]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Gutenberg Bible",
+      "url": "https://www.loc.gov/item/2021666734",
+      "publisher": "Library of Congress",
+      "year": 2021,
+      "source_type": "official_agency",
+      "supports": ["node"]
+    }
+  ]
 }
 ```
 
-Curated field entries may add metadata:
+Curated field entries may add field-lens, maturity, and roadmap metadata:
 
 ```json
 {
@@ -151,15 +186,23 @@ Curated field entries may add metadata:
   "name": "CRISPR-Cas9 Genome Editing",
   "era": "Modern",
   "description": "Programmable genome editing with Cas9 and guide RNAs.",
-  "prerequisites": ["genetic_engineering", "cas9_programmable_nuclease"],
+  "firstKnownDate": 2013,
+  "datePrecision": "exact",
+  "region": "Global molecular biology research",
+  "reviewStatus": "source_checked",
   "fields": ["Genome Editing / CRISPR-Cas"],
+  "fieldLanes": {
+    "Genome Editing / CRISPR-Cas": "Editing Platforms"
+  },
   "maturity": "established",
   "sources": [
     {
-      "title": "The Nobel Prize in Chemistry 2020",
-      "url": "https://www.nobelprize.org/prizes/chemistry/2020/summary/",
-      "publisher": "Nobel Prize",
-      "year": 2020
+      "title": "Multiplex Genome Engineering Using CRISPR/Cas Systems",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3795411/",
+      "publisher": "Science / PubMed Central",
+      "year": 2013,
+      "source_type": "primary_paper",
+      "supports": ["node", "maturity"]
     }
   ]
 }
