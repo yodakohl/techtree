@@ -1838,6 +1838,12 @@
       "mathematics",
       "basic_rope_making"
     ],
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Mechanisms & Machines"
+    },
     "firstKnownDate": 500,
     "datePrecision": "century",
     "region": "Afro-Eurasia and other medieval societies",
@@ -1904,6 +1910,12 @@
       "woodworking_basic",
       "textiles_weaving"
     ],
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Power & Thermal Systems"
+    },
     "firstKnownDate": 500,
     "datePrecision": "century",
     "region": "Afro-Eurasia and other medieval societies",
@@ -1953,6 +1965,12 @@
       "woodworking_basic",
       "wheel_and_axle"
     ],
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Mechanisms & Machines"
+    },
     "firstKnownDate": 500,
     "datePrecision": "century",
     "region": "Afro-Eurasia and other medieval societies",
@@ -2079,7 +2097,7 @@
     "id": "mechanical_clocks",
     "name": "Mechanical Clocks",
     "era": "Medieval",
-    "description": "Weight-driven timekeeping devices using a verge escapement mechanism, initially for public display in clock towers to regulate civic and religious life.",
+    "description": "Weight-driven timekeeping devices made practical by verge-and-foliot escapements and gear trains, initially used in late-medieval European public clocks.",
     "prerequisites": [
       "construction",
       "iron_working",
@@ -2087,50 +2105,98 @@
       "water_clocks_advanced_clepsydra",
       "gears_simple_classical"
     ],
-    "firstKnownDate": 500,
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Escapement",
+        "url": "https://www.britannica.com/technology/escapement",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1200,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Europe / late-medieval tower clocks and verge escapements",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Public clock towers and heavy weights needed buildings and supports, but the escapement and gear train are the central mechanism.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "iron_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "The verge escapement used metal pallets and toothed wheels, making metalworking a practical enabling capability.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Escapement",
+            "url": "https://www.britannica.com/technology/escapement",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.55,
         "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Mechanical clockmaking used ratio and interval reasoning, but the source-checked mechanism is not primarily a mathematical discovery.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "water_clocks_advanced_clepsydra",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Water Clocks (Advanced Clepsydra) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Water clocks were an earlier public timekeeping lineage; mechanical clocks replaced the flow regulator with weight-driven escapement control.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "gears_simple_classical",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Simple Gears (Classical) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "The verge-and-foliot mechanism depends on a toothed escape wheel and clock train, so gear technology is a direct mechanism prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Escapement",
+            "url": "https://www.britannica.com/technology/escapement",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -2886,8 +2952,7 @@
     "prerequisites": [
       "gunpowder",
       "cannons",
-      "advanced_metallurgy_medieval",
-      "mechanical_clocks"
+      "advanced_metallurgy_medieval"
     ],
     "firstKnownDate": 500,
     "datePrecision": "century",
@@ -2916,14 +2981,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "mechanical_clocks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Clocks provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -3772,6 +3829,12 @@
       "watermills",
       "iron_working"
     ],
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Mechanisms & Machines"
+    },
     "firstKnownDate": 500,
     "datePrecision": "century",
     "region": "Afro-Eurasia and other medieval societies",
@@ -4140,9 +4203,15 @@
       "mechanical_clocks",
       "guilds"
     ],
-    "firstKnownDate": 500,
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "region": "Europe / late-medieval public clock towers",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -4440,6 +4509,28 @@
       "pumps",
       "water_management_guilds"
     ],
+    "fields": [
+      "Water & Sanitation Systems",
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Water & Sanitation Systems": "Conveyance & Distribution",
+      "Mechanical Engineering": "Mechanisms & Machines"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Water Supply System",
+        "url": "https://www.britannica.com/technology/water-supply-system",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "firstKnownDate": 1200,
     "datePrecision": "century",
     "region": "Afro-Eurasian watermill and mining regions",
@@ -4509,26 +4600,6 @@
               "edge"
             ]
           }
-        ]
-      }
-    ],
-    "fields": [
-      "Water & Sanitation Systems"
-    ],
-    "fieldLanes": {
-      "Water & Sanitation Systems": "Conveyance & Distribution"
-    },
-    "maturity": "established",
-    "sources": [
-      {
-        "title": "Water Supply System",
-        "url": "https://www.britannica.com/technology/water-supply-system",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "textbook",
-        "supports": [
-          "node",
-          "maturity"
         ]
       }
     ]
@@ -5291,9 +5362,15 @@
       "guilds",
       "municipal_charters"
     ],
-    "firstKnownDate": 500,
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "region": "European towns and guild-regulated workdays",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -6296,9 +6373,15 @@
       "mechanical_clock_workday_regulation",
       "municipal_charters"
     ],
-    "firstKnownDate": 500,
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "region": "European towns with public clocks and curfew bells",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -6686,6 +6769,12 @@
       "market_price_bulletins",
       "crop_landrace_selection"
     ],
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Power & Thermal Systems"
+    },
     "firstKnownDate": 500,
     "datePrecision": "century",
     "region": "Afro-Eurasia and other medieval societies",
@@ -6850,9 +6939,15 @@
       "town_clock_curfew_bells",
       "mechanical_clocks"
     ],
-    "firstKnownDate": 500,
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "region": "Europe / late-medieval town and monastic clock bells",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -7011,7 +7106,6 @@
     "description": "Night watches, bells, patrols, water access, hooks, ladders, and fines for reducing urban fire damage.",
     "prerequisites": [
       "urban_firefighting_ordinances",
-      "town_clock_curfew_bells",
       "municipal_charters"
     ],
     "firstKnownDate": 1200,
@@ -7025,14 +7119,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Urban Firefighting Ordinances provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "town_clock_curfew_bells",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Town Clock Curfew Bells provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -7539,8 +7625,7 @@
     "era": "Medieval",
     "description": "Specialized casting shops for church bells, town alarms, clock bells, and civic signals.",
     "prerequisites": [
-      "blast_furnace",
-      "mechanical_bell_striking"
+      "blast_furnace"
     ],
     "firstKnownDate": 500,
     "datePrecision": "century",
@@ -7553,14 +7638,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Blast Furnace provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "mechanical_bell_striking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Bell Striking provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -7702,9 +7779,15 @@
       "mechanical_clocks",
       "mechanical_clock_towers"
     ],
-    "firstKnownDate": 500,
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "region": "Europe / late-medieval public mechanical clocks",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -7731,8 +7814,7 @@
     "era": "Medieval",
     "description": "Rotating patrols, lamps, bells, and curfew enforcement for town security and fire prevention.",
     "prerequisites": [
-      "municipal_fire_watch",
-      "mechanical_clock_towers"
+      "municipal_fire_watch"
     ],
     "firstKnownDate": 1200,
     "datePrecision": "century",
@@ -7745,14 +7827,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Municipal Fire Watch provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "mechanical_clock_towers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Clock Towers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
