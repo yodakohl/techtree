@@ -8,11 +8,11 @@
 
 **TechTree is a source-backed map of human technology: see what a technology depends on, what it unlocks, and what likely comes next.**
 
-[Live Demo](https://pushme.site/demo) · [CRISPR Example](https://pushme.site/demo?field=Genome%20Editing%20%2F%20CRISPR-Cas#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html)
+[Live Demo](https://pushme.site/demo) · [CRISPR Target Trace](https://pushme.site/demo?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html)
 
 | In 10 seconds | Why it matters |
 | --- | --- |
-| **Try the demo** | Opens on CRISPR/Cas9 with foundations, editing platforms, delivery, safety, therapeutics, and roadmap candidates. |
+| **Try the demo** | Opens on CRISPR/Cas9 and traces the prerequisite stack needed to reach a target technology. |
 | **Inspect evidence** | Dependencies are typed and include confidence, evidence level, notes, and sources where available. |
 | **Use the data** | **1,664 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
 | **Check accuracy** | Latest manual sample: **40/40 sampled claims pass after correction**; see [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md). |
@@ -42,7 +42,7 @@ TechTree is built as public-good infrastructure for researchers, builders, educa
 ## What You Can Do
 
 - Trace prerequisites and downstream unlocks for a technology.
-- Open a field demo that shows the current stack, roadmap candidates, and evidence for connected technologies.
+- Open a target-trace demo that shows prerequisite stacks, roadmap candidates, and evidence for connected technologies.
 - Explore compact subfield maps for CRISPR, semiconductors, AI/ML, energy, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceutical drug development.
 - Compare technologies across Ancient, Classical, Medieval, Renaissance, Industrial, Modern, and Future eras.
 - Use the validated JSON data as a knowledge graph seed for research, education, simulations, or AI tools.
@@ -52,7 +52,7 @@ TechTree is built as public-good infrastructure for researchers, builders, educa
 
 - **Graph View**: a Vis Network dependency graph with search, era and field filtering, focused dependency context, source metadata, and editable entries.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, field lens, maturity, and roadmap status.
-- **Demo View**: a field-focused dashboard that opens directly on CRISPR/Cas9 and shows lane maps, likely next technologies, dependency confidence, and sources.
+- **Demo View**: a target-focused dashboard that opens directly on CRISPR/Cas9 and shows what had to exist to reach a selected technology, plus lane maps, likely next technologies, dependency confidence, and sources.
 
 ## Quick Start
 
@@ -93,7 +93,7 @@ TECHTREE_READ_ONLY=true npm start
 - Inspect prerequisites and unlocks from the side panel.
 - Add, edit, or delete technologies when not running in read-only mode.
 - Browse a compact sorted view grouped by derived technology branches.
-- Present a concise field demo for researchers, contributors, and reviewers.
+- Present a concise target-trace demo for researchers, contributors, and reviewers.
 - Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, semiconductor technology, AI/ML, energy systems, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceuticals/drug development.
 - Explore cited CRISPR/Cas9, semiconductor/integrated-circuit, AI/ML, energy/grid, spaceflight/satellite, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, water/sanitation, and pharmaceuticals/drug-development verticals with maturity labels, source links, and roadmap forecasts.
 
