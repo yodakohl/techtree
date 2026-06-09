@@ -9,7 +9,7 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Importer: `scripts/import-compact-tech.js`
 - Quality audit: `scripts/audit-data-quality.js`
 - Generated placeholder cleanup: `scripts/prune-generated-tech-data.js`
-- Current validated size after pharmaceuticals/drug-development vertical pass: 1,654 curated technologies
+- Current validated size after the latest quality/demo pass: 1,664 curated technologies
 - First textbook-quality vertical: `Genome Editing / CRISPR-Cas`
 - Second textbook-quality vertical: `Semiconductors & Integrated Circuits`
 - Third textbook-quality vertical: `Artificial Intelligence & Machine Learning`
@@ -61,6 +61,7 @@ After importing compact TSV rows, run `node scripts/migrate-semantic-edges.js` t
 ## Import Loop
 
 ```bash
+node scripts/agent-brief.js
 node scripts/import-compact-tech.js data/expansion/human-tech-bulk-N.tsv
 node scripts/migrate-semantic-edges.js
 npm test
