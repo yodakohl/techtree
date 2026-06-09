@@ -1,0 +1,35 @@
+# TechTree
+
+TechTree is a source-backed human technology dependency graph. It helps users inspect what a technology depends on, what it unlocks, and what likely comes next.
+
+Primary links:
+
+- Live demo: https://pushme.site/techtree/demo.html
+- CRISPR target trace: https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing
+- GitHub repository: https://github.com/yodakohl/techtree
+- Contribution guide: https://github.com/yodakohl/techtree/blob/main/CONTRIBUTING.md
+- One-edge PR guide: https://github.com/yodakohl/techtree/blob/main/docs/ONE_EDGE_PR_GUIDE.md
+- Edge review queue: https://github.com/yodakohl/techtree/blob/main/docs/EDGE_REVIEW_QUEUE.md
+- Quality snapshot: https://github.com/yodakohl/techtree/blob/main/docs/QUALITY_SNAPSHOT.md
+
+Useful local commands:
+
+- `npm run agent:brief` prints branch status, quality metrics, and the current accuracy-risk queue.
+- `npm test` validates schema, missing prerequisites, cycles, and temporal consistency.
+- `npm run quality` runs duplicate, receipt, invariant, and quality snapshot checks.
+- `npm run coverage` reports current technology coverage by era and branch.
+
+Contribution preference:
+
+- Prefer small, source-backed corrections over bulk expansion.
+- The highest-value PR changes one edge, one source, and one receipt.
+- Every semantic dependency edge should have a type, confidence, evidence level, note, review status, and source when available.
+- Do not add generated placeholder technologies or vague process names.
+
+Current trust snapshot:
+
+- Technologies: 1,664
+- Source-checked nodes: 500 / 1,664
+- Nodes with node-level sources: 542 / 1,664
+- Dependency edges with edge-level sources: 1,504 / 5,719
+- Manual risk-weighted sample: 40 / 40 passed after correction

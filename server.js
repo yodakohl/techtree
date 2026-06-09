@@ -113,10 +113,16 @@ function serveStatic(req, res) {
             '.html': 'text/html',
             '.js': 'application/javascript',
             '.css': 'text/css',
-            '.json': 'application/json'
+            '.json': 'application/json',
+            '.xml': 'application/xml',
+            '.png': 'image/png'
         }[ext] || 'text/plain';
         const basename = path.basename(filePath);
-        const cacheControl = ext === '.html' || basename === 'quality-snapshot.json'
+        const cacheControl = ext === '.html'
+            || basename === 'quality-snapshot.json'
+            || basename === 'sitemap.xml'
+            || basename === 'robots.txt'
+            || basename === 'llms.txt'
             ? 'no-cache'
             : 'public, max-age=31536000, immutable';
         sendCompressed(req, res, content, mime, cacheControl);

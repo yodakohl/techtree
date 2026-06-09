@@ -8,7 +8,7 @@
 
 **TechTree is a source-backed map of human technology: see what a technology depends on, what it unlocks, and what likely comes next.**
 
-[Live Demo](https://pushme.site/techtree/demo.html) · [CRISPR Target Trace](https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html)
+[Live Demo](https://pushme.site/techtree/demo.html) · [CRISPR Target Trace](https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html) · [Agent Entry](llms.txt)
 
 | In 10 seconds | Why it matters |
 | --- | --- |
