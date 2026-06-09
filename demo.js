@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const nextListEl = document.getElementById('demo-next-list');
     const lanesEl = document.getElementById('demo-lanes');
     const detailEl = document.getElementById('demo-detail');
+    const heroTitleEl = document.getElementById('demo-hero-title');
+    const heroSummaryEl = document.getElementById('demo-hero-summary');
+    const heroStatsEl = document.getElementById('demo-hero-stats');
+    const heroFieldEl = document.getElementById('demo-hero-field');
+    const heroTargetEl = document.getElementById('demo-hero-target');
+    const heroChainEl = document.getElementById('demo-hero-chain');
+    const heroEdgesEl = document.getElementById('demo-hero-edges');
 
     const eraOrder = {
         Ancient: 0,
@@ -197,7 +204,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedId = id;
         if (options.updateUrl !== false) updateUrl();
         renderDetail();
-        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected')
+        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected')
             .forEach(el => el.classList.remove('is-selected'));
         document.querySelectorAll(`[data-tech-id="${CSS.escape(id)}"]`)
             .forEach(el => el.classList.add('is-selected'));
@@ -444,6 +451,120 @@ document.addEventListener('DOMContentLoaded', async () => {
             row.append(caption, number);
             qualitySnapshotEl.appendChild(row);
         }
+    }
+
+    function appendHeroStat(parent, label, value) {
+        const stat = document.createElement('div');
+        const number = document.createElement('strong');
+        number.textContent = value;
+        const caption = document.createElement('span');
+        caption.textContent = label;
+        stat.append(number, caption);
+        parent.appendChild(stat);
+    }
+
+    function compactHeroChain(chain, limit = 6) {
+        if (chain.length <= limit) return chain;
+        const picks = [
+            chain[0],
+            chain[1],
+            chain[Math.floor(chain.length * 0.45)],
+            ...chain.slice(-3)
+        ];
+        return [...new Set(picks)].filter(Boolean).slice(0, limit);
+    }
+
+    function createHeroStep(id, trace) {
+        const item = graph.byId.get(id);
+        const button = createTechButton(item, 'demo-hero-step');
+        if (id === trace.target.id) button.classList.add('is-target');
+        const meta = document.createElement('span');
+        meta.className = 'demo-hero-step-meta';
+        meta.textContent = [formatDate(item.firstKnownDate), item.era].filter(Boolean).join(' · ');
+        const name = document.createElement('strong');
+        name.textContent = item.name;
+        const lane = document.createElement('span');
+        lane.className = 'demo-hero-step-lane';
+        lane.textContent = getLane(item, currentField);
+        button.append(meta, name, lane);
+        return button;
+    }
+
+    function renderHeroChain(trace) {
+        if (!heroChainEl) return;
+        heroChainEl.replaceChildren();
+        const chain = compactHeroChain(longestDependencyChain(trace));
+        chain.forEach((id, index) => {
+            if (index > 0) {
+                const connector = document.createElement('span');
+                connector.className = 'demo-hero-chain-link';
+                connector.setAttribute('aria-hidden', 'true');
+                heroChainEl.appendChild(connector);
+            }
+            heroChainEl.appendChild(createHeroStep(id, trace));
+        });
+    }
+
+    function renderHeroEdges(trace) {
+        if (!heroEdgesEl) return;
+        heroEdgesEl.replaceChildren();
+        if (!trace.directEdges.length) {
+            const empty = document.createElement('span');
+            empty.className = 'demo-hero-empty';
+            empty.textContent = 'No direct dependencies';
+            heroEdgesEl.appendChild(empty);
+            return;
+        }
+
+        for (const entry of trace.directEdges.slice(0, 4)) {
+            const prereq = graph.byId.get(entry.from);
+            const button = createTechButton(prereq, 'demo-hero-edge-button');
+            button.dataset.edgeType = entry.edge.type || 'enabling';
+            const title = document.createElement('strong');
+            title.textContent = prereq.name;
+            const meta = document.createElement('span');
+            meta.textContent = [
+                edgeKind(entry.edge),
+                formatConfidence(entry.edge.confidence),
+                entry.edge.evidence_level && formatStatus(entry.edge.evidence_level)
+            ].filter(Boolean).join(' · ');
+            button.append(title, meta);
+            heroEdgesEl.appendChild(button);
+        }
+
+        if (trace.directEdges.length > 4) {
+            const more = document.createElement('span');
+            more.className = 'demo-hero-more';
+            more.textContent = `+${trace.directEdges.length - 4} more`;
+            heroEdgesEl.appendChild(more);
+        }
+    }
+
+    function renderHero(items = getFieldItems(currentField)) {
+        if (!heroTitleEl || !graph) return;
+        const focusId = targetId || selectedId || defaultFocus[currentField] || pickDefaultSelection(items);
+        const trace = focusId && graph.byId.has(focusId) ? buildTargetTrace(focusId) : null;
+        if (!trace) return;
+
+        const eras = new Set(trace.ids.map(id => graph.byId.get(id)?.era).filter(Boolean)).size;
+        const sourcedEdges = trace.edges.filter(entry => hasEdgeSource(entry.edge)).length;
+        const requiredEdges = trace.edges.filter(entry => entry.edge.type === 'required').length;
+        const contextualEdges = trace.edges.length - requiredEdges;
+        const region = trace.target.region || 'region unknown';
+
+        heroTitleEl.textContent = `What had to exist before ${trace.target.name}?`;
+        heroSummaryEl.textContent = `${formatDate(trace.target.firstKnownDate)} target, ${region}: ${trace.ids.length - 1} prerequisite technologies across ${eras} eras, with ${requiredEdges} hard edges and ${contextualEdges} contextual or scaling edges.`;
+        heroFieldEl.textContent = currentField;
+        heroTargetEl.textContent = trace.target.name;
+
+        heroStatsEl.replaceChildren();
+        appendHeroStat(heroStatsEl, 'Prerequisites', Math.max(0, trace.ids.length - 1).toLocaleString());
+        appendHeroStat(heroStatsEl, 'Max Depth', trace.depth.toLocaleString());
+        appendHeroStat(heroStatsEl, 'Edge Sources', `${sourcedEdges}/${trace.edges.length}`);
+        appendHeroStat(heroStatsEl, 'Direct Edges', trace.directEdges.length.toLocaleString());
+
+        renderHeroChain(trace);
+        renderHeroEdges(trace);
     }
 
     function renderNextCandidates(items) {
@@ -920,16 +1041,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderField() {
         const items = getFieldItems(currentField);
+        if (!selectedId || !graph.byId.has(selectedId) || !hasField(graph.byId.get(selectedId), currentField)) {
+            selectedId = targetId || pickDefaultSelection(items);
+        }
         fieldTitleEl.textContent = currentField;
+        renderHero(items);
         renderMetrics(items);
         renderNextCandidates(items);
         if (targetId && graph.byId.has(targetId)) {
             renderTargetPath();
         } else {
             renderLanes(items);
-        }
-        if (!selectedId || !graph.byId.has(selectedId) || !hasField(graph.byId.get(selectedId), currentField)) {
-            selectedId = targetId || pickDefaultSelection(items);
         }
         updateUrl();
         renderDetail();

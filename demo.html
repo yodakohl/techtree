@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechTree Demo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260609a">
+    <link rel="stylesheet" href="style.css?v=20260609b">
 </head>
 <body>
-    <header>
-        <h1>TechTree Demo</h1>
+    <header class="demo-topbar">
+        <h1>TechTree</h1>
         <nav>
             <a href="index.html">Graph View</a>
             <a href="sorted.html">Sorted View</a>
@@ -17,7 +17,30 @@
     </header>
     <main class="demo-main">
         <section class="demo-shell">
-            <div class="demo-toolbar">
+            <section class="demo-hero" aria-labelledby="demo-hero-title">
+                <div class="demo-hero-copy">
+                    <p class="demo-eyebrow">Human technology, connected</p>
+                    <h2 id="demo-hero-title">What had to exist before CRISPR gene editing?</h2>
+                    <p id="demo-hero-summary">Molecular biology, recombinant DNA, sequencing, delivery systems, safety assays, and clinical translation in one build path.</p>
+                    <div id="demo-hero-stats" class="demo-hero-stats" aria-label="Target trace snapshot">
+                        <div><strong>...</strong><span>Prerequisites</span></div>
+                        <div><strong>...</strong><span>Depth</span></div>
+                        <div><strong>...</strong><span>Edge Sources</span></div>
+                    </div>
+                </div>
+                <div class="demo-hero-visual" aria-label="Selected target dependency path">
+                    <div class="demo-visual-header">
+                        <span id="demo-hero-field">Genome Editing / CRISPR-Cas</span>
+                        <strong id="demo-hero-target">CRISPR Gene Editing</strong>
+                    </div>
+                    <div id="demo-hero-chain" class="demo-hero-chain"></div>
+                    <div class="demo-hero-edge-panel">
+                        <span>Direct Dependencies</span>
+                        <div id="demo-hero-edges" class="demo-hero-edges"></div>
+                    </div>
+                </div>
+            </section>
+            <div class="demo-toolbar" aria-label="Demo controls">
                 <select id="demo-field" aria-label="Choose field"></select>
                 <input type="search" id="demo-search" placeholder="Search this field">
                 <input type="search" id="demo-target" list="demo-target-options" placeholder="Target technology">
@@ -46,6 +69,6 @@
             </div>
         </section>
     </main>
-    <script defer src="demo.js?v=20260609a"></script>
+    <script defer src="demo.js?v=20260609b"></script>
 </body>
 </html>
