@@ -270,6 +270,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             {
                 name: 'Financial Computing',
                 terms: ['computer', 'database', 'software', 'api', 'encryption', 'security', 'blockchain', 'cryptocurrency', 'ai', 'machine_learning', 'cloud', 'digital_identity']
+            },
+            {
+                name: 'Roadmap',
+                terms: ['programmable_money', 'quantum_secured_financial', 'privacy_preserving_ai_markets', 'distributed_ai_labor_markets']
             }
         ],
         'Genome Editing / CRISPR-Cas': [

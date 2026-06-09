@@ -246,6 +246,12 @@
       "writing",
       "codified_law"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Banking & Credit"
+    },
     "firstKnownDate": 1400,
     "datePrecision": "century",
     "region": "Europe and connected early modern exchange networks",
@@ -825,7 +831,7 @@
     "id": "double_entry_bookkeeping",
     "name": "Double-Entry Bookkeeping",
     "era": "Renaissance",
-    "description": "An accounting system, popularized by Luca Pacioli, that records each transaction in at least two different accounts (a debit and a credit), providing a clearer financial picture and error checking.",
+    "description": "An accounting method in which transactions are recorded as linked debits and credits; Pacioli's 1494 printed treatment made the merchant method widely teachable.",
     "prerequisites": [
       "banking",
       "mathematics",
@@ -833,50 +839,84 @@
       "printing_press",
       "paper_making"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Money & Accounting"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Ancient Double-Entry Bookkeeping: Lucas Pacioli's Treatise (A.D. 1494)",
+        "url": "https://archive.org/details/ancientdoubleent00geij",
+        "publisher": "Internet Archive / J. B. Geijsbeek",
+        "year": 1914,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "firstKnownDate": 1494,
     "datePrecision": "exact",
     "region": "Venice and Italian merchant networks",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Merchant banking and account settlement created the accounting pressure that double-entry methods addressed.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "mathematics",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.76,
         "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Double-entry bookkeeping requires arithmetic classification and balancing of debits and credits.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "writing",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
+        "type": "required",
+        "confidence": 0.84,
         "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "A ledger method requires durable written records of accounts and transactions.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "printing_press",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printing Press provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "The 1494 printed treatise is the source-checked emergence point for diffusion, not proof that printing was needed for every earlier merchant ledger.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ancient Double-Entry Bookkeeping: Lucas Pacioli's Treatise (A.D. 1494)",
+            "url": "https://archive.org/details/ancientdoubleent00geij",
+            "publisher": "Internet Archive / J. B. Geijsbeek",
+            "year": 1914,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "paper_making",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.7,
         "evidence_level": "expert_inference",
-        "note": "Paper Making provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Paper made merchant ledgers and printed accounting manuals easier to produce and circulate, but other writing supports were possible.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -934,49 +974,97 @@
     "id": "stock_exchange_early",
     "name": "Early Stock Exchanges",
     "era": "Renaissance",
-    "description": "Formal marketplaces, such as the one in Antwerp, for buying and selling shares of companies, commodities, and financial instruments, facilitating capital mobilization.",
+    "description": "An organized securities market for transferable company shares, anchored by Amsterdam trading in Dutch East India Company shares from 1602 onward.",
     "prerequisites": [
       "banking",
       "joint_stock_companies",
       "printing_press",
       "codified_law"
     ],
-    "firstKnownDate": 1553,
-    "datePrecision": "unknown",
-    "region": "Dependency lower bound from joint_stock_companies; needs source check",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Markets & Commerce"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "The World's First Stock Exchange: Amsterdam VOC Shares, 1602-1700",
+        "url": "https://dare.uva.nl/document/201694",
+        "publisher": "University of Amsterdam",
+        "year": 2011,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1602,
+    "datePrecision": "exact",
+    "region": "Amsterdam, Dutch Republic / VOC share market",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Securities trading grew out of merchant finance and settlement practices, but a bank is not a literal component of an exchange.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "joint_stock_companies",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "The Amsterdam market depended on transferable VOC share capital issued in 1602.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The World's First Stock Exchange: Amsterdam VOC Shares, 1602-1700",
+            "url": "https://dare.uva.nl/document/201694",
+            "publisher": "University of Amsterdam",
+            "year": 2011,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "printing_press",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "accelerates",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Printing Press provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Print culture helped disseminate commercial information, but the source-checked exchange is not defined by printing alone.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "codified_law",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Codified Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "The source treats contract enforcement and share-transfer rules as part of the market organization problem.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The World's First Stock Exchange: Amsterdam VOC Shares, 1602-1700",
+            "url": "https://dare.uva.nl/document/201694",
+            "publisher": "University of Amsterdam",
+            "year": 2011,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -1473,6 +1561,12 @@
       "printing_press",
       "exploration_global"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Markets & Commerce"
+    },
     "firstKnownDate": 1553,
     "datePrecision": "decade",
     "region": "England, Netherlands, and maritime trading states",
@@ -1690,6 +1784,12 @@
       "mathematics",
       "codified_law"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Risk & Insurance"
+    },
     "firstKnownDate": 1553,
     "datePrecision": "unknown",
     "region": "Dependency lower bound from joint_stock_companies; needs source check",
@@ -4477,6 +4577,12 @@
       "maritime_insurance",
       "probability_theory"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Risk & Insurance"
+    },
     "firstKnownDate": 1553,
     "datePrecision": "unknown",
     "region": "Dependency lower bound from statistical_life_tables; needs source check",
@@ -6303,6 +6409,12 @@
       "probability_statistics_inference",
       "printed_financial_price_lists"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Risk & Insurance"
+    },
     "firstKnownDate": 1693,
     "datePrecision": "exact",
     "region": "London, England",

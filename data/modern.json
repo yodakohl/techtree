@@ -5167,49 +5167,125 @@
     "id": "blockchain_cryptocurrency",
     "name": "Blockchain & Cryptocurrency",
     "era": "Modern",
-    "description": "A decentralized, distributed, and oftentimes public, digital ledger consisting of records called blocks that is used to record transactions across many computers.",
+    "description": "A peer-to-peer digital cash and ledger design using public-key signatures, cryptographic hash chains, proof-of-work, and network consensus to order transactions without a central mint.",
     "prerequisites": [
       "encryption_modern_cryptography_public_key",
+      "cryptographic_hash_functions",
       "internet",
-      "personal_computers",
-      "databases_relational_dbms"
+      "personal_computers"
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Financial Computing"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "publisher": "Satoshi Nakamoto / bitcoin.org",
+        "year": 2008,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 2008,
+    "datePrecision": "exact",
+    "region": "Global peer-to-peer cryptography communities / Bitcoin whitepaper",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "encryption_modern_cryptography_public_key",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Encryption (Modern Cryptography, Public Key) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "The Bitcoin design uses digital signatures and public keys to transfer ownership of electronic coins.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+            "url": "https://bitcoin.org/bitcoin.pdf",
+            "publisher": "Satoshi Nakamoto / bitcoin.org",
+            "year": 2008,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "cryptographic_hash_functions",
+        "type": "required",
+        "confidence": 0.94,
+        "evidence_level": "primary_source",
+        "note": "The design depends on hash-based proof-of-work and a hash-linked timestamp chain.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+            "url": "https://bitcoin.org/bitcoin.pdf",
+            "publisher": "Satoshi Nakamoto / bitcoin.org",
+            "year": 2008,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "internet",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Internet provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "The system is specified as peer-to-peer electronic cash with transactions and blocks broadcast to network nodes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+            "url": "https://bitcoin.org/bitcoin.pdf",
+            "publisher": "Satoshi Nakamoto / bitcoin.org",
+            "year": 2008,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "personal_computers",
-        "type": "enabling",
+        "type": "common_dependency",
         "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Personal Computers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "databases_relational_dbms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "evidence_level": "primary_source",
+        "note": "The 2008 design assumes commodity node hardware and CPU proof-of-work rather than a specialized central operator.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+            "url": "https://bitcoin.org/bitcoin.pdf",
+            "publisher": "Satoshi Nakamoto / bitcoin.org",
+            "year": 2008,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -15220,51 +15296,113 @@
   },
   {
     "id": "financial_derivatives",
-    "name": "Financial Derivatives",
+    "name": "Modern Financial Derivatives",
     "era": "Modern",
-    "description": "Complex financial instruments whose value is derived from an underlying asset or group of assets, used for hedging or speculation.",
+    "description": "Standardized exchange-traded options and related derivative contracts supported by formal pricing, clearing, and market-risk practices.",
     "prerequisites": [
+      "stock_exchange_modern",
       "banking",
       "probability_statistics_inference",
-      "computers_early",
-      "information_theory"
+      "computers_early"
     ],
-    "firstKnownDate": 1948,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Risk & Insurance"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "The Creation of Listed Options at Cboe",
+        "url": "https://www.cboe.com/insights/posts/the-creation-of-listed-options-at-cboe/",
+        "publisher": "Cboe",
+        "year": 2024,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1973,
+    "datePrecision": "exact",
+    "region": "Chicago, United States / global listed options markets",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
+        "prerequisite": "stock_exchange_modern",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "Cboe opened the first listed options exchange in 1973, making an organized exchange a direct prerequisite for this scoped node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Creation of Listed Options at Cboe",
+            "url": "https://www.cboe.com/insights/posts/the-creation-of-listed-options-at-cboe/",
+            "publisher": "Cboe",
+            "year": 2024,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
         "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "common_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Banks and brokers supplied capital, settlement, and counterparty services for modern derivatives markets.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "probability_statistics_inference",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Probability & Statistical Inference provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "Cboe links the 1973 exchange to the Black-Scholes-Merton pricing model, which made probabilistic valuation central to listed options.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Creation of Listed Options at Cboe",
+            "url": "https://www.cboe.com/insights/posts/the-creation-of-listed-options-at-cboe/",
+            "publisher": "Cboe",
+            "year": 2024,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "computers_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "information_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Information Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "accelerates",
+        "confidence": 0.62,
+        "evidence_level": "primary_source",
+        "note": "The Cboe account notes CRT screens at launch; computing accelerated price reporting and scaling but was not the abstract origin of derivatives.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Creation of Listed Options at Cboe",
+            "url": "https://www.cboe.com/insights/posts/the-creation-of-listed-options-at-cboe/",
+            "publisher": "Cboe",
+            "year": 2024,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -20948,40 +21086,74 @@
     "id": "central_bank_digital_currency_pilots",
     "name": "Central Bank Digital Currency Pilots",
     "era": "Modern",
-    "description": "Central bank experiments with digital currency, payment rails, identity, settlement rules, privacy controls, and programmable finance infrastructure.",
+    "description": "Central-bank digital currency deployments and pilots that test sovereign digital money, payment rails, identity, settlement rules, privacy controls, and programmable finance infrastructure.",
     "prerequisites": [
-      "blockchain_cryptocurrency",
+      "digital_payment_gateways",
       "digital_identity_systems",
       "banking"
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Financial Computing"
+    },
+    "maturity": "emerging",
+    "sources": [
+      {
+        "title": "Digital Bahamian Dollar SandDollar",
+        "url": "https://www.sanddollar.bs/",
+        "publisher": "Central Bank of The Bahamas",
+        "year": 2020,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 2020,
+    "datePrecision": "exact",
+    "region": "The Bahamas / global central-bank digital currency pilots",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "blockchain_cryptocurrency",
-        "type": "enabling",
-        "confidence": 0.68,
+        "prerequisite": "digital_payment_gateways",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.76,
         "evidence_level": "expert_inference",
-        "note": "Blockchain & Cryptocurrency provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "CBDCs need production digital payment rails and merchant/user access paths; gateway-style payment infrastructure is a scaling dependency, not a blockchain requirement.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "digital_identity_systems",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Digital Identity Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Regulated CBDC access depends on identity, wallet tiers, and compliance controls, though implementations differ by country.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "A CBDC is issued by a central bank and integrated with the regulated banking/payment system.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Digital Bahamian Dollar SandDollar",
+            "url": "https://www.sanddollar.bs/",
+            "publisher": "Central Bank of The Bahamas",
+            "year": 2020,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -21635,6 +21807,12 @@
       "digital_identity_systems",
       "supply_chain_management_software"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Markets & Commerce"
+    },
     "firstKnownDate": 1989,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
@@ -21973,6 +22151,12 @@
       "digital_identity_systems",
       "api_economy"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Financial Computing"
+    },
     "firstKnownDate": 1989,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
@@ -24942,6 +25126,13 @@
       "computers_early",
       "database_management_systems"
     ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Banking & Credit"
+    },
+    "maturity": "established",
     "sources": [
       {
         "title": "First cash dispenser",
@@ -25229,31 +25420,65 @@
     "id": "digital_payment_wallets",
     "name": "Digital Payment Wallets",
     "era": "Modern",
-    "description": "Tokenized cards, stored value, biometric authorization, and phone-based point-of-sale payments.",
+    "description": "Mobile wallet software for tokenized cards, stored value, loyalty credentials, and NFC or app-based point-of-sale payments.",
     "prerequisites": [
       "smartphones",
-      "blockchain_cryptocurrency"
+      "digital_payment_gateways"
     ],
-    "firstKnownDate": 1994,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Financial Computing"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Launching Google Wallet on Sprint and working with Visa, American Express and Discover",
+        "url": "https://googleblog.blogspot.com/2011/09/launching-google-wallet-on-sprint-and.html",
+        "publisher": "Google",
+        "year": 2011,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 2011,
+    "datePrecision": "exact",
+    "region": "United States / global smartphone payment ecosystems",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "smartphones",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Smartphones provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "primary_source",
+        "note": "The source describes Google Wallet as a phone app for tap-to-pay NFC payments.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Launching Google Wallet on Sprint and working with Visa, American Express and Discover",
+            "url": "https://googleblog.blogspot.com/2011/09/launching-google-wallet-on-sprint-and.html",
+            "publisher": "Google",
+            "year": 2011,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "blockchain_cryptocurrency",
-        "type": "enabling",
-        "confidence": 0.68,
+        "prerequisite": "digital_payment_gateways",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.76,
         "evidence_level": "expert_inference",
-        "note": "Blockchain & Cryptocurrency provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Mobile wallets need card networks, merchant payment acceptance, and digital payment processing; blockchain is not a prerequisite for this scoped node.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
