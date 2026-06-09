@@ -16397,8 +16397,7 @@
     "description": "High-pressure drilling systems, downhole sensors, mud engineering, and directional techniques for accessing deep geothermal and hydrocarbon resources.",
     "prerequisites": [
       "oil_drilling",
-      "electronics",
-      "advanced_materials_science"
+      "electronics"
     ],
     "firstKnownDate": 1945,
     "datePrecision": "decade",
@@ -16419,14 +16418,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Electronics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "advanced_materials_science",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Materials Science provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -38154,36 +38145,76 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "De Havilland DH-106 Comet 1",
+        "url": "https://www.faa.gov/lessons_learned/transport_airplane/accidents/G-ALYV",
+        "publisher": "Federal Aviation Administration",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1952,
+    "datePrecision": "exact",
+    "region": "United Kingdom",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "jet_aircraft_high_speed_flight",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "required",
+        "confidence": 0.88,
         "evidence_level": "expert_inference",
-        "note": "Jet Aircraft (High-Speed Flight) provides a capability that enables this technology without being the only possible path.",
+        "note": "A jet airliner is, by definition, a commercial passenger aircraft powered by jet engines; jet aircraft capability is required for the category.",
         "reviewStatus": "structurally_validated"
       },
       {
         "prerequisite": "commercial_aviation_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Commercial Aviation Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "The first jet airliner milestone is scheduled passenger service by BOAC, so commercial airline operations are deployment context rather than the propulsion technology itself.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "De Havilland DH-106 Comet 1",
+            "url": "https://www.faa.gov/lessons_learned/transport_airplane/accidents/G-ALYV",
+            "publisher": "Federal Aviation Administration",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "advanced_materials_science",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Materials Science provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "accelerates",
+        "confidence": 0.66,
+        "evidence_level": "primary_source",
+        "note": "The Comet failures exposed unresolved fatigue and aluminum-alloy behavior in pressurized jet transports; materials-science knowledge accelerated safer jet-airliner scaling rather than making the first service possible.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "De Havilland DH-106 Comet 1",
+            "url": "https://www.faa.gov/lessons_learned/transport_airplane/accidents/G-ALYV",
+            "publisher": "Federal Aviation Administration",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -39508,7 +39539,7 @@
     "id": "advanced_materials_science",
     "name": "Advanced Materials Science",
     "era": "Modern",
-    "description": "Computational, experimental, and nanoscale methods for designing and discovering materials with targeted mechanical, electronic, optical, thermal, or chemical properties.",
+    "description": "Postwar interdisciplinary materials science and engineering: the unified study of composition, processing, structure, properties, and performance to design and use metals, ceramics, polymers, composites, semiconductors, and other advanced materials.",
     "prerequisites": [
       "advanced_chemistry",
       "quantum_physics",
@@ -39518,41 +39549,86 @@
       "Materials Science & Manufacturing"
     ],
     "fieldLanes": {
-      "Materials Science & Manufacturing": "Materials Discovery"
+      "Materials Science & Manufacturing": "Foundations"
     },
-    "maturity": "emerging",
+    "maturity": "established",
     "sources": [
       {
-        "title": "Materials Genome Initiative",
-        "url": "https://www.nist.gov/mgi",
-        "publisher": "NIST",
+        "title": "Materials Science",
+        "url": "https://ethos.lps.library.cmu.edu/article/id/40/",
+        "publisher": "Encyclopedia of the History of Science",
+        "year": 2020,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "What's in a Name Change? Solid State Physics, Condensed Matter Physics, and Materials Science",
+        "url": "https://www.jdmartin.org/whats-in-a-name-change",
+        "publisher": "Joseph D. Martin",
+        "year": 2015,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "MSE History",
+        "url": "https://mse.umd.edu/MSE-history",
+        "publisher": "University of Maryland Department of Materials Science and Engineering",
         "year": 2026,
-        "source_type": "official_agency",
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "What is Materials Science and Engineering?",
+        "url": "https://mse.umd.edu/about/what-is-mse",
+        "publisher": "University of Maryland Department of Materials Science and Engineering",
+        "year": 2026,
+        "source_type": "generic_overview",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1945,
+    "firstKnownDate": 1950,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "region": "United States and global materials science and engineering programs",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "advanced_chemistry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Materials science and engineering explicitly combines chemistry with engineering and physics to relate composition, structure, processing, and properties across material classes.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Materials Genome Initiative",
-            "url": "https://www.nist.gov/mgi",
-            "publisher": "NIST",
+            "title": "What is Materials Science and Engineering?",
+            "url": "https://mse.umd.edu/about/what-is-mse",
+            "publisher": "University of Maryland Department of Materials Science and Engineering",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          },
+          {
+            "title": "Materials Science",
+            "url": "https://ethos.lps.library.cmu.edu/article/id/40/",
+            "publisher": "Encyclopedia of the History of Science",
+            "year": 2020,
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -39564,17 +39640,29 @@
       {
         "prerequisite": "quantum_physics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Quantum Physics provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "The discipline merged metallurgy with solid-state physics and other fields, making quantum/solid-state physical understanding an enabling foundation rather than a product dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Materials Genome Initiative",
-            "url": "https://www.nist.gov/mgi",
-            "publisher": "NIST",
+            "title": "MSE History",
+            "url": "https://mse.umd.edu/MSE-history",
+            "publisher": "University of Maryland Department of Materials Science and Engineering",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          },
+          {
+            "title": "Materials Science",
+            "url": "https://ethos.lps.library.cmu.edu/article/id/40/",
+            "publisher": "Encyclopedia of the History of Science",
+            "year": 2020,
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",
@@ -39585,18 +39673,30 @@
       },
       {
         "prerequisite": "synthetic_materials_advanced",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Synthetic Materials provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Postwar expansion from metallurgy into ceramics, polymers, semiconductors, and other engineered materials helped create the need for a unified materials-science discipline.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Materials Genome Initiative",
-            "url": "https://www.nist.gov/mgi",
-            "publisher": "NIST",
+            "title": "MSE History",
+            "url": "https://mse.umd.edu/MSE-history",
+            "publisher": "University of Maryland Department of Materials Science and Engineering",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          },
+          {
+            "title": "What is Materials Science and Engineering?",
+            "url": "https://mse.umd.edu/about/what-is-mse",
+            "publisher": "University of Maryland Department of Materials Science and Engineering",
+            "year": 2026,
+            "source_type": "generic_overview",
             "supports": [
               "node",
               "maturity",

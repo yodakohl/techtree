@@ -1,6 +1,6 @@
 # Accuracy Risk Report
 
-Generated: 2026-06-07T18:27:41.888Z
+Generated: 2026-06-09T18:13:15.730Z
 
 This is an informational risk report. It does not estimate global truth accuracy; it identifies where manual review is likely to pay off next.
 
@@ -10,13 +10,13 @@ This is an informational risk report. It does not estimate global truth accuracy
 | --- | --- |
 | Technologies | 1664 |
 | Nodes with node-level sources | 542/1664 (32.6%) |
-| Source-checked nodes | 499/1664 (30.0%) |
+| Source-checked nodes | 500/1664 (30.0%) |
 | Source-checked nodes without sources | 0 |
 | Source-checked nodes with only weak sources | 0 |
 | Pre-1900 source-checked nodes with only generic sources | 0 |
-| Era-default dates | 746/1664 (44.8%) |
-| Source-checked era-default dates | 49/499 (9.8%) |
-| Dependency edges with edge-level sources | 1502/5720 (26.3%) |
+| Era-default dates | 744/1664 (44.7%) |
+| Source-checked era-default dates | 48/500 (9.6%) |
+| Dependency edges with edge-level sources | 1504/5719 (26.3%) |
 
 ## Era Default Date Debt
 
@@ -27,14 +27,13 @@ This is an informational risk report. It does not estimate global truth accuracy
 | Medieval | 160 | 142 (88.8%) | 6 | 0 |
 | Renaissance | 150 | 15 (10.0%) | 5 | 0 |
 | Industrial | 235 | 78 (33.2%) | 58 | 0 |
-| Modern | 496 | 44 (8.9%) | 359 | 14 |
+| Modern | 496 | 42 (8.5%) | 360 | 13 |
 | Future | 242 | 239 (98.8%) | 38 | 35 |
 
 ## Next Manual Review Queue
 
 | Priority | Node | Era | Date | Risks |
 | --- | --- | --- | --- | --- |
-| 70 | `advanced_materials_science` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `chemical_vapor_deposition` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `combined_cycle_gas_turbines` | Modern | 1945 | source_checked_era_default_date |
 | 70 | `controlled_environment_agriculture` | Modern | 1945 | source_checked_era_default_date |
@@ -54,3 +53,5 @@ This is an informational risk report. It does not estimate global truth accuracy
 | 55 | `aluminum_smelting` | Industrial | 1760 | curated_era_default_date |
 | 55 | `stainless_steel` | Industrial | 1760 | curated_era_default_date |
 | 55 | `steel_production` | Industrial | 1760 | curated_era_default_date |
+| 55 | `advanced_ceramics` | Modern | 1945 | curated_era_default_date |
+

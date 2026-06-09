@@ -21,15 +21,15 @@
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-06-07 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
+Generated 2026-06-09 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,664 |
-| Source-checked nodes | 499 / 1,664 (30.0%) |
+| Source-checked nodes | 500 / 1,664 (30.0%) |
 | Nodes with node-level sources | 542 / 1,664 (32.6%) |
-| Dependency edges with edge-level sources | 1,502 / 5,720 (26.3%) |
-| Era-default dates | 746 / 1,664 (44.8%) |
+| Dependency edges with edge-level sources | 1,504 / 5,719 (26.3%) |
+| Era-default dates | 744 / 1,664 (44.7%) |
 | Manual risk-weighted sample | 40 / 40 (passed after correction) |
 
 Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).

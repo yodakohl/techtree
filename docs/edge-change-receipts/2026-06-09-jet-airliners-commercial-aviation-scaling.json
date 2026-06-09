@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-09-jet-airliners-commercial-aviation-scaling",
+  "decision_date": "2026-06-09",
+  "edge": {
+    "dependent": "jet_airliners",
+    "prerequisite": "commercial_aviation_systems"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Commercial Aviation Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "primary_source",
+    "confidence": 0.78,
+    "note": "The first jet airliner milestone is scheduled passenger service by BOAC, so commercial airline operations are deployment context rather than the propulsion technology itself."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.faa.gov/lessons_learned/transport_airplane/accidents/G-ALYV",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_approval_or_deployment",
+    "source_locator": "Prevailing Cultural / Organizational Factors section describing the Comet's May 2, 1952 inaugural civilian jet transport flight.",
+    "source_claim_summary": "The FAA account anchors the jet-airliner milestone to BOAC's civilian passenger operation of the de Havilland Comet rather than to the earlier existence of jet aircraft alone.",
+    "source_support_rationale": "Because the node represents commercial passenger jetliners, the airline-service setting is a deployment and scaling dependency; the aircraft propulsion capability remains the technical requirement."
+  },
+  "ontology_before": "Commercial aviation was modeled as a generic enabling dependency for jet airliners.",
+  "ontology_after": "Commercial aviation is modeled as deployment and scaling context, while jet aircraft capability remains the direct category requirement.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-09-transport-drilling-materials-chronology.json locks this commercial_or_scaling_dependency edge type.",
+  "would_reject_if": [
+    "The node were narrowed to prototype jet passenger aircraft rather than commercial airline service.",
+    "A better source established a non-airline commercial deployment milestone as the first jet airliner.",
+    "The graph split jet-airliner design from airline operation and moved commercial service to a separate deployment node."
+  ],
+  "short_reason": "Commercial aviation is the deployment system for jet airliners, not the propulsion technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

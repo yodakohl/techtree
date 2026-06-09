@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-09-advanced-materials-synthetic-materials-lineage",
+  "decision_date": "2026-06-09",
+  "edge": {
+    "dependent": "advanced_materials_science",
+    "prerequisite": "synthetic_materials_advanced"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Advanced Synthetic Materials provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.74,
+    "note": "Postwar expansion from metallurgy into ceramics, polymers, semiconductors, and other engineered materials helped create the need for a unified materials-science discipline."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://mse.umd.edu/MSE-history",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "MSE History background section describing the 1950s national progression that merged metallurgy with ceramic science, polymer science, and solid-state physics.",
+    "source_claim_summary": "The source describes materials science education developing in the 1950s by merging metallurgy with ceramics, polymers, and solid-state physics.",
+    "source_support_rationale": "That chronology supports synthetic and engineered material classes as part of the predecessor context for the discipline, not as a single operational prerequisite."
+  },
+  "ontology_before": "Advanced synthetic materials was modeled as a generic enabling dependency for the broad advanced materials science node.",
+  "ontology_after": "Advanced synthetic materials is modeled as historical field context for the postwar materials-science discipline while chemistry and quantum/solid-state physics remain enabling foundations.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-09-advanced-materials-science-scope.json locks the date and this historical_predecessor edge type.",
+  "would_reject_if": [
+    "The node were narrowed to computational materials discovery rather than the postwar materials-science discipline.",
+    "A stronger history source showed synthetic materials were a required technical input rather than field context.",
+    "The graph split materials science and engineering into separate discipline, characterization, and computational-discovery nodes."
+  ],
+  "short_reason": "Synthetic material classes helped motivate the unified discipline, but are better modeled as lineage context than an enabling capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

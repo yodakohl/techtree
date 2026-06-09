@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-09-transport-drilling-materials-chronology",
+  "description": "Lock adjacent chronology and edge-semantics corrections that keep postwar materials science from being used as an anachronistic hard dependency.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "jet_airliners",
+      "operator": "eq",
+      "value": 1952,
+      "reason": "The jet-airliner node is anchored to the de Havilland Comet's first commercial passenger jet service."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "deep_drilling_technology",
+      "prerequisite": "advanced_materials_science",
+      "reason": "Deep drilling should not depend directly on the later broad postwar materials-science discipline."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "jet_airliners",
+      "prerequisite": "commercial_aviation_systems",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Commercial aviation is deployment context for jet airliners."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "jet_airliners",
+      "prerequisite": "advanced_materials_science",
+      "expected": "accelerates",
+      "reason": "Materials-science knowledge accelerated safer jet-airliner scaling after early fatigue failures."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "2026-06-09-advanced-materials-science-scope",
+  "description": "Lock the advanced_materials_science node to postwar materials science and engineering rather than computational materials discovery or generic advanced materials.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "advanced_materials_science",
+      "operator": "eq",
+      "value": 1950,
+      "reason": "The node is scoped to the 1950s emergence of materials science and engineering as a discipline."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_materials_science",
+      "prerequisite": "advanced_chemistry",
+      "expected": "enabling",
+      "reason": "Chemistry remains an enabling foundation for the discipline."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_materials_science",
+      "prerequisite": "quantum_physics",
+      "expected": "enabling",
+      "reason": "Quantum and solid-state physics remain enabling foundations for materials science."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_materials_science",
+      "prerequisite": "synthetic_materials_advanced",
+      "expected": "historical_predecessor",
+      "reason": "Expanded engineered material classes are lineage context for the discipline, not a hard prerequisite."
+    }
+  ]
+}

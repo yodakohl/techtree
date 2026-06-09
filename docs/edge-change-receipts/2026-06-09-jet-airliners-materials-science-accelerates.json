@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-09-jet-airliners-materials-science-accelerates",
+  "decision_date": "2026-06-09",
+  "edge": {
+    "dependent": "jet_airliners",
+    "prerequisite": "advanced_materials_science"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Advanced Materials Science provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "accelerates",
+    "evidence_level": "primary_source",
+    "confidence": 0.66,
+    "note": "The Comet failures exposed unresolved fatigue and aluminum-alloy behavior in pressurized jet transports; materials-science knowledge accelerated safer jet-airliner scaling rather than making the first service possible."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.faa.gov/lessons_learned/transport_airplane/accidents/G-ALYV",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Key Safety Issue(s), Precursors, and accident-recommendation sections discussing fatigue, aluminum alloys, stress distribution, and the Comet's role in teaching the industry pressurized-fuselage fatigue behavior.",
+    "source_claim_summary": "The FAA account shows that early jet airliner service exposed unresolved materials and fatigue behavior in pressurized fuselages and led to industry learning rather than proving materials science was already a prerequisite.",
+    "source_support_rationale": "The source supports a weaker accelerates edge: materials-science understanding improved safety and scaling after the first service, while the first jetliner existed despite incomplete fatigue knowledge."
+  },
+  "ontology_before": "Advanced materials science was modeled as a generic enabling dependency for jet airliners, creating a hard-looking chronology relation.",
+  "ontology_after": "Advanced materials science is modeled as an accelerator for safe scaling of pressurized jet transports after first service.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-09-transport-drilling-materials-chronology.json locks this accelerates edge type.",
+  "would_reject_if": [
+    "The node were narrowed to later fail-safe high-cycle jet-airliner designs rather than the first commercial jetliner category.",
+    "A stronger aviation source showed the postwar materials-science discipline was necessary before the first Comet service.",
+    "The graph split early jetliners from mature safe jet transport systems and moved this edge only to the mature system node."
+  ],
+  "short_reason": "Materials science improved safe jet-airliner scaling but did not make the first jetliner service possible.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
