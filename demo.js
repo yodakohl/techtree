@@ -534,6 +534,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         return `${normalized.slice(0, limit - 3).trimEnd()}...`;
     }
 
+    function sourceCountLabel(edge) {
+        const count = Array.isArray(edge?.sources)
+            ? edge.sources.filter(source => Array.isArray(source.supports) && source.supports.includes('edge')).length
+            : 0;
+        return count ? `${count} edge source${count === 1 ? '' : 's'}` : 'no edge source';
+    }
+
     function scoreStoryCandidate(id, trace, directEdgeById, chainSet) {
         const item = graph.byId.get(id);
         if (!item) return -Infinity;
@@ -673,6 +680,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             y: layouts[index]?.y ?? 82,
             color: storyEraColors[entry.item.era] || storyEraColors.Future
         }));
+    }
+
+    function getStoryBeatEdge(point, trace, directEdgeById) {
+        if (point.target) return null;
+        const directEdge = directEdgeById.get(point.id);
+        if (directEdge) return directEdge;
+        const outgoing = trace.outgoing.get(point.id) || [];
+        return bestEdgeForNode(outgoing)?.edge || null;
     }
 
     function appendStorySvg(parent, points, unlockPoints = []) {
@@ -830,6 +845,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const beatMeta = document.createElement('span');
         const beatTitle = document.createElement('strong');
         const beatText = document.createElement('p');
+        const beatTrust = document.createElement('div');
+        beatTrust.className = 'demo-story-trust';
         const beatProgress = document.createElement('div');
         beatProgress.className = 'demo-story-progress';
         const progressSteps = points.map((point, index) => {
@@ -841,7 +858,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             beatProgress.appendChild(step);
             return step;
         });
-        beat.append(beatMeta, beatTitle, beatText, beatProgress);
+        beat.append(beatMeta, beatTitle, beatText, beatTrust, beatProgress);
         storyStageEl.appendChild(beat);
 
         let activeStoryIndex = 0;
@@ -849,6 +866,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             activeStoryIndex = index;
             const point = points[index];
             const directEdge = directEdgeById.get(point.id);
+            const beatEdge = getStoryBeatEdge(point, trace, directEdgeById);
             const role = point.target
                 ? 'Target'
                 : directEdge
@@ -858,7 +876,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             beatTitle.textContent = point.item.name;
             beatText.textContent = point.target
                 ? `${trace.ids.length - 1} prerequisite technologies converge here across ${new Set(trace.ids.map(id => graph.byId.get(id)?.era).filter(Boolean)).size} eras.`
-                : shortenStoryText(point.item.description || directEdge?.note || 'A selected milestone on the path to this target.');
+                : shortenStoryText(beatEdge?.note || point.item.description || 'A selected milestone on the path to this target.');
+            beatTrust.replaceChildren();
+            const trustItems = point.target
+                ? [
+                    ['Node', formatStatus(point.item.reviewStatus || 'unreviewed')],
+                    ['Sources', `${point.item.sources?.length || 0} node source${point.item.sources?.length === 1 ? '' : 's'}`],
+                    ['Edge Sources', `${trace.edges.filter(entry => hasEdgeSource(entry.edge)).length}/${trace.edges.length}`]
+                ]
+                : [
+                    ['Edge', beatEdge ? edgeKind(beatEdge) : 'Context'],
+                    ['Confidence', beatEdge ? formatConfidence(beatEdge.confidence) : 'n/a'],
+                    ['Evidence', beatEdge?.evidence_level ? formatStatus(beatEdge.evidence_level) : 'not specified'],
+                    ['Sources', sourceCountLabel(beatEdge)]
+                ];
+            for (const [label, value] of trustItems) {
+                const pill = document.createElement('span');
+                pill.textContent = `${label}: ${value}`;
+                beatTrust.appendChild(pill);
+            }
             nodeButtons.forEach((button, buttonIndex) => button.classList.toggle('is-active-story', buttonIndex === index));
             progressSteps.forEach((step, stepIndex) => step.classList.toggle('is-active-story', stepIndex === index));
         }
