@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const storyStageEl = document.getElementById('demo-story-stage');
     const heroChainEl = document.getElementById('demo-hero-chain');
     const heroEdgesEl = document.getElementById('demo-hero-edges');
+    const heroUnlocksEl = document.getElementById('demo-hero-unlocks');
 
     const eraOrder = {
         Ancient: 0,
@@ -226,7 +227,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedId = id;
         if (options.updateUrl !== false) updateUrl();
         renderDetail();
-        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected, .demo-story-node-button.is-selected')
+        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected, .demo-hero-unlock-button.is-selected, .demo-story-node-button.is-selected')
             .forEach(el => el.classList.remove('is-selected'));
         document.querySelectorAll(`[data-tech-id="${CSS.escape(id)}"]`)
             .forEach(el => el.classList.add('is-selected'));
@@ -876,6 +877,67 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    function getUnlockEntries(trace) {
+        return (graph.dependents.get(trace.target.id) || [])
+            .map(id => {
+                const item = graph.byId.get(id);
+                const edge = item && getDependencyEdges(item).find(entry => entry.prerequisite === trace.target.id);
+                return item && edge ? { item, edge } : null;
+            })
+            .filter(Boolean)
+            .sort((a, b) => {
+                const fieldDiff = Number(!hasField(a.item, currentField)) - Number(!hasField(b.item, currentField));
+                if (fieldDiff !== 0) return fieldDiff;
+                const typeDiff = edgeRank(a.edge.type) - edgeRank(b.edge.type);
+                if (typeDiff !== 0) return typeDiff;
+                const confidenceDiff = (b.edge.confidence || 0) - (a.edge.confidence || 0);
+                if (confidenceDiff !== 0) return confidenceDiff;
+                const dateDiff = (a.item.firstKnownDate ?? 99999) - (b.item.firstKnownDate ?? 99999);
+                if (dateDiff !== 0) return dateDiff;
+                return a.item.name.localeCompare(b.item.name);
+            });
+    }
+
+    function renderHeroUnlocks(trace) {
+        if (!heroUnlocksEl) return;
+        heroUnlocksEl.replaceChildren();
+        const unlocks = getUnlockEntries(trace);
+        if (!unlocks.length) {
+            const empty = document.createElement('span');
+            empty.className = 'demo-hero-empty';
+            empty.textContent = 'No downstream technologies recorded';
+            heroUnlocksEl.appendChild(empty);
+            return;
+        }
+
+        for (const entry of unlocks.slice(0, 4)) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'demo-hero-unlock-button';
+            button.dataset.techId = entry.item.id;
+            button.dataset.edgeType = entry.edge.type || 'enabling';
+            button.addEventListener('click', () => setTarget(entry.item.id));
+
+            const title = document.createElement('strong');
+            title.textContent = entry.item.name;
+            const meta = document.createElement('span');
+            meta.textContent = [
+                formatDate(entry.item.firstKnownDate),
+                getLane(entry.item, currentField),
+                edgeKind(entry.edge)
+            ].filter(Boolean).join(' · ');
+            button.append(title, meta);
+            heroUnlocksEl.appendChild(button);
+        }
+
+        if (unlocks.length > 4) {
+            const more = document.createElement('span');
+            more.className = 'demo-hero-more';
+            more.textContent = `+${unlocks.length - 4} more`;
+            heroUnlocksEl.appendChild(more);
+        }
+    }
+
     function renderHero(items = getFieldItems(currentField)) {
         if (!heroTitleEl || !graph) return;
         const focusId = targetId || selectedId || defaultFocus[currentField] || pickDefaultSelection(items);
@@ -902,6 +964,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderStoryStage(trace);
         renderHeroChain(trace);
         renderHeroEdges(trace);
+        renderHeroUnlocks(trace);
     }
 
     function renderNextCandidates(items) {
