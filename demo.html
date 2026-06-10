@@ -3,126 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechTree Demo - Trace Technology Dependencies</title>
-    <meta name="description" content="Explore TechTree's live target-trace demo: choose a technology, inspect its prerequisites, evidence, dependency confidence, and likely next technologies.">
-    <meta name="keywords" content="technology tree, technology dependency graph, CRISPR technology map, technology roadmap, source-backed dataset">
+    <title>TechTree Documentary Demo - Technology Timelines</title>
+    <meta name="description" content="Watch a cinematic TechTree timeline showing the inventions that had to exist before a target technology.">
+    <meta name="keywords" content="technology tree, technology documentary, technology timeline, CRISPR technology map, dependency graph">
     <link rel="canonical" href="https://pushme.site/techtree/demo.html">
     <link rel="sitemap" type="application/xml" href="https://pushme.site/techtree/sitemap.xml">
-    <meta name="theme-color" content="#0d141b">
+    <meta name="theme-color" content="#030507">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TechTree">
-    <meta property="og:title" content="TechTree Demo - Trace Technology Dependencies">
-    <meta property="og:description" content="See what had to exist before CRISPR-Cas9, semiconductors, AI systems, energy storage, and other technologies.">
+    <meta property="og:title" content="TechTree Documentary Demo">
+    <meta property="og:description" content="A live documentary-style timeline of the technologies underneath CRISPR, EUV chips, RAG, grid storage, and more.">
     <meta property="og:url" content="https://pushme.site/techtree/demo.html">
     <meta property="og:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TechTree Demo - Trace Technology Dependencies">
-    <meta name="twitter:description" content="A source-backed map of technology prerequisites, unlocks, evidence, and likely next steps.">
+    <meta name="twitter:title" content="TechTree Documentary Demo">
+    <meta name="twitter:description" content="Watch a target technology emerge from its prerequisite stack.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260610g">
+    <link rel="stylesheet" href="style.css?v=20260610h">
 </head>
-<body class="demo-story-mode">
-    <header class="demo-topbar">
-        <h1>TechTree</h1>
-        <nav>
-            <a href="index.html">Graph View</a>
-            <a href="sorted.html">Sorted View</a>
-        </nav>
-    </header>
-    <main class="demo-main">
-        <section class="demo-shell">
-            <section class="demo-hero" aria-labelledby="demo-hero-title">
-                <canvas id="demo-story-canvas" class="demo-story-canvas" aria-hidden="true"></canvas>
-                <div class="demo-hero-visual" aria-label="Selected target dependency path">
-                    <div class="demo-visual-header">
-                        <span id="demo-hero-field">Genome Editing / CRISPR-Cas</span>
-                        <strong id="demo-hero-target">CRISPR Gene Editing</strong>
-                    </div>
-                    <div id="demo-story-stage" class="demo-story-stage" aria-label="Animated dependency story"></div>
-                </div>
-                <aside class="demo-hero-copy">
-                    <p class="demo-eyebrow">Human technology, connected</p>
-                    <h2 id="demo-hero-title">What had to exist before CRISPR gene editing?</h2>
-                    <p id="demo-hero-summary">Molecular biology, recombinant DNA, sequencing, delivery systems, safety assays, and clinical translation in one build path.</p>
-                    <div id="demo-hero-stats" class="demo-hero-stats" aria-label="Target trace snapshot">
-                        <div><strong>...</strong><span>Prerequisites</span></div>
-                        <div><strong>...</strong><span>Depth</span></div>
-                        <div><strong>...</strong><span>Edge Sources</span></div>
-                    </div>
-                    <div class="demo-toolbar" aria-label="Demo controls">
-                        <select id="demo-field" aria-label="Choose field"></select>
-                        <input type="search" id="demo-target" list="demo-target-options" placeholder="Target technology">
-                        <datalist id="demo-target-options"></datalist>
-                        <select id="demo-trust-filter" aria-label="Trust filter">
-                            <option value="all">All trust levels</option>
-                            <option value="high">High trust only</option>
-                            <option value="no-future">Hide future roadmap</option>
-                            <option value="no-weak-edges">Hide weak/inferred edges</option>
-                        </select>
-                        <button id="demo-clear-target" type="button" title="Clear target" hidden>Clear</button>
-                        <span id="demo-status" role="status"></span>
-                    </div>
-                    <div class="demo-preset-row" aria-label="Story presets">
-                        <button type="button" data-demo-preset="crispr_gene_editing">CRISPR</button>
-                        <button type="button" data-demo-preset="high_na_euv_lithography">EUV chips</button>
-                        <button type="button" data-demo-preset="retrieval_augmented_generation">RAG</button>
-                        <button type="button" data-demo-preset="long_duration_energy_storage">Grid storage</button>
-                    </div>
-                </aside>
+<body class="documentary-demo">
+    <main class="documentary-stage" aria-labelledby="documentary-title">
+        <canvas id="documentary-canvas" class="documentary-canvas" aria-label="Animated technology dependency timeline"></canvas>
+        <div class="documentary-ui">
+            <header class="documentary-nav" aria-label="TechTree navigation">
+                <a class="documentary-brand" href="demo.html">TechTree</a>
+                <nav>
+                    <a href="index.html">Graph</a>
+                    <a href="sorted.html">Sorted</a>
+                    <a href="https://github.com/yodakohl/techtree">GitHub</a>
+                </nav>
+            </header>
+
+            <section class="documentary-copy">
+                <p id="documentary-kicker" class="documentary-kicker">Loading graph...</p>
+                <h1 id="documentary-title">Technology is never alone.</h1>
+                <p id="documentary-caption" class="documentary-caption">A target technology is a final frame. TechTree shows the inventions underneath it as a moving timeline.</p>
+                <p id="documentary-meta" class="documentary-meta">Source-backed dependency graph</p>
             </section>
-            <section class="demo-path-strip" aria-label="Highlighted dependency chain">
-                <div>
-                    <span>Story Path</span>
-                    <strong>The shortest explanation of the stack</strong>
+
+            <section class="documentary-controls" aria-label="Documentary controls">
+                <div class="documentary-search">
+                    <input id="documentary-target" type="search" list="documentary-target-options" placeholder="Choose any target technology">
+                    <datalist id="documentary-target-options"></datalist>
+                    <button id="documentary-play-toggle" type="button">Pause</button>
                 </div>
-                <div id="demo-hero-chain" class="demo-hero-chain"></div>
-            </section>
-            <section class="demo-story-panels" aria-label="Target dependency highlights">
-                <div class="demo-hero-edge-panel">
-                    <span>What had to be ready</span>
-                    <div id="demo-hero-edges" class="demo-hero-edges"></div>
-                </div>
-                <div class="demo-hero-unlock-panel">
-                    <span>What becomes possible next</span>
-                    <div id="demo-hero-unlocks" class="demo-hero-unlocks"></div>
-                </div>
-                <section class="demo-next-section demo-next-section-spotlight">
-                    <h3>Roadmap Signals</h3>
-                    <div id="demo-next-list" class="demo-next-list"></div>
-                </section>
-            </section>
-            <section class="demo-explorer-intro" aria-label="Explorer controls">
-                <div>
-                    <span>Explorer</span>
-                    <strong>Inspect the evidence behind the story</strong>
-                </div>
-                <div class="demo-search-row">
-                    <input type="search" id="demo-search" placeholder="Search technologies in this field">
+                <div class="documentary-presets" aria-label="Preset documentary cuts">
+                    <button type="button" data-documentary-target="crispr_gene_editing">CRISPR</button>
+                    <button type="button" data-documentary-target="high_na_euv_lithography">EUV Chips</button>
+                    <button type="button" data-documentary-target="retrieval_augmented_generation">RAG</button>
+                    <button type="button" data-documentary-target="long_duration_energy_storage">Grid Storage</button>
                 </div>
             </section>
-            <div class="demo-layout">
-                <section class="demo-map-panel">
-                    <div id="demo-lanes" class="demo-lanes"></div>
-                </section>
-                <aside id="demo-detail" class="demo-detail-panel" aria-live="polite"></aside>
-                <aside class="demo-field-panel">
-                    <h2 id="demo-field-title"></h2>
-                    <div id="demo-metrics" class="demo-metrics"></div>
-                    <section class="demo-quality-snapshot">
-                        <h3>Quality Snapshot</h3>
-                        <div id="demo-quality-snapshot" class="demo-quality-grid"></div>
-                        <p>Trust snapshot, not proof of global accuracy.</p>
-                    </section>
-                    <section class="demo-trust-panel" aria-label="Trust legend">
-                        <h3>Trust Legend</h3>
-                        <div id="demo-trust-legend" class="demo-trust-legend"></div>
-                    </section>
-                </aside>
-            </div>
-        </section>
+
+            <section class="documentary-timeline" aria-label="Timeline scenes">
+                <div class="documentary-progress-track">
+                    <span id="documentary-progress"></span>
+                </div>
+                <div id="documentary-scenes" class="documentary-scenes"></div>
+            </section>
+
+            <p id="documentary-status" class="documentary-status" role="status">Loading...</p>
+        </div>
     </main>
-    <script defer src="trust-levels.js?v=20260610a"></script>
-    <script defer src="demo.js?v=20260610h"></script>
+    <script defer src="demo.js?v=20260610i"></script>
 </body>
 </html>

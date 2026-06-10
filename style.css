@@ -3439,3 +3439,336 @@ body.demo-story-mode {
 
 /* Line styling (very tricky to do well with just CSS/HTML for complex graphs) */
 /* This is where a library shines. */
+
+/* Single-screen documentary demo */
+body.documentary-demo {
+    margin: 0;
+    overflow: hidden;
+    background: #030507;
+    color: #f8fbfb;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+}
+
+.documentary-stage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-height: 620px;
+    overflow: hidden;
+    background: #030507;
+}
+
+.documentary-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.documentary-ui {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    pointer-events: none;
+}
+
+.documentary-nav,
+.documentary-copy,
+.documentary-controls,
+.documentary-timeline,
+.documentary-status {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.documentary-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 18px clamp(18px, 4vw, 56px);
+    color: rgba(248, 251, 251, 0.74);
+}
+
+.documentary-brand {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.documentary-nav nav {
+    display: flex;
+    gap: 16px;
+}
+
+.documentary-nav a {
+    color: rgba(248, 251, 251, 0.66);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.documentary-nav a:hover {
+    color: #ffffff;
+}
+
+.documentary-copy {
+    align-self: center;
+    width: min(44vw, 680px);
+    margin-left: clamp(22px, 7vw, 118px);
+    padding-bottom: 8vh;
+}
+
+.documentary-kicker,
+.documentary-meta,
+.documentary-status {
+    margin: 0;
+    color: rgba(238, 248, 249, 0.7);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.documentary-copy h1 {
+    margin: 12px 0 16px;
+    color: #ffffff;
+    font-size: clamp(44px, 7vw, 104px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 0;
+    text-wrap: balance;
+}
+
+.documentary-caption {
+    max-width: 620px;
+    margin: 0 0 18px;
+    color: rgba(240, 248, 249, 0.78);
+    font-size: clamp(16px, 1.5vw, 23px);
+    line-height: 1.38;
+}
+
+.documentary-meta {
+    color: rgba(180, 229, 223, 0.82);
+}
+
+.documentary-controls {
+    display: grid;
+    grid-template-columns: minmax(280px, 520px) minmax(280px, 520px);
+    gap: 12px;
+    align-items: center;
+    width: min(calc(100% - 44px), 1120px);
+    margin: 0 auto 14px;
+}
+
+.documentary-search,
+.documentary-presets {
+    display: flex;
+    gap: 8px;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid rgba(240, 248, 249, 0.12);
+    border-radius: 999px;
+    background: rgba(3, 7, 10, 0.54);
+    backdrop-filter: blur(18px);
+}
+
+.documentary-search input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 38px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 999px;
+    outline: 0;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font: inherit;
+}
+
+.documentary-search input::placeholder {
+    color: rgba(240, 248, 249, 0.46);
+}
+
+.documentary-search input:focus {
+    box-shadow: 0 0 0 2px rgba(133, 216, 205, 0.5);
+}
+
+.documentary-search button,
+.documentary-presets button {
+    flex: 0 0 auto;
+    min-height: 38px;
+    padding: 0 15px;
+    border: 1px solid rgba(240, 248, 249, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+    color: rgba(248, 251, 251, 0.82);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.documentary-search button:hover,
+.documentary-presets button:hover {
+    background: rgba(133, 216, 205, 0.2);
+    color: #ffffff;
+}
+
+.documentary-presets {
+    justify-content: flex-end;
+}
+
+.documentary-timeline {
+    width: min(calc(100% - 44px), 1180px);
+    margin: 0 auto 30px;
+}
+
+.documentary-progress-track {
+    height: 2px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.documentary-progress-track span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    background: #eaf9f7;
+}
+
+.documentary-scenes {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(112px, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.documentary-scenes button {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+    min-height: 58px;
+    padding: 9px 10px;
+    border: 1px solid rgba(240, 248, 249, 0.1);
+    border-radius: 8px;
+    background: rgba(3, 7, 10, 0.42);
+    color: rgba(248, 251, 251, 0.72);
+    text-align: left;
+    backdrop-filter: blur(14px);
+}
+
+.documentary-scenes button.is-active {
+    border-color: rgba(133, 216, 205, 0.62);
+    background: rgba(133, 216, 205, 0.12);
+    color: #ffffff;
+}
+
+.documentary-scenes span,
+.documentary-scenes strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.documentary-scenes span {
+    color: rgba(180, 229, 223, 0.78);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.documentary-scenes strong {
+    font-size: 12px;
+    line-height: 1.15;
+}
+
+.documentary-status {
+    position: absolute;
+    right: clamp(18px, 4vw, 56px);
+    bottom: 16px;
+    color: rgba(240, 248, 249, 0.5);
+}
+
+@media (max-width: 900px) {
+    .documentary-stage {
+        min-height: 100vh;
+    }
+
+    .documentary-ui {
+        grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    .documentary-copy {
+        width: auto;
+        margin: 0 18px;
+        padding-bottom: 18vh;
+    }
+
+    .documentary-copy h1 {
+        font-size: clamp(40px, 13vw, 70px);
+    }
+
+    .documentary-controls {
+        grid-template-columns: 1fr;
+        width: min(calc(100% - 24px), 720px);
+    }
+
+    .documentary-presets {
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+
+    .documentary-timeline {
+        width: min(calc(100% - 24px), 720px);
+        margin-bottom: 24px;
+    }
+
+    .documentary-scenes {
+        grid-auto-columns: minmax(128px, 42vw);
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .documentary-status {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .documentary-nav {
+        padding: 14px 14px;
+    }
+
+    .documentary-nav nav {
+        gap: 10px;
+    }
+
+    .documentary-nav a {
+        font-size: 11px;
+    }
+
+    .documentary-caption {
+        font-size: 15px;
+    }
+
+    .documentary-search {
+        border-radius: 18px;
+        flex-wrap: wrap;
+    }
+
+    .documentary-search input {
+        flex-basis: 100%;
+    }
+}
