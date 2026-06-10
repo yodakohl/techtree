@@ -756,10 +756,27 @@ main {
     filter: drop-shadow(0 0 9px rgba(127, 212, 202, 0.75));
 }
 
+.demo-story-unlock-link {
+    fill: none;
+    stroke: rgba(240, 169, 74, 0.52);
+    stroke-dasharray: 7 10;
+    stroke-linecap: round;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px rgba(240, 169, 74, 0.35));
+    animation: demo-story-unlock-flow 5.6s linear infinite;
+}
+
 .demo-story-node-layer {
     position: absolute;
     inset: 0;
     z-index: 3;
+}
+
+.demo-story-unlock-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
 }
 
 .demo-story-node-button {
@@ -830,6 +847,59 @@ button.demo-story-node-button:hover:not(:disabled) {
 
 .demo-story-node-button.is-target strong {
     font-size: 13px;
+}
+
+.demo-story-unlock-node {
+    position: absolute;
+    display: grid;
+    gap: 2px;
+    align-content: center;
+    width: clamp(88px, 8vw, 108px);
+    min-height: 48px;
+    padding: 7px 8px;
+    border: 1px solid rgba(240, 169, 74, 0.48);
+    border-left: 4px solid var(--story-color);
+    border-radius: 7px;
+    background:
+        linear-gradient(135deg, rgba(240, 169, 74, 0.2), rgba(8, 14, 20, 0.88)),
+        rgba(8, 14, 20, 0.9);
+    color: #fff;
+    pointer-events: auto;
+    text-align: left;
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(240, 169, 74, 0.16);
+}
+
+.demo-story-unlock-node:hover,
+.demo-story-unlock-node.is-selected {
+    background:
+        linear-gradient(135deg, rgba(240, 169, 74, 0.32), rgba(8, 14, 20, 0.92)),
+        rgba(8, 14, 20, 0.94);
+    box-shadow:
+        0 0 0 1px rgba(240, 169, 74, 0.6),
+        0 14px 28px rgba(0, 0, 0, 0.32);
+}
+
+button.demo-story-unlock-node:hover:not(:disabled) {
+    background-color: rgba(28, 23, 18, 0.94);
+}
+
+.demo-story-unlock-node span {
+    color: #f4c783;
+    overflow-wrap: anywhere;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.demo-story-unlock-node strong {
+    color: #fff;
+    overflow-wrap: anywhere;
+    font-size: 11px;
+    line-height: 1.12;
 }
 
 .demo-story-beat {
@@ -1147,6 +1217,23 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
     100% {
         opacity: 0.9;
         transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes demo-story-unlock-flow {
+    0% {
+        stroke-dashoffset: 34;
+        opacity: 0.34;
+    }
+
+    35%,
+    82% {
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0.62;
     }
 }
 
@@ -2045,6 +2132,10 @@ button:hover:not(:disabled) {
         min-height: 70px;
     }
 
+    .demo-story-unlock-node {
+        width: 96px;
+    }
+
     #tech-tree-container {
         flex: none;
         height: 62vh;
@@ -2123,6 +2214,11 @@ button:hover:not(:disabled) {
         width: 104px;
     }
 
+    .demo-story-unlock-node {
+        width: 108px;
+        min-height: 46px;
+    }
+
     .demo-story-caption {
         align-items: flex-start;
         flex-direction: column;
@@ -2160,7 +2256,8 @@ button:hover:not(:disabled) {
 @media (prefers-reduced-motion: reduce) {
     .demo-story-stage::before,
     .demo-story-path,
-    .demo-story-node-button {
+    .demo-story-node-button,
+    .demo-story-unlock-link {
         animation: none;
     }
 

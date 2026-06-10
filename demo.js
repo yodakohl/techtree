@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedId = id;
         if (options.updateUrl !== false) updateUrl();
         renderDetail();
-        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected, .demo-hero-unlock-button.is-selected, .demo-story-node-button.is-selected')
+        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected, .demo-hero-unlock-button.is-selected, .demo-story-node-button.is-selected, .demo-story-unlock-node.is-selected')
             .forEach(el => el.classList.remove('is-selected'));
         document.querySelectorAll(`[data-tech-id="${CSS.escape(id)}"]`)
             .forEach(el => el.classList.add('is-selected'));
@@ -515,6 +515,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         return { start: 145, span: 710 };
     }
 
+    function getStoryUnlockLimit() {
+        const width = window.innerWidth || 1200;
+        if (width < 560) return 1;
+        if (width < 900) return 2;
+        return 3;
+    }
+
     function shortenStoryLabel(label, limit = 22) {
         if (!label || label.length <= limit) return label || '';
         const trimmed = label.slice(0, limit - 3).trimEnd();
@@ -647,7 +654,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         }).join(' ');
     }
 
-    function appendStorySvg(parent, points) {
+    function buildStoryUnlockPoints(trace, points) {
+        const limit = getStoryUnlockLimit();
+        if (!limit) return [];
+        const targetPoint = points.find(point => point.target) || points[points.length - 1];
+        const unlocks = getUnlockEntries(trace).slice(0, limit);
+        const mobile = (window.innerWidth || 1200) < 560;
+        const tablet = (window.innerWidth || 1200) < 900;
+        const layouts = mobile
+            ? [{ x: 492, y: 70 }]
+            : tablet
+                ? [{ x: 650, y: 62 }, { x: 820, y: 92 }]
+                : [{ x: 670, y: 62 }, { x: 810, y: 78 }, { x: 925, y: 112 }];
+        return unlocks.map((entry, index) => ({
+            ...entry,
+            targetPoint,
+            x: layouts[index]?.x ?? 830,
+            y: layouts[index]?.y ?? 82,
+            color: storyEraColors[entry.item.era] || storyEraColors.Future
+        }));
+    }
+
+    function appendStorySvg(parent, points, unlockPoints = []) {
         const svg = createSvgElement('svg');
         svg.classList.add('demo-story-svg');
         svg.setAttribute('viewBox', '0 0 1000 360');
@@ -706,6 +734,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         path.setAttribute('d', pathData);
         svg.appendChild(path);
 
+        for (const unlock of unlockPoints) {
+            const link = createSvgElement('path');
+            link.classList.add('demo-story-unlock-link');
+            const start = unlock.targetPoint;
+            const midX = (start.x + unlock.x) / 2;
+            link.setAttribute('d', `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} C ${midX.toFixed(1)} ${start.y.toFixed(1)} ${midX.toFixed(1)} ${unlock.y.toFixed(1)} ${unlock.x.toFixed(1)} ${unlock.y.toFixed(1)}`);
+            svg.appendChild(link);
+        }
+
         for (let index = 0; index < 3; index += 1) {
             const pulse = createSvgElement('circle');
             pulse.classList.add('demo-story-pulse');
@@ -735,8 +772,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         const points = buildStoryPoints(trace);
         if (!points.length) return;
         const directEdgeById = new Map(trace.directEdges.map(entry => [entry.from, entry.edge]));
+        const unlockPoints = buildStoryUnlockPoints(trace, points);
 
-        appendStorySvg(storyStageEl, points);
+        appendStorySvg(storyStageEl, points, unlockPoints);
 
         const nodeLayer = document.createElement('div');
         nodeLayer.className = 'demo-story-node-layer';
@@ -763,6 +801,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             nodeLayer.appendChild(button);
         });
         storyStageEl.appendChild(nodeLayer);
+
+        if (unlockPoints.length) {
+            const unlockLayer = document.createElement('div');
+            unlockLayer.className = 'demo-story-unlock-layer';
+            for (const unlock of unlockPoints) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'demo-story-unlock-node';
+                button.dataset.techId = unlock.item.id;
+                button.style.left = `${unlock.x / 10}%`;
+                button.style.top = `${unlock.y / 3.6}%`;
+                button.style.setProperty('--story-color', unlock.color);
+                button.addEventListener('click', () => setTarget(unlock.item.id));
+
+                const meta = document.createElement('span');
+                meta.textContent = `${formatDate(unlock.item.firstKnownDate)} unlock`;
+                const title = document.createElement('strong');
+                title.textContent = shortenStoryLabel(unlock.item.name, 18);
+                button.append(meta, title);
+                unlockLayer.appendChild(button);
+            }
+            storyStageEl.appendChild(unlockLayer);
+        }
 
         const beat = document.createElement('div');
         beat.className = 'demo-story-beat';
