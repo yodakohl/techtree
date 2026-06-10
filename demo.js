@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const heroStatsEl = document.getElementById('demo-hero-stats');
     const heroFieldEl = document.getElementById('demo-hero-field');
     const heroTargetEl = document.getElementById('demo-hero-target');
+    const storyStageEl = document.getElementById('demo-story-stage');
     const heroChainEl = document.getElementById('demo-hero-chain');
     const heroEdgesEl = document.getElementById('demo-hero-edges');
 
@@ -27,6 +28,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         Industrial: 4,
         Modern: 5,
         Future: 6
+    };
+
+    const storyEraColors = {
+        Ancient: '#d98845',
+        Classical: '#5ba7d9',
+        Medieval: '#c5a75e',
+        Renaissance: '#63bd8d',
+        Industrial: '#f0a94a',
+        Modern: '#7fd4ca',
+        Future: '#d78df0',
+        Unknown: '#8aa0ad'
     };
 
     const fieldOrder = [
@@ -213,7 +225,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedId = id;
         if (options.updateUrl !== false) updateUrl();
         renderDetail();
-        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected')
+        document.querySelectorAll('.demo-tech-chip.is-selected, .demo-next-card.is-selected, .demo-target-chip.is-selected, .demo-longest-chip.is-selected, .demo-target-edge-button.is-selected, .demo-hero-step.is-selected, .demo-hero-edge-button.is-selected, .demo-story-node-button.is-selected')
             .forEach(el => el.classList.remove('is-selected'));
         document.querySelectorAll(`[data-tech-id="${CSS.escape(id)}"]`)
             .forEach(el => el.classList.add('is-selected'));
@@ -483,6 +495,234 @@ document.addEventListener('DOMContentLoaded', async () => {
         return [...new Set(picks)].filter(Boolean).slice(0, limit);
     }
 
+    function createSvgElement(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+
+    function sampleEvenly(ids, limit) {
+        if (ids.length <= limit) return ids;
+        if (limit <= 1) return ids.slice(0, limit);
+        const picks = [];
+        const lastIndex = ids.length - 1;
+        for (let index = 0; index < limit; index += 1) {
+            const pick = ids[Math.round((index * lastIndex) / (limit - 1))];
+            if (pick && !picks.includes(pick)) picks.push(pick);
+        }
+        return picks;
+    }
+
+    function getStoryPrerequisiteLimit() {
+        const width = window.innerWidth || 1200;
+        if (width < 560) return 3;
+        if (width < 900) return 3;
+        return 4;
+    }
+
+    function getStoryXBounds() {
+        const width = window.innerWidth || 1200;
+        if (width < 560) return { start: 170, span: 640 };
+        if (width < 900) return { start: 150, span: 700 };
+        return { start: 145, span: 710 };
+    }
+
+    function shortenStoryLabel(label, limit = 22) {
+        if (!label || label.length <= limit) return label || '';
+        const trimmed = label.slice(0, limit - 3).trimEnd();
+        return `${trimmed}...`;
+    }
+
+    function getStoryPointIds(trace) {
+        const targetId = trace.target.id;
+        const prerequisiteLimit = getStoryPrerequisiteLimit();
+        const chainIds = longestDependencyChain(trace).filter(id => id !== targetId);
+        const fieldIds = trace.ids
+            .filter(id => id !== targetId && hasField(graph.byId.get(id), currentField))
+            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)));
+        const earliestIds = trace.ids
+            .filter(id => id !== targetId)
+            .map(id => graph.byId.get(id))
+            .filter(Boolean)
+            .sort(compareDate)
+            .slice(0, 2)
+            .map(item => item.id);
+        const directIds = trace.directEdges
+            .slice(0, 3)
+            .map(entry => entry.from)
+            .filter(id => id !== targetId);
+
+        const orderedCandidates = [...new Set([...earliestIds, ...chainIds, ...fieldIds, ...directIds])]
+            .filter(id => graph.byId.has(id))
+            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)));
+        const sampled = sampleEvenly(orderedCandidates, prerequisiteLimit);
+        const sampledSet = new Set(sampled);
+
+        for (const id of directIds) {
+            if (sampledSet.has(id)) continue;
+            if (sampled.length < prerequisiteLimit) {
+                sampled.push(id);
+            } else if (sampled.length) {
+                sampled[sampled.length - 1] = id;
+            }
+            sampledSet.add(id);
+        }
+
+        const prereqs = [...new Set(sampled)]
+            .filter(id => id !== targetId && graph.byId.has(id))
+            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)))
+            .slice(0, prerequisiteLimit);
+        return [...prereqs, targetId];
+    }
+
+    function buildStoryPoints(trace) {
+        const ids = getStoryPointIds(trace);
+        const span = Math.max(1, ids.length - 1);
+        const xBounds = getStoryXBounds();
+        return ids.map((id, index) => {
+            const item = graph.byId.get(id);
+            const eraIndex = eraOrder[item.era] ?? 5;
+            const baseY = 82 + Math.min(6, eraIndex) * 22;
+            const wave = index % 2 === 0 ? -8 : 8;
+            const target = id === trace.target.id;
+            return {
+                id,
+                item,
+                target,
+                x: ids.length === 1 ? 500 : xBounds.start + (index * xBounds.span) / span,
+                y: target ? 176 : Math.max(68, Math.min(226, baseY + wave)),
+                color: storyEraColors[item.era] || storyEraColors.Unknown
+            };
+        });
+    }
+
+    function buildStoryPath(points) {
+        return points.map((point, index) => {
+            if (index === 0) return `M ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;
+            const previous = points[index - 1];
+            const midX = (previous.x + point.x) / 2;
+            return `C ${midX.toFixed(1)} ${previous.y.toFixed(1)} ${midX.toFixed(1)} ${point.y.toFixed(1)} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;
+        }).join(' ');
+    }
+
+    function appendStorySvg(parent, points) {
+        const svg = createSvgElement('svg');
+        svg.classList.add('demo-story-svg');
+        svg.setAttribute('viewBox', '0 0 1000 360');
+        svg.setAttribute('preserveAspectRatio', 'none');
+        svg.setAttribute('aria-hidden', 'true');
+
+        const defs = createSvgElement('defs');
+        const gradient = createSvgElement('linearGradient');
+        gradient.setAttribute('id', 'demo-story-gradient');
+        gradient.setAttribute('x1', '0%');
+        gradient.setAttribute('x2', '100%');
+        [
+            ['0%', '#7fd4ca'],
+            ['42%', '#f0a94a'],
+            ['72%', '#5ba7d9'],
+            ['100%', '#d78df0']
+        ].forEach(([offset, color]) => {
+            const stop = createSvgElement('stop');
+            stop.setAttribute('offset', offset);
+            stop.setAttribute('stop-color', color);
+            gradient.appendChild(stop);
+        });
+        defs.appendChild(gradient);
+        svg.appendChild(defs);
+
+        const usedEras = [...new Set(points.map(point => point.item.era || 'Unknown'))]
+            .sort((a, b) => (eraOrder[a] ?? 99) - (eraOrder[b] ?? 99));
+        for (const era of usedEras) {
+            const eraIndex = eraOrder[era] ?? 5;
+            const y = 82 + Math.min(6, eraIndex) * 22;
+            const line = createSvgElement('line');
+            line.classList.add('demo-story-era-track');
+            line.setAttribute('x1', '44');
+            line.setAttribute('x2', '956');
+            line.setAttribute('y1', String(y));
+            line.setAttribute('y2', String(y));
+            svg.appendChild(line);
+
+            const label = createSvgElement('text');
+            label.classList.add('demo-story-era-label');
+            label.setAttribute('x', '46');
+            label.setAttribute('y', String(y - 7));
+            label.textContent = era;
+            svg.appendChild(label);
+        }
+
+        const pathData = buildStoryPath(points);
+        const shadow = createSvgElement('path');
+        shadow.classList.add('demo-story-path-back');
+        shadow.setAttribute('d', pathData);
+        svg.appendChild(shadow);
+
+        const path = createSvgElement('path');
+        path.id = 'demo-story-motion-path';
+        path.classList.add('demo-story-path');
+        path.setAttribute('d', pathData);
+        svg.appendChild(path);
+
+        for (let index = 0; index < 3; index += 1) {
+            const pulse = createSvgElement('circle');
+            pulse.classList.add('demo-story-pulse');
+            pulse.setAttribute('r', String(index === 0 ? 7 : 5));
+            const motion = createSvgElement('animateMotion');
+            motion.setAttribute('dur', '6.2s');
+            motion.setAttribute('begin', `${index * 1.6}s`);
+            motion.setAttribute('repeatCount', 'indefinite');
+            const mpath = createSvgElement('mpath');
+            mpath.setAttribute('href', '#demo-story-motion-path');
+            mpath.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#demo-story-motion-path');
+            motion.appendChild(mpath);
+            pulse.appendChild(motion);
+            svg.appendChild(pulse);
+        }
+
+        parent.appendChild(svg);
+    }
+
+    function renderStoryStage(trace) {
+        if (!storyStageEl) return;
+        storyStageEl.replaceChildren();
+        const points = buildStoryPoints(trace);
+        if (!points.length) return;
+
+        appendStorySvg(storyStageEl, points);
+
+        const nodeLayer = document.createElement('div');
+        nodeLayer.className = 'demo-story-node-layer';
+        points.forEach((point, index) => {
+            const button = createTechButton(point.item, 'demo-story-node-button');
+            if (point.target) button.classList.add('is-target');
+            button.style.left = `${point.x / 10}%`;
+            button.style.top = `${point.y / 3.6}%`;
+            button.style.setProperty('--story-color', point.color);
+            button.style.setProperty('--story-index', String(index));
+
+            const date = document.createElement('span');
+            date.className = 'demo-story-node-date';
+            date.textContent = formatDate(point.item.firstKnownDate);
+            const name = document.createElement('strong');
+            name.textContent = shortenStoryLabel(point.item.name, point.target ? 26 : 20);
+            const era = document.createElement('span');
+            era.className = 'demo-story-node-era';
+            era.textContent = point.item.era || 'Unknown';
+            button.append(date, name, era);
+            nodeLayer.appendChild(button);
+        });
+        storyStageEl.appendChild(nodeLayer);
+
+        const firstPoint = points[0];
+        const caption = document.createElement('div');
+        caption.className = 'demo-story-caption';
+        const prefix = document.createElement('span');
+        prefix.textContent = `${points.length - 1} sampled milestones`;
+        const story = document.createElement('strong');
+        story.textContent = `${formatDate(firstPoint.item.firstKnownDate)} to ${formatDate(trace.target.firstKnownDate)}`;
+        caption.append(prefix, story);
+        storyStageEl.appendChild(caption);
+    }
+
     function createHeroStep(id, trace) {
         const item = graph.byId.get(id);
         const button = createTechButton(item, 'demo-hero-step');
@@ -572,6 +812,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         appendHeroStat(heroStatsEl, 'Edge Sources', `${sourcedEdges}/${trace.edges.length}`);
         appendHeroStat(heroStatsEl, 'Direct Edges', trace.directEdges.length.toLocaleString());
 
+        renderStoryStage(trace);
         renderHeroChain(trace);
         renderHeroEdges(trace);
     }
