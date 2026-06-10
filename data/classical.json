@@ -1571,16 +1571,13 @@
   },
   {
     "id": "construction",
-    "name": "Construction",
+    "name": "Classical Monumental Construction",
     "era": "Classical",
-    "description": "Advanced building techniques for large-scale public works like temples, roads, and aqueducts.",
+    "description": "Classical stone and civic construction practice for temples, public buildings, roads, aqueducts, and related monumental works, combining masonry, layout, and heavy-load handling.",
     "prerequisites": [
       "mathematics",
       "masonry",
-      "wheel_and_axle",
-      "arches_domes",
-      "bronze_working",
-      "levers_pulleys_ramps"
+      "levers_and_rollers"
     ],
     "fields": [
       "Civil Engineering & Built Environment"
@@ -1590,70 +1587,115 @@
     },
     "sources": [
       {
-        "title": "Construction",
-        "url": "https://www.britannica.com/technology/construction",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "Overview: Greek Temples",
+        "url": "https://www.reed.edu/glam/studyguides/temples/overview-styles.html",
+        "publisher": "Reed College Greek and Latin Archaeological Museum",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "museum",
         "supports": [
-          "node"
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Vitruvius: The Ten Books on Architecture",
+        "url": "https://www.gutenberg.org/files/20239/20239-h/20239-h.htm",
+        "publisher": "Project Gutenberg / Harvard University Press translation",
+        "year": 1914,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Lifting in Early Greek Architecture",
+        "url": "https://www.cambridge.org/core/journals/journal-of-hellenic-studies/article/abs/lifting-in-early-greek-architecture/83AECC23A4CFF572B9B01B204832F222",
+        "publisher": "Journal of Hellenic Studies / Cambridge University Press",
+        "year": 2019,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
         ]
       }
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -600,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Greek Mediterranean, later expanded in Roman and other classical civic construction traditions",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Classical architectural practice used geometry, proportion, and measurement for layout and design; Vitruvius treats geometry and measurement as part of an architect's training, but simple building can occur without formal mathematics.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Vitruvius: The Ten Books on Architecture",
+            "url": "https://www.gutenberg.org/files/20239/20239-h/20239-h.htm",
+            "publisher": "Project Gutenberg / Harvard University Press translation",
+            "year": 1914,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "masonry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Masonry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The scoped node is stone/civic monumental construction; Greek temple construction relied on cut-stone architectural members, so masonry is a hard prerequisite for this scoped construction family, not for every kind of building.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Overview: Greek Temples",
+            "url": "https://www.reed.edu/glam/studyguides/temples/overview-styles.html",
+            "publisher": "Reed College Greek and Latin Archaeological Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "wheel_and_axle",
+        "prerequisite": "levers_and_rollers",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wheel and Axle provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "arches_domes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Arches and Domes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "bronze_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "levers_pulleys_ramps",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Levers, Pulleys, and Ramps provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Large stone members required practical lifting or moving aids; early Greek architecture shows lifting techniques before mature cranes, so this is an enabling logistics edge rather than a claim that every building used pulleys or wheeled transport.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Lifting in Early Greek Architecture",
+            "url": "https://www.cambridge.org/core/journals/journal-of-hellenic-studies/article/abs/lifting-in-early-greek-architecture/83AECC23A4CFF572B9B01B204832F222",
+            "publisher": "Journal of Hellenic Studies / Cambridge University Press",
+            "year": 2019,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers source-backed classical stone and civic construction systems, with the date anchored to early Greek stone temple construction. Excludes prehistoric shelters, mud-brick village building, generic construction labor, Roman hydraulic concrete as a material system, and modern construction engineering."
   },
   {
     "id": "crane_lifting_devices",
