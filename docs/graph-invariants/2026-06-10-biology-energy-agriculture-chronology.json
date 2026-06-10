@@ -1,0 +1,81 @@
+{
+  "id": "2026-06-10-biology-energy-agriculture-chronology",
+  "description": "Lock source-backed chronology and semantic dependency corrections for Mendelian genetics, genetics-informed plant breeding, CVD, combined-cycle gas turbines, pesticide systems, and controlled-environment agriculture.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "genetics_mendel",
+      "operator": "eq",
+      "value": 1866,
+      "reason": "The node is scoped to Mendel's published inheritance work, not a generic industrial-era biology placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "genetics_mendel",
+      "prerequisite": "microscope",
+      "reason": "Mendel's pea-hybrid experiments did not require microscopy as a direct prerequisite."
+    },
+    {
+      "type": "first_known_date",
+      "node": "plant_breeding_hybridization",
+      "operator": "eq",
+      "value": 1900,
+      "reason": "The node is now scoped to genetics-informed plant breeding after the 1900 rediscovery and uptake of Mendel's laws."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plant_breeding_hybridization",
+      "prerequisite": "genetics_mendel",
+      "expected": "required",
+      "reason": "The node scope requires Mendelian genetics rather than treating it as a loose contextual enabler."
+    },
+    {
+      "type": "first_known_date",
+      "node": "chemical_vapor_deposition",
+      "operator": "eq",
+      "value": 1960,
+      "reason": "The node is scoped to the named CVD process family introduced at the 1960 ECS vapor-deposition symposium, not every earlier CVD-like phenomenon."
+    },
+    {
+      "type": "first_known_date",
+      "node": "combined_cycle_gas_turbines",
+      "operator": "eq",
+      "value": 1961,
+      "reason": "The first true utility-scale combined-cycle gas-turbine plant is anchored to Korneuburg-A, Austria."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "combined_cycle_gas_turbines",
+      "prerequisite": "electrical_grid_early_distribution",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Electrical grids are the deployment context for CCGT power plants, not the thermodynamic predecessor."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pesticide_herbicide_systems",
+      "operator": "eq",
+      "value": 1939,
+      "reason": "The modern synthetic pesticide scope is anchored to the 1939 discovery of DDT's insecticidal effectiveness, with herbicide use following in the 1940s."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pesticide_herbicide_systems",
+      "prerequisite": "chemical_fertilizers",
+      "reason": "Chemical fertilizers are a parallel agrochemical input, not a prerequisite for synthetic pesticide or herbicide systems."
+    },
+    {
+      "type": "first_known_date",
+      "node": "controlled_environment_agriculture",
+      "operator": "eq",
+      "value": 1949,
+      "reason": "The modern active-control scope is anchored to Caltech's 1949 phytotron rather than a generic postwar placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "controlled_environment_agriculture",
+      "prerequisite": "hydroponics",
+      "expected": "common_dependency",
+      "reason": "Hydroponics is common in modern CEA, but not all controlled-environment agriculture is hydroponic."
+    }
+  ]
+}
