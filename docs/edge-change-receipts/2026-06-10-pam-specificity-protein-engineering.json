@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-10-pam-specificity-protein-engineering",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "pam_specificity_engineering",
+    "prerequisite": "protein_engineering"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "protein_engineering was previously treated as a plausible hard prerequisite for pam_specificity_engineering without a field-specific edge receipt."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.86,
+    "note": "Altered PAM-specificity variants are engineered Cas9 proteins produced through structural design, selection, and directed evolution."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/nature14592",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Methods and variant-design discussion of engineered Cas9 proteins produced through protein mutation, selection, and characterization.",
+    "source_claim_summary": "The paper describes altered PAM specificity as a protein-engineering result: Cas9 variants are changed and selected to recognize different PAM sequences.",
+    "source_support_rationale": "The edge is required because the technology is an engineered protein variant family, not simply a CRISPR application that benefits from protein knowledge."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: pam_specificity_engineering -> protein_engineering remains required; this receipt adds source-shaped evidence for the existing CRISPR field edge.",
+  "would_reject_if": [
+    "The source did not describe engineered Cas9 protein variants.",
+    "The edge was kept required after rescoping the node away from protein variant engineering.",
+    "The receipt claimed only historical influence instead of component-level protein modification."
+  ],
+  "short_reason": "Engineered PAM specificity is implemented through altered Cas9 protein variants.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-10-base-editing-cas9-nuclease",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "base_editing",
+    "prerequisite": "cas9_programmable_nuclease"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "cas9_programmable_nuclease was previously treated as a plausible hard prerequisite for base_editing without a field-specific edge receipt."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.92,
+    "note": "Cytosine base editors use catalytically impaired Cas9 as the programmable DNA-targeting component fused to a deaminase."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4873371/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract and editor-design description of cytosine base editors built from catalytically impaired Cas9 fused to a cytidine deaminase.",
+    "source_claim_summary": "The paper defines base editing as a Cas9-directed editor architecture in which an impaired Cas9 supplies programmable DNA targeting while a deaminase performs base conversion.",
+    "source_support_rationale": "This supports a required edge because removing Cas9 changes the technology boundary from base editing as described in the paper to a different DNA-targeting architecture."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: base_editing -> cas9_programmable_nuclease remains required; this receipt adds source-shaped evidence for the existing CRISPR field edge.",
+  "would_reject_if": [
+    "The cited paper did not describe a Cas9-based base-editor architecture.",
+    "The edge was downgraded to contextual despite Cas9 being part of the described editor system.",
+    "The current graph pointed base editing at an SSD-like application rather than the nuclease component."
+  ],
+  "short_reason": "Base editing uses impaired Cas9 as its programmable DNA-targeting component.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

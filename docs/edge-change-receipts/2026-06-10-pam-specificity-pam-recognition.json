@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-10-pam-specificity-pam-recognition",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "pam_specificity_engineering",
+    "prerequisite": "pam_recognition_constraint"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "pam_recognition_constraint was previously treated as a plausible hard prerequisite for pam_specificity_engineering without a field-specific edge receipt."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.9,
+    "note": "Engineering altered PAM specificity depends on the Cas9 PAM-recognition constraint that defines which target sites wild-type Cas9 can recognize."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/nature14592",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and results describing altered PAM-specificity Cas9 variants designed around PAM recognition limits of wild-type Cas9.",
+    "source_claim_summary": "The source shows that engineering PAM specificity targets the PAM-recognition constraint that limits which DNA sites wild-type Cas9 can edit.",
+    "source_support_rationale": "This is a required dependency because the engineered technology is defined by changing the PAM-recognition requirement rather than merely co-occurring with it."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: pam_specificity_engineering -> pam_recognition_constraint remains required; this receipt adds source-shaped evidence for the existing CRISPR field edge.",
+  "would_reject_if": [
+    "The cited work did not discuss PAM requirements or altered PAM specificity.",
+    "The node was broadened to all nuclease-specificity engineering without changing this edge.",
+    "The graph modeled PAM recognition as a downstream application of engineered variants."
+  ],
+  "short_reason": "PAM-specificity engineering directly depends on the existence of the PAM-recognition constraint it modifies.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

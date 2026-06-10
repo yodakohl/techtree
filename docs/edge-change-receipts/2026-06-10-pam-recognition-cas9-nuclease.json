@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-10-pam-recognition-cas9-nuclease",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "pam_recognition_constraint",
+    "prerequisite": "cas9_programmable_nuclease"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "cas9_programmable_nuclease was previously treated as a plausible hard prerequisite for pam_recognition_constraint without a field-specific edge receipt."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.9,
+    "note": "PAM recognition is a Cas9 target-DNA recognition constraint rather than a separate engineered variant."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/nature13579",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Structural analysis of Cas9 activation and DNA recognition, including PAM-dependent target engagement by Cas9 endonucleases.",
+    "source_claim_summary": "The source places PAM recognition inside Cas9 target recognition, showing the constraint is a property of the programmable Cas9 nuclease system.",
+    "source_support_rationale": "The edge is required because this node is scoped to the Cas9 PAM constraint itself, not to an independent motif-search technology or downstream application."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: pam_recognition_constraint -> cas9_programmable_nuclease remains required; this receipt adds source-shaped evidence for the existing CRISPR field edge.",
+  "would_reject_if": [
+    "The source did not connect PAM recognition to Cas9 nuclease targeting.",
+    "The node scope broadened to generic DNA motif recognition while keeping this required edge.",
+    "The edge was treated as a historical predecessor rather than an architectural dependency."
+  ],
+  "short_reason": "The PAM-recognition constraint is modeled as a Cas9 target-recognition property.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-10-ex-vivo-crispr-cell-therapy-crispr-editing",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "ex_vivo_crispr_cell_therapy",
+    "prerequisite": "crispr_gene_editing"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "crispr_gene_editing was previously treated as a plausible hard prerequisite for ex_vivo_crispr_cell_therapy without a field-specific edge receipt."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.92,
+    "note": "Ex vivo CRISPR cell therapy depends on CRISPR-Cas9 genome editing of patient-derived cells before reinfusion."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/33283989/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and clinical method summary describing CRISPR-Cas9 editing of patient hematopoietic stem and progenitor cells before infusion.",
+    "source_claim_summary": "The clinical report describes ex vivo treatment by editing patient-derived cells with CRISPR-Cas9 and returning the edited cells as the therapeutic product.",
+    "source_support_rationale": "This is a method dependency rather than a loose historical relationship because the therapy workflow is defined by performing CRISPR editing outside the body."
+  },
+  "invariant_preserved_or_changed": "Invariant preserved: ex_vivo_crispr_cell_therapy -> crispr_gene_editing remains required; this receipt adds source-shaped evidence for the existing CRISPR field edge.",
+  "would_reject_if": [
+    "The source described only gene therapy without CRISPR-Cas9 editing.",
+    "The edge type was changed from required without preserving the editing workflow dependency elsewhere.",
+    "The receipt relied only on FDA approval status rather than the therapeutic method."
+  ],
+  "short_reason": "Ex vivo CRISPR cell therapy is operationally built around CRISPR-Cas9 editing of removed cells.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run audit:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
