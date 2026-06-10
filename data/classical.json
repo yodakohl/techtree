@@ -5423,14 +5423,12 @@
   },
   {
     "id": "urban_planning_grid_system",
-    "name": "Urban Planning (Grid System)",
+    "name": "Orthogonal Grid Urban Planning",
     "era": "Classical",
-    "description": "Organized city layouts using grid patterns for streets and public spaces, facilitating administration and growth.",
+    "description": "Deliberate city layouts using rectilinear street grids, blocks, public spaces, and central civic areas to organize movement, settlement, administration, and later expansion.",
     "prerequisites": [
-      "construction",
       "surveying",
       "mathematics",
-      "codified_law",
       "roads"
     ],
     "fields": [
@@ -5439,52 +5437,93 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Buildings & Urban Systems"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
+    "sources": [
       {
-        "prerequisite": "construction",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
-      },
+        "title": "Hippodamian Plan",
+        "url": "https://www.livius.org/articles/concept/hippodamian-plan/",
+        "publisher": "Livius.org",
+        "year": 2020,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -1500,
+    "datePrecision": "century",
+    "region": "Tell el-Amarna, Egypt; later Greek, Hellenistic, Roman, and connected urban traditions",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
       {
         "prerequisite": "surveying",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Surveying provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Rectilinear city plans require repeated alignment of streets, blocks, and civic areas; surveying enables that layout even though the source does not identify one universal surveying method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Hippodamian Plan",
+            "url": "https://www.livius.org/articles/concept/hippodamian-plan/",
+            "publisher": "Livius.org",
+            "year": 2020,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "codified_law",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Codified Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "The grid-plan scope is explicitly rectangular and organized around square or rectangular street patterns, so geometry and measurement concepts enable the design.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Hippodamian Plan",
+            "url": "https://www.livius.org/articles/concept/hippodamian-plan/",
+            "publisher": "Livius.org",
+            "year": 2020,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "roads",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The scoped technology is a street-grid plan; planned streets and road corridors are the direct physical substrate of the grid.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Hippodamian Plan",
+            "url": "https://www.livius.org/articles/concept/hippodamian-plan/",
+            "publisher": "Livius.org",
+            "year": 2020,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers orthogonal street-grid planning as an urban layout pattern. It does not claim that Hippodamus invented all grid planning, and it excludes later municipal building-code enforcement, zoning, and construction safety law."
   },
   {
     "id": "volcanic_ash_utilization",
@@ -6469,53 +6508,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      }
-    ]
-  },
-  {
-    "id": "urban_building_codes",
-    "name": "Urban Building Codes",
-    "era": "Classical",
-    "description": "Rules for construction, street access, fire risk, property boundaries, drainage, and public safety in dense cities.",
-    "prerequisites": [
-      "codified_law",
-      "urban_planning_grid_system",
-      "masonry"
-    ],
-    "fields": [
-      "Civil Engineering & Built Environment"
-    ],
-    "fieldLanes": {
-      "Civil Engineering & Built Environment": "Buildings & Urban Systems"
-    },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
-      {
-        "prerequisite": "codified_law",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Codified Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "urban_planning_grid_system",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Urban Planning (Grid System) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "masonry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Masonry provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]

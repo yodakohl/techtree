@@ -25,11 +25,11 @@ Generated 2026-06-10 from the same dataset audit used by `npm run accuracy:risks
 
 | Metric | Current |
 | --- | --- |
-| Technologies | 1,662 |
-| Source-checked nodes | 552 / 1,662 (33.2%) |
-| Nodes with node-level sources | 587 / 1,662 (35.3%) |
-| Dependency edges with edge-level sources | 1,620 / 5,658 (28.6%) |
-| Era-default placeholder dates | 681 / 1,662 (41.0%) |
+| Technologies | 1,661 |
+| Source-checked nodes | 553 / 1,661 (33.3%) |
+| Nodes with node-level sources | 588 / 1,661 (35.4%) |
+| Dependency edges with edge-level sources | 1,623 / 5,653 (28.7%) |
+| Era-default placeholder dates | 679 / 1,661 (40.9%) |
 | Manual risk-weighted sample | 40 / 40 (passed after correction) |
 
 Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).
