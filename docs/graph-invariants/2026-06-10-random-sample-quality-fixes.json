@@ -1,0 +1,107 @@
+{
+  "id": "2026-06-10-random-sample-quality-fixes",
+  "description": "Lock corrections from the 2026-06-10 random quality sample: bad dates, future misclassification, and overstated generated dependencies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "watermark_paper_authentication",
+      "operator": "eq",
+      "value": 1282,
+      "reason": "Paper watermark authentication is anchored to medieval Fabriano-style paper watermarks, not generic early medieval paper."
+    },
+    {
+      "type": "first_known_date",
+      "node": "smartphone_app_stores",
+      "operator": "eq",
+      "value": 2008,
+      "reason": "The node is scoped to mass-market smartphone app stores, anchored to the 2008 iPhone App Store launch."
+    },
+    {
+      "type": "first_known_date",
+      "node": "cloud_data_warehouses",
+      "operator": "eq",
+      "value": 2012,
+      "reason": "The node is scoped to managed cloud data warehouse services, anchored to Amazon Redshift's 2012 announcement."
+    },
+    {
+      "type": "first_known_date",
+      "node": "exoplanet_detection_analysis",
+      "operator": "eq",
+      "value": 1992,
+      "reason": "Exoplanet detection is an established modern field, anchored to the 1992 pulsar-planet discovery paper."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "municipal_water_treatment",
+      "prerequisite": "slow_sand_filtration",
+      "expected": "historical_predecessor",
+      "reason": "Slow sand filtration belongs upstream of broad municipal water treatment, not downstream of it."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "slow_sand_filtration",
+      "prerequisite": "municipal_water_treatment",
+      "reason": "The sampled edge was reversed; municipal water treatment is the broader application context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "slow_sand_filtration",
+      "prerequisite": "germ_theory",
+      "reason": "Slow sand filtration was deployed empirically before germ theory was needed as an explanatory framework."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "herbalism",
+      "prerequisite": "pottery",
+      "reason": "Herbalism is plant-use knowledge and should not require pottery vessels."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "scientific_journals",
+      "prerequisite": "encyclopedic_compendiums_knowledge_organization",
+      "reason": "Periodical scientific journals need print and scientific correspondence practices, not encyclopedic compendiums as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "manuscript_music_workshops",
+      "prerequisite": "watermark_paper_authentication",
+      "reason": "Manuscript music workshops predate and do not require 1282 paper watermark authentication."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "scholastic_indexing_systems",
+      "prerequisite": "watermark_paper_authentication",
+      "reason": "Scholastic indexing systems predate and do not require 1282 paper watermark authentication."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "relational_data_warehousing",
+      "prerequisite": "cloud_data_warehouses",
+      "reason": "Relational data warehousing predates managed cloud data warehouses."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_twin_infrastructure",
+      "prerequisite": "cloud_data_warehouses",
+      "reason": "Digital-twin infrastructure predates managed cloud data warehouses and should not depend on them."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "genomic_epidemiology",
+      "prerequisite": "cloud_data_warehouses",
+      "reason": "Genomic epidemiology can use data infrastructure without requiring managed cloud data warehouses."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "earth_observation_analytics",
+      "prerequisite": "cloud_data_warehouses",
+      "reason": "Earth observation analytics predates managed cloud data warehouses and should depend on remote sensing rather than a later cloud product category."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "materials_informatics",
+      "prerequisite": "cloud_data_warehouses",
+      "reason": "Materials informatics depends on materials science, databases, and machine learning rather than the later managed cloud warehouse category."
+    }
+  ]
+}

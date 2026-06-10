@@ -8447,7 +8447,8 @@
     "era": "Industrial",
     "description": "Centralized filtration, reservoirs, and distribution pipes that supplied safer drinking water to dense cities, with later chlorination handled by narrower treatment nodes.",
     "prerequisites": [
-      "water_filtration_sand_charcoal"
+      "water_filtration_sand_charcoal",
+      "slow_sand_filtration"
     ],
     "firstKnownDate": 1804,
     "datePrecision": "exact",
@@ -8475,6 +8476,27 @@
             ]
           }
         ]
+      },
+      {
+        "prerequisite": "slow_sand_filtration",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Early municipal drinking-water treatment is anchored by the 1804 Paisley filter and later slow-sand municipal systems.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Water treatment through the ages",
+            "url": "https://awwa.onlinelibrary.wiley.com/doi/10.1002/j.1551-8833.2006.tb07609.x",
+            "publisher": "Journal AWWA",
+            "year": 2006,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "fields": [
@@ -8494,6 +8516,16 @@
         "supports": [
           "node",
           "maturity"
+        ]
+      },
+      {
+        "title": "Water treatment through the ages",
+        "url": "https://awwa.onlinelibrary.wiley.com/doi/10.1002/j.1551-8833.2006.tb07609.x",
+        "publisher": "Journal AWWA",
+        "year": 2006,
+        "source_type": "review",
+        "supports": [
+          "node"
         ]
       }
     ]
@@ -13631,9 +13663,7 @@
     "era": "Industrial",
     "description": "Biologically active sand-bed filtration method that removes turbidity and pathogens from municipal drinking water.",
     "prerequisites": [
-      "water_filtration_sand_charcoal",
-      "municipal_water_treatment",
-      "germ_theory"
+      "water_filtration_sand_charcoal"
     ],
     "firstKnownDate": 1804,
     "datePrecision": "exact",
@@ -13666,50 +13696,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Sand & Charcoal Water Filtration provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Preventing Waterborne Germs at Home",
-            "url": "https://www.cdc.gov/drinking-water/prevention/index.html",
-            "publisher": "CDC",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "municipal_water_treatment",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Municipal Water Treatment provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Preventing Waterborne Germs at Home",
-            "url": "https://www.cdc.gov/drinking-water/prevention/index.html",
-            "publisher": "CDC",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "germ_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Germ Theory of Disease provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {

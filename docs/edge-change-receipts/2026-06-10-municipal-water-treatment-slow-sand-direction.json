@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-10-municipal-water-treatment-slow-sand-direction",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "municipal_water_treatment",
+    "prerequisite": "slow_sand_filtration"
+  },
+  "replaced_edge": {
+    "dependent": "slow_sand_filtration",
+    "prerequisite": "municipal_water_treatment"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Municipal Water Treatment provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.82,
+    "note": "Early municipal drinking-water treatment is anchored by the 1804 Paisley filter and later slow-sand municipal systems."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://awwa.onlinelibrary.wiley.com/doi/10.1002/j.1551-8833.2006.tb07609.x",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Historical review of water treatment through the ages, including early municipal filtration chronology.",
+    "source_claim_summary": "The review places early municipal water-treatment practice in the lineage of slow sand filtration rather than making municipal treatment a prerequisite for slow sand filtration.",
+    "source_support_rationale": "The source supports slow sand filtration as the historical method feeding broad municipal water treatment; it does not support the reversed claim that the broader municipal category had to exist first."
+  },
+  "ontology_before": "The graph made the component/process node depend on the broader municipal treatment category, reversing component-to-system lineage.",
+  "ontology_after": "Broad municipal water treatment now points back to slow sand filtration as a historical predecessor.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-10-random-sample-quality-fixes keeps the reversed edge absent and the corrected edge typed as historical_predecessor.",
+  "would_reject_if": [
+    "The municipal_water_treatment node were narrowed to a later administrative utility category that postdates slow sand filtration.",
+    "A source showed slow sand filtration was invented only inside an already established municipal treatment system.",
+    "A future split moved early municipal filtration into a more precise node and removed the broad municipal edge."
+  ],
+  "short_reason": "Slow sand filtration is upstream of broad municipal water treatment, not downstream.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

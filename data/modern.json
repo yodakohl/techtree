@@ -24433,24 +24433,37 @@
     "id": "smartphone_app_stores",
     "name": "Smartphone App Stores",
     "era": "Modern",
-    "description": "Curated marketplaces for mobile software distribution, payments, review, updates, identity, and developer tooling.",
+    "description": "Mass-market smartphone software marketplaces that combine mobile application distribution, developer publishing, payment processing, review, updates, identity, and platform governance.",
     "prerequisites": [
       "smartphones",
       "digital_payment_gateways",
       "compiler_toolchains"
     ],
-    "firstKnownDate": 1994,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2008,
+    "datePrecision": "exact",
+    "region": "United States / Apple iPhone App Store, then global smartphone platforms",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "smartphones",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.74,
         "evidence_level": "expert_inference",
-        "note": "Smartphones provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "The node is scoped to smartphone platform app stores; smartphone operating systems and installed user devices are the enabling platform.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The App Store turns 10",
+            "url": "https://www.apple.com/newsroom/2018/07/app-store-turns-10/",
+            "publisher": "Apple",
+            "year": 2018,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "digital_payment_gateways",
@@ -24468,30 +24481,65 @@
         "note": "Compiler Toolchains provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
+    ],
+    "sources": [
+      {
+        "title": "The App Store turns 10",
+        "url": "https://www.apple.com/newsroom/2018/07/app-store-turns-10/",
+        "publisher": "Apple",
+        "year": 2018,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "iPhone App Store Downloads Top 10 Million in First Weekend",
+        "url": "https://www.apple.com/newsroom/2008/07/14iPhone-App-Store-Downloads-Top-10-Million-in-First-Weekend/",
+        "publisher": "Apple",
+        "year": 2008,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ]
+      }
     ]
   },
   {
     "id": "cloud_data_warehouses",
     "name": "Cloud Data Warehouses",
     "era": "Modern",
-    "description": "Elastic analytical databases for integrating, storing, querying, and governing large organizational datasets.",
+    "description": "Managed cloud analytical database services that provide elastic, pay-as-you-go data warehousing for integrating, storing, querying, and governing large organizational datasets.",
     "prerequisites": [
       "cloud_computing_distributed_systems",
       "databases_relational_dbms",
       "enterprise_resource_planning"
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2012,
+    "datePrecision": "exact",
+    "region": "United States / AWS Redshift preview, then global cloud platforms",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "cloud_computing_distributed_systems",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.78,
         "evidence_level": "expert_inference",
-        "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Managed cloud warehouses are explicitly scoped to cloud services; cloud infrastructure is the deployment substrate.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Announcing Amazon Redshift",
+            "url": "https://aws.amazon.com/about-aws/whats-new/2012/11/28/announcing-amazon-redshift/",
+            "publisher": "AWS",
+            "year": 2012,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "databases_relational_dbms",
@@ -24508,6 +24556,28 @@
         "evidence_level": "expert_inference",
         "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Announcing Amazon Redshift",
+        "url": "https://aws.amazon.com/about-aws/whats-new/2012/11/28/announcing-amazon-redshift/",
+        "publisher": "AWS",
+        "year": 2012,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Amazon Redshift: Ten years of continuous reinvention",
+        "url": "https://www.amazon.science/latest-news/amazon-redshift-ten-years-of-continuous-reinvention",
+        "publisher": "Amazon Science",
+        "year": 2022,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ]
       }
     ]
   },
@@ -24559,7 +24629,6 @@
     "description": "Structured analytical databases integrating operational data for reporting, planning, forecasting, and governance.",
     "prerequisites": [
       "databases_relational_dbms",
-      "cloud_data_warehouses",
       "enterprise_resource_planning"
     ],
     "firstKnownDate": 1983,
@@ -24573,14 +24642,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "cloud_data_warehouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Data Warehouses provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -25070,7 +25131,6 @@
     "description": "Dynamic digital models of buildings, factories, grids, vehicles, cities, and supply chains for monitoring and optimization.",
     "prerequisites": [
       "internet_of_things_iot_ubiquitous_connectivity",
-      "cloud_data_warehouses",
       "computer_aided_design_cad_software"
     ],
     "firstKnownDate": 1999,
@@ -25084,14 +25144,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Internet of Things (IoT) & Ubiquitous Connectivity provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "cloud_data_warehouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Data Warehouses provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -25765,8 +25817,7 @@
     "era": "Modern",
     "description": "Sequencing-based surveillance that tracks pathogen lineages, outbreaks, transmission routes, and variant evolution.",
     "prerequisites": [
-      "dna_sequencing",
-      "cloud_data_warehouses"
+      "dna_sequencing"
     ],
     "firstKnownDate": 1983,
     "datePrecision": "decade",
@@ -25779,14 +25830,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "DNA Sequencing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "cloud_data_warehouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Data Warehouses provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]
@@ -25922,8 +25965,7 @@
     "era": "Modern",
     "description": "Cloud pipelines that transform satellite imagery into agricultural, climate, security, and infrastructure intelligence.",
     "prerequisites": [
-      "satellite_remote_sensing",
-      "cloud_data_warehouses"
+      "satellite_remote_sensing"
     ],
     "fields": [
       "Climate & Environmental Systems"
@@ -25956,28 +25998,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Satellite Remote Sensing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Remote Sensing",
-            "url": "https://science.nasa.gov/earth/earth-observatory/remote-sensing/",
-            "publisher": "NASA Science",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "cloud_data_warehouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Data Warehouses provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -33211,6 +33231,148 @@
     ]
   },
   {
+    "id": "exoplanet_detection_analysis",
+    "name": "Exoplanet Detection & Analysis",
+    "era": "Modern",
+    "description": "Detection and analysis of planets outside the solar system using timing, radial-velocity, transit, imaging, and related astronomical data-analysis methods.",
+    "prerequisites": [
+      "telescope",
+      "early_astronomy_observation",
+      "digital_signal_processing",
+      "advanced_optics_space_based"
+    ],
+    "fields": [
+      "Spaceflight & Satellites"
+    ],
+    "fieldLanes": {
+      "Spaceflight & Satellites": "Space Science"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "A planetary system around the millisecond pulsar PSR1257 + 12",
+        "url": "https://ui.adsabs.harvard.edu/abs/1992Natur.355..145W/abstract",
+        "publisher": "NASA Astrophysics Data System",
+        "year": 1992,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Extreme Planets",
+        "url": "https://www.nasa.gov/image-article/extreme-planets/",
+        "publisher": "NASA",
+        "year": 2008,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Nobel Winners Changed Our Understanding with Exoplanet Discovery",
+        "url": "https://science.nasa.gov/universe/exoplanets/nobel-winners-changed-our-understanding-with-exoplanet-discovery/",
+        "publisher": "NASA",
+        "year": 2019,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
+    "firstKnownDate": 1992,
+    "datePrecision": "exact",
+    "region": "Arecibo Observatory / global astronomy",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "telescope",
+        "type": "historical_predecessor",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Exoplanet detection extends observational astronomy rather than depending on a single telescope design.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Nobel Winners Changed Our Understanding with Exoplanet Discovery",
+            "url": "https://science.nasa.gov/universe/exoplanets/nobel-winners-changed-our-understanding-with-exoplanet-discovery/",
+            "publisher": "NASA",
+            "year": 2019,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "early_astronomy_observation",
+        "type": "historical_predecessor",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "The field is a modern extension of astronomy's long observational tradition.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Nobel Winners Changed Our Understanding with Exoplanet Discovery",
+            "url": "https://science.nasa.gov/universe/exoplanets/nobel-winners-changed-our-understanding-with-exoplanet-discovery/",
+            "publisher": "NASA",
+            "year": 2019,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "digital_signal_processing",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "expert_inference",
+        "note": "Timing, radial-velocity, and transit methods depend on extracting weak periodic signals from observational data.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A planetary system around the millisecond pulsar PSR1257 + 12",
+            "url": "https://ui.adsabs.harvard.edu/abs/1992Natur.355..145W/abstract",
+            "publisher": "NASA Astrophysics Data System",
+            "year": 1992,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "advanced_optics_space_based",
+        "type": "accelerates",
+        "confidence": 0.62,
+        "evidence_level": "expert_inference",
+        "note": "Space-based advanced optics expand detection and characterization capability, but exoplanets were detected before space telescopes became mandatory for the field.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Nobel Winners Changed Our Understanding with Exoplanet Discovery",
+            "url": "https://science.nasa.gov/universe/exoplanets/nobel-winners-changed-our-understanding-with-exoplanet-discovery/",
+            "publisher": "NASA",
+            "year": 2019,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "reusable_launch_vehicles",
     "name": "Reusable Launch Vehicles",
     "era": "Modern",
@@ -39876,8 +40038,7 @@
     "description": "Data-driven materials discovery using databases, simulations, machine learning, and high-throughput experiments.",
     "prerequisites": [
       "advanced_materials_science",
-      "machine_learning_early_algorithms",
-      "cloud_data_warehouses"
+      "machine_learning_early_algorithms"
     ],
     "fields": [
       "Materials Science & Manufacturing"
@@ -39932,28 +40093,6 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Machine Learning (Early Algorithms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Materials Genome Initiative",
-            "url": "https://www.nist.gov/mgi",
-            "publisher": "NIST",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "cloud_data_warehouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Data Warehouses provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {

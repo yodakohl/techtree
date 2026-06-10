@@ -115,3 +115,17 @@ Weak or failed examples:
    - `exoplanet_detection_analysis`
    - `municipal_water_treatment -> slow_sand_filtration`
    - `pottery -> herbalism`
+
+## Follow-Up Fixes
+
+Implemented after this sample:
+
+- `watermark_paper_authentication`: rescoped to paper watermarks, dated to 1282, and source-checked.
+- `smartphone_app_stores`: rescoped to mass-market smartphone app stores and dated to 2008.
+- `cloud_data_warehouses`: rescoped to managed cloud warehouse services and dated to 2012.
+- `exoplanet_detection_analysis`: moved from Future to Modern and dated to the 1992 pulsar-planet discovery.
+- `municipal_water_treatment -> slow_sand_filtration`: reversed so broad municipal treatment depends on slow sand filtration as historical predecessor.
+- `slow_sand_filtration -> germ_theory`: removed because early slow sand filtration predates germ theory as an explanatory framework.
+- `pottery -> herbalism`: removed because pottery is at most preparation/storage context.
+- `scientific_journals -> encyclopedic_compendiums_knowledge_organization`: removed because journals are periodical communication infrastructure, not compendium-dependent.
+- Stale dependencies from older nodes to the newly scoped 2012 `cloud_data_warehouses` node were removed.
