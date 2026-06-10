@@ -4937,71 +4937,6 @@
     ]
   },
   {
-    "id": "standardized_weights_measures_systems",
-    "name": "Standardized Weights & Measures Systems",
-    "era": "Classical",
-    "description": "Establishment of common units for weight, volume, and length to facilitate trade, taxation, and construction.",
-    "prerequisites": [
-      "currency",
-      "mathematics",
-      "writing",
-      "record_keeping",
-      "bronze_working"
-    ],
-    "fields": [
-      "Finance & Markets"
-    ],
-    "fieldLanes": {
-      "Finance & Markets": "Money & Accounting"
-    },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
-      {
-        "prerequisite": "currency",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Currency provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "mathematics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "writing",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "record_keeping",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "bronze_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      }
-    ]
-  },
-  {
     "id": "stoicism",
     "name": "Stoicism",
     "era": "Classical",
@@ -7367,7 +7302,7 @@
     "id": "standardized_road_milestones",
     "name": "Standardized Road Milestones",
     "era": "Classical",
-    "description": "Distance markers and road records that supported courier networks, taxation, military movement, maintenance, and route planning.",
+    "description": "Roman mile markers and inscriptions used to mark distances, road builders, repairs, and administrative reference points across the road network.",
     "prerequisites": [
       "roads",
       "standardized_weights_and_measures",
@@ -7379,18 +7314,40 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Transport Infrastructure"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -124,
+    "datePrecision": "exact",
+    "region": "Roman Republic and later Roman Empire",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Milestones are markers installed along maintained road corridors; the road network is the physical substrate they reference.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads",
+            "url": "https://imperiumromanum.pl/en/roman-art-and-culture/roman-architecture/roman-roads/",
+            "publisher": "IMPERIUM ROMANUM",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Roman Milestones and the Capita Viarum",
+            "url": "https://penelope.uchicago.edu/Thayer/E/Journals/TAPA/39/Milestones_and_the_Capita_Viarum%2A.html",
+            "publisher": "Transactions of the American Philological Association",
+            "year": 1908,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "standardized_weights_and_measures",
@@ -7407,6 +7364,54 @@
         "evidence_level": "expert_inference",
         "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
+      }
+    ],
+    "scopeNote": "Covers standardized Roman mile markers and road inscriptions, with regular milestone construction anchored to post-124 BCE Roman practice; excludes informal cairns, wayfinding signs, and modern highway mileposts.",
+    "sources": [
+      {
+        "title": "Roman roads",
+        "url": "https://imperiumromanum.pl/en/roman-art-and-culture/roman-architecture/roman-roads/",
+        "publisher": "IMPERIUM ROMANUM",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Milestones",
+        "url": "https://www.anatolianroads.org/milestones/",
+        "publisher": "The Anatolian Roads Project",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Roman Milestones and the Capita Viarum",
+        "url": "https://penelope.uchicago.edu/Thayer/E/Journals/TAPA/39/Milestones_and_the_Capita_Viarum%2A.html",
+        "publisher": "Transactions of the American Philological Association",
+        "year": 1908,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Roman Roads and Milestones of Asia Minor",
+        "url": "https://biaa.ac.uk/publication/open-access-electronic-publications/roman-roads/",
+        "publisher": "British Institute at Ankara",
+        "year": 2016,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ]
       }
     ]
   },
@@ -8121,8 +8126,7 @@
     "description": "Measured route diagrams and administrative maps for roads, stations, towns, ports, distances, and military movement.",
     "prerequisites": [
       "itineraries_route_guides",
-      "geometry",
-      "standardized_road_milestones"
+      "geometry"
     ],
     "firstKnownDate": -500,
     "datePrecision": "century",
@@ -8144,22 +8148,14 @@
         "evidence_level": "expert_inference",
         "note": "Geometry provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "standardized_road_milestones",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Standardized Road Milestones provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
       }
     ]
   },
   {
     "id": "toll_roads_and_bridges",
-    "name": "Toll Roads & Bridges",
+    "name": "Road Tolls and Maintenance Funding",
     "era": "Classical",
-    "description": "Fee-supported transport infrastructure using checkpoints, receipts, maintenance duties, exemptions, and legal enforcement.",
+    "description": "Roman road-maintenance finance using taxes, tolls, civic obligations, contracts, and public or imperial patronage.",
     "prerequisites": [
       "roads",
       "currency",
@@ -8171,18 +8167,30 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Transport Infrastructure"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -20,
+    "datePrecision": "exact",
+    "region": "Roman Empire",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "The funding and toll mechanisms are tied to road construction and maintenance rather than a separate standalone payment technology.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads were the infrastructure of empire",
+            "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+            "publisher": "National Geographic",
+            "year": 2020,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "currency",
@@ -8197,8 +8205,56 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Civic Contract Registries provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Road-maintenance systems used public obligations and awarded contracts, making civic legal records an administrative enabler rather than a hard invention prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads were the infrastructure of empire",
+            "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+            "publisher": "National Geographic",
+            "year": 2020,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Rescoped from a broad 'toll roads and bridges' claim to Roman road-maintenance funding; the source supports taxes, tolls, contracts, and patronage for road works, not a claim that Roman roads were generally private toll roads.",
+    "sources": [
+      {
+        "title": "Roman roads were the infrastructure of empire",
+        "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+        "publisher": "National Geographic",
+        "year": 2020,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Infrastructure in the Roman World: Roads and Aqueducts",
+        "url": "https://link.springer.com/rwe/10.1007/978-1-4419-0465-2_1458",
+        "publisher": "Encyclopedia of Global Archaeology",
+        "year": 2014,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Roman road system",
+        "url": "https://www.britannica.com/technology/Roman-road-system",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ]
       }
     ]
   },
@@ -8434,7 +8490,6 @@
     "era": "Classical",
     "description": "Administrative checkpoints for tariffs, transit papers, inspections, market rules, and border security along roads and ports.",
     "prerequisites": [
-      "toll_roads_and_bridges",
       "currency",
       "public_archives"
     ],
@@ -8443,14 +8498,6 @@
     "region": "Mediterranean, South Asia, East Asia, and other classical societies",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "toll_roads_and_bridges",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Toll Roads & Bridges provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "currency",
         "type": "enabling",
@@ -8553,9 +8600,9 @@
   },
   {
     "id": "road_maintenance_crews",
-    "name": "Road Maintenance Crews",
+    "name": "Roman Road Maintenance Administration",
     "era": "Classical",
-    "description": "Organized labor and administrative systems for repairing road surfaces, bridges, drains, milestones, and waystations.",
+    "description": "Roman magistrates, contracts, civic obligations, and labor systems for inspecting and repairing roads, bridges, drainage, milestones, and waystations.",
     "prerequisites": [
       "roads",
       "toll_roads_and_bridges",
@@ -8567,34 +8614,117 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Transport Infrastructure"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -20,
+    "datePrecision": "exact",
+    "region": "Roman Empire",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Road maintenance administration presupposes a public road network whose condition must be inspected, contracted, and repaired.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads were the infrastructure of empire",
+            "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+            "publisher": "National Geographic",
+            "year": 2020,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "toll_roads_and_bridges",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Toll Roads & Bridges provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Taxes, tolls, contracts, and patronage were financing and administrative enablers for Roman road maintenance.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads were the infrastructure of empire",
+            "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+            "publisher": "National Geographic",
+            "year": 2020,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "standardized_road_milestones",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Standardized Road Milestones provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Milestones recorded road distances and sometimes repair authority, making them useful administrative infrastructure for road upkeep.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads",
+            "url": "https://imperiumromanum.pl/en/roman-art-and-culture/roman-architecture/roman-roads/",
+            "publisher": "IMPERIUM ROMANUM",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Covers Roman road maintenance offices and contracting around the Augustan curatores viarum; excludes generic informal path repair and later highway departments.",
+    "sources": [
+      {
+        "title": "Roman roads were the infrastructure of empire",
+        "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+        "publisher": "National Geographic",
+        "year": 2020,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Roman roads",
+        "url": "https://imperiumromanum.pl/en/roman-art-and-culture/roman-architecture/roman-roads/",
+        "publisher": "IMPERIUM ROMANUM",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Infrastructure in the Roman World: Roads and Aqueducts",
+        "url": "https://link.springer.com/rwe/10.1007/978-1-4419-0465-2_1458",
+        "publisher": "Encyclopedia of Global Archaeology",
+        "year": 2014,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Roman road system",
+        "url": "https://www.britannica.com/technology/Roman-road-system",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ]
       }
     ]
   },
@@ -9402,10 +9532,10 @@
       "road_maintenance_crews",
       "toll_roads_and_bridges"
     ],
-    "firstKnownDate": -62,
-    "datePrecision": "century",
-    "region": "Rome / Roman Mediterranean bridge administration",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -20,
+    "datePrecision": "exact",
+    "region": "Roman Empire",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "arch_bridge_construction",
@@ -9413,26 +9543,87 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Arch bridges create the physical structures requiring inspection of arches, piers, foundations, flood damage, and repairs.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Pons Fabricius",
+            "url": "https://turismoroma.it/en/places/pons-fabricius",
+            "publisher": "Turismo Roma",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "road_maintenance_crews",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Road Maintenance Crews provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Bridge inspection is scoped as part of Roman road-maintenance administration rather than as a separately attested bridge office.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads were the infrastructure of empire",
+            "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+            "publisher": "National Geographic",
+            "year": 2020,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "toll_roads_and_bridges",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Toll Roads & Bridges provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Road and bridge inspection depended on road-work funding channels such as taxes, tolls, contracts, and public or imperial patronage.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman roads were the infrastructure of empire",
+            "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+            "publisher": "National Geographic",
+            "year": 2020,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ],
-    "scopeNote": "Lower-bound placeholder tied to source-backed Roman arch-bridge construction; covers practical inspection and repair routines for critical masonry crossings, not a separately attested inspection office."
+    "scopeNote": "Covers bridge inspection as a practical part of Roman road and bridge maintenance administration after the Augustan curatores viarum reforms; excludes the earlier invention of stone arch bridges and modern bridge-inspection agencies.",
+    "sources": [
+      {
+        "title": "Roman roads were the infrastructure of empire",
+        "url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+        "publisher": "National Geographic",
+        "year": 2020,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Pons Fabricius",
+        "url": "https://turismoroma.it/en/places/pons-fabricius",
+        "publisher": "Turismo Roma",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ]
   },
   {
     "id": "urban_food_market_regulation",

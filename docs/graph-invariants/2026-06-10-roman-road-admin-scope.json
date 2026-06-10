@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-roman-road-admin-scope",
+  "description": "Lock Roman road-administration cleanup so mapping and customs nodes do not regain narrower transport-funding dependencies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "standardized_road_milestones",
+      "operator": "eq",
+      "value": -124,
+      "reason": "Standardized road milestones are anchored to regular Roman milestone practice after 124 BCE."
+    },
+    {
+      "type": "first_known_date",
+      "node": "road_maintenance_crews",
+      "operator": "eq",
+      "value": -20,
+      "reason": "Road maintenance administration is anchored to Augustus's curatores viarum reforms in 20 BCE."
+    },
+    {
+      "type": "first_known_date",
+      "node": "toll_roads_and_bridges",
+      "operator": "eq",
+      "value": -20,
+      "reason": "The node is rescoped to Roman road-maintenance funding, not generic ancient toll roads."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "surveyed_road_maps",
+      "prerequisite": "standardized_road_milestones",
+      "reason": "Road maps and itineraries can record routes without requiring later standardized milestone infrastructure."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "border_customs_posts",
+      "prerequisite": "toll_roads_and_bridges",
+      "reason": "Customs checkpoints are tariff institutions, not downstream products of Roman road-maintenance funding."
+    }
+  ]
+}

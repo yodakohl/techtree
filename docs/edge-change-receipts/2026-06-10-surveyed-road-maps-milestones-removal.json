@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-10-surveyed-road-maps-milestones-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "surveyed_road_maps",
+    "prerequisite": "standardized_road_milestones"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Standardized Road Milestones provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because surveyed road maps and itineraries can record routes and distances without requiring later standardized Roman milestone infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Road maps section describing itineraries and the Peutinger Table as route records with towns, lodging, and distances.",
+    "source_claim_summary": "The source describes Roman road itineraries and map records as documents cataloging routes, towns, lodgings, and distances, not as a technology dependent on milestone installation.",
+    "source_support_rationale": "The old edge made one road-administration artifact a prerequisite for another. The source supports route documentation as its own record practice, so milestones are not required for the scoped map concept."
+  },
+  "ontology_before": "Surveyed road maps inherited a later milestone dependency, making a broad cartographic record depend on a narrower road-marker deployment.",
+  "ontology_after": "Surveyed road maps keep itinerary and geometry prerequisites while standardized milestones remain a separate road-network administration technology.",
+  "invariant_preserved_or_changed": "The graph now permits road mapping and itinerary records without forcing a later Roman milestone dependency.",
+  "would_reject_if": [
+    "The dependent node were narrowed to maps compiled specifically from milestone inscriptions.",
+    "A source showed the first scoped road maps required standardized milestone posts as measurement inputs.",
+    "A future split introduced a separate milestone-derived Roman road-map node."
+  ],
+  "short_reason": "Road maps and itineraries do not require standardized milestone infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

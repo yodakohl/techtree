@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-10-border-customs-toll-roads-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "border_customs_posts",
+    "prerequisite": "toll_roads_and_bridges"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Toll Roads & Bridges provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because border and port customs posts are tariff and inspection institutions, while the rescoped toll node is Roman road-maintenance funding.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalgeographic.com/history/history-magazine/article/200000-miles-roman-roads-provided-framework-empire",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Road maintenance section describing curatores viarum, contracts, maintenance work, and budgets from taxes, tolls, and patronage.",
+    "source_claim_summary": "The source supports tolls as one funding input for Roman road maintenance under curatores viarum, not as prerequisite infrastructure for customs checkpoints.",
+    "source_support_rationale": "The old edge conflated two fiscal mechanisms. Customs posts can collect tariffs at borders or ports without depending on the separate Roman road-funding machinery now represented by toll_roads_and_bridges."
+  },
+  "ontology_before": "Border customs posts depended on a broad toll-road node whose scope overlapped road funding and bridge tolling.",
+  "ontology_after": "Border customs posts keep currency and public records as administrative enablers; road-maintenance funding remains in the transport-infrastructure lane.",
+  "invariant_preserved_or_changed": "The graph no longer routes customs administration through Roman road-funding infrastructure.",
+  "would_reject_if": [
+    "The dependent node were narrowed to a customs post located specifically on a Roman toll road.",
+    "A source showed the first scoped customs posts emerged from road-toll institutions rather than tariff administration.",
+    "A future split introduced a separate road-toll checkpoint node that correctly depends on toll funding."
+  ],
+  "short_reason": "Customs checkpoints are tariff institutions, not downstream products of road-maintenance toll funding.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}
