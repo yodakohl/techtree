@@ -1,0 +1,34 @@
+{
+  "id": "2026-06-10-unsourced-required-edge-pass",
+  "description": "Lock downgraded hard edges from the 25-edge source pass where reviewed sources supported context or scaling rather than strict prerequisites.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "photoresist_chemistry",
+      "prerequisite": "photolithography",
+      "expected": "common_dependency",
+      "reason": "Photolithography is the main application context for semiconductor photoresists, not a chemical hard prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "semiconductor_photomasks",
+      "prerequisite": "integrated_circuits",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Integrated-circuit manufacturing scaled semiconductor photomasks, but photomasks are not caused by integrated circuits."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electric_generators_dynamos",
+      "prerequisite": "steam_engine",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Steam engines powered many central-station dynamos, but generators do not strictly require steam engines."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "supercomputing",
+      "prerequisite": "integrated_circuits",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Integrated circuits were important to later supercomputing scale and packaging, while early supercomputers were not IC-dependent."
+    }
+  ]
+}
