@@ -53,6 +53,12 @@
                         <select id="demo-field" aria-label="Choose field"></select>
                         <input type="search" id="demo-target" list="demo-target-options" placeholder="Target technology">
                         <datalist id="demo-target-options"></datalist>
+                        <select id="demo-trust-filter" aria-label="Trust filter">
+                            <option value="all">All trust levels</option>
+                            <option value="high">High trust only</option>
+                            <option value="no-future">Hide future roadmap</option>
+                            <option value="no-weak-edges">Hide weak/inferred edges</option>
+                        </select>
                         <button id="demo-clear-target" type="button" title="Clear target" hidden>Clear</button>
                         <span id="demo-status" role="status"></span>
                     </div>
@@ -95,6 +101,10 @@
                         <div id="demo-quality-snapshot" class="demo-quality-grid"></div>
                         <p>Trust snapshot, not proof of global accuracy.</p>
                     </section>
+                    <section class="demo-trust-panel" aria-label="Trust legend">
+                        <h3>Trust Legend</h3>
+                        <div id="demo-trust-legend" class="demo-trust-legend"></div>
+                    </section>
                     <section class="demo-next-section">
                         <h3>Next Candidates</h3>
                         <div id="demo-next-list" class="demo-next-list"></div>
@@ -103,6 +113,7 @@
             </div>
         </section>
     </main>
-    <script defer src="demo.js?v=20260610f"></script>
+    <script defer src="trust-levels.js?v=20260610a"></script>
+    <script defer src="demo.js?v=20260610g"></script>
 </body>
 </html>

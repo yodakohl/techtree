@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const searchInput = document.getElementById('demo-search');
     const targetInput = document.getElementById('demo-target');
     const targetOptionsEl = document.getElementById('demo-target-options');
+    const trustFilterSelect = document.getElementById('demo-trust-filter');
     const clearTargetBtn = document.getElementById('demo-clear-target');
     const statusEl = document.getElementById('demo-status');
     const fieldTitleEl = document.getElementById('demo-field-title');
     const metricsEl = document.getElementById('demo-metrics');
     const qualitySnapshotEl = document.getElementById('demo-quality-snapshot');
+    const trustLegendEl = document.getElementById('demo-trust-legend');
     const nextListEl = document.getElementById('demo-next-list');
     const lanesEl = document.getElementById('demo-lanes');
     const detailEl = document.getElementById('demo-detail');
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const heroChainEl = document.getElementById('demo-hero-chain');
     const heroEdgesEl = document.getElementById('demo-hero-edges');
     const heroUnlocksEl = document.getElementById('demo-hero-unlocks');
+    const trustModel = window.TechTreeTrust;
 
     const eraOrder = {
         Ancient: 0,
@@ -110,6 +113,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentField = 'Genome Editing / CRISPR-Cas';
     let selectedId = null;
     let targetId = null;
+    let currentTrustFilter = 'all';
     let traceExpanded = false;
     let storyTimerId = null;
 
@@ -203,6 +207,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         return field && fieldOrder.includes(field) ? field : currentField;
     }
 
+    function getTrustFilterFromUrl() {
+        const value = new URLSearchParams(window.location.search).get('trust');
+        return ['all', 'high', 'no-future', 'no-weak-edges'].includes(value) ? value : 'all';
+    }
+
     function getHashTechId() {
         const raw = decodeURIComponent(window.location.hash.replace(/^#/, ''));
         if (!raw) return null;
@@ -218,6 +227,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const params = new URLSearchParams();
         params.set('field', currentField);
         if (targetId) params.set('target', targetId);
+        if (currentTrustFilter !== 'all') params.set('trust', currentTrustFilter);
         const hash = selectedId ? `#tech-${encodeURIComponent(selectedId)}` : '';
         window.history.replaceState(null, '', `${window.location.pathname}?${params.toString()}${hash}`);
     }
@@ -271,6 +281,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         button.type = 'button';
         button.className = className;
         button.dataset.techId = item.id;
+        button.dataset.nodeTrust = nodeTrust(item).level;
         button.addEventListener('click', () => setSelected(item.id));
         return button;
     }
@@ -301,6 +312,135 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function hasEdgeSource(edge) {
         return Array.isArray(edge?.sources) && edge.sources.some(source => Array.isArray(source.supports) && source.supports.includes('edge'));
+    }
+
+    function nodeTrust(item) {
+        return trustModel.deriveNodeTrust(item);
+    }
+
+    function edgeTrust(edge) {
+        return trustModel.deriveEdgeTrust(edge);
+    }
+
+    function createTrustBadge(kind, info, options = {}) {
+        const badge = document.createElement('span');
+        badge.className = [
+            'trust-badge',
+            `trust-badge-${kind}`,
+            `trust-badge-${info.level}`,
+            options.compact ? 'trust-badge-compact' : ''
+        ].filter(Boolean).join(' ');
+        badge.textContent = options.compact ? info.shortLabel : info.label;
+        badge.title = info.description;
+        return badge;
+    }
+
+    function appendNodeTrustBadge(parent, item, options = {}) {
+        parent.appendChild(createTrustBadge('node', nodeTrust(item), options));
+    }
+
+    function appendEdgeTrustBadge(parent, edge, options = {}) {
+        parent.appendChild(createTrustBadge('edge', edgeTrust(edge), options));
+    }
+
+    function isNodeVisibleByTrust(item) {
+        if (!item) return false;
+        const level = nodeTrust(item).level;
+        if (currentTrustFilter === 'high') return level === 'high';
+        if (currentTrustFilter === 'no-future') return level !== 'future';
+        return true;
+    }
+
+    function isEdgeVisibleByTrust(edge, dependent, prerequisite) {
+        if (!edge) return currentTrustFilter !== 'high' && currentTrustFilter !== 'no-weak-edges';
+        const level = edgeTrust(edge).level;
+        if (currentTrustFilter === 'high') {
+            return level === 'strong'
+                && isNodeVisibleByTrust(dependent)
+                && isNodeVisibleByTrust(prerequisite);
+        }
+        if (currentTrustFilter === 'no-weak-edges') return level !== 'weak';
+        if (currentTrustFilter === 'no-future') {
+            return isNodeVisibleByTrust(dependent) && isNodeVisibleByTrust(prerequisite);
+        }
+        return true;
+    }
+
+    function getVisibleFieldItems(field) {
+        return getFieldItems(field).filter(isNodeVisibleByTrust);
+    }
+
+    function applyTrustFilterToTrace(trace) {
+        if (!trace) return null;
+        if (!isNodeVisibleByTrust(trace.target)) return null;
+        const visibleIds = trace.ids.filter(id => isNodeVisibleByTrust(graph.byId.get(id)));
+        const visibleIdSet = new Set(visibleIds);
+        const edges = trace.edges.filter(entry => {
+            const dependent = graph.byId.get(entry.to);
+            const prerequisite = graph.byId.get(entry.from);
+            return visibleIdSet.has(entry.from)
+                && visibleIdSet.has(entry.to)
+                && isEdgeVisibleByTrust(entry.edge, dependent, prerequisite);
+        });
+        const directEdges = trace.directEdges.filter(entry => {
+            const dependent = graph.byId.get(entry.to);
+            const prerequisite = graph.byId.get(entry.from);
+            return visibleIdSet.has(entry.from)
+                && visibleIdSet.has(entry.to)
+                && isEdgeVisibleByTrust(entry.edge, dependent, prerequisite);
+        });
+        const connected = new Set([trace.target.id]);
+        for (const entry of edges) {
+            connected.add(entry.from);
+            connected.add(entry.to);
+        }
+        for (const entry of directEdges) {
+            connected.add(entry.from);
+            connected.add(entry.to);
+        }
+        const distance = new Map([...trace.distance.entries()].filter(([id]) => connected.has(id)));
+        const outgoing = new Map();
+        for (const entry of edges) {
+            if (!outgoing.has(entry.from)) outgoing.set(entry.from, []);
+            outgoing.get(entry.from).push(entry);
+        }
+        return {
+            ...trace,
+            ids: [...connected],
+            distance,
+            edges,
+            directEdges,
+            outgoing,
+            depth: distance.size ? Math.max(...distance.values()) : 0,
+            hiddenNodeCount: trace.ids.length - connected.size,
+            hiddenEdgeCount: trace.edges.length - edges.length
+        };
+    }
+
+    function renderTrustLegend() {
+        if (!trustLegendEl) return;
+        trustLegendEl.replaceChildren();
+        const groups = [
+            ['Nodes', Object.values(trustModel.NODE_TRUST)],
+            ['Edges', Object.values(trustModel.EDGE_TRUST)]
+        ];
+        for (const [label, entries] of groups) {
+            const group = document.createElement('div');
+            group.className = 'demo-trust-legend-group';
+            const heading = document.createElement('strong');
+            heading.textContent = label;
+            group.appendChild(heading);
+            for (const entry of entries) {
+                const row = document.createElement('span');
+                row.className = 'demo-trust-legend-row';
+                row.appendChild(createTrustBadge(label === 'Nodes' ? 'node' : 'edge', entry, { compact: true }));
+                const text = document.createElement('span');
+                text.textContent = entry.description;
+                row.appendChild(text);
+                group.appendChild(row);
+            }
+            trustLegendEl.appendChild(group);
+        }
     }
 
     function bestEdgeForNode(edges) {
@@ -429,12 +569,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     function renderMetrics(items) {
         metricsEl.replaceChildren();
         const sourceChecked = items.filter(item => item.reviewStatus === 'source_checked').length;
+        const highTrust = items.filter(item => nodeTrust(item).level === 'high').length;
+        const futureTrust = items.filter(item => nodeTrust(item).level === 'future').length;
         const roadmapCount = getRoadmapItems(items).length;
         const edgeCount = items.reduce((sum, item) => sum + getDependencyEdges(item).length, 0);
         const metrics = [
             ['Nodes', items.length],
+            ['High Trust', highTrust],
             ['Source Checked', sourceChecked],
-            ['Roadmap', roadmapCount],
+            ['Future', futureTrust || roadmapCount],
             ['Edges', edgeCount]
         ];
         for (const [label, value] of metrics) {
@@ -811,6 +954,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             era.className = 'demo-story-node-era';
             era.textContent = point.item.era || 'Unknown';
             button.append(date, name, era);
+            appendNodeTrustBadge(button, point.item, { compact: true });
             button.addEventListener('mouseenter', () => setActiveStoryBeat(index));
             nodeButtons.push(button);
             nodeLayer.appendChild(button);
@@ -880,12 +1024,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             beatTrust.replaceChildren();
             const trustItems = point.target
                 ? [
-                    ['Node', formatStatus(point.item.reviewStatus || 'unreviewed')],
+                    ['Node', nodeTrust(point.item).label],
                     ['Sources', `${point.item.sources?.length || 0} node source${point.item.sources?.length === 1 ? '' : 's'}`],
                     ['Edge Sources', `${trace.edges.filter(entry => hasEdgeSource(entry.edge)).length}/${trace.edges.length}`]
                 ]
                 : [
-                    ['Edge', beatEdge ? edgeKind(beatEdge) : 'Context'],
+                    ['Edge', beatEdge ? edgeTrust(beatEdge).label : 'Context'],
                     ['Confidence', beatEdge ? formatConfidence(beatEdge.confidence) : 'n/a'],
                     ['Evidence', beatEdge?.evidence_level ? formatStatus(beatEdge.evidence_level) : 'not specified'],
                     ['Sources', sourceCountLabel(beatEdge)]
@@ -921,6 +1065,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         lane.className = 'demo-hero-step-lane';
         lane.textContent = getLane(item, currentField);
         button.append(meta, name, lane);
+        appendNodeTrustBadge(button, item, { compact: true });
         return button;
     }
 
@@ -945,15 +1090,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!trace.directEdges.length) {
             const empty = document.createElement('span');
             empty.className = 'demo-hero-empty';
-            empty.textContent = 'No direct dependencies';
+            empty.textContent = trace.hiddenEdgeCount ? 'Hidden by trust filter' : 'No direct dependencies';
             heroEdgesEl.appendChild(empty);
             return;
         }
 
-        for (const entry of trace.directEdges.slice(0, 4)) {
+        const visibleDirectEdges = trace.directEdges.filter(entry => {
+            const dependent = graph.byId.get(entry.to);
+            const prerequisite = graph.byId.get(entry.from);
+            return isEdgeVisibleByTrust(entry.edge, dependent, prerequisite);
+        });
+        if (!visibleDirectEdges.length) {
+            const empty = document.createElement('span');
+            empty.className = 'demo-hero-empty';
+            empty.textContent = 'Hidden by trust filter';
+            heroEdgesEl.appendChild(empty);
+            return;
+        }
+
+        for (const entry of visibleDirectEdges.slice(0, 4)) {
             const prereq = graph.byId.get(entry.from);
             const button = createTechButton(prereq, 'demo-hero-edge-button');
             button.dataset.edgeType = entry.edge.type || 'enabling';
+            button.dataset.edgeTrust = edgeTrust(entry.edge).level;
             const title = document.createElement('strong');
             title.textContent = prereq.name;
             const meta = document.createElement('span');
@@ -963,13 +1122,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 entry.edge.evidence_level && formatStatus(entry.edge.evidence_level)
             ].filter(Boolean).join(' · ');
             button.append(title, meta);
+            appendEdgeTrustBadge(button, entry.edge, { compact: true });
             heroEdgesEl.appendChild(button);
         }
 
-        if (trace.directEdges.length > 4) {
+        if (visibleDirectEdges.length > 4) {
             const more = document.createElement('span');
             more.className = 'demo-hero-more';
-            more.textContent = `+${trace.directEdges.length - 4} more`;
+            more.textContent = `+${visibleDirectEdges.length - 4} more`;
             heroEdgesEl.appendChild(more);
         }
     }
@@ -982,6 +1142,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return item && edge ? { item, edge } : null;
             })
             .filter(Boolean)
+            .filter(entry => isNodeVisibleByTrust(entry.item)
+                && isEdgeVisibleByTrust(entry.edge, entry.item, trace.target))
             .sort((a, b) => {
                 const fieldDiff = Number(!hasField(a.item, currentField)) - Number(!hasField(b.item, currentField));
                 if (fieldDiff !== 0) return fieldDiff;
@@ -1013,6 +1175,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             button.className = 'demo-hero-unlock-button';
             button.dataset.techId = entry.item.id;
             button.dataset.edgeType = entry.edge.type || 'enabling';
+            button.dataset.edgeTrust = edgeTrust(entry.edge).level;
             button.addEventListener('click', () => setTarget(entry.item.id));
 
             const title = document.createElement('strong');
@@ -1024,6 +1187,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 edgeKind(entry.edge)
             ].filter(Boolean).join(' · ');
             button.append(title, meta);
+            appendEdgeTrustBadge(button, entry.edge, { compact: true });
             heroUnlocksEl.appendChild(button);
         }
 
@@ -1038,8 +1202,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     function renderHero(items = getFieldItems(currentField)) {
         if (!heroTitleEl || !graph) return;
         const focusId = targetId || selectedId || defaultFocus[currentField] || pickDefaultSelection(items);
-        const trace = focusId && graph.byId.has(focusId) ? buildTargetTrace(focusId) : null;
-        if (!trace) return;
+        const rawTrace = focusId && graph.byId.has(focusId) ? buildTargetTrace(focusId) : null;
+        const trace = applyTrustFilterToTrace(rawTrace);
+        if (!rawTrace) return;
+        if (!trace) {
+            heroTitleEl.textContent = `Trust filter hides ${rawTrace.target.name}`;
+            heroSummaryEl.textContent = 'Switch to All trust levels to inspect this target.';
+            heroTargetEl.textContent = rawTrace.target.name;
+            heroStatsEl.replaceChildren();
+            storyStageEl?.replaceChildren();
+            heroChainEl?.replaceChildren();
+            heroEdgesEl?.replaceChildren();
+            heroUnlocksEl?.replaceChildren();
+            return;
+        }
 
         const eras = new Set(trace.ids.map(id => graph.byId.get(id)?.era).filter(Boolean)).size;
         const sourcedEdges = trace.edges.filter(entry => hasEdgeSource(entry.edge)).length;
@@ -1048,7 +1224,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const region = trace.target.region || 'region unknown';
 
         heroTitleEl.textContent = `What had to exist before ${trace.target.name}?`;
-        heroSummaryEl.textContent = `${formatDate(trace.target.firstKnownDate)} target, ${region}: ${trace.ids.length - 1} prerequisite technologies across ${eras} eras, with ${requiredEdges} hard edges and ${contextualEdges} contextual or scaling edges.`;
+        const hiddenNote = trace.hiddenNodeCount || trace.hiddenEdgeCount
+            ? ` Filter hides ${trace.hiddenNodeCount} nodes and ${trace.hiddenEdgeCount} edges.`
+            : '';
+        heroSummaryEl.textContent = `${formatDate(trace.target.firstKnownDate)} target, ${region}: ${trace.ids.length - 1} visible prerequisite technologies across ${eras} eras, with ${requiredEdges} hard edges and ${contextualEdges} contextual or scaling edges.${hiddenNote}`;
         heroFieldEl.textContent = currentField;
         heroTargetEl.textContent = trace.target.name;
 
@@ -1066,11 +1245,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderNextCandidates(items) {
         nextListEl.replaceChildren();
-        const candidates = getRoadmapItems(items).slice(0, 6);
+        const candidates = getRoadmapItems(items).filter(isNodeVisibleByTrust).slice(0, 6);
         if (!candidates.length) {
             const empty = document.createElement('p');
             empty.className = 'demo-empty';
-            empty.textContent = 'No roadmap nodes';
+            empty.textContent = currentTrustFilter === 'no-future'
+                ? 'Roadmap nodes hidden by trust filter'
+                : 'No roadmap nodes';
             nextListEl.appendChild(empty);
             return;
         }
@@ -1084,6 +1265,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 item.roadmap?.timeframe || item.maturity || item.era
             ].filter(Boolean).join(' · ');
             card.append(title, meta);
+            appendNodeTrustBadge(card, item, { compact: true });
             if (item.roadmap?.rationale) {
                 const rationale = document.createElement('p');
                 rationale.textContent = item.roadmap.rationale;
@@ -1113,7 +1295,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!orderedLanes.length) {
             const empty = document.createElement('p');
             empty.className = 'demo-empty';
-            empty.textContent = 'No matching technologies';
+            empty.textContent = currentTrustFilter === 'all'
+                ? 'No matching technologies'
+                : 'No matching technologies at this trust level';
             lanesEl.appendChild(empty);
             return;
         }
@@ -1136,6 +1320,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const name = document.createElement('strong');
                 name.textContent = item.name;
                 chip.append(date, name);
+                appendNodeTrustBadge(chip, item, { compact: true });
                 list.appendChild(chip);
             }
             laneEl.appendChild(list);
@@ -1173,6 +1358,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             ? 'Target'
             : `${distance} ${distance === 1 ? 'step' : 'steps'} before target`;
         button.append(date, name, meta);
+        appendNodeTrustBadge(button, item, { compact: true });
         return button;
     }
 
@@ -1187,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!trace.directEdges.length) {
             const empty = document.createElement('p');
             empty.className = 'demo-empty';
-            empty.textContent = 'None';
+            empty.textContent = trace.hiddenEdgeCount ? 'Hidden by trust filter' : 'None';
             section.appendChild(empty);
             parent.appendChild(section);
             return;
@@ -1200,17 +1386,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             const row = document.createElement('div');
             row.className = 'demo-target-edge';
             row.dataset.edgeType = entry.edge.type || 'enabling';
+            row.dataset.edgeTrust = edgeTrust(entry.edge).level;
 
             const button = createTechButton(prereq, 'demo-target-edge-button');
             button.textContent = prereq.name;
             row.appendChild(button);
 
             const meta = document.createElement('span');
+            meta.className = 'demo-inline-meta';
             meta.textContent = [
                 edgeKind(entry.edge),
                 formatConfidence(entry.edge.confidence),
                 entry.edge.evidence_level && formatStatus(entry.edge.evidence_level)
             ].filter(Boolean).join(' · ');
+            appendEdgeTrustBadge(meta, entry.edge, { compact: true });
             row.appendChild(meta);
 
             if (entry.edge.note) {
@@ -1324,9 +1513,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderTargetPath() {
         lanesEl.replaceChildren();
-        const trace = buildTargetTrace(targetId);
+        const rawTrace = buildTargetTrace(targetId);
+        const trace = applyTrustFilterToTrace(rawTrace);
+        if (!rawTrace) {
+            renderLanes(getVisibleFieldItems(currentField));
+            return;
+        }
         if (!trace) {
-            renderLanes(getFieldItems(currentField));
+            const hidden = document.createElement('div');
+            hidden.className = 'demo-target-path demo-filter-empty';
+            const title = document.createElement('h2');
+            title.textContent = 'Target hidden by trust filter';
+            const text = document.createElement('p');
+            text.textContent = 'Switch back to All trust levels or choose a different target to inspect this roadmap area.';
+            hidden.append(title, text);
+            lanesEl.appendChild(hidden);
             return;
         }
 
@@ -1343,7 +1544,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const title = document.createElement('h2');
         title.textContent = `Path to ${trace.target.name}`;
         const summary = document.createElement('p');
-        summary.textContent = `${trace.ids.length - 1} prerequisite technologies across ${eras} eras. The view below starts compact: direct edges, the longest chain, then the highest-signal build-order nodes.`;
+        const hiddenNote = trace.hiddenNodeCount || trace.hiddenEdgeCount
+            ? ` Trust filter hides ${trace.hiddenNodeCount} nodes and ${trace.hiddenEdgeCount} edges from the full trace.`
+            : '';
+        summary.textContent = `${trace.ids.length - 1} visible prerequisite technologies across ${eras} eras. The view below starts compact: direct edges, the longest chain, then the highest-signal build-order nodes.${hiddenNote}`;
         header.append(title, summary);
 
         const stats = document.createElement('div');
@@ -1378,31 +1582,46 @@ document.addEventListener('DOMContentLoaded', async () => {
         button.type = 'button';
         button.className = 'relationship-chip';
         button.textContent = item?.name || id;
+        if (item) {
+            const badge = createTrustBadge('node', nodeTrust(item), { compact: true });
+            badge.setAttribute('aria-hidden', 'true');
+            button.appendChild(badge);
+        }
         button.addEventListener('click', () => setSelected(id));
         return button;
     }
 
-    function appendRelationSection(parent, title, ids, edgeForId) {
+    function appendRelationSection(parent, title, ids, edgeForId, direction = 'depends') {
         const section = document.createElement('section');
         section.className = 'demo-detail-section';
         const heading = document.createElement('h3');
         heading.textContent = title;
         section.appendChild(heading);
 
-        const visible = ids
+        const candidates = ids
             .filter(id => graph.byId.has(id))
+            .map(id => ({ id, edge: edgeForId(id) || {} }))
+            .filter(entry => {
+                const selected = graph.byId.get(selectedId);
+                const related = graph.byId.get(entry.id);
+                const dependent = direction === 'unlocks' ? related : selected;
+                const prerequisite = direction === 'unlocks' ? selected : related;
+                return isNodeVisibleByTrust(related)
+                    && isEdgeVisibleByTrust(entry.edge, dependent, prerequisite);
+            });
+        const visible = candidates
             .sort((a, b) => {
-                const aField = hasField(graph.byId.get(a), currentField) ? 0 : 1;
-                const bField = hasField(graph.byId.get(b), currentField) ? 0 : 1;
+                const aField = hasField(graph.byId.get(a.id), currentField) ? 0 : 1;
+                const bField = hasField(graph.byId.get(b.id), currentField) ? 0 : 1;
                 if (aField !== bField) return aField - bField;
-                return graph.byId.get(a).name.localeCompare(graph.byId.get(b).name);
+                return graph.byId.get(a.id).name.localeCompare(graph.byId.get(b.id).name);
             })
             .slice(0, 14);
 
         if (!visible.length) {
             const empty = document.createElement('p');
             empty.className = 'relationship-empty';
-            empty.textContent = 'None';
+            empty.textContent = ids.some(id => graph.byId.has(id)) ? 'Hidden by trust filter' : 'None';
             section.appendChild(empty);
             parent.appendChild(section);
             return;
@@ -1410,17 +1629,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const list = document.createElement('div');
         list.className = 'demo-relation-list';
-        for (const id of visible) {
-            const edge = edgeForId(id) || {};
+        for (const entry of visible) {
+            const id = entry.id;
+            const edge = entry.edge || {};
             const item = document.createElement('div');
             item.className = 'demo-relation-item';
+            item.dataset.edgeTrust = edgeTrust(edge).level;
             item.appendChild(createRelationshipButton(id));
             const meta = document.createElement('span');
+            meta.className = 'demo-inline-meta';
             meta.textContent = [
                 edge.type && formatStatus(edge.type),
                 edge.confidence !== undefined && formatConfidence(edge.confidence),
                 edge.evidence_level && formatStatus(edge.evidence_level)
             ].filter(Boolean).join(' · ');
+            appendEdgeTrustBadge(meta, edge, { compact: true });
             item.appendChild(meta);
             if (edge.note) {
                 const note = document.createElement('p');
@@ -1482,6 +1705,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const badges = document.createElement('div');
         badges.className = 'demo-detail-badges';
+        appendNodeTrustBadge(badges, item);
         for (const value of [item.era, item.maturity, item.reviewStatus && formatStatus(item.reviewStatus)].filter(Boolean)) {
             const badge = document.createElement('span');
             badge.textContent = value;
@@ -1506,8 +1730,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const facts = document.createElement('section');
         facts.className = 'demo-detail-section demo-detail-facts';
+        appendDetailRow(facts, 'Trust', `${nodeTrust(item).label}: ${nodeTrust(item).reasons.join(', ') || nodeTrust(item).description}`);
         appendDetailRow(facts, 'First known', `${formatDate(item.firstKnownDate)} (${item.datePrecision || 'unknown'}; ${item.region || 'region unknown'})`);
         appendDetailRow(facts, 'Lane', getLane(item, currentField));
+        appendDetailRow(facts, 'Scope', item.scopeNote);
+        if (item.timeframe || item.forecastConfidence !== undefined || Array.isArray(item.blockers)) {
+            appendDetailRow(facts, 'Forecast', [
+                item.timeframe && `timeframe ${item.timeframe}`,
+                item.forecastConfidence !== undefined && `${formatConfidence(item.forecastConfidence)} confidence`
+            ].filter(Boolean).join(' · '));
+            if (Array.isArray(item.blockers) && item.blockers.length) {
+                appendDetailRow(facts, 'Forecast blockers', item.blockers.join(', '));
+            }
+        }
         if (item.roadmap) {
             appendDetailRow(facts, 'Roadmap', `${item.roadmap.timeframe || 'unknown'} · ${item.roadmap.confidence || 'unknown'} confidence`);
             if (Array.isArray(item.roadmap.blockers) && item.roadmap.blockers.length) {
@@ -1521,7 +1756,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             detailEl,
             'Depends On',
             prereqIds,
-            id => getDependencyEdges(item).find(edge => edge.prerequisite === id)
+            id => getDependencyEdges(item).find(edge => edge.prerequisite === id),
+            'depends'
         );
 
         const unlockIds = graph.dependents.get(item.id) || [];
@@ -1529,7 +1765,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             detailEl,
             'Unlocks',
             unlockIds,
-            id => getDependencyEdges(graph.byId.get(id)).find(edge => edge.prerequisite === item.id)
+            id => getDependencyEdges(graph.byId.get(id)).find(edge => edge.prerequisite === item.id),
+            'unlocks'
         );
 
         appendSources(detailEl, item.sources);
@@ -1545,8 +1782,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderField() {
         const items = getFieldItems(currentField);
-        if (!selectedId || !graph.byId.has(selectedId) || !hasField(graph.byId.get(selectedId), currentField)) {
-            selectedId = targetId || pickDefaultSelection(items);
+        const visibleItems = getVisibleFieldItems(currentField);
+        if (!selectedId
+            || !graph.byId.has(selectedId)
+            || !hasField(graph.byId.get(selectedId), currentField)
+            || !isNodeVisibleByTrust(graph.byId.get(selectedId))) {
+            const visibleTarget = targetId && graph.byId.has(targetId) && isNodeVisibleByTrust(graph.byId.get(targetId));
+            selectedId = visibleTarget ? targetId : pickDefaultSelection(visibleItems.length ? visibleItems : items);
         }
         fieldTitleEl.textContent = currentField;
         renderHero(items);
@@ -1555,7 +1797,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (targetId && graph.byId.has(targetId)) {
             renderTargetPath();
         } else {
-            renderLanes(items);
+            renderLanes(visibleItems);
         }
         updateUrl();
         renderDetail();
@@ -1577,8 +1819,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const qualitySnapshot = await snapshotResponse.json();
         graph = buildGraph(techData);
         renderQualitySnapshot(qualitySnapshot);
+        renderTrustLegend();
 
         currentField = getFieldFromUrl();
+        currentTrustFilter = getTrustFilterFromUrl();
+        if (trustFilterSelect) trustFilterSelect.value = currentTrustFilter;
         selectedId = getHashTechId();
         targetId = getTargetFromUrl() || (selectedId && graph.byId.has(selectedId) ? selectedId : null);
 
@@ -1627,11 +1872,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             syncTargetInput();
             renderField();
         });
+        trustFilterSelect?.addEventListener('change', () => {
+            currentTrustFilter = trustFilterSelect.value;
+            traceExpanded = false;
+            renderField();
+        });
         searchInput.addEventListener('input', () => {
             if (targetId) {
                 renderTargetPath();
             } else {
-                renderLanes(getFieldItems(currentField));
+                renderLanes(getVisibleFieldItems(currentField));
             }
             if (selectedId) {
                 document.querySelectorAll(`[data-tech-id="${CSS.escape(selectedId)}"]`)

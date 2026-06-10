@@ -845,6 +845,13 @@ button.demo-story-node-button:hover:not(:disabled) {
     line-height: 1.15;
 }
 
+.demo-story-node-button .trust-badge {
+    justify-self: start;
+    margin-top: 2px;
+    transform: scale(0.92);
+    transform-origin: left center;
+}
+
 .demo-story-node-button.is-target strong {
     font-size: 13px;
 }
@@ -1192,6 +1199,11 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
     font-size: 11px;
 }
 
+.demo-hero-edge-button .trust-badge,
+.demo-hero-unlock-button .trust-badge {
+    margin-top: 2px;
+}
+
 @keyframes demo-story-sweep {
     0%,
     18% {
@@ -1405,6 +1417,99 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
     text-align: right;
 }
 
+.demo-trust-panel {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 10px;
+    border: 1px solid #dce3ea;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.demo-trust-panel h3 {
+    margin: 0;
+    color: #46515d;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.demo-trust-legend {
+    display: grid;
+    gap: 9px;
+}
+
+.demo-trust-legend-group {
+    display: grid;
+    gap: 5px;
+}
+
+.demo-trust-legend-group > strong {
+    color: #26313d;
+    font-size: 12px;
+}
+
+.demo-trust-legend-row {
+    display: grid;
+    grid-template-columns: minmax(66px, max-content) minmax(0, 1fr);
+    gap: 7px;
+    align-items: start;
+    color: #65717d;
+    font-size: 11px;
+    line-height: 1.25;
+}
+
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    max-width: 100%;
+    padding: 2px 6px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: #f7f9fb;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.trust-badge-compact {
+    padding: 2px 5px;
+    font-size: 9px;
+}
+
+.trust-badge-high,
+.trust-badge-strong {
+    background: #edf8f0;
+    color: #256236;
+}
+
+.trust-badge-medium {
+    background: #eaf3fb;
+    color: #1f5f91;
+}
+
+.trust-badge-low,
+.trust-badge-weak {
+    background: #fff8e5;
+    color: #765a08;
+}
+
+.trust-badge-future {
+    background: #f4ecfb;
+    color: #6a3d8f;
+}
+
+.demo-inline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+
 .demo-next-section {
     display: grid;
     gap: 8px;
@@ -1527,10 +1632,31 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
     line-height: 1.25;
 }
 
+.demo-tech-chip .trust-badge,
+.demo-next-card .trust-badge,
+.demo-target-chip .trust-badge,
+.demo-longest-chip .trust-badge,
+.demo-hero-step .trust-badge {
+    margin-top: 2px;
+}
+
 .demo-target-path {
     display: grid;
     gap: 12px;
     min-width: 760px;
+}
+
+.demo-filter-empty {
+    padding: 18px;
+    border: 1px solid #d6dde5;
+    border-radius: 8px;
+    background: #fbfcfd;
+    color: #46515d;
+}
+
+.demo-filter-empty h2,
+.demo-filter-empty p {
+    margin: 0;
 }
 
 .demo-target-header {
@@ -1638,6 +1764,16 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
 .demo-target-edge[data-edge-type='speculative'],
 .demo-target-chip[data-edge-type='speculative'] {
     border-left-color: #8a63b0;
+}
+
+.demo-target-edge[data-edge-trust='strong'],
+.demo-relation-item[data-edge-trust='strong'] {
+    box-shadow: inset 0 0 0 1px rgba(47, 111, 187, 0.16);
+}
+
+.demo-target-edge[data-edge-trust='weak'],
+.demo-relation-item[data-edge-trust='weak'] {
+    background: #fffaf0;
 }
 
 .demo-target-edge-button {
@@ -1792,6 +1928,33 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.demo-detail-badges .trust-badge {
+    border-color: currentColor;
+    font-weight: 800;
+}
+
+.demo-detail-badges .trust-badge-high,
+.demo-detail-badges .trust-badge-strong {
+    background: #edf8f0;
+    color: #256236;
+}
+
+.demo-detail-badges .trust-badge-medium {
+    background: #eaf3fb;
+    color: #1f5f91;
+}
+
+.demo-detail-badges .trust-badge-low,
+.demo-detail-badges .trust-badge-weak {
+    background: #fff8e5;
+    color: #765a08;
+}
+
+.demo-detail-badges .trust-badge-future {
+    background: #f4ecfb;
+    color: #6a3d8f;
 }
 
 .demo-trace-button {
@@ -1998,6 +2161,9 @@ button.demo-hero-unlock-button:hover:not(:disabled) {
 }
 
 .relationship-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     max-width: 100%;
     margin: 0;
     padding: 5px 7px;

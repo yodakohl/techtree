@@ -9,6 +9,7 @@
     "accuracy:risks": "node scripts/generate-quality-snapshot.js --silent && node scripts/accuracy-risk-report.js",
     "quality:snapshot": "node scripts/generate-quality-snapshot.js",
     "quality:field:crispr": "node scripts/generate-field-quality-snapshot.js",
+    "trust:audit": "node scripts/audit-trust-levels.js",
     "audit:crispr": "node scripts/audit-crispr-edge-quality.js",
     "edge-packet": "node scripts/edge-review-packet.js",
     "node-packet": "node scripts/node-scope-packet.js",
@@ -19,7 +20,7 @@
     "edge-receipts": "node scripts/check-edge-change-receipts.js",
     "source-urls": "node scripts/audit-source-urls.js",
     "temporal": "node scripts/audit-temporal-consistency.js",
-    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && node scripts/generate-quality-snapshot.js --check && node scripts/generate-field-quality-snapshot.js --check",
+    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && npm run trust:audit && node scripts/generate-quality-snapshot.js --check && node scripts/generate-field-quality-snapshot.js --check",
     "test": "node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },
