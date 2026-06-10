@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let selectedId = null;
     let targetId = null;
     let traceExpanded = false;
+    let storyTimerId = null;
 
     function setStatus(text) {
         if (statusEl) statusEl.textContent = text;
@@ -499,21 +500,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         return document.createElementNS('http://www.w3.org/2000/svg', name);
     }
 
-    function sampleEvenly(ids, limit) {
-        if (ids.length <= limit) return ids;
-        if (limit <= 1) return ids.slice(0, limit);
-        const picks = [];
-        const lastIndex = ids.length - 1;
-        for (let index = 0; index < limit; index += 1) {
-            const pick = ids[Math.round((index * lastIndex) / (limit - 1))];
-            if (pick && !picks.includes(pick)) picks.push(pick);
-        }
-        return picks;
-    }
-
     function getStoryPrerequisiteLimit() {
         const width = window.innerWidth || 1200;
-        if (width < 560) return 3;
+        if (width < 560) return 2;
         if (width < 900) return 3;
         return 4;
     }
@@ -531,45 +520,99 @@ document.addEventListener('DOMContentLoaded', async () => {
         return `${trimmed}...`;
     }
 
+    function shortenStoryText(text, limit = 132) {
+        const normalized = String(text || '').replace(/\s+/g, ' ').trim();
+        if (!normalized || normalized.length <= limit) return normalized;
+        return `${normalized.slice(0, limit - 3).trimEnd()}...`;
+    }
+
+    function scoreStoryCandidate(id, trace, directEdgeById, chainSet) {
+        const item = graph.byId.get(id);
+        if (!item) return -Infinity;
+        const sameField = hasField(item, currentField);
+        let score = sameField ? 110 : -90;
+        const directEdge = directEdgeById.get(id);
+        if (directEdge) {
+            score += 84 - edgeRank(directEdge.type) * 5;
+            score += Math.round((directEdge.confidence || 0) * 20);
+        }
+        if (chainSet.has(id)) score += 36;
+        if (getLane(item, currentField) && getLane(item, currentField) !== 'General') score += 14;
+        if (item.reviewStatus === 'source_checked') score += 8;
+        if (Array.isArray(item.sources) && item.sources.length) score += 5;
+        const targetDate = trace.target.firstKnownDate;
+        if (typeof targetDate === 'number' && typeof item.firstKnownDate === 'number') {
+            const gap = targetDate - item.firstKnownDate;
+            if (gap >= 0 && gap <= 120) score += 16;
+            if (gap > 1200) score -= 54;
+            if (gap < 0) score -= 80;
+        }
+        return score;
+    }
+
+    function rankedStoryCandidates(ids, trace, directEdgeById, chainSet) {
+        return [...new Set(ids)]
+            .filter(id => id !== trace.target.id && graph.byId.has(id))
+            .map(id => ({ id, score: scoreStoryCandidate(id, trace, directEdgeById, chainSet) }))
+            .sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return compareDate(graph.byId.get(a.id), graph.byId.get(b.id));
+            })
+            .map(entry => entry.id);
+    }
+
+    function compactStorySelection(selected, limit) {
+        const unique = [...new Set(selected)].filter(Boolean);
+        if (unique.length <= limit) return unique;
+        if (limit <= 1) return unique.slice(-1);
+        if (limit === 2) return [...new Set([unique[1] || unique[0], unique[unique.length - 1]])].slice(0, limit);
+        return [...new Set([unique[0], unique[1], ...unique.slice(-(limit - 2))])].slice(0, limit);
+    }
+
     function getStoryPointIds(trace) {
         const targetId = trace.target.id;
         const prerequisiteLimit = getStoryPrerequisiteLimit();
+        const directEdgeById = new Map(trace.directEdges.map(entry => [entry.from, entry.edge]));
         const chainIds = longestDependencyChain(trace).filter(id => id !== targetId);
-        const fieldIds = trace.ids
-            .filter(id => id !== targetId && hasField(graph.byId.get(id), currentField))
-            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)));
-        const earliestIds = trace.ids
-            .filter(id => id !== targetId)
-            .map(id => graph.byId.get(id))
-            .filter(Boolean)
-            .sort(compareDate)
-            .slice(0, 2)
-            .map(item => item.id);
-        const directIds = trace.directEdges
-            .slice(0, 3)
-            .map(entry => entry.from)
-            .filter(id => id !== targetId);
+        const chainSet = new Set(chainIds);
+        const fieldIds = trace.ids.filter(id => id !== targetId && hasField(graph.byId.get(id), currentField));
+        const candidatePool = fieldIds.length >= 2 ? fieldIds : trace.ids.filter(id => id !== targetId);
+        const selected = [];
 
-        const orderedCandidates = [...new Set([...earliestIds, ...chainIds, ...fieldIds, ...directIds])]
-            .filter(id => graph.byId.has(id))
-            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)));
-        const sampled = sampleEvenly(orderedCandidates, prerequisiteLimit);
-        const sampledSet = new Set(sampled);
-
-        for (const id of directIds) {
-            if (sampledSet.has(id)) continue;
-            if (sampled.length < prerequisiteLimit) {
-                sampled.push(id);
-            } else if (sampled.length) {
-                sampled[sampled.length - 1] = id;
-            }
-            sampledSet.add(id);
+        function addCandidate(id) {
+            if (!id || id === targetId || selected.includes(id) || !graph.byId.has(id)) return;
+            selected.push(id);
         }
 
-        const prereqs = [...new Set(sampled)]
-            .filter(id => id !== targetId && graph.byId.has(id))
-            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)))
-            .slice(0, prerequisiteLimit);
+        const fieldByDate = fieldIds
+            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)));
+        addCandidate(fieldByDate[0]);
+
+        const rankedChain = rankedStoryCandidates(chainIds, trace, directEdgeById, chainSet);
+        const rankedNonDirectChain = rankedStoryCandidates(
+            chainIds.filter(id => !directEdgeById.has(id)),
+            trace,
+            directEdgeById,
+            chainSet
+        );
+        addCandidate(rankedNonDirectChain[0] || rankedChain[0]);
+
+        const rankedDirect = rankedStoryCandidates(
+            trace.directEdges.map(entry => entry.from),
+            trace,
+            directEdgeById,
+            chainSet
+        );
+        for (const id of rankedDirect.slice(0, 2)) addCandidate(id);
+
+        const rankedPool = rankedStoryCandidates(candidatePool, trace, directEdgeById, chainSet);
+        for (const id of rankedPool) {
+            if (selected.length >= prerequisiteLimit) break;
+            addCandidate(id);
+        }
+
+        const prereqs = compactStorySelection(selected, prerequisiteLimit)
+            .sort((a, b) => compareDate(graph.byId.get(a), graph.byId.get(b)));
         return [...prereqs, targetId];
     }
 
@@ -683,14 +726,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderStoryStage(trace) {
         if (!storyStageEl) return;
+        if (storyTimerId) {
+            window.clearInterval(storyTimerId);
+            storyTimerId = null;
+        }
         storyStageEl.replaceChildren();
         const points = buildStoryPoints(trace);
         if (!points.length) return;
+        const directEdgeById = new Map(trace.directEdges.map(entry => [entry.from, entry.edge]));
 
         appendStorySvg(storyStageEl, points);
 
         const nodeLayer = document.createElement('div');
         nodeLayer.className = 'demo-story-node-layer';
+        const nodeButtons = [];
         points.forEach((point, index) => {
             const button = createTechButton(point.item, 'demo-story-node-button');
             if (point.target) button.classList.add('is-target');
@@ -708,19 +757,57 @@ document.addEventListener('DOMContentLoaded', async () => {
             era.className = 'demo-story-node-era';
             era.textContent = point.item.era || 'Unknown';
             button.append(date, name, era);
+            button.addEventListener('mouseenter', () => setActiveStoryBeat(index));
+            nodeButtons.push(button);
             nodeLayer.appendChild(button);
         });
         storyStageEl.appendChild(nodeLayer);
 
-        const firstPoint = points[0];
-        const caption = document.createElement('div');
-        caption.className = 'demo-story-caption';
-        const prefix = document.createElement('span');
-        prefix.textContent = `${points.length - 1} sampled milestones`;
-        const story = document.createElement('strong');
-        story.textContent = `${formatDate(firstPoint.item.firstKnownDate)} to ${formatDate(trace.target.firstKnownDate)}`;
-        caption.append(prefix, story);
-        storyStageEl.appendChild(caption);
+        const beat = document.createElement('div');
+        beat.className = 'demo-story-beat';
+        const beatMeta = document.createElement('span');
+        const beatTitle = document.createElement('strong');
+        const beatText = document.createElement('p');
+        const beatProgress = document.createElement('div');
+        beatProgress.className = 'demo-story-progress';
+        const progressSteps = points.map((point, index) => {
+            const step = document.createElement('button');
+            step.type = 'button';
+            step.style.setProperty('--story-color', point.color);
+            step.setAttribute('aria-label', `Show story beat ${index + 1}: ${point.item.name}`);
+            step.addEventListener('click', () => setActiveStoryBeat(index));
+            beatProgress.appendChild(step);
+            return step;
+        });
+        beat.append(beatMeta, beatTitle, beatText, beatProgress);
+        storyStageEl.appendChild(beat);
+
+        let activeStoryIndex = 0;
+        function setActiveStoryBeat(index) {
+            activeStoryIndex = index;
+            const point = points[index];
+            const directEdge = directEdgeById.get(point.id);
+            const role = point.target
+                ? 'Target'
+                : directEdge
+                    ? edgeKind(directEdge)
+                    : getLane(point.item, currentField);
+            beatMeta.textContent = `Scene ${index + 1}/${points.length} · ${role} · ${formatDate(point.item.firstKnownDate)}`;
+            beatTitle.textContent = point.item.name;
+            beatText.textContent = point.target
+                ? `${trace.ids.length - 1} prerequisite technologies converge here across ${new Set(trace.ids.map(id => graph.byId.get(id)?.era).filter(Boolean)).size} eras.`
+                : shortenStoryText(point.item.description || directEdge?.note || 'A selected milestone on the path to this target.');
+            nodeButtons.forEach((button, buttonIndex) => button.classList.toggle('is-active-story', buttonIndex === index));
+            progressSteps.forEach((step, stepIndex) => step.classList.toggle('is-active-story', stepIndex === index));
+        }
+
+        setActiveStoryBeat(0);
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduceMotion && points.length > 1) {
+            storyTimerId = window.setInterval(() => {
+                setActiveStoryBeat((activeStoryIndex + 1) % points.length);
+            }, 2600);
+        }
     }
 
     function createHeroStep(id, trace) {
@@ -742,7 +829,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function renderHeroChain(trace) {
         if (!heroChainEl) return;
         heroChainEl.replaceChildren();
-        const chain = compactHeroChain(longestDependencyChain(trace));
+        const chain = compactHeroChain(getStoryPointIds(trace));
         chain.forEach((id, index) => {
             if (index > 0) {
                 const connector = document.createElement('span');

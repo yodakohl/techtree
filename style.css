@@ -785,10 +785,12 @@ main {
 }
 
 .demo-story-node-button:hover,
-.demo-story-node-button.is-selected {
+.demo-story-node-button.is-selected,
+.demo-story-node-button.is-active-story {
     background: rgba(11, 29, 35, 0.94);
     box-shadow:
         0 0 0 1px rgba(127, 212, 202, 0.58),
+        0 0 22px rgba(127, 212, 202, 0.25),
         0 18px 34px rgba(0, 0, 0, 0.3);
 }
 
@@ -828,6 +830,84 @@ button.demo-story-node-button:hover:not(:disabled) {
 
 .demo-story-node-button.is-target strong {
     font-size: 13px;
+}
+
+.demo-story-beat {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    left: 12px;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 14px;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(203, 220, 230, 0.18);
+    border-radius: 7px;
+    background:
+        linear-gradient(135deg, rgba(12, 23, 32, 0.94), rgba(7, 12, 18, 0.9)),
+        rgba(8, 15, 21, 0.86);
+    color: #c6d5de;
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.26),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.demo-story-beat span,
+.demo-story-beat strong,
+.demo-story-beat p {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.demo-story-beat span {
+    color: #8fcfca;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.demo-story-beat strong {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.15;
+}
+
+.demo-story-beat p {
+    grid-column: 1 / -1;
+    max-width: 760px;
+    margin: 0;
+    color: #bfced7;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.demo-story-progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    grid-row: 1 / span 2;
+    grid-column: 2;
+}
+
+.demo-story-progress button {
+    width: 34px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(185, 205, 219, 0.25);
+}
+
+.demo-story-progress button:hover {
+    background-color: var(--story-color);
+}
+
+.demo-story-progress button.is-active-story {
+    background: var(--story-color);
+    box-shadow: 0 0 16px rgba(127, 212, 202, 0.38);
 }
 
 .demo-story-caption {
@@ -2023,6 +2103,21 @@ button:hover:not(:disabled) {
         align-items: flex-start;
         flex-direction: column;
         gap: 3px;
+    }
+
+    .demo-story-beat {
+        grid-template-columns: 1fr;
+        padding: 9px 10px;
+    }
+
+    .demo-story-progress {
+        grid-row: auto;
+        grid-column: 1;
+    }
+
+    .demo-story-progress button {
+        flex: 1 1 0;
+        width: auto;
     }
 
     .demo-hero-step {
