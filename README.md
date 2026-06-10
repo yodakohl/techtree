@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1664-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1661-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
@@ -14,8 +14,8 @@
 | --- | --- |
 | **Try the demo** | Opens on CRISPR/Cas9 and traces the prerequisite stack needed to reach a target technology. |
 | **Inspect evidence** | Dependencies are typed and include confidence, evidence level, notes, and sources where available. |
-| **Use the data** | **1,664 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
-| **Check accuracy** | Latest manual sample: **40/40 sampled claims pass after correction**; see [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md). |
+| **Use the data** | **1,661 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
+| **Check accuracy** | Corrective sample: **40/40 claims pass after correction**; latest risk-queue sample found civic/admin data needing fixes. See [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md) and [risk sample](docs/MANUAL_ACCURACY_SAMPLE_CIVIC_ADMIN_2026-06-10.md). |
 | **Improve one edge** | Small PRs can correct one dependency/source; validation catches missing IDs, cycles, duplicates, and time-travel edges. |
 
 <!-- QUALITY_SNAPSHOT_START -->

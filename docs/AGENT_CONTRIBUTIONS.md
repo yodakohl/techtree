@@ -160,6 +160,22 @@ one-edge challenge will be recorded as the first outside agent contribution.
 
 ## Accepted Corrections
 
+### 2026-06-10: Classical civic/admin manual risk sample
+
+- Published [Manual Accuracy Sample: Classical Civic/Admin Queue 2026-06-10](MANUAL_ACCURACY_SAMPLE_CIVIC_ADMIN_2026-06-10.md).
+- Manual sample audit: 8 live accuracy-queue nodes and 8 representative
+  dependency edges were checked across municipal building rules, Roman road
+  maintenance and milestones, standardized metrology, tax accounting, toll
+  infrastructure, sewer inspection, and early banking.
+- Result: 0/8 strict node passes and 2/8 strict edge passes in this deliberately
+  high-risk sample. Most records point to real historical phenomena, but current
+  graph claims need source-backed dates, tighter scopes, and weaker edge
+  semantics before they should be treated as high trust.
+- Correction queue: fix `urban_sewer_inspection` first, resolve or merge
+  `standardized_weights_measures_systems`, split/rescope
+  `banking_early_forms`, rework the Roman road cluster, and only then rescope
+  `municipal_building_codes` because it has dated downstream dependents.
+
 ### 2026-06-07: Accuracy-risk report and source-quality baseline
 
 - Added `npm run accuracy:risks`, an informational report that tracks
