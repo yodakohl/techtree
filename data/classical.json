@@ -212,7 +212,7 @@
     "id": "amphitheater_colosseum",
     "name": "Amphitheater & Colosseum",
     "era": "Classical",
-    "description": "Large, open-air venues with tiered seating, built for public spectacles like gladiatorial contests and public dramas.",
+    "description": "Permanent Roman amphitheaters: oval public-spectacle venues with tiered seating, beginning with stone amphitheaters such as Pompeii and later culminating in the Colosseum.",
     "prerequisites": [
       "construction",
       "arches_domes",
@@ -220,52 +220,128 @@
       "urban_planning_grid_system",
       "crane_lifting_devices"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -80,
+    "datePrecision": "decade",
+    "region": "Roman Italy, from Pompeii to Rome",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Permanent amphitheaters are large built civic venues with durable seating and circulation infrastructure, so organized construction capability is intrinsic to the scoped technology.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Amphitheatre",
+            "url": "https://www.britannica.com/technology/amphitheater",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "arches_domes",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Arches and Domes is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "structurally_validated"
+        "type": "enabling",
+        "confidence": 0.62,
+        "evidence_level": "expert_inference",
+        "note": "Arched and vaulted circulation helped later Roman amphitheaters scale, but the earliest permanent amphitheater is scoped as stone venue construction rather than an arch-only invention.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Colosseum",
+            "url": "https://www.britannica.com/topic/Colosseum",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "roman_concrete_opus_caementicium",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Roman Concrete (Opus Caementicium) is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.58,
+        "evidence_level": "expert_inference",
+        "note": "Roman concrete supported the scale of later imperial amphitheaters such as the Colosseum, but it is not a hard prerequisite for the earliest permanent stone amphitheaters.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Colosseum",
+            "url": "https://www.britannica.com/topic/Colosseum",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "urban_planning_grid_system",
         "type": "common_dependency",
-        "confidence": 0.55,
+        "confidence": 0.5,
         "evidence_level": "weak_inference",
-        "note": "Urban Planning (Grid System) is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "structurally_validated"
+        "note": "Urban planning explains placement and crowd access for major public venues, but it is contextual rather than a direct technology prerequisite.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "crane_lifting_devices",
-        "type": "common_dependency",
+        "type": "commercial_or_scaling_dependency",
         "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Crane & Lifting Devices is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "structurally_validated"
+        "evidence_level": "expert_inference",
+        "note": "Large stone and concrete venues benefit from lifting machinery for scale and speed, but crane use is not the defining invention of amphitheater architecture.",
+        "reviewStatus": "source_checked"
       }
-    ]
+    ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Buildings & Urban Systems"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Amphitheatre",
+        "url": "https://www.britannica.com/technology/amphitheater",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Colosseum",
+        "url": "https://www.britannica.com/topic/Colosseum",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "scopeNote": "Covers permanent Roman amphitheater architecture as a venue type; earliest date follows Pompeii-style permanent amphitheaters, while the Colosseum is treated as a later peak example."
   },
   {
     "id": "anatomy_early_studies",
@@ -581,12 +657,10 @@
     "id": "arches_domes",
     "name": "Arches and Domes",
     "era": "Classical",
-    "description": "Architectural innovations using curved structures to distribute weight, allowing for larger and more stable buildings.",
+    "description": "Curved masonry structural forms such as arches, vaults, and domes that redirect loads through compression, enabling durable openings, roof spans, and later monumental interiors.",
     "prerequisites": [
       "masonry",
-      "geometry",
-      "concrete",
-      "woodworking_basic"
+      "geometry"
     ],
     "fields": [
       "Civil Engineering & Built Environment"
@@ -594,44 +668,58 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Structural Systems"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -3000,
+    "datePrecision": "millennium",
+    "region": "Ancient Near East, including Egypt, Mesopotamia, and the Levant",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "masonry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Masonry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "The scoped technology is masonry arches, vaults, and domes; the reviewed source describes ancient Near Eastern builders using mud brick and mortar to form these curved compression structures.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Arches and Vaults in the Ancient Near East",
+            "url": "https://www.scientificamerican.com/article/arches-and-vaults-in-the-ancient-ne/",
+            "publisher": "Scientific American",
+            "year": 1987,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "geometry",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "accelerates",
+        "confidence": 0.56,
         "evidence_level": "expert_inference",
-        "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "woodworking_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "Formal geometry helps design, scale, and teach later arches and domes, but early masonry examples did not require written geometric theory.",
+        "reviewStatus": "source_checked"
       }
-    ]
+    ],
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Arches and Vaults in the Ancient Near East",
+        "url": "https://www.scientificamerican.com/article/arches-and-vaults-in-the-ancient-ne/",
+        "publisher": "Scientific American",
+        "year": 1987,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "scopeNote": "Covers masonry arches, vaults, and domes as a family of curved load-bearing structural forms; the date is anchored to early Near Eastern arches/vaults, not mature Roman concrete domes."
   },
   {
     "id": "astrolabe_early",
@@ -2417,11 +2505,10 @@
     "id": "harbor_engineering_breakwaters",
     "name": "Harbor Engineering (Breakwaters)",
     "era": "Classical",
-    "description": "The construction of artificial breakwaters and moles using concrete and stone to create safe, all-weather anchorages for shipping.",
+    "description": "Artificial harbor protection using stone, rubble, timber, moles, and later concrete breakwaters to reduce wave exposure and create safer anchorages.",
     "prerequisites": [
       "construction",
       "sailing",
-      "roman_concrete_opus_caementicium",
       "hydraulics"
     ],
     "firstKnownDate": -500,
@@ -2446,14 +2533,6 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "roman_concrete_opus_caementicium",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roman Concrete (Opus Caementicium) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
         "prerequisite": "hydraulics",
         "type": "enabling",
         "confidence": 0.68,
@@ -2461,7 +2540,8 @@
         "note": "Hydraulics provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
-    ]
+    ],
+    "scopeNote": "Covers general artificial breakwaters and harbor-protection works; Roman hydraulic concrete is a later scaling path for maritime works, not a universal prerequisite for breakwaters."
   },
   {
     "id": "humoral_theory",
@@ -4386,10 +4466,9 @@
     "id": "roman_concrete_opus_caementicium",
     "name": "Roman Concrete (Opus Caementicium)",
     "era": "Classical",
-    "description": "Advanced concrete formulation using pozzolanic ash, known for its durability and hydraulic properties.",
+    "description": "Roman opus caementicium: a lime-mortar and aggregate concrete, often improved with pozzolanic volcanic ash for durable hydraulic and vaulted construction.",
     "prerequisites": [
       "concrete",
-      "basic_chemistry_early_forms",
       "mining",
       "volcanic_ash_utilization"
     ],
@@ -4399,44 +4478,118 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Construction Materials"
     },
-    "firstKnownDate": -500,
+    "firstKnownDate": -300,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman Italy, with early evidence in Cosa and wider Republican Roman construction",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "basic_chemistry_early_forms",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Chemistry (Early Forms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Opus caementicium is the Roman concrete formulation, combining mortar with stone aggregate; the scoped node is a concrete subtype rather than a separate material family.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Origins of Concrete Construction in Roman Architecture: Introduction",
+            "url": "https://www.cambridge.org/core/books/abs/origins-of-concrete-construction-in-roman-architecture/introduction/D210096AD56E6C34FC674622E89156FC",
+            "publisher": "Cambridge University Press",
+            "year": 2021,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          },
+          {
+            "title": "Roman Architecture",
+            "url": "https://www.worldhistory.org/Roman_Architecture/",
+            "publisher": "World History Encyclopedia",
+            "year": 2018,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mining",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Mining provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Roman concrete scaled with reliable supplies of lime, aggregate, and regional pozzolanic materials, so extraction and transport are scaling dependencies rather than conceptual prerequisites.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman Architecture",
+            "url": "https://www.worldhistory.org/Roman_Architecture/",
+            "publisher": "World History Encyclopedia",
+            "year": 2018,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "volcanic_ash_utilization",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Volcanic Ash Utilization provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Hydraulic Roman concrete relied on pozzolanic volcanic ash where water-resistant setting was needed, especially in maritime and vaulted construction contexts.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman Architecture",
+            "url": "https://www.worldhistory.org/Roman_Architecture/",
+            "publisher": "World History Encyclopedia",
+            "year": 2018,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "The Origins of Concrete Construction in Roman Architecture: Introduction",
+        "url": "https://www.cambridge.org/core/books/abs/origins-of-concrete-construction-in-roman-architecture/introduction/D210096AD56E6C34FC674622E89156FC",
+        "publisher": "Cambridge University Press",
+        "year": 2021,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Roman Architecture",
+        "url": "https://www.worldhistory.org/Roman_Architecture/",
+        "publisher": "World History Encyclopedia",
+        "year": 2018,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "scopeNote": "Covers Roman opus caementicium and pozzolanic hydraulic concrete practice; excludes modern Portland-cement concrete and prehistoric lime-plaster floors."
   },
   {
     "id": "roman_law",
