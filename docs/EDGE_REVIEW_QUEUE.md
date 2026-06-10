@@ -9,6 +9,7 @@ makes a falsifiable edge decision. See
 
 | Issue | Target | Task |
 | --- | --- | --- |
+| [#74](https://github.com/yodakohl/techtree/issues/74) | one high-risk Classical node | Pick exactly one node from the current risk queue, run `npm run node-packet -- <node_id>`, source-check its date/region/scope, and fix only the dependency edges directly on that node. Good starter targets include `concrete`, `construction`, `gears_simple_classical`, and `urban_planning_grid_system`. |
 | [#66](https://github.com/yodakohl/techtree/issues/66) | `semiconductors` node scope | Decide whether the broad semiconductor node should be split or rescoped, and whether `clean_rooms`, `electronics`, and downstream chip-manufacturing dependents preserve the right causal boundary. Generate the packet with `npm run node-packet -- semiconductors --issue 66`; broad-node PRs should also include a before/after `npm run node-snapshot-diff` behavior check. |
 
 ## Completed Starters
