@@ -4669,7 +4669,7 @@
     "id": "taxation_and_tribute",
     "name": "Taxation and Tribute",
     "era": "Ancient",
-    "description": "Systematic collection of goods, grain, or labor by a central authority to fund the state, its army, and public works.",
+    "description": "Systematic collection of goods, livestock, grain, labor service, tolls, or duties by early states and temple authorities.",
     "prerequisites": [
       "record_keeping",
       "standardized_weights_and_measures"
@@ -4682,8 +4682,8 @@
     },
     "firstKnownDate": -3000,
     "datePrecision": "century",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Ancient Egypt and Mesopotamia",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "record_keeping",
@@ -4700,6 +4700,101 @@
         "evidence_level": "weak_inference",
         "note": "Standardized Weights and Measures is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
         "reviewStatus": "structurally_validated"
+      }
+    ],
+    "scopeNote": "Covers source-backed early state taxation and tribute obligations, including payments in kind and labor service; excludes modern income tax systems and later tax farming institutions.",
+    "sources": [
+      {
+        "title": "Taxes in the Ancient World",
+        "url": "https://almanac.upenn.edu/archive/v48/n28/AncientTaxes.html",
+        "publisher": "University of Pennsylvania Almanac / Penn Museum",
+        "year": 2002,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tax_accounting",
+    "name": "Tax Accounting",
+    "era": "Ancient",
+    "description": "Administrative records and calculations for tracking taxes, tribute, labor obligations, deliveries, arrears, and exemptions in early states.",
+    "prerequisites": [
+      "taxation_and_tribute",
+      "basic_arithmetic",
+      "record_keeping"
+    ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Money & Accounting"
+    },
+    "firstKnownDate": -3000,
+    "datePrecision": "century",
+    "region": "Ancient Egypt and Mesopotamia",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "taxation_and_tribute",
+        "type": "common_dependency",
+        "confidence": 0.55,
+        "evidence_level": "weak_inference",
+        "note": "Taxation and Tribute is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "reviewStatus": "structurally_validated"
+      },
+      {
+        "prerequisite": "basic_arithmetic",
+        "type": "common_dependency",
+        "confidence": 0.55,
+        "evidence_level": "weak_inference",
+        "note": "Basic Arithmetic is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "reviewStatus": "structurally_validated"
+      },
+      {
+        "prerequisite": "record_keeping",
+        "type": "common_dependency",
+        "confidence": 0.55,
+        "evidence_level": "weak_inference",
+        "note": "Record Keeping is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "reviewStatus": "structurally_validated"
+      }
+    ],
+    "scopeNote": "Covers administrative tax-accounting records in early states, not modern income-tax accounting, professional accountancy, or later Roman tax farming.",
+    "sources": [
+      {
+        "title": "Taxes in the Ancient World",
+        "url": "https://almanac.upenn.edu/archive/v48/n28/AncientTaxes.html",
+        "publisher": "University of Pennsylvania Almanac / Penn Museum",
+        "year": 2002,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Cuneiform Tablet: Administrative Account Concerning the Distribution of Barley and Emmer",
+        "url": "https://www.metmuseum.org/art/collection/search/327384",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Significance of Ancient Mesopotamia in Accounting History",
+        "url": "https://egrove.olemiss.edu/aah_journal/vol11/iss1/5/",
+        "publisher": "Accounting Historians Journal",
+        "year": 1984,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ]
       }
     ]
   },
