@@ -9655,37 +9655,93 @@
     "id": "urban_sewer_inspection",
     "name": "Urban Sewer Inspection",
     "era": "Classical",
-    "description": "Access shafts, maintenance crews, and drainage surveys for keeping city sewers and culverts operational.",
+    "description": "Documented inspection and maintenance of urban sewers, drains, branches, and culverts to keep civic drainage systems operational.",
     "prerequisites": [
-      "aqueducts",
+      "sewers_and_drainage",
       "construction"
     ],
     "fields": [
+      "Water & Sanitation Systems",
       "Civil Engineering & Built Environment"
     ],
     "fieldLanes": {
+      "Water & Sanitation Systems": "Sanitation & Sewerage",
       "Civil Engineering & Built Environment": "Water & Sanitation Infrastructure"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Cloaca Maxima",
+        "url": "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/Europe/Italy/Lazio/Roma/Rome/_Texts/PLATOP%2A/Cloaca_Maxima.html",
+        "publisher": "A Topographical Dictionary of Ancient Rome / LacusCurtius",
+        "year": 1929,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Sewerage System",
+        "url": "https://www.britannica.com/technology/sewerage-system",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": -33,
+    "datePrecision": "exact",
+    "region": "Rome, Roman Republic",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers documented inspection and maintenance of existing Roman sewer/drainage infrastructure, anchored to Agrippa's 33 BCE inspection of the Cloaca Maxima system. It excludes the earlier invention of sewers and modern sanitary sewer networks.",
     "dependencyEdges": [
       {
-        "prerequisite": "aqueducts",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Aqueducts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "sewers_and_drainage",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "Inspection and maintenance of urban sewers presupposes an existing sewer/drainage system; the Cloaca Maxima entry describes the sewer network and Agrippa's inspection of the system.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Cloaca Maxima",
+            "url": "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/Europe/Italy/Lazio/Roma/Rome/_Texts/PLATOP%2A/Cloaca_Maxima.html",
+            "publisher": "A Topographical Dictionary of Ancient Rome / LacusCurtius",
+            "year": 1929,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge",
+              "maturity"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "construction",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "The inspected Cloaca Maxima system included built, vaulted, paved, restored, and branch-drain sections; construction practice enabled durable access and repair without making aqueducts necessary.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Cloaca Maxima",
+            "url": "https://penelope.uchicago.edu/Thayer/E/Gazetteer/Places/Europe/Italy/Lazio/Roma/Rome/_Texts/PLATOP%2A/Cloaca_Maxima.html",
+            "publisher": "A Topographical Dictionary of Ancient Rome / LacusCurtius",
+            "year": 1929,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge",
+              "maturity"
+            ]
+          }
+        ]
       }
     ]
   },

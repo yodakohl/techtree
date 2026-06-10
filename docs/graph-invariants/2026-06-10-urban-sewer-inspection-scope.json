@@ -1,0 +1,26 @@
+{
+  "id": "2026-06-10-urban-sewer-inspection-scope",
+  "description": "Adversarial invariant for the civic/admin manual sample: urban sewer inspection must stay scoped to sewer/drainage maintenance rather than aqueduct infrastructure.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "urban_sewer_inspection",
+      "operator": "eq",
+      "value": -33,
+      "reason": "The source-checked node is anchored to Agrippa's reported 33 BCE inspection of the Cloaca Maxima system."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "urban_sewer_inspection",
+      "prerequisite": "sewers_and_drainage",
+      "expected": "required",
+      "reason": "Sewer inspection presupposes an existing sewer/drainage system."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urban_sewer_inspection",
+      "prerequisite": "aqueducts",
+      "reason": "Aqueducts are water-supply infrastructure, not a prerequisite for sewer inspection."
+    }
+  ]
+}
