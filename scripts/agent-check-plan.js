@@ -30,6 +30,23 @@ function addCommand(commands, label, cmd, reason) {
     }
 }
 
+function isCommand(commands, expected) {
+    return commands.some(command => command.cmd.join('\0') === expected.join('\0'));
+}
+
+function removeQualityCoveredCommands(commands) {
+    if (!isCommand(commands, ['npm', 'run', 'quality'])) return commands;
+    const covered = new Set([
+        ['npm', 'run', 'edge-receipts'].join('\0'),
+        ['npm', 'run', 'graph-invariants'].join('\0'),
+        ['npm', 'run', 'invariant-coverage'].join('\0'),
+        ['npm', 'run', 'trust:audit'].join('\0'),
+        ['node', 'scripts/generate-quality-snapshot.js', '--check'].join('\0'),
+        ['node', 'scripts/generate-field-quality-snapshot.js', '--check'].join('\0')
+    ]);
+    return commands.filter(command => !covered.has(command.cmd.join('\0')));
+}
+
 function changedFiles() {
     return unique([
         ...git(['diff', '--name-only']),
@@ -102,7 +119,11 @@ function plan(files) {
         addCommand(commands, 'Coverage report', ['npm', 'run', 'coverage'], 'technology coverage may have changed');
     }
 
-    return commands;
+    if (files.some(isTechnologyData)) {
+        addCommand(commands, 'Source URL audit', ['npm', 'run', 'source-urls'], 'technology sources may have changed');
+    }
+
+    return removeQualityCoveredCommands(commands);
 }
 
 function printPlan(files, commands) {

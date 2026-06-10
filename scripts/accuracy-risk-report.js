@@ -51,7 +51,11 @@ function defaultDateFor(item) {
 }
 
 function usesEraDefaultDate(item) {
-    return item.firstKnownDate === defaultDateFor(item);
+    const defaults = ERA_DEFAULT_DATES[item.era];
+    if (!defaults) return false;
+    return item.firstKnownDate === defaults.firstKnownDate
+        && item.datePrecision === defaults.datePrecision
+        && item.region === defaults.region;
 }
 
 function hasSource(item) {
@@ -246,12 +250,12 @@ function renderMarkdown(report) {
         ['Source-checked nodes without sources', t.sourceCheckedNoSources],
         ['Source-checked nodes with only weak sources', t.sourceCheckedAllWeak],
         ['Pre-1900 source-checked nodes with only generic sources', t.sourceCheckedGenericOld],
-        ['Era-default dates', `${t.eraDefaultDates}/${t.technologies} (${percentage(t.eraDefaultDates, t.technologies)})`],
-        ['Source-checked era-default dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
+        ['Era-default placeholder dates', `${t.eraDefaultDates}/${t.technologies} (${percentage(t.eraDefaultDates, t.technologies)})`],
+        ['Source-checked era-default placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
         ['Dependency edges with edge-level sources', `${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`]
     ]);
 
-    const eraRows = [['Era', 'Nodes', 'Era-default date', 'Source-checked', 'Source-checked default date']];
+    const eraRows = [['Era', 'Nodes', 'Era-default placeholder date', 'Source-checked', 'Source-checked placeholder date']];
     for (const era of ERA_ORDER) {
         const stats = report.eraStats[era];
         eraRows.push([
@@ -285,7 +289,7 @@ function renderMarkdown(report) {
         '',
         summary,
         '',
-        '## Era Default Date Debt',
+        '## Era-Default Placeholder Date Debt',
         '',
         markdownTable(eraRows),
         '',
@@ -302,7 +306,7 @@ function renderText(report) {
     console.log(`Technologies: ${t.technologies}`);
     console.log(`Source-checked: ${t.sourceChecked}/${t.technologies} (${percentage(t.sourceChecked, t.technologies)})`);
     console.log(`Pre-1900 source-checked generic-only: ${t.sourceCheckedGenericOld}`);
-    console.log(`Era-default dates: ${t.eraDefaultDates}/${t.technologies} (${percentage(t.eraDefaultDates, t.technologies)})`);
+    console.log(`Era-default placeholder dates: ${t.eraDefaultDates}/${t.technologies} (${percentage(t.eraDefaultDates, t.technologies)})`);
     console.log(`Edge source coverage: ${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`);
     console.log('\nNext manual review queue:');
     for (const item of report.candidateQueue) {

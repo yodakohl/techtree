@@ -6,13 +6,41 @@
     }
 })(typeof globalThis !== 'undefined' ? globalThis : this, function buildTrustLevels() {
     const ERA_DEFAULT_DATES = {
-        Ancient: -10000,
-        Classical: -500,
-        Medieval: 500,
-        Renaissance: 1400,
-        Industrial: 1760,
-        Modern: 1945,
-        Future: 2035
+        Ancient: {
+            firstKnownDate: -10000,
+            datePrecision: 'millennium',
+            region: 'Global / multiple regions'
+        },
+        Classical: {
+            firstKnownDate: -500,
+            datePrecision: 'century',
+            region: 'Mediterranean, South Asia, East Asia, and other classical societies'
+        },
+        Medieval: {
+            firstKnownDate: 500,
+            datePrecision: 'century',
+            region: 'Afro-Eurasia and other medieval societies'
+        },
+        Renaissance: {
+            firstKnownDate: 1400,
+            datePrecision: 'century',
+            region: 'Europe and connected early modern exchange networks'
+        },
+        Industrial: {
+            firstKnownDate: 1760,
+            datePrecision: 'decade',
+            region: 'Europe, North America, and industrializing regions'
+        },
+        Modern: {
+            firstKnownDate: 1945,
+            datePrecision: 'decade',
+            region: 'Global / multiple regions'
+        },
+        Future: {
+            firstKnownDate: 2035,
+            datePrecision: 'decade',
+            region: 'Forecast / not yet broadly established'
+        }
     };
 
     const NODE_TRUST = {
@@ -78,8 +106,12 @@
     }
 
     function usesEraDefaultDate(node) {
+        const defaults = ERA_DEFAULT_DATES[node?.era];
         return typeof node?.firstKnownDate === 'number'
-            && node.firstKnownDate === ERA_DEFAULT_DATES[node.era];
+            && defaults
+            && node.firstKnownDate === defaults.firstKnownDate
+            && node.datePrecision === defaults.datePrecision
+            && node.region === defaults.region;
     }
 
     function isFutureRoadmap(node) {

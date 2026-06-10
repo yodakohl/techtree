@@ -1,0 +1,64 @@
+{
+  "id": "2026-06-10-ancient-materials-scope",
+  "description": "Lock corrected early pottery, masonry, reed-architecture, and contextual-edge chronology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pottery",
+      "operator": "eq",
+      "value": -18000,
+      "reason": "Pottery is anchored to Xianrendong evidence around 20,000 years ago."
+    },
+    {
+      "type": "first_known_date",
+      "node": "clay_gathering_and_preparation",
+      "operator": "eq",
+      "value": -18000,
+      "reason": "Clay preparation is kept as a dependency lower bound for the early pottery node."
+    },
+    {
+      "type": "first_known_date",
+      "node": "masonry",
+      "operator": "eq",
+      "value": -9600,
+      "reason": "Masonry is scoped to durable stone construction anchored by Gobekli Tepe."
+    },
+    {
+      "type": "first_known_date",
+      "node": "reed_mat_architecture",
+      "operator": "eq",
+      "value": -3300,
+      "reason": "Reed mat architecture is scoped to the southern Mesopotamian reed-building tradition."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "levers_and_rollers",
+      "prerequisite": "masonry",
+      "reason": "Masonry is an application context for moving stones, not a prerequisite for levers and rollers."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fired_bricks_early_kilns",
+      "prerequisite": "masonry",
+      "reason": "Fired bricks are clay-firing technology, not a direct case of stone masonry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lime_plaster",
+      "prerequisite": "masonry",
+      "reason": "Masonry is an application surface for plaster, not a prerequisite for lime plaster chemistry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "simple_windbreak_shelters",
+      "prerequisite": "reed_mat_architecture",
+      "reason": "Generic windbreak shelters should not require a later regional reed-building tradition."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basketry_granaries",
+      "prerequisite": "reed_mat_architecture",
+      "reason": "Basketry granaries depend on storage/weaving context rather than reed architecture."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-10-lime-plaster-masonry-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "lime_plaster",
+    "prerequisite": "masonry"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Masonry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because lime plaster is scoped as a calcined-lime coating and flooring material; masonry is a common application context, not a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/decisions/7148/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO decision describing early monumental stone construction, used here to prevent broad masonry context from laundering into lime-plaster chronology.",
+    "source_claim_summary": "The source identifies masonry-like stone architecture as a distinct construction tradition, not as a required precursor for lime-burning and plaster preparation.",
+    "source_support_rationale": "The chemistry and firing path for lime plaster should not inherit a later masonry date merely because plaster is often used on masonry surfaces."
+  },
+  "ontology_before": "Lime plaster had a generic masonry enabler edge that made an application surface look like a prerequisite.",
+  "ontology_after": "Lime plaster keeps thermal and kiln context while dropping the direct masonry edge.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-10-ancient-materials-scope keeps this removed edge absent and locks the corrected early-material chronology.",
+  "would_reject_if": [
+    "The dependent node were narrowed to a later application that truly requires the removed prerequisite.",
+    "A stronger source showed the removed prerequisite existed earlier than and was necessary for the dependent node scope.",
+    "A future graph split introduced a narrower downstream node where this removed edge would be correctly scoped."
+  ],
+  "short_reason": "No direct dependency remains because lime plaster is scoped as a calcined-lime coating and flooring material; masonry is a common application context, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-10-fired-bricks-masonry-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "fired_bricks_early_kilns",
+    "prerequisite": "masonry"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Masonry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because fired bricks and early kilns are scoped as clay-firing technologies, not as a downstream case of stone masonry.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/decisions/7148/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO decision used to scope masonry as durable stone monumental construction rather than fired-clay production.",
+    "source_claim_summary": "The source supports a masonry chronology and stone-construction scope, which is separate from making fired clay bricks in kilns.",
+    "source_support_rationale": "Fired bricks should depend on pottery and mud-brick/thermal practice; keeping masonry as a direct prerequisite forced unrelated stone-construction chronology into clay firing."
+  },
+  "ontology_before": "Fired bricks carried a generic masonry enabler edge that became chronologically later after masonry was source-dated.",
+  "ontology_after": "Fired bricks remain connected to pottery and mud-brick production without a direct stone-masonry prerequisite.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-10-ancient-materials-scope keeps this removed edge absent and locks the corrected early-material chronology.",
+  "would_reject_if": [
+    "The dependent node were narrowed to a later application that truly requires the removed prerequisite.",
+    "A stronger source showed the removed prerequisite existed earlier than and was necessary for the dependent node scope.",
+    "A future graph split introduced a narrower downstream node where this removed edge would be correctly scoped."
+  ],
+  "short_reason": "No direct dependency remains because fired bricks and early kilns are scoped as clay-firing technologies, not as a downstream case of stone masonry.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

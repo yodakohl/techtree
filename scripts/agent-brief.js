@@ -1,10 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const {
+    TAXONOMY_FILE,
+    loadData,
+    makeReport,
+    readJson
+} = require('./accuracy-risk-report');
 
 const ROOT = path.join(__dirname, '..');
 
-function readJson(relativePath) {
+function readRepoJson(relativePath) {
     return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), 'utf8'));
 }
 
@@ -16,23 +22,11 @@ function maybeGit(args) {
     }
 }
 
-function latestRiskReport() {
-    const docsDir = path.join(ROOT, 'docs');
-    return fs.readdirSync(docsDir)
-        .filter(file => /^ACCURACY_RISK_REPORT_.*\.md$/.test(file))
-        .sort()
-        .at(-1);
-}
-
-function parseRiskQueue(file) {
-    if (!file) return [];
-    const content = fs.readFileSync(path.join(ROOT, 'docs', file), 'utf8');
-    return content
-        .split('\n')
-        .map(line => line.match(/^\|\s*\d+\s*\|\s*`([^`]+)`\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|/))
-        .filter(Boolean)
+function currentRiskQueue() {
+    const report = makeReport(loadData(), readJson(TAXONOMY_FILE));
+    return report.candidateQueue
         .slice(0, 8)
-        .map(match => `${match[1]} (${match[2].trim()}, ${match[3].trim()}: ${match[4].trim()})`);
+        .map(item => `${item.id} (${item.era}, ${item.firstKnownDate}: ${item.risks.map(risk => risk.risk).join(', ')})`);
 }
 
 function metricLines(snapshot) {
@@ -43,10 +37,9 @@ function metricLines(snapshot) {
 }
 
 function main() {
-    const pkg = readJson('package.json');
-    const snapshot = readJson('data/quality-snapshot.json');
-    const riskFile = latestRiskReport();
-    const riskQueue = parseRiskQueue(riskFile);
+    const pkg = readRepoJson('package.json');
+    const snapshot = readRepoJson('data/quality-snapshot.json');
+    const riskQueue = currentRiskQueue();
     const status = maybeGit(['status', '--short']);
     const branch = maybeGit(['branch', '--show-current']) || 'unknown';
     const lastCommit = maybeGit(['log', '-1', '--oneline']) || 'unknown';
@@ -61,7 +54,7 @@ function main() {
     for (const line of metricLines(snapshot)) console.log(`- ${line}`);
     console.log('');
 
-    console.log(`Next Accuracy Queue${riskFile ? ` (${riskFile})` : ''}`);
+    console.log('Next Accuracy Queue (live)');
     if (riskQueue.length) {
         for (const item of riskQueue) console.log(`- ${item}`);
     } else {

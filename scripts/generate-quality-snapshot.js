@@ -46,7 +46,7 @@ function buildSnapshot(report, generatedAt = report.generatedAt) {
         metric('Source-checked nodes', t.sourceChecked, t.technologies, percentage(t.sourceChecked, t.technologies)),
         metric('Nodes with node-level sources', t.nodesWithSources, t.technologies, percentage(t.nodesWithSources, t.technologies)),
         metric('Dependency edges with edge-level sources', t.edgesWithSources, t.totalEdges, percentage(t.edgesWithSources, t.totalEdges)),
-        metric('Era-default dates', t.eraDefaultDates, t.technologies, percentage(t.eraDefaultDates, t.technologies)),
+        metric('Era-default placeholder dates', t.eraDefaultDates, t.technologies, percentage(t.eraDefaultDates, t.technologies)),
         metric(MANUAL_SAMPLE.label, MANUAL_SAMPLE.passed, MANUAL_SAMPLE.total, 'passed after correction')
     ];
 
