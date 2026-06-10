@@ -976,12 +976,22 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "Carbon fiber",
+        "url": "https://en.wikipedia.org/wiki/Carbon_fiber",
+        "publisher": "Wikipedia",
+        "year": 2026,
+        "source_type": "weak_web",
+        "supports": [
+          "node"
+        ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
+    "firstKnownDate": 1958,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "polymer_chemistry",
@@ -1666,9 +1676,8 @@
     "era": "Modern",
     "description": "Engineering of highly precise and small-scale mechanical components and systems.",
     "prerequisites": [
+      "precision_machine_tools",
       "mechanical_clocks",
-      "mass_production",
-      "material_science_lightweight_alloys",
       "steel_production",
       "electric_motor"
     ],
@@ -1678,41 +1687,58 @@
     "fieldLanes": {
       "Mechanical Engineering": "Foundations & Measurement"
     },
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1900,
+    "datePrecision": "century",
+    "region": "Europe and North America precision manufacturing systems",
+    "sources": [
+      {
+        "title": "Machine Tool",
+        "url": "https://www.britannica.com/technology/machine-tool/Modifications-of-basic-machines",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      }
+    ],
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
+        "prerequisite": "precision_machine_tools",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Precision machine tools provide the repeatable, high-accuracy fabrication capability needed for miniaturized mechanical systems.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Machine Tool",
+            "url": "https://www.britannica.com/technology/machine-tool/Modifications-of-basic-machines",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
         "prerequisite": "mechanical_clocks",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Mechanical Clocks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "mass_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mass Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "material_science_lightweight_alloys",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Material Science (Lightweight Alloys) provides a capability that enables this technology without being the only possible path.",
+        "note": "Clockmaking established precision-mechanism traditions, but modern miniaturization is not caused solely by historical clockwork.",
         "reviewStatus": "structurally_validated"
       },
       {
         "prerequisite": "steel_production",
-        "type": "enabling",
+        "type": "historical_predecessor",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
+        "note": "Steel production is a broad historical supplier of material capability for precision hardware.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -12326,7 +12352,7 @@
       "electronics",
       "phonograph"
     ],
-    "firstKnownDate": 1945,
+    "firstKnownDate": 1920,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
@@ -14937,12 +14963,11 @@
     "era": "Modern",
     "description": "Very tall buildings made possible by steel frames, reinforced concrete, and elevators.",
     "prerequisites": [
-      "steel_production",
-      "construction",
+      "skyscrapers_steel_frame",
+      "electric_elevators",
       "electricity",
       "plumbing",
-      "reinforced_concrete",
-      "electric_motor"
+      "reinforced_concrete"
     ],
     "fields": [
       "Civil Engineering & Built Environment"
@@ -14950,26 +14975,73 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Structural Systems"
     },
-    "firstKnownDate": 1945,
+    "firstKnownDate": 1890,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
+    "region": "Chicago, New York, and global urban architecture",
+    "sources": [
       {
-        "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Home Insurance Company Building",
+        "url": "https://www.britannica.com/place/Home-Insurance-Company-Building",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ]
       },
       {
-        "prerequisite": "construction",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
+        "title": "Early Steel-Frame High-Rises",
+        "url": "https://www.britannica.com/technology/construction/Early-steel-frame-high-rises",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "edge"
+        ]
+      }
+    ],
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "skyscrapers_steel_frame",
+        "type": "enabling",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "Skyscraper frame systems were enabled by early steel-frame structural systems, which are a direct technical precursor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Home Insurance Company Building",
+            "url": "https://www.britannica.com/place/Home-Insurance-Company-Building",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electric_elevators",
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "textbook",
+        "note": "Elevator systems are the enabling vertical-transport technology for practical high-rise development.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Elevator",
+            "url": "https://www.britannica.com/technology/elevator-vertical-transport",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "electricity",
@@ -14977,7 +15049,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Electricity provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "plumbing",
@@ -14985,7 +15057,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Plumbing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "reinforced_concrete",
@@ -14993,15 +15065,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Reinforced Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "electric_motor",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Electric Motor supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -15011,8 +15075,6 @@
     "era": "Modern",
     "description": "The technical and political process concerned with the development and design of land use and the built environment, including air, water, and infrastructure.",
     "prerequisites": [
-      "skyscrapers",
-      "internal_combustion_engine",
       "sociology_early",
       "demography",
       "public_sanitation_modern"
@@ -15023,34 +15085,42 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Buildings & Urban Systems"
     },
-    "firstKnownDate": 1945,
+    "firstKnownDate": 1950,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "North America and Europe, later global",
+    "sources": [
+      {
+        "title": "Urban planning",
+        "url": "https://www.britannica.com/topic/urban-planning",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Urban planning - The era of industrialization",
+        "url": "https://www.britannica.com/topic/urban-planning/The-era-of-industrialization",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      }
+    ],
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "skyscrapers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Skyscrapers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "internal_combustion_engine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Internal Combustion Engine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "sociology_early",
         "type": "historical_predecessor",
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Sociology (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "demography",
@@ -15058,7 +15128,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Demography provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "public_sanitation_modern",
@@ -15066,7 +15136,7 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Modern Public Sanitation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -36194,21 +36264,32 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Air Quality Monitoring",
-        "url": "https://www.epa.gov/amtic",
+        "title": "Catalytic converter",
+        "url": "https://www.britannica.com/technology/catalytic-converter",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "U.S. EPA about catalytic converters",
+        "url": "https://www.epa.gov/archive/epa/aboutepa/working-catalysts-required-imported-cars.html",
         "publisher": "U.S. Environmental Protection Agency",
         "year": 2026,
-        "source_type": "weak_web",
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
+    "firstKnownDate": 1975,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "internal_combustion_engine",
@@ -39860,21 +39941,21 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
+        "title": "Powder metallurgy",
+        "url": "https://en.wikipedia.org/wiki/Powder_metallurgy",
+        "publisher": "Wikipedia",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1945,
+    "firstKnownDate": 1889,
     "datePrecision": "decade",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "advanced_metallurgy_medieval",
@@ -39929,12 +40010,22 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "Advanced ceramics",
+        "url": "https://www.britannica.com/technology/advanced-ceramics",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
+    "firstKnownDate": 1948,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "pottery",
@@ -39982,12 +40073,22 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "Superalloy",
+        "url": "https://en.wikipedia.org/wiki/Superalloy",
+        "publisher": "Wikipedia",
+        "year": 2026,
+        "source_type": "weak_web",
+        "supports": [
+          "node"
+        ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
+    "firstKnownDate": 1941,
+    "datePrecision": "exact",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "stainless_steel",
@@ -40135,8 +40236,8 @@
     "era": "Modern",
     "description": "Alloys that recover preset shapes under temperature or stress changes, enabling actuators, medical devices, couplings, and adaptive systems.",
     "prerequisites": [
-      "advanced_metallurgy_medieval",
-      "medicine_clinical"
+      "advanced_materials_science",
+      "material_science_lightweight_alloys"
     ],
     "fields": [
       "Materials Science & Manufacturing"
@@ -40147,37 +40248,71 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "Teaching an Old Metal New Tricks",
+        "url": "https://spinoff.nasa.gov/Teaching_an_Old_Metal_New_Tricks",
+        "publisher": "NASA Spinoff",
+        "year": 2022,
+        "source_type": "official_agency",
         "supports": [
           "node",
-          "maturity"
+          "edge"
+        ]
+      },
+      {
+        "title": "Materials Matter: Nitinol",
+        "url": "https://www.mrsec.psu.edu/education-outreach/public/museum-kits/materials-matter/nitinol",
+        "publisher": "Pennsylvania State University, MRSEC",
+        "year": 2025,
+        "source_type": "weak_web",
+        "supports": [
+          "node"
         ]
       }
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1962,
+    "datePrecision": "exact",
+    "region": "United States (Naval Ordnance Laboratory), Maryland",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "advanced_metallurgy_medieval",
+        "prerequisite": "advanced_materials_science",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "Shape-memory alloys emerged within the post-war materials-science platform, combining composition, processing, and structural-property design.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Materials Matter: Nitinol",
+            "url": "https://www.mrsec.psu.edu/education-outreach/public/museum-kits/materials-matter/nitinol",
+            "publisher": "Pennsylvania State University, MRSEC",
+            "year": 2025,
+            "source_type": "weak_web",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "medicine_clinical",
+        "prerequisite": "material_science_lightweight_alloys",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Clinical Medicine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Contemporary alloy-design practice requires precise lightweight and high-performance alloy development capabilities.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Materials Science (Encyclopaedia Britannica, 2020)",
+            "url": "https://www.britannica.com/technology/duralumin",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
