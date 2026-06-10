@@ -277,45 +277,63 @@
     "id": "woodworking_basic",
     "name": "Basic Woodworking",
     "era": "Ancient",
-    "description": "Shaping wood for simple tools, shelters, and fire fuel using stone implements.",
+    "description": "Deliberately shaping wood into tools, shafts, handles, shelters, and fuel supports using stone implements and other early toolkits.",
     "prerequisites": [
       "stone_tool_making",
       "fire_control"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -300000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Schöningen, Germany and other Pleistocene wooden-tool contexts",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "stone_tool_making",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Stone Tool Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "Preserved Pleistocene wooden tools show deliberate shaping, implying cutting, scraping, and finishing with earlier toolmaking capabilities.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11009636/",
+            "publisher": "Proceedings of the National Academy of Sciences",
+            "year": 2024,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "fire_control",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "common_dependency",
+        "confidence": 0.46,
+        "evidence_level": "weak_inference",
+        "note": "Fire can support some wood processing and fuel use, but the preserved wooden-tool evidence does not make fire a hard prerequisite for basic woodworking.",
+        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Woodworking",
-        "url": "https://www.britannica.com/technology/woodworking",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11009636/",
+        "publisher": "Proceedings of the National Academy of Sciences",
+        "year": 2024,
+        "source_type": "primary_paper",
         "supports": [
-          "node"
+          "node",
+          "maturity",
+          "edge"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Date is anchored to preserved Pleistocene worked wooden artifacts; routine wood use was likely broader but usually does not preserve archaeologically.",
+    "maturity": "established"
   },
   {
     "id": "basic_shelter",
@@ -627,31 +645,75 @@
     "id": "basic_rope_making",
     "name": "Basic Rope Making",
     "era": "Ancient",
-    "description": "Twisting plant fibers or animal sinew to create cordage for bindings, nets, and tools.",
+    "description": "Twisting plant fibers, bark fibers, or animal sinew into cordage for bindings, hafting, nets, traps, shelters, and tools.",
     "prerequisites": [
       "foraging_and_botany",
       "stone_tool_making"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -50000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Abri du Maras, France / wider Paleolithic fiber-technology contexts",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "foraging_and_botany",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "The Abri du Maras cord was made from inner bark fibers, so plant-material selection and preparation enabled this scoped cordage technology.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
+            "publisher": "Scientific Reports",
+            "year": 2020,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "stone_tool_making",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Stone Tool Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "common_dependency",
+        "confidence": 0.5,
+        "evidence_level": "primary_source",
+        "note": "The direct cord fragment was recovered on a stone tool, but stone tools are contextual evidence and toolmaking background rather than a universal hard prerequisite for twisting fibers.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
+            "publisher": "Scientific Reports",
+            "year": 2020,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Date is anchored to direct evidence of a three-ply cord fragment; it covers cordage/fiber technology, not every later rope, knot, textile, or net tradition.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
+        "publisher": "Scientific Reports",
+        "year": 2020,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -2835,40 +2897,52 @@
     "id": "mining",
     "name": "Mining",
     "era": "Ancient",
-    "description": "Extraction of minerals and other geological materials from the Earth, initially from surface pits and later shallow shafts.",
+    "description": "Deliberate extraction of minerals and geological materials from surface pits, open workings, and shallow mine contexts, initially including ochre and hematite.",
     "prerequisites": [
-      "composite_tools",
-      "fire_control",
-      "prospecting"
+      "stone_tool_making"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -43000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Ngwenya / Lion Cavern, Eswatini and comparable early mineral-extraction contexts",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "composite_tools",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Composite Tools provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
+        "prerequisite": "stone_tool_making",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The UNESCO description identifies specialized Stone Age choppers, picks, and hammers as mining tools at Ngwenya, making stone-tool capability intrinsic to the early mining scope.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ngwenya Mines",
+            "url": "https://whc.unesco.org/en/tentativelists/5421/",
+            "publisher": "UNESCO World Heritage Centre",
+            "year": 2008,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Covers early mineral extraction such as ochre and hematite mining; excludes later deep shaft mining, coal mining, blasting, and industrial ore extraction.",
+    "maturity": "established",
+    "sources": [
       {
-        "prerequisite": "fire_control",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "prospecting",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Prospecting provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Ngwenya Mines",
+        "url": "https://whc.unesco.org/en/tentativelists/5421/",
+        "publisher": "UNESCO World Heritage Centre",
+        "year": 2008,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -3847,7 +3921,7 @@
     "id": "iron_working",
     "name": "Iron Working",
     "era": "Ancient",
-    "description": "Smelting iron from ore at very high temperatures to produce bloom, which is then forged into a stronger, more abundant metal than bronze.",
+    "description": "Working iron into artifacts, first through hammered meteoritic iron and later through smelted bloom iron and forging traditions.",
     "prerequisites": [
       "forging_and_smithing",
       "early_alchemy_material_science"
@@ -3861,39 +3935,55 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
+        "url": "https://discovery.ucl.ac.uk/1430496/",
+        "publisher": "Journal of Archaeological Science",
+        "year": 2013,
+        "source_type": "primary_paper",
         "supports": [
           "node",
-          "maturity"
+          "maturity",
+          "edge"
         ]
       }
     ],
-    "firstKnownDate": -7000,
-    "datePrecision": "unknown",
-    "region": "Dependency lower bound from early_alchemy_material_science; needs source check",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -3200,
+    "datePrecision": "century",
+    "region": "Gerzeh, Egypt for meteoritic iron artifacts; later Anatolia, Near East, Africa, and Eurasia for smelted iron traditions",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "forging_and_smithing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Forging and Smithing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "The Gerzeh beads were hammered meteoritic iron, so shaping metal by hammering/working is core to the scoped early iron-working node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
+            "url": "https://discovery.ucl.ac.uk/1430496/",
+            "publisher": "Journal of Archaeological Science",
+            "year": 2013,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "early_alchemy_material_science",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Early Alchemy & Material Science is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "General empirical material knowledge is background context for identifying and valuing unusual iron materials, but the early artifact evidence does not require formal alchemy.",
+        "reviewStatus": "source_checked"
       }
-    ]
+    ],
+    "scopeNote": "Date is anchored to worked meteoritic iron beads around 3200 BCE; ore smelting and widespread iron-tool production are later and should not be inferred from this date."
   },
   {
     "id": "proto_writing",
@@ -7446,9 +7536,9 @@
       "iron_working",
       "early_alchemy_material_science"
     ],
-    "firstKnownDate": -7000,
-    "datePrecision": "unknown",
-    "region": "Dependency lower bound from iron_working; needs source check",
+    "firstKnownDate": -1500,
+    "datePrecision": "century",
+    "region": "Ancient metallurgical centers / conservative lower bound pending source check",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -7464,7 +7554,7 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
+        "note": "Iron Working provides one metallurgical context for slag and furnace waste, but this node still needs source checking for exact early reuse practices.",
         "reviewStatus": "structurally_validated"
       },
       {
@@ -7475,7 +7565,8 @@
         "note": "Early Alchemy & Material Science is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
         "reviewStatus": "structurally_validated"
       }
-    ]
+    ],
+    "scopeNote": "Conservative cleanup date after early iron-working evidence; this node still needs a dedicated source pass for specific slag-reuse practices."
   },
   {
     "id": "sail_rigging_knots",
