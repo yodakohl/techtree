@@ -1761,7 +1761,7 @@
     "id": "currency",
     "name": "Currency",
     "era": "Classical",
-    "description": "A standardized medium of exchange, such as stamped metal ingots, that replaces direct barter.",
+    "description": "Classical coin-backed monetary systems in which state or civic authority, standard weights, and marked media support portable exchange beyond direct barter.",
     "prerequisites": [
       "writing",
       "mining",
@@ -1775,10 +1775,10 @@
     "fieldLanes": {
       "Finance & Markets": "Money & Accounting"
     },
-    "firstKnownDate": -500,
+    "firstKnownDate": -650,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Lydia / western Anatolia and wider classical coin-currency networks",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "writing",
@@ -1790,19 +1790,33 @@
       },
       {
         "prerequisite": "mining",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Mining provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Regular coin currency scaled with reliable supplies of precious or base metals, although early electrum could come from naturally occurring deposits.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Lydia & the First Coins",
+            "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
+            "publisher": "American Numismatic Association Money Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "bronze_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.58,
+        "evidence_level": "weak_inference",
+        "note": "Bronze-working capability belongs to broader metal-money traditions but is not a hard prerequisite for the earliest Lydian electrum coins.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "record_keeping",
@@ -1814,11 +1828,27 @@
       },
       {
         "prerequisite": "barter",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.7,
         "evidence_level": "expert_inference",
-        "note": "Barter provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Coin currency historically replaces or complements barter as a more portable medium of exchange, but barter is not an engineering prerequisite.",
+        "reviewStatus": "source_checked"
+      }
+    ],
+    "scopeNote": "Covers classical currency systems anchored by early Lydian electrum coinage; excludes earlier commodity proto-money and the physical coin-making craft, which are represented separately by proto_currency and metal_coinage.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Lydia & the First Coins",
+        "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
+        "publisher": "American Numismatic Association Money Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -5865,7 +5895,7 @@
     "id": "standardized_coinage",
     "name": "Standardized Coinage",
     "era": "Classical",
-    "description": "State-issued metal coins with consistent weights, marks, and denominations for taxation, salaries, trade, and savings.",
+    "description": "State-issued or civic metal coins with regular weights, marks, and denominations for taxation, salaries, trade, and savings.",
     "prerequisites": [
       "currency",
       "gold_and_silver_working",
@@ -5877,26 +5907,54 @@
     "fieldLanes": {
       "Finance & Markets": "Money & Accounting"
     },
-    "firstKnownDate": -500,
+    "firstKnownDate": -650,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Lydia / western Anatolia and wider Asia Minor coinage networks",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "currency",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Currency provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Standardized coinage is a concrete institutional form of classical currency rather than a separate hard engineering layer.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Lydia & the First Coins",
+            "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
+            "publisher": "American Numismatic Association Money Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "gold_and_silver_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Gold and Silver Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The earliest attested coins used electrum, a natural gold-silver alloy, so precious-metal working is part of the scoped material capability.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Lydia & the First Coins",
+            "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
+            "publisher": "American Numismatic Association Money Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "record_keeping",
@@ -5905,6 +5963,22 @@
         "evidence_level": "expert_inference",
         "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
         "reviewStatus": "structurally_validated"
+      }
+    ],
+    "scopeNote": "Covers standardized marked coinage as a monetary institution; excludes unmarked bullion, commodity money, and later paper or digital currencies.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Lydia & the First Coins",
+        "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
+        "publisher": "American Numismatic Association Money Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -6170,7 +6244,7 @@
     "id": "concrete_vaulting",
     "name": "Concrete Vaulting",
     "era": "Classical",
-    "description": "Arches, vaults, and domes using concrete and masonry to span larger interior spaces in baths, temples, markets, and infrastructure.",
+    "description": "Roman concrete vaults and domes using opus caementicium and masonry formwork to span large interior spaces in baths, temples, markets, and infrastructure.",
     "prerequisites": [
       "roman_concrete_opus_caementicium",
       "arches_domes",
@@ -6182,34 +6256,78 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Structural Systems"
     },
-    "firstKnownDate": -500,
+    "firstKnownDate": -100,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman Italy and wider Roman Empire",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roman_concrete_opus_caementicium",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roman Concrete (Opus Caementicium) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "The scoped technology is concrete vaulting, so Roman opus caementicium is the core material system rather than only background context.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Opus Caementicium",
+            "url": "https://www.cambridge.org/core/books/abs/innovative-vaulting-in-the-architecture-of-the-roman-empire/opus-caementicium/F17A6BFF99071417F6E8B556BFDECCDA",
+            "publisher": "Cambridge University Press",
+            "year": 2015,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "arches_domes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Arches and Domes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Vaulting and doming extend arch geometry into three-dimensional spans, making arch/dome structural knowledge intrinsic to the scoped node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Opus Caementicium",
+            "url": "https://www.cambridge.org/core/books/abs/innovative-vaulting-in-the-architecture-of-the-roman-empire/opus-caementicium/F17A6BFF99071417F6E8B556BFDECCDA",
+            "publisher": "Cambridge University Press",
+            "year": 2015,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "construction",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "General construction organization and formwork practice enabled Roman concrete vaulting, but the source-backed hard dependencies are concrete and vault geometry.",
+        "reviewStatus": "source_checked"
+      }
+    ],
+    "scopeNote": "Covers Roman concrete vaulting as an architectural structural system; excludes generic stone arches, timber roofs, and later reinforced-concrete vaulting.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Opus Caementicium",
+        "url": "https://www.cambridge.org/core/books/abs/innovative-vaulting-in-the-architecture-of-the-roman-empire/opus-caementicium/F17A6BFF99071417F6E8B556BFDECCDA",
+        "publisher": "Cambridge University Press",
+        "year": 2015,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -6299,7 +6417,7 @@
     "id": "geared_calculating_devices",
     "name": "Geared Calculating Devices",
     "era": "Classical",
-    "description": "Mechanical devices using gears and dials for astronomical prediction, calendars, or numerical relationships.",
+    "description": "Hellenistic geared astronomical calculators, anchored by the Antikythera Mechanism, that used bronze gear trains and dials to model calendars and celestial cycles.",
     "prerequisites": [
       "gears_simple_classical",
       "early_astronomy_observation",
@@ -6311,34 +6429,92 @@
     "fieldLanes": {
       "Mechanical Engineering": "Mechanisms & Machines"
     },
-    "firstKnownDate": -500,
+    "firstKnownDate": -150,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Hellenistic Greek Mediterranean / Antikythera wreck context",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "gears_simple_classical",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Simple Gears (Classical) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "The Antikythera Mechanism is explicitly a geared device, so gear-making is a core component dependency for this scoped node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17136087/",
+            "publisher": "Nature",
+            "year": 2006,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "early_astronomy_observation",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Astronomical Observation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "primary_source",
+        "note": "The device calculated and displayed celestial cycles, making earlier astronomical observation and cycle knowledge historical foundations.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17136087/",
+            "publisher": "Nature",
+            "year": 2006,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "The mechanism encoded astronomical cycles through gear ratios and dial scales, so mathematical modeling enabled the device without being a single artifact dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/17136087/",
+            "publisher": "Nature",
+            "year": 2006,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Covers source-backed geared astronomical calculation devices such as the Antikythera Mechanism; excludes later mechanical arithmetic calculators and unsourced hypothetical earlier mechanisms.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Decoding the ancient Greek astronomical calculator known as the Antikythera Mechanism",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17136087/",
+        "publisher": "Nature",
+        "year": 2006,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -8161,7 +8337,7 @@
     "id": "arch_bridge_construction",
     "name": "Arch Bridge Construction",
     "era": "Classical",
-    "description": "Stone and concrete arches used to span rivers, roads, canals, and urban infrastructure.",
+    "description": "Classical Roman stone arch-bridge construction, anchored by surviving bridges such as the Pons Fabricius, using durable arches to carry roads across rivers and urban channels.",
     "prerequisites": [
       "arches_domes",
       "roads",
@@ -8173,34 +8349,78 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Structural Systems"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -62,
+    "datePrecision": "exact",
+    "region": "Rome / Roman Mediterranean bridge engineering",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "arches_domes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Arches and Domes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "The scoped bridge form is defined by masonry arches, so arch construction is a direct structural prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Pons Fabricius",
+            "url": "https://turismoroma.it/en/places/pons-fabricius",
+            "publisher": "Turismo Roma",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "roads",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Pons Fabricius connected urban road movement across the Tiber Island, so road and urban-circulation needs enabled the bridge class.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Pons Fabricius",
+            "url": "https://turismoroma.it/en/places/pons-fabricius",
+            "publisher": "Turismo Roma",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "common_dependency",
+        "confidence": 0.5,
+        "evidence_level": "weak_inference",
+        "note": "Concrete is relevant to some later Roman bridge engineering, but the Pons Fabricius anchor is a stone masonry bridge; this is contextual, not required.",
+        "reviewStatus": "source_checked"
+      }
+    ],
+    "scopeNote": "Covers conservative, source-backed Roman masonry arch bridges; excludes earlier corbelled or proto-arch bridge forms and later reinforced-concrete arch bridges.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Pons Fabricius",
+        "url": "https://turismoroma.it/en/places/pons-fabricius",
+        "publisher": "Turismo Roma",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
     ]
   },
@@ -8835,9 +9055,9 @@
       "road_maintenance_crews",
       "toll_roads_and_bridges"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -62,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "region": "Rome / Roman Mediterranean bridge administration",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
@@ -8845,8 +9065,8 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Arch Bridge Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Arch bridges create the physical structures requiring inspection of arches, piers, foundations, flood damage, and repairs.",
+        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "road_maintenance_crews",
@@ -8864,7 +9084,8 @@
         "note": "Toll Roads & Bridges provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
-    ]
+    ],
+    "scopeNote": "Lower-bound placeholder tied to source-backed Roman arch-bridge construction; covers practical inspection and repair routines for critical masonry crossings, not a separately attested inspection office."
   },
   {
     "id": "urban_food_market_regulation",
