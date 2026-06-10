@@ -2244,14 +2244,12 @@
   },
   {
     "id": "gears_simple_classical",
-    "name": "Simple Gears (Classical)",
+    "name": "Hellenistic Toothed Gears",
     "era": "Classical",
-    "description": "Early understanding and creation of interlocking toothed wheels for transmitting motion or changing speed/torque.",
+    "description": "Hellenistic toothed wheels and gear trains used to transmit rotary motion, change speed ratios, and drive clocks, automata, water-lifting machinery, and astronomical instruments.",
     "prerequisites": [
       "wheel_and_axle",
-      "bronze_working",
-      "mathematics",
-      "woodworking_basic"
+      "mathematics"
     ],
     "fields": [
       "Mechanical Engineering"
@@ -2259,44 +2257,83 @@
     "fieldLanes": {
       "Mechanical Engineering": "Foundations & Measurement"
     },
-    "firstKnownDate": -500,
+    "sources": [
+      {
+        "title": "Gearing in the Ancient World",
+        "url": "https://doi.org/10.1016/0160-9327(93)90099-O",
+        "publisher": "Endeavour / Elsevier",
+        "year": 1993,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "A Model of the Cosmos in the ancient Greek Antikythera Mechanism",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8385020/",
+        "publisher": "Scientific Reports",
+        "year": 2021,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -300,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Hellenistic Alexandria and wider Greek Mediterranean",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "wheel_and_axle",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wheel and Axle provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "bronze_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The scoped technology is toothed wheels on rotating shafts; wheel-and-axle construction is the mechanical substrate for gear trains.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Gearing in the Ancient World",
+            "url": "https://doi.org/10.1016/0160-9327(93)90099-O",
+            "publisher": "Endeavour / Elsevier",
+            "year": 1993,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "woodworking_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "Gear trains encode ratios between rotations; the Antikythera evidence shows mathematical cycle modeling expressed through gear counts and dial scales.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A Model of the Cosmos in the ancient Greek Antikythera Mechanism",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8385020/",
+            "publisher": "Scientific Reports",
+            "year": 2021,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers toothed gear wheels and gear trains in Hellenistic and Roman engineering. It excludes friction wheels, ordinary wheels without teeth, and the Antikythera Mechanism as a complete calculating device, which is represented separately."
   },
   {
     "id": "geocentric_model_ptolemaic",
@@ -2908,14 +2945,14 @@
   },
   {
     "id": "levers_pulleys_ramps",
-    "name": "Levers, Pulleys, and Ramps",
+    "name": "Classical Simple Machines and Hoisting Aids",
     "era": "Classical",
-    "description": "Understanding and application of simple machines for mechanical advantage in construction and labor.",
+    "description": "Practical and theoretical use of levers, ramps, ropes, pulleys, block-and-tackle systems, and winches to gain mechanical advantage in lifting, hauling, construction, and machinery.",
     "prerequisites": [
       "woodworking_basic",
       "basic_rope_making",
-      "mathematics",
-      "masonry"
+      "wheel_and_axle",
+      "mathematics"
     ],
     "fields": [
       "Mechanical Engineering"
@@ -2923,44 +2960,151 @@
     "fieldLanes": {
       "Mechanical Engineering": "Foundations & Measurement"
     },
-    "firstKnownDate": -500,
+    "sources": [
+      {
+        "title": "Simple Machine",
+        "url": "https://www.britannica.com/technology/simple-machine",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "The Hoisting Machines of the Ancient Greeks",
+        "url": "https://kotsanas.com/exhibits/hoisting/",
+        "publisher": "Kotsanas Museum of Ancient Greek Technology",
+        "year": 2025,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Machines in Motion",
+        "url": "https://galileo.ou.edu/taxonomy/term/49.html",
+        "publisher": "University of Oklahoma Libraries",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -600,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Archaic and Classical Greek Mediterranean, with older Egyptian and Near Eastern precedents for ramps and levers",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "woodworking_basic",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Classical hoists used wooden lever arms, frames, winches, sheaves, and ramps, making woodworking a recurring construction substrate rather than a unique invention step.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Hoisting Machines of the Ancient Greeks",
+            "url": "https://kotsanas.com/exhibits/hoisting/",
+            "publisher": "Kotsanas Museum of Ancient Greek Technology",
+            "year": 2025,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "basic_rope_making",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "The scoped Classical hoisting systems transmit force through ropes in pulleys, block-and-tackle, winches, and hauled ramps; rope is a direct component dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Hoisting Machines of the Ancient Greeks",
+            "url": "https://kotsanas.com/exhibits/hoisting/",
+            "publisher": "Kotsanas Museum of Ancient Greek Technology",
+            "year": 2025,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "wheel_and_axle",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Pulley wheels and winch drums are rotating wheel-and-axle mechanisms; this edge supports the pulley/hoist part of the scope, while levers and ramps can exist without it.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Simple Machine",
+            "url": "https://www.britannica.com/technology/simple-machine",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          },
+          {
+            "title": "The Hoisting Machines of the Ancient Greeks",
+            "url": "https://kotsanas.com/exhibits/hoisting/",
+            "publisher": "Kotsanas Museum of Ancient Greek Technology",
+            "year": 2025,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "masonry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Masonry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Archimedean lever theory and Hero's analysis of simple machines formalized mechanical advantage, but practical hoisting equipment existed as craft machinery before full mathematical treatment.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Machines in Motion",
+            "url": "https://galileo.ou.edu/taxonomy/term/49.html",
+            "publisher": "University of Oklahoma Libraries",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers practical simple-machine families and Classical hoisting systems. It does not claim that ramps, levers, pulleys, and formal mechanical theory all originated together, or that masonry is a hard prerequisite outside construction use cases."
   },
   {
     "id": "libraries",
@@ -3264,14 +3408,11 @@
   },
   {
     "id": "mechanical_automata_heros_engine",
-    "name": "Mechanical Automata (Hero's Engine)",
+    "name": "Hero-Style Pneumatic and Hydraulic Automata",
     "era": "Classical",
-    "description": "The creation of complex mechanical devices and toys that operate automatically, often using pneumatic or hydraulic principles, demonstrating early mechanical engineering.",
+    "description": "Pneumatic, hydraulic, and steam-pressure display mechanisms associated with Hero of Alexandria, including temple automata, theatrical devices, and the aeolipile.",
     "prerequisites": [
-      "gears_simple_classical",
-      "hydraulics",
-      "bronze_working",
-      "philosophy"
+      "hydraulics"
     ],
     "fields": [
       "Mechanical Engineering"
@@ -3279,44 +3420,60 @@
     "fieldLanes": {
       "Mechanical Engineering": "Mechanisms & Machines"
     },
-    "firstKnownDate": -500,
+    "sources": [
+      {
+        "title": "Hero of Alexandria",
+        "url": "https://www.lindahall.org/about/news/scientist-of-the-day/hero-of-alexandria/",
+        "publisher": "Linda Hall Library",
+        "year": 2025,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Hero of Alexandria and his Theatrical Automata",
+        "url": "https://automata.arts.gla.ac.uk/about.php",
+        "publisher": "University of Glasgow",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": 50,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman Alexandria",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "gears_simple_classical",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Simple Gears (Classical) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
         "prerequisite": "hydraulics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hydraulics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "bronze_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "philosophy",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Philosophy provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The scoped Hero-style automata operate through water, air, or steam pressure; hydraulics and pneumatics are the core operating principle, while gears are not universal to this class.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Hero of Alexandria and his Theatrical Automata",
+            "url": "https://automata.arts.gla.ac.uk/about.php",
+            "publisher": "University of Glasgow",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers Hero-style pressure-driven automata and the aeolipile tradition. It does not claim that all ancient automata used toothed gears, nor that these devices were practical steam engines."
   },
   {
     "id": "metal_coinage",
@@ -5372,15 +5529,13 @@
   },
   {
     "id": "water_clocks_advanced_clepsydra",
-    "name": "Water Clocks (Advanced Clepsydra)",
+    "name": "Ctesibius-Style Regulated Water Clocks",
     "era": "Classical",
-    "description": "Sophisticated timekeeping devices using regulated water flow, often with complex geared mechanisms.",
+    "description": "Regulated Hellenistic clepsydrae that used controlled water flow, floats, and calibrated displays to turn simple interval timers into more continuous clocks.",
     "prerequisites": [
+      "water_clock_timekeeping",
       "hydraulics",
-      "pottery",
-      "mathematics",
-      "bronze_working",
-      "gears_simple_classical"
+      "mathematics"
     ],
     "fields": [
       "Mechanical Engineering"
@@ -5388,52 +5543,105 @@
     "fieldLanes": {
       "Mechanical Engineering": "Foundations & Measurement"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
+    "sources": [
       {
-        "prerequisite": "hydraulics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hydraulics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Water Clocks",
+        "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+        "publisher": "MacTutor History of Mathematics Archive",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       },
       {
-        "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Historical development of water-powered mechanical clocks",
+        "url": "https://ms.copernicus.org/articles/12/203/2021/",
+        "publisher": "Mechanical Sciences",
+        "year": 2021,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -300,
+    "datePrecision": "century",
+    "region": "Ptolemaic Alexandria",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "water_clock_timekeeping",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Ctesibius-style regulated clocks extended simpler Athenian and Egyptian clepsydra timing practices by adding floats, controlled apertures, and calibrated displays.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Water Clocks",
+            "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+            "publisher": "MacTutor History of Mathematics Archive",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "hydraulics",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The scoped technology measures time by regulating water flow; feedback and flow control are the core mechanism that distinguishes it from a simple sinking or draining bowl.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Historical development of water-powered mechanical clocks",
+            "url": "https://ms.copernicus.org/articles/12/203/2021/",
+            "publisher": "Mechanical Sciences",
+            "year": 2021,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "mathematics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "bronze_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "gears_simple_classical",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Simple Gears (Classical) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "Seasonal hour scales and calibrated columns required quantitative layout and periodic adjustment, but mathematics is an enabling design practice rather than the operating mechanism.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Water Clocks",
+            "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+            "publisher": "MacTutor History of Mathematics Archive",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers regulated water-flow clocks attributed to the Ctesibius tradition. It excludes simple court timers, represented by water_clock_timekeeping, and fully mechanized time-reporting clockworks, represented by mechanical_clocks_water_escapements."
   },
   {
     "id": "water_screw_archimedes",
@@ -5849,9 +6057,9 @@
   },
   {
     "id": "mechanical_clocks_water_escapements",
-    "name": "Escapement Water Clocks",
+    "name": "Water-Clock Feedback and Time-Reporting Mechanisms",
     "era": "Classical",
-    "description": "Clock mechanisms using regulated flow, gearing, floats, and early escapements to provide more consistent public and astronomical timekeeping.",
+    "description": "Mechanized clepsydra subsystems that used feedback regulation, floats, toothed elements, or time-reporting displays to convert regulated water flow into visible or audible clock motion.",
     "prerequisites": [
       "water_clocks_advanced_clepsydra",
       "gears_simple_classical",
@@ -5863,36 +6071,105 @@
     "fieldLanes": {
       "Mechanical Engineering": "Foundations & Measurement"
     },
-    "firstKnownDate": -500,
+    "sources": [
+      {
+        "title": "Historical development of water-powered mechanical clocks",
+        "url": "https://ms.copernicus.org/articles/12/203/2021/",
+        "publisher": "Mechanical Sciences",
+        "year": 2021,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Water Clocks",
+        "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+        "publisher": "MacTutor History of Mathematics Archive",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -300,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Ptolemaic Alexandria, with later Chinese and Islamic water-clock lineages",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "water_clocks_advanced_clepsydra",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Water Clocks (Advanced Clepsydra) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Water-powered mechanical clock mechanisms build on regulated clepsydra flow and feedback systems before adding time-reporting or display machinery.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Historical development of water-powered mechanical clocks",
+            "url": "https://ms.copernicus.org/articles/12/203/2021/",
+            "publisher": "Mechanical Sciences",
+            "year": 2021,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "gears_simple_classical",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Simple Gears (Classical) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Vitruvius' account of Ctesibius-style clocks describes toothed bars and drums for moving displays and automata; gears are an enabling mechanism for those versions, not for every water clock.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Water Clocks",
+            "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+            "publisher": "MacTutor History of Mathematics Archive",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "early_astronomy_observation",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Astronomical Observation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "common_dependency",
+        "confidence": 0.58,
+        "evidence_level": "review",
+        "note": "Astronomical timekeeping was one important use case for advanced clepsydrae, but it is contextual domain demand rather than a hard mechanical prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Historical development of water-powered mechanical clocks",
+            "url": "https://ms.copernicus.org/articles/12/203/2021/",
+            "publisher": "Mechanical Sciences",
+            "year": 2021,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers mechanized regulation and time-reporting subsystems in water clocks. It is not a claim that medieval weight-driven verge escapements existed in the Classical era."
   },
   {
     "id": "contract_law",
@@ -6650,8 +6927,7 @@
     "era": "Classical",
     "description": "Wheel-driven devices that lifted water from rivers or canals into aqueducts, fields, and storage basins.",
     "prerequisites": [
-      "water_screw_archimedes",
-      "gears_simple_classical",
+      "wheel_and_axle",
       "irrigation_canals_local"
     ],
     "fields": [
@@ -6660,36 +6936,71 @@
     "fieldLanes": {
       "Mechanical Engineering": "Power & Thermal Systems"
     },
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "Noria al-Muhammadiyya",
+        "url": "https://www.asme.org/wwwasmeorg/media/resourcefiles/aboutasme/who%20we%20are/engineering%20history/landmarks/241-noria-al-muhammadiyya.pdf",
+        "publisher": "American Society of Mechanical Engineers",
+        "year": 2006,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -30,
+    "datePrecision": "decade",
+    "region": "Roman Syria and wider Mediterranean",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "water_screw_archimedes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Water Screw (Archimedes Screw) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "gears_simple_classical",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Simple Gears (Classical) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "wheel_and_axle",
+        "type": "required",
+        "confidence": 0.8,
+        "evidence_level": "textbook",
+        "note": "A noria is an undershot water wheel; wheel-and-axle construction is the direct mechanical substrate, unlike Archimedes' screw, which is an alternative water-lifting machine.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Noria al-Muhammadiyya",
+            "url": "https://www.asme.org/wwwasmeorg/media/resourcefiles/aboutasme/who%20we%20are/engineering%20history/landmarks/241-noria-al-muhammadiyya.pdf",
+            "publisher": "American Society of Mechanical Engineers",
+            "year": 2006,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "irrigation_canals_local",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Local Irrigation Canals provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "Norias lifted water into channels for irrigation or supply; canal and aqueduct networks are deployment context and scaling infrastructure, not the wheel mechanism itself.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Noria al-Muhammadiyya",
+            "url": "https://www.asme.org/wwwasmeorg/media/resourcefiles/aboutasme/who%20we%20are/engineering%20history/landmarks/241-noria-al-muhammadiyya.pdf",
+            "publisher": "American Society of Mechanical Engineers",
+            "year": 2006,
+            "source_type": "official_agency",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers water-current or wheel-driven lifting devices for raising water into channels. It excludes Archimedes' screw and geared mills, which are separate water-power technologies."
   },
   {
     "id": "early_notarial_practice",
@@ -9703,33 +10014,59 @@
     "id": "water_clock_timekeeping",
     "name": "Water Clock Timekeeping",
     "era": "Classical",
-    "description": "Calibrated vessels and escapements used for courts, astronomy, watches, and regulated work periods.",
+    "description": "Simple clepsydrae and calibrated vessels used to measure intervals or mark time in courts, religious practice, astronomy, and regulated work periods.",
     "prerequisites": [
-      "mechanical_clocks_water_escapements",
-      "geometry"
+      "pottery"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Mechanical Engineering"
+    ],
+    "fieldLanes": {
+      "Mechanical Engineering": "Foundations & Measurement"
+    },
+    "sources": [
+      {
+        "title": "Water Clocks",
+        "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+        "publisher": "MacTutor History of Mathematics Archive",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -430,
+    "datePrecision": "decade",
+    "region": "Athens, Greece; earlier Egyptian and Babylonian lineages",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "mechanical_clocks_water_escapements",
+        "prerequisite": "pottery",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Escapement Water Clocks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "geometry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "The simplest clepsydrae were small bowls or vessels with controlled openings; pottery supplies a practical vessel-making substrate without implying that all water clocks were ceramic.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Water Clocks",
+            "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Water_clocks/",
+            "publisher": "MacTutor History of Mathematics Archive",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers basic water-clock timekeeping and interval timing. It deliberately excludes Ctesibius-style regulated feedback clocks and later mechanized clockworks."
   },
   {
     "id": "tax_seal_impressions",
