@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="A source-backed map of technology prerequisites, unlocks, evidence, and likely next steps.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260610e">
+    <link rel="stylesheet" href="style.css?v=20260610f">
 </head>
 <body>
     <header class="demo-topbar">
@@ -33,7 +33,14 @@
     <main class="demo-main">
         <section class="demo-shell">
             <section class="demo-hero" aria-labelledby="demo-hero-title">
-                <div class="demo-hero-copy">
+                <div class="demo-hero-visual" aria-label="Selected target dependency path">
+                    <div class="demo-visual-header">
+                        <span id="demo-hero-field">Genome Editing / CRISPR-Cas</span>
+                        <strong id="demo-hero-target">CRISPR Gene Editing</strong>
+                    </div>
+                    <div id="demo-story-stage" class="demo-story-stage" aria-label="Animated dependency story"></div>
+                </div>
+                <aside class="demo-hero-copy">
                     <p class="demo-eyebrow">Human technology, connected</p>
                     <h2 id="demo-hero-title">What had to exist before CRISPR gene editing?</h2>
                     <p id="demo-hero-summary">Molecular biology, recombinant DNA, sequencing, delivery systems, safety assays, and clinical translation in one build path.</p>
@@ -42,33 +49,44 @@
                         <div><strong>...</strong><span>Depth</span></div>
                         <div><strong>...</strong><span>Edge Sources</span></div>
                     </div>
-                </div>
-                <div class="demo-hero-visual" aria-label="Selected target dependency path">
-                    <div class="demo-visual-header">
-                        <span id="demo-hero-field">Genome Editing / CRISPR-Cas</span>
-                        <strong id="demo-hero-target">CRISPR Gene Editing</strong>
+                    <div class="demo-toolbar" aria-label="Demo controls">
+                        <select id="demo-field" aria-label="Choose field"></select>
+                        <input type="search" id="demo-target" list="demo-target-options" placeholder="Target technology">
+                        <datalist id="demo-target-options"></datalist>
+                        <button id="demo-clear-target" type="button" title="Clear target" hidden>Clear</button>
+                        <span id="demo-status" role="status"></span>
                     </div>
-                    <div id="demo-story-stage" class="demo-story-stage" aria-label="Animated dependency story"></div>
-                    <div id="demo-hero-chain" class="demo-hero-chain"></div>
+                    <div class="demo-preset-row" aria-label="Story presets">
+                        <button type="button" data-demo-preset="crispr_gene_editing">CRISPR</button>
+                        <button type="button" data-demo-preset="high_na_euv_lithography">EUV chips</button>
+                        <button type="button" data-demo-preset="retrieval_augmented_generation">RAG</button>
+                        <button type="button" data-demo-preset="long_duration_energy_storage">Grid storage</button>
+                    </div>
                     <div class="demo-hero-edge-panel">
-                        <span>Direct Dependencies</span>
+                        <span>Direct prerequisites</span>
                         <div id="demo-hero-edges" class="demo-hero-edges"></div>
                     </div>
                     <div class="demo-hero-unlock-panel">
                         <span>Unlocks Next</span>
                         <div id="demo-hero-unlocks" class="demo-hero-unlocks"></div>
                     </div>
-                </div>
+                </aside>
             </section>
-            <div class="demo-toolbar" aria-label="Demo controls">
-                <select id="demo-field" aria-label="Choose field"></select>
-                <input type="search" id="demo-search" placeholder="Search this field">
-                <input type="search" id="demo-target" list="demo-target-options" placeholder="Target technology">
-                <datalist id="demo-target-options"></datalist>
-                <button id="demo-clear-target" type="button" title="Clear target" hidden>Clear</button>
-                <span id="demo-status" role="status"></span>
+            <div class="demo-search-row">
+                <input type="search" id="demo-search" placeholder="Search technologies in this field">
             </div>
+            <section class="demo-path-strip" aria-label="Highlighted dependency chain">
+                <div>
+                    <span>Core path</span>
+                    <strong>Milestones from prerequisite to target</strong>
+                </div>
+                <div id="demo-hero-chain" class="demo-hero-chain"></div>
+            </section>
             <div class="demo-layout">
+                <section class="demo-map-panel">
+                    <div id="demo-lanes" class="demo-lanes"></div>
+                </section>
+                <aside id="demo-detail" class="demo-detail-panel" aria-live="polite"></aside>
                 <aside class="demo-field-panel">
                     <h2 id="demo-field-title"></h2>
                     <div id="demo-metrics" class="demo-metrics"></div>
@@ -82,13 +100,9 @@
                         <div id="demo-next-list" class="demo-next-list"></div>
                     </section>
                 </aside>
-                <section class="demo-map-panel">
-                    <div id="demo-lanes" class="demo-lanes"></div>
-                </section>
-                <aside id="demo-detail" class="demo-detail-panel" aria-live="polite"></aside>
             </div>
         </section>
     </main>
-    <script defer src="demo.js?v=20260610e"></script>
+    <script defer src="demo.js?v=20260610f"></script>
 </body>
 </html>

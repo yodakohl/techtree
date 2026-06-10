@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return walk(trace.target.id);
     }
 
-    function compactTraceIds(trace, limit = 96) {
+    function compactTraceIds(trace, limit = 42) {
         if (trace.ids.length <= limit) return trace.ids;
         const required = new Set([trace.target.id]);
         for (const entry of trace.directEdges) required.add(entry.from);
@@ -1177,6 +1177,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderDirectEdges(parent, trace) {
+        const visibleEdges = trace.directEdges.slice(0, 10);
         const section = document.createElement('section');
         section.className = 'demo-target-section';
         const heading = document.createElement('h3');
@@ -1194,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const list = document.createElement('div');
         list.className = 'demo-target-edge-list';
-        for (const entry of trace.directEdges) {
+        for (const entry of visibleEdges) {
             const prereq = graph.byId.get(entry.from);
             const row = document.createElement('div');
             row.className = 'demo-target-edge';
@@ -1220,6 +1221,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             list.appendChild(row);
         }
         section.appendChild(list);
+        if (visibleEdges.length < trace.directEdges.length) {
+            const note = document.createElement('p');
+            note.className = 'demo-target-compact-note';
+            note.textContent = `Showing the ${visibleEdges.length} strongest direct edges first. Use the selected node panel for full local relationships.`;
+            section.appendChild(note);
+        }
         parent.appendChild(section);
     }
 
@@ -1260,13 +1267,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         const section = document.createElement('section');
         section.className = 'demo-target-section';
         const heading = document.createElement('h3');
-        heading.textContent = 'Build order';
+        heading.textContent = 'Compact build order';
         section.appendChild(heading);
 
         if (visibleIds.length < trace.ids.length) {
             const summary = document.createElement('p');
             summary.className = 'demo-target-compact-note';
-            summary.textContent = `Showing ${visibleIds.length} closest and chain-critical nodes from ${trace.ids.length} total prerequisite nodes.`;
+            summary.textContent = `Showing ${visibleIds.length} closest, direct, and chain-critical nodes from ${trace.ids.length} total prerequisite nodes.`;
             section.appendChild(summary);
         }
 
@@ -1336,7 +1343,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const title = document.createElement('h2');
         title.textContent = `Path to ${trace.target.name}`;
         const summary = document.createElement('p');
-        summary.textContent = `${trace.ids.length - 1} prerequisite technologies across ${eras} eras. ${requiredEdges} hard prerequisite edges, ${trace.edges.length - requiredEdges} contextual or scaling edges.`;
+        summary.textContent = `${trace.ids.length - 1} prerequisite technologies across ${eras} eras. The view below starts compact: direct edges, the longest chain, then the highest-signal build-order nodes.`;
         header.append(title, summary);
 
         const stats = document.createElement('div');
@@ -1652,6 +1659,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             syncTargetInput();
             updateUrl();
             renderField();
+        });
+        document.querySelectorAll('[data-demo-preset]').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.dataset.demoPreset;
+                if (id && graph.byId.has(id)) setTarget(id);
+            });
         });
         window.addEventListener('hashchange', () => {
             const hashId = getHashTechId();
