@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-10-supersonic-aerodynamics-jet-engine-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "aerodynamics_supersonic",
+    "prerequisite": "jet_engine"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Jet Engine is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "No direct dependency remains from supersonic aerodynamics to jet engines; supersonic-flow theory and shock-wave experiments predate turbojet engines by decades.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nasa.gov/history/SP-4219/Chapter3.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter 3 account of Rankine-Hugoniot shock equations, Mach's 1887 photographs, and Prandtl-Meyer oblique shock work in 1908.",
+    "source_claim_summary": "NASA places core supersonic-flow theory and experiments in the nineteenth and early twentieth centuries, before jet engines, and describes later practical value for fast aircraft and rockets.",
+    "source_support_rationale": "The source contradicts a required jet-engine dependency because the scoped node is a scientific field; jet engines are later applications that use supersonic-flow knowledge rather than prerequisites for it."
+  },
+  "ontology_before": "The graph modeled an airbreathing jet engine as a required prerequisite for supersonic aerodynamics.",
+  "ontology_after": "Supersonic aerodynamics keeps mathematical, thermodynamic, and scientific-method foundations while jet engines remain downstream aviation technology.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-10-supersonic-aerodynamics-scope keeps the jet-engine edge absent and locks jet engines as later than the supersonic-aerodynamics node.",
+  "would_reject_if": [
+    "The node were redefined as operational jet-powered supersonic flight rather than the science of supersonic airflow.",
+    "A source showed the local broad aerodynamics node should begin only with turbojet-era aircraft programs.",
+    "A future graph split introduced a separate operational-supersonic-aircraft node where jet engines are correctly required."
+  ],
+  "short_reason": "Jet engines are later applications of supersonic-flow knowledge, not prerequisites for the scientific aerodynamics node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

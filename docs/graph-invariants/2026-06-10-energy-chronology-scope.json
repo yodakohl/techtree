@@ -1,0 +1,53 @@
+{
+  "id": "2026-06-10-energy-chronology-scope",
+  "description": "Lock corrected Energy Systems chronology for geothermal, pumped hydro, and modern wind-power nodes.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "geothermal_power_earth_heat_energy",
+      "operator": "eq",
+      "value": 1904,
+      "reason": "Broad geothermal power is anchored to early dry-steam electricity generation at Larderello."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "geothermal_power_earth_heat_energy",
+      "prerequisite": "deep_drilling_technology",
+      "reason": "Early dry-steam geothermal power did not require modern deep-drilling technology."
+    },
+    {
+      "type": "path_present",
+      "from": "geothermal_power_earth_heat_energy",
+      "to": "renewable_energy_systems",
+      "reason": "Geothermal power should remain upstream of the broader renewable-energy systems node."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pumped_hydro_storage",
+      "operator": "eq",
+      "value": 1929,
+      "reason": "The pumped-hydro node is scoped to major grid-scale pumped-storage development."
+    },
+    {
+      "type": "first_known_date",
+      "node": "wind_power_modern",
+      "operator": "eq",
+      "value": 1941,
+      "reason": "Modern large-scale wind power is anchored to the Smith-Putnam grid-connected turbine."
+    },
+    {
+      "type": "first_known_date",
+      "node": "wind_turbine_farms",
+      "operator": "eq",
+      "value": 1980,
+      "reason": "Wind farms are anchored to the Crotched Mountain multi-turbine installation."
+    },
+    {
+      "type": "first_known_date",
+      "node": "renewable_microgrids",
+      "operator": "eq",
+      "value": 1999,
+      "reason": "Renewable microgrids are scoped to the modern CERTS-style microgrid concept rather than early centralized grids."
+    }
+  ]
+}

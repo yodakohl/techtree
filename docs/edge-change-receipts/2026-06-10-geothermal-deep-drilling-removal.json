@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-10-geothermal-deep-drilling-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "geothermal_power_earth_heat_energy",
+    "prerequisite": "deep_drilling_technology"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Deep Drilling Technology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from broad geothermal power to deep drilling; the node is anchored to early dry-steam geothermal electricity at Larderello in 1904.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.energy.gov/hgeo/geothermal/geothermal-electricity-generation",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Dry Steam Power Plant section describing dry-steam plants as the oldest geothermal power plants, first used in Italy in 1904.",
+    "source_claim_summary": "DOE describes early geothermal electricity as a dry-steam plant using hydrothermal fluids that are already mostly steam, with the oldest plants first used in Italy in 1904.",
+    "source_support_rationale": "This rejects deep drilling as a prerequisite for the broad date anchor because natural dry steam could drive turbines before modern deep-drilling systems; drilling belongs on later enhanced or expanded geothermal extraction nodes."
+  },
+  "ontology_before": "The graph treated deep drilling as an enabling prerequisite for all geothermal power, which forced a later 1945 chronology onto a technology first demonstrated in 1904.",
+  "ontology_after": "Broad geothermal power is anchored to early dry-steam electricity generation; deep drilling is left for later geothermal extraction, scaling, or enhanced-geothermal-system nodes.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-10-energy-chronology-scope keeps geothermal power dated to 1904 and the direct deep-drilling edge absent.",
+  "would_reject_if": [
+    "The geothermal node were narrowed to enhanced geothermal systems or modern drilled geothermal reservoirs.",
+    "A source showed that the first scoped geothermal-power demonstration required deep-drilling technology.",
+    "A later graph split introduced a separate early dry-steam geothermal node and moved deep drilling onto a narrower modern geothermal node."
+  ],
+  "short_reason": "Early geothermal electricity used naturally occurring dry steam, so modern deep drilling is not a prerequisite for the broad geothermal-power node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

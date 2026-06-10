@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-10-supersonic-aerodynamics-flight-powered-removal",
+  "decision_date": "2026-06-10",
+  "edge": {
+    "dependent": "aerodynamics_supersonic",
+    "prerequisite": "flight_powered"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Flight (Powered) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from supersonic aerodynamics to powered flight; the node is scoped to shock-wave and compressible-flow science that began before aircraft.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nasa.gov/history/SP-4219/Chapter3.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter 3 discussion of Mach's 1887 shock-wave photographs and the nineteenth-century experimental work on supersonic flow.",
+    "source_claim_summary": "NASA describes supersonic-flow research and shock-wave photography in 1887, before powered aircraft existed, and frames it as basic research later used by high-speed aircraft and rockets.",
+    "source_support_rationale": "This chronology rejects powered flight as a prerequisite for the scoped scientific node; powered aircraft are downstream applications of supersonic-flow knowledge, not a condition for the first known work."
+  },
+  "ontology_before": "The graph treated powered flight as an enabling prerequisite for the scientific study of supersonic airflow.",
+  "ontology_after": "Supersonic aerodynamics is modeled as a pre-aircraft scientific and mathematical foundation that later enabled high-speed aircraft and launch vehicles.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-10-supersonic-aerodynamics-scope keeps the powered-flight edge absent and locks the 1887 chronology.",
+  "would_reject_if": [
+    "The node were narrowed to practical aircraft supersonic-flight operations instead of the broader aerodynamics science.",
+    "A primary historical source showed that the local node should begin only with powered aircraft wind-tunnel or flight-test programs.",
+    "A future graph split moved early shock-wave science into a separate node and reintroduced powered flight only on a later aircraft-operations node."
+  ],
+  "short_reason": "Supersonic-flow science predates powered aircraft, so powered flight is not a prerequisite for the broad aerodynamics node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

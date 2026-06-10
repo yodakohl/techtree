@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-10-supersonic-aerodynamics-scope",
+  "description": "Lock the corrected aviation/aerodynamics chronology: supersonic-flow science predates powered aircraft and jet engines, while jet aircraft remain downstream of jet engines and materials.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "aerodynamics_supersonic",
+      "operator": "eq",
+      "value": 1887,
+      "reason": "Mach's shock-wave photography anchors the broad scientific supersonic-aerodynamics node before aircraft applications."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aerodynamics_supersonic",
+      "prerequisite": "flight_powered",
+      "reason": "Supersonic-flow science began before powered aircraft and should not inherit aviation application prerequisites."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aerodynamics_supersonic",
+      "prerequisite": "jet_engine",
+      "reason": "Jet engines are later applications, not prerequisites, of supersonic-flow theory and experiments."
+    },
+    {
+      "type": "first_known_date",
+      "node": "material_science_lightweight_alloys",
+      "operator": "eq",
+      "value": 1906,
+      "reason": "The lightweight-alloys node is anchored to discovered duralumin, not a post-1945 placeholder."
+    },
+    {
+      "type": "first_known_date",
+      "node": "jet_engine",
+      "operator": "eq",
+      "value": 1937,
+      "reason": "The jet-engine node is anchored to Whittle's first running turbojet bench engine."
+    },
+    {
+      "type": "first_known_date",
+      "node": "jet_aircraft_high_speed_flight",
+      "operator": "eq",
+      "value": 1939,
+      "reason": "The jet-aircraft node is anchored to the first Heinkel He 178 jet flight."
+    },
+    {
+      "type": "path_present",
+      "from": "aerodynamics_supersonic",
+      "to": "jet_aircraft_high_speed_flight",
+      "reason": "Supersonic aerodynamics should remain upstream context for high-speed jet-aircraft development."
+    }
+  ]
+}
