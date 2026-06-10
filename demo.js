@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const heroFieldEl = document.getElementById('demo-hero-field');
     const heroTargetEl = document.getElementById('demo-hero-target');
     const storyStageEl = document.getElementById('demo-story-stage');
+    const storyCanvasEl = document.getElementById('demo-story-canvas');
     const heroChainEl = document.getElementById('demo-hero-chain');
     const heroEdgesEl = document.getElementById('demo-hero-edges');
     const heroUnlocksEl = document.getElementById('demo-hero-unlocks');
@@ -116,9 +117,85 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentTrustFilter = 'all';
     let traceExpanded = false;
     let storyTimerId = null;
+    let storyCanvasAnimationId = null;
 
     function setStatus(text) {
         if (statusEl) statusEl.textContent = text;
+    }
+
+    function initStoryCanvas() {
+        if (!storyCanvasEl) return;
+        const context = storyCanvasEl.getContext('2d');
+        if (!context) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const threads = Array.from({ length: 44 }, (_, index) => {
+            const column = index % 11;
+            const row = Math.floor(index / 11);
+            return {
+                x: (column + 0.35 + ((index * 17) % 9) / 20) / 11,
+                y: (row + 0.42 + ((index * 23) % 7) / 18) / 4.4,
+                phase: index * 0.47,
+                speed: 0.00008 + (index % 5) * 0.000014
+            };
+        });
+
+        function resizeCanvas() {
+            const rect = storyCanvasEl.getBoundingClientRect();
+            const ratio = Math.min(window.devicePixelRatio || 1, 2);
+            storyCanvasEl.width = Math.max(1, Math.floor(rect.width * ratio));
+            storyCanvasEl.height = Math.max(1, Math.floor(rect.height * ratio));
+            context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        }
+
+        function draw(time = 0) {
+            const width = storyCanvasEl.clientWidth;
+            const height = storyCanvasEl.clientHeight;
+            if (!width || !height) return;
+            context.clearRect(0, 0, width, height);
+            context.lineWidth = 1;
+
+            for (let index = 0; index < threads.length - 1; index += 1) {
+                const point = threads[index];
+                const next = threads[index + 1];
+                if (index % 4 === 3) continue;
+                const drift = Math.sin(time * point.speed + point.phase) * 10;
+                const nextDrift = Math.cos(time * next.speed + next.phase) * 8;
+                const x1 = point.x * width + drift;
+                const y1 = point.y * height;
+                const x2 = next.x * width + nextDrift;
+                const y2 = next.y * height;
+                const alpha = 0.06 + ((index % 5) * 0.018);
+                context.strokeStyle = `rgba(196, 224, 232, ${alpha})`;
+                context.beginPath();
+                context.moveTo(x1, y1);
+                context.lineTo(x2, y2);
+                context.stroke();
+            }
+
+            for (const [index, point] of threads.entries()) {
+                const pulse = reduceMotion ? 0.55 : 0.45 + Math.sin(time * point.speed * 8 + point.phase) * 0.22;
+                const x = point.x * width + Math.sin(time * point.speed + point.phase) * 10;
+                const y = point.y * height + Math.cos(time * point.speed + point.phase) * 7;
+                const size = index % 9 === 0 ? 2.8 : 1.7;
+                context.fillStyle = index % 6 === 0
+                    ? `rgba(240, 188, 104, ${0.3 + pulse * 0.28})`
+                    : `rgba(133, 216, 205, ${0.22 + pulse * 0.3})`;
+                context.beginPath();
+                context.arc(x, y, size, 0, Math.PI * 2);
+                context.fill();
+            }
+
+            if (!reduceMotion) {
+                storyCanvasAnimationId = window.requestAnimationFrame(draw);
+            }
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        if (storyCanvasAnimationId) window.cancelAnimationFrame(storyCanvasAnimationId);
+        draw(0);
+        if (!reduceMotion) storyCanvasAnimationId = window.requestAnimationFrame(draw);
     }
 
     function hasField(item, field) {
@@ -684,6 +761,36 @@ document.addEventListener('DOMContentLoaded', async () => {
         return count ? `${count} edge source${count === 1 ? '' : 's'}` : 'no edge source';
     }
 
+    function storySummaryForTrace(trace, eras, requiredEdges, contextualEdges, hiddenNote) {
+        const storyIds = getStoryPointIds(trace);
+        const first = graph.byId.get(storyIds[0]);
+        const middle = storyIds.length > 3 ? graph.byId.get(storyIds[Math.floor(storyIds.length / 2)]) : null;
+        const startLabel = first && first.id !== trace.target.id ? first.name : 'foundational tools';
+        const middlePhrase = middle && middle.id !== trace.target.id
+            ? ` through ${middle.name}`
+            : '';
+        const edgePhrase = requiredEdges && contextualEdges
+            ? `${requiredEdges} hard prerequisites and ${contextualEdges} contextual enablers`
+            : requiredEdges
+                ? `${requiredEdges} hard prerequisites`
+                : `${contextualEdges} contextual enablers`;
+        return `Watch ${startLabel}${middlePhrase} become ${trace.target.name}. The visible stack compresses ${Math.max(0, trace.ids.length - 1)} prerequisite technologies across ${eras} eras, with ${edgePhrase}. ${hiddenNote}`.trim();
+    }
+
+    function storyBeatText(point, trace, edge) {
+        if (point.target) {
+            const sourcedEdges = trace.edges.filter(entry => hasEdgeSource(entry.edge)).length;
+            return `${trace.target.name} is the payoff: ${Math.max(0, trace.ids.length - 1)} visible prerequisites converge, and ${sourcedEdges}/${trace.edges.length} dependency edges in this trace have receipts.`;
+        }
+        if (edge?.note) {
+            return `Why it matters: ${shortenStoryText(edge.note, 170)}`;
+        }
+        if (point.item.description) {
+            return shortenStoryText(point.item.description, 170);
+        }
+        return 'A selected milestone in the build path for this target.';
+    }
+
     function scoreStoryCandidate(id, trace, directEdgeById, chainSet) {
         const item = graph.byId.get(id);
         if (!item) return -Infinity;
@@ -1018,9 +1125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     : getLane(point.item, currentField);
             beatMeta.textContent = `Scene ${index + 1}/${points.length} · ${role} · ${formatDate(point.item.firstKnownDate)}`;
             beatTitle.textContent = point.item.name;
-            beatText.textContent = point.target
-                ? `${trace.ids.length - 1} prerequisite technologies converge here across ${new Set(trace.ids.map(id => graph.byId.get(id)?.era).filter(Boolean)).size} eras.`
-                : shortenStoryText(beatEdge?.note || point.item.description || 'A selected milestone on the path to this target.');
+            beatText.textContent = storyBeatText(point, trace, beatEdge);
             beatTrust.replaceChildren();
             const trustItems = point.target
                 ? [
@@ -1223,13 +1328,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         const contextualEdges = trace.edges.length - requiredEdges;
         const region = trace.target.region || 'region unknown';
 
-        heroTitleEl.textContent = `What had to exist before ${trace.target.name}?`;
         const hiddenNote = trace.hiddenNodeCount || trace.hiddenEdgeCount
-            ? ` Filter hides ${trace.hiddenNodeCount} nodes and ${trace.hiddenEdgeCount} edges.`
+            ? `Filter hides ${trace.hiddenNodeCount} nodes and ${trace.hiddenEdgeCount} edges.`
             : '';
-        heroSummaryEl.textContent = `${formatDate(trace.target.firstKnownDate)} target, ${region}: ${trace.ids.length - 1} visible prerequisite technologies across ${eras} eras, with ${requiredEdges} hard edges and ${contextualEdges} contextual or scaling edges.${hiddenNote}`;
+        heroTitleEl.textContent = `${trace.target.name}: the inventions underneath`;
+        heroSummaryEl.textContent = storySummaryForTrace(trace, eras, requiredEdges, contextualEdges, hiddenNote);
         heroFieldEl.textContent = currentField;
-        heroTargetEl.textContent = trace.target.name;
+        heroTargetEl.textContent = `${formatDate(trace.target.firstKnownDate)} · ${region}`;
 
         heroStatsEl.replaceChildren();
         appendHeroStat(heroStatsEl, 'Prerequisites', Math.max(0, trace.ids.length - 1).toLocaleString());
@@ -1806,6 +1911,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .forEach(el => el.classList.add('is-selected'));
         }
     }
+
+    initStoryCanvas();
 
     try {
         setStatus('Loading...');

@@ -20,9 +20,9 @@
     <meta name="twitter:description" content="A source-backed map of technology prerequisites, unlocks, evidence, and likely next steps.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260610f">
+    <link rel="stylesheet" href="style.css?v=20260610g">
 </head>
-<body>
+<body class="demo-story-mode">
     <header class="demo-topbar">
         <h1>TechTree</h1>
         <nav>
@@ -33,6 +33,7 @@
     <main class="demo-main">
         <section class="demo-shell">
             <section class="demo-hero" aria-labelledby="demo-hero-title">
+                <canvas id="demo-story-canvas" class="demo-story-canvas" aria-hidden="true"></canvas>
                 <div class="demo-hero-visual" aria-label="Selected target dependency path">
                     <div class="demo-visual-header">
                         <span id="demo-hero-field">Genome Editing / CRISPR-Cas</span>
@@ -68,25 +69,37 @@
                         <button type="button" data-demo-preset="retrieval_augmented_generation">RAG</button>
                         <button type="button" data-demo-preset="long_duration_energy_storage">Grid storage</button>
                     </div>
-                    <div class="demo-hero-edge-panel">
-                        <span>Direct prerequisites</span>
-                        <div id="demo-hero-edges" class="demo-hero-edges"></div>
-                    </div>
-                    <div class="demo-hero-unlock-panel">
-                        <span>Unlocks Next</span>
-                        <div id="demo-hero-unlocks" class="demo-hero-unlocks"></div>
-                    </div>
                 </aside>
             </section>
-            <div class="demo-search-row">
-                <input type="search" id="demo-search" placeholder="Search technologies in this field">
-            </div>
             <section class="demo-path-strip" aria-label="Highlighted dependency chain">
                 <div>
-                    <span>Core path</span>
-                    <strong>Milestones from prerequisite to target</strong>
+                    <span>Story Path</span>
+                    <strong>The shortest explanation of the stack</strong>
                 </div>
                 <div id="demo-hero-chain" class="demo-hero-chain"></div>
+            </section>
+            <section class="demo-story-panels" aria-label="Target dependency highlights">
+                <div class="demo-hero-edge-panel">
+                    <span>What had to be ready</span>
+                    <div id="demo-hero-edges" class="demo-hero-edges"></div>
+                </div>
+                <div class="demo-hero-unlock-panel">
+                    <span>What becomes possible next</span>
+                    <div id="demo-hero-unlocks" class="demo-hero-unlocks"></div>
+                </div>
+                <section class="demo-next-section demo-next-section-spotlight">
+                    <h3>Roadmap Signals</h3>
+                    <div id="demo-next-list" class="demo-next-list"></div>
+                </section>
+            </section>
+            <section class="demo-explorer-intro" aria-label="Explorer controls">
+                <div>
+                    <span>Explorer</span>
+                    <strong>Inspect the evidence behind the story</strong>
+                </div>
+                <div class="demo-search-row">
+                    <input type="search" id="demo-search" placeholder="Search technologies in this field">
+                </div>
             </section>
             <div class="demo-layout">
                 <section class="demo-map-panel">
@@ -105,15 +118,11 @@
                         <h3>Trust Legend</h3>
                         <div id="demo-trust-legend" class="demo-trust-legend"></div>
                     </section>
-                    <section class="demo-next-section">
-                        <h3>Next Candidates</h3>
-                        <div id="demo-next-list" class="demo-next-list"></div>
-                    </section>
                 </aside>
             </div>
         </section>
     </main>
     <script defer src="trust-levels.js?v=20260610a"></script>
-    <script defer src="demo.js?v=20260610g"></script>
+    <script defer src="demo.js?v=20260610h"></script>
 </body>
 </html>
