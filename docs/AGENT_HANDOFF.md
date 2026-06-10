@@ -24,12 +24,25 @@ It prints branch status, latest commit, quality snapshot metrics, the current ac
 
 - Do not read whole data files unless absolutely necessary; use `rg '"id": "node_id"' data/*.json`, `npm run node-packet -- <id>`, or short Node snippets.
 - Use `npm run agent:brief` and `docs/QUALITY_SNAPSHOT.md` instead of recomputing context manually.
+- After edits, run `npm run agent:check` to see the minimal validation plan for changed files. Use `npm run agent:check -- --run` to execute that targeted plan once.
+- Keep a validation ledger mentally: if no files changed after a command passed, do not rerun it. Rerun only checks affected by later edits.
 - For UI work, read only the relevant view files and run `node --check` on changed JS.
 - For data quality work, fix a small queue of high-risk nodes from `npm run accuracy:risks`; do not expand the dataset while chronology or edge-semantics debt is the active ask.
 - For bulk additions, use compact TSV plus `scripts/import-compact-tech.js`; never generate vague templated technologies.
 - Document semantic edge removals with an edge-change receipt and graph invariant.
 
-## Common Validation
+## Changed-File Validation
+
+```bash
+npm run agent:check
+npm run agent:check -- --run
+```
+
+This planner reads the current git diff and recommends only checks that match touched files: JS syntax checks for changed JS, receipt audits for receipt changes, trust audit for trust-rule changes, snapshot checks for generated quality files, and data/quality gates only when data or audit tooling changed.
+
+## Final Validation
+
+Run this once before commit/push for non-trivial changes, not after every small edit:
 
 ```bash
 npm test

@@ -2,6 +2,8 @@
 
 Start with `npm run agent:brief` to get the compact repo state, current quality metrics, next accuracy queue, and validation commands without rereading long docs or JSON files.
 
+After edits, run `npm run agent:check` to get the changed-file validation plan. Use `npm run agent:check -- --run` for targeted checks, then run the full final gate once before committing if the change is non-trivial.
+
 For token-efficient project context, read `docs/AGENT_HANDOFF.md`.
 
 For large technology-data expansions, read `docs/TECH_EXPANSION_RUNBOOK.md` first.
