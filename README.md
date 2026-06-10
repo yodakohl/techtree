@@ -21,15 +21,15 @@
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-06-09 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
+Generated 2026-06-10 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,664 |
-| Source-checked nodes | 509 / 1,664 (30.6%) |
-| Nodes with node-level sources | 551 / 1,664 (33.1%) |
-| Dependency edges with edge-level sources | 1,523 / 5,713 (26.7%) |
-| Era-default dates | 737 / 1,664 (44.3%) |
+| Source-checked nodes | 515 / 1,664 (30.9%) |
+| Nodes with node-level sources | 557 / 1,664 (33.5%) |
+| Dependency edges with edge-level sources | 1,535 / 5,709 (26.9%) |
+| Era-default dates | 734 / 1,664 (44.1%) |
 | Manual risk-weighted sample | 40 / 40 (passed after correction) |
 
 Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).
@@ -43,7 +43,7 @@ TechTree is built as public-good infrastructure for researchers, builders, educa
 
 - Trace prerequisites and downstream unlocks for a technology.
 - Open a target-trace demo that shows prerequisite stacks, roadmap candidates, and evidence for connected technologies.
-- Explore compact subfield maps for CRISPR, semiconductors, AI/ML, energy, mechanical engineering, finance/markets, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceutical drug development.
+- Explore compact subfield maps for CRISPR, semiconductors, AI/ML, energy, mechanical engineering, civil infrastructure, finance/markets, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceutical drug development.
 - Compare technologies across Ancient, Classical, Medieval, Renaissance, Industrial, Modern, and Future eras.
 - Use the validated JSON data as a knowledge graph seed for research, education, simulations, or AI tools.
 - Add new technologies safely with prerequisite validation, duplicate checks, cycle detection, and quality audits.
@@ -95,7 +95,7 @@ TECHTREE_READ_ONLY=true npm start
 - Browse a compact sorted view grouped by derived technology branches.
 - Present a concise target-trace demo for researchers, contributors, and reviewers.
 - Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, semiconductor technology, AI/ML, energy systems, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceuticals/drug development.
-- Explore cited CRISPR/Cas9, semiconductor/integrated-circuit, AI/ML, energy/grid, spaceflight/satellite, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, water/sanitation, and pharmaceuticals/drug-development verticals, plus newly curated mechanical-engineering and finance/markets lenses with source-checked core chronology fixes.
+- Explore cited CRISPR/Cas9, semiconductor/integrated-circuit, AI/ML, energy/grid, spaceflight/satellite, robotics/autonomy, medical diagnostics, climate/environment, agriculture/food, cybersecurity/cryptography, transportation/logistics, materials/manufacturing, telecommunications/networking, water/sanitation, and pharmaceuticals/drug-development verticals, plus newly curated mechanical-engineering, civil-infrastructure, and finance/markets lenses with source-checked core chronology fixes.
 
 ## Curated Field Lenses
 
@@ -106,6 +106,7 @@ TECHTREE_READ_ONLY=true npm start
 | Artificial Intelligence & Machine Learning | Navigate symbolic AI, classical ML, neural networks, foundation models, MLOps, evaluation, alignment, and agentic roadmap technologies. |
 | Energy Systems & Grid | Connect generation, transmission, storage, renewables, nuclear/fusion, microgrids, and long-duration storage. |
 | Mechanical Engineering | Follow simple machines, gears, clocks, pumps, engines, machine tools, assembly lines, CAD/CAM, numerical control, and automation. |
+| Civil Engineering & Built Environment | Connect construction materials, structural systems, roads, bridges, aqueducts, sewers, high-rises, urban codes, and construction roadmaps. |
 | Finance & Markets | Trace money, accounting, banking, exchanges, insurance, derivatives, digital wallets, cryptocurrency, CBDC pilots, and programmable-money roadmaps. |
 | Spaceflight & Satellites | Follow launch vehicles, spacecraft systems, satellites, GPS, space science, and on-orbit servicing. |
 | Robotics & Autonomous Systems | Explore manipulation, mobile robots, perception, industrial automation, medical robots, autonomy, and safety. |

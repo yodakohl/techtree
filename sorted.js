@@ -126,6 +126,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             ]
         },
         {
+            name: 'Civil Engineering & Built Environment',
+            branches: ['Infrastructure & Cities', 'Transport & Logistics', 'Materials & Manufacturing', 'Energy & Power'],
+            terms: [
+                'construction', 'built_environment', 'civil', 'masonry', 'concrete', 'cement', 'reinforced',
+                'aggregate', 'arch', 'dome', 'vault', 'bridge', 'road', 'highway', 'railroad', 'subway',
+                'canal', 'aqueduct', 'sewer', 'drainage', 'plumbing', 'dam', 'reservoir', 'qanat',
+                'urban', 'municipal', 'building_code', 'sanitary_building', 'skyscraper', 'steel_frame',
+                'elevator', 'mass_transit', 'infrastructure', 'public_works', 'regolith', 'lunar_construction'
+            ]
+        },
+        {
             name: 'Finance & Markets',
             branches: ['Finance & Commerce', 'Society & Governance', 'Computing & AI', 'Communication & Media', 'Security & Defense'],
             terms: [
@@ -244,6 +255,36 @@ document.addEventListener('DOMContentLoaded', async () => {
             {
                 name: 'Automation & Systems',
                 terms: ['automation', 'robot', 'control', 'sensor', 'cad', 'cam', 'digital_twin', 'systems_engineering', 'operations_research', 'process_control', 'assembly_line']
+            }
+        ],
+        'Civil Engineering & Built Environment': [
+            {
+                name: 'Foundations & Surveying',
+                terms: ['surveying', 'geometry', 'construction', 'masonry', 'urbanization', 'megalithic', 'foundation']
+            },
+            {
+                name: 'Construction Materials',
+                terms: ['concrete', 'cement', 'reinforced', 'brick', 'mortar', 'steel', 'aggregate', 'material', 'biodesigned', 'regolith']
+            },
+            {
+                name: 'Structural Systems',
+                terms: ['arch', 'dome', 'vault', 'bridge', 'skyscraper', 'steel_frame', 'suspension', 'gothic', 'structure', 'elevator']
+            },
+            {
+                name: 'Transport Infrastructure',
+                terms: ['road', 'highway', 'railroad', 'rail', 'subway', 'canal', 'waystation', 'milestone', 'transit', 'bridge_toll']
+            },
+            {
+                name: 'Water & Sanitation Infrastructure',
+                terms: ['aqueduct', 'sewer', 'drainage', 'water_supply', 'plumbing', 'dam', 'reservoir', 'qanat', 'sanitation', 'chlorination']
+            },
+            {
+                name: 'Buildings & Urban Systems',
+                terms: ['urban', 'municipal', 'building_code', 'sanitary_building', 'planning', 'housing', 'mass_transit']
+            },
+            {
+                name: 'Construction Automation & Roadmap',
+                terms: ['robotic_construction', 'autonomous_lunar', 'construction_swarms', 'roadmap', 'forecast']
             }
         ],
         'Finance & Markets': [

@@ -27,6 +27,7 @@ Goal: add real, recognizable technologies with low edit overhead while keeping t
 - Fifteenth textbook-quality vertical: `Pharmaceuticals & Drug Development`
 - Sixteenth curated vertical, with source-checked core chronology fixes: `Finance & Markets`
 - Seventeenth curated vertical, with source-checked core chronology fixes: `Mechanical Engineering`
+- Eighteenth curated vertical, with source-checked core chronology fixes: `Civil Engineering & Built Environment`
 - Current quality model: typed `dependencyEdges`, approximate `firstKnownDate`, source quality metadata, and temporal edge audits are required before adding more bulk nodes.
 
 ## Retired Approach

@@ -1016,7 +1016,7 @@
         "type": "enabling",
         "confidence": 0.7,
         "evidence_level": "textbook",
-        "note": "Gilbert’s experimental study of magnetism and electricity belongs to the emerging early modern scientific-method tradition.",
+        "note": "Gilbert's experimental study of magnetism and electricity belongs to the emerging early modern scientific-method tradition.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -2678,6 +2678,12 @@
       "railroads",
       "agricultural_revolution_enclosures"
     ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Buildings & Urban Systems"
+    },
     "firstKnownDate": 1825,
     "datePrecision": "unknown",
     "region": "Dependency lower bound from railroads; needs source check",
@@ -3377,10 +3383,12 @@
       "surveying"
     ],
     "fields": [
-      "Transportation & Logistics"
+      "Transportation & Logistics",
+      "Civil Engineering & Built Environment"
     ],
     "fieldLanes": {
-      "Transportation & Logistics": "Road & Rail"
+      "Transportation & Logistics": "Road & Rail",
+      "Civil Engineering & Built Environment": "Transport Infrastructure"
     },
     "maturity": "established",
     "sources": [
@@ -3539,49 +3547,111 @@
     "id": "portland_cement",
     "name": "Portland Cement",
     "era": "Industrial",
-    "description": "The most common type of cement, a key ingredient in concrete, mortar, and stucco. Mass-produced for the first time, it is a basic material for modern construction.",
+    "description": "Hydraulic cement patented by Joseph Aspdin in 1824, made by burning and grinding limestone-and-clay mixtures into a binder for mortar and concrete.",
     "prerequisites": [
-      "concrete",
-      "advanced_chemistry",
-      "steam_engine",
-      "fired_bricks_early_kilns"
+      "lime_plaster",
+      "clay_gathering_and_preparation",
+      "fired_bricks_early_kilns",
+      "advanced_chemistry"
     ],
-    "firstKnownDate": 1760,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Construction Materials"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Portland Cement",
+        "url": "https://www.britannica.com/technology/portland-cement",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1824,
+    "datePrecision": "exact",
+    "region": "Leeds, England / Joseph Aspdin patent",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "lime_plaster",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Portland cement belongs to the longer lime-based binder lineage; the source identifies limestone as a core raw material.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Portland Cement",
+            "url": "https://www.britannica.com/technology/portland-cement",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "clay_gathering_and_preparation",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The source describes Portland cement as made from limestone and clay or shale mixtures.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Portland Cement",
+            "url": "https://www.britannica.com/technology/portland-cement",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "fired_bricks_early_kilns",
+        "type": "required",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Portland cement production requires burning the raw mixture, making kiln firing a direct process capability.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Portland Cement",
+            "url": "https://www.britannica.com/technology/portland-cement",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "advanced_chemistry",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "steam_engine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steam Engine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "fired_bricks_early_kilns",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fired Bricks & Early Kilns is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "note": "Industrial chemistry helped control calcination and binder composition, but Aspdin's patent was also a builder's process innovation.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -3589,40 +3659,88 @@
     "id": "reinforced_concrete",
     "name": "Reinforced Concrete",
     "era": "Industrial",
-    "description": "Concrete in which steel reinforcing bars or mesh are embedded to strengthen the material in tension, allowing for new architectural forms.",
+    "description": "Concrete strengthened with embedded iron or steel reinforcement so the composite carries both compression and tensile stresses.",
     "prerequisites": [
-      "portland_cement",
+      "concrete",
       "steel_production",
       "construction"
     ],
-    "firstKnownDate": 1760,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Construction Materials"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Joseph Monier",
+        "url": "https://www.britannica.com/biography/Joseph-Monier",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1867,
+    "datePrecision": "exact",
+    "region": "Paris, France / Joseph Monier patent and Paris Exposition",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "portland_cement",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Portland Cement provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "concrete",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "The scoped technology is concrete strengthened by embedded reinforcement.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Joseph Monier",
+            "url": "https://www.britannica.com/biography/Joseph-Monier",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Monier's method used iron-wire reinforcement; steel/iron production supplies the tensile reinforcement lineage.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Joseph Monier",
+            "url": "https://www.britannica.com/biography/Joseph-Monier",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.66,
         "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "The method rapidly moved from tubs and basins into building and civil works, making construction practice the scaling context.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -3638,6 +3756,12 @@
       "riveting_technology",
       "mass_production"
     ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Structural Systems"
+    },
     "firstKnownDate": 1760,
     "datePrecision": "decade",
     "region": "Europe, North America, and industrializing regions",
@@ -3689,58 +3813,79 @@
     "id": "skyscrapers_steel_frame",
     "name": "Steel-Frame Skyscrapers",
     "era": "Industrial",
-    "description": "Construction of tall, habitable buildings using an internal steel skeleton to bear weight, rather than load-bearing walls.",
+    "description": "Tall building construction using an internal iron-and-steel skeleton frame instead of load-bearing exterior walls, exemplified by Chicago's Home Insurance Building.",
     "prerequisites": [
       "steel_production",
-      "reinforced_concrete",
-      "construction",
-      "electric_motor",
-      "public_sanitation_modern"
+      "construction"
+    ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Structural Systems"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Home Insurance Company Building",
+        "url": "https://www.britannica.com/place/Home-Insurance-Company-Building",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
     ],
     "firstKnownDate": 1885,
     "datePrecision": "exact",
-    "region": "United States",
-    "reviewStatus": "structurally_validated",
+    "region": "Chicago, United States / Home Insurance Company Building",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "reinforced_concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Reinforced Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "The source defines the building by its internal iron-and-steel skeleton rather than load-bearing walls.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Home Insurance Company Building",
+            "url": "https://www.britannica.com/place/Home-Insurance-Company-Building",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "construction",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "electric_motor",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Electric Motor supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "public_sanitation_modern",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Modern Public Sanitation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "The claim is a building construction system, so civil/architectural construction practice is the deployment context.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Home Insurance Company Building",
+            "url": "https://www.britannica.com/place/Home-Insurance-Company-Building",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -5041,7 +5186,7 @@
     "id": "chemical_fertilizers",
     "name": "Chemical Fertilizers",
     "era": "Industrial",
-    "description": "Manufactured mineral and chemical fertilizers, beginning with Lawes’s superphosphate process and later expanding to industrial nitrogen, phosphate, and potassium fertilizers.",
+    "description": "Manufactured mineral and chemical fertilizers, beginning with Lawes's superphosphate process and later expanding to industrial nitrogen, phosphate, and potassium fertilizers.",
     "prerequisites": [
       "advanced_chemistry",
       "agriculture",
@@ -5090,7 +5235,7 @@
         "type": "enabling",
         "confidence": 0.78,
         "evidence_level": "textbook",
-        "note": "Lawes’s superphosphate process depended on chemical treatment of phosphate materials with sulfuric acid.",
+        "note": "Lawes's superphosphate process depended on chemical treatment of phosphate materials with sulfuric acid.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -5779,6 +5924,28 @@
       "construction",
       "plumbing"
     ],
+    "fields": [
+      "Water & Sanitation Systems",
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Water & Sanitation Systems": "Sanitation & Sewerage",
+      "Civil Engineering & Built Environment": "Water & Sanitation Infrastructure"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Public Health Acts",
+        "url": "https://www.britannica.com/topic/Public-Health-Acts",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
     "firstKnownDate": 1848,
     "datePrecision": "exact",
     "region": "United Kingdom and later industrial cities globally",
@@ -5848,26 +6015,6 @@
               "edge"
             ]
           }
-        ]
-      }
-    ],
-    "fields": [
-      "Water & Sanitation Systems"
-    ],
-    "fieldLanes": {
-      "Water & Sanitation Systems": "Sanitation & Sewerage"
-    },
-    "maturity": "established",
-    "sources": [
-      {
-        "title": "Public Health Acts",
-        "url": "https://www.britannica.com/topic/Public-Health-Acts",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "textbook",
-        "supports": [
-          "node",
-          "maturity"
         ]
       }
     ]
@@ -6324,7 +6471,7 @@
         "type": "commercial_or_scaling_dependency",
         "confidence": 0.56,
         "evidence_level": "expert_inference",
-        "note": "Mass production scaled engines into transport and industry after invention; it was not required for Lenoir’s first commercial engine.",
+        "note": "Mass production scaled engines into transport and industry after invention; it was not required for Lenoir's first commercial engine.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -6346,7 +6493,7 @@
         "type": "commercial_or_scaling_dependency",
         "confidence": 0.52,
         "evidence_level": "expert_inference",
-        "note": "Petroleum refining became important for gasoline and diesel engines, but Lenoir’s early engine used coal gas.",
+        "note": "Petroleum refining became important for gasoline and diesel engines, but Lenoir's early engine used coal gas.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -6600,7 +6747,7 @@
         "type": "required",
         "confidence": 0.9,
         "evidence_level": "textbook",
-        "note": "The scoped broad automobile node is anchored to Benz’s gas-engine vehicle, so an internal-combustion engine is a hard component dependency.",
+        "note": "The scoped broad automobile node is anchored to Benz's gas-engine vehicle, so an internal-combustion engine is a hard component dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -7040,7 +7187,7 @@
     ],
     "firstKnownDate": 1909,
     "datePrecision": "exact",
-    "region": "Germany, beginning with Fritz Hofmann’s methyl-isoprene rubber work",
+    "region": "Germany, beginning with Fritz Hofmann's methyl-isoprene rubber work",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -8154,40 +8301,102 @@
     "id": "reinforced_concrete_structures",
     "name": "Reinforced Concrete Structures",
     "era": "Industrial",
-    "description": "Concrete strengthened with iron or steel bars, enabling larger spans, bridges, factories, tunnels, and high-rise buildings.",
+    "description": "Building and civil structures using integrated reinforced-concrete beams, slabs, columns, and stirrups as a structural system.",
     "prerequisites": [
-      "portland_cement",
-      "steel_production",
-      "construction"
+      "reinforced_concrete",
+      "construction",
+      "steel_production"
     ],
-    "firstKnownDate": 1760,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Structural Systems"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Francois Hennebique",
+        "url": "https://www.invent.org/inductees/francois-hennebique",
+        "publisher": "National Inventors Hall of Fame",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1892,
+    "datePrecision": "exact",
+    "region": "France and Belgium / Hennebique reinforced-concrete construction system",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "portland_cement",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Portland Cement provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "reinforced_concrete",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "Hennebique's system is an integrated construction system using reinforced concrete.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Francois Hennebique",
+            "url": "https://www.invent.org/inductees/francois-hennebique",
+            "publisher": "National Inventors Hall of Fame",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "The source describes a construction system, not merely a material sample.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Francois Hennebique",
+            "url": "https://www.invent.org/inductees/francois-hennebique",
+            "publisher": "National Inventors Hall of Fame",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "steel_production",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The system used steel bars and stirrups to carry tensile forces in beams and slabs.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Francois Hennebique",
+            "url": "https://www.invent.org/inductees/francois-hennebique",
+            "publisher": "National Inventors Hall of Fame",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -9806,6 +10015,12 @@
       "railroads",
       "urban_planning_grid_system"
     ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Transport Infrastructure"
+    },
     "firstKnownDate": 1881,
     "datePrecision": "decade",
     "region": "Europe and United States",
@@ -9923,40 +10138,74 @@
     "id": "electric_elevators",
     "name": "Electric Elevators",
     "era": "Industrial",
-    "description": "Motorized lift systems with safety brakes, shafts, controls, and building integration for taller urban architecture.",
+    "description": "Commercial electric passenger elevator systems using electric motors, shafts, controls, and building integration for taller urban buildings.",
     "prerequisites": [
       "electric_motor",
-      "steel_production",
-      "precision_machine_tools"
+      "precision_machine_tools",
+      "steel_production"
     ],
-    "firstKnownDate": 1880,
-    "datePrecision": "decade",
-    "region": "Europe and United States",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Buildings & Urban Systems"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Elevator",
+        "url": "https://www.britannica.com/technology/elevator-vertical-transport",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1889,
+    "datePrecision": "exact",
+    "region": "New York City, United States / Demarest Building electric passenger elevator",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "electric_motor",
         "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Electric Motor is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "The source identifies the electric motor as the key change for electric elevator operation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Elevator",
+            "url": "https://www.britannica.com/technology/elevator-vertical-transport",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "precision_machine_tools",
         "type": "required",
-        "confidence": 0.82,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Precision Machine Tools is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "structurally_validated"
+        "note": "Commercial elevator machinery required accurate drums, guides, shafts, braking, and control components.",
+        "reviewStatus": "source_checked"
+      },
+      {
+        "prerequisite": "steel_production",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.68,
+        "evidence_level": "expert_inference",
+        "note": "Steel rails, cables, frames, and shafts supported safe building-scale elevator deployment.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -10538,40 +10787,65 @@
     "id": "reinforced_concrete_bridges",
     "name": "Reinforced Concrete Bridges",
     "era": "Industrial",
-    "description": "Bridge structures combining concrete, steel reinforcement, formwork, calculation, and standardized construction practices.",
+    "description": "Bridge structures using reinforced-concrete beams, slabs, or arches to combine concrete compression capacity with embedded metal reinforcement.",
     "prerequisites": [
-      "reinforced_concrete",
-      "suspension_bridges",
-      "industrial_laboratories_standard_testing"
+      "reinforced_concrete_structures",
+      "construction"
     ],
-    "firstKnownDate": 1775,
-    "datePrecision": "unknown",
-    "region": "Dependency lower bound from industrial_laboratories_standard_testing; needs source check",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Structural Systems"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Francois Hennebique",
+        "url": "https://www.invent.org/inductees/francois-hennebique",
+        "publisher": "National Inventors Hall of Fame",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1894,
+    "datePrecision": "exact",
+    "region": "Wiggen, Switzerland / Hennebique reinforced-concrete bridge",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "reinforced_concrete",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Reinforced Concrete provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "reinforced_concrete_structures",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "The source identifies Hennebique's 1894 bridge as an application of his reinforced-concrete structural system.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Francois Hennebique",
+            "url": "https://www.invent.org/inductees/francois-hennebique",
+            "publisher": "National Inventors Hall of Fame",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "suspension_bridges",
-        "type": "enabling",
-        "confidence": 0.68,
+        "prerequisite": "construction",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Steel-Cable Suspension Bridges provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "industrial_laboratories_standard_testing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Standards & Testing Laboratories provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "note": "Bridge deployment requires site construction, formwork, and civil works beyond the material system itself.",
+        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -10831,6 +11105,12 @@
       "industrial_safety_regulation",
       "municipal_building_codes"
     ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Buildings & Urban Systems"
+    },
     "firstKnownDate": 1848,
     "datePrecision": "unknown",
     "region": "Dependency lower bound from public_sanitation_modern; needs source check",
@@ -11629,7 +11909,7 @@
     ],
     "firstKnownDate": 1775,
     "datePrecision": "exact",
-    "region": "United Kingdom, especially Wilkinson’s cylinder-boring machine and later Maudslay lathes",
+    "region": "United Kingdom, especially Wilkinson's cylinder-boring machine and later Maudslay lathes",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -11659,7 +11939,7 @@
         "type": "required",
         "confidence": 0.78,
         "evidence_level": "textbook",
-        "note": "Precision machine tools were metalworking machines; Wilkinson’s boring machine and later lathes depended on ironworking capacity.",
+        "note": "Precision machine tools were metalworking machines; Wilkinson's boring machine and later lathes depended on ironworking capacity.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -11965,6 +12245,12 @@
       "electric_tramways",
       "electrical_substations"
     ],
+    "fields": [
+      "Civil Engineering & Built Environment"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Transport Infrastructure"
+    },
     "firstKnownDate": 1891,
     "datePrecision": "decade",
     "region": "Europe and United States",
@@ -12567,7 +12853,7 @@
         "type": "commercial_or_scaling_dependency",
         "confidence": 0.58,
         "evidence_level": "expert_inference",
-        "note": "Factory production scaled tractors after early prototypes and companies, but was not required for Froelich’s first gasoline tractor.",
+        "note": "Factory production scaled tractors after early prototypes and companies, but was not required for Froelich's first gasoline tractor.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -13163,14 +13449,13 @@
       "sewers_and_drainage",
       "plumbing"
     ],
-    "firstKnownDate": 1840,
-    "datePrecision": "decade",
-    "region": "United Kingdom, Europe, and North America",
     "fields": [
-      "Water & Sanitation Systems"
+      "Water & Sanitation Systems",
+      "Civil Engineering & Built Environment"
     ],
     "fieldLanes": {
-      "Water & Sanitation Systems": "Sanitation & Sewerage"
+      "Water & Sanitation Systems": "Sanitation & Sewerage",
+      "Civil Engineering & Built Environment": "Water & Sanitation Infrastructure"
     },
     "maturity": "established",
     "sources": [
@@ -13186,6 +13471,9 @@
         ]
       }
     ],
+    "firstKnownDate": 1840,
+    "datePrecision": "decade",
+    "region": "United Kingdom, Europe, and North America",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
