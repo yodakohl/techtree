@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-11-civic-water-meters-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "civic_water_meters",
+      "operator": "eq",
+      "value": -50,
+      "reason": "The node is scoped to Roman quinaria/ajutage allotment gauges associated with late Republican or early Imperial water administration, not a broad 300 BCE metering technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "civic_water_meters",
+      "prerequisite": "portable_scales",
+      "reason": "Frontinus describes pipe bores, quinariae, delivery tanks, and records rather than weighing scales."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "civic_water_meters",
+      "prerequisite": "water_distribution_pipes",
+      "expected": "required",
+      "reason": "Pipe-bore allotment gauges require a distribution network and delivery tanks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "civic_water_meters",
+      "prerequisite": "public_archives",
+      "expected": "common_dependency",
+      "reason": "Official records support allotment administration but are not the physical gauge component."
+    }
+  ]
+}

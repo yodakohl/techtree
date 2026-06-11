@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-civic-water-meters-distribution-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "civic_water_meters",
+    "prerequisite": "water_distribution_pipes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Water Distribution Pipes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "primary_source",
+    "note": "Frontinus describes water allotments through delivery tanks, pipe bores, and quinariae; the allotment gauge system requires an operating distribution-pipe network."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://waters.iath.virginia.edu/frontinus.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Frontinus, sections 19, 25, 78-88, and 105 describing catch basins, delivery tanks, quinariae, city distribution, and restrictions on pipe size from delivery tanks.",
+    "source_claim_summary": "Frontinus describes water measurement and allotment through delivery tanks, pipe sizes, and quinariae within Rome's distribution system.",
+    "source_support_rationale": "The allotment gauge concept is part of the physical distribution-pipe network, so distribution pipes are a direct prerequisite for the scoped node."
+  },
+  "ontology_before": "The edge treated water distribution pipes as a generic enabler for civic metering.",
+  "ontology_after": "The edge now treats distribution pipes and delivery tanks as required physical infrastructure for pipe-bore water allotment gauges.",
+  "invariant_preserved_or_changed": "Changed: water_distribution_pipes is now required. Preserved: the node remains about civic water allocation rather than generic plumbing.",
+  "would_reject_if": [
+    "The node were rescoped to a purely administrative fee schedule without physical gauges or distribution pipes.",
+    "A source showed quinaria-based allotments were independent of distribution tanks and pipes."
+  ],
+  "short_reason": "Pipe-bore water allotment gauges require a distribution-pipe system.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/civic_water_meters.before.json /tmp/civic_water_meters.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

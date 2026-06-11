@@ -9833,54 +9833,31 @@
   },
   {
     "id": "civic_water_meters",
-    "name": "Early Civic Water Meters",
+    "name": "Civic Water Allotment Gauges",
     "era": "Classical",
-    "description": "Regulated outlets, calibrated pipes, permits, and fees for distributing public water to baths, fountains, homes, and workshops.",
+    "description": "Roman water-allotment practice using delivery tanks, calibrated pipe bores such as the quinaria, official records, and legal grants to allocate public water.",
     "prerequisites": [
       "water_distribution_pipes",
-      "portable_scales",
       "public_archives"
     ],
-    "firstKnownDate": -300,
+    "firstKnownDate": -50,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "region": "Rome / Roman aqueduct administration",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "water_distribution_pipes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Water Distribution Pipes provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "Frontinus describes water allotments through delivery tanks, pipe bores, and quinariae; the allotment gauge system requires an operating distribution-pipe network.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "portable_scales",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Portable Balance Scales provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
+            "title": "Frontinus, The Water Supply of the City of Rome",
+            "url": "https://waters.iath.virginia.edu/frontinus.html",
+            "publisher": "University of Virginia Institute for Advanced Technology in the Humanities",
+            "year": 2003,
             "source_type": "textbook",
             "supports": [
               "node",
@@ -9892,17 +9869,17 @@
       },
       {
         "prerequisite": "public_archives",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
+        "type": "common_dependency",
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "Frontinus compares pipe gauges and water allotments against official records; public recordkeeping is contextual administrative infrastructure, not a physical meter component.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
+            "title": "Frontinus, The Water Supply of the City of Rome",
+            "url": "https://waters.iath.virginia.edu/frontinus.html",
+            "publisher": "University of Virginia Institute for Advanced Technology in the Humanities",
+            "year": 2003,
             "source_type": "textbook",
             "supports": [
               "node",
@@ -9931,8 +9908,21 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "Frontinus, The Water Supply of the City of Rome",
+        "url": "https://waters.iath.virginia.edu/frontinus.html",
+        "publisher": "University of Virginia Institute for Advanced Technology in the Humanities",
+        "year": 2003,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers Roman allotment gauges and administrative pipe-caliber accounting, especially quinaria-based delivery records. It is not a modern volumetric or velocity-compensated water meter."
   },
   {
     "id": "military_road_waystations",
