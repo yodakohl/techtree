@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-plumbing-lead-working-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "plumbing",
+    "prerequisite": "lead_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Lead Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Roman lead water pipes supplied some homes directly, making lead working an enabling material route, not a hard prerequisite for all plumbing."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://collection.sciencemuseumgroup.org.uk/objects/co84067/lead-water-pipe-roman-20-47-ce",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Science Museum Group object A635516, description of an inscribed Roman lead water pipe dated 20-47 CE.",
+    "source_claim_summary": "The collection record describes Roman lead water pipes supplying wealthy homes directly with water.",
+    "source_support_rationale": "The object record supports lead working as a real Roman pipe-material route for building-level water supply, while the wording keeps it enabling rather than required."
+  },
+  "invariant_preserved_or_changed": "Preserved: lead_working remains an enabling edge, now supported by a direct Roman lead water-pipe collection record.",
+  "would_reject_if": [
+    "The lead_working node were rescoped away from lead pipe fabrication capability.",
+    "The plumbing node were rescoped to exclude Roman lead-pipe house connections."
+  ],
+  "short_reason": "A Roman lead pipe object directly supports lead working as an enabling plumbing material route.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

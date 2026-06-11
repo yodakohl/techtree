@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-plumbing-pottery-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "plumbing",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Roman terracotta pipes show pottery as a practical pipe-material route for water supply networks; it is enabling rather than required because lead and other materials also existed."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://collection.sciencemuseumgroup.org.uk/objects/co86051/pottery-water-pipe-roman-100-350-ce",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Science Museum Group object A167087, description of a Roman terracotta water pipe from York, dated 100-350 CE.",
+    "source_claim_summary": "The collection record describes Roman terracotta water pipes for supplying cities and towns and notes they were common, repairable, and cheap compared with lead pipes.",
+    "source_support_rationale": "The object record supports pottery/terracotta as an actual pipe-material route in Roman water-supply networks without making it the only possible plumbing material."
+  },
+  "invariant_preserved_or_changed": "Preserved: pottery remains an enabling edge, now supported by a direct Roman water-pipe collection record.",
+  "would_reject_if": [
+    "The pottery node were rescoped away from fired clay/ceramic manufacture.",
+    "The plumbing node were rescoped to exclude terracotta pipe systems."
+  ],
+  "short_reason": "A Roman terracotta pipe object directly supports pottery as an enabling plumbing material route.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

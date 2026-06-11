@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-plumbing-construction-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "plumbing",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from plumbing to construction; the source defines plumbing as pipes and fixtures installed in a building, but the construction node is scoped to classical monumental and civic construction rather than ordinary buildings or every built setting with water pipes.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/plumbing",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Plumbing article, definition paragraph describing plumbing as pipes and fixtures installed in a building and distinguishing it from city water and sewage systems.",
+    "source_claim_summary": "Britannica defines plumbing as building-level pipe and fixture systems for potable water and waterborne waste removal.",
+    "source_support_rationale": "The source supports building-level scope but does not support a dependency on the neighboring node's narrower classical monumental/civic construction scope."
+  },
+  "ontology_before": "The plumbing node depended on a broad construction node whose actual scope is classical monumental and civic construction.",
+  "ontology_after": "The plumbing node keeps direct water-supply and pipe-material dependencies while no longer requiring the separate monumental/civic construction node.",
+  "invariant_preserved_or_changed": "Changed: construction is absent as a direct prerequisite. Preserved: plumbing remains a building-level water and waste pipe system, not a citywide waterworks node.",
+  "would_reject_if": [
+    "The construction node were rescoped to generic building construction rather than classical monumental/civic works.",
+    "A source showed that the earliest scoped plumbing systems specifically depended on the classical monumental construction practices represented by construction."
+  ],
+  "short_reason": "The cited plumbing definition supports buildings, not the narrower classical monumental construction node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/plumbing.before.json /tmp/plumbing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
