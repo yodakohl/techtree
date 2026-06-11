@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-codified-law-record-keeping-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "codified_law",
+    "prerequisite": "record_keeping"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Record Keeping is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct edge remains from record_keeping to codified_law. The current record_keeping node is scoped to tokens/impressions for goods and trade; the law-code sources support written cuneiform/inscription, not that specific accounting technology as an input.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Ur-Nammu Law Code, Description: describes a Sumerian clay cuneiform law-code text; it does not identify accounting-token record keeping as a prerequisite.",
+    "source_claim_summary": "The source supports written legal text, not a direct dependency on the graph's goods-and-trade record_keeping node.",
+    "source_support_rationale": "Writing is the direct requirement for a written code; record_keeping is adjacent administrative context and should not be a hard or direct dependency without a tighter source."
+  },
+  "ontology_before": "The graph treated early accounting/record keeping as a direct context dependency for codified_law.",
+  "ontology_after": "The graph keeps the direct dependency on writing only and avoids laundering adjacent administrative practice into a required edge.",
+  "invariant_preserved_or_changed": "Changed: record_keeping is absent as a direct prerequisite for codified_law.",
+  "would_reject_if": [
+    "The record_keeping node were rescoped to written legal record production rather than early goods/accounting tokens.",
+    "A source showed a direct lineage from accounting record systems to the specific written law-code artifact."
+  ],
+  "short_reason": "The source supports writing, not the current record_keeping node as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

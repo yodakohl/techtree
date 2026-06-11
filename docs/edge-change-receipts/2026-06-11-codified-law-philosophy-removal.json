@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-codified-law-philosophy-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "codified_law",
+    "prerequisite": "philosophy"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Philosophy is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct edge remains from philosophy to codified_law. Early Mesopotamian written law-code evidence does not require classical philosophy as an input.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Ur-Nammu Law Code, Description and Commentary: dates and describes a Sumerian cuneiform law-code witness centuries before the classical philosophy node.",
+    "source_claim_summary": "The source supports early written Mesopotamian law-code artifacts without invoking philosophy as a prerequisite.",
+    "source_support_rationale": "Philosophy may influence later jurisprudence, but it is not source-backed as a direct prerequisite for this ancient written-code scope."
+  },
+  "ontology_before": "The graph modeled philosophy as context for codified_law.",
+  "ontology_after": "The graph separates written law-code artifacts from later legal philosophy or jurisprudence.",
+  "invariant_preserved_or_changed": "Changed: philosophy is absent as a direct prerequisite for codified_law.",
+  "would_reject_if": [
+    "A source showed the scoped ancient written law codes depended on a philosophical tradition.",
+    "The node were explicitly rescoped to jurisprudential codification rather than written law-code artifacts."
+  ],
+  "short_reason": "Classical philosophy is not a direct prerequisite for Mesopotamian written law codes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
