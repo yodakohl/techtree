@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-stock-exchange-printing-source-replacement",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "stock_exchange_early",
+    "prerequisite": "printing_press"
+  },
+  "old_claim": {
+    "type": "accelerates",
+    "confidence": 0.58,
+    "evidence_level": "expert_inference",
+    "note": "Print culture helped disseminate commercial information, but the source-checked exchange is not defined by printing alone.",
+    "source_url": "https://en.wikipedia.org/wiki/Financial_news"
+  },
+  "new_claim": {
+    "type": "accelerates",
+    "confidence": 0.62,
+    "evidence_level": "review",
+    "note": "Printed broker forms and later printed stock-price lists helped publish market information, but printing was not a hard prerequisite for the 1602 Amsterdam VOC share market.",
+    "source_url": "https://dare.uva.nl/document/201694"
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://dare.uva.nl/document/201694",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Petram thesis discussion of pre-printed broker forms from the 1720s and the first printed stock-price list dating from 1747.",
+    "source_claim_summary": "The source places printed forms and printed stock-price lists inside the Amsterdam securities-market information system.",
+    "source_support_rationale": "This supports printing as an accelerant for market information publication while preserving that the 1602 exchange itself depended on transferable VOC shares, not printing."
+  },
+  "invariant_preserved_or_changed": "Preserved: printing_press remains an accelerates edge, not a required dependency.",
+  "would_reject_if": [
+    "The edge were promoted to required for the 1602 Amsterdam exchange.",
+    "The source no longer documented printed broker forms or printed stock-price lists in the Amsterdam exchange context."
+  ],
+  "short_reason": "Replaced a dead weak Wikipedia URL with the source already used for the scoped Amsterdam exchange node and clarified the edge as market-information acceleration.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}
