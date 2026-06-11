@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-11-pumped-hydro-storage-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pumped_hydro_storage",
+      "operator": "eq",
+      "value": 1890,
+      "reason": "DOE places the first known PSH use cases in Italy and Switzerland in the 1890s, earlier than the U.S. Rocky River milestone."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pumped_hydro_storage",
+      "prerequisite": "electrical_grid_early_distribution",
+      "expected": "required",
+      "reason": "The scoped grid-storage method requires electricity for pumping and releases stored power back to the grid."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pumped_hydro_storage",
+      "prerequisite": "process_control_instrumentation",
+      "reason": "The corrected 1890s global PSH scope predates and does not require later process-control instrumentation."
+    }
+  ]
+}

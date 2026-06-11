@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-pumped-hydro-grid-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "pumped_hydro_storage",
+    "prerequisite": "electrical_grid_early_distribution"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Electrical Grid (Early Distribution) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "expert_inference",
+    "note": "Pumped storage hydropower is scoped as electric-grid storage: it requires electricity to pump water uphill and releases stored power back when needed."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.energy.gov/cmei/water/pumped-storage-hydropower",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Pumped Storage Hydropower, What is Pumped Storage Hydropower? section describing two reservoirs, discharge through a turbine, required power for recharge, and grid storage role.",
+    "source_claim_summary": "DOE describes pumped storage hydropower as electric energy storage that requires power to pump water back to the upper reservoir and releases stored power when needed.",
+    "source_support_rationale": "Because this node is scoped to electric-grid storage, the DOE mechanism makes electrical supply/distribution a direct method dependency rather than only earlier historical context."
+  },
+  "ontology_before": "The edge treated early electrical grids as historical background for pumped hydro storage.",
+  "ontology_after": "The edge now treats electric distribution as required for the scoped grid-storage method, while preserving hydropower machinery as a separate enabling dependency.",
+  "invariant_preserved_or_changed": "Changed: grid edge is now required. Preserved: pumped hydro remains a hydropower storage node with no new prerequisites.",
+  "would_reject_if": [
+    "The node were rescoped to non-electric pumped water storage rather than grid-scale pumped storage hydropower.",
+    "The DOE page did not state that PSH requires power for pumping and functions as storage on the electric grid."
+  ],
+  "short_reason": "Grid-scale pumped hydro storage is not just historically downstream of grids; the scoped method requires electric power for recharge and grid-connected release.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

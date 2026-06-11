@@ -33873,11 +33873,10 @@
     "id": "pumped_hydro_storage",
     "name": "Pumped Hydro Storage",
     "era": "Modern",
-    "description": "Grid-scale storage that pumps water uphill when power is cheap and releases it through turbines when power is needed.",
+    "description": "Pumped storage hydropower that stores grid electricity by pumping water to an upper reservoir and releases it through turbines when power is needed.",
     "prerequisites": [
       "hydroelectric_power_plants",
-      "electrical_grid_early_distribution",
-      "process_control_instrumentation"
+      "electrical_grid_early_distribution"
     ],
     "fields": [
       "Energy Systems & Grid"
@@ -33887,6 +33886,17 @@
     },
     "maturity": "established",
     "sources": [
+      {
+        "title": "Pumped Storage Hydropower",
+        "url": "https://www.energy.gov/cmei/water/pumped-storage-hydropower",
+        "publisher": "U.S. Department of Energy",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "History of Hydropower",
         "url": "https://www.energy.gov/cmei/water/history-hydropower",
@@ -33910,10 +33920,11 @@
         ]
       }
     ],
-    "firstKnownDate": 1929,
-    "datePrecision": "exact",
-    "region": "Rocky River, Connecticut, United States; earlier European pumped-storage examples existed",
+    "firstKnownDate": 1890,
+    "datePrecision": "decade",
+    "region": "Italy and Switzerland; United States adoption from Rocky River/New Milford, Connecticut by 1929-1930",
     "reviewStatus": "source_checked",
+    "scopeNote": "Covers pumped storage hydropower as an electric-grid storage technology; the date follows DOE's global first-known 1890s Italy/Switzerland cases rather than the later Rocky River U.S. milestone.",
     "dependencyEdges": [
       {
         "prerequisite": "hydroelectric_power_plants",
@@ -33939,37 +33950,15 @@
       },
       {
         "prerequisite": "electrical_grid_early_distribution",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
+        "type": "required",
+        "confidence": 0.84,
         "evidence_level": "expert_inference",
-        "note": "Electrical Grid (Early Distribution) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "note": "Pumped storage hydropower is scoped as electric-grid storage: it requires electricity to pump water uphill and releases stored power back when needed.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Energy Storage",
-            "url": "https://www.energy.gov/oe/energy-storage",
-            "publisher": "U.S. Department of Energy",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "process_control_instrumentation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Process Control Instrumentation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Energy Storage",
-            "url": "https://www.energy.gov/oe/energy-storage",
+            "title": "Pumped Storage Hydropower",
+            "url": "https://www.energy.gov/cmei/water/pumped-storage-hydropower",
             "publisher": "U.S. Department of Energy",
             "year": 2026,
             "source_type": "official_agency",

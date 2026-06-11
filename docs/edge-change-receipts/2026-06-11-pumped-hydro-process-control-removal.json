@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-pumped-hydro-process-control-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "pumped_hydro_storage",
+    "prerequisite": "process_control_instrumentation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Process Control Instrumentation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from pumped_hydro_storage to process_control_instrumentation; early 1890s PSH use cases predate this node and the DOE PSH source defines the method through reservoirs, pumping power, turbines, and grid storage rather than modern process-control instrumentation.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.energy.gov/cmei/water/pumped-storage-hydropower",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pumped Storage Hydropower, What is Pumped Storage Hydropower? section describing reservoirs at different elevations, pumping power, discharge through a turbine, and electric-grid storage role.",
+    "source_claim_summary": "DOE defines PSH by two reservoirs, pumping water to recharge, discharge through a turbine, and storage/release of electric power.",
+    "source_support_rationale": "The source supports the core hydropower/grid mechanism and an 1890s first-known chronology, but it does not support a later process-control instrumentation prerequisite for the scoped early technology."
+  },
+  "ontology_before": "The node depended on a later process-control instrumentation node, creating a chronology conflict after the global first-known date correction.",
+  "ontology_after": "The node keeps hydropower and grid dependencies but no longer requires later instrumentation that is not necessary for early PSH.",
+  "invariant_preserved_or_changed": "Changed: process_control_instrumentation is absent as a direct prerequisite. Preserved: pumped hydro remains connected to hydropower and electric-grid infrastructure.",
+  "would_reject_if": [
+    "The node were rescoped to modern digitally controlled PSH plants rather than first-known pumped storage hydropower.",
+    "A source showed 1890s Italy/Switzerland PSH depended on instrumentation equivalent to the process_control_instrumentation node."
+  ],
+  "short_reason": "A later process-control node cannot be a prerequisite for the corrected 1890s global PSH scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
