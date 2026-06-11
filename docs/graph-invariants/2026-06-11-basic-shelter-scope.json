@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-11-basic-shelter-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "basic_shelter",
+      "operator": "eq",
+      "value": -21000,
+      "reason": "The node is scoped to source-backed brush-hut shelter evidence from the 23,000-year-old Ohalo II site."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "basic_shelter",
+      "prerequisite": "woodworking_basic",
+      "expected": "enabling",
+      "reason": "Wood and brush handling enable the Ohalo II shelter form but are not modeled as a hard universal prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_shelter",
+      "prerequisite": "bone_tool_making",
+      "reason": "The source-backed brush-hut claim does not require bone tool making."
+    }
+  ]
+}

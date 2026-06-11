@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-basic-shelter-bone-tool-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basic_shelter",
+    "prerequisite": "bone_tool_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bone Tool Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from basic_shelter to bone_tool_making. The Ohalo II brush-hut source supports constructed plant/brush shelters, not bone tools as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC404215/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and site description: reports bedding on a brush-hut floor at Ohalo II; it does not identify bone tools as necessary for the shelter claim.",
+    "source_claim_summary": "The source supports brush-hut shelter evidence without supporting bone-tool making as a direct dependency.",
+    "source_support_rationale": "Bone tools may appear in some later shelter traditions, but they are not required by the source-backed basic shelter scope."
+  },
+  "ontology_before": "The graph made bone tool making a direct enabling prerequisite for basic shelter.",
+  "ontology_after": "The source-backed basic shelter scope does not depend directly on bone tool making.",
+  "invariant_preserved_or_changed": "Changed: bone_tool_making is absent as a direct prerequisite for basic_shelter.",
+  "would_reject_if": [
+    "The node were narrowed to bone-frame shelters or another shelter class that directly requires bone tools.",
+    "A source showed the Ohalo II brush huts required bone-tool manufacturing.",
+    "The graph reintroduced bone_tool_making as a direct prerequisite without changing the shelter scope."
+  ],
+  "short_reason": "Bone tool making is not supported as a direct prerequisite for source-backed basic shelter.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/basic_shelter.before.json /tmp/basic_shelter.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
