@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-animal-husbandry-domestication-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "animal_husbandry",
+    "prerequisite": "animal_domestication"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Animal Domestication provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "Animal husbandry is scoped to stock-keeping and livestock care, which requires domesticated or managed animals rather than wild prey alone."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and introduction: discusses sheep, goats, cattle, and pigs being domesticated in Southwest Asia and forming an integrated barnyard complex that fueled Neolithic expansion.",
+    "source_claim_summary": "The review treats animal husbandry as stock-keeping/herding rooted in the domestication of livestock taxa.",
+    "source_support_rationale": "Domesticated or managed animals are intrinsic to the scoped husbandry practice, so the edge is stronger than a generic enabling relation."
+  },
+  "ontology_before": "The graph treated animal domestication as merely enabling animal husbandry.",
+  "ontology_after": "The graph treats animal domestication as a required prerequisite for livestock husbandry and stock-keeping.",
+  "invariant_preserved_or_changed": "Changed: animal_domestication -> animal_husbandry is required.",
+  "would_reject_if": [
+    "The node were rescoped to general human-animal interaction rather than livestock husbandry.",
+    "A source showed the scoped husbandry practice was performed on unmanaged wild animals.",
+    "The graph demoted animal_domestication without changing the animal_husbandry scope."
+  ],
+  "short_reason": "Livestock husbandry requires managed/domesticated animals.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_husbandry.before.json /tmp/animal_husbandry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
