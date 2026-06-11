@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-11-warehouse-amr-wms-replaces-scm",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "warehouse_autonomous_mobile_robots",
+    "prerequisite": "warehouse_management_systems"
+  },
+  "replaced_edge": {
+    "dependent": "warehouse_autonomous_mobile_robots",
+    "prerequisite": "supply_chain_management_software"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Supply Chain Management Software supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Warehouse AMR deployments scale by integrating robot material-handling software with WMS order, inventory, and shipping workflows."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.roboticstomorrow.com/article/2011/12/how-kiva-systems-and-warehouse-management-systems-interact/23/",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Sections explaining that Kiva MHS integrates with a client's WMS, receives orders from the WMS, and returns completed order notifications.",
+    "source_claim_summary": "The source describes Kiva as a mobile robotic fulfillment system and explains how its material-handling software interacts with warehouse management systems.",
+    "source_support_rationale": "This pins the operational scaling dependency to warehouse management systems rather than broad supply-chain management software, which is too wide for the warehouse AMR scope."
+  },
+  "ontology_before": "Warehouse AMRs depended on broad supply-chain management software, laundering an enterprise planning category into a warehouse-floor robotics integration dependency.",
+  "ontology_after": "Warehouse AMRs depend commercially on warehouse management systems for order, inventory, and shipping workflow integration.",
+  "invariant_preserved_or_changed": "Changed: warehouse_autonomous_mobile_robots no longer directly depends on supply_chain_management_software and now uses warehouse_management_systems for WMS integration.",
+  "would_reject_if": [
+    "The node were rescoped from warehouse AMRs to enterprise supply-chain planning systems.",
+    "A source showed AMR warehouse deployment requires broad SCM software rather than WMS, order-management, ERP, or legacy warehouse interfaces.",
+    "A future source-specific node modeled Kiva MHS internals separately and replaced this WMS scaling edge."
+  ],
+  "short_reason": "Kiva-style warehouse AMRs integrate with WMS workflows; broad SCM software is the wrong dependency level.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

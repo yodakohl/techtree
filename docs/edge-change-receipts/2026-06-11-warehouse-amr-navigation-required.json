@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-warehouse-amr-navigation-required",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "warehouse_autonomous_mobile_robots",
+    "prerequisite": "mobile_robot_navigation"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Mobile Robot Navigation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.86,
+    "note": "Warehouse AMRs require mobile robots that can move inventory through the facility under navigation and fleet-control software."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ieeecss.org/sites/ieeecss/files/2019-06/IoCT2-SS-DAndrea-1.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Mobile-Robot-Enabled Smart Warehouses system description of Kiva using hundreds of mobile robots and control software for storing, moving, and sorting inventory.",
+    "source_claim_summary": "The source describes Kiva smart warehouses as mobile-robot-enabled fulfillment systems using many mobile robots plus control software to move inventory.",
+    "source_support_rationale": "Because the node is explicitly autonomous mobile warehouse robots, a mobile-robot navigation and control capability is not merely contextual; it is the defining technical dependency."
+  },
+  "ontology_before": "Warehouse AMRs treated mobile robot navigation as one optional enabler among broad logistics software dependencies.",
+  "ontology_after": "Warehouse AMRs require mobile robot navigation while WMS remains an operational scaling dependency.",
+  "invariant_preserved_or_changed": "Changed: warehouse_autonomous_mobile_robots -> mobile_robot_navigation is now a required, source-backed edge.",
+  "would_reject_if": [
+    "The node were rescoped to non-mobile conveyor or fixed automation systems.",
+    "A warehouse robotics architecture used no autonomous or guided mobile navigation while still fitting this node's scope.",
+    "The source were used to claim all WMS or supply-chain software is a hard prerequisite."
+  ],
+  "short_reason": "Autonomous mobile warehouse robots are defined by mobile navigation and fleet-control capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

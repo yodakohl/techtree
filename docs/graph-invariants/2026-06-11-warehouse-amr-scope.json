@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-11-warehouse-amr-scope",
+  "description": "Lock warehouse AMR scope to mobile robot fulfillment systems with WMS integration, not generic SCM software or barcode automation.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "warehouse_autonomous_mobile_robots",
+      "prerequisite": "supply_chain_management_software",
+      "reason": "Broad SCM software is the wrong dependency level for warehouse-floor AMR integration."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "warehouse_autonomous_mobile_robots",
+      "prerequisite": "warehouse_barcode_automation",
+      "reason": "Warehouse barcode automation may support operations, but it is not a hard scoped dependency for warehouse AMRs."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "warehouse_autonomous_mobile_robots",
+      "prerequisite": "mobile_robot_navigation",
+      "expected": "required",
+      "reason": "Autonomous mobile warehouse robots require mobile navigation and control capability."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "warehouse_autonomous_mobile_robots",
+      "prerequisite": "warehouse_management_systems",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "WMS integration is an operational deployment and scaling dependency for Kiva-style systems."
+    }
+  ]
+}
