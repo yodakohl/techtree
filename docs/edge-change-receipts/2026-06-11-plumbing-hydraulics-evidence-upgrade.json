@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-plumbing-hydraulics-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "plumbing",
+    "prerequisite": "hydraulics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Hydraulics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Water distribution depends on pressure, gravity, flow, and pipe friction; hydraulic knowledge enables plumbing design without implying formal theory for every historical installation."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/plumbing",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Plumbing article, water-distribution section describing pumps, gravity, pressure stabilization, and pressure/friction limits in pipes.",
+    "source_claim_summary": "Britannica explains that water distribution through plumbing is constrained by pressure and pipe friction and can use pumps, elevation, or gravity.",
+    "source_support_rationale": "The passage supports hydraulic principles as method-enabling knowledge for water distribution while avoiding a claim that every historical plumbing system used formal hydraulics."
+  },
+  "invariant_preserved_or_changed": "Preserved: hydraulics remains an enabling edge, now tied to pressure, gravity, flow, and friction rather than a generic capability note.",
+  "would_reject_if": [
+    "The node were rescoped only to purely empirical pipe-laying with no claim about water distribution design.",
+    "A source showed early plumbing systems in this scope did not rely on pressure, gravity, or flow constraints."
+  ],
+  "short_reason": "The source directly supports hydraulic distribution constraints for plumbing systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

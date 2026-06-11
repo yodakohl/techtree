@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-plumbing-aqueducts-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "plumbing",
+    "prerequisite": "aqueducts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Aqueducts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Roman aqueducts supplied cities with potable water and could feed urban plumbing, but building plumbing can also use wells, cisterns, or local sources."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/plumbing",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Plumbing article, historical paragraph noting Roman aqueducts supplied cities with potable water and contrasting city waterworks with building plumbing.",
+    "source_claim_summary": "Britannica links Roman aqueduct supply to adequate urban plumbing systems while keeping building plumbing distinct from citywide water systems.",
+    "source_support_rationale": "The passage supports aqueducts as an upstream urban water-supply enabler, not a hard prerequisite for every building-level plumbing system."
+  },
+  "invariant_preserved_or_changed": "Preserved: aqueducts remain an enabling edge, now with source-locatable rationale and higher evidence level.",
+  "would_reject_if": [
+    "A stronger source showed aqueducts were unnecessary even as an upstream enabler for the Roman urban plumbing cases represented here.",
+    "The node were rescoped to isolated well-fed household plumbing with no citywide water-supply relationship."
+  ],
+  "short_reason": "The source supports aqueducts as an urban water-supply enabler for plumbing, not as a generic placeholder edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

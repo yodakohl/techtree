@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-11-plumbing-edge-scope",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "plumbing",
+      "prerequisite": "construction",
+      "reason": "The cited plumbing source supports building-level systems, not the narrower classical monumental/civic construction node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plumbing",
+      "prerequisite": "aqueducts",
+      "expected": "enabling",
+      "reason": "Aqueducts can feed urban plumbing supply but are not required for every building-level plumbing system."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plumbing",
+      "prerequisite": "pottery",
+      "expected": "enabling",
+      "reason": "Terracotta pipes show pottery as one enabling material route, not the only possible plumbing material."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plumbing",
+      "prerequisite": "hydraulics",
+      "expected": "enabling",
+      "reason": "Hydraulic pressure, gravity, flow, and friction enable water-distribution design without making formal hydraulics a hard prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plumbing",
+      "prerequisite": "lead_working",
+      "expected": "enabling",
+      "reason": "Roman lead pipes support lead working as one enabling pipe-material route, not a universal hard prerequisite."
+    }
+  ]
+}
