@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-gunpowder-mining-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "gunpowder",
+    "prerequisite": "mining"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mining provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from gunpowder to mining. The corrected node is scoped to the documented 1044 Song formula, and the source does not identify broad mining as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://afe.easia.columbia.edu/songdynasty-module/tech-gunpowder.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gunpowder section: states that the Wujing zongyao, a military manual from 1044 CE, records the first true gunpowder formula and large-scale production.",
+    "source_claim_summary": "The source supports the 1044 recorded formula and early military uses, not a direct dependency on the broad mining node.",
+    "source_support_rationale": "Ingredient supply matters, but this source does not prove mining as the direct technology dependency for the scoped written formula."
+  },
+  "ontology_before": "The graph treated broad mining as a direct enabler for gunpowder.",
+  "ontology_after": "The graph anchors gunpowder to the documented Song formula without an unsupported broad mining edge.",
+  "invariant_preserved_or_changed": "Changed: mining is absent as a direct prerequisite for gunpowder.",
+  "would_reject_if": [
+    "A source showed the scoped 1044 formula depended specifically on the graph's mining node.",
+    "A narrower saltpeter extraction or refining node were added and source-checked as a direct prerequisite.",
+    "The gunpowder node were rescoped to raw-material supply chains rather than documented formulae."
+  ],
+  "short_reason": "The 1044 formula source does not support broad mining as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/gunpowder.before.json /tmp/gunpowder.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

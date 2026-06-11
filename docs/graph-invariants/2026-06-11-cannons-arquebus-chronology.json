@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-11-cannons-arquebus-chronology",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "cannons",
+      "operator": "eq",
+      "value": 1300,
+      "reason": "The node is scoped to early gunpowder artillery in the c. 1300-1650 gunpowder-revolution frame."
+    },
+    {
+      "type": "first_known_date",
+      "node": "arquebus",
+      "operator": "eq",
+      "value": 1450,
+      "reason": "The node is scoped to the mid-15th-century shoulder-fired harquebus."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "cannons",
+      "prerequisite": "gunpowder",
+      "expected": "required",
+      "reason": "Gunpowder is the direct operating propellant for early gunpowder artillery."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "arquebus",
+      "prerequisite": "gunpowder",
+      "expected": "required",
+      "reason": "The harquebus is a gunpowder firearm."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cannons",
+      "prerequisite": "construction",
+      "reason": "Broad construction is contextual, not a direct cannon prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cannons",
+      "prerequisite": "blast_furnace",
+      "reason": "Early cannon were not universally dependent on blast-furnace cast iron."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "arquebus",
+      "prerequisite": "cannons",
+      "reason": "The arquebus is not modeled as directly dependent on cannon technology."
+    }
+  ]
+}

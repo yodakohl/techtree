@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-arquebus-cannons-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "arquebus",
+    "prerequisite": "cannons"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cannons provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from arquebus to cannons. The corrected arquebus node is scoped to shoulder-fired matchlock guns, not a direct derivative of artillery pieces.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/harquebus",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Harquebus entry: defines it as the first gun fired from the shoulder and dates invention in Spain to the mid-15th century.",
+    "source_claim_summary": "The source supports the harquebus as a shoulder-fired matchlock gun, not as directly depending on cannon technology.",
+    "source_support_rationale": "Gunpowder and metallurgical craft are sufficient direct context; cannons are a parallel gunpowder-artillery branch rather than a direct prerequisite."
+  },
+  "ontology_before": "The graph treated cannons as a direct enabler of the arquebus.",
+  "ontology_after": "The graph keeps the arquebus as a small-arms branch with gunpowder as the direct operating prerequisite.",
+  "invariant_preserved_or_changed": "Changed: cannons is absent as a direct prerequisite for arquebus.",
+  "would_reject_if": [
+    "A source showed early harquebuses directly evolved from cannon technology rather than general hand-gun/small-arm development.",
+    "The node were rescoped to a generic firearm lineage rather than shoulder-fired harquebuses.",
+    "A narrower hand-cannon predecessor node were added and source-checked."
+  ],
+  "short_reason": "Cannons are not source-backed as a direct prerequisite for the harquebus.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

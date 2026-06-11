@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-gunpowder-basic-chemistry-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "gunpowder",
+    "prerequisite": "basic_chemistry"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Chemistry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from gunpowder to basic_chemistry. The current basic_chemistry node is broad and not source-checked as the direct predecessor of the Wujing zongyao formula.",
+  "source_supports_edge": "no",
+  "source_url": "https://afe.easia.columbia.edu/songdynasty-module/tech-gunpowder.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gunpowder section: identifies the 1044 Wujing zongyao as recording the first true gunpowder formula and describes early incendiary use.",
+    "source_claim_summary": "The source supports a documented military recipe and uses, not the broad basic_chemistry graph node as a predecessor.",
+    "source_support_rationale": "A broad chemistry label is too unspecific for a hard or historical edge unless the source connects that exact knowledge tradition to the formula."
+  },
+  "ontology_before": "The graph routed gunpowder through a broad basic_chemistry placeholder.",
+  "ontology_after": "The graph avoids making a broad, weakly scoped chemistry node the direct predecessor of the Song formula.",
+  "invariant_preserved_or_changed": "Changed: basic_chemistry is absent as a direct prerequisite for gunpowder.",
+  "would_reject_if": [
+    "basic_chemistry were source-checked and scoped to documented Chinese chemical recipe traditions preceding gunpowder.",
+    "A source explicitly connected the Wujing zongyao formula to the graph's basic_chemistry node.",
+    "The gunpowder node were rescoped to a broader chemistry-development history."
+  ],
+  "short_reason": "The source supports a specific recorded formula, not a broad basic_chemistry prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/gunpowder.before.json /tmp/gunpowder.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

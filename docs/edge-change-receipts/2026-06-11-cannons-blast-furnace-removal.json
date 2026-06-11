@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-cannons-blast-furnace-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "cannons",
+    "prerequisite": "blast_furnace"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Blast Furnace provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from cannons to blast_furnace. Early cannon could be bronze or wrought iron, so the broad blast-furnace node is not a universal direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/military-technology/Early-use-of-artillery",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Early-use-of-artillery section discusses wrought-iron and bronze cannon categories and later cast-iron cannon separately.",
+    "source_claim_summary": "The source supports multiple early cannon material traditions and does not make blast furnaces a universal prerequisite.",
+    "source_support_rationale": "A blast furnace may matter for some later cast-iron ordnance, but it is too narrow and later-specific for the early-cannon scope."
+  },
+  "ontology_before": "The graph treated blast furnaces as a direct enabler of all cannons.",
+  "ontology_after": "The graph keeps cannon metallurgy edges broad enough for bronze and iron traditions without a blast-furnace requirement.",
+  "invariant_preserved_or_changed": "Changed: blast_furnace is absent as a direct prerequisite for cannons.",
+  "would_reject_if": [
+    "The node were rescoped specifically to cast-iron blast-furnace cannon.",
+    "A source showed all early cannon in scope required blast-furnace iron.",
+    "A narrower cast-iron cannon node were added with blast_furnace as a source-backed dependency."
+  ],
+  "short_reason": "Blast furnaces are not a universal direct prerequisite for early cannon.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

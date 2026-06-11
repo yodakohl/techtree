@@ -1,0 +1,30 @@
+{
+  "id": "2026-06-11-song-gunpowder-formula-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "gunpowder",
+      "operator": "eq",
+      "value": 1044,
+      "reason": "The node is scoped to the Wujing zongyao record of true gunpowder formulas in 1044 CE."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "gunpowder",
+      "prerequisite": "mining",
+      "reason": "The source does not support broad mining as a direct prerequisite for the scoped written formula."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "gunpowder",
+      "prerequisite": "basic_chemistry",
+      "reason": "The broad basic_chemistry node is too unspecific to remain as a source-backed direct predecessor."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "gunpowder",
+      "prerequisite": "alchemy",
+      "reason": "Alchemy is historical context but is not source-backed here as a direct graph prerequisite."
+    }
+  ]
+}
