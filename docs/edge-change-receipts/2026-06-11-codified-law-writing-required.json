@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-codified-law-writing-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "codified_law",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Writing is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.92,
+    "evidence_level": "textbook",
+    "note": "The scoped technology is a written law code; the Ur-Nammu witness is described as Sumerian text on clay in cuneiform, and Hammurabi's later laws were inscribed on a stela."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The Ur-Nammu Law Code, Description and Commentary: describes Sumerian text on clay in cuneiform and calls it the oldest known law code.",
+    "source_claim_summary": "The source identifies the Ur-Nammu law code as a written Sumerian/cuneiform law-code witness.",
+    "source_support_rationale": "For the narrowed concept of written law codes, writing is not merely context; it is part of the artifact definition."
+  },
+  "ontology_before": "The graph treated writing as a weak contextual dependency for a broad classical codified-law concept.",
+  "ontology_after": "The graph treats writing as required for the narrowed ancient written-law-code scope.",
+  "invariant_preserved_or_changed": "Changed: writing must remain a required prerequisite of codified_law.",
+  "would_reject_if": [
+    "The node were broadened back to include oral customary law or legal institutions in general.",
+    "The source did not describe the law code as a written/cuneiform text.",
+    "A future split created separate oral-law and written-law-code nodes and moved this edge to the latter."
+  ],
+  "short_reason": "A written law-code node requires writing by scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/codified_law.before.json /tmp/codified_law.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

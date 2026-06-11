@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-ancient-written-law-codes-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "codified_law",
+      "operator": "eq",
+      "value": -2100,
+      "reason": "The node is scoped to ancient written law-code collections, pinned to the Ur-Nammu law-code tradition around 2100 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "codified_law",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "A written law-code artifact requires writing by scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "codified_law",
+      "prerequisite": "philosophy",
+      "reason": "Classical/legal philosophy must not be laundered into the ancient written-code artifact scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "codified_law",
+      "prerequisite": "legal_systems_early",
+      "reason": "Avoids a circular broad-field edge from legal systems to written law codes."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "codified_law",
+      "prerequisite": "currency",
+      "reason": "Ancient written law codes do not require the later classical currency node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "codified_law",
+      "prerequisite": "record_keeping",
+      "reason": "The current record_keeping node is early goods/accounting administration, not a source-backed direct prerequisite for written law codes."
+    }
+  ]
+}

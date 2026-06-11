@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-codified-law-currency-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "codified_law",
+    "prerequisite": "currency"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Currency is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct edge remains from currency to codified_law. Written Mesopotamian law codes predate the current currency node and do not require coinage/currency as scoped in the graph.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Ur-Nammu Law Code, Dates and Commentary: places the law-code witness around 2095-2047 BC, long before the graph's classical currency node.",
+    "source_claim_summary": "The source supports an early law-code artifact that cannot depend on the later currency node.",
+    "source_support_rationale": "Some legal provisions concern payments or tariffs, but currency is not a direct prerequisite for written law codes."
+  },
+  "ontology_before": "The graph linked currency as context for codified_law.",
+  "ontology_after": "The graph separates written legal codification from later money/currency technologies.",
+  "invariant_preserved_or_changed": "Changed: currency is absent as a direct prerequisite for codified_law.",
+  "would_reject_if": [
+    "The currency node were rescoped to ancient silver-weight accounting and source-backed as necessary for this law-code scope.",
+    "The codified_law node were narrowed to a later commercial legal code that source-backed currency as a prerequisite."
+  ],
+  "short_reason": "Currency is later/contextual, not a source-backed prerequisite for ancient written law codes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

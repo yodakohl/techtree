@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-codified-law-early-legal-systems-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "codified_law",
+    "prerequisite": "legal_systems_early"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Early Legal Systems is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct edge remains from legal_systems_early to codified_law. The old edge created a circular broad-field dependency: law systems were treated as a prerequisite for a source-pinned law-code artifact.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/Code-of-Hammurabi",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Code of Hammurabi overview: describes Hammurabi's collected legal decisions and inscription, not a prerequisite relationship from a separate early legal systems technology.",
+    "source_claim_summary": "The source supports a written collection of laws and legal decisions; it does not establish legal_systems_early as a direct input.",
+    "source_support_rationale": "A broad legal-systems node is a neighboring institutional concept, not a necessary component for the scoped written-code artifact."
+  },
+  "ontology_before": "The graph allowed a broad legal-systems node to be a prerequisite for codified_law.",
+  "ontology_after": "The graph avoids broad-field circularity: written law codes can inform later legal systems, but the broad legal-system node is not a direct prerequisite here.",
+  "invariant_preserved_or_changed": "Changed: legal_systems_early is absent as a direct prerequisite for codified_law.",
+  "would_reject_if": [
+    "The codified_law node were split into a later institutional codification node where formal courts/procedures are source-backed prerequisites.",
+    "A specific source established a direct dependency from legal_systems_early to the scoped artifact."
+  ],
+  "short_reason": "Avoids circular broad-field dependency between legal systems and law codes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
