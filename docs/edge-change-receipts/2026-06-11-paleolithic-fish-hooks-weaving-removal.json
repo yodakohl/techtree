@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-paleolithic-fish-hooks-weaving-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fishing_nets_hooks",
+    "prerequisite": "basic_weaving_basketry"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Weaving and Basketry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from fishing_nets_hooks to basic_weaving_basketry. The corrected node covers shell fishhooks, not fiber nets.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1607857113",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and seashell-artifact discussion: identifies formally shaped seashell artifacts including the world's oldest fishhooks at Sakitari Cave.",
+    "source_claim_summary": "The source supports shell fishhooks as a maritime technology; it does not support a combined nets-and-hooks technology.",
+    "source_support_rationale": "Because nets were removed from the node scope, weaving/basketry should not remain as a direct prerequisite."
+  },
+  "ontology_before": "The graph combined nets and hooks, which made weaving appear relevant to the whole node.",
+  "ontology_after": "The graph separates the source-backed fishhook claim from unsourced net technology.",
+  "invariant_preserved_or_changed": "Changed: basic_weaving_basketry is absent as a direct prerequisite for fishing_nets_hooks.",
+  "would_reject_if": [
+    "The node were broadened again to include fiber nets.",
+    "A source directly tied the scoped Sakitari fishhooks to net or basketry manufacture.",
+    "The graph reintroduced basic_weaving_basketry as a direct prerequisite without changing the node scope."
+  ],
+  "short_reason": "The source-backed node is shell fishhooks, not nets.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_nets_hooks.before.json /tmp/fishing_nets_hooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

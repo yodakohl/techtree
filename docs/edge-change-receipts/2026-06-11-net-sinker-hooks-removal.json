@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-net-sinker-hooks-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "net_sinker_weights",
+    "prerequisite": "fishing_nets_hooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fishing Nets & Hooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from net_sinker_weights to fishing_nets_hooks. The corrected prerequisite node is shell fishhooks, not net technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1607857113",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and seashell-artifact discussion: reports shell fishhooks, not nets or sinker weights.",
+    "source_claim_summary": "The source supports early shell fishhooks and does not support nets being part of this node.",
+    "source_support_rationale": "Because nets were removed from the node scope, net sinker weights should not depend on the fishhook node."
+  },
+  "ontology_before": "The graph used a mixed nets-and-hooks node as an enabler for net sinker weights.",
+  "ontology_after": "Net sinker weights no longer depend directly on shell fishhook technology.",
+  "invariant_preserved_or_changed": "Changed: fishing_nets_hooks is absent as a direct prerequisite for net_sinker_weights.",
+  "would_reject_if": [
+    "The source-backed node were broadened again to include fishing nets.",
+    "A source showed net sinker weights required prior fishhook technology.",
+    "The edge returned without source-backed edge evidence."
+  ],
+  "short_reason": "Shell fishhooks are not net sinker technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_nets_hooks.before.json /tmp/fishing_nets_hooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
