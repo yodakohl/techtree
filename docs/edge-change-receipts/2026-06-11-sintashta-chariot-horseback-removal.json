@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-sintashta-chariot-horseback-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "chariot",
+    "prerequisite": "horseback_riding"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Horseback Riding provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from horseback_riding to chariot. The scoped source supports horse-drawn chariots with horse teams and tack, not ridden mounts as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/chariots-in-the-eurasian-steppe-a-bayesian-approach-to-the-emergence-of-horsedrawn-transport-in-the-early-second-millennium-bc/C4FDF8C5E7D1D20A28BEB7F6C50A9AF4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Discussion of early chariots and horse teams: supports horse-drawn transport and horse tack, not mounted horseback riding as a production prerequisite.",
+    "source_claim_summary": "The source supports horse-drawn vehicle technology rather than ridden mounts.",
+    "source_support_rationale": "Horseback riding and horse-drawn vehicle traction are distinct technologies in the graph."
+  },
+  "ontology_before": "The graph treated ridden horse use as a direct enabler of chariots.",
+  "ontology_after": "The graph separates ridden mounts from horse-drawn chariot traction.",
+  "invariant_preserved_or_changed": "Changed: horseback_riding is absent as a direct prerequisite for chariot.",
+  "would_reject_if": [
+    "The node were rescoped to mounted horse archery or cavalry.",
+    "A source showed ridden-horse technology was necessary for the scoped chariot assemblage."
+  ],
+  "short_reason": "Chariots are horse-drawn vehicles, not horseback riding.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/chariot.before.json /tmp/chariot.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

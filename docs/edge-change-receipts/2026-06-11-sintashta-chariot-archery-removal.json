@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-sintashta-chariot-archery-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "chariot",
+    "prerequisite": "archery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Archery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from archery to chariot. Archery is a later or parallel use of chariots in warfare, not a prerequisite for the vehicle technology itself.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/chariots-in-the-eurasian-steppe-a-bayesian-approach-to-the-emergence-of-horsedrawn-transport-in-the-early-second-millennium-bc/C4FDF8C5E7D1D20A28BEB7F6C50A9AF4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article scope and discussion: addresses emergence of horse-drawn transport and early chariot evidence, not archery as a technical prerequisite.",
+    "source_claim_summary": "The source supports early chariot vehicle emergence without requiring archery.",
+    "source_support_rationale": "Archery can be an application of chariots, but it is not a component or production method."
+  },
+  "ontology_before": "The graph treated archery as a direct enabler of chariots.",
+  "ontology_after": "The graph separates chariot vehicle technology from later chariot archery use.",
+  "invariant_preserved_or_changed": "Changed: archery is absent as a direct prerequisite for chariot.",
+  "would_reject_if": [
+    "The node were rescoped specifically to chariot archery tactics.",
+    "A source established bow technology as necessary for the scoped chariot artifact."
+  ],
+  "short_reason": "Archery is not a prerequisite for early chariot vehicle technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/chariot.before.json /tmp/chariot.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
