@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-archery-advanced-hunting-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "archery",
+    "prerequisite": "advanced_hunting_gathering"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Hunting & Gathering provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from archery to advanced_hunting_gathering. The corrected node is scoped to Sibudu stone-tipped bow-and-arrow evidence, and the source does not identify the broad hunting node as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/abs/indications-of-bow-and-stonetipped-arrow-use-64-000-years-ago-in-kwazulunatal-south-africa/89AF638BE5E64CEAC63363EFDD4D5E8F",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the authors infer bow-and-arrow use from stone artefacts and their context at Sibudu Cave 64 millennia ago.",
+    "source_claim_summary": "The source supports stone-tipped arrow evidence at Sibudu, not a broad advanced hunting-and-gathering prerequisite.",
+    "source_support_rationale": "Hunting use is the application context, but the graph should not convert that context into a direct technology dependency."
+  },
+  "ontology_before": "The graph treated broad advanced hunting-and-gathering as a direct enabler of archery.",
+  "ontology_after": "The graph anchors the direct prerequisite to stone-tool production for the scoped lithic evidence.",
+  "invariant_preserved_or_changed": "Changed: advanced_hunting_gathering is absent as a direct prerequisite for archery.",
+  "would_reject_if": [
+    "A source showed the graph's advanced_hunting_gathering node as a direct prerequisite for Sibudu bow-and-arrow technology.",
+    "The node were rescoped to a later broad hunting-system package.",
+    "Advanced_hunting_gathering were source-checked and narrowed to the exact Sibudu projectile context."
+  ],
+  "short_reason": "The source supports bow-and-arrow evidence, not the broad hunting node as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/archery.before.json /tmp/archery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

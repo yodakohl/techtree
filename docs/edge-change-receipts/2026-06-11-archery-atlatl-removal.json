@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-archery-atlatl-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "archery",
+    "prerequisite": "atlatl"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Atlatl provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from archery to atlatl. Bow-and-arrow technology and spear-thrower technology are separate projectile systems, and the Sibudu source does not make atlatl a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/abs/indications-of-bow-and-stonetipped-arrow-use-64-000-years-ago-in-kwazulunatal-south-africa/89AF638BE5E64CEAC63363EFDD4D5E8F",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: identifies indications of bow-and-arrow technology at Sibudu Cave 64 millennia ago, with no atlatl prerequisite.",
+    "source_claim_summary": "The source supports early bow-and-arrow use independently of spear-thrower technology.",
+    "source_support_rationale": "Atlatl should be modeled as a parallel projectile technology unless a source supports a specific historical lineage into archery."
+  },
+  "ontology_before": "The graph modeled atlatl as a direct enabler of archery.",
+  "ontology_after": "The graph treats archery and atlatl as separate projectile technologies rather than a prerequisite chain.",
+  "invariant_preserved_or_changed": "Changed: atlatl is absent as a direct prerequisite for archery.",
+  "would_reject_if": [
+    "A source showed the scoped bow-and-arrow technology evolved directly from atlatl technology.",
+    "The atlatl node were narrowed to a source-backed projectile prerequisite for this region and period.",
+    "The archery node were rescoped to a later regional tradition where atlatl-to-bow transition is evidenced."
+  ],
+  "short_reason": "Atlatl is a parallel projectile system, not source-backed as a direct archery prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/archery.before.json /tmp/archery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
