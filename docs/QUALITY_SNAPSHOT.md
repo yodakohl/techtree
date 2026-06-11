@@ -1,6 +1,6 @@
 # Quality Snapshot
 
-Generated: 2026-06-11T09:50:52.630Z
+Generated: 2026-06-11T09:59:29.273Z
 
 This is a trust snapshot generated from the same report object used by `npm run accuracy:risks`; it is not proof of global accuracy.
 
