@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-birch-tar-plant-selection-enabling",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "natural_adhesives",
+    "prerequisite": "foraging_and_botany"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "primary_source",
+    "note": "The scoped adhesive depends on selecting birch bark as the raw plant material; this is a material-selection enabler rather than a hard botanical-science prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.nature.com/articles/s41598-023-41898-5",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Introduction and materials discussion: birch bark tar uses birch bark as the raw material and relies on identifying production methods for that material.",
+    "source_claim_summary": "The paper supports birch bark as the raw material for the scoped adhesive.",
+    "source_support_rationale": "The source supports plant-material selection, but not a strict dependency on formal botany; the edge therefore remains enabling."
+  },
+  "ontology_before": "The graph used a generic foraging-and-botany enabler edge without source support.",
+  "ontology_after": "The graph keeps a weaker enabling edge tied to plant raw-material selection.",
+  "invariant_preserved_or_changed": "Preserved: foraging_and_botany remains an enabling edge, now with a narrower note and source-backed rationale.",
+  "would_reject_if": [
+    "The node were narrowed to lab-produced tar where field plant selection is irrelevant.",
+    "A better upstream node for raw-material selection replaced foraging_and_botany.",
+    "The edge were made required without direct source support for a formal botanical prerequisite."
+  ],
+  "short_reason": "Birch bark selection is relevant context, but not a hard prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/natural_adhesives.before.json /tmp/natural_adhesives.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

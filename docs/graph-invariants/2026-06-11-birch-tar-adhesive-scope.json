@@ -1,0 +1,26 @@
+{
+  "id": "2026-06-11-birch-tar-adhesive-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "natural_adhesives",
+      "operator": "eq",
+      "value": -188000,
+      "reason": "The node is scoped to birch bark tar adhesive dating to at least about 190,000 years ago at Campitello Quarry."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "natural_adhesives",
+      "prerequisite": "fire_control",
+      "expected": "required",
+      "reason": "Manufactured birch bark tar requires fire-mediated heating of bark."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "natural_adhesives",
+      "prerequisite": "foraging_and_botany",
+      "expected": "enabling",
+      "reason": "Plant raw-material selection is enabling context, not a hard formal-botany prerequisite."
+    }
+  ]
+}

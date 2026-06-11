@@ -716,33 +716,72 @@
   },
   {
     "id": "natural_adhesives",
-    "name": "Natural Adhesives",
+    "name": "Paleolithic Birch Tar Adhesive",
     "era": "Ancient",
-    "description": "Processing materials like birch bark tar or pine resin to create glues for hafting tools and waterproofing.",
+    "description": "Intentional production of birch bark tar used as a hafting adhesive for stone tools.",
     "prerequisites": [
       "fire_control",
       "foraging_and_botany"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -188000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Campitello Quarry, Italy",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers source-backed birch bark tar adhesive, currently described as the oldest known adhesive substance, dating to at least about 190,000 years ago at Campitello Quarry. It does not cover every natural gum, resin, pitch, waterproofing compound, or later ceramic-era tar-production method.",
+    "sources": [
+      {
+        "title": "Identifying Palaeolithic birch tar production techniques: challenges from an experimental biomolecular approach",
+        "url": "https://www.nature.com/articles/s41598-023-41898-5",
+        "publisher": "Scientific Reports",
+        "year": 2023,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "edge",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
         "prerequisite": "fire_control",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.93,
+        "evidence_level": "primary_source",
+        "note": "Birch bark tar must be intentionally manufactured by heating bark; the cited paper states that all production methods require knowledge of fire to transform bark into tar.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Identifying Palaeolithic birch tar production techniques: challenges from an experimental biomolecular approach",
+            "url": "https://www.nature.com/articles/s41598-023-41898-5",
+            "publisher": "Scientific Reports",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "foraging_and_botany",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "The scoped adhesive depends on selecting birch bark as the raw plant material; this is a material-selection enabler rather than a hard botanical-science prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Identifying Palaeolithic birch tar production techniques: challenges from an experimental biomolecular approach",
+            "url": "https://www.nature.com/articles/s41598-023-41898-5",
+            "publisher": "Scientific Reports",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
