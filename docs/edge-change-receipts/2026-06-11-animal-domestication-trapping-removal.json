@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-animal-domestication-trapping-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "animal_domestication",
+    "prerequisite": "trapping"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trapping provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from animal_domestication to trapping. Trapping may be one animal-capture practice, but the review does not identify it as a direct prerequisite for domestication.",
+  "source_supports_edge": "no",
+  "source_url": "https://comptes-rendus.academie-sciences.fr/biologies/articles/10.1016/j.crvi.2010.12.009/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Conceptual section: domestication is discussed as human control over reproduction and animal populations, not as a trapping technology.",
+    "source_claim_summary": "The review frames domestication around control, breeding, and changing human-animal relations rather than a necessary trapping prerequisite.",
+    "source_support_rationale": "A capture method is contextual and species-specific; retaining it would overstate a weak inferred edge as graph topology."
+  },
+  "ontology_before": "The graph modeled trapping as a direct enabler of all early animal domestication.",
+  "ontology_after": "The graph leaves animal domestication without a direct trapping prerequisite unless a narrower species-specific source supports one.",
+  "invariant_preserved_or_changed": "Changed: trapping is absent as a direct prerequisite for animal_domestication.",
+  "would_reject_if": [
+    "A source showed the scoped first domestication event required trapping as a demonstrated method.",
+    "The node were split to a specific captive-management or trapping-based domestication technique.",
+    "The graph added a narrower source-backed animal-capture node with a supported edge."
+  ],
+  "short_reason": "Trapping is not source-backed as a direct prerequisite for the broad animal-domestication node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_domestication.before.json /tmp/animal_domestication.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-animal-domestication-advanced-hunting-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "animal_domestication",
+    "prerequisite": "advanced_hunting_gathering"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Hunting & Gathering provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from animal_domestication to advanced_hunting_gathering. The corrected node is anchored to Late Glacial wolf/dog domestication, while advanced_hunting_gathering is a later unsourced placeholder.",
+  "source_supports_edge": "no",
+  "source_url": "https://comptes-rendus.academie-sciences.fr/biologies/articles/10.1016/j.crvi.2010.12.009/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction: wolves are described as the first known domesticated species, domesticated around 17-15 kyr BP by European and Asian hunter-gatherers.",
+    "source_claim_summary": "The review supports a Late Glacial wolf/dog domestication chronology before the current advanced_hunting_gathering placeholder date.",
+    "source_support_rationale": "Hunter-gatherer context is not equivalent to the graph's later advanced_hunting_gathering node and should not be modeled as a direct prerequisite."
+  },
+  "ontology_before": "The graph made early animal domestication depend on a later broad advanced-hunting placeholder.",
+  "ontology_after": "The graph treats early animal domestication as a source-backed node without laundering hunter-gatherer context into a prerequisite edge.",
+  "invariant_preserved_or_changed": "Changed: advanced_hunting_gathering is absent as a direct prerequisite for animal_domestication.",
+  "would_reject_if": [
+    "advanced_hunting_gathering were source-checked and redated before Late Glacial wolf/dog domestication.",
+    "A source showed animal domestication required the specific graph concept represented by advanced_hunting_gathering.",
+    "The animal_domestication node were rescoped to a later specialist hunting-management technology."
+  ],
+  "short_reason": "Advanced hunting context is not a source-backed direct prerequisite for early animal domestication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_domestication.before.json /tmp/animal_domestication.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "2026-06-11-early-animal-domestication-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "animal_domestication",
+      "operator": "eq",
+      "value": -15000,
+      "reason": "The node is anchored to Late Glacial wolf/dog domestication around 17-15 kyr BP."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "animal_domestication",
+      "prerequisite": "advanced_hunting_gathering",
+      "reason": "Hunter-gatherer context should not be represented by the later advanced_hunting_gathering placeholder as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "animal_domestication",
+      "prerequisite": "trapping",
+      "reason": "Trapping is not source-backed as a direct prerequisite for the broad early animal-domestication process."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "animal_domestication",
+      "prerequisite": "tribalism",
+      "reason": "Social context is not enough to model tribalism as a direct technology dependency."
+    }
+  ]
+}
