@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-11-market-weight-inspection-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "standard_weights_market_inspection",
+      "operator": "eq",
+      "value": -120,
+      "reason": "The node is scoped to the Athenian decree about weights and measures dated ca. 120 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "standard_weights_market_inspection",
+      "prerequisite": "standardized_weights_and_measures",
+      "expected": "required",
+      "reason": "Market-weight inspection requires standardized measures and weights to inspect against."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "standard_weights_market_inspection",
+      "prerequisite": "currency",
+      "reason": "Currency is not a direct prerequisite for weights-and-measures inspection."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "standard_weights_market_inspection",
+      "prerequisite": "record_keeping",
+      "reason": "Generic record keeping must not substitute for source-backed metrology as the direct dependency."
+    }
+  ]
+}

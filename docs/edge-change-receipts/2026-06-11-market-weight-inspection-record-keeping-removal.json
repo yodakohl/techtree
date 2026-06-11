@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-market-weight-inspection-record-keeping-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "standard_weights_market_inspection",
+    "prerequisite": "record_keeping"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from record_keeping to standard_weights_market_inspection. The source supports master measures, copies, stamping, enforcement, and penalties; generic record keeping is not a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.atticinscriptions.com/inscription/SEG/66125",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "SEG 66.125 lines 8-19, 37-43, and 60-65: official copies of master measures are distributed and stamped/validated for use by sellers and officials.",
+    "source_claim_summary": "The decree supports physical standards and enforcement procedures rather than generic accounting record keeping.",
+    "source_support_rationale": "Some administrative writing surrounds enforcement, but the direct technical prerequisite is standardized metrology."
+  },
+  "ontology_before": "The graph treated generic record keeping as a historical predecessor of market-weight inspection.",
+  "ontology_after": "The graph avoids laundering generic administration into a direct technical dependency for weights-and-measures inspection.",
+  "invariant_preserved_or_changed": "Changed: record_keeping is absent as a direct prerequisite for standard_weights_market_inspection.",
+  "would_reject_if": [
+    "The node were rescoped to written inspection registers or official accounting archives.",
+    "A source showed accounting record keeping was necessary for the specific market-weight inspection practice."
+  ],
+  "short_reason": "Generic record keeping is not the direct basis for market-weight inspection.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/standard_weights_market_inspection.before.json /tmp/standard_weights_market_inspection.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
