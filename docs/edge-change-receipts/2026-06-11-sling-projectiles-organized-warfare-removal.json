@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-sling-projectiles-organized-warfare-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "sling_projectiles",
+    "prerequisite": "organized_warfare"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Organized Warfare provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from organized_warfare to sling_projectiles. Sling ammunition can be used for hunting, guarding, and warfare; organized warfare is an application context, not a prerequisite for shaped sling projectiles.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1928-1010-3",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object record for the Standard of Ur: supports Early Dynastic Sumerian warfare scenes, but does not establish sling projectiles as dependent on organized warfare.",
+    "source_claim_summary": "The source supports organized warfare evidence, not a prerequisite relationship for sling projectiles.",
+    "source_support_rationale": "Projectile technology can precede or exist outside organized armies; keeping this edge would confuse use context with causation."
+  },
+  "ontology_before": "The graph made organized_warfare a direct enabler of sling_projectiles.",
+  "ontology_after": "The graph keeps sling projectiles tied to rope/tool capabilities rather than organized warfare.",
+  "invariant_preserved_or_changed": "Changed: organized_warfare is absent as a direct prerequisite for sling_projectiles.",
+  "would_reject_if": [
+    "The node were rescoped to standardized military sling ammunition only.",
+    "A source established organized warfare as necessary for the scoped sling projectile technology."
+  ],
+  "short_reason": "Organized warfare is a use context for sling projectiles, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

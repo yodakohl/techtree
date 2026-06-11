@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-organized-warfare-iron-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "organized_warfare",
+    "prerequisite": "iron_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Iron Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from iron_working to organized_warfare. The scoped evidence is Early Dynastic Sumerian organized warfare, while the graph's iron_working node is pinned to hammered meteoritic iron beads and later iron traditions rather than Bronze Age military organization.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1928-1010-3",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object record for the Standard of Ur: dates the object to Early Dynastic III, about 2600 BC, and describes the war side with soldiers, wagons, and captives.",
+    "source_claim_summary": "The source supports organized Sumerian warfare centuries before iron weapons are relevant to the scoped claim.",
+    "source_support_rationale": "The source shows organized warfare without requiring the graph's iron_working technology; iron_working is therefore a false direct dependency."
+  },
+  "ontology_before": "The graph modeled iron_working as an enabler of organized_warfare.",
+  "ontology_after": "The graph separates Bronze Age organized warfare from later or unrelated iron-working traditions.",
+  "invariant_preserved_or_changed": "Changed: iron_working is absent as a direct prerequisite for organized_warfare.",
+  "would_reject_if": [
+    "The node were rescoped to Iron Age infantry equipment or iron-armed warfare.",
+    "A source showed the specific Early Dynastic Sumerian warfare evidence depended on iron weapons."
+  ],
+  "short_reason": "Early organized warfare evidence does not require the iron_working node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/organized_warfare.before.json /tmp/organized_warfare.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

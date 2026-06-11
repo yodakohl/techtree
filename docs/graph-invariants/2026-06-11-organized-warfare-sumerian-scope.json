@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-organized-warfare-sumerian-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "organized_warfare",
+      "operator": "eq",
+      "value": -2550,
+      "reason": "The node is scoped to Early Dynastic Sumerian organized warfare evidence from the mid-third millennium BCE."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organized_warfare",
+      "prerequisite": "iron_working",
+      "reason": "Iron working must not be reintroduced as a prerequisite for Bronze Age Sumerian organized warfare evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "organized_warfare",
+      "prerequisite": "city_states",
+      "expected": "enabling",
+      "reason": "Sumerian city-states are enabling context for the source-attested case, not a universal hard prerequisite for warfare."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "battlefield_wound_care",
+      "prerequisite": "organized_warfare",
+      "reason": "Warfare is one use context for wound care, not a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "defensive_watchtowers",
+      "prerequisite": "organized_warfare",
+      "reason": "Watchtowers can arise from settlement security and signaling needs without organized warfare as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sling_projectiles",
+      "prerequisite": "organized_warfare",
+      "reason": "Sling projectiles can be hunting or guarding technology as well as warfare equipment."
+    }
+  ]
+}
