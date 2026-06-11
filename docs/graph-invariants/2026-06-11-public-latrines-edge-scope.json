@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-11-public-latrines-edge-scope",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "public_latrines",
+      "prerequisite": "sewers_and_drainage",
+      "expected": "enabling",
+      "reason": "Sewers and drainage enabled many Roman public latrines, but the node should not claim every ancient latrine required sewer connection."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_latrines",
+      "prerequisite": "water_distribution_pipes",
+      "expected": "enabling",
+      "reason": "City water systems and bath wastewater enabled flushing, but not every latrine had direct piped water."
+    }
+  ]
+}
