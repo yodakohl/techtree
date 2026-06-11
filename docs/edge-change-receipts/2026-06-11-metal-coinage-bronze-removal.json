@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-metal-coinage-bronze-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "metal_coinage",
+    "prerequisite": "bronze_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.64,
+    "evidence_level": "expert_inference",
+    "note": "Base-metal casting and working practices supported later coinage metals, but earliest Lydian electrum coins did not strictly require bronze."
+  },
+  "new_claim_absent": "No direct edge remains from metal_coinage to bronze_working; the scoped first-coinage node is anchored in Lydian/western Anatolian electrum coinage, and the museum source describes electrum, regular weights, and minting marks rather than bronze-working capability.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Lydia & the First Coins, opening paragraphs describing seventh-century Asia Minor coinage as electrum lumps with regular weights and impressed marks, followed by Lydian royal coinage.",
+    "source_claim_summary": "The American Numismatic Association describes the earliest coins as electrum, a naturally occurring gold-silver alloy, with regular weights and minting impressions.",
+    "source_support_rationale": "The source supports precious-metal/electrum material capability and standardized weight as direct scope claims; it does not support bronze working as a dependency for the earliest Lydian coinage represented by this node."
+  },
+  "ontology_before": "The node included bronze working as an enabling edge despite the note stating that bronze was not required for earliest Lydian electrum coins.",
+  "ontology_after": "The node keeps precious-metal working, metal supply, and standardized weights as direct dependencies while excluding later or parallel bronze coinage traditions from the Lydian/electrum origin scope.",
+  "invariant_preserved_or_changed": "Changed: bronze_working is absent as a direct prerequisite. Preserved: metal_coinage remains scoped to regular-weight marked metal coins beginning with Lydian/western Anatolian electrum coinage.",
+  "would_reject_if": [
+    "The node were explicitly rescoped to global bronze, copper, and base-metal coinage traditions rather than the Lydian/electrum origin of coinage.",
+    "A primary or museum source showed that earliest Lydian electrum coinage depended on bronze-working tools or processes."
+  ],
+  "short_reason": "The source-backed first-coinage scope is electrum, not bronze; bronze working should not remain as an unsourced direct dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/metal_coinage.before.json /tmp/metal_coinage.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
