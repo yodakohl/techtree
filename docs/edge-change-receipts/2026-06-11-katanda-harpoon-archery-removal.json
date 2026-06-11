@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-katanda-harpoon-archery-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fishing_spear_gigs",
+    "prerequisite": "archery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Archery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from archery to fishing_spear_gigs. The scoped Katanda artifacts are barbed bone harpoon points for spearing fish, not bow-and-arrow technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://humanorigins.si.edu/evidence/behavior/getting-food/katanda-bone-harpoon-point",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Katanda Bone Harpoon Point page: identifies the artifact as a barbed harpoon point from Katanda used to spear large fish, dated about 90,000-80,000 years old.",
+    "source_claim_summary": "The source supports bone harpoon fishing technology, not archery.",
+    "source_support_rationale": "Archery is a separate projectile technology and should not be modeled as a prerequisite for Katanda harpoon points."
+  },
+  "ontology_before": "The graph treated archery as a direct enabler of fishing spears and gigs.",
+  "ontology_after": "The graph separates bone harpoon fishing technology from bow-and-arrow technology.",
+  "invariant_preserved_or_changed": "Changed: archery is absent as a direct prerequisite for fishing_spear_gigs.",
+  "would_reject_if": [
+    "The node were rescoped to bowfishing technology.",
+    "A source showed the Katanda bone harpoon points depended on bow-and-arrow technology."
+  ],
+  "short_reason": "Katanda harpoons are not archery technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_spear_gigs.before.json /tmp/fishing_spear_gigs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

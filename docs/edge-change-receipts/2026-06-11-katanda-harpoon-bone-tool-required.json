@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-11-katanda-harpoon-bone-tool-required",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "replaced_edge": {
+    "dependent": "fishing_spear_gigs",
+    "prerequisite": "archery"
+  },
+  "edge": {
+    "dependent": "fishing_spear_gigs",
+    "prerequisite": "bone_tool_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Archery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "textbook",
+    "note": "The scoped artifact is a worked bone harpoon point; bone tool-making capability is required for producing it."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://humanorigins.si.edu/evidence/behavior/getting-food/katanda-bone-harpoon-point",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Katanda Bone Harpoon Point page: names the artifact as a bone harpoon point with barbed points for spearing fish.",
+    "source_claim_summary": "The source identifies the technology as a worked bone harpoon point.",
+    "source_support_rationale": "Because the scoped artifact is made from bone, bone tool-making is the direct material/manufacturing prerequisite."
+  },
+  "ontology_before": "The graph used archery as the direct technology input for fishing spears and gigs.",
+  "ontology_after": "The graph uses bone tool-making as the direct manufacturing basis for the scoped Katanda bone harpoon points.",
+  "invariant_preserved_or_changed": "Changed: bone_tool_making is the required prerequisite for fishing_spear_gigs.",
+  "would_reject_if": [
+    "The node were broadened away from bone harpoon points to wooden fishing spears or metal gigs.",
+    "A source showed the scoped Katanda artifacts were not bone tools."
+  ],
+  "short_reason": "Katanda bone harpoon points require bone tool-making, not archery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_spear_gigs.before.json /tmp/fishing_spear_gigs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
