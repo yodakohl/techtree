@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-pigment-creation-botany-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "pigment_creation",
+    "prerequisite": "foraging_and_botany"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+      "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path."
+    },
+  "new_claim_absent": "No direct edge remains from pigment_creation to foraging_and_botany; the node is now scoped to mineral ochre-rich pigment-compound production at Blombos Cave, where the documented toolkit is ochre, shells, bone, charcoal, grindstones, and hammerstones rather than botanical identification.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract listing the Blombos ochre-rich mixture and toolkit components.",
+    "source_claim_summary": "The source documents an ochre-processing toolkit without treating botanical knowledge as a necessary production component.",
+    "source_support_rationale": "Foraging knowledge may be background subsistence knowledge, but it is not part of the scoped mineral pigment production chain."
+  },
+  "ontology_before": "The node treated foraging_and_botany as an enabling prerequisite for pigment creation.",
+  "ontology_after": "The node is scoped to mineral ochre-rich pigment-compound production and no longer models botanical foraging knowledge as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: foraging_and_botany no longer points directly into pigment_creation.",
+  "would_reject_if": [
+    "The node were rescoped to plant dye or botanical pigment extraction.",
+    "A source showed botanical identification was a necessary part of the Blombos ochre-production toolkit."
+  ],
+  "short_reason": "Removed an over-broad contextual prerequisite from a mineral pigment-processing node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

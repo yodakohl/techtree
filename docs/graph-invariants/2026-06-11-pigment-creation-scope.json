@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-11-pigment-creation-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pigment_creation",
+      "operator": "eq",
+      "value": -100000,
+      "reason": "The node is scoped to the 100 ka Blombos ochre-processing workshop rather than a generic Neolithic pigment placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pigment_creation",
+      "prerequisite": "foraging_and_botany",
+      "reason": "Mineral ochre processing should not depend directly on botanical foraging knowledge."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pigment_creation",
+      "prerequisite": "stone_tool_making",
+      "expected": "required",
+      "reason": "The source-documented toolkit includes grindstones and hammerstones for processing the pigment compound."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pigment_creation",
+      "prerequisite": "fire_control",
+      "expected": "common_dependency",
+      "reason": "Charcoal appears in the toolkit, but fire is contextual rather than a universal hard prerequisite for pigment creation."
+    }
+  ]
+}
