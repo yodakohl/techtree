@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-masonry-stone-tools-enabling",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "masonry",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "textbook",
+    "note": "Masonry stone shaping and dressing use stone-working tools such as hammers, chisels, and gouges; advanced stone tools enable shaped-stone construction without being masonry itself."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/masonry",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Masonry article, paragraph on shaping and dressing stone with hand-held tools including hammers, mallets, chisels, and gouges.",
+    "source_claim_summary": "Britannica describes masonry stone shaping and dressing as using hand tools including hammers, mallets, chisels, and gouges.",
+    "source_support_rationale": "The passage supports a tool-enabled construction process; it does not make advanced stone tools the whole masonry technology or only a loose historical predecessor."
+  },
+  "ontology_before": "The edge treated advanced stone tools as only a historical predecessor for masonry.",
+  "ontology_after": "The edge now models stone-working tools as enabling technology for shaped-stone masonry construction.",
+  "invariant_preserved_or_changed": "Changed: edge verb is enabling. Preserved: masonry still remains a construction node, not a stone-tool-making node.",
+  "would_reject_if": [
+    "A stronger source showed early masonry as scoped here did not involve shaped or dressed stone.",
+    "The cited masonry source did not describe tools used for shaping and dressing stone."
+  ],
+  "short_reason": "Stone-working tools enable shaped-stone masonry rather than merely preceding it historically.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

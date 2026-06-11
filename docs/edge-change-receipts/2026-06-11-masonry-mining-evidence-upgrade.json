@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-masonry-mining-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "masonry",
+    "prerequisite": "mining"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mining provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Masonry begins with extractive materials such as stone, clay, sand, and gravel, commonly mined from surface pits or quarries; extraction enables reliable material supply."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/masonry",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Masonry article, materials paragraph stating masonry begins with extractive materials such as clay, sand, gravel, and stone, usually mined from surface pits or quarries.",
+    "source_claim_summary": "Britannica states that masonry construction begins with extractive materials, including stone and clay, usually mined from pits or quarries.",
+    "source_support_rationale": "The passage directly supports material extraction as an enabling supply dependency while preserving that mining is not the masonry craft itself."
+  },
+  "invariant_preserved_or_changed": "Preserved: mining remains an enabling material-supply edge; changed evidence from generic inference to source-backed claim.",
+  "would_reject_if": [
+    "A stronger source showed early stone masonry did not depend on extracted or quarried materials.",
+    "The cited masonry source did not connect masonry materials with mining, pits, or quarries."
+  ],
+  "short_reason": "The mining edge now cites a source that directly links masonry materials to extraction from pits and quarries.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
