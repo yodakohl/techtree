@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-market-weight-inspection-currency-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "standard_weights_market_inspection",
+    "prerequisite": "currency"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Currency provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from currency to standard_weights_market_inspection. The scoped Athenian decree regulates master measures, copies, weights, sellers, and penalties; currency is context for some payments but not a prerequisite for market-weight inspection.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.atticinscriptions.com/inscription/SEG/66125",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "SEG 66.125 lines 8-19 and notes: officials make copies of master measures and compel sellers to use the correct measures and weights.",
+    "source_claim_summary": "The decree supports official enforcement of standardized measures and weights, not currency as a direct input.",
+    "source_support_rationale": "Currency appears only as penalty/payment context; the inspection technology depends on standards and enforcement."
+  },
+  "ontology_before": "The graph treated currency as a direct enabler of market-weight inspection.",
+  "ontology_after": "The graph treats standardized weights and measures as the direct technical basis for market-weight inspection.",
+  "invariant_preserved_or_changed": "Changed: currency is absent as a direct prerequisite for standard_weights_market_inspection.",
+  "would_reject_if": [
+    "The node were rescoped to monetary-market inspection rather than weights-and-measures enforcement.",
+    "A source showed currency was necessary for the specific inspection office or practice."
+  ],
+  "short_reason": "Market-weight inspection requires standards, not currency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/standard_weights_market_inspection.before.json /tmp/standard_weights_market_inspection.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
