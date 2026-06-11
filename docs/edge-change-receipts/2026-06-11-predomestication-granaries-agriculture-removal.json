@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-predomestication-granaries-agriculture-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basketry_granaries",
+    "prerequisite": "agriculture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Agriculture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from basketry_granaries to agriculture. The node is now scoped to predomestication granaries at Dhra', where the cited source explicitly argues food storage preceded plant domestication and large sedentary communities.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.0812764106",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports sophisticated purpose-built granaries in a predomestication context ca. 11,300-11,175 cal BP at Dhra', with suspended floors for air circulation and rodent protection.",
+    "source_claim_summary": "The source supports purpose-built granaries before domesticated plants and large-scale sedentary communities.",
+    "source_support_rationale": "Because the source-backed granaries are predomestication storage systems, agriculture should not be a direct prerequisite for this node."
+  },
+  "ontology_before": "The graph modeled early granaries as enabled by agriculture and described them as basketry storage bins.",
+  "ontology_after": "The graph models source-backed predomestication granary structures as a food-storage technology preceding domesticated crop agriculture.",
+  "invariant_preserved_or_changed": "Changed: agriculture is absent as a direct prerequisite for basketry_granaries.",
+  "would_reject_if": [
+    "The node were narrowed back to later agricultural household grain bins.",
+    "A source showed the Dhra' granaries required domesticated crop agriculture.",
+    "The graph reintroduced agriculture as a direct prerequisite without changing the node scope."
+  ],
+  "short_reason": "Dhra' granaries are predomestication storage structures, not products of domesticated-crop agriculture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/basketry_granaries.before.json /tmp/basketry_granaries.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
