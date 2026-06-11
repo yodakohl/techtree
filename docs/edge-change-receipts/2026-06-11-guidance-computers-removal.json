@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-guidance-computers-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "guidance_systems_early",
+    "prerequisite": "computers_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from guidance_systems_early to computers_early; the node is now scoped to V-2-era electromechanical/analog inertial guidance hardware, which predates the graph's 1946 early-computers node.",
+  "source_supports_edge": "no",
+  "source_url": "https://airandspace.si.edu/collection-objects/accelerometer-gyroscopic-v-2/nasm_A19880369000",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Smithsonian object page describing V-2 guidance hardware as a gyroscope-based accelerometer fragment from the World War II V-2 guidance system.",
+    "source_claim_summary": "The source documents gyroscope-based V-2 guidance hardware rather than a mainframe-computer dependency.",
+    "source_support_rationale": "Because the scoped guidance system is World War II gyroscopic hardware, the graph's later computers_early node should not be a prerequisite."
+  },
+  "ontology_before": "The node treated 1946-era early computers as a historical predecessor for early inertial guidance.",
+  "ontology_after": "The node is scoped to V-2-era inertial guidance hardware and no longer depends on later mainframe computers.",
+  "invariant_preserved_or_changed": "Changed: computers_early is absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to postwar digital guidance computers.",
+    "A source showed V-2-era inertial guidance required mainframe computers.",
+    "The graph moved computers_early earlier than the V-2 guidance system."
+  ],
+  "short_reason": "V-2-era inertial guidance predates the graph's early-computers node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/guidance_systems_early.before.json /tmp/guidance_systems_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

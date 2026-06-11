@@ -12191,18 +12191,17 @@
     "id": "guidance_systems_early",
     "name": "Guidance Systems (Early Inertial)",
     "era": "Modern",
-    "description": "Systems using gyroscopes and accelerometers to navigate vehicles like missiles and spacecraft without external references.",
+    "description": "Early inertial rocket guidance and stability-control systems using gyroscopes, accelerometers, and analog/electromechanical control to guide vehicles without external references.",
     "prerequisites": [
       "rocketry",
       "electronics",
-      "precision_machine_tools",
-      "computers_early",
+      "precision_mechanics_miniaturization",
       "mathematics"
     ],
-    "firstKnownDate": 1947,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1944,
+    "datePrecision": "exact",
+    "region": "Germany / V-2 ballistic missile program",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "rocketry",
@@ -12221,32 +12220,26 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "precision_machine_tools",
+        "prerequisite": "precision_mechanics_miniaturization",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Precision Machine Tools provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "The V-2 guidance hardware used gyroscopic accelerometers and related precision instruments; this supports precision mechanics as the immediate enabling capability rather than generic machine tools.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Photomask",
-            "url": "https://en.wikipedia.org/wiki/Photomask",
-            "publisher": "Wikipedia",
+            "title": "Accelerometer, Gyroscopic, V-2",
+            "url": "https://airandspace.si.edu/collection-objects/accelerometer-gyroscopic-v-2/nasm_A19880369000",
+            "publisher": "Smithsonian National Air and Space Museum",
             "year": 2026,
-            "source_type": "weak_web",
+            "source_type": "museum",
             "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "computers_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
       },
       {
         "prerequisite": "mathematics",
@@ -12256,7 +12249,33 @@
         "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
-    ]
+    ],
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Accelerometer, Gyroscopic, V-2",
+        "url": "https://airandspace.si.edu/collection-objects/accelerometer-gyroscopic-v-2/nasm_A19880369000",
+        "publisher": "Smithsonian National Air and Space Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "V-2 Gyroscope",
+        "url": "https://www.spacecentre.co.uk/collections/categories/rockets/v-2-gyroscope/",
+        "publisher": "National Space Centre",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "scopeNote": "Covers early inertial rocket guidance/stability-control hardware exemplified by V-2 gyroscopes and gyroscopic accelerometers. It is not a claim that later digital mainframe computers were prerequisites for the first systems."
   },
   {
     "id": "ballistic_missiles_icbm",
