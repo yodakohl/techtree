@@ -2042,17 +2042,17 @@
     "id": "tungsten_filament_production",
     "name": "Tungsten Filament Production",
     "era": "Modern",
-    "description": "Manufacturing high-melting-point tungsten wires for light bulbs and vacuum tubes.",
+    "description": "Coolidge-style production of ductile drawn tungsten wire for incandescent lamp filaments and related vacuum devices.",
     "prerequisites": [
       "advanced_metallurgy_medieval",
       "mining",
       "electricity",
-      "advanced_chemistry"
+      "powder_metallurgy"
     ],
-    "firstKnownDate": 1945,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1909,
+    "datePrecision": "exact",
+    "region": "General Electric Research Laboratory, Schenectady, New York",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "advanced_metallurgy_medieval",
@@ -2079,26 +2079,60 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "advanced_chemistry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "powder_metallurgy",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Coolidge's ductile tungsten process began from sintered tungsten and used hot swaging and drawing to make bendable wire, making powder metallurgy directly relevant to the scoped production method.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Photoresist",
-            "url": "https://en.wikipedia.org/wiki/Photoresist",
-            "publisher": "Wikipedia",
+            "title": "Lighting A Revolution: William D. Coolidge",
+            "url": "https://americanhistory.si.edu/lighting/bios/coolidge.htm",
+            "publisher": "Smithsonian National Museum of American History",
             "year": 2026,
-            "source_type": "weak_web",
+            "source_type": "museum",
             "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
         ]
       }
-    ]
+    ],
+    "fields": [
+      "Materials Science & Manufacturing"
+    ],
+    "fieldLanes": {
+      "Materials Science & Manufacturing": "Metals & Alloys"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Lighting A Revolution: William D. Coolidge",
+        "url": "https://americanhistory.si.edu/lighting/bios/coolidge.htm",
+        "publisher": "Smithsonian National Museum of American History",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Tungsten and method of making the same for use as filaments of incandescent electric lamps and for other purposes",
+        "url": "https://patents.google.com/patent/US1082933A/en",
+        "publisher": "Google Patents / United States Patent Office",
+        "year": 1913,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "scopeNote": "Covers ductile drawn tungsten wire production associated with Coolidge's lamp-filament process. It is not a generic claim about all tungsten metallurgy, photoresists, or post-1945 vacuum electronics."
   },
   {
     "id": "vacuum_tubes_electron_control",
