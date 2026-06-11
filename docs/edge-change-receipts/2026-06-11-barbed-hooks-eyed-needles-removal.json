@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-barbed-hooks-eyed-needles-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fish_hook_barbs",
+    "prerequisite": "bone_needles_tailoring"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bone Needles & Tailoring provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from fish_hook_barbs to bone_needles_tailoring. The corrected prerequisite node is scoped to eyed sewing needles, which are not a source-backed enabler of barbed fish hooks.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article scope: reviews eyed needles and dress; it does not connect eyed needles to fish-hook barb technology.",
+    "source_claim_summary": "The review supports eyed needles as sewing/dress technology.",
+    "source_support_rationale": "A sewing-needle source should not be used to support a fish-hook dependency."
+  },
+  "ontology_before": "The graph made bone needles and tailoring a direct enabler of barbed fish hooks.",
+  "ontology_after": "Barbed fish hooks no longer depend on eyed sewing needles.",
+  "invariant_preserved_or_changed": "Changed: bone_needles_tailoring is absent as a direct prerequisite for fish_hook_barbs.",
+  "would_reject_if": [
+    "A source showed barbed fish hooks required eyed sewing needles.",
+    "The prerequisite node were rescoped to general bone-point manufacture rather than eyed needles.",
+    "The fish_hook_barbs node were source-checked to a tradition that directly used sewing-needle technology."
+  ],
+  "short_reason": "Eyed sewing needles are not an evidenced prerequisite for barbed fish hooks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/bone_needles_tailoring.before.json /tmp/bone_needles_tailoring.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

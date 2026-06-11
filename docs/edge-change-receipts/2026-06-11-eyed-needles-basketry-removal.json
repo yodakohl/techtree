@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-eyed-needles-basketry-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bone_needles_tailoring",
+    "prerequisite": "basic_weaving_basketry"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Weaving and Basketry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from bone_needles_tailoring to basic_weaving_basketry. The corrected node is scoped to eyed needles for sewing, not woven or basketry technologies.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article scope: reviews Paleolithic eyed needles and dress, not basketry or woven-container technologies.",
+    "source_claim_summary": "The review supports eyed needles as sewing technology.",
+    "source_support_rationale": "Basketry should not remain as a direct prerequisite when the node is source-locked to eyed needles rather than woven structures."
+  },
+  "ontology_before": "The graph treated basketry/weaving as a historical predecessor of bone needles and tailoring.",
+  "ontology_after": "The graph keeps eyed needles separate from basketry and woven-container technologies.",
+  "invariant_preserved_or_changed": "Changed: basic_weaving_basketry is absent as a direct prerequisite for bone_needles_tailoring.",
+  "would_reject_if": [
+    "The node were broadened to woven textiles or basketry tools.",
+    "A source showed the earliest eyed needles required basketry or weaving.",
+    "The graph reintroduced basic_weaving_basketry without changing the node scope."
+  ],
+  "short_reason": "Eyed needles are sewing tools, not basketry technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/bone_needles_tailoring.before.json /tmp/bone_needles_tailoring.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

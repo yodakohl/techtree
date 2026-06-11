@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-11-paleolithic-eyed-needles-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "bone_needles_tailoring",
+      "operator": "eq",
+      "value": -38000,
+      "reason": "The node is scoped to eyed needles beginning around 40,000 cal BP at Denisova Cave."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "bone_needles_tailoring",
+      "prerequisite": "bone_tool_making",
+      "expected": "required",
+      "reason": "The scoped artifacts are bone, antler, or ivory eyed needles."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "bone_needles_tailoring",
+      "prerequisite": "basic_rope_making",
+      "expected": "enabling",
+      "reason": "Thread or sinew enables sewing but is not the needle artifact itself."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bone_needles_tailoring",
+      "prerequisite": "advanced_stone_tools",
+      "reason": "The scoped artifacts are bone-tool forms and predate the current advanced_stone_tools placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bone_needles_tailoring",
+      "prerequisite": "basic_weaving_basketry",
+      "reason": "Eyed needles should not depend directly on basketry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fish_hook_barbs",
+      "prerequisite": "bone_needles_tailoring",
+      "reason": "Barbed fish hooks should not depend directly on eyed sewing needles."
+    }
+  ]
+}
