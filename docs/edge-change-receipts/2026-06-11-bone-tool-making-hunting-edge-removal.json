@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-bone-tool-making-hunting-edge-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bone_tool_making",
+    "prerequisite": "hunting_gathering_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Hunting & Gathering is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from bone_tool_making to hunting_gathering_basic. The source-backed first-known claim is a knapped-bone manufacturing assemblage, not a claim that generalized hunting-and-gathering practice is a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/s41586-025-08652-5",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and main paper: documents an Olduvai Gorge assemblage of bone tools shaped by knapping in a single horizon dated to 1.5 Ma.",
+    "source_claim_summary": "The paper supports systematic bone-tool production through knapping of large-mammal limb bone fragments at Olduvai, without making generalized hunting-gathering systems a direct prerequisite.",
+    "source_support_rationale": "The source points to transferred knapping/manufacturing practice, so stone toolmaking is the relevant predecessor while hunting_gathering_basic is only broad context."
+  },
+  "ontology_before": "The graph treated generalized hunting-and-gathering as a direct historical predecessor of bone tool making.",
+  "ontology_after": "Bone tool making is scoped to a manufacturing practice whose relevant predecessor is percussion-flaking/stone-tool craft, not broad subsistence organization.",
+  "invariant_preserved_or_changed": "Changed: hunting_gathering_basic is absent as a direct prerequisite for bone_tool_making.",
+  "would_reject_if": [
+    "A source showed the first scoped bone-tool assemblage required an organized hunting-and-gathering technology rather than available animal bone and knapping practice.",
+    "The node were narrowed to a later hunter-gatherer bone-point or needle industry with a different source-backed dependency.",
+    "The graph reintroduced hunting_gathering_basic as a direct prerequisite without changing the node scope."
+  ],
+  "short_reason": "The first-known bone-tool claim is manufacturing-specific, not a generic subsistence dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/bone_tool_making.before.json /tmp/bone_tool_making.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
