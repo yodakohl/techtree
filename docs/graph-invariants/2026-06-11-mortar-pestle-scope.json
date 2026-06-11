@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-11-mortar-pestle-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mortar_pestle_food_processing",
+      "operator": "eq",
+      "value": -11000,
+      "reason": "The node is scoped to 13,000-year-old Natufian stone mortars at Raqefet Cave."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mortar_pestle_food_processing",
+      "prerequisite": "stone_grinding_slabs",
+      "expected": "historical_predecessor",
+      "reason": "Earlier flat grinding stones are a historical predecessor, not a direct hard prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mortar_pestle_food_processing",
+      "prerequisite": "pottery",
+      "reason": "Stone mortar food processing should not depend on pottery."
+    }
+  ]
+}

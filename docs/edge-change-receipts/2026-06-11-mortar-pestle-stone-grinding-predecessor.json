@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-mortar-pestle-stone-grinding-predecessor",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "mortar_pestle_food_processing",
+    "prerequisite": "stone_grinding_slabs"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Stone Grinding Slabs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.66,
+    "evidence_level": "primary_source",
+    "note": "Earlier flat grinding stones show wild-plant grinding traditions; Raqefet Cave documents later bedrock and boulder mortars for pounding, cooking, storing, and fermenting plant foods."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://archaeology.stanford.edu/publications/fermented-beverage-and-food-storage-13000-y-old-stone-mortars-raqefet-cave-israel",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "supports_chronology",
+    "source_locator": "Publication summary: reports 13,000-year-old stone mortars at Raqefet Cave used for plant-food storage, pounding, cooking, and cereal-based beer production.",
+    "source_claim_summary": "The source supports Natufian stone-mortar processing as a later, more specific food-processing practice than earlier flat grinding stones.",
+    "source_support_rationale": "The source supports chronology and functional continuity in stone plant-processing tools, not a hard dependency from flat slabs to mortars."
+  },
+  "ontology_before": "The graph treated flat grinding slabs as a direct enabling prerequisite for mortar-and-pestle food processing.",
+  "ontology_after": "The graph treats flat grinding slabs as an earlier historical predecessor to later source-backed stone mortar food processing.",
+  "invariant_preserved_or_changed": "Changed: stone_grinding_slabs -> mortar_pestle_food_processing is historical_predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to a technical mortar design proven to require flat grinding slabs.",
+    "A source showed stone grinding slabs directly enabled the Raqefet mortar technology rather than preceding it historically.",
+    "The graph promoted the edge back to enabling or required without method-level evidence."
+  ],
+  "short_reason": "Flat grinding stones are better modeled as historical predecessors, not direct enablers.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mortar_pestle_food_processing.before.json /tmp/mortar_pestle_food_processing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
