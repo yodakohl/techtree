@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-civic-water-meters-archives-common",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "civic_water_meters",
+    "prerequisite": "public_archives"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Archives provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.74,
+    "evidence_level": "primary_source",
+    "note": "Frontinus compares pipe gauges and water allotments against official records; public recordkeeping is contextual administrative infrastructure, not a physical meter component."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://waters.iath.virginia.edu/frontinus.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Frontinus, section 25 describing ajutages verified in imperial records, and distribution sections listing allocated quinariae by category and ward.",
+    "source_claim_summary": "Frontinus repeatedly relates water allotment gauges and quantities to official records and schedules.",
+    "source_support_rationale": "The source supports public records as administrative context for water allotments, but not as a physical prerequisite for the gauge itself."
+  },
+  "ontology_before": "The edge treated public archives as a generic enabling technology.",
+  "ontology_after": "The edge now models public records as contextual administrative infrastructure shared by civic utility accounting.",
+  "invariant_preserved_or_changed": "Changed: edge type is common_dependency. Preserved: administrative records remain connected to the allotment-gauge node.",
+  "would_reject_if": [
+    "The node were scoped only to physical pipe bores with no administrative allotment records.",
+    "A source showed public records were not part of Roman water allotment administration."
+  ],
+  "short_reason": "Records support civic water allotment administration but are not a physical meter component.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/civic_water_meters.before.json /tmp/civic_water_meters.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

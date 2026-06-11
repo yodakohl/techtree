@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-civic-water-meters-portable-scales-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "civic_water_meters",
+    "prerequisite": "portable_scales"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Portable Balance Scales provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from civic_water_meters to portable_scales; Frontinus describes Roman water allotments in terms of pipe bores, delivery tanks, quinariae, and records, not weighing devices or balance scales.",
+  "source_supports_edge": "no",
+  "source_url": "https://waters.iath.virginia.edu/frontinus.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Frontinus, The Water Supply of the City of Rome, sections 19, 25, 78-88, and 105 describing gauges, quinariae, delivery tanks, pipe-size limits, and records.",
+    "source_claim_summary": "Frontinus describes water allocation and measurement through pipe gauges and administrative records rather than portable weighing scales.",
+    "source_support_rationale": "The source supports a pipe-caliber/allotment system and gives no basis for balance scales as a prerequisite."
+  },
+  "ontology_before": "The node implied portable weighing scales enabled civic water metering.",
+  "ontology_after": "The node is scoped to pipe-bore allotment gauges and administrative records, with no weighing-scale dependency.",
+  "invariant_preserved_or_changed": "Changed: portable_scales is absent as a direct prerequisite. Preserved: the node still represents civic water allocation and monitoring.",
+  "would_reject_if": [
+    "A stronger source showed Roman civic water allotment gauges used portable balance scales.",
+    "The node were rescoped to commodity weighing or fee collection rather than pipe-bore water allotment."
+  ],
+  "short_reason": "Frontinus supports pipe-caliber water allotment, not weighing scales.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/civic_water_meters.before.json /tmp/civic_water_meters.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
