@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-aurignacian-flutes-leather-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_musical_instruments_flutes_drums",
+    "prerequisite": "leather_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Leather Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from early_musical_instruments_flutes_drums to leather_working. The corrected node excludes drums and stretched-hide instruments.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/nature08169",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports bone and ivory flutes and says they demonstrate an established musical tradition.",
+    "source_claim_summary": "The source supports flutes made of bone and ivory, not hide drums.",
+    "source_support_rationale": "Because drums and hide instruments were removed from the node scope, leather working should not remain as a direct prerequisite."
+  },
+  "ontology_before": "The graph let a flutes-and-drums label pull leather working into the prerequisites.",
+  "ontology_after": "The graph keeps the source-backed flute claim separate from unsourced hide-instrument claims.",
+  "invariant_preserved_or_changed": "Changed: leather_working is absent as a direct prerequisite for early_musical_instruments_flutes_drums.",
+  "would_reject_if": [
+    "The node were broadened again to include drums or hide instruments.",
+    "A source showed the scoped Aurignacian flutes required leather working.",
+    "The graph reintroduced leather_working without changing the node scope."
+  ],
+  "short_reason": "Bone and ivory flutes do not support a leather-working prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/early_musical_instruments_flutes_drums.before.json /tmp/early_musical_instruments_flutes_drums.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

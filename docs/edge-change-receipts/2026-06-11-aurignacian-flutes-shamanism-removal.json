@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-aurignacian-flutes-shamanism-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_musical_instruments_flutes_drums",
+    "prerequisite": "shamanism_animism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Shamanism & Animism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from early_musical_instruments_flutes_drums to shamanism_animism. The cited source documents musical artifacts and tradition, not a ritual or animist prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/nature08169",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports bone and ivory flutes and an established musical tradition; it does not establish shamanism or animism as a prerequisite.",
+    "source_claim_summary": "The source supports early musical instruments without proving a ritual-religious dependency.",
+    "source_support_rationale": "Musical tradition evidence should not be converted into a direct shamanism/animism prerequisite without explicit source support."
+  },
+  "ontology_before": "The graph made a speculative religious context a direct enabler of early musical instruments.",
+  "ontology_after": "The graph models source-backed flutes without requiring a ritual or animist institution.",
+  "invariant_preserved_or_changed": "Changed: shamanism_animism is absent as a direct prerequisite for early_musical_instruments_flutes_drums.",
+  "would_reject_if": [
+    "The node were rescoped to ritual instruments with direct source evidence.",
+    "A source showed the scoped Aurignacian flutes required shamanism or animism.",
+    "The graph reintroduced the edge as more than speculative context."
+  ],
+  "short_reason": "The source supports musical artifacts, not a shamanism prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/early_musical_instruments_flutes_drums.before.json /tmp/early_musical_instruments_flutes_drums.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

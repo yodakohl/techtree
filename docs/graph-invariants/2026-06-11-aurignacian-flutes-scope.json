@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-11-aurignacian-flutes-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "early_musical_instruments_flutes_drums",
+      "operator": "eq",
+      "value": -35000,
+      "reason": "The node is scoped to early Aurignacian bone and ivory flutes more than 35,000 calendar years old."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_musical_instruments_flutes_drums",
+      "prerequisite": "bone_tool_making",
+      "expected": "enabling",
+      "reason": "Bone/ivory working remains an enabling material capability for the scoped flutes."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_musical_instruments_flutes_drums",
+      "prerequisite": "woodworking_basic",
+      "reason": "The scoped artifacts are bone and ivory flutes, not wooden instruments."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_musical_instruments_flutes_drums",
+      "prerequisite": "leather_working",
+      "reason": "The scoped artifacts are flutes, not hide drums or stretched-hide instruments."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_musical_instruments_flutes_drums",
+      "prerequisite": "shamanism_animism",
+      "reason": "The source documents musical artifacts without proving shamanism or animism as a prerequisite."
+    }
+  ]
+}
