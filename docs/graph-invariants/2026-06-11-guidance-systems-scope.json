@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-11-guidance-systems-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "guidance_systems_early",
+      "operator": "eq",
+      "value": 1944,
+      "reason": "The node is scoped to V-2-era inertial guidance/stability-control hardware."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "guidance_systems_early",
+      "prerequisite": "precision_machine_tools",
+      "reason": "The direct edge should use the more specific precision_mechanics_miniaturization node, not a photomask-backed machine-tools edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "guidance_systems_early",
+      "prerequisite": "computers_early",
+      "reason": "V-2-era inertial guidance should not depend on the graph's later early-computers node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "guidance_systems_early",
+      "prerequisite": "precision_mechanics_miniaturization",
+      "expected": "enabling",
+      "reason": "Gyroscopic accelerometers and related precision instruments are the immediate enabling hardware context."
+    }
+  ]
+}

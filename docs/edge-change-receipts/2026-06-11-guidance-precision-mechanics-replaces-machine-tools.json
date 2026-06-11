@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-11-guidance-precision-mechanics-replaces-machine-tools",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "guidance_systems_early",
+    "prerequisite": "precision_mechanics_miniaturization"
+  },
+  "replaced_edge": {
+    "dependent": "guidance_systems_early",
+    "prerequisite": "precision_machine_tools"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Precision Machine Tools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.72,
+    "note": "The V-2 guidance hardware used gyroscopic accelerometers and related precision instruments; this supports precision mechanics as the immediate enabling capability rather than generic machine tools."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://airandspace.si.edu/collection-objects/accelerometer-gyroscopic-v-2/nasm_A19880369000",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Smithsonian object page describing a V-2 guidance-system fragment with a gyroscope that sensed acceleration and integrated it over time.",
+    "source_claim_summary": "The source identifies the V-2 gyroscopic accelerometer as guidance-system hardware that sensed acceleration and integrated the data into velocity.",
+    "source_support_rationale": "This supports precision mechanics as the closer enabling capability for early inertial guidance hardware while rejecting the previous photomask-backed machine-tools edge as a source-topic mismatch."
+  },
+  "ontology_before": "The node depended directly on precision_machine_tools and cited an unrelated photomask source.",
+  "ontology_after": "The node depends on precision_mechanics_miniaturization, preserving the precision-hardware requirement through a more specific graph node.",
+  "invariant_preserved_or_changed": "Changed: precision_machine_tools is absent as a direct prerequisite and precision_mechanics_miniaturization is the direct enabling edge.",
+  "would_reject_if": [
+    "The node were rescoped to semiconductor photomask production.",
+    "A source showed early inertial guidance did not use gyroscopic or other precision mechanical instruments.",
+    "The graph reintroduced the Photomask source for early guidance systems."
+  ],
+  "short_reason": "Early inertial guidance used precision gyroscopic instruments, not photomask technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/guidance_systems_early.before.json /tmp/guidance_systems_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
