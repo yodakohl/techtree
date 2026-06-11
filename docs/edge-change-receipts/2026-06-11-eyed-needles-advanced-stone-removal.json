@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-eyed-needles-advanced-stone-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bone_needles_tailoring",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from bone_needles_tailoring to advanced_stone_tools. The corrected node is scoped to eyed needles, and the direct material-method prerequisite is bone_tool_making instead of the later broad advanced_stone_tools placeholder.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Early eyed needles section: earliest eyed needles occur in northern Eurasia beginning around 40,000 cal BP at Denisova Cave.",
+    "source_claim_summary": "The review supports eyed needles as a bone/antler/ivory tool class around 40,000 cal BP.",
+    "source_support_rationale": "The reviewed technology is a bone-tool form and predates the current advanced_stone_tools placeholder date, so the broad stone-tool prerequisite is not appropriate."
+  },
+  "ontology_before": "The graph made a later broad advanced-stone-tool placeholder a direct predecessor of eyed needles.",
+  "ontology_after": "The graph uses bone_tool_making as the direct material-method prerequisite for eyed needles.",
+  "invariant_preserved_or_changed": "Changed: advanced_stone_tools is absent as a direct prerequisite for bone_needles_tailoring.",
+  "would_reject_if": [
+    "The advanced_stone_tools node were separately source-checked and redated early enough with direct needle-manufacture evidence.",
+    "The needle node were rescoped to lithic sewing tools rather than eyed bone/antler/ivory needles.",
+    "The graph lacked a bone_tool_making prerequisite for the scoped technology."
+  ],
+  "short_reason": "Eyed needles are a bone-tool class and should not depend on a later broad stone-tool placeholder.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/bone_needles_tailoring.before.json /tmp/bone_needles_tailoring.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

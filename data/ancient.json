@@ -7507,42 +7507,72 @@
   },
   {
     "id": "bone_needles_tailoring",
-    "name": "Bone Needles & Tailoring",
+    "name": "Paleolithic Eyed Needles",
     "era": "Ancient",
-    "description": "Pierced bone and antler needles used to stitch fitted clothing, hides, bags, shelters, sails, and textile goods.",
+    "description": "Bone, antler, or ivory needles with eyes used for sewing thread or sinew through hides and garments.",
     "prerequisites": [
-      "advanced_stone_tools",
-      "basic_rope_making",
-      "basic_weaving_basketry"
+      "bone_tool_making",
+      "basic_rope_making"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -38000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Denisova Cave, Altai Mountains, southern Siberia",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers source-backed Paleolithic eyed needles beginning around 40,000 cal BP at Denisova Cave. It does not cover bone awls, basketry, general tailoring, sails, shelters, or later regional needle traditions unless modeled separately.",
+    "sources": [
+      {
+        "title": "Paleolithic eyed needles and the evolution of dress",
+        "url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+        "publisher": "Science Advances",
+        "year": 2024,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
-        "prerequisite": "advanced_stone_tools",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "bone_tool_making",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The scoped technology is a bone, antler, or ivory tool form; bone-tool manufacture is therefore a direct material-method requirement.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Paleolithic eyed needles and the evolution of dress",
+            "url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+            "publisher": "Science Advances",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "basic_rope_making",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "basic_weaving_basketry",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Weaving and Basketry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "enabling",
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Thread, sinew, or other cordage-like material enables eyed-needle sewing, but broad rope making is not a hard prerequisite for the needle artifact itself.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Paleolithic eyed needles and the evolution of dress",
+            "url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+            "publisher": "Science Advances",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -8530,7 +8560,6 @@
     "description": "Improved hook shapes with barbs, points, and tied lines for more reliable fishing in rivers, lakes, and coasts.",
     "prerequisites": [
       "fishing_nets_hooks",
-      "bone_needles_tailoring",
       "basic_rope_making"
     ],
     "firstKnownDate": -10000,
@@ -8544,14 +8573,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Paleolithic Fish Hooks provide an earlier hook technology that enables later hook-shape improvements without proving a hard prerequisite.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "bone_needles_tailoring",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bone Needles & Tailoring provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {

@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-eyed-needles-rope-enabling",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "bone_needles_tailoring",
+    "prerequisite": "basic_rope_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Thread, sinew, or other cordage-like material enables eyed-needle sewing, but broad rope making is not a hard prerequisite for the needle artifact itself."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.science.org/doi/10.1126/sciadv.adp2887",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Article scope and early-eyed-needles discussion: eyed needles are discussed as sewing tools for dress and clothing, with earliest examples around 40,000 cal BP at Denisova Cave.",
+    "source_claim_summary": "The review connects eyed needles to sewing technologies and dress rather than treating cordage as the artifact itself.",
+    "source_support_rationale": "Cordage/thread is enabling material for sewing with an eyed needle, but the review does not make broad rope-making a direct historical predecessor of the needle artifact."
+  },
+  "ontology_before": "The graph treated rope making as a historical predecessor of bone needles and tailoring.",
+  "ontology_after": "The graph treats cordage/thread as an enabling material context for source-backed eyed needles.",
+  "invariant_preserved_or_changed": "Changed: basic_rope_making edge is now enabling rather than historical_predecessor.",
+  "would_reject_if": [
+    "The node were rescoped to rope or textile production rather than eyed needles.",
+    "A source showed eyed needles derive historically from rope making rather than use thread/sinew as sewing material.",
+    "A narrower thread/sinew node replaced basic_rope_making."
+  ],
+  "short_reason": "Thread or sinew enables sewing, but rope making is not the historical predecessor of eyed needles.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/bone_needles_tailoring.before.json /tmp/bone_needles_tailoring.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
