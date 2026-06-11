@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-point-of-care-testing-ehr-removal",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "point_of_care_testing",
+    "prerequisite": "electronic_health_records"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electronic Health Records provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from point_of_care_testing to electronic_health_records; POCT is defined by near-patient testing and rapid turnaround, not by record software.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK592387/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction defining POCT as clinical laboratory testing conducted at or near the site of patient care with rapid turnaround.",
+    "source_claim_summary": "The source defines point-of-care testing as near-patient clinical laboratory testing that brings testing to the patient for rapid results.",
+    "source_support_rationale": "This refutes EHR as a method prerequisite because the defining capability is portable or near-patient testing, while EHRs are result-management and workflow systems."
+  },
+  "ontology_before": "Point-of-care testing depended on electronic health records, mixing a diagnostic testing modality with later clinical information infrastructure.",
+  "ontology_after": "Point-of-care testing is modeled as near-patient diagnostic testing; electronic records may support reporting or integration but are not a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: point_of_care_testing no longer directly depends on electronic_health_records.",
+  "would_reject_if": [
+    "The node were rescoped to connected POCT result-management platforms rather than point-of-care testing generally.",
+    "A source showed early or general POCT cannot function without EHR infrastructure.",
+    "A later graph split introduced a narrower connected_poCT_platforms node that intentionally depends on EHR integration."
+  ],
+  "short_reason": "Point-of-care testing is near-patient diagnostic testing, not an EHR-dependent technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
