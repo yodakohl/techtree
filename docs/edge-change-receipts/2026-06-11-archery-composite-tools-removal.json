@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-archery-composite-tools-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "archery",
+    "prerequisite": "composite_tools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Composite Tools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from archery to composite_tools. The current composite_tools node is scoped to KP1 hafted stone-point spears, not Sibudu bow-and-arrow technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/abs/indications-of-bow-and-stonetipped-arrow-use-64-000-years-ago-in-kwazulunatal-south-africa/89AF638BE5E64CEAC63363EFDD4D5E8F",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the argument depends on classes of stone artefacts and their context for bow-and-arrow inference.",
+    "source_claim_summary": "The source supports stone artefacts as evidence for arrows, but not KP1 hafted spear technology as a direct prerequisite.",
+    "source_support_rationale": "After the composite_tools node was narrowed to KP1 hafted spears, keeping it as a direct archery prerequisite would smuggle in the old broader meaning."
+  },
+  "ontology_before": "The graph used composite_tools as a broad composite-weapon prerequisite for archery.",
+  "ontology_after": "The graph uses stone_tool_making as the direct material prerequisite for the Sibudu stone-tipped arrow scope.",
+  "invariant_preserved_or_changed": "Changed: composite_tools is absent as a direct prerequisite for archery.",
+  "would_reject_if": [
+    "A broader composite_projectile_technology node were added and source-checked to Sibudu arrows.",
+    "The composite_tools node were broadened back from KP1 hafted spear points.",
+    "A source showed KP1 hafted spear technology directly enabled Sibudu bow-and-arrow use."
+  ],
+  "short_reason": "The current composite_tools scope is KP1 hafted spears, not a direct archery prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/archery.before.json /tmp/archery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

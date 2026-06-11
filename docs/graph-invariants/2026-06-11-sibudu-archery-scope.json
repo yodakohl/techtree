@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-11-sibudu-archery-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "archery",
+      "operator": "eq",
+      "value": -64000,
+      "reason": "The node is scoped to indications of bow-and-arrow use at Sibudu Cave 64 millennia ago."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "archery",
+      "prerequisite": "stone_tool_making",
+      "expected": "required",
+      "reason": "The scoped evidence is inferred from stone artefacts and their context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "archery",
+      "prerequisite": "advanced_hunting_gathering",
+      "reason": "Application context should not be modeled as a direct technology prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "archery",
+      "prerequisite": "composite_tools",
+      "reason": "The current composite_tools node is scoped to KP1 hafted spears, not Sibudu archery."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "archery",
+      "prerequisite": "atlatl",
+      "reason": "Atlatl and archery are separate projectile systems unless a source supports a direct lineage."
+    }
+  ]
+}
