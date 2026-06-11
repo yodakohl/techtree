@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-sintashta-chariot-wheeled-vehicles-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "chariot",
+    "prerequisite": "wheeled_vehicles"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Wheeled Vehicles provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "review",
+    "note": "The scoped chariot evidence includes pits for spoked wheels, so wheeled-vehicle technology is required for the chariot artifact class."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/chariots-in-the-eurasian-steppe-a-bayesian-approach-to-the-emergence-of-horsedrawn-transport-in-the-early-second-millennium-bc/C4FDF8C5E7D1D20A28BEB7F6C50A9AF4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Discussion of Sintashta evidence: describes light chariots, pits for spoked wheels, radiocarbon dates, and horse teams around the turn of the second millennium BC.",
+    "source_claim_summary": "The source identifies wheel evidence as part of the early chariot assemblage.",
+    "source_support_rationale": "A chariot is a wheeled vehicle; for this scoped artifact class, wheeled-vehicle technology is required rather than merely enabling."
+  },
+  "ontology_before": "The graph treated wheeled vehicles as a generic enabler for chariots.",
+  "ontology_after": "The graph treats wheeled vehicles as a required component class for the scoped chariot node.",
+  "invariant_preserved_or_changed": "Changed: wheeled_vehicles is required for chariot.",
+  "would_reject_if": [
+    "The node were broadened to include non-wheeled sledges or horse-drawn platforms.",
+    "The source did not identify wheel evidence as part of the scoped chariot assemblage."
+  ],
+  "short_reason": "Early chariots require wheeled-vehicle technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/chariot.before.json /tmp/chariot.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-11-sintashta-chariot-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "chariot",
+      "operator": "eq",
+      "value": -2000,
+      "reason": "The node is scoped to early Sintashta-Petrovka chariots around the turn of the second millennium BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chariot",
+      "prerequisite": "wheeled_vehicles",
+      "expected": "required",
+      "reason": "A chariot is a wheeled vehicle artifact class."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chariot",
+      "prerequisite": "yokes_and_harnesses",
+      "expected": "required",
+      "reason": "Horse-drawn chariots require traction harness/tack capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chariot",
+      "prerequisite": "horseback_riding",
+      "reason": "Ridden mounts are not a prerequisite for horse-drawn chariots."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chariot",
+      "prerequisite": "bronze_working",
+      "reason": "Bronze working must not stand in as unsourced broad Bronze Age context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chariot",
+      "prerequisite": "archery",
+      "reason": "Chariot archery is an application, not a prerequisite for chariot vehicle technology."
+    }
+  ]
+}

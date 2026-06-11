@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-11-sintashta-chariot-harness-required",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "replaced_edge": {
+    "dependent": "chariot",
+    "prerequisite": "horseback_riding"
+  },
+  "edge": {
+    "dependent": "chariot",
+    "prerequisite": "yokes_and_harnesses"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Horseback Riding provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "The scoped chariots are horse-drawn vehicles with horse teams and tack, so traction harnessing is required."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/chariots-in-the-eurasian-steppe-a-bayesian-approach-to-the-emergence-of-horsedrawn-transport-in-the-early-second-millennium-bc/C4FDF8C5E7D1D20A28BEB7F6C50A9AF4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Discussion of Sintashta light chariots: identifies horse teams and horse tack associated with the early chariot evidence.",
+    "source_claim_summary": "The source supports traction equipment for horse-drawn chariots.",
+    "source_support_rationale": "For horse-drawn chariots, harness/tack capability is the direct traction prerequisite."
+  },
+  "ontology_before": "The graph modeled horse riding as the direct animal-use prerequisite.",
+  "ontology_after": "The graph models traction harnessing as the direct animal-use prerequisite for horse-drawn chariots.",
+  "invariant_preserved_or_changed": "Changed: yokes_and_harnesses is required and horseback_riding is absent.",
+  "would_reject_if": [
+    "A narrower horse tack node is added and this edge is rewired to it.",
+    "The chariot node is broadened away from horse-drawn chariots."
+  ],
+  "short_reason": "Horse-drawn chariots require harness/tack, not horseback riding.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/chariot.before.json /tmp/chariot.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
