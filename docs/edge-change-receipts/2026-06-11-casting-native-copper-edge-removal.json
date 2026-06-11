@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-casting-native-copper-edge-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "casting_and_molding",
+    "prerequisite": "copper_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Copper Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from casting_and_molding to copper_working. Early native copper working is a predecessor to later metallurgy, but the scoped casting node should not depend directly on the native-copper-working node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Turkey/AnatoliaMetals-Yalcin2000.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 1-3 distinguish native copper hammering and annealing after ca. 8200 BCE from later extractive metallurgy and casting after ca. 5000 BCE.",
+    "source_claim_summary": "Yalçın and Özbal describe native copper working as an early monometallic stage and metal casting as a later development after extractive metallurgy.",
+    "source_support_rationale": "The source supports a historical sequence, not a direct dependency from native copper working to the broader casting-and-molding node."
+  },
+  "ontology_before": "The graph made native copper working a direct enabling prerequisite for a broad molten-metal casting node.",
+  "ontology_after": "Native copper working remains separately scoped; casting and molding no longer claims a direct dependency on that earlier native-copper stage.",
+  "invariant_preserved_or_changed": "Changed: copper_working is absent as a direct prerequisite for casting_and_molding.",
+  "would_reject_if": [
+    "The casting_and_molding node were split into an early copper-casting node with a source-backed date after extractive metallurgy.",
+    "A source showed the first scoped casting practice required native copper working specifically rather than later smelting or melting capabilities.",
+    "The graph reintroduced copper_working as a direct prerequisite without changing the casting node scope and chronology."
+  ],
+  "short_reason": "Native copper working is not a direct dependency for the broad casting node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/copper_working.before.json /tmp/copper_working.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

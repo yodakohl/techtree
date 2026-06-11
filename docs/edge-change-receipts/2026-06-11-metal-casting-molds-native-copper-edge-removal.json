@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-metal-casting-molds-native-copper-edge-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "metal_casting_molds",
+    "prerequisite": "copper_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Copper Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from metal_casting_molds to copper_working. Metal casting molds should be connected to casting practice and mold materials, not directly to the earlier native-copper-working stage.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Turkey/AnatoliaMetals-Yalcin2000.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 1-3 separate early hammered/annealed native copper objects from later smelting, casting, and open-mold castings.",
+    "source_claim_summary": "Yalçın and Özbal describe early native copper working and later casting/open-mold metallurgy as distinct stages.",
+    "source_support_rationale": "The source supports keeping mold technology tied to casting practice rather than to native copper working as a direct prerequisite."
+  },
+  "ontology_before": "The graph made native copper working a direct enabling prerequisite for metal casting molds.",
+  "ontology_after": "Metal casting molds remain connected to casting_and_molding and clay preparation, without a direct native-copper-working prerequisite.",
+  "invariant_preserved_or_changed": "Changed: copper_working is absent as a direct prerequisite for metal_casting_molds.",
+  "would_reject_if": [
+    "The node were narrowed to the first copper casting molds and supported with a source-specific chronology.",
+    "A source showed metal casting molds specifically emerged from native copper working rather than later casting practice.",
+    "The graph reintroduced copper_working as a direct prerequisite while preserving the broad metal-casting-mold scope."
+  ],
+  "short_reason": "Metal casting molds should not directly depend on the native-copper-working node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/copper_working.before.json /tmp/copper_working.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

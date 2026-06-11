@@ -4459,24 +4459,34 @@
     "id": "copper_working",
     "name": "Copper Working",
     "era": "Ancient",
-    "description": "The extraction and working of copper, one of the first metals to be smelted, used for tools, ornaments, and early weapons.",
-    "prerequisites": [
-      "smelting_basic"
+    "description": "Early working of native copper into beads, pins, ornaments, and small tools by hammering and annealing, before later smelted copper metallurgy.",
+    "prerequisites": [],
+    "firstKnownDate": -8200,
+    "datePrecision": "century",
+    "region": "Çayönü Tepesi, eastern Anatolia",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [],
+    "fields": [
+      "Materials Science & Manufacturing"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
+    "fieldLanes": {
+      "Materials Science & Manufacturing": "Metals & Alloys"
+    },
+    "maturity": "established",
+    "sources": [
       {
-        "prerequisite": "smelting_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Smelting is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "title": "History of Mining and Metallurgy in Anatolia: The First Metal, Copper",
+        "url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Turkey/AnatoliaMetals-Yalcin2000.pdf",
+        "publisher": "Anatolian Civilizations Museum / Turkish Cultural Foundation",
+        "year": 2000,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers the earliest known native copper working and annealing. Smelted copper and extractive metallurgy are later developments and should not be required for this node's first-known date."
   },
   {
     "id": "casting_and_molding",
@@ -4484,7 +4494,6 @@
     "era": "Ancient",
     "description": "Pouring molten metal into molds made of stone or clay to create complex shapes for tools and artifacts.",
     "prerequisites": [
-      "copper_working",
       "pottery"
     ],
     "firstKnownDate": -10000,
@@ -4492,14 +4501,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "copper_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Copper Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
       {
         "prerequisite": "pottery",
         "type": "enabling",
@@ -6546,7 +6547,6 @@
     "description": "Reusable or expendable molds that enabled repeatable production of tools, weapons, ornaments, fittings, and ritual objects.",
     "prerequisites": [
       "casting_and_molding",
-      "copper_working",
       "clay_gathering_and_preparation"
     ],
     "firstKnownDate": -10000,
@@ -6560,14 +6560,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Casting and Molding provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "copper_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Copper Working provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       },
       {

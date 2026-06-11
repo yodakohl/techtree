@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-copper-working-smelting-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "copper_working",
+    "prerequisite": "smelting_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Smelting is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from copper_working to smelting_basic; the node is now scoped to early native copper working and annealing, which predates later extractive copper smelting.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Turkey/AnatoliaMetals-Yalcin2000.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 1-3, especially the monometallic-period discussion: native copper working after ca. 8200 BCE at Çayönü and Aşıklı; extractive copper smelting after ca. 5000 BCE.",
+    "source_claim_summary": "Yalçın and Özbal describe early native copper objects from Çayönü and Aşıklı as worked by hammering and repeated annealing, while placing extractive copper smelting later.",
+    "source_support_rationale": "This supports copper_working as native copper working and annealing, while rejecting smelting_basic as a direct prerequisite for the first-known copper-working claim."
+  },
+  "ontology_before": "The node treated basic smelting as a historical predecessor of copper working, implying copper working began as extractive smelting.",
+  "ontology_after": "The node is scoped to native copper working and annealing, with smelting left as a separate later metallurgy capability.",
+  "invariant_preserved_or_changed": "Changed: smelting_basic is absent as a direct prerequisite for copper_working.",
+  "would_reject_if": [
+    "The node were rescoped specifically to smelted copper production.",
+    "A source showed the earliest copper working at Çayönü required copper smelting.",
+    "The graph reintroduced smelting_basic as a prerequisite for the native-copper first-known claim."
+  ],
+  "short_reason": "Early copper working used native copper and annealing; smelting is a later metallurgy capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/copper_working.before.json /tmp/copper_working.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

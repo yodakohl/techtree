@@ -1,0 +1,30 @@
+{
+  "id": "2026-06-11-copper-working-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "copper_working",
+      "operator": "eq",
+      "value": -8200,
+      "reason": "The node is scoped to early native copper working and annealing at Çayönü Tepesi, not a 10000 BCE placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "copper_working",
+      "prerequisite": "smelting_basic",
+      "reason": "Native copper working and annealing should not depend on later extractive copper smelting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "casting_and_molding",
+      "prerequisite": "copper_working",
+      "reason": "The broad casting node should not directly depend on the earlier native-copper-working scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "metal_casting_molds",
+      "prerequisite": "copper_working",
+      "reason": "Metal casting molds should be tied to casting practice and mold materials, not directly to native copper working."
+    }
+  ]
+}
