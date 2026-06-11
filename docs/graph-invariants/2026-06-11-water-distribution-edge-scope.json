@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-11-water-distribution-edge-scope",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "water_distribution_pipes",
+      "prerequisite": "sewers_and_drainage",
+      "reason": "Sewers are downstream recipients of excess distribution water, not prerequisites for clean-water distribution pipes."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "water_distribution_pipes",
+      "prerequisite": "aqueducts",
+      "expected": "enabling",
+      "reason": "Aqueducts can feed distribution reservoirs and pipes but are not the only possible water source."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "water_distribution_pipes",
+      "prerequisite": "concrete",
+      "expected": "enabling",
+      "reason": "Concrete can enable some channels and associated distribution infrastructure but is not a universal pipe material."
+    }
+  ]
+}

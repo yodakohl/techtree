@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-water-distribution-aqueducts-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "water_distribution_pipes",
+    "prerequisite": "aqueducts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Aqueducts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Roman aqueducts ended at distribution reservoirs from which water was conveyed to baths, fountains, and some homes; aqueducts are an upstream supply enabler, not the only possible water source."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/water-supply-system",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Water Supply System article, historical background section on Roman aqueducts ending at distribution reservoirs and conveying water to baths, fountains, and some homes.",
+    "source_claim_summary": "Britannica describes aqueduct-fed distribution reservoirs and pipes conveying water to urban users.",
+    "source_support_rationale": "The passage supports aqueducts as an upstream water-supply enabler for distribution pipes while leaving room for reservoirs and other local supply routes."
+  },
+  "invariant_preserved_or_changed": "Preserved: aqueducts remains an enabling edge, now with source-locatable rationale.",
+  "would_reject_if": [
+    "The node were narrowed to non-aqueduct local water distribution only.",
+    "A stronger source showed the represented classical distribution pipes were independent of aqueduct or reservoir supply."
+  ],
+  "short_reason": "Aqueducts fed distribution reservoirs and pipes but were not the only possible water source.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

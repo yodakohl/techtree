@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-water-distribution-sewers-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "water_distribution_pipes",
+    "prerequisite": "sewers_and_drainage"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Sewers and Drainage provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from water_distribution_pipes to sewers_and_drainage; the source treats Roman distribution reservoirs and pipes as water-supply infrastructure, while sewers are downstream recipients of excess water used for street cleaning and sewer flushing.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/water-supply-system",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Water Supply System article, historical background section describing aqueducts ending at distribution reservoirs and excess water being used to clean streets and flush sewers.",
+    "source_claim_summary": "Britannica describes sewers as a downstream use of excess aqueduct water, not as a prerequisite for distribution reservoirs or pipes.",
+    "source_support_rationale": "The passage supports the opposite direction of relationship: distribution water can flush sewers, but sewers do not enable clean-water distribution pipes."
+  },
+  "ontology_before": "The node modeled sewers and drainage as an enabling prerequisite for clean-water distribution pipes.",
+  "ontology_after": "The clean-water distribution node no longer depends on wastewater drainage infrastructure; the scope note explicitly separates supply distribution from sewer flushing.",
+  "invariant_preserved_or_changed": "Changed: sewers_and_drainage is absent as a direct prerequisite. Preserved: water_distribution_pipes remains a clean-water conveyance and distribution node.",
+  "would_reject_if": [
+    "The node were rescoped to combined water supply and wastewater drainage networks rather than clean-water distribution.",
+    "A stronger source showed classical clean-water distribution pipes required pre-existing sewer infrastructure."
+  ],
+  "short_reason": "Sewers are downstream recipients of surplus water, not prerequisites for water distribution pipes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/water_distribution_pipes.before.json /tmp/water_distribution_pipes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
