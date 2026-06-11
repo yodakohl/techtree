@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-edwin-smith-trauma-herbal-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "battlefield_wound_care",
+    "prerequisite": "herbal_medicine_preparation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from herbal_medicine_preparation to battlefield_wound_care. The scoped Edwin Smith trauma-care evidence includes bandaging, splinting, suturing, and wound treatments; herbal preparation is not a required prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2989268/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Clinical reappraisal summary: describes trauma cases, examination, diagnosis, prognosis, and treatments such as bandaging and splints rather than deriving the practice from herbal medicine preparation.",
+    "source_claim_summary": "The source supports trauma-care procedures, not a dependency on herbal preparation.",
+    "source_support_rationale": "Herbal medicine may overlap with ancient medicine generally, but it is not necessary for the scoped trauma-care practices."
+  },
+  "ontology_before": "The graph treated herbal medicine preparation as a direct enabler of battlefield_wound_care.",
+  "ontology_after": "The graph keeps Edwin Smith trauma care scoped to documented clinical procedures without requiring herbal preparation.",
+  "invariant_preserved_or_changed": "Changed: herbal_medicine_preparation is absent as a direct prerequisite for battlefield_wound_care.",
+  "would_reject_if": [
+    "The node were rescoped to herbal wound salves rather than trauma-care procedure.",
+    "A source established herbal preparation as necessary for the scoped Edwin Smith trauma-care practice."
+  ],
+  "short_reason": "Herbal preparation is not required for Edwin Smith trauma wound care.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/battlefield_wound_care.before.json /tmp/battlefield_wound_care.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

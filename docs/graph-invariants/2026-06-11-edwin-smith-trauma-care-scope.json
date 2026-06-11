@@ -1,0 +1,24 @@
+{
+  "id": "2026-06-11-edwin-smith-trauma-care-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "battlefield_wound_care",
+      "operator": "eq",
+      "value": -1600,
+      "reason": "The node is scoped to the surviving Edwin Smith Papyrus trauma-care text around 1600 BCE."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "battlefield_wound_care",
+      "prerequisite": "primitive_surgery_trepanation",
+      "reason": "Trepanation is not a prerequisite for the scoped trauma wound-care procedures."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "battlefield_wound_care",
+      "prerequisite": "herbal_medicine_preparation",
+      "reason": "Herbal preparation must not be used as a generic prerequisite for documented trauma-care procedures."
+    }
+  ]
+}

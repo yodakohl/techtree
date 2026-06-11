@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-edwin-smith-trauma-trepanation-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "battlefield_wound_care",
+    "prerequisite": "primitive_surgery_trepanation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Primitive Surgery (e.g., Trepanation) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from primitive_surgery_trepanation to battlefield_wound_care. The scoped Edwin Smith trauma-care node includes wound examination, diagnosis, prognosis, bandaging, suturing, splinting, and other trauma treatments; trepanation is not a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2989268/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and clinical summary: describes 48 cases of wounds, injuries, fractures, and treatments in the Edwin Smith Papyrus, without making trepanation a prerequisite.",
+    "source_claim_summary": "The source supports trauma-care documentation, not a prerequisite relationship from trepanation.",
+    "source_support_rationale": "Trepanation is one possible surgical procedure elsewhere, but trauma wound care does not require it."
+  },
+  "ontology_before": "The graph treated primitive surgery/trepanation as a direct enabler of battlefield_wound_care.",
+  "ontology_after": "The graph treats Edwin Smith trauma care as a documented clinical wound-care tradition without a trepanation prerequisite.",
+  "invariant_preserved_or_changed": "Changed: primitive_surgery_trepanation is absent as a direct prerequisite for battlefield_wound_care.",
+  "would_reject_if": [
+    "The node were rescoped narrowly to cranial trepanation after battlefield injury.",
+    "A source established trepanation as necessary for the scoped Edwin Smith trauma-care procedures."
+  ],
+  "short_reason": "Trepanation is not required for Edwin Smith trauma wound care.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/battlefield_wound_care.before.json /tmp/battlefield_wound_care.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
