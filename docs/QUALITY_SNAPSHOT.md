@@ -1,15 +1,15 @@
 # Quality Snapshot
 
-Generated: 2026-06-11T00:45:14.325Z
+Generated: 2026-06-11T01:17:52.120Z
 
 This is a trust snapshot generated from the same report object used by `npm run accuracy:risks`; it is not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,660 |
-| Source-checked nodes | 587 / 1,660 (35.4%) |
-| Nodes with node-level sources | 612 / 1,660 (36.9%) |
-| Dependency edges with edge-level sources | 1,725 / 5,636 (30.6%) |
+| Source-checked nodes | 589 / 1,660 (35.5%) |
+| Nodes with node-level sources | 617 / 1,660 (37.2%) |
+| Dependency edges with edge-level sources | 1,756 / 5,634 (31.2%) |
 | Era-default placeholder dates | 577 / 1,660 (34.8%) |
 | Manual risk-weighted sample | 40 / 40 (passed after correction) |
 
