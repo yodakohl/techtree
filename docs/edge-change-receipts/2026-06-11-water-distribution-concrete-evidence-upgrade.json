@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-water-distribution-concrete-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "water_distribution_pipes",
+    "prerequisite": "concrete"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Concrete provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "textbook",
+    "note": "Ancient water-conveyance channels could be built of cut stone, brick, rubble, or rough concrete; concrete enables some distribution infrastructure but is not a universal pipe material."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/water-supply-system",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Water Supply System article, historical background section stating channels were constructed of cut stone, brick, rubble, or rough concrete and pipes were made of drilled stone, hollowed wood, clay, or lead.",
+    "source_claim_summary": "Britannica identifies rough concrete as one possible ancient channel material and distinguishes it from pipe materials such as stone, wood, clay, and lead.",
+    "source_support_rationale": "The passage supports concrete as an enabling material for some conveyance infrastructure, not as a required pipe technology."
+  },
+  "invariant_preserved_or_changed": "Preserved: concrete remains an enabling edge, now scoped to channels and associated infrastructure rather than a universal pipe prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped strictly to pipes with no channels, tanks, or reservoir distribution infrastructure.",
+    "A stronger source showed concrete was absent from the classical distribution infrastructure represented here."
+  ],
+  "short_reason": "Concrete is one possible ancient water-conveyance material, not a universal distribution-pipe requirement.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

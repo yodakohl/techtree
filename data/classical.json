@@ -7563,7 +7563,6 @@
     "description": "Pipe networks, valves, tanks, and gradients used to move water from aqueducts and reservoirs into baths, fountains, homes, and workshops.",
     "prerequisites": [
       "aqueducts",
-      "sewers_and_drainage",
       "concrete"
     ],
     "firstKnownDate": -300,
@@ -7574,31 +7573,9 @@
       {
         "prerequisite": "aqueducts",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Aqueducts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "sewers_and_drainage",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sewers and Drainage provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Roman aqueducts ended at distribution reservoirs from which water was conveyed to baths, fountains, and some homes; aqueducts are an upstream supply enabler, not the only possible water source.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -7618,9 +7595,9 @@
       {
         "prerequisite": "concrete",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Concrete provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "Ancient water-conveyance channels could be built of cut stone, brick, rubble, or rough concrete; concrete enables some distribution infrastructure but is not a universal pipe material.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -7657,7 +7634,8 @@
           "maturity"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers clean-water conveyance and distribution from aqueducts or reservoirs to users. It excludes wastewater drainage and sewer flushing, which may use surplus water but are not prerequisites for water distribution pipes."
   },
   {
     "id": "municipal_building_codes",
