@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-aurignacian-flutes-woodworking-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_musical_instruments_flutes_drums",
+    "prerequisite": "woodworking_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from early_musical_instruments_flutes_drums to woodworking_basic. The corrected node is scoped to bone and ivory flutes, not wooden instruments.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/nature08169",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports bone and ivory flutes from the early Aurignacian period of southwestern Germany.",
+    "source_claim_summary": "The source supports bone and ivory flutes, not wooden instruments.",
+    "source_support_rationale": "Because wood instruments were removed from the node scope, woodworking should not remain as a direct prerequisite."
+  },
+  "ontology_before": "The graph made basic woodworking a direct historical predecessor for a mixed flutes-and-drums node.",
+  "ontology_after": "The graph models source-backed bone and ivory flutes without a woodworking prerequisite.",
+  "invariant_preserved_or_changed": "Changed: woodworking_basic is absent as a direct prerequisite for early_musical_instruments_flutes_drums.",
+  "would_reject_if": [
+    "The node were broadened again to wooden musical instruments.",
+    "A source showed the scoped Aurignacian bone and ivory flutes required woodworking.",
+    "The graph reintroduced woodworking without changing the node scope."
+  ],
+  "short_reason": "The scoped artifacts are bone and ivory flutes, not wooden instruments.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/early_musical_instruments_flutes_drums.before.json /tmp/early_musical_instruments_flutes_drums.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

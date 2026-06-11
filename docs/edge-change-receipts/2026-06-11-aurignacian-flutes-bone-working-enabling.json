@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-aurignacian-flutes-bone-working-enabling",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "early_musical_instruments_flutes_drums",
+    "prerequisite": "bone_tool_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bone Tool Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "primary_source",
+    "note": "The cited flutes were made from bird bone and mammoth ivory, so bone/ivory working is an enabling material-working capability rather than proof of a broader musical prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.nature.com/articles/nature08169",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Abstract: reports bone and ivory flutes from the early Aurignacian period of southwestern Germany.",
+    "source_claim_summary": "The source documents bone and ivory as the manufactured materials of the scoped flutes.",
+    "source_support_rationale": "The source supports bone/ivory material working as relevant to the flute technology, but does not make the broader bone_tool_making node a uniquely required prerequisite."
+  },
+  "invariant_preserved_or_changed": "Preserved: bone_tool_making remains an enabling edge, now source-checked and narrowed to material working.",
+  "would_reject_if": [
+    "The node were rescoped to wooden, hide, or percussion instruments rather than bone and ivory flutes.",
+    "A better upstream node for ivory/bone musical-instrument manufacture replaced bone_tool_making.",
+    "The edge were upgraded to required without source evidence that all scoped flutes depended on the broader bone_tool_making node."
+  ],
+  "short_reason": "The source-backed flutes are bone and ivory artifacts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/early_musical_instruments_flutes_drums.before.json /tmp/early_musical_instruments_flutes_drums.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
