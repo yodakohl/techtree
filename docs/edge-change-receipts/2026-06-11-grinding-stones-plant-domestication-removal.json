@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-grinding-stones-plant-domestication-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "grinding_stones_querns",
+    "prerequisite": "plant_domestication"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Plant Domestication provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from grinding_stones_querns to plant_domestication. The corrected node is scoped to Upper Paleolithic wild-plant processing around 30,000 years ago, long before domesticated crops.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1006993107",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports starch grains from various wild plants on grinding tools at three Mid-Upper Paleolithic sites across Europe.",
+    "source_claim_summary": "The source supports grinding-tool use for wild-plant food processing around 30,000 years ago.",
+    "source_support_rationale": "Because the scoped evidence is wild-plant processing before agriculture, plant domestication is not a prerequisite."
+  },
+  "ontology_before": "The graph made grinding stones and querns directly dependent on plant domestication.",
+  "ontology_after": "The graph models Upper Paleolithic wild-plant grinding as preceding domesticated-crop agriculture.",
+  "invariant_preserved_or_changed": "Changed: plant_domestication is absent as a direct prerequisite for grinding_stones_querns.",
+  "would_reject_if": [
+    "The node were rescoped to agricultural rotary querns or domesticated-grain milling.",
+    "A source showed the scoped Upper Paleolithic grinding tools required domesticated plants.",
+    "The graph reintroduced plant_domestication without changing the node scope."
+  ],
+  "short_reason": "Wild-plant grinding predates plant domestication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/grinding_stones_querns.before.json /tmp/grinding_stones_querns.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

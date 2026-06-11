@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-grinding-stones-advanced-stone-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "grinding_stones_querns",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from grinding_stones_querns to advanced_stone_tools. The corrected node uses stone_tool_making as the direct material-method prerequisite instead of the later broad advanced_stone_tools placeholder.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1006993107",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports starch grains on grinding tools from Mid-Upper Paleolithic sites across Europe.",
+    "source_claim_summary": "The source supports a stone grinding-tool technology around 30,000 years ago.",
+    "source_support_rationale": "The direct prerequisite should be the broader stone-tool-making capability rather than a later placeholder advanced-stone-tool node."
+  },
+  "ontology_before": "The graph made a later advanced-stone-tool placeholder a direct predecessor of grinding stones.",
+  "ontology_after": "The graph uses stone_tool_making as the direct material-method prerequisite for source-backed grinding tools.",
+  "invariant_preserved_or_changed": "Changed: advanced_stone_tools is absent as a direct prerequisite for grinding_stones_querns.",
+  "would_reject_if": [
+    "The advanced_stone_tools node were source-checked and redated early enough with direct grinding-tool evidence.",
+    "The grinding-stones node were rescoped to a later agricultural stone-tool tradition.",
+    "The graph lacked a direct stone-tool-making prerequisite for the scoped grinding stones."
+  ],
+  "short_reason": "Stone-tool making is the direct prerequisite; advanced_stone_tools is a later placeholder.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/grinding_stones_querns.before.json /tmp/grinding_stones_querns.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1640,33 +1640,51 @@
   },
   {
     "id": "grinding_stones_querns",
-    "name": "Grinding Stones & Querns",
+    "name": "Upper Paleolithic Grinding Stones",
     "era": "Ancient",
-    "description": "Using hand-operated stones (saddle stones, querns) to mill grain into flour.",
+    "description": "Hand-operated grinding stones used to process wild plants into starch-rich flour-like foods.",
     "prerequisites": [
-      "plant_domestication",
-      "advanced_stone_tools"
+      "stone_tool_making"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -28000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Bilancino II, Kostenki 16-Uglyanka, and Pavlov VI, Europe",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers source-backed Upper Paleolithic grinding stones with starch residues from wild plants around 30,000 years ago. It does not cover rotary querns, domesticated-grain milling, later agricultural quern traditions, or every grinding-stone use such as ochre processing.",
+    "sources": [
+      {
+        "title": "Thirty thousand-year-old evidence of plant food processing",
+        "url": "https://www.pnas.org/doi/10.1073/pnas.1006993107",
+        "publisher": "Proceedings of the National Academy of Sciences",
+        "year": 2010,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "edge",
+          "maturity"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
-        "prerequisite": "plant_domestication",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Plant Domestication provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "advanced_stone_tools",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "stone_tool_making",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "The scoped technology is a manufactured stone grinding-tool class; stone-tool making is the direct material-method prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Thirty thousand-year-old evidence of plant food processing",
+            "url": "https://www.pnas.org/doi/10.1073/pnas.1006993107",
+            "publisher": "Proceedings of the National Academy of Sciences",
+            "year": 2010,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
