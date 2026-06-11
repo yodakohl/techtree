@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-pigment-creation-stone-tools-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "pigment_creation",
+    "prerequisite": "stone_tool_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Stone Tool Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "primary_source",
+    "note": "The Blombos toolkit included grindstones and hammerstones for processing ochre-rich mixtures, making stone tools part of the documented production method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract listing grindstones and hammerstones as part of the Blombos ochre-processing toolkit.",
+    "source_claim_summary": "The source identifies stone tools as components of the documented pigment-production method.",
+    "source_support_rationale": "For the scoped Blombos ochre-processing workshop, grindstones and hammerstones are direct method components rather than merely historical background."
+  },
+  "ontology_before": "The edge treated stone_tool_making as only a broad historical predecessor for pigment creation.",
+  "ontology_after": "The edge now treats stone_tool_making as a required method dependency for the scoped Blombos ochre-processing toolkit.",
+  "invariant_preserved_or_changed": "Changed: stone_tool_making is now a required method dependency for the scoped pigment-production node.",
+  "would_reject_if": [
+    "The node were broadened to all pigment gathering without processing.",
+    "A source showed the Blombos pigment mixtures were produced without stone processing tools."
+  ],
+  "short_reason": "Stone tools are documented production components in the source-checked pigment toolkit.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

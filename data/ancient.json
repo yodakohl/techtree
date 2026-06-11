@@ -384,42 +384,82 @@
     "id": "pigment_creation",
     "name": "Pigment Creation",
     "era": "Ancient",
-    "description": "Sourcing and processing natural materials (ochre, charcoal, manganese) to create pigments for art and decoration.",
+    "description": "Sourcing, grinding, mixing, and storing ochre-rich pigment compounds using stone tools and containers.",
     "prerequisites": [
-      "foraging_and_botany",
       "stone_tool_making",
       "fire_control"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -100000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Blombos Cave, Western Cape, South Africa",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "foraging_and_botany",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
         "prerequisite": "stone_tool_making",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Stone Tool Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "The Blombos toolkit included grindstones and hammerstones for processing ochre-rich mixtures, making stone tools part of the documented production method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A 100,000-Year-Old Ochre-Processing Workshop at Blombos Cave, South Africa",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+            "publisher": "Science / PubMed",
+            "year": 2011,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "fire_control",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
+        "type": "common_dependency",
+        "confidence": 0.56,
+        "evidence_level": "primary_source",
+        "note": "Charcoal was part of the documented Blombos pigment toolkit, but fire is contextual rather than a universal hard prerequisite for pigment creation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A 100,000-Year-Old Ochre-Processing Workshop at Blombos Cave, South Africa",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+            "publisher": "Science / PubMed",
+            "year": 2011,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "fields": [
+      "Materials Science & Manufacturing"
+    ],
+    "fieldLanes": {
+      "Materials Science & Manufacturing": "Foundations"
+    },
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "A 100,000-Year-Old Ochre-Processing Workshop at Blombos Cave, South Africa",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+        "publisher": "Science / PubMed",
+        "year": 2011,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "scopeNote": "Covers archaeologically documented ochre-rich pigment-compound production, not every later artistic paint, dye, ink, or symbolic-art practice."
   },
   {
     "id": "early_symbolic_communication",

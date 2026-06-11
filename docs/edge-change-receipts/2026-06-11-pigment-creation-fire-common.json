@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-pigment-creation-fire-common",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "pigment_creation",
+    "prerequisite": "fire_control"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.56,
+    "evidence_level": "primary_source",
+    "note": "Charcoal was part of the documented Blombos pigment toolkit, but fire is contextual rather than a universal hard prerequisite for pigment creation."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract listing charcoal as one component of the Blombos ochre-processing toolkit.",
+    "source_claim_summary": "The source documents charcoal in the toolkit but does not make controlled fire the defining production method.",
+    "source_support_rationale": "Charcoal makes fire relevant context for this toolkit, while the edge must not be read as a universal or hard prerequisite for pigment creation."
+  },
+  "ontology_before": "The edge treated fire_control as a broad historical predecessor of pigment creation.",
+  "ontology_after": "The edge now treats fire_control as a common contextual dependency because charcoal appears in the scoped Blombos toolkit, without making fire a universal hard prerequisite.",
+  "invariant_preserved_or_changed": "Changed: fire_control remains connected but is downgraded from historical predecessor to common_dependency.",
+  "would_reject_if": [
+    "The edge were promoted to required for pigment creation generally.",
+    "The node were narrowed to charcoal-only pigment production."
+  ],
+  "short_reason": "Fire is relevant through charcoal in the toolkit, but too broad as a hard or primary lineage claim for pigment creation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
