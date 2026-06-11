@@ -6884,9 +6884,8 @@
     "era": "Medieval",
     "description": "Water-control gates and chambers that helped boats move between different canal or river levels.",
     "prerequisites": [
-      "water_management_guilds",
-      "municipal_water_supply",
-      "ship_rudders_sternpost"
+      "canal_networks",
+      "irrigation_sluice_gates"
     ],
     "fields": [
       "Water & Sanitation Systems",
@@ -6899,8 +6898,8 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Water Supply System",
-        "url": "https://www.britannica.com/technology/water-supply-system",
+        "title": "Lock",
+        "url": "https://www.britannica.com/technology/lock-waterway",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
@@ -6908,24 +6907,35 @@
           "node",
           "maturity"
         ]
+      },
+      {
+        "title": "The Development of Canal Locks",
+        "url": "https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/development-canal-locks",
+        "publisher": "Encyclopedia.com",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
     ],
-    "firstKnownDate": 1200,
+    "firstKnownDate": 983,
     "datePrecision": "exact",
-    "region": "China and later global canal systems",
+    "region": "China / Grand Canal",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "water_management_guilds",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Water Management Guilds provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "canal_networks",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "A canal lock is a gated chamber in a canal or navigable waterway, so canal/waterway infrastructure is a direct scope dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
+            "title": "Lock",
+            "url": "https://www.britannica.com/technology/lock-waterway",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
@@ -6938,48 +6948,12 @@
         ]
       },
       {
-        "prerequisite": "municipal_water_supply",
-        "type": "enabling",
-        "confidence": 0.68,
+        "prerequisite": "irrigation_sluice_gates",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Municipal Water Supply provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "ship_rudders_sternpost",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sternpost Rudders provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Water Supply System",
-            "url": "https://www.britannica.com/technology/water-supply-system",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
+        "note": "Earlier water-control gates and weirs are a plausible mechanical predecessor to chambered navigation locks, but irrigation gates are not the same technology.",
+        "reviewStatus": "structurally_validated"
       }
     ]
   },

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-11-canal-locks-sternpost-rudders-removal",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "canal_lock_gates",
+    "prerequisite": "ship_rudders_sternpost"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Sternpost Rudders provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No dependency remains because canal locks operate on waterways and gates; they do not require a particular boat steering technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/lock-waterway",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Definition describing gates and a basin that vary water level to raise or lower boats.",
+    "source_claim_summary": "The source identifies canal locks by the gated water chamber, not by any specific vessel-rudder architecture.",
+    "source_support_rationale": "The old edge confused vessels using locks with components required to build the lock; sternpost rudders are not part of lock-gate infrastructure."
+  },
+  "ontology_before": "Canal lock gates depended on a ship-rudder technology as if boat steering were a lock component.",
+  "ontology_after": "Canal lock gates depend on waterway infrastructure and water-control gate lineage, not vessel steering mechanisms.",
+  "invariant_preserved_or_changed": "The graph no longer routes canal-lock engineering through ship-rudder technology.",
+  "would_reject_if": [
+    "The node were rescoped to boats designed specifically for lock navigation.",
+    "A source showed the first chamber locks required sternpost-rudder vessels to function.",
+    "A future dependent node for lock-compatible boats introduced a correct rudder edge."
+  ],
+  "short_reason": "Sternpost rudders are vessel equipment, not a prerequisite for canal lock gates.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

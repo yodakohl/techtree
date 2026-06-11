@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-11-canal-locks-municipal-water-supply-removal",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "canal_lock_gates",
+    "prerequisite": "municipal_water_supply"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Municipal Water Supply provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No dependency remains because municipal drinking-water distribution is a different water-system scope from navigation locks for boats.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/lock-waterway",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Definition describing a lock as a gated basin in a canal, river, or dock for raising or lowering boats.",
+    "source_claim_summary": "The source defines the technology as navigation infrastructure for moving boats between water levels.",
+    "source_support_rationale": "That definition contradicts the old municipal-water-supply edge: drinking-water conveyance is not a prerequisite for a boat-navigation chamber."
+  },
+  "ontology_before": "Canal lock gates inherited a water-supply source and municipal-water prerequisite.",
+  "ontology_after": "Canal lock gates are modeled as canal-navigation infrastructure, separate from municipal water supply.",
+  "invariant_preserved_or_changed": "The graph no longer conflates canal locks with municipal water-distribution systems.",
+  "would_reject_if": [
+    "The node were narrowed to a water-supply lock or valve rather than a canal-navigation lock.",
+    "A source showed the first scoped canal locks came from municipal drinking-water infrastructure.",
+    "A separate urban water-control node were introduced where municipal water supply is correctly required."
+  ],
+  "short_reason": "Municipal water supply is a different water-system scope from navigation canal locks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

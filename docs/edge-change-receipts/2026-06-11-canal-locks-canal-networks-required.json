@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-11-canal-locks-canal-networks-required",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "canal_lock_gates",
+    "prerequisite": "canal_networks"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Implicit generated context did not explicitly model canal or waterway infrastructure as the direct dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "textbook",
+    "confidence": 0.86,
+    "note": "A canal lock is a gated chamber in a canal or navigable waterway, so canal/waterway infrastructure is a direct scope dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/lock-waterway",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Definition describing a lock as a gated basin in the course of a canal or river.",
+    "source_claim_summary": "The source defines locks as canal or river infrastructure with gates at each end for changing boat elevation.",
+    "source_support_rationale": "Because the scoped node is canal lock gates, the canal or navigable-waterway infrastructure is part of the definition rather than optional context."
+  },
+  "ontology_before": "Canal lock gates were modeled through municipal water supply, guilds, and rudders without the canal infrastructure dependency.",
+  "ontology_after": "Canal lock gates directly depend on canal networks as the waterway infrastructure they modify.",
+  "invariant_preserved_or_changed": "Changed: canal_lock_gates -> canal_networks is required for the scoped navigation-lock technology.",
+  "would_reject_if": [
+    "The node were broadened to generic sluice gates or valves outside navigation canals.",
+    "A future split separated generic water gates from canal locks and moved this edge only to the canal-lock node.",
+    "The edge note implied all canal networks require locks rather than locks requiring a canal or navigable waterway."
+  ],
+  "short_reason": "A canal lock is defined as lock infrastructure in a canal or navigable waterway.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

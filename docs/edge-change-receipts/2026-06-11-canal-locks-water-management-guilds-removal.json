@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-11-canal-locks-water-management-guilds-removal",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "canal_lock_gates",
+    "prerequisite": "water_management_guilds"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Water Management Guilds provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is scoped to the 983 Grand Canal pound-lock technology rather than European municipal or guild water administration.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/development-canal-locks",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Opening history section describing the 983 chamber or pound lock built on the Grand Canal.",
+    "source_claim_summary": "The source describes the first recorded chamber lock as a canal-navigation engineering solution on China's Grand Canal.",
+    "source_support_rationale": "The old edge used a medieval water-management institution as if it were a technical prerequisite, but the scoped invention is an engineered navigation chamber."
+  },
+  "ontology_before": "Canal lock gates depended on water-management guilds, municipal water supply, and sternpost rudders.",
+  "ontology_after": "Canal lock gates depend on canal networks and prior water-control gates, with institutional water guilds removed.",
+  "invariant_preserved_or_changed": "The graph no longer routes Chinese canal-lock origins through later municipal water-management institutions.",
+  "would_reject_if": [
+    "The node were rescoped to European canal-maintenance institutions rather than lock-gate technology.",
+    "A source showed the first scoped lock depended on water-management guild organization.",
+    "A future governance node for canal maintenance reintroduced guilds with a different dependent scope."
+  ],
+  "short_reason": "Canal locks are navigation infrastructure, not a downstream product of water-management guilds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

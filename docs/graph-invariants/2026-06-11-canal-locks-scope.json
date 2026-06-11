@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-11-canal-locks-scope",
+  "description": "Lock canal lock gates to navigation-lock infrastructure, not municipal water supply, guild administration, or vessel rudders.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "canal_lock_gates",
+      "operator": "eq",
+      "value": 983,
+      "reason": "The node is anchored to the first recorded chamber/pound lock on China's Grand Canal."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "canal_lock_gates",
+      "prerequisite": "canal_networks",
+      "expected": "required",
+      "reason": "Canal lock gates are defined as gated lock infrastructure in a canal or navigable waterway."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "canal_lock_gates",
+      "prerequisite": "water_management_guilds",
+      "reason": "The first scoped chamber lock is navigation engineering, not water-guild administration."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "canal_lock_gates",
+      "prerequisite": "municipal_water_supply",
+      "reason": "Municipal drinking-water supply is a different water-system scope from boat navigation locks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "canal_lock_gates",
+      "prerequisite": "ship_rudders_sternpost",
+      "reason": "Sternpost rudders are vessel steering equipment, not lock-gate infrastructure."
+    }
+  ]
+}
