@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-dna-synthesis-advanced-chemistry-required",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "dna_synthesis_oligonucleotides",
+    "prerequisite": "advanced_chemistry"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.88,
+    "note": "Phosphoramidite oligonucleotide synthesis is a chemical synthesis method using protected nucleoside reagents and controlled coupling chemistry."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/6400698/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "PubMed record for Caruthers et al., Deoxyoligonucleotide synthesis via the phosphoramidite method.",
+    "source_claim_summary": "The source identifies deoxyoligonucleotide synthesis as a phosphoramidite chemical method.",
+    "source_support_rationale": "The scoped node represents practical synthetic oligonucleotide production; for that scope, controlled nucleic-acid chemistry is not just context but the production method itself."
+  },
+  "ontology_before": "DNA synthesis and oligonucleotides treated advanced chemistry as a generic enabling context with a CRISPR Nobel source that did not support the synthesis method.",
+  "ontology_after": "DNA synthesis and oligonucleotides are scoped to phosphoramidite oligonucleotide synthesis, making advanced chemistry the required production method while DNA structure and molecular biology remain enabling context.",
+  "invariant_preserved_or_changed": "Changed: dna_synthesis_oligonucleotides -> advanced_chemistry is required rather than generic enabling, while DNA structure and molecular biology remain enabling context.",
+  "would_reject_if": [
+    "The node were broadened to natural DNA replication or enzymatic DNA copying without retaining synthetic oligonucleotide chemistry as the scope.",
+    "The edge note implied that all downstream genome-editing uses require this exact phosphoramidite method rather than synthetic oligonucleotides as a practical platform.",
+    "A future split separated chemical oligonucleotide synthesis from broader DNA synthesis and moved this required edge only to the chemical-synthesis node."
+  ],
+  "short_reason": "Practical synthetic oligonucleotide production is a chemical synthesis technology, so advanced chemistry is a required method dependency for this scoped node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run quality:field:crispr",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

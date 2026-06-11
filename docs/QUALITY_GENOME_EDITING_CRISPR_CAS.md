@@ -11,7 +11,7 @@ This is a field-specific trust snapshot for the `Genome Editing / CRISPR-Cas` le
 | Nodes with node-level sources | 28/28 (100.0%) | >= 95% | PASS |
 | Edges with edge-level sources | 92/92 (100.0%) | >= 80% | PASS |
 | Source-checked era-default dates | 0 | 0 | PASS |
-| Required edges with formal receipts | 13/13 (100.0%) | 100% | PASS |
+| Required edges with formal receipts | 14/14 (100.0%) | 100% | PASS |
 | Broad nodes with scope notes | 16/16 (100.0%) | 100% | PASS |
 | All field nodes with scope notes | 28/28 (100.0%) | extra guardrail | PASS |
 | Future nodes with timeframe, blockers, confidence | 3/3 (100.0%) | 100% | PASS |
@@ -21,8 +21,8 @@ This is a field-specific trust snapshot for the `Genome Editing / CRISPR-Cas` le
 - Field lens: `Genome Editing / CRISPR-Cas`
 - Nodes: 28
 - Dependency edges inside field nodes: 92
-- Required edges: 13
-- Source types on field nodes: museum: 4, official_agency: 6, primary_paper: 21, review: 14, textbook: 1
+- Required edges: 14
+- Source types on field nodes: museum: 3, official_agency: 6, primary_paper: 22, review: 14, textbook: 2
 
 ## Required Edge Receipts
 
@@ -30,6 +30,7 @@ This is a field-specific trust snapshot for the `Genome Editing / CRISPR-Cas` le
 - `base_editing` -> `protein_engineering`: `2026-05-28-base-editing-protein-engineering.json`
 - `crispr_gene_editing` -> `cas9_programmable_nuclease`: `2026-05-28-crispr-gene-editing-cas9-programmable-nuclease.json`
 - `crispr_gene_editing` -> `pam_recognition_constraint`: `2026-05-29-crispr-gene-editing-pam-recognition-constraint.json`
+- `dna_synthesis_oligonucleotides` -> `advanced_chemistry`: `2026-06-11-dna-synthesis-advanced-chemistry-required.json`
 - `ex_vivo_crispr_cell_therapy` -> `crispr_gene_editing`: `2026-06-10-ex-vivo-crispr-cell-therapy-crispr-editing.json`
 - `pam_recognition_constraint` -> `cas9_programmable_nuclease`: `2026-06-10-pam-recognition-cas9-nuclease.json`
 - `pam_specificity_engineering` -> `crispr_gene_editing`: `2026-06-10-pam-specificity-crispr-editing.json`

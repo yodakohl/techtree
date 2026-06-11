@@ -1,0 +1,20 @@
+{
+  "id": "2026-06-11-dna-synthesis-scope",
+  "description": "Lock DNA synthesis and oligonucleotides to practical phosphoramidite oligonucleotide synthesis rather than generic DNA-structure discovery or CRISPR awards.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "dna_synthesis_oligonucleotides",
+      "operator": "eq",
+      "value": 1983,
+      "reason": "The node is scoped to practical synthetic oligonucleotide production, anchored to phosphoramidite-method publications rather than the 1953 DNA-structure discovery."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dna_synthesis_oligonucleotides",
+      "prerequisite": "advanced_chemistry",
+      "expected": "required",
+      "reason": "Phosphoramidite oligonucleotide synthesis is itself a controlled chemical synthesis method."
+    }
+  ]
+}
