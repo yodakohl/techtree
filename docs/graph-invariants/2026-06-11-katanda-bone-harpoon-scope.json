@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-11-katanda-bone-harpoon-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "fishing_spear_gigs",
+      "operator": "eq",
+      "value": -90000,
+      "reason": "The node is scoped to Katanda bone harpoon points dated about 90,000-80,000 years old."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "fishing_spear_gigs",
+      "prerequisite": "bone_tool_making",
+      "expected": "required",
+      "reason": "The scoped artifact is a worked bone harpoon point."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fishing_spear_gigs",
+      "prerequisite": "archery",
+      "reason": "Katanda bone harpoon points are not bow-and-arrow technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fishing_spear_gigs",
+      "prerequisite": "fire_control",
+      "reason": "Fire control is not source-backed as a direct prerequisite for the Katanda bone harpoon points."
+    }
+  ]
+}

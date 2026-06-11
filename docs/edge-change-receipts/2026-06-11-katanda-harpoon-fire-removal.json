@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-katanda-harpoon-fire-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fishing_spear_gigs",
+    "prerequisite": "fire_control"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from fire_control to fishing_spear_gigs. The scoped Katanda evidence supports barbed bone harpoon points for spearing fish, not fire-assisted night fishing or fire as a technical predecessor.",
+  "source_supports_edge": "no",
+  "source_url": "https://humanorigins.si.edu/evidence/behavior/getting-food/katanda-bone-harpoon-point",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Katanda Bone Harpoon Point page: describes barbed harpoon points used to spear large prehistoric catfish and gives the Katanda age/site; it does not mention fire as part of the technology.",
+    "source_claim_summary": "The source supports worked bone fishing points without a fire-control dependency.",
+    "source_support_rationale": "Fire may be relevant to some fishing methods, but it is not source-backed as a direct prerequisite for the Katanda bone harpoon points."
+  },
+  "ontology_before": "The graph treated fire_control as a historical predecessor for fishing spears and gigs.",
+  "ontology_after": "The graph keeps the Katanda harpoon node tied to worked bone technology rather than generic fire context.",
+  "invariant_preserved_or_changed": "Changed: fire_control is absent as a direct prerequisite for fishing_spear_gigs.",
+  "would_reject_if": [
+    "The node were rescoped to fire-assisted night fishing or torch fishing.",
+    "A source showed fire control was necessary for producing or using the Katanda harpoon points."
+  ],
+  "short_reason": "Fire control is not a source-backed prerequisite for Katanda bone harpoon points.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_spear_gigs.before.json /tmp/fishing_spear_gigs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
