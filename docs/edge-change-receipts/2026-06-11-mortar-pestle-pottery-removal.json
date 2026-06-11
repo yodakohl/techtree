@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-mortar-pestle-pottery-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "mortar_pestle_food_processing",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from mortar_pestle_food_processing to pottery. The Raqefet Cave source documents stone mortars that predate ceramic-dependent food processing.",
+  "source_supports_edge": "no",
+  "source_url": "https://archaeology.stanford.edu/publications/fermented-beverage-and-food-storage-13000-y-old-stone-mortars-raqefet-cave-israel",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Publication summary: 13,000-year-old stone mortars were used for plant-food storage, pounding, cooking, and fermentation at Raqefet Cave.",
+    "source_claim_summary": "The source supports stone-mortar food processing without requiring pottery.",
+    "source_support_rationale": "A ceramic prerequisite would be anachronistic or at least unsupported for the scoped stone-mortar claim."
+  },
+  "ontology_before": "The graph made pottery a direct enabling prerequisite for mortar-and-pestle food processing.",
+  "ontology_after": "The source-backed mortar-and-pestle node no longer depends on pottery.",
+  "invariant_preserved_or_changed": "Changed: pottery is absent as a direct prerequisite for mortar_pestle_food_processing.",
+  "would_reject_if": [
+    "The node were narrowed to ceramic mortar-and-pestle vessels rather than stone mortars.",
+    "A source showed the Raqefet Cave stone mortars required pottery.",
+    "The graph reintroduced pottery as a direct prerequisite without narrowing the node scope."
+  ],
+  "short_reason": "Stone mortars do not require pottery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mortar_pestle_food_processing.before.json /tmp/mortar_pestle_food_processing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
