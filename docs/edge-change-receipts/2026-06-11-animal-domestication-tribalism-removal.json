@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-animal-domestication-tribalism-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "animal_domestication",
+    "prerequisite": "tribalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Tribalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from animal_domestication to tribalism. The source discusses human societies and domestication but does not support tribalism as a technical dependency.",
+  "source_supports_edge": "no",
+  "source_url": "https://comptes-rendus.academie-sciences.fr/biologies/articles/10.1016/j.crvi.2010.12.009/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and conceptual sections: the paper emphasizes human-society dynamics and reproductive control, not tribalism as a prerequisite technology.",
+    "source_claim_summary": "The review supports animal domestication as a socio-biological process without making tribal organization a direct technological dependency.",
+    "source_support_rationale": "Social context should not be converted into a hard or enabling graph edge when the source does not identify that specific institution."
+  },
+  "ontology_before": "The graph modeled tribalism as a direct enabler of animal domestication.",
+  "ontology_after": "The graph removes unsupported social-institution dependency from the direct technology prerequisites.",
+  "invariant_preserved_or_changed": "Changed: tribalism is absent as a direct prerequisite for animal_domestication.",
+  "would_reject_if": [
+    "A source explicitly tied the scoped domestication event to the graph's tribalism node as a necessary institution.",
+    "The node were rescoped to a specific social-management institution rather than animal domestication.",
+    "A narrower, source-backed institutional dependency were added with clear absence-breaks logic."
+  ],
+  "short_reason": "Tribalism is unsupported as a direct technology dependency for early animal domestication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_domestication.before.json /tmp/animal_domestication.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
