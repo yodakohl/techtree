@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-wind-power-windmills-historical",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "wind_power_modern",
+    "prerequisite": "windmills"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Windmills provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "expert_inference",
+    "note": "Earlier windmills are the mechanical and chronological lineage for wind turbines, while modern wind-electric generation depends on electrical conversion rather than milling or pumping machinery."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.eia.gov/kids/history-of-energy/timelines/wind.php",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Wind timeline entries for 500-900 AD Persian windmills, about 1300 horizontal-axis windmills, 1888 Brush electricity-generating windmill, and 1941 Smith-Putnam turbine.",
+    "source_claim_summary": "The EIA timeline presents mechanical windmills before electricity-generating wind turbines and separately identifies the 1941 Smith-Putnam turbine supplying power.",
+    "source_support_rationale": "The chronological sequence supports a lineage relationship from windmills to wind-electric turbines, but not a generic capability dependency on milling or pumping machinery."
+  },
+  "ontology_before": "The edge treated windmills as a generic enabling capability for modern wind power.",
+  "ontology_after": "The edge now treats windmills as a historical predecessor while the modern node remains scoped to wind-electric generation.",
+  "invariant_preserved_or_changed": "Changed: edge verb narrowed to historical lineage. Preserved: modern wind power still depends on electrical generation and remains connected to the wind technology lineage.",
+  "would_reject_if": [
+    "A stronger source showed that medieval or mechanical windmill machinery was directly necessary for modern wind-electric turbine operation.",
+    "The EIA timeline did not distinguish earlier windmills from later electricity-generating wind turbines."
+  ],
+  "short_reason": "Windmills are the historical lineage for wind turbines, not a direct enabling subsystem of modern wind-electric generation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
