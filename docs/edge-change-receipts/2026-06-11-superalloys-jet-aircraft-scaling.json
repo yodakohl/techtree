@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-superalloys-jet-aircraft-scaling",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "superalloys",
+    "prerequisite": "jet_aircraft_high_speed_flight"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Jet Aircraft (High-Speed Flight) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Jet-engine and gas-turbine demand drove superalloy improvement and deployment; aircraft are an application and scaling context, not a material prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.tms.org/superalloys/10.7449/1984/Superalloys_1984_399_419.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Sims history review discussion of World War II, jet engines, military use, and later industrial heavy-duty gas-turbine needs driving superalloy development.",
+    "source_claim_summary": "The review describes superalloy development as driven first by military jet-engine use and then by industrial gas turbines.",
+    "source_support_rationale": "This supports aircraft and turbine demand as a scaling/application driver while rejecting the stronger reading that jet aircraft technically enable the alloy family."
+  },
+  "ontology_before": "The edge treated high-speed jet aircraft as enabling superalloys, which risks reversing material/component dependency.",
+  "ontology_after": "The edge now treats jet aircraft and turbines as demand-side scaling context for high-temperature alloy development.",
+  "invariant_preserved_or_changed": "Changed: jet_aircraft_high_speed_flight remains connected only as commercial_or_scaling_dependency.",
+  "would_reject_if": [
+    "The node were rescoped specifically to aircraft operations rather than nickel superalloy metallurgy.",
+    "A source showed jet aircraft were a technical component required to make nickel superalloys.",
+    "The graph promoted this relationship back to enabling or required without component-level evidence."
+  ],
+  "short_reason": "Jet aircraft drove demand for superalloys; they did not technically enable the material.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/superalloys.before.json /tmp/superalloys.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
