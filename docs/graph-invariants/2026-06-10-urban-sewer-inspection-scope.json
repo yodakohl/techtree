@@ -1,6 +1,6 @@
 {
   "id": "2026-06-10-urban-sewer-inspection-scope",
-  "description": "Adversarial invariant for the civic/admin manual sample: urban sewer inspection must stay scoped to sewer/drainage maintenance rather than aqueduct infrastructure.",
+  "description": "Adversarial invariant for the civic/admin manual sample: urban sewer inspection must stay scoped to sewer/drainage maintenance rather than aqueduct infrastructure or generic construction.",
   "checks": [
     {
       "type": "first_known_date",
@@ -21,6 +21,12 @@
       "dependent": "urban_sewer_inspection",
       "prerequisite": "aqueducts",
       "reason": "Aqueducts are water-supply infrastructure, not a prerequisite for sewer inspection."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urban_sewer_inspection",
+      "prerequisite": "construction",
+      "reason": "Generic construction is upstream of sewer creation; the direct prerequisite for sewer inspection is the existing sewer/drainage system."
     }
   ]
 }
