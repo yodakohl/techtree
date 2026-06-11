@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-battlefield-wound-care-organized-warfare-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "battlefield_wound_care",
+    "prerequisite": "organized_warfare"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Organized Warfare provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from organized_warfare to battlefield_wound_care. The node covers practical wound care after hunting accidents, labor injuries, and warfare; organized warfare is one use context, not a prerequisite for wound care.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1928-1010-3",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object record for the Standard of Ur: supports Early Dynastic Sumerian warfare scenes, but does not establish warfare as a prerequisite for wound-care practices.",
+    "source_claim_summary": "The source supports organized warfare evidence, not a dependency from wound care to organized warfare.",
+    "source_support_rationale": "Wound care predates and extends beyond organized warfare contexts; the edge would launder one application context into a prerequisite."
+  },
+  "ontology_before": "The graph made organized_warfare a direct enabler of battlefield_wound_care.",
+  "ontology_after": "The graph treats warfare as one application context for wound care, not a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: organized_warfare is absent as a direct prerequisite for battlefield_wound_care.",
+  "would_reject_if": [
+    "The node were rescoped narrowly to formal military battlefield medicine rather than general practical wound care.",
+    "A source established organized military institutions as necessary for the scoped wound-care technology."
+  ],
+  "short_reason": "Warfare is a use context for wound care, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

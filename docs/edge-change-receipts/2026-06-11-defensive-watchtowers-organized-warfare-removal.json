@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-11-defensive-watchtowers-organized-warfare-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "defensive_watchtowers",
+    "prerequisite": "organized_warfare"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Organized Warfare provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from organized_warfare to defensive_watchtowers. Watchtowers guard settlements, fields, roads, borders, and water sources; organized warfare is not required for lookout or signaling structures.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1928-1010-3",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object record for the Standard of Ur: supports Early Dynastic Sumerian warfare scenes, but does not establish watchtowers as dependent on organized warfare.",
+    "source_claim_summary": "The source supports organized warfare, not watchtower dependency.",
+    "source_support_rationale": "Defensive lookouts and signaling structures can arise from settlement security needs without organized battlefield formations."
+  },
+  "ontology_before": "The graph made organized_warfare a direct enabler of defensive_watchtowers.",
+  "ontology_after": "The graph keeps watchtowers tied to fortification and masonry capabilities rather than to a specific warfare node.",
+  "invariant_preserved_or_changed": "Changed: organized_warfare is absent as a direct prerequisite for defensive_watchtowers.",
+  "would_reject_if": [
+    "The node were rescoped to military watchtowers within organized armies.",
+    "A source established organized warfare as necessary for the scoped watchtower technology."
+  ],
+  "short_reason": "Watchtowers do not require organized warfare as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
