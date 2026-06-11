@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-11-mobile-broadband-cellular-replaces-smartphones",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "mobile_broadband_networks",
+    "prerequisite": "cellular_networks"
+  },
+  "replaced_edge": {
+    "dependent": "mobile_broadband_networks",
+    "prerequisite": "smartphones"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Smartphones provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.76,
+    "note": "Mobile broadband builds on cellular network generations; ITU frames IMT-2000, IMT-Advanced, and IMT-2020 as successive mobile broadband systems."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.itu.int/en/ITU-R/Documents/FAQ-IMT-2024.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "FAQ sections defining IMT-2000, IMT-Advanced, IMT-2020, and IMT-2030 as ITU mobile broadband standards for 3G, 4G, 5G, and 6G.",
+    "source_claim_summary": "The ITU FAQ states that all mobile broadband systems are based on IMT standards and describes IMT-2000, IMT-Advanced, and IMT-2020 as successive mobile broadband generations.",
+    "source_support_rationale": "This supports cellular-network generations as the upstream infrastructure lineage for mobile broadband, while smartphones are user devices and not required for the network category."
+  },
+  "ontology_before": "Mobile broadband networks depended on smartphones, conflating end-user devices with cellular network infrastructure.",
+  "ontology_after": "Mobile broadband networks depend on cellular network infrastructure and standards lineage, while smartphones remain downstream/user equipment.",
+  "invariant_preserved_or_changed": "Changed: mobile_broadband_networks now depends on cellular_networks and no longer directly depends on smartphones.",
+  "would_reject_if": [
+    "The node were rescoped to smartphone mobile internet usage rather than network infrastructure.",
+    "A source showed the first mobile broadband networks required smartphones rather than cellular standards and network equipment.",
+    "A narrower smartphone_broadband_usage node is added and intentionally depends on smartphones."
+  ],
+  "short_reason": "Mobile broadband is a cellular-network generation, not a smartphone-dependent technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

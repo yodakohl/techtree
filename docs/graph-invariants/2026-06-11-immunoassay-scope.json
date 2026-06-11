@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-11-immunoassay-scope",
+  "description": "Lock immunoassay diagnostics to antigen-antibody biochemical assay scope, not antibiotic therapeutics.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "immunoassay_diagnostics",
+      "prerequisite": "antibiotics",
+      "reason": "Antibiotics are antibacterial therapeutics, not prerequisites for immunoassay methods."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "immunoassay_diagnostics",
+      "prerequisite": "biochemistry",
+      "expected": "required",
+      "reason": "Immunoassay diagnostics are defined by biochemical antigen-antibody binding reactions."
+    }
+  ]
+}

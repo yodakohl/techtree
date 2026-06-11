@@ -22637,10 +22637,10 @@
     "id": "mobile_broadband_networks",
     "name": "Mobile Broadband Networks",
     "era": "Modern",
-    "description": "High-speed cellular networks integrating radio access, packet switching, smartphones, towers, spectrum management, and internet services.",
+    "description": "High-speed cellular networks integrating radio access, packet switching, mobile devices, towers, spectrum management, and internet services.",
     "prerequisites": [
       "radio",
-      "smartphones",
+      "cellular_networks",
       "internet"
     ],
     "firstKnownDate": 2001,
@@ -22657,10 +22657,10 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "IMT-2000",
-            "url": "https://www.itu.int/rec/R-REC-M.1457/en",
+            "title": "ITU-R FAQ on International Mobile Telecommunications (IMT)",
+            "url": "https://www.itu.int/en/ITU-R/Documents/FAQ-IMT-2024.pdf",
             "publisher": "International Telecommunication Union",
-            "year": 2026,
+            "year": 2024,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -22671,18 +22671,18 @@
         ]
       },
       {
-        "prerequisite": "smartphones",
+        "prerequisite": "cellular_networks",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Smartphones provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Mobile broadband builds on cellular network generations; ITU frames IMT-2000, IMT-Advanced, and IMT-2020 as successive mobile broadband systems.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "IMT-2000",
-            "url": "https://www.itu.int/rec/R-REC-M.1457/en",
+            "title": "ITU-R FAQ on International Mobile Telecommunications (IMT)",
+            "url": "https://www.itu.int/en/ITU-R/Documents/FAQ-IMT-2024.pdf",
             "publisher": "International Telecommunication Union",
-            "year": 2026,
+            "year": 2024,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -22701,10 +22701,10 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "IMT-2000",
-            "url": "https://www.itu.int/rec/R-REC-M.1457/en",
+            "title": "ITU-R FAQ on International Mobile Telecommunications (IMT)",
+            "url": "https://www.itu.int/en/ITU-R/Documents/FAQ-IMT-2024.pdf",
             "publisher": "International Telecommunication Union",
-            "year": 2026,
+            "year": 2024,
             "source_type": "official_agency",
             "supports": [
               "node",
@@ -22724,10 +22724,10 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "IMT-2000",
-        "url": "https://www.itu.int/rec/R-REC-M.1457/en",
+        "title": "ITU-R FAQ on International Mobile Telecommunications (IMT)",
+        "url": "https://www.itu.int/en/ITU-R/Documents/FAQ-IMT-2024.pdf",
         "publisher": "International Telecommunication Union",
-        "year": 2026,
+        "year": 2024,
         "source_type": "official_agency",
         "supports": [
           "node",
@@ -36935,7 +36935,7 @@
     "description": "Laboratory tests that use antibody-antigen binding to detect hormones, proteins, pathogens, and biomarkers.",
     "prerequisites": [
       "clinical_laboratory_automation",
-      "antibiotics",
+      "biochemistry",
       "advanced_chemistry"
     ],
     "fields": [
@@ -36947,20 +36947,31 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "In vitro diagnostics",
-        "url": "https://www.who.int/health-topics/in-vitro-diagnostics",
-        "publisher": "World Health Organization",
-        "year": 2026,
-        "source_type": "official_agency",
+        "title": "Quantitative aspects of the reaction between insulin and insulin-binding antibody",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/13799922/",
+        "publisher": "Journal of Clinical Investigation / PubMed",
+        "year": 1959,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Immunoassay Methods and their Applications in Pharmaceutical Analysis",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3614608/",
+        "publisher": "International Journal of Biomedical Science / PubMed Central",
+        "year": 2006,
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1947,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1959,
+    "datePrecision": "exact",
+    "region": "United States",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -36986,19 +36997,19 @@
         ]
       },
       {
-        "prerequisite": "antibiotics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Antibiotics provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "biochemistry",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Immunoassays are defined by biochemical antigen-antibody binding reactions used to detect or quantify analytes.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "In vitro diagnostics",
-            "url": "https://www.who.int/health-topics/in-vitro-diagnostics",
-            "publisher": "World Health Organization",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "Immunoassay Methods and their Applications in Pharmaceutical Analysis",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3614608/",
+            "publisher": "International Journal of Biomedical Science / PubMed Central",
+            "year": 2006,
+            "source_type": "review",
             "supports": [
               "node",
               "maturity",

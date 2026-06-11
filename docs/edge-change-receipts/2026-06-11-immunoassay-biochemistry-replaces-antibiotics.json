@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-11-immunoassay-biochemistry-replaces-antibiotics",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "immunoassay_diagnostics",
+    "prerequisite": "biochemistry"
+  },
+  "replaced_edge": {
+    "dependent": "immunoassay_diagnostics",
+    "prerequisite": "antibiotics"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Antibiotics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "Immunoassays are defined by biochemical antigen-antibody binding reactions used to detect or quantify analytes."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3614608/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract and basic methodology sections defining immunoassays as bioanalytical methods depending on antigen-antibody reactions.",
+    "source_claim_summary": "The review states that immunoassay quantitation depends on the reaction of an antigen and an antibody, and describes the method family as bioanalytical.",
+    "source_support_rationale": "This directly supports biochemistry as the scoped technical dependency for immunoassay diagnostics, while antibiotics are therapeutic drugs and not a method prerequisite."
+  },
+  "ontology_before": "Immunoassay diagnostics depended on antibiotics, conflating antibacterial therapeutics with antibody-antigen diagnostic assay chemistry.",
+  "ontology_after": "Immunoassay diagnostics depend on biochemical antigen-antibody reactions, with antibiotics absent from the diagnostic method lineage.",
+  "invariant_preserved_or_changed": "Changed: immunoassay_diagnostics now depends on biochemistry and no longer directly depends on antibiotics.",
+  "would_reject_if": [
+    "The node were rescoped to antibiotic susceptibility testing rather than immunoassay diagnostics.",
+    "A source showed antibiotics are a technical prerequisite for antibody-antigen assay methods.",
+    "A more specific antigen_antibody_binding node is added and replaces the broader biochemistry edge."
+  ],
+  "short_reason": "Immunoassays are antibody-antigen biochemical assays; antibiotics are unrelated as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

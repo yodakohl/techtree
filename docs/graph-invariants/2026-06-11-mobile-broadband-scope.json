@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-11-mobile-broadband-scope",
+  "description": "Lock mobile broadband networks to cellular infrastructure and IMT standards, not smartphone end-user devices.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mobile_broadband_networks",
+      "prerequisite": "smartphones",
+      "reason": "Smartphones are user equipment and applications of mobile broadband, not prerequisites for mobile broadband network infrastructure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mobile_broadband_networks",
+      "prerequisite": "cellular_networks",
+      "expected": "enabling",
+      "reason": "Mobile broadband builds on cellular-network infrastructure and generations."
+    }
+  ]
+}
