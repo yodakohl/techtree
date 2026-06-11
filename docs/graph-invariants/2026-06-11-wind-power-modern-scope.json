@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-11-wind-power-modern-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "wind_power_modern",
+      "operator": "eq",
+      "value": 1941,
+      "reason": "The scoped node is anchored to the 1941 Smith-Putnam wind turbine supplying community power, not earlier mechanical windmills."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "wind_power_modern",
+      "prerequisite": "windmills",
+      "expected": "historical_predecessor",
+      "reason": "Earlier windmills are lineage for wind turbines rather than a generic enabling subsystem."
+    }
+  ]
+}
