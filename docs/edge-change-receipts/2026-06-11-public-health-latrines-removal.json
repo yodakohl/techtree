@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-public-health-latrines-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "public_health_inspections",
+    "prerequisite": "public_latrines"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Latrines provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from public_health_inspections to public_latrines; the node is now scoped to Roman aedile urban oversight, whose duties covered streets, drains, markets, baths, and order without requiring public latrines as a causal prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA%2A/Aediles.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Aediles article, duties section describing care of streets, cleansing and draining the city, cloacae, markets, baths, and police/order functions.",
+    "source_claim_summary": "The source describes an administrative office with broad urban oversight duties rather than an institution caused by public latrines.",
+    "source_support_rationale": "Public latrines may be an object of sanitation concern, but the aedile oversight institution does not depend on public_latrines as a prerequisite."
+  },
+  "ontology_before": "The node modeled public latrines as an enabling prerequisite for public-health inspection.",
+  "ontology_after": "The node is scoped to aedile urban oversight and no longer treats one inspected facility type as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: public_latrines is absent as a direct prerequisite. Preserved: sanitation-related dependents can still connect to the oversight node.",
+  "would_reject_if": [
+    "The node were rescoped specifically to inspection regimes for public latrines.",
+    "A source showed Roman aedile sanitary oversight emerged only after and because of public latrine systems."
+  ],
+  "short_reason": "Public latrines are an inspected facility type, not a prerequisite for aedile urban oversight.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/public_health_inspections.before.json /tmp/public_health_inspections.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

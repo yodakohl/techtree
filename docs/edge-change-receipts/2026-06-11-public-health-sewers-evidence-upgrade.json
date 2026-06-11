@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-public-health-sewers-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "public_health_inspections",
+    "prerequisite": "sewers_and_drainage"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Sewers and Drainage provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Aedile duties included care of streets, cleansing and draining the city, and care of the cloacae; drainage infrastructure is an oversight domain, not the whole institution."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA%2A/Aediles.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Aediles article, duties section describing care of streets and pavements, cleansing and draining the city, and care of the cloacae.",
+    "source_claim_summary": "The source connects aedile urban oversight with street cleaning, drainage, and sewer/cloaca care.",
+    "source_support_rationale": "The source supports sewers_and_drainage as a key domain enabling sanitation oversight while not reducing the office to drainage alone."
+  },
+  "invariant_preserved_or_changed": "Preserved: sewers_and_drainage remains an enabling edge, now backed by an aedile-specific source.",
+  "would_reject_if": [
+    "The node were rescoped away from urban sanitation and drainage oversight.",
+    "A source showed aediles had no responsibility for streets, cleansing, drainage, or cloacae."
+  ],
+  "short_reason": "Aedile duties directly included street cleansing, drainage, and cloaca care.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
