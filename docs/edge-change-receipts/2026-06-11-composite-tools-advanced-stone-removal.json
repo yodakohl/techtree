@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-composite-tools-advanced-stone-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_tools",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from composite_tools to advanced_stone_tools. The corrected node is scoped to KP1 hafted stone-point spears and uses stone_tool_making as the direct material-method prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/science.1227608",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports about 500,000-year-old stone points from Kathu Pan 1 functioning as spear tips and describes early humans manufacturing hafted multicomponent tools.",
+    "source_claim_summary": "The source supports a much earlier hafted stone-point spear technology at Kathu Pan 1 than the existing broad advanced_stone_tools placeholder chronology.",
+    "source_support_rationale": "The scoped technology should depend on stone-tool production itself rather than a later unsourced broad advanced-stone-tool node."
+  },
+  "ontology_before": "The graph routed composite-tool technology through an unsourced advanced-stone-tool placeholder with the same late Neolithic date.",
+  "ontology_after": "The graph anchors the scoped hafted spear-point node directly to source-checked stone_tool_making.",
+  "invariant_preserved_or_changed": "Changed: advanced_stone_tools is absent as a direct prerequisite for composite_tools.",
+  "would_reject_if": [
+    "The advanced_stone_tools node were source-checked and explicitly scoped to KP1 hafted stone points.",
+    "The composite_tools node were broadened back to a late general composite-tool bundle.",
+    "The graph lacked a direct stone-tool-making prerequisite for the scoped KP1 spear points."
+  ],
+  "short_reason": "The KP1 source supports stone points directly, not a later advanced_stone_tools placeholder.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_tools.before.json /tmp/composite_tools.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-composite-tools-bone-tools-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_tools",
+    "prerequisite": "bone_tool_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bone Tool Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from composite_tools to bone_tool_making. The corrected node is scoped to hafted stone-point spears, not bone implements or mixed stone-bone tools.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/science.1227608",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and report scope: the evidence concerns stone points from Kathu Pan 1 functioning as spear tips.",
+    "source_claim_summary": "The source supports hafted stone-point spears and does not describe bone tool manufacture as a direct precondition.",
+    "source_support_rationale": "Bone tools may be relevant to other composite-tool traditions, but they are not supported as a direct dependency for the KP1 stone-point scope."
+  },
+  "ontology_before": "The graph treated bone-tool making as an enabling dependency for a broad composite-tools bundle.",
+  "ontology_after": "The graph keeps the node scoped to stone-point spears and removes unsupported bone-tool dependency leakage.",
+  "invariant_preserved_or_changed": "Changed: bone_tool_making is absent as a direct prerequisite for composite_tools.",
+  "would_reject_if": [
+    "A source showed KP1 hafted spear-point manufacture required bone tools.",
+    "The node were split to a separate composite bone-tool technology.",
+    "The source locator changed to a composite-tool tradition where bone tools are central."
+  ],
+  "short_reason": "The source-backed scope is stone-point hafting, not bone-tool manufacture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_tools.before.json /tmp/composite_tools.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

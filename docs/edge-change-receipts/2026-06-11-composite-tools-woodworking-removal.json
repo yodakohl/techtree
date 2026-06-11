@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-composite-tools-woodworking-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_tools",
+    "prerequisite": "woodworking_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from composite_tools to woodworking_basic. The current woodworking_basic node is anchored to later preserved wooden artifacts and should not be used as a hard predecessor for the earlier KP1 hafting claim.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/science.1227608",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "supports_chronology",
+    "source_locator": "Abstract and article context: KP1 stone points functioned as spear tips; the source supports hafting but not preservation of the wooden shaft at KP1.",
+    "source_claim_summary": "The source supports hafted stone points but does not prove that the existing later-dated woodworking_basic graph node is an earlier prerequisite.",
+    "source_support_rationale": "Keeping a direct dependency on the current woodworking_basic node would create a later-prerequisite problem and overstate what the KP1 source directly preserves."
+  },
+  "ontology_before": "The graph treated a later source-checked woodworking node as a predecessor of a broad 10,000 BCE composite-tools placeholder.",
+  "ontology_after": "The graph avoids making the later woodworking_basic node a prerequisite for the earlier KP1 hafted stone-point claim.",
+  "invariant_preserved_or_changed": "Changed: woodworking_basic is absent as a direct prerequisite for composite_tools.",
+  "would_reject_if": [
+    "woodworking_basic were redated or split to an earlier source-backed wooden-shaft preparation node.",
+    "A KP1 source directly documented preserved or confidently reconstructed wooden shaft manufacture as the graph prerequisite.",
+    "The composite_tools node were rescoped to later composite implements with preserved wooden handles."
+  ],
+  "short_reason": "The source supports hafting but not the later woodworking_basic node as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_tools.before.json /tmp/composite_tools.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-composite-tools-adhesives-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_tools",
+    "prerequisite": "natural_adhesives"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Natural Adhesives provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from composite_tools to natural_adhesives. The current adhesive node is anchored to later birch-tar evidence and the KP1 source does not make adhesive production a demonstrated prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/science.1227608",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and report scope: the source identifies hafted stone points at KP1 but does not document adhesive residues or adhesive production.",
+    "source_claim_summary": "The source supports hafting but not a direct dependency on the later birch-tar adhesive technology represented by natural_adhesives.",
+    "source_support_rationale": "Adhesives are plausible for some hafting traditions, but this edge would overclaim the KP1 evidence and introduce a later prerequisite."
+  },
+  "ontology_before": "The graph treated later Paleolithic birch-tar adhesive evidence as an enabler for all composite tools.",
+  "ontology_after": "The graph avoids making adhesive production a prerequisite for the earlier KP1 hafted stone-point scope.",
+  "invariant_preserved_or_changed": "Changed: natural_adhesives is absent as a direct prerequisite for composite_tools.",
+  "would_reject_if": [
+    "A source documented adhesive residue or adhesive production directly associated with KP1 hafted stone points.",
+    "The node were rescoped to a later adhesive-hafted composite technology.",
+    "The natural_adhesives node were replaced by a source-backed 500 ka adhesive technology."
+  ],
+  "short_reason": "The KP1 source supports hafting, not an adhesive-production prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_tools.before.json /tmp/composite_tools.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

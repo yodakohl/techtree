@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-composite-tools-rope-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_tools",
+    "prerequisite": "basic_rope_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from composite_tools to basic_rope_making. The current rope node is much later than the KP1 hafted spear evidence and is not shown by the KP1 source.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.science.org/doi/10.1126/science.1227608",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: describes KP1 stone points as hafted spear tips around 500,000 years ago, without evidence for preserved cordage or rope.",
+    "source_claim_summary": "The source supports hafted stone points long before the current direct evidence for cordage represented by basic_rope_making.",
+    "source_support_rationale": "A later cordage node cannot be a historical predecessor for the earlier KP1 claim unless a separate earlier binding technology is source-checked."
+  },
+  "ontology_before": "The graph made later source-checked cordage a predecessor of a broad composite-tools node.",
+  "ontology_after": "The graph removes the later cordage dependency from the earlier KP1 hafted spear-point scope.",
+  "invariant_preserved_or_changed": "Changed: basic_rope_making is absent as a direct prerequisite for composite_tools.",
+  "would_reject_if": [
+    "A source documented 500 ka binding cordage as part of the KP1 technology.",
+    "The basic_rope_making node were replaced by an earlier source-backed binding technology.",
+    "The composite_tools node were rescoped to a later cord-bound composite artifact."
+  ],
+  "short_reason": "Later cordage evidence should not be a prerequisite for 500 ka hafted stone points.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_tools.before.json /tmp/composite_tools.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

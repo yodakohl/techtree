@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-11-hafted-stone-point-spears-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "composite_tools",
+      "operator": "eq",
+      "value": -500000,
+      "reason": "The node is scoped to about 500,000-year-old hafted stone-point spears from Kathu Pan 1."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "composite_tools",
+      "prerequisite": "stone_tool_making",
+      "expected": "required",
+      "reason": "The scoped artifacts are manufactured stone points used as spear tips."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_tools",
+      "prerequisite": "advanced_stone_tools",
+      "reason": "The source-backed KP1 stone-point scope should not depend on the later broad advanced_stone_tools placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_tools",
+      "prerequisite": "bone_tool_making",
+      "reason": "The KP1 source documents stone-point spear tips, not bone-tool manufacture as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_tools",
+      "prerequisite": "basic_rope_making",
+      "reason": "The current cordage node is later than the KP1 hafting claim and is not documented by the source."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_tools",
+      "prerequisite": "natural_adhesives",
+      "reason": "The KP1 source supports hafting but does not document adhesive production as a prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_tools",
+      "prerequisite": "woodworking_basic",
+      "reason": "The current woodworking_basic node is later-dated and should not be used as a direct prerequisite for the earlier KP1 claim."
+    }
+  ]
+}
