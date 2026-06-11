@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-aqueduct-siphons-lead-working-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "aqueduct_siphons_lead_pipes",
+    "prerequisite": "lead_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Lead Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.8,
+    "evidence_level": "textbook",
+    "note": "The node explicitly includes lead pipes, and Roman siphon and distribution pipework commonly used soldered lead pipes, so lead working is required for this combined lead-pipe scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/aqueduct-engineering",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Aqueduct article, bridgework/siphons/tunnels and distribution sections describing soldered lead siphon pipes and lead or ceramic distribution pipes.",
+    "source_claim_summary": "Britannica describes soldered lead pipes as usual siphon pipes and lead pipes as part of aqueduct distribution systems.",
+    "source_support_rationale": "Because the node title and description explicitly include lead pipes, lead-working capability is a direct prerequisite for the combined lead-pipe scope, while the scope note avoids claiming all aqueduct siphons used lead."
+  },
+  "ontology_before": "The edge treated lead working as a generic enabler even though the node explicitly included lead pipes.",
+  "ontology_after": "The edge now treats lead working as required for the combined lead-pipe scope while acknowledging other pressure-pipe materials in the scope note.",
+  "invariant_preserved_or_changed": "Changed: lead_working is now required for the lead-pipe part of this combined node. Preserved: the node still admits non-lead ceramic or stone pressure pipes in the broader aqueduct record.",
+  "would_reject_if": [
+    "The node were split so inverted siphons and lead distribution pipes became separate nodes.",
+    "The node were rescoped to pressure-pipe aqueducts regardless of material, dropping the explicit lead-pipe claim."
+  ],
+  "short_reason": "A node explicitly covering lead pipes should require lead-working capability for that subclaim.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/aqueduct_siphons_lead_pipes.before.json /tmp/aqueduct_siphons_lead_pipes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

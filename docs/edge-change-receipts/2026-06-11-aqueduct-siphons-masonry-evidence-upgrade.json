@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-aqueduct-siphons-masonry-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "aqueduct_siphons_lead_pipes",
+    "prerequisite": "masonry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Masonry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Aqueduct siphons could use masonry, brick, concrete, or stone support works such as arcades, venter bridges, tanks, and pipe sleeves; masonry enables much of the built infrastructure but is not the siphon mechanism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/aqueduct-engineering",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Aqueduct article, bridgework/siphons/tunnels section describing masonry, brick, or concrete arcades, venter bridges, tanks, concrete encasements, and stone sleeves.",
+    "source_claim_summary": "Britannica describes aqueduct siphon support and protection works using masonry-related structures and materials.",
+    "source_support_rationale": "The source supports masonry as built-infrastructure support rather than as the pressure-pipe mechanism itself."
+  },
+  "invariant_preserved_or_changed": "Preserved: masonry remains an enabling edge, now scoped to support works rather than generic construction capability.",
+  "would_reject_if": [
+    "The node were rescoped to pipe-only siphons with no tanks, bridges, encasement, sleeves, or built support works.",
+    "A source showed masonry support works were irrelevant to the Hellenistic/Roman siphon examples represented here."
+  ],
+  "short_reason": "Masonry enables aqueduct siphon support and protection works without being the siphon mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

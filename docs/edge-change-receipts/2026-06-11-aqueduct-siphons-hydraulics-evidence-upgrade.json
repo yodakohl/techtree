@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-aqueduct-siphons-hydraulics-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "aqueduct_siphons_lead_pipes",
+    "prerequisite": "hydraulics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Hydraulics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Inverted siphons use pressure-pipe behavior to carry water down and back up across valleys; hydraulic understanding enables the design without being the physical component."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/aqueduct-engineering",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Aqueduct article, bridgework/siphons/tunnels section describing header tanks, pipes crossing valleys, receiving tanks, maintained gradients, and pressure problems.",
+    "source_claim_summary": "Britannica describes inverted siphons as pressure-pipe systems used to cross valleys while maintaining an overall aqueduct gradient.",
+    "source_support_rationale": "The passage supports hydraulic behavior as method-enabling knowledge, but the physical system still consists of aqueduct structures and pipes."
+  },
+  "invariant_preserved_or_changed": "Preserved: hydraulics remains an enabling edge, now with source-locatable pressure-pipe rationale.",
+  "would_reject_if": [
+    "The node were rescoped to non-pressure open-channel aqueduct conduits only.",
+    "A source showed inverted siphons did not rely on pressure-pipe behavior."
+  ],
+  "short_reason": "Inverted siphons are pressure-pipe aqueduct features, so hydraulics is an enabling method dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
