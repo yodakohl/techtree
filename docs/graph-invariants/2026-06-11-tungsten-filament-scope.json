@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-11-tungsten-filament-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "tungsten_filament_production",
+      "operator": "eq",
+      "value": 1909,
+      "reason": "The node is scoped to Coolidge's ductile drawn tungsten wire process, not a postwar 1945 placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "tungsten_filament_production",
+      "prerequisite": "advanced_chemistry",
+      "reason": "The previous advanced_chemistry edge used an unrelated photoresist source and over-broadened the production method."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "tungsten_filament_production",
+      "prerequisite": "powder_metallurgy",
+      "expected": "required",
+      "reason": "The scoped process starts from sintered tungsten and turns it into ductile drawn wire."
+    }
+  ]
+}

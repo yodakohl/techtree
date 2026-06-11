@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-11-tungsten-filament-powder-metallurgy-replaces-chemistry",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "tungsten_filament_production",
+    "prerequisite": "powder_metallurgy"
+  },
+  "replaced_edge": {
+    "dependent": "tungsten_filament_production",
+    "prerequisite": "advanced_chemistry"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.84,
+    "note": "Coolidge's ductile tungsten process began from sintered tungsten and used hot swaging and drawing to make bendable wire, making powder metallurgy directly relevant to the scoped production method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://americanhistory.si.edu/lighting/bios/coolidge.htm",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Smithsonian Coolidge biography, discussion of non-ductile sintered tungsten filaments and Coolidge's 1909 hot swaging and wire-drawing process.",
+    "source_claim_summary": "The source describes tungsten filaments made by sintering and Coolidge's process of hot swaging and drawing sintered tungsten into bendable wire.",
+    "source_support_rationale": "This supports a powder-metallurgy dependency for the scoped production method and rejects the previous photoresist-backed advanced_chemistry edge as a topic mismatch."
+  },
+  "ontology_before": "The node depended on advanced_chemistry using an unrelated photoresist source, obscuring the actual tungsten wire-production method.",
+  "ontology_after": "The node depends on powder_metallurgy because the scoped Coolidge process starts from sintered tungsten and forms drawn wire.",
+  "invariant_preserved_or_changed": "Changed: advanced_chemistry is absent and powder_metallurgy is a required edge for tungsten_filament_production.",
+  "would_reject_if": [
+    "The node were rescoped to photoresist chemistry rather than tungsten wire production.",
+    "A source showed Coolidge-style ductile tungsten filaments did not use sintered tungsten or related powder-metallurgy processing.",
+    "The graph reintroduced the Photoresist source for tungsten filament production."
+  ],
+  "short_reason": "Tungsten filament production depends on sintered/drawn tungsten metallurgy, not photoresist chemistry.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/tungsten_filament_production.before.json /tmp/tungsten_filament_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
