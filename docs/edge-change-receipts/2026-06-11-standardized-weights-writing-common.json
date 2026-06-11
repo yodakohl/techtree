@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-11-standardized-weights-writing-common",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "standardized_weights_and_measures",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.62,
+    "evidence_level": "expert_inference",
+    "note": "Cuneiform records and administration documented weight systems, but writing is a shared administrative context rather than a direct historical predecessor of physical standard weights."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.penn.museum/sites/expedition/hanging-in-the-balance-2/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Hanging in the Balance, discussion of Mesopotamian cuneiform texts defining the weighing system through barley grains and the shekel.",
+    "source_claim_summary": "Penn Museum describes cuneiform texts that define Mesopotamian weighing systems, including grain-based units and the shekel.",
+    "source_support_rationale": "The source links writing to documented administration of weights, but it does not establish writing as the historical predecessor of physical standard weights themselves."
+  },
+  "ontology_before": "The edge treated writing as a historical predecessor of standardized weights and measures.",
+  "ontology_after": "The edge now treats writing as a shared administrative/documentary context for the scoped Mesopotamian weighing system.",
+  "invariant_preserved_or_changed": "The node remains a Bronze Age metrology node; the edge avoids laundering documentary evidence into a direct predecessor claim.",
+  "would_reject_if": [
+    "A source showed physical standardized weights were derived from writing rather than merely documented and administered through written systems.",
+    "The cited source did not discuss cuneiform texts defining Mesopotamian weighing systems."
+  ],
+  "short_reason": "Writing supports the documented administrative context for metrology, not a direct predecessor relationship to physical standard weights.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
