@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-basic-shelter-woodworking-enabling",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "basic_shelter",
+    "prerequisite": "woodworking_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.66,
+    "evidence_level": "primary_source",
+    "note": "The Ohalo II shelter evidence comes from brush huts made with plant stems and branch material; wood handling enabled this shelter form but does not make formal woodworking a universal hard prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC404215/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Abstract and site description: reports grass bedding exposed on a brush-hut floor at the 23,000-year-old Ohalo II fisher-hunter-gatherer camp.",
+    "source_claim_summary": "The source documents constructed brush huts and bedding at Ohalo II, supporting wood/plant handling as an enabling capability for this shelter form.",
+    "source_support_rationale": "The source supports wood/plant material use in shelter construction, but it does not prove formal woodworking is a hard prerequisite for every simple shelter."
+  },
+  "ontology_before": "The edge treated basic woodworking as a generic historical predecessor for basic shelter.",
+  "ontology_after": "The edge now treats wood handling as an enabling capability for the source-backed brush-hut shelter scope.",
+  "invariant_preserved_or_changed": "Changed: woodworking_basic -> basic_shelter is enabling.",
+  "would_reject_if": [
+    "The node were narrowed to a shelter type that does not use wood, brush, stems, or branch material.",
+    "A source showed the Ohalo II brush huts required a different prerequisite technology instead of wood/plant material handling.",
+    "The graph promoted woodworking_basic to required without evidence that formal woodworking is universal for basic shelter."
+  ],
+  "short_reason": "Ohalo II brush huts support wood/plant handling as enabling, not a hard universal prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/basic_shelter.before.json /tmp/basic_shelter.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
