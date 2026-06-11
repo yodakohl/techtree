@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-11-aqueduct-siphons-aqueducts-required",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "aqueduct_siphons_lead_pipes",
+    "prerequisite": "aqueducts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Aqueducts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "Inverted siphons and lead distribution pipes are scoped here as advanced aqueduct features, so an aqueduct system is a direct prerequisite rather than loose context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/aqueduct-engineering",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Aqueduct article, sections on bridgework, siphons, tunnels, and distribution describing inverted siphons, aqueduct conduits, and lead or ceramic pipes.",
+    "source_claim_summary": "Britannica describes inverted siphons and distribution pipes as parts of aqueduct engineering systems.",
+    "source_support_rationale": "Because the dependent node is scoped as advanced aqueduct siphons and pipework, the aqueduct system is not merely contextual."
+  },
+  "ontology_before": "The edge treated aqueducts as a generic enabler for an advanced aqueduct-specific node.",
+  "ontology_after": "The edge now models aqueducts as the parent system required by aqueduct siphons and distribution pipework.",
+  "invariant_preserved_or_changed": "Changed: aqueducts is now required. Preserved: the dependent node remains an advanced aqueduct feature, not generic plumbing.",
+  "would_reject_if": [
+    "The node were rescoped away from aqueduct systems to generic pressure pipes.",
+    "A source showed the named siphon/lead-pipe technologies were independent of aqueduct engineering."
+  ],
+  "short_reason": "Aqueduct siphons and lead distribution pipes are advanced features of aqueduct systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/aqueduct_siphons_lead_pipes.before.json /tmp/aqueduct_siphons_lead_pipes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

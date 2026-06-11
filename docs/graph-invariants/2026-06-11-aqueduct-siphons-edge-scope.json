@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-11-aqueduct-siphons-edge-scope",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "aqueduct_siphons_lead_pipes",
+      "prerequisite": "aqueducts",
+      "expected": "required",
+      "reason": "The node is scoped as advanced aqueduct siphons and pipework, so an aqueduct system is a direct prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "aqueduct_siphons_lead_pipes",
+      "prerequisite": "hydraulics",
+      "expected": "enabling",
+      "reason": "Hydraulic pressure-pipe behavior enables inverted siphons without being the physical aqueduct component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "aqueduct_siphons_lead_pipes",
+      "prerequisite": "masonry",
+      "expected": "enabling",
+      "reason": "Masonry enables support and protection works such as arcades, tanks, bridges, encasements, and sleeves."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "aqueduct_siphons_lead_pipes",
+      "prerequisite": "lead_working",
+      "expected": "required",
+      "reason": "The current combined node explicitly includes lead pipes, so lead working is required for the lead-pipe subclaim."
+    }
+  ]
+}
