@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-11-wms-scm-software-removal",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "warehouse_management_systems",
+    "prerequisite": "supply_chain_management_software"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Supply Chain Management Software supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct dependency remains because a warehouse management system can be standalone or a component integrated into broader supply-chain-management software.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ascm.org/topics/warehouse-management-wms-explained/",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Warehouse management system overview and warehouse management process sections describing WMS-guided receiving, storage, picking, packing, and shipping.",
+    "source_claim_summary": "The source describes WMS as warehouse operations software for inventory, storage locations, picking, packing, and shipping.",
+    "source_support_rationale": "That scope supports WMS as a warehouse execution system; it does not support making broader supply-chain-management software a prerequisite of WMS."
+  },
+  "ontology_before": "Warehouse management systems depended on broader supply-chain-management software, reversing a common component/suite relationship.",
+  "ontology_after": "Warehouse management systems keep barcode automation and database systems as practical enablers while SCM software remains a separate broader logistics platform.",
+  "invariant_preserved_or_changed": "The graph no longer models WMS as downstream of broader supply-chain-management software.",
+  "would_reject_if": [
+    "The node were rescoped to a WMS module that exists only inside a specific SCM suite.",
+    "A source showed early WMS originated strictly as a dependent subsystem of SCM software.",
+    "A future integration node represented WMS-SCM suite integration rather than WMS itself."
+  ],
+  "short_reason": "WMS is a warehouse execution system and can be standalone; broader SCM software is not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

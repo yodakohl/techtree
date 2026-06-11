@@ -1,0 +1,12 @@
+{
+  "id": "2026-06-11-warehouse-management-scope",
+  "description": "Lock warehouse management systems to warehouse execution software rather than broader supply-chain-management suites.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "warehouse_management_systems",
+      "prerequisite": "supply_chain_management_software",
+      "reason": "WMS can be standalone or integrated into SCM suites; broader SCM software is not a prerequisite for WMS."
+    }
+  ]
+}
