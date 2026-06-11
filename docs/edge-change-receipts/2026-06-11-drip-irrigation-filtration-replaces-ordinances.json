@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-11-drip-irrigation-filtration-replaces-ordinances",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "drip_irrigation",
+    "prerequisite": "filters_membranes_early"
+  },
+  "replaced_edge": {
+    "dependent": "drip_irrigation",
+    "prerequisite": "water_quality_ordinances"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Water Quality Ordinances provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Filtration and water-treatment components help prevent emitter clogging in practical drip-irrigation systems."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubs.ext.vt.edu/442/442-757/442-757.html",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Sections describing water-quality problems that lead to emitter clogging and filtration/treatment maintenance for micro-irrigation systems.",
+    "source_claim_summary": "The source explains that micro-irrigation emitters can clog from particles, biological growth, and chemical precipitates, and discusses filtration and treatment responses.",
+    "source_support_rationale": "This supports filtration as a practical enabling dependency for drip irrigation while giving no support to medieval water-quality ordinances as a technical prerequisite."
+  },
+  "ontology_before": "Drip irrigation depended on medieval water-quality ordinances, conflating legal water-protection rules with emitter-clogging control.",
+  "ontology_after": "Drip irrigation depends on filtration and membrane technology for practical water-quality management in emitter systems.",
+  "invariant_preserved_or_changed": "Changed: drip_irrigation no longer directly depends on water_quality_ordinances and now uses filters_membranes_early as the water-quality technology dependency.",
+  "would_reject_if": [
+    "The drip irrigation node were rescoped to legal irrigation governance rather than emitter-and-tubing technology.",
+    "A source showed Netafim-style drip irrigation emerged from medieval water-quality ordinances.",
+    "A future node for irrigation water regulation reintroduced water_quality_ordinances with a governance-specific scope."
+  ],
+  "short_reason": "Drip irrigation needs filtration and treatment to manage emitter clogging, not medieval urban water-quality ordinances.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-11-drip-irrigation-scope",
+  "description": "Lock drip irrigation water-quality dependency to filtration and emitter maintenance rather than medieval urban ordinances.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "drip_irrigation",
+      "prerequisite": "water_quality_ordinances",
+      "reason": "Drip irrigation is emitter-and-tubing technology; medieval urban ordinances are not a technical prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "drip_irrigation",
+      "prerequisite": "filters_membranes_early",
+      "expected": "enabling",
+      "reason": "Filtration enables practical drip-irrigation operation by reducing emitter clogging risks."
+    }
+  ]
+}
