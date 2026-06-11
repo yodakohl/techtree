@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-stone-fish-weir-rope-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fish_weirs",
+    "prerequisite": "basic_rope_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from fish_weirs to basic_rope_making. The node is now scoped to a submerged stone tidal fish weir, not rope, net, basket, or wooden-stake trap construction.",
+  "source_supports_edge": "no",
+  "source_url": "https://oceanexplorer.noaa.gov/expedition-feature/22sunfish-features-fish-weir/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NOAA feature, lines describing low arced stone walls across gullies, an 11,100-year age from sea-level reconstruction, and confirmation of the Shakan Bay structure as a stone weir.",
+    "source_claim_summary": "The source supports a stone tidal fish trap made from stacked boulders at Shakan Bay.",
+    "source_support_rationale": "Because the corrected node covers stone wall fish-weir construction, rope making is not a direct prerequisite."
+  },
+  "ontology_before": "The graph modeled fish weirs as directly dependent on basic rope making, implying fiber or lashing as a prerequisite.",
+  "ontology_after": "The graph models a source-backed stone fish weir without a rope prerequisite.",
+  "invariant_preserved_or_changed": "Changed: basic_rope_making is absent as a direct prerequisite for fish_weirs.",
+  "would_reject_if": [
+    "The node were broadened to basket traps, net traps, or lashed wooden-stake weirs.",
+    "A source showed the Shakan Bay stone weir required rope making.",
+    "The graph reintroduced basic_rope_making as a direct prerequisite without changing the node scope."
+  ],
+  "short_reason": "The source-backed Shakan Bay weir is a stone tidal trap, not a rope-built trap.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fish_weirs.before.json /tmp/fish_weirs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
