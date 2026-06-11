@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-11-upper-paleolithic-grinding-stones-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "grinding_stones_querns",
+      "operator": "eq",
+      "value": -28000,
+      "reason": "The node is scoped to 30,000-year-old Upper Paleolithic grinding stones with wild-plant starch residues."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "grinding_stones_querns",
+      "prerequisite": "stone_tool_making",
+      "expected": "required",
+      "reason": "The scoped artifacts are manufactured stone grinding tools."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "grinding_stones_querns",
+      "prerequisite": "plant_domestication",
+      "reason": "Wild-plant grinding predates domesticated-crop agriculture."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "grinding_stones_querns",
+      "prerequisite": "advanced_stone_tools",
+      "reason": "The direct prerequisite is stone_tool_making, not the later broad advanced_stone_tools placeholder."
+    }
+  ]
+}
