@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-11-animal-husbandry-agriculture-common",
+  "decision_date": "2026-06-11",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "animal_husbandry",
+    "prerequisite": "agriculture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Agriculture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "review",
+    "note": "Early herding spread through Neolithic food-production systems, but plant agriculture is contextual rather than a strict technical prerequisite for livestock husbandry."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract and introduction: reviews the emergence of Southwest Asian animal husbandry within Neolithic farming expansion while emphasizing a multi-century, regionally varied process.",
+    "source_claim_summary": "The source supports a historical association between early herding and Neolithic food-production systems, but not a hard technical dependency on crop farming.",
+    "source_support_rationale": "The relation is best modeled as contextual/common dependency rather than enabling or required."
+  },
+  "ontology_before": "The graph made agriculture look like a direct enabler for livestock husbandry.",
+  "ontology_after": "The graph preserves the Neolithic food-production context while avoiding a hard dependency from husbandry to crop agriculture.",
+  "invariant_preserved_or_changed": "Changed: agriculture -> animal_husbandry is common_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to mixed crop-livestock farming rather than animal husbandry generally.",
+    "A source showed crop agriculture was technically required for the scoped husbandry practice.",
+    "The graph promoted agriculture back to enabling or required without narrowing the node scope."
+  ],
+  "short_reason": "Agriculture is contextual for early husbandry, not a universal hard prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_husbandry.before.json /tmp/animal_husbandry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
