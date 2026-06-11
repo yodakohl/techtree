@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-fish-weirs-and-traps-hooks-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fish_weirs_and_traps",
+    "prerequisite": "fishing_nets_hooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fishing Nets & Hooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from fish_weirs_and_traps to fishing_nets_hooks. The prerequisite node is now scoped to shell fishhooks, which are not a prerequisite for fixed weirs or traps.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1607857113",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports seashell artifacts including fishhooks at Sakitari Cave; it does not present weir or trap construction as derived from fishhook technology.",
+    "source_claim_summary": "The source supports early fishhooks, not a general fishing-structure prerequisite.",
+    "source_support_rationale": "After scope correction, a fishhook node should not be used as the direct enabler for fixed weirs and traps."
+  },
+  "ontology_before": "The graph made a broad nets-and-hooks node a direct enabler of weirs and traps.",
+  "ontology_after": "Fish weirs and traps retain their own woodworking and rope context without depending on fishhooks.",
+  "invariant_preserved_or_changed": "Changed: fishing_nets_hooks is absent as a direct prerequisite for fish_weirs_and_traps.",
+  "would_reject_if": [
+    "A source showed fish weirs or traps required prior fishhook technology.",
+    "The fishhook node were broadened again to include nets, weirs, or traps.",
+    "The graph reintroduced the edge without source-backed edge evidence."
+  ],
+  "short_reason": "Fishhooks are not a prerequisite for fixed fish weirs and traps.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_nets_hooks.before.json /tmp/fishing_nets_hooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

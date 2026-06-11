@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-paleolithic-fish-hooks-bone-tool-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fishing_nets_hooks",
+    "prerequisite": "bone_tool_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bone Tool Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from fishing_nets_hooks to bone_tool_making. The node is now scoped to single-piece shell fishhooks at Sakitari Cave, not bone hooks.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1607857113",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Seashell artifacts section and abstract: reports single-piece fishhooks made of Trochus shell from a layer dated to 23,000 cal BP at Sakitari Cave.",
+    "source_claim_summary": "The earliest source-backed claim for this node is shell fishhook manufacture at Sakitari Cave.",
+    "source_support_rationale": "Because the scoped artifacts are shell fishhooks, bone-tool making is not a direct prerequisite for the corrected node."
+  },
+  "ontology_before": "The graph modeled a broad nets-and-hooks node as enabled by bone-tool making.",
+  "ontology_after": "The graph models source-backed Paleolithic shell fishhooks without requiring bone-tool making.",
+  "invariant_preserved_or_changed": "Changed: bone_tool_making is absent as a direct prerequisite for fishing_nets_hooks.",
+  "would_reject_if": [
+    "The node were respecified as bone fishhooks rather than shell fishhooks.",
+    "A source showed that Sakitari shell fishhooks required bone-tool manufacturing.",
+    "The graph reintroduced bone_tool_making as a direct prerequisite without changing the node scope."
+  ],
+  "short_reason": "Sakitari fishhooks are shell artifacts, not bone hooks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_nets_hooks.before.json /tmp/fishing_nets_hooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-fishing-spears-hooks-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fishing_spear_gigs",
+    "prerequisite": "fishing_nets_hooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fishing Nets & Hooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from fishing_spear_gigs to fishing_nets_hooks. The corrected prerequisite node is shell fishhooks, not spear or gig technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1607857113",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Seashell artifact discussion: supports shell fishhooks at Sakitari Cave, not spear or gig manufacture.",
+    "source_claim_summary": "The source supports early fishhooks, not a dependency from hooks to fishing spears.",
+    "source_support_rationale": "Fishing spears and gigs are separate capture technologies and should not inherit a hook prerequisite from an old mixed node."
+  },
+  "ontology_before": "The graph made broad fishing nets and hooks a direct enabler of fishing spears and gigs.",
+  "ontology_after": "Fishing spears and gigs no longer depend directly on fishhook technology.",
+  "invariant_preserved_or_changed": "Changed: fishing_nets_hooks is absent as a direct prerequisite for fishing_spear_gigs.",
+  "would_reject_if": [
+    "A source showed fishing spear or gig technology required prior fishhooks.",
+    "The fishhook node were broadened to include spears or gigs.",
+    "The edge returned without edge-level evidence."
+  ],
+  "short_reason": "Fishhooks are not a direct prerequisite for fishing spears or gigs.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_nets_hooks.before.json /tmp/fishing_nets_hooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

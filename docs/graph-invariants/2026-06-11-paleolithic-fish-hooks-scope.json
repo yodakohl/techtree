@@ -1,0 +1,48 @@
+{
+  "id": "2026-06-11-paleolithic-fish-hooks-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "fishing_nets_hooks",
+      "operator": "eq",
+      "value": -21000,
+      "reason": "The node is scoped to Sakitari Cave shell fishhooks from a layer dated to about 23,000 cal BP."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fishing_nets_hooks",
+      "prerequisite": "bone_tool_making",
+      "reason": "The scoped artifacts are shell fishhooks, not bone hooks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fishing_nets_hooks",
+      "prerequisite": "basic_weaving_basketry",
+      "reason": "The scoped node excludes nets and therefore should not depend on weaving or basketry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fish_weirs_and_traps",
+      "prerequisite": "fishing_nets_hooks",
+      "reason": "Fixed fish weirs and traps should not depend directly on shell fishhooks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fish_weirs",
+      "prerequisite": "fishing_nets_hooks",
+      "reason": "Fish weirs should not depend directly on shell fishhooks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fishing_spear_gigs",
+      "prerequisite": "fishing_nets_hooks",
+      "reason": "Fishing spears and gigs should not depend directly on shell fishhooks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "net_sinker_weights",
+      "prerequisite": "fishing_nets_hooks",
+      "reason": "Net sinker weights should not depend directly on shell fishhooks."
+    }
+  ]
+}

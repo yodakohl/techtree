@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-fish-weirs-hooks-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fish_weirs",
+    "prerequisite": "fishing_nets_hooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fishing Nets & Hooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from fish_weirs to fishing_nets_hooks. The corrected prerequisite node represents shell fishhooks, not weir construction.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.pnas.org/doi/10.1073/pnas.1607857113",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and seashell-artifact report: supports shell fishhooks as artifacts at Sakitari Cave.",
+    "source_claim_summary": "The source supports fishhook technology only.",
+    "source_support_rationale": "A source-backed shell-fishhook node should not be a direct prerequisite for fish-weir technology."
+  },
+  "ontology_before": "The graph let a mixed nets-and-hooks node stand upstream of fish weirs.",
+  "ontology_after": "Fish weirs no longer depend on fishhooks as a direct upstream technology.",
+  "invariant_preserved_or_changed": "Changed: fishing_nets_hooks is absent as a direct prerequisite for fish_weirs.",
+  "would_reject_if": [
+    "A source showed fish weirs required prior fishhook technology.",
+    "The graph changed the prerequisite node back into a broad fishing-net/weir node.",
+    "The edge returned without edge-level evidence."
+  ],
+  "short_reason": "Fishhooks are not a direct prerequisite for fish weirs.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fishing_nets_hooks.before.json /tmp/fishing_nets_hooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
