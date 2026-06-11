@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-public-latrines-sewers-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "public_latrines",
+    "prerequisite": "sewers_and_drainage"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Sewers and Drainage provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Roman public toilets were commonly tied to sewer or drainage systems that carried waste away; drainage enables the scoped public-latrine system without proving every latrine was sewer-connected."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7004096/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Aqueducts and Water Supply of Ancient Rome, Roman public toilets discussion noting public toilets near markets or baths and connections to city water systems and sewers.",
+    "source_claim_summary": "The review describes Roman public toilets as commonly located near baths or markets and almost always connected to city water systems and sewers.",
+    "source_support_rationale": "The source directly supports sewers/drainage as infrastructure enabling Roman public latrines, while the wording avoids a universal hard-prerequisite claim."
+  },
+  "invariant_preserved_or_changed": "Preserved: sewers_and_drainage remains an enabling edge, now backed by a Roman water-system review rather than a generic modern sanitation page.",
+  "would_reject_if": [
+    "The node were rescoped to non-Roman public latrines with no sewer or drainage integration.",
+    "A stronger source showed Roman public latrines were normally independent of sewer or drainage systems."
+  ],
+  "short_reason": "Roman public latrines were commonly tied to sewers or drains, but not every latrine should be modeled as sewer-required.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

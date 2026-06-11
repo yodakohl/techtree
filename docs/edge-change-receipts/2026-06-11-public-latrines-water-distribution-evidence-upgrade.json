@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-public-latrines-water-distribution-evidence-upgrade",
+  "decision_date": "2026-06-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "public_latrines",
+    "prerequisite": "water_distribution_pipes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Water Distribution Pipes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Roman public toilets were commonly connected to city water systems or flushed by bath wastewater, making water distribution an enabling supply path rather than a universal hard prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7004096/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Aqueducts and Water Supply of Ancient Rome, Roman public toilets discussion noting city water-system connections and bath wastewater used to flush latrines.",
+    "source_claim_summary": "The review describes Roman public toilets as commonly connected to city water systems and notes bath wastewater or overflow could flush them.",
+    "source_support_rationale": "The source supports water distribution as an enabling supply path for Roman public latrines, not a claim that every latrine had a direct piped supply."
+  },
+  "invariant_preserved_or_changed": "Preserved: water_distribution_pipes remains an enabling edge, now backed by a Roman water-system review rather than a generic modern sanitation page.",
+  "would_reject_if": [
+    "The node were rescoped to dry latrines or cesspit-only public toilets.",
+    "A stronger source showed Roman public latrines were normally independent of water supply systems."
+  ],
+  "short_reason": "Roman public latrines commonly used city water systems or bath wastewater for flushing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
