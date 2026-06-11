@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-11-paper-money-movable-type-removal",
+  "decision_date": "2026-06-11",
+  "edge": {
+    "dependent": "paper_money",
+    "prerequisite": "printing_press_movable_type"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Printing Press (Movable Type) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No dependency remains because the paper-money node is scoped to late Tang merchant receipts and Song government paper money, not Gutenberg-style movable-type printing.",
+  "source_supports_edge": "no",
+  "source_url": "https://afe.easia.columbia.edu/songdynasty-module/econ-rev-money.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "From Copper Coins to Paper Notes section describing late Tang merchant receipts, Song deposit-shop certificates, and government takeover in the 1020s.",
+    "source_claim_summary": "The source explains paper money as an outgrowth of paper receipts, deposit shops, and state monetary administration in China, with no dependence on movable-type printing presses.",
+    "source_support_rationale": "The old edge conflated paper currency with later print-production technologies. The relevant prerequisites are paper as a medium and deposit/banking institutions, not a metal movable-type screw press."
+  },
+  "ontology_before": "Paper money depended on paper making, early banking, and movable-type printing.",
+  "ontology_after": "Paper money depends on paper making as a material substrate and early banking/deposit practices as institutional predecessors.",
+  "invariant_preserved_or_changed": "The graph no longer routes Chinese paper-money origins through Gutenberg-style movable-type printing.",
+  "would_reject_if": [
+    "The node were narrowed to a later anti-counterfeit banknote printing process that explicitly used movable type.",
+    "A separate paper-money printing-security node were introduced with specific evidence for movable-type marks.",
+    "A source showed the first scoped paper money originated from movable-type print production rather than deposit receipts and state monetary administration."
+  ],
+  "short_reason": "Early paper money emerged from paper receipts and deposit institutions, not movable-type printing presses.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

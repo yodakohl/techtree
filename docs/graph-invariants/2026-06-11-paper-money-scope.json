@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-11-paper-money-scope",
+  "description": "Lock paper-money scope to Chinese paper receipts and Song monetary administration rather than later movable-type print technology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "paper_money",
+      "operator": "eq",
+      "value": 900,
+      "reason": "Paper money is anchored to late Tang merchant deposit receipts and Song government paper notes, not a generic early medieval placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "paper_money",
+      "prerequisite": "printing_press_movable_type",
+      "reason": "Early paper money emerged from paper receipts and deposit institutions, not Gutenberg-style movable-type printing."
+    }
+  ]
+}

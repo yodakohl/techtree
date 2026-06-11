@@ -22,7 +22,7 @@ This is a field-specific trust snapshot for the `Genome Editing / CRISPR-Cas` le
 - Nodes: 28
 - Dependency edges inside field nodes: 92
 - Required edges: 13
-- Source types on field nodes: museum: 4, official_agency: 7, primary_paper: 20, review: 14, textbook: 1
+- Source types on field nodes: museum: 4, official_agency: 6, primary_paper: 21, review: 14, textbook: 1
 
 ## Required Edge Receipts
 
