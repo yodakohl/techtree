@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-customary-law-writing-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "customary_law",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Writing is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct edge remains from writing to customary_law. Customary law can be oral or written, so writing is not a prerequisite for the scoped concept.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sdgfund.org/human-rights-and-traditional-justice-systems-africa",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "About section: traditional justice systems are based on customary practices, traditions and rules; customary law may be oral or written, and decisions may or may not be recorded.",
+    "source_claim_summary": "The source explicitly allows customary law to be oral, which contradicts writing as a direct prerequisite.",
+    "source_support_rationale": "Writing can document or codify some customary law, but it is not necessary for customary law itself."
+  },
+  "ontology_before": "The graph modeled writing as a direct common dependency for customary_law even though the node was described as orally transmitted.",
+  "ontology_after": "The graph separates customary/oral law from written or codified law-code technologies.",
+  "invariant_preserved_or_changed": "Changed: writing is absent as a direct prerequisite for customary_law.",
+  "would_reject_if": [
+    "The node were rescoped to written customary-law compilations rather than customary law itself.",
+    "A source showed the graph's customary_law scope specifically required written records."
+  ],
+  "short_reason": "Customary law may be oral, so writing is not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/customary_law.before.json /tmp/customary_law.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
