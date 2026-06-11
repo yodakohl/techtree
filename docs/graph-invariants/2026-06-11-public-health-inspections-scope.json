@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-11-public-health-inspections-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "public_health_inspections",
+      "operator": "eq",
+      "value": -500,
+      "reason": "The node is now scoped to Roman aedile-style urban oversight rather than a broad 200 BCE public-health inspection regime."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_health_inspections",
+      "prerequisite": "public_latrines",
+      "reason": "Public latrines are an inspected facility type, not a prerequisite for aedile urban oversight."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_health_inspections",
+      "prerequisite": "municipal_building_codes",
+      "reason": "The aedile source supports civic oversight duties, not dependence on formal municipal building-code technology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_health_inspections",
+      "prerequisite": "sewers_and_drainage",
+      "expected": "enabling",
+      "reason": "Drainage and cloacae were a key oversight domain but not the whole institution."
+    }
+  ]
+}
