@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-stone-grinding-plant-domestication-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "stone_grinding_slabs",
+    "prerequisite": "plant_domestication"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Plant Domestication provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from stone_grinding_slabs to plant_domestication. The source-backed first-known claim is wild-cereal processing at Ohalo II, long before domesticated crops.",
+  "source_supports_edge": "no",
+  "source_url": "https://cris.haifa.ac.il/en/publications/new-evidence-for-the-processing-of-wild-cereal-grains-at-ohalo-ii/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: documents routine processing of wild cereals, including wheat, barley, and oats, around 23,000 years ago at Ohalo II.",
+    "source_claim_summary": "The paper supports grinding-stone use for wild cereals at a hunter-gatherer site that predates Neolithic plant domestication.",
+    "source_support_rationale": "Because the documented grinding use involved wild cereals, plant domestication is not a prerequisite for the scoped stone-grinding-slab technology."
+  },
+  "ontology_before": "The graph made plant domestication a direct enabler of stone grinding slabs, implying grinding slabs emerged from domesticated crop processing.",
+  "ontology_after": "Stone grinding slabs are scoped to wild-cereal and material processing, with plant domestication left as a later agricultural context rather than a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: plant_domestication is absent as a direct prerequisite for stone_grinding_slabs.",
+  "would_reject_if": [
+    "The node were narrowed to grinding slabs specifically for domesticated crop agriculture.",
+    "A source showed the earliest scoped grinding slabs required domesticated plants.",
+    "The graph reintroduced plant_domestication as a direct prerequisite without changing the node scope."
+  ],
+  "short_reason": "Wild-cereal grinding at Ohalo II predates plant domestication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/stone_grinding_slabs.before.json /tmp/stone_grinding_slabs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "2026-06-11-stone-grinding-slabs-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "stone_grinding_slabs",
+      "operator": "eq",
+      "value": -21000,
+      "reason": "The node is scoped to wild-cereal grinding at the 23,000-year-old Ohalo II site."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "stone_grinding_slabs",
+      "prerequisite": "plant_domestication",
+      "reason": "Wild-cereal grinding predates plant domestication and should not depend on it."
+    }
+  ]
+}
