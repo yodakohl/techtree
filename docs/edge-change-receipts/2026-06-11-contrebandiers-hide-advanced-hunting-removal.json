@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-contrebandiers-hide-advanced-hunting-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "hide_processing",
+    "prerequisite": "advanced_hunting_gathering"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Hunting & Gathering provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from hide_processing to advanced_hunting_gathering. The corrected node is scoped to worked bone tools for leather and fur production in 120,000-90,000-year-old deposits, which predates the current advanced_hunting_gathering node date.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1016/j.isci.2021.102988",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Highlights and summary: bone tools from Contrebandiers Cave are dated to 120,000-90,000 years ago and were likely used for leather and fur working; carnivore bones show skinning for fur removal.",
+    "source_claim_summary": "The source supports early bone-tool leather and fur working at Contrebandiers Cave.",
+    "source_support_rationale": "The source gives a much earlier scoped technology than the advanced_hunting_gathering placeholder and does not require that graph node as a prerequisite."
+  },
+  "ontology_before": "The graph modeled hide processing as downstream of a later broad advanced hunting-and-gathering placeholder.",
+  "ontology_after": "The graph models a source-backed bone-tool hide-working technology without a chronologically invalid advanced-hunting prerequisite.",
+  "invariant_preserved_or_changed": "Changed: advanced_hunting_gathering is absent as a direct prerequisite for hide_processing.",
+  "would_reject_if": [
+    "The advanced_hunting_gathering node were separately source-checked and redated early enough with direct evidence for this technology.",
+    "A source showed Contrebandiers leather and fur working required the broader advanced_hunting_gathering node.",
+    "The hide_processing node were broadened again to general subsistence hide use."
+  ],
+  "short_reason": "The source-backed hide-working claim predates the placeholder advanced_hunting_gathering node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/hide_processing.before.json /tmp/hide_processing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

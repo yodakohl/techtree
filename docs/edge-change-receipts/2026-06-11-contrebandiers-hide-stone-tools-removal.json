@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-contrebandiers-hide-stone-tools-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "hide_processing",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from hide_processing to advanced_stone_tools. The corrected node is scoped to worked bone tools for leather and fur production, so the direct prerequisite is bone_tool_making instead of the later broad advanced_stone_tools node.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1016/j.isci.2021.102988",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Highlights and summary: describes a bone tool tradition from Contrebandiers Cave, dated between 120,000 and 90,000 years ago, produced for activities including likely leather and fur working.",
+    "source_claim_summary": "The source supports worked bone tools as the relevant material technology.",
+    "source_support_rationale": "The scoped claim should depend on bone-tool manufacture rather than a later, broad advanced-stone-tool placeholder."
+  },
+  "ontology_before": "The graph treated advanced stone tools as the direct predecessor of hide processing.",
+  "ontology_after": "The graph uses bone_tool_making as the direct prerequisite for the source-backed bone-tool hide-working claim.",
+  "invariant_preserved_or_changed": "Changed: advanced_stone_tools is absent as a direct prerequisite for hide_processing.",
+  "would_reject_if": [
+    "The node were rescoped to stone end-scraper hide processing rather than worked bone tools.",
+    "A source showed the Contrebandiers hide-working bone tools required the current advanced_stone_tools node.",
+    "The graph lacked a bone_tool_making prerequisite for the scoped technology."
+  ],
+  "short_reason": "The source-backed technology is worked bone hide-working tools, not a broad stone-tool prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/hide_processing.before.json /tmp/hide_processing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

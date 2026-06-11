@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-11-contrebandiers-hide-working-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "hide_processing",
+      "operator": "eq",
+      "value": -118000,
+      "reason": "The node is scoped to Contrebandiers Cave worked bone tools in 120,000-90,000-year-old deposits."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hide_processing",
+      "prerequisite": "bone_tool_making",
+      "expected": "required",
+      "reason": "The scoped technology is defined by worked bone tools used for leather and fur working."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hide_processing",
+      "prerequisite": "advanced_hunting_gathering",
+      "reason": "The source-backed claim predates the current advanced_hunting_gathering node and does not require it."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hide_processing",
+      "prerequisite": "advanced_stone_tools",
+      "reason": "The scoped claim uses worked bone tools, not the later broad advanced_stone_tools node."
+    }
+  ]
+}
