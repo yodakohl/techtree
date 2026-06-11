@@ -755,6 +755,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     function createRow(item, graph) {
         const row = document.createElement('tr');
         row.id = `tech-${item.id}`;
+        row.tabIndex = 0;
+        row.setAttribute('role', 'button');
+        row.setAttribute('aria-label', `Open details for ${item.name}`);
+        row.addEventListener('click', event => {
+            if (event.target.closest('.sorted-tech-link')) return;
+            selectTechnology(item.id, { revealDetail: true });
+        });
+        row.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                selectTechnology(item.id, { revealDetail: true });
+            }
+        });
 
         const nameCell = document.createElement('th');
         nameCell.scope = 'row';
@@ -764,6 +777,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         name.textContent = item.name;
         name.addEventListener('click', event => {
             event.preventDefault();
+            event.stopPropagation();
             selectTechnology(item.id, { revealDetail: true });
         });
         nameCell.appendChild(name);
