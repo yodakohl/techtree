@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-11-gunpowder-alchemy-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "gunpowder",
+    "prerequisite": "alchemy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Alchemy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from gunpowder to alchemy. Alchemical experimentation is historically relevant, but this source-backed node is scoped to the recorded 1044 military formula and the local alchemy node remains broad.",
+  "source_supports_edge": "no",
+  "source_url": "https://afe.easia.columbia.edu/songdynasty-module/tech-gunpowder.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gunpowder section: describes Song military engineers, the 1044 Wujing zongyao formula, and early military applications.",
+    "source_claim_summary": "The source supports Song military formula documentation and does not cite the broad alchemy node as a direct dependency.",
+    "source_support_rationale": "Alchemy may be a historical context, but keeping this edge would overclaim a broad unsourced node as a direct prerequisite."
+  },
+  "ontology_before": "The graph treated broad alchemy as a direct enabler of gunpowder.",
+  "ontology_after": "The graph keeps the source-backed formula node free of unsupported broad-context prerequisites.",
+  "invariant_preserved_or_changed": "Changed: alchemy is absent as a direct prerequisite for gunpowder.",
+  "would_reject_if": [
+    "The alchemy node were split or source-checked to the specific Chinese alchemical recipe tradition behind gunpowder.",
+    "A source explicitly supported alchemy as the direct prerequisite for the scoped 1044 formula node.",
+    "The gunpowder node were rescoped to the earlier discovery process rather than the recorded military formula."
+  ],
+  "short_reason": "Alchemy is relevant historical context but not source-backed here as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/gunpowder.before.json /tmp/gunpowder.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

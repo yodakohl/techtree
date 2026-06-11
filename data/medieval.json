@@ -960,42 +960,28 @@
   },
   {
     "id": "gunpowder",
-    "name": "Gunpowder",
+    "name": "Song Gunpowder Formula",
     "era": "Medieval",
-    "description": "Explosive mixture of sulfur, charcoal, and potassium nitrate (saltpeter) used in early firearms and cannons.",
-    "prerequisites": [
-      "mining",
-      "basic_chemistry",
-      "alchemy"
-    ],
-    "firstKnownDate": 500,
-    "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
+    "description": "Recorded black-powder formula using saltpeter, sulfur, and charcoal for Song military incendiaries, bombs, and fire arrows.",
+    "prerequisites": [],
+    "firstKnownDate": 1044,
+    "datePrecision": "exact",
+    "region": "Song China",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [],
+    "scopeNote": "Anchored to the Wujing zongyao record of true gunpowder formulas in 1044 CE. This covers documented black-powder formulae and early military incendiary use, not later handguns, cannons, smokeless powder, or the full global diffusion of gunpowder weapons.",
+    "maturity": "established",
+    "sources": [
       {
-        "prerequisite": "mining",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mining provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "basic_chemistry",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Chemistry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "alchemy",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Alchemy provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Gunpowder - Song Dynasty China",
+        "url": "https://afe.easia.columbia.edu/songdynasty-module/tech-gunpowder.html",
+        "publisher": "Asia for Educators, Columbia University",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
     ]
   },
@@ -3193,26 +3179,36 @@
     "id": "cannons",
     "name": "Cannons",
     "era": "Medieval",
-    "description": "Early, large-caliber artillery pieces utilizing gunpowder to fire stone or iron projectiles, challenging the dominance of traditional fortifications.",
+    "description": "Early gunpowder artillery pieces, including bombards and other cannon-like guns for siege and field warfare.",
     "prerequisites": [
       "gunpowder",
       "bronze_working",
-      "iron_working",
-      "construction",
-      "blast_furnace"
+      "iron_working"
     ],
-    "firstKnownDate": 500,
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "region": "China and Europe",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "gunpowder",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Gunpowder provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "Early cannon were gunpowder artillery: the propellant is a direct operating prerequisite for the scoped technology.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Military technology - The gunpowder revolution, c. 1300-1650",
+            "url": "https://www.britannica.com/technology/military-technology/The-gunpowder-revolution-c-1300-1650",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "bronze_working",
@@ -3229,55 +3225,69 @@
         "evidence_level": "expert_inference",
         "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
+      }
+    ],
+    "scopeNote": "Scoped to early gunpowder artillery during the c. 1300-1650 gunpowder revolution. This does not claim every later cannon type, explosive-shell artillery, or modern artillery system.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Military technology - The gunpowder revolution, c. 1300-1650",
+        "url": "https://www.britannica.com/technology/military-technology/The-gunpowder-revolution-c-1300-1650",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge",
+          "maturity"
+        ]
       },
       {
-        "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "blast_furnace",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Blast Furnace provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "title": "Military technology - Early use of artillery",
+        "url": "https://www.britannica.com/technology/military-technology/Early-use-of-artillery",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
       }
     ]
   },
   {
     "id": "arquebus",
-    "name": "Arquebus",
+    "name": "Harquebus / Arquebus",
     "era": "Medieval",
-    "description": "An early type of long gun that used a matchlock firing mechanism, representing the first firearm portable and effective enough for widespread infantry use.",
+    "description": "Early shoulder-fired smoothbore matchlock gun with a hooked support, developed in the mid-15th century.",
     "prerequisites": [
       "gunpowder",
-      "cannons",
       "advanced_metallurgy_medieval"
     ],
-    "firstKnownDate": 500,
-    "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1450,
+    "datePrecision": "decade",
+    "region": "Spain and wider late-medieval Europe",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "gunpowder",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Gunpowder provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "cannons",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cannons provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "The harquebus is a gunpowder firearm, so black powder is a direct operating prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Harquebus",
+            "url": "https://www.britannica.com/technology/harquebus",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "advanced_metallurgy_medieval",
@@ -3286,6 +3296,22 @@
         "evidence_level": "expert_inference",
         "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
+      }
+    ],
+    "scopeNote": "Scoped to the shoulder-fired harquebus/arquebus, not earlier hand cannons or later muskets. The mid-15th-century date follows Britannica's Spain-origin summary.",
+    "maturity": "established",
+    "sources": [
+      {
+        "title": "Harquebus",
+        "url": "https://www.britannica.com/technology/harquebus",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge",
+          "maturity"
+        ]
       }
     ]
   },

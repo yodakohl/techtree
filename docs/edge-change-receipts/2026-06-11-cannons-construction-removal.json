@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-11-cannons-construction-removal",
+  "decision_date": "2026-06-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "cannons",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from cannons to construction. The corrected cannon node is scoped to gunpowder artillery, and the source does not support broad construction as a direct technology prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/military-technology/The-gunpowder-revolution-c-1300-1650",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gunpowder revolution and early-artillery sections describe cannon as gunpowder artillery and classify ordnance, not as a construction dependency.",
+    "source_claim_summary": "The source supports early gunpowder artillery around c. 1300-1650, not broad construction as a direct prerequisite.",
+    "source_support_rationale": "Construction is a contextual field for fortifications and siege use, but it does not pass the direct absence-breaks test for cannon as a weapon technology."
+  },
+  "ontology_before": "The graph treated classical construction as a direct enabler of cannons.",
+  "ontology_after": "The graph keeps cannon dependencies focused on gunpowder and metalworking capabilities.",
+  "invariant_preserved_or_changed": "Changed: construction is absent as a direct prerequisite for cannons.",
+  "would_reject_if": [
+    "A source showed a specific construction technology was required for the scoped cannon design.",
+    "The node were rescoped to fortification-breaching siege systems rather than cannon hardware.",
+    "A narrower source-backed gun-foundry construction node were added."
+  ],
+  "short_reason": "Broad construction is not source-backed as a direct cannon prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
