@@ -3125,13 +3125,11 @@
     "id": "renaissance_architecture_brunelleschi",
     "name": "Renaissance Architecture (Brunelleschi)",
     "era": "Renaissance",
-    "description": "A revival of classical forms and principles like symmetry, proportion, and geometry. Characterized by works like Brunelleschi's dome for the Florence Cathedral, it emphasized human scale and rational design.",
+    "description": "Early Florentine Renaissance architecture associated with Filippo Brunelleschi, especially the Ospedale degli Innocenti and the dome of Santa Maria del Fiore, combining classical architectural vocabulary, geometric order, and new construction solutions.",
     "prerequisites": [
       "geometry",
       "construction",
-      "humanism",
-      "roman_architecture_revival",
-      "mathematics"
+      "roman_architecture_revival"
     ],
     "fields": [
       "Civil Engineering & Built Environment"
@@ -3139,61 +3137,127 @@
     "fieldLanes": {
       "Civil Engineering & Built Environment": "Structural Systems"
     },
-    "firstKnownDate": 1400,
+    "maturity": "established",
+    "scopeNote": "Covers Brunelleschi's early Florentine architectural work beginning with the 1419 Ospedale degli Innocenti commission and the 1420-1436 Santa Maria del Fiore dome. It does not represent all Renaissance architecture, all humanist thought, or generic mathematical practice.",
+    "firstKnownDate": 1419,
     "datePrecision": "exact",
-    "region": "Europe and connected early modern exchange networks",
+    "region": "Florence, Republic of Florence (modern Italy)",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "geometry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Brunelleschi's dome depended on geometric control of ribs, rings, curvature, and measuring wires, but geometry is an enabling design method rather than the whole architectural technology.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Duomo",
+            "url": "https://www.britannica.com/topic/the-Duomo",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "construction",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "humanism",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Humanism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "The scoped technology is built architecture: Brunelleschi directed construction at the Ospedale degli Innocenti and the cathedral dome worksite, so prior monumental/civic construction practice is enabling infrastructure.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Architecture",
+            "url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+            "publisher": "Museo degli Innocenti",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "roman_architecture_revival",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roman Architecture Revival provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "mathematics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "Brunelleschi's Florentine architecture recovered classical elements, and his dome solution drew on study of the Pantheon; Roman architectural revival is therefore an enabling lineage, not a hard component prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Architecture",
+            "url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+            "publisher": "Museo degli Innocenti",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Filippo Brunelleschi, Dome of the Cathedral of Florence",
+            "url": "https://smarthistory.org/brunelleschi-dome-of-the-cathedral-of-florence/",
+            "publisher": "Smarthistory",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Filippo Brunelleschi",
-        "url": "https://en.wikipedia.org/wiki/Filippo_Brunelleschi",
-        "publisher": "Wikipedia",
+        "title": "Architecture",
+        "url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+        "publisher": "Museo degli Innocenti",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "On 30 August 1436 the work on Brunelleschi's Dome was completed",
+        "url": "https://duomo.firenze.it/en/opera-magazine/post/4649/on-30-august-1436-the-work-on-brunelleschi-s-dome-was-completed",
+        "publisher": "Opera di Santa Maria del Fiore",
+        "year": 2022,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Duomo",
+        "url": "https://www.britannica.com/topic/the-Duomo",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Filippo Brunelleschi, Dome of the Cathedral of Florence",
+        "url": "https://smarthistory.org/brunelleschi-dome-of-the-cathedral-of-florence/",
+        "publisher": "Smarthistory",
         "year": 2026,
         "source_type": "review",
         "supports": [
-          "node"
+          "node",
+          "maturity"
         ]
       }
     ]
@@ -3660,8 +3724,7 @@
     "prerequisites": [
       "cannons",
       "construction",
-      "geometry",
-      "renaissance_architecture_brunelleschi"
+      "geometry"
     ],
     "firstKnownDate": 1400,
     "datePrecision": "century",
@@ -3690,14 +3753,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "renaissance_architecture_brunelleschi",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Renaissance Architecture (Brunelleschi) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "structurally_validated"
       }
     ]

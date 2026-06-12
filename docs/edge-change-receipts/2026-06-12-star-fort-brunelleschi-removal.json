@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-star-fort-brunelleschi-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "star_fort_trace_italienne",
+    "prerequisite": "renaissance_architecture_brunelleschi"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Renaissance Architecture (Brunelleschi) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because star forts/trace italienne are artillery-response fortifications shaped by cannon, geometry, and fortification construction, not by Brunelleschi's Florentine architectural works.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/s40494-025-01632-y",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Heritage Science review describes the mid-fifteenth-century transformation of medieval European city fortifications into bastion fortification systems and emphasizes geometric bastion design principles.",
+    "source_claim_summary": "Bastion fortification developed as a geometric artillery-era fortification system, not as a direct outgrowth of Brunelleschi's architecture node.",
+    "source_support_rationale": "The source supports removing the Brunelleschi edge because the relevant causal channels are artillery pressure and geometric fortification design, already represented by the remaining cannons, construction, and geometry prerequisites."
+  },
+  "ontology_before": "The graph made star forts depend on Brunelleschi architecture, creating a temporal inconsistency once Brunelleschi was correctly dated to 1419.",
+  "ontology_after": "The graph keeps star forts connected to cannon, construction, and geometry while removing the over-specific Brunelleschi dependency.",
+  "invariant_preserved_or_changed": "Changed: direct star_fort_trace_italienne -> renaissance_architecture_brunelleschi edge removed.",
+  "would_reject_if": [
+    "A future source shows a specific Brunelleschian design lineage for the scoped star-fort node.",
+    "The star-fort node is rescoped to Renaissance ideal-city architectural planning rather than artillery fortification."
+  ],
+  "short_reason": "Star forts should not depend directly on Brunelleschi architecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

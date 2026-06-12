@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-brunelleschi-humanism-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "renaissance_architecture_brunelleschi",
+    "prerequisite": "humanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Humanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because humanism is a broad cultural context for Renaissance architecture, not a specific technical prerequisite for Brunelleschi's built architectural works.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Museo degli Innocenti explains the 1419 commission, Brunelleschi's construction role, and recovery of classical architectural elements; it does not identify humanism as a direct construction or design dependency.",
+    "source_claim_summary": "The source supports the Brunelleschi architecture scope through commission, construction, and classical elements rather than through a direct humanism dependency.",
+    "source_support_rationale": "This justifies removing the broad context edge because the technical claim is better represented by construction, geometry, and Roman/classical revival edges."
+  },
+  "ontology_before": "The graph treated a broad intellectual movement as a direct prerequisite for Brunelleschi's architecture.",
+  "ontology_after": "The graph keeps concrete design/construction lineages and leaves humanism as wider cultural context rather than a direct dependency.",
+  "invariant_preserved_or_changed": "Changed: direct renaissance_architecture_brunelleschi -> humanism edge removed.",
+  "would_reject_if": [
+    "A future node specifically models humanist architectural theory rather than Brunelleschi's built works.",
+    "A source directly shows humanist scholarship as a necessary design method for the scoped works."
+  ],
+  "short_reason": "Humanism was too broad and contextual for this direct technology-dependency edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
