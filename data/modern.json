@@ -43992,15 +43992,14 @@
     "id": "digital_subscriber_line_dsl",
     "name": "Digital Subscriber Line",
     "era": "Modern",
-    "description": "Digital broadband access technology that carries high-frequency data over existing twisted-pair telephone loops.",
+    "description": "Standardized DSL broadband access technology, anchored to ADSL, that uses high-frequency signals on existing metallic twisted-pair telephone loops between carrier equipment and customer premises.",
     "prerequisites": [
       "telephone_exchange",
-      "internet_protocols_tcp_ip_arpanet",
       "digital_signal_processing"
     ],
-    "firstKnownDate": 1990,
-    "datePrecision": "decade",
-    "region": "Global telephone-carrier networks",
+    "firstKnownDate": 1999,
+    "datePrecision": "exact",
+    "region": "ITU-T standardization; telephone-carrier copper access networks globally",
     "fields": [
       "Telecommunications & Networking"
     ],
@@ -44008,13 +44007,36 @@
       "Telecommunications & Networking": "Access Networks"
     },
     "maturity": "established",
+    "scopeNote": "Covers standardized DSL broadband access over metallic telephone loops, anchored to ITU-T G.992.1 ADSL transceivers approved in 1999. It does not model every early DSL research prototype, HDSL business access variant, or generic broadband Internet service.",
     "sources": [
       {
-        "title": "Digital subscriber line",
-        "url": "https://en.wikipedia.org/wiki/Digital_subscriber_line",
-        "publisher": "Wikipedia",
+        "title": "ITU-T G.992.1 (07/1999): Asymmetric digital subscriber line (ADSL) transceivers",
+        "url": "https://www.itu.int/ITU-T/recommendations/rec.aspx?id=4718",
+        "publisher": "International Telecommunication Union",
+        "year": 1999,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Asymmetric Digital Subscriber Line (ADSL) Enabling Broadband Internet, 1993-1997",
+        "url": "https://ethw.org/Milestones%3AAsymmetric_Digital_Subscriber_Line_%28ADSL%29_Enabling_Broadband_Internet%2C_1993-1997",
+        "publisher": "IEEE Engineering and Technology History Wiki",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Joseph Lechleider",
+        "url": "https://www.invent.org/inductees/joseph-lechleider",
+        "publisher": "National Inventors Hall of Fame",
+        "year": 2026,
+        "source_type": "museum",
         "supports": [
           "node",
           "maturity"
@@ -44025,43 +44047,19 @@
     "dependencyEdges": [
       {
         "prerequisite": "telephone_exchange",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Telephone Exchange provides a capability that enables this technology without being the only possible path.",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Standard DSL broadband scaled by reusing carrier telephone access infrastructure: metallic twisted-pair subscriber loops and central-office/network-operator equipment.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Digital subscriber line",
-            "url": "https://en.wikipedia.org/wiki/Digital_subscriber_line",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "ITU-T G.992.1 (07/1999): Asymmetric digital subscriber line (ADSL) transceivers",
+            "url": "https://www.itu.int/ITU-T/recommendations/rec.aspx?id=4718",
+            "publisher": "International Telecommunication Union",
+            "year": 1999,
+            "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "internet_protocols_tcp_ip_arpanet",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Internet Protocols (TCP/IP, ARPANET) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Digital subscriber line",
-            "url": "https://en.wikipedia.org/wiki/Digital_subscriber_line",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
-            "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }
@@ -44069,21 +44067,19 @@
       },
       {
         "prerequisite": "digital_signal_processing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "ADSL transceivers depend on modem signal-processing techniques, including DMT line coding and integrated signal-processing silicon, to carry broadband data over impaired copper loops.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Digital subscriber line",
-            "url": "https://en.wikipedia.org/wiki/Digital_subscriber_line",
-            "publisher": "Wikipedia",
+            "title": "Asymmetric Digital Subscriber Line (ADSL) Enabling Broadband Internet, 1993-1997",
+            "url": "https://ethw.org/Milestones%3AAsymmetric_Digital_Subscriber_Line_%28ADSL%29_Enabling_Broadband_Internet%2C_1993-1997",
+            "publisher": "IEEE Engineering and Technology History Wiki",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "review",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }

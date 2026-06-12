@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-dsl-dsp-required",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "digital_subscriber_line_dsl",
+    "prerequisite": "digital_signal_processing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "ADSL transceivers depend on modem signal-processing techniques, including DMT line coding and integrated signal-processing silicon, to carry broadband data over impaired copper loops."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ethw.org/Milestones%3AAsymmetric_Digital_Subscriber_Line_%28ADSL%29_Enabling_Broadband_Internet%2C_1993-1997",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "IEEE ETHW milestone describes the DMT prototype, ANSI selection of DMT as ADSL line code, innovative signal processing, and integrated signal-processing silicon.",
+    "source_claim_summary": "ADSL broadband over copper depended on specific modem line coding and signal-processing implementation.",
+    "source_support_rationale": "This supports retyping DSP from generic enabler to required because the scoped ADSL transceiver technology cannot perform the high-rate copper-loop modulation without signal-processing techniques."
+  },
+  "ontology_before": "The graph treated DSP as generic enabling context for DSL.",
+  "ontology_after": "The graph treats DSP as a required method layer for standardized ADSL transceivers.",
+  "invariant_preserved_or_changed": "Changed: digital_subscriber_line_dsl -> digital_signal_processing is required and source-backed.",
+  "would_reject_if": [
+    "The node were broadened to any low-speed digital signaling on subscriber loops.",
+    "A more specific DMT modem line-code node replaced the broad DSP prerequisite."
+  ],
+  "short_reason": "ADSL transceivers require signal-processing line coding.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/digital_subscriber_line_dsl.before.json /tmp/digital_subscriber_line_dsl.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
