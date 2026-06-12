@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-carbon-fiber-construction-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_materials_carbon_fiber",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because construction is an application domain for some composites, not a source-backed prerequisite for high-performance carbon fibers or carbon-fiber reinforced polymer composites.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.frontiersin.org/journals/materials/articles/10.3389/fmats.2023.1124338/full",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Frontiers review abstract and introduction define CFRP through carbon fiber, polymer matrix, and interface, and list construction as an application area rather than a prerequisite.",
+    "source_claim_summary": "The scoped composite technology is a materials-engineering system; construction is one downstream application domain.",
+    "source_support_rationale": "The source supports removing construction as a direct prerequisite while leaving construction as a possible application domain elsewhere."
+  },
+  "ontology_before": "The graph made carbon-fiber composites depend directly on classical construction by generic inference.",
+  "ontology_after": "The graph removes construction from the direct prerequisites and anchors the node to carbon-fiber and polymer-composite materials science.",
+  "invariant_preserved_or_changed": "Changed: direct composite_materials_carbon_fiber -> construction edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to civil-engineering composite reinforcement specifically.",
+    "A stronger source showed ancient/classical construction was a direct prerequisite for CFRP invention."
+  ],
+  "short_reason": "Construction is an application domain, not a direct CFRP prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_materials_carbon_fiber.before.json /tmp/composite_materials_carbon_fiber.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

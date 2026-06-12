@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-carbon-fiber-synthetic-materials-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "composite_materials_carbon_fiber",
+    "prerequisite": "synthetic_materials_advanced"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Synthetic Materials provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the inspected sources explain carbon-fiber composites through high-performance carbon fibers, polymer matrices, and precursor processing rather than the broad advanced_synthetic_materials bucket.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.acs.org/education/whatischemistry/landmarks/carbonfibers.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ACS sections 'Discovery of High Performance Carbon Fibers' and 'Early Applications of Carbon Fibers' identify Bacon's graphite whiskers, rayon/PAN precursors, and entry into advanced composites, not a generic advanced-synthetic-materials prerequisite.",
+    "source_claim_summary": "Carbon-fiber composites emerged from specific carbon-fiber and precursor-process developments rather than a broad synthetic-materials category.",
+    "source_support_rationale": "The source supports replacing the broad inferred prerequisite with a narrower source-backed polymer/fiber basis."
+  },
+  "ontology_before": "The graph made carbon-fiber composites depend directly on a broad unsourced advanced synthetic materials node.",
+  "ontology_after": "The graph removes the broad edge and keeps the direct dependency on polymer chemistry.",
+  "invariant_preserved_or_changed": "Changed: direct composite_materials_carbon_fiber -> synthetic_materials_advanced edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to advanced synthetic materials generally.",
+    "A later split adds a sourced precursor_materials node that replaces polymer_chemistry."
+  ],
+  "short_reason": "The broad synthetic-materials edge hid the specific carbon-fiber/polymer dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_materials_carbon_fiber.before.json /tmp/composite_materials_carbon_fiber.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
