@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-12-atm-scope",
+  "description": "Lock automated_teller_machines to early cash dispensers plus later online ATM terminals, without making bank computing a hard prerequisite for the first 1967 dispenser.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "automated_teller_machines",
+      "operator": "eq",
+      "value": 1967,
+      "reason": "The node remains anchored to the 1967 Barclays cash-dispenser installation while its description also covers later networked ATMs."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "automated_teller_machines",
+      "prerequisite": "computers_early",
+      "expected": "enabling",
+      "reason": "Online, real-time bank computing enabled networked ATM operation, but the earliest cash dispensers should not be modeled as requiring mainframe computing."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "automated_teller_machines",
+      "prerequisite": "database_management_systems",
+      "expected": "enabling",
+      "reason": "Persistent account and transaction data infrastructure enables ATM operation, while the first cash dispensers predate relational DBMS."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-atm-computing-enabling",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "automated_teller_machines",
+    "prerequisite": "computers_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Computers (Mainframe/Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "ATM networks emerged as banks adopted online, real-time computing across branch networks; computing enabled networked ATM operation, while the first cash dispensers were not relational database terminals."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://mpra.ub.uni-muenchen.de/3689/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract: describes cash dispensers preceding ATMs, ATMs becoming a global technology, and ATM evolution illustrating banks' adoption of online, real-time computing for branch networks.",
+    "source_claim_summary": "The source treats early cash dispensers and later ATM networks as a business-history sequence tied to online, real-time bank computing.",
+    "source_support_rationale": "The edge should express computing as an enabler of networked ATM operation, not as a hard prerequisite for the earliest cash dispensers."
+  },
+  "ontology_before": "The old edge named early computers as a vague predecessor, while the node description implied network-linked ATMs.",
+  "ontology_after": "The node now covers early cash dispensers and later online ATMs, with computing modeled as an enabling context for networked ATM operation.",
+  "invariant_preserved_or_changed": "Changed edge type from historical_predecessor to enabling; no prerequisites were added or removed.",
+  "would_reject_if": [
+    "The node were narrowed to the 1967 Barclays cash dispenser only.",
+    "A stronger primary source showed the first installed cash dispenser was already an online computer-network terminal.",
+    "A separate node split early cash dispensers from online ATM networks."
+  ],
+  "short_reason": "Early cash dispensers predate full networked ATMs, but online bank computing enabled the later ATM-network form.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
