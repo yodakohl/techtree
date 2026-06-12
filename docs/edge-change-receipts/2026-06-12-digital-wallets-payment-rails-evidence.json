@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-digital-wallets-payment-rails-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "digital_payment_wallets",
+    "prerequisite": "digital_payment_gateways"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.76,
+    "evidence_level": "expert_inference",
+    "note": "Mobile wallets need card networks, merchant payment acceptance, and digital payment processing; blockchain is not a prerequisite for this scoped node."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "Mobile wallets scale through existing card/payment networks, issuer provisioning, merchant acceptance, and payment-processing partners; blockchain is not a prerequisite for this scoped node."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.consumerfinance.gov/data-research/research-reports/big-techs-role-in-contactless-payments-analysis-of-mobile-device-operating-systems-and-tap-to-pay-practices/full-report/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "CFPB report on mobile-device operating systems and tap-to-pay practices describes wallet integration with payment cards, issuers, networks, and contactless merchant acceptance.",
+    "source_claim_summary": "Phone payment wallets operate through existing payment-card and contactless-payment ecosystems rather than independent blockchain rails.",
+    "source_support_rationale": "This supports keeping payment gateways as a commercial/scaling dependency: it documents the payment ecosystem around wallets without making gateways a hard engineering prerequisite for all wallet software."
+  },
+  "invariant_preserved_or_changed": "Preserved: digital_payment_wallets -> digital_payment_gateways remains commercial_or_scaling_dependency; changed: evidence is now source-backed.",
+  "would_reject_if": [
+    "The node were rescoped to cryptocurrency wallets rather than card/payment-network mobile wallets.",
+    "A stronger source showed the scoped 2011 mobile wallet could operate commercially without payment-network, issuer, or merchant-acceptance infrastructure."
+  ],
+  "short_reason": "Payment rails are commercial scaling infrastructure, not blockchain.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

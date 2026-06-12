@@ -27408,7 +27408,7 @@
     "id": "digital_payment_wallets",
     "name": "Digital Payment Wallets",
     "era": "Modern",
-    "description": "Mobile wallet software for tokenized cards, stored value, loyalty credentials, and NFC or app-based point-of-sale payments.",
+    "description": "Mobile payment wallet software that stores payment credentials or stored-value accounts on smartphones and enables NFC tap-to-pay or in-app payments through existing payment networks.",
     "prerequisites": [
       "smartphones",
       "digital_payment_gateways"
@@ -27420,6 +27420,7 @@
       "Finance & Markets": "Financial Computing"
     },
     "maturity": "established",
+    "scopeNote": "Covers phone-based consumer payment wallets anchored to Google Wallet's 2011 U.S. Sprint/Nexus S launch. Later tokenized wallets such as Apple Pay are maturity evidence; this node does not cover cryptocurrency wallets or generic credential managers.",
     "sources": [
       {
         "title": "Launching Google Wallet on Sprint and working with Visa, American Express and Discover",
@@ -27427,6 +27428,28 @@
         "publisher": "Google",
         "year": 2011,
         "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Big Tech's Role in Contactless Payments",
+        "url": "https://www.consumerfinance.gov/data-research/research-reports/big-techs-role-in-contactless-payments-analysis-of-mobile-device-operating-systems-and-tap-to-pay-practices/full-report/",
+        "publisher": "Consumer Financial Protection Bureau",
+        "year": 2023,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "EMV Payment Tokenisation",
+        "url": "https://www.emvco.com/emv-technologies/payment-tokenisation/",
+        "publisher": "EMVCo",
+        "year": 2026,
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
@@ -27443,7 +27466,7 @@
         "type": "required",
         "confidence": 0.88,
         "evidence_level": "primary_source",
-        "note": "The source describes Google Wallet as a phone app for tap-to-pay NFC payments.",
+        "note": "Google Wallet launched as a phone app for NFC tap-to-pay on Sprint's Nexus S 4G, so smartphones are required for this mobile-wallet scope.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -27463,10 +27486,22 @@
       {
         "prerequisite": "digital_payment_gateways",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.76,
-        "evidence_level": "expert_inference",
-        "note": "Mobile wallets need card networks, merchant payment acceptance, and digital payment processing; blockchain is not a prerequisite for this scoped node.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Mobile wallets scale through existing card/payment networks, issuer provisioning, merchant acceptance, and payment-processing partners; blockchain is not a prerequisite for this scoped node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Big Tech's Role in Contactless Payments",
+            "url": "https://www.consumerfinance.gov/data-research/research-reports/big-techs-role-in-contactless-payments-analysis-of-mobile-device-operating-systems-and-tap-to-pay-practices/full-report/",
+            "publisher": "Consumer Financial Protection Bureau",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
