@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-clay-accounting-tokens-weights-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "clay_accounting_tokens",
+    "prerequisite": "standardized_weights_and_measures"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Standardized Weights and Measures provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from standardized_weights_and_measures to clay_accounting_tokens. The token system is dated to 7500-3100 BCE, earlier than the graph's source-checked Mesopotamian/eastern Mediterranean standard weights node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/books/abs/archaeology-of-measurement/token-system-of-the-ancient-near-east-its-role-in-counting-writing-the-economy-and-cognition/0AB9E89E74F94FE95F53F145F59CCA59",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter summary: clay tokens are used in the prehistoric Near East from 7500-3100 BC.",
+    "source_claim_summary": "The source dates clay-token use before the graph's standardized weights-and-measures node.",
+    "source_support_rationale": "A later standardized weights node cannot be a direct prerequisite for earlier clay counting tokens."
+  },
+  "ontology_before": "The graph made a later metrology system an enabling dependency for earlier clay tokens.",
+  "ontology_after": "The graph removes the chronology-reversed metrology dependency.",
+  "invariant_preserved_or_changed": "Changed: standardized_weights_and_measures is absent as a direct prerequisite for clay_accounting_tokens.",
+  "would_reject_if": [
+    "The clay_accounting_tokens node were narrowed to later urban complex tokens that demonstrably depended on standardized metrology.",
+    "The standardized_weights_and_measures node were respecified and dated earlier than the token system with source support."
+  ],
+  "short_reason": "Standardized weights are later metrology context, not a prerequisite for prehistoric clay tokens.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clay_accounting_tokens.before.json /tmp/clay_accounting_tokens.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
