@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-factory-system-steam-scaling",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "factory_system",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Steam Engine supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Early factories were water-powered, while steam engines later let textile mills scale and relocate beyond fast-flowing rural water sites."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.scienceandindustrymuseum.org.uk/objects-and-stories/mapping-manchesters-engines",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Science and Industry Museum section 'Textile power' describes steam engines powering textile mills from the late 1700s and enabling mills away from water sites.",
+    "source_claim_summary": "Steam power spread through textile mills after early water-powered mills and improved reliability and location choice.",
+    "source_support_rationale": "The source supports steam as a scaling and siting dependency, not as a hard prerequisite for the original factory system."
+  },
+  "ontology_before": "The graph had the correct broad edge type but relied on Wikipedia-backed expert inference.",
+  "ontology_after": "The graph keeps steam as scaling infrastructure and backs the edge with a museum source.",
+  "invariant_preserved_or_changed": "Preserved: steam_engine remains commercial_or_scaling_dependency; changed: evidence and note are source-backed.",
+  "would_reject_if": [
+    "The node were rescoped to steam-powered urban factories only.",
+    "A stronger source showed the Cromford factory system itself required steam power."
+  ],
+  "short_reason": "Steam scaled factories after water-powered origins.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/factory_system.before.json /tmp/factory_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "2026-06-12-factory-system-cromford-scope",
+  "description": "Lock the factory_system node to Arkwright-style water-powered cotton mills beginning at Cromford in 1771, not generic workshops or unsupported business context.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "factory_system",
+      "operator": "eq",
+      "value": 1760,
+      "reason": "This node uses a decade bucket for Arkwright's late-1760s water-frame patenting and the 1771 Cromford mill, while the scope note names Cromford 1771 explicitly."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "factory_system",
+      "prerequisite": "steam_engine",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Steam power later scaled and relocated textile mills; it did not create the original water-powered Cromford factory system."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "factory_system",
+      "prerequisite": "textiles_weaving",
+      "expected": "historical_predecessor",
+      "reason": "The factory system emerged from mechanized textile production after home-based textile work and hand methods."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "factory_system",
+      "prerequisite": "watermills",
+      "expected": "enabling",
+      "reason": "The scoped factory system was established in water-powered cotton mills."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "factory_system",
+      "prerequisite": "division_of_labor",
+      "expected": "enabling",
+      "reason": "The scoped factories organized machine tending and long shifts inside large mills."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "factory_system",
+      "prerequisite": "banking",
+      "reason": "Banking and investment context may support industrial capitalism, but the inspected factory-system sources do not support it as a direct technology prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "factory_system",
+      "prerequisite": "mechanical_clocks",
+      "reason": "Clock-time discipline is relevant to later industrial labor systems but is not sourced as a direct prerequisite for the Cromford factory-system scope."
+    }
+  ]
+}

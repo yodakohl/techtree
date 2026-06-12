@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-factory-system-waterpower-enabling",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "factory_system",
+    "prerequisite": "watermills"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Watermills provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "The scoped factory system was established in water-powered cotton mills; waterpower drove the machinery at Cromford and other Derwent Valley mills."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://whc.unesco.org/en/list/1030/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "UNESCO Outstanding Universal Value describes Arkwright's 1771 water-powered Cromford spinning mill and Derwent water powering cotton mills.",
+    "source_claim_summary": "The modern factory system was developed in Derwent Valley water-powered cotton mills.",
+    "source_support_rationale": "The source supports waterpower as an enabling capability for the scoped Cromford/Derwent Valley factory system."
+  },
+  "ontology_before": "The graph had a plausible watermills edge backed only by Wikipedia-style inference.",
+  "ontology_after": "The graph keeps watermills as enabling and backs it with UNESCO source evidence.",
+  "invariant_preserved_or_changed": "Preserved: watermills remains enabling; changed: evidence and note are source-backed.",
+  "would_reject_if": [
+    "The node were rescoped to steam-powered factories only.",
+    "A more precise water-frame or industrial-waterpower node replaces watermills."
+  ],
+  "short_reason": "Waterpower enabled the Cromford factory system.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

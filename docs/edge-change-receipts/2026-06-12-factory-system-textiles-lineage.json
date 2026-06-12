@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-factory-system-textiles-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "factory_system",
+    "prerequisite": "textiles_weaving"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Textiles & Weaving provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The factory system emerged from mechanizing textile production that had previously relied on home-based putting-out, spinning wheels, and hand looms."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nps.gov/lowe/learn/photosmultimedia/industry.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "NPS Lowell page explains putting-out textile production, spinning wheels, hand looms, and Arkwright's water frame ushering in the modern factory.",
+    "source_claim_summary": "The modern factory emerged from mechanized textile production after home-based textile production methods.",
+    "source_support_rationale": "The source supports a textile-production lineage, so historical_predecessor is more precise than a generic enabling edge."
+  },
+  "ontology_before": "The graph treated textiles_weaving as a generic enabling prerequisite.",
+  "ontology_after": "The graph treats textile production as the historical lineage from which the factory system emerged.",
+  "invariant_preserved_or_changed": "Changed: factory_system -> textiles_weaving is historical_predecessor.",
+  "would_reject_if": [
+    "The node were rescoped away from the textile-mill factory system into a broader abstract management system.",
+    "A stronger source showed the first factory system was outside textile production."
+  ],
+  "short_reason": "Factory-system origins are in mechanized textile production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/factory_system.before.json /tmp/factory_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
