@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-dwdm-dsp-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "dense_wavelength_division_multiplexing",
+    "prerequisite": "digital_signal_processing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is scoped to first-generation commercial DWDM optical transport, before coherent-DSP optical systems became the defining architecture.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.comsoc.org/node/19766",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "IEEE Communications Society timeline item identifies the first commercial 16-channel DWDM system deployed for Sprint in 1996 without making digital signal processing part of the defining deployment claim.",
+    "source_claim_summary": "First commercial DWDM is a wavelength-multiplexed optical transport deployment, not a coherent-DSP architecture.",
+    "source_support_rationale": "This supports removing DSP as a direct prerequisite for the 1996 commercial DWDM scope; DSP may belong on later coherent optical transport nodes."
+  },
+  "ontology_before": "The graph made first-generation DWDM depend directly on digital signal processing by broad inference.",
+  "ontology_after": "The graph keeps DWDM tied to fiber optics and lasers, leaving DSP for later coherent optical networking where it is technically central.",
+  "invariant_preserved_or_changed": "Changed: direct dense_wavelength_division_multiplexing -> digital_signal_processing edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to coherent optical DWDM transponders rather than first commercial DWDM optical transport.",
+    "A stronger source showed the 1996 Sprint/Ciena deployment required DSP as a defining technology."
+  ],
+  "short_reason": "DSP is not a direct prerequisite for first-generation commercial DWDM.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/dense_wavelength_division_multiplexing.before.json /tmp/dense_wavelength_division_multiplexing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

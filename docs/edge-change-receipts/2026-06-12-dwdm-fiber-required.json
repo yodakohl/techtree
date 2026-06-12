@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-dwdm-fiber-required",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "dense_wavelength_division_multiplexing",
+    "prerequisite": "fiber_optics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fiber Optics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "review",
+    "note": "Commercial DWDM at this scope is an optical-fiber transport system that places multiple dense wavelength channels onto fiber links."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cisco.com/c/dam/global/de_at/assets/docs/dwdm.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Cisco Introduction to DWDM Technology describes DWDM as transmitting multiple wavelengths over optical fiber to increase capacity.",
+    "source_claim_summary": "DWDM is a fiber-optic transport technology, so optical fiber is part of the scoped technology rather than optional context.",
+    "source_support_rationale": "The source supports changing fiber optics from a generic enabler to a required transport medium for this DWDM node."
+  },
+  "ontology_before": "The graph treated fiber optics as an enabling context.",
+  "ontology_after": "The graph treats fiber optics as the required transport medium for dense wavelength multiplexing.",
+  "invariant_preserved_or_changed": "Changed: dense_wavelength_division_multiplexing -> fiber_optics is required.",
+  "would_reject_if": [
+    "The node were rescoped to non-fiber free-space wavelength multiplexing.",
+    "A future node split made this one represent only abstract multiplexing theory."
+  ],
+  "short_reason": "DWDM optical transport requires optical fiber at this scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/dense_wavelength_division_multiplexing.before.json /tmp/dense_wavelength_division_multiplexing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
