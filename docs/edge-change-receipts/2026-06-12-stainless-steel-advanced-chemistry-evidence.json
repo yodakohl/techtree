@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-stainless-steel-advanced-chemistry-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "stainless_steel",
+    "prerequisite": "advanced_chemistry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "primary_source",
+    "note": "Understanding and controlling chromium content, carbon level, alloy chemistry, and passive-film corrosion behavior enables stainless steel, but chemistry is modeled as an enabling knowledge base rather than a single hard component."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/s41529-023-00392-z",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "npj Materials Degradation article introduction states that stainless steel corrosion resistance is owed to a passive film formed on the surface and describes the chromium-rich oxide/oxyhydroxide passive film.",
+    "source_claim_summary": "The corrosion-resistance mechanism of stainless steel depends on chromium-rich passive-film chemistry and alloy composition.",
+    "source_support_rationale": "This supports chemistry as an enabling knowledge base for stainless steel while avoiding a required edge because the hard material prerequisite is steel production."
+  },
+  "invariant_preserved_or_changed": "Preserved edge type: advanced_chemistry remains enabling but is now source-checked.",
+  "would_reject_if": [
+    "The node is narrowed to Brearley's accidental discovery only and excludes modern passive-film understanding.",
+    "A more specific alloy-chemistry/passivation node replaces advanced_chemistry as the direct prerequisite."
+  ],
+  "short_reason": "Chromium/passive-film chemistry is the source-backed enabling mechanism for stainless steel corrosion resistance.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

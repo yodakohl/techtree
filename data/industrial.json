@@ -13802,11 +13802,10 @@
     "id": "stainless_steel",
     "name": "Stainless Steel",
     "era": "Industrial",
-    "description": "Corrosion-resistant iron alloys using chromium and other elements for sanitary, chemical, architectural, and high-temperature applications.",
+    "description": "Corrosion-resistant chromium steel alloys, anchored to Harry Brearley's 1913 Sheffield rustless steel and later stainless grades whose chromium-rich passive film protects against corrosion.",
     "prerequisites": [
       "steel_production",
-      "advanced_chemistry",
-      "advanced_metallurgy_medieval"
+      "advanced_chemistry"
     ],
     "fields": [
       "Materials Science & Manufacturing"
@@ -13815,57 +13814,86 @@
       "Materials Science & Manufacturing": "Metals & Alloys"
     },
     "maturity": "established",
+    "scopeNote": "Covers modern stainless steels as chromium-bearing corrosion-resistant iron/steel alloys, anchored to Brearley's 1913 martensitic rustless steel in Sheffield. It does not represent all earlier chromium steels, all corrosion-resistant alloys, or later nickel superalloys.",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
+        "title": "The Discovery of Stainless Steel",
+        "url": "https://bssa.org.uk/bssa_articles/the-discovery-of-stainless-steel/",
+        "publisher": "British Stainless Steel Association",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
         ]
       },
       {
-        "title": "Stainless steel",
-        "url": "https://en.wikipedia.org/wiki/Stainless_steel",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "review",
+        "title": "100 Years Of Stainless Steel",
+        "url": "https://blog.sciencemuseum.org.uk/100-years-of-stainless-steel/",
+        "publisher": "Science Museum",
+        "year": 2013,
+        "source_type": "museum",
         "supports": [
-          "node"
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Understanding the passive behaviour of low-chromium high-entropy alloys in acidic environments",
+        "url": "https://www.nature.com/articles/s41529-023-00392-z",
+        "publisher": "npj Materials Degradation",
+        "year": 2023,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
         ]
       }
     ],
     "firstKnownDate": 1913,
     "datePrecision": "exact",
-    "region": "Europe, North America, and industrializing regions",
+    "region": "Sheffield, England; later global stainless-steel production",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "steel_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Stainless steel is a chromium-bearing steel alloy; the scoped technology requires prior controlled steel production before chromium alloying can yield rustless/stainless steel.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Discovery of Stainless Steel",
+            "url": "https://bssa.org.uk/bssa_articles/the-discovery-of-stainless-steel/",
+            "publisher": "British Stainless Steel Association",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "advanced_chemistry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "advanced_metallurgy_medieval",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.76,
+        "evidence_level": "primary_source",
+        "note": "Understanding and controlling chromium content, carbon level, alloy chemistry, and passive-film corrosion behavior enables stainless steel, but chemistry is modeled as an enabling knowledge base rather than a single hard component.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Understanding the passive behaviour of low-chromium high-entropy alloys in acidic environments",
+            "url": "https://www.nature.com/articles/s41529-023-00392-z",
+            "publisher": "npj Materials Degradation",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },

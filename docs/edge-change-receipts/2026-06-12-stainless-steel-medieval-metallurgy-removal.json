@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-stainless-steel-medieval-metallurgy-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "stainless_steel",
+    "prerequisite": "advanced_metallurgy_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the historical metallurgy lineage already flows through steel_production; adding medieval metallurgy directly duplicates and broadens the causal path.",
+  "source_supports_edge": "no",
+  "source_url": "https://bssa.org.uk/bssa_articles/the-discovery-of-stainless-steel/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "British Stainless Steel Association article anchors the 1913 discovery to Brearley's chromium steel composition and surrounding modern alloy work, not to medieval metallurgy as a direct prerequisite.",
+    "source_claim_summary": "The relevant direct lineage is steelmaking plus chromium alloy chemistry; medieval metallurgy is too broad and indirect for this edge.",
+    "source_support_rationale": "This supports removal because steel_production already carries earlier metallurgy lineage, avoiding duplicated broad prerequisites on the stainless-steel node."
+  },
+  "ontology_before": "The graph made stainless steel depend directly on both steel production and medieval advanced metallurgy.",
+  "ontology_after": "The graph keeps steel production as the direct metallurgy path and removes the redundant medieval-metallurgy edge.",
+  "invariant_preserved_or_changed": "Changed: direct stainless_steel -> advanced_metallurgy_medieval edge removed.",
+  "would_reject_if": [
+    "The steel_production prerequisite is removed from stainless_steel.",
+    "A source demonstrates a specific medieval metallurgical method directly required by Brearley's stainless steel."
+  ],
+  "short_reason": "The medieval metallurgy edge duplicated the steel-production lineage and was too broad.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
