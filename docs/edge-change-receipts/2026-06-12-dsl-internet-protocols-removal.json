@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-dsl-internet-protocols-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "digital_subscriber_line_dsl",
+    "prerequisite": "internet_protocols_tcp_ip_arpanet"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Internet Protocols (TCP/IP, ARPANET) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because standardized ADSL is a physical-layer copper access technology; broadband Internet demand drove deployment, but TCP/IP is not required for the ADSL transceiver interface itself.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.itu.int/ITU-T/recommendations/rec.aspx?id=4718",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ITU-T G.992.1 describes ADSL transceivers on a metallic twisted pair, bearer channels, and physical-layer characteristics between network-operator and customer equipment.",
+    "source_claim_summary": "The standard defines the ADSL copper-loop physical interface rather than an Internet protocol dependency.",
+    "source_support_rationale": "This supports removing TCP/IP as a direct prerequisite because Internet service is a major application and adoption driver, not a prerequisite for the scoped DSL transceiver technology."
+  },
+  "ontology_before": "The graph made standardized DSL depend directly on Internet protocols by broad broadband-access inference.",
+  "ontology_after": "The graph models DSL as a copper access/transceiver technology; Internet protocols remain downstream service context rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: direct digital_subscriber_line_dsl -> internet_protocols_tcp_ip_arpanet edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to consumer DSL Internet service bundles rather than the DSL access technology.",
+    "A stronger source showed ADSL transceivers require TCP/IP rather than carrying multiple bearer/service types."
+  ],
+  "short_reason": "TCP/IP is service context, not a DSL transceiver prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/digital_subscriber_line_dsl.before.json /tmp/digital_subscriber_line_dsl.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-12-dsl-scope",
+  "description": "Lock digital_subscriber_line_dsl to standardized ADSL/DSL copper access technology, not generic broadband Internet service.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "digital_subscriber_line_dsl",
+      "operator": "eq",
+      "value": 1999,
+      "reason": "The node is scoped to standardized ADSL transceivers, anchored to ITU-T G.992.1 approval in 1999."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "digital_subscriber_line_dsl",
+      "prerequisite": "digital_signal_processing",
+      "expected": "required",
+      "reason": "ADSL transceivers require signal-processing line coding and modem implementation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "digital_subscriber_line_dsl",
+      "prerequisite": "telephone_exchange",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Existing telephone access plant and central-office side infrastructure scaled DSL deployment."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_subscriber_line_dsl",
+      "prerequisite": "internet_protocols_tcp_ip_arpanet",
+      "reason": "TCP/IP is a major service carried over DSL access, not a direct prerequisite for ADSL transceivers."
+    }
+  ]
+}
