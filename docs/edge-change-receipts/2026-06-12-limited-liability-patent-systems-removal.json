@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-limited-liability-patent-systems-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "corporation_limited_liability",
+    "prerequisite": "patent_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Patent Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped technology is statutory company registration with limited liability, not intellectual-property patents or incorporation by special patent grant.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.irishstatutebook.ie/eli/1856/act/47/enacted/en/print.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Joint Stock Companies Act 1856 title, preamble, and memorandum forms describe incorporation by registration and association rather than patent systems.",
+    "source_claim_summary": "The Act provides a registration route for joint-stock companies and does not require the patent system.",
+    "source_support_rationale": "The source supports removing the patent_systems edge as a topic mismatch for general limited-liability company incorporation."
+  },
+  "ontology_before": "The graph made limited-liability corporations depend directly on patent systems using a weak Wikipedia edge source.",
+  "ontology_after": "The graph removes patent systems and leaves the node scoped to statutory company registration and joint-stock company lineage.",
+  "invariant_preserved_or_changed": "Changed: direct corporation_limited_liability -> patent_systems edge removed.",
+  "would_reject_if": [
+    "The graph used patent_systems to mean letters patent or state chartering rather than intellectual-property patent systems.",
+    "The node were rescoped to chartered monopoly corporations instead of general limited-liability company registration."
+  ],
+  "short_reason": "Patent systems are a topic mismatch for general limited-liability incorporation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/corporation_limited_liability.before.json /tmp/corporation_limited_liability.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

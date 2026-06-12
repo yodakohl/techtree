@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-limited-liability-codified-law-common",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "corporation_limited_liability",
+    "prerequisite": "codified_law"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Codified Law provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Limited-liability companies depend on statutory company law and registration rules, but ancient written law codes are a broad legal-system dependency rather than the direct historical invention."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/money/business-organization/Limited-liability",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica Money section 'History of the limited-liability company' distinguishes modern incorporation from general associated activity and describes incorporation, charters, and statutory corporate bodies.",
+    "source_claim_summary": "Limited-liability companies are legal/corporate entities created through incorporation law, not merely private business practice.",
+    "source_support_rationale": "The source supports a legal-system dependency while showing that ancient codified law is too broad to be a direct enabling invention for mid-19th-century limited-liability company statutes."
+  },
+  "ontology_before": "The graph treated ancient codified law as a generic enabling prerequisite for limited-liability corporations.",
+  "ontology_after": "The graph treats codified law as a broad common legal dependency while the node is scoped to specific mid-19th-century company statutes.",
+  "invariant_preserved_or_changed": "Changed: corporation_limited_liability -> codified_law is common_dependency.",
+  "would_reject_if": [
+    "A narrower company_law or incorporation_statute node is added and replaces codified_law.",
+    "The node is rescoped to ancient corporate bodies rather than mid-19th-century statutory company law."
+  ],
+  "short_reason": "Codified law is legal infrastructure, not the direct invention.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/corporation_limited_liability.before.json /tmp/corporation_limited_liability.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
