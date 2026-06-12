@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-12-powder-metallurgy-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "powder_metallurgy",
+      "operator": "eq",
+      "value": 1801,
+      "reason": "BiblioVault's Pure Intelligence summary identifies April 1801 as Wollaston's first successful consolidation of powdered platinum into a malleable solid."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "powder_metallurgy",
+      "prerequisite": "steel_production",
+      "reason": "The broad powder-metallurgy node is not scoped to steel powder parts; the early industrial anchor is platinum powder consolidation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "powder_metallurgy",
+      "prerequisite": "precision_machine_tools",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Precision dies, presses, and tooling scale reproducible industrial powder-metallurgy parts but are not required for the first 1801 platinum-powder consolidation."
+    }
+  ]
+}
