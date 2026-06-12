@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-steel-production-metallurgy-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "steel_production",
+    "prerequisite": "advanced_metallurgy_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Crucible steel followed earlier iron and steelmaking craft, including cementation and medieval blast-furnace metallurgy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://worldsteel.org/about-steel/steel-story/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "World Steel Association sections 'The rise of crucible steel' and 'Production speed heats up' describe earlier cementation, European blast furnaces, and Huntsman's 1740 crucible technique.",
+    "source_claim_summary": "Huntsman's crucible steel sits in a lineage after earlier iron/steel craft, cementation, and blast-furnace metallurgy.",
+    "source_support_rationale": "The source supports a historical lineage from earlier metallurgy to crucible steel, not a strict engineering requirement for every steelmaking method."
+  },
+  "ontology_before": "The graph modeled advanced medieval metallurgy as a generic enabling prerequisite.",
+  "ontology_after": "The graph models advanced medieval metallurgy as the historical predecessor lineage for industrial crucible steel.",
+  "invariant_preserved_or_changed": "Changed: steel_production -> advanced_metallurgy_medieval is historical_predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to a purely modern basic-oxygen furnace process.",
+    "A stronger source showed this specific medieval metallurgy node has a narrower unrelated scope."
+  ],
+  "short_reason": "Earlier metallurgy is lineage, not a hard prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/steel_production.before.json /tmp/steel_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

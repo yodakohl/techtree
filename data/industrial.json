@@ -3563,11 +3563,9 @@
     "id": "steel_production",
     "name": "Steel Production",
     "era": "Industrial",
-    "description": "The general capability to produce strong, versatile steel in large quantities, enabling modern infrastructure.",
+    "description": "Controlled production of iron-carbon steel, anchored here to Huntsman's 1740s crucible/cast-steel process in Sheffield; later Bessemer and open-hearth methods represent separate bulk steel scaling steps.",
     "prerequisites": [
       "iron_working",
-      "steam_engine",
-      "advanced_chemistry",
       "advanced_metallurgy_medieval",
       "blast_furnace"
     ],
@@ -3578,11 +3576,34 @@
       "Materials Science & Manufacturing": "Metals & Alloys"
     },
     "maturity": "established",
+    "scopeNote": "Covers established crucible/cast-steel production as an industrially important capability beginning in the 1740s. It does not claim that low-cost high-volume structural steel existed before the Bessemer and open-hearth processes.",
     "sources": [
       {
-        "title": "Steel",
-        "url": "https://en.wikipedia.org/wiki/Steel",
-        "publisher": "Wikipedia",
+        "title": "Benjamin Huntsman",
+        "url": "https://www.britannica.com/biography/Benjamin-Huntsman",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Benjamin Huntsman Clock",
+        "url": "https://www.sheffieldmuseums.org.uk/whats-on/benjamin-huntsman-clock/",
+        "publisher": "Sheffield Museums Trust",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Steel Story",
+        "url": "https://worldsteel.org/about-steel/steel-story/",
+        "publisher": "World Steel Association",
         "year": 2026,
         "source_type": "review",
         "supports": [
@@ -3591,50 +3612,70 @@
         ]
       }
     ],
-    "firstKnownDate": 1760,
-    "datePrecision": "exact",
-    "region": "Europe, North America, and industrializing regions",
+    "firstKnownDate": 1740,
+    "datePrecision": "decade",
+    "region": "Sheffield, England; later Britain, Europe, North America, and global steelmaking regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "iron_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "steam_engine",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Steam Engine supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "advanced_chemistry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "Steel production requires prior ironworking because steel is an iron-carbon alloy made from iron feedstocks.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Steel",
+            "url": "https://www.britannica.com/technology/steel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "advanced_metallurgy_medieval",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Crucible steel followed earlier iron and steelmaking craft, including cementation and medieval blast-furnace metallurgy.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Steel Story",
+            "url": "https://worldsteel.org/about-steel/steel-story/",
+            "publisher": "World Steel Association",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "blast_furnace",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Blast Furnace provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Blast furnaces supplied pig iron for subsequent steel processing and became major scaling infrastructure, but they are not the defining invention of Huntsman's crucible steel.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Steel Production",
+            "url": "https://www.steel.org/steel-technology/steel-production/",
+            "publisher": "American Iron and Steel Institute",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },

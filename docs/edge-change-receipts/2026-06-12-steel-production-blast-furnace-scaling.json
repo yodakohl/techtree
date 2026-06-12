@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-steel-production-blast-furnace-scaling",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "steel_production",
+    "prerequisite": "blast_furnace"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Blast Furnace provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Blast furnaces supplied pig iron for subsequent steel processing and became major scaling infrastructure, but they are not the defining invention of Huntsman's crucible steel."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.steel.org/steel-technology/steel-production/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "American Iron and Steel Institute 'How Steel Is Made' states steel is primarily produced by blast furnace or electric arc furnace routes and that the blast furnace produces pig iron from iron oxides.",
+    "source_claim_summary": "Blast furnaces are a major ironmaking step for steel production, while electric-arc routes also exist.",
+    "source_support_rationale": "The source supports blast furnaces as commercial/scaling infrastructure for steel production rather than as the defining prerequisite for Huntsman's crucible process."
+  },
+  "ontology_before": "The graph treated blast furnaces as a generic enabling prerequisite.",
+  "ontology_after": "The graph treats blast furnaces as major scaling infrastructure and feedstock production for steelmaking.",
+  "invariant_preserved_or_changed": "Changed: steel_production -> blast_furnace is commercial_or_scaling_dependency.",
+  "would_reject_if": [
+    "The node were narrowed only to modern electric-arc furnace steelmaking from scrap.",
+    "The graph later splits early crucible steel from bulk integrated steelmaking and moves this edge to the bulk steel node."
+  ],
+  "short_reason": "Blast furnaces scale steel feedstock rather than define early crucible steel.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/steel_production.before.json /tmp/steel_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
