@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-12-carbon-fiber-composites-scope",
+  "description": "Lock composite_materials_carbon_fiber to modern high-performance carbon fibers and carbon-fiber reinforced polymer/composite systems, not all composite materials or generic construction.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "composite_materials_carbon_fiber",
+      "operator": "eq",
+      "value": 1958,
+      "reason": "The node is anchored to Roger Bacon's 1958 demonstration of high-performance carbon fibers at Union Carbide's Parma Technical Center."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "composite_materials_carbon_fiber",
+      "prerequisite": "polymer_chemistry",
+      "expected": "required",
+      "reason": "The scoped CFRP/composite capability requires polymer matrix and precursor chemistry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_materials_carbon_fiber",
+      "prerequisite": "synthetic_materials_advanced",
+      "reason": "The broad advanced-synthetic-materials node is not a source-backed direct prerequisite for high-performance carbon fibers or CFRP."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "composite_materials_carbon_fiber",
+      "prerequisite": "construction",
+      "reason": "Construction is an application domain for some composites, not a direct prerequisite for the scoped materials capability."
+    }
+  ]
+}

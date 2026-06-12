@@ -954,11 +954,9 @@
     "id": "composite_materials_carbon_fiber",
     "name": "Composite Materials (Carbon Fiber)",
     "era": "Modern",
-    "description": "Materials made from two or more constituent materials with significantly different properties, such as carbon fiber-reinforced polymers, offering high strength-to-weight ratios.",
+    "description": "High-performance carbon fibers and carbon-fiber reinforced polymer composites that combine carbon-fiber reinforcement with polymer matrices for high strength-to-weight structural applications.",
     "prerequisites": [
-      "polymer_chemistry",
-      "synthetic_materials_advanced",
-      "construction"
+      "polymer_chemistry"
     ],
     "fields": [
       "Materials Science & Manufacturing"
@@ -967,57 +965,66 @@
       "Materials Science & Manufacturing": "Composites"
     },
     "maturity": "established",
+    "scopeNote": "Covers modern high-performance carbon fibers beginning with Roger Bacon's 1958 graphite-whisker work and their use in carbon-fiber reinforced polymer/composite systems. It does not cover all ancient or modern composite materials, generic construction, or every advanced synthetic material.",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "High Performance Carbon Fibers",
+        "url": "https://www.acs.org/education/whatischemistry/landmarks/carbonfibers.html",
+        "publisher": "American Chemical Society",
+        "year": 2003,
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
         ]
       },
       {
-        "title": "Carbon fiber",
-        "url": "https://en.wikipedia.org/wiki/Carbon_fiber",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "weak_web",
+        "title": "Growth, Structure, and Properties of Graphite Whiskers",
+        "url": "https://pubs.aip.org/aip/jap/article/31/2/283/506241/Growth-Structure-and-Properties-of-Graphite",
+        "publisher": "Journal of Applied Physics",
+        "year": 1960,
+        "source_type": "primary_paper",
         "supports": [
-          "node"
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Recent advances in interface microscopic characterization of carbon fiber-reinforced polymer composites",
+        "url": "https://www.frontiersin.org/journals/materials/articles/10.3389/fmats.2023.1124338/full",
+        "publisher": "Frontiers in Materials",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
         ]
       }
     ],
     "firstKnownDate": 1958,
     "datePrecision": "exact",
-    "region": "Global / multiple regions",
+    "region": "Union Carbide Parma Technical Center, Ohio, United States; later global aerospace and industrial composite manufacturing",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "polymer_chemistry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Polymer Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "synthetic_materials_advanced",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Synthetic Materials provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Carbon-fiber reinforced polymer composites require polymer matrix chemistry and carbon-fiber precursor processing, even though carbon fibers themselves can also be used in non-polymer matrices.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Recent advances in interface microscopic characterization of carbon fiber-reinforced polymer composites",
+            "url": "https://www.frontiersin.org/journals/materials/articles/10.3389/fmats.2023.1124338/full",
+            "publisher": "Frontiers in Materials",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },

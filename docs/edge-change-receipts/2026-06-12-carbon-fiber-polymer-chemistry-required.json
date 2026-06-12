@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-carbon-fiber-polymer-chemistry-required",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "composite_materials_carbon_fiber",
+    "prerequisite": "polymer_chemistry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Polymer Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "Carbon-fiber reinforced polymer composites require polymer matrix chemistry and carbon-fiber precursor processing, even though carbon fibers themselves can also be used in non-polymer matrices."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.frontiersin.org/journals/materials/articles/10.3389/fmats.2023.1124338/full",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Frontiers review abstract and introduction state that CFRP comprises carbon fiber, polymer matrix, and the interface between them; it also identifies thermosetting and thermoplastic resins as polymer matrices.",
+    "source_claim_summary": "Carbon-fiber reinforced polymer composites combine carbon-fiber reinforcement with a polymer matrix and interface.",
+    "source_support_rationale": "The source supports polymer chemistry as a direct component dependency for the scoped carbon-fiber reinforced polymer/composite node."
+  },
+  "ontology_before": "The graph treated polymer chemistry as a generic enabling context for carbon-fiber composites.",
+  "ontology_after": "The graph treats polymer chemistry as required for the scoped carbon-fiber reinforced polymer composite capability.",
+  "invariant_preserved_or_changed": "Changed: composite_materials_carbon_fiber -> polymer_chemistry is required.",
+  "would_reject_if": [
+    "The node were rescoped to bare carbon fiber production only.",
+    "The graph split carbon fibers from CFRP and moved the polymer edge to the CFRP-specific node."
+  ],
+  "short_reason": "CFRP requires a polymer matrix and precursor processing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/composite_materials_carbon_fiber.before.json /tmp/composite_materials_carbon_fiber.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
