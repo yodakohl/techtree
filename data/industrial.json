@@ -62,12 +62,10 @@
     "id": "corporation_limited_liability",
     "name": "Limited Liability Corporation",
     "era": "Industrial",
-    "description": "A legal structure for business where corporate debts are separate from the personal assets of its owners, encouraging large-scale investment.",
+    "description": "A registered company/corporate form in which shareholders' exposure to company debts is legally limited, anchored here to the mid-1850s British limited-liability and joint-stock company statutes.",
     "prerequisites": [
       "codified_law",
-      "joint_stock_companies",
-      "banking",
-      "patent_systems"
+      "joint_stock_companies"
     ],
     "fields": [
       "Finance & Markets"
@@ -75,102 +73,96 @@
     "fieldLanes": {
       "Finance & Markets": "Institutions & Law"
     },
-    "firstKnownDate": 1860,
+    "maturity": "established",
+    "scopeNote": "Covers general statutory limited-liability company incorporation as normalized by the UK Limited Liability Act 1855 and Joint Stock Companies Act 1856. It does not represent modern U.S. LLC statutes, all earlier chartered corporations, or a claim that full modern owner shielding was universally adopted by 1855.",
+    "firstKnownDate": 1855,
     "datePrecision": "exact",
-    "region": "Europe, North America, and industrializing regions",
+    "region": "United Kingdom; later Europe, North America, and other industrializing legal systems",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "codified_law",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Codified Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated",
+        "type": "common_dependency",
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Limited-liability companies depend on statutory company law and registration rules, but ancient written law codes are a broad legal-system dependency rather than the direct historical invention.",
+        "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Limited liability company",
-            "url": "https://en.wikipedia.org/wiki/Limited_liability_company",
-            "source_type": "weak_web",
+            "title": "Business organization - Limited liability, companies, corporations",
+            "url": "https://www.britannica.com/money/business-organization/Limited-liability",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
+            ]
           }
         ]
       },
       {
         "prerequisite": "joint_stock_companies",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated",
+        "type": "historical_predecessor",
+        "confidence": 0.86,
+        "evidence_level": "primary_source",
+        "note": "The 1855 and 1856 UK statutes applied limited liability through the joint-stock company registration framework.",
+        "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Joint-stock company",
-            "url": "https://en.wikipedia.org/wiki/Joint-stock_company",
-            "source_type": "weak_web",
+            "title": "Joint Stock Companies Act 1856",
+            "url": "https://www.irishstatutebook.ie/eli/1856/act/47/enacted/en/print.html",
+            "publisher": "Irish Statute Book / Office of the Attorney General",
+            "year": 1856,
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
-          }
-        ]
-      },
-      {
-        "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated",
-        "sources": [
-          {
-            "title": "Bank",
-            "url": "https://en.wikipedia.org/wiki/Bank",
-            "source_type": "weak_web",
-            "supports": [
-              "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
-          }
-        ]
-      },
-      {
-        "prerequisite": "patent_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Patent Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated",
-        "sources": [
-          {
-            "title": "Patent",
-            "url": "https://en.wikipedia.org/wiki/Patent",
-            "source_type": "weak_web",
-            "supports": [
-              "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
+            ]
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Limited liability company",
-        "url": "https://en.wikipedia.org/wiki/Limited_liability_company",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "review",
+        "title": "The Limited Liability Act 1855",
+        "url": "https://www.legislation.gov.uk/ukpga/1855/133/pdfs/ukpga_18550133_en.pdf",
+        "publisher": "legislation.gov.uk",
+        "year": 1855,
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
+        ]
+      },
+      {
+        "title": "Joint Stock Companies Act 1856",
+        "url": "https://www.irishstatutebook.ie/eli/1856/act/47/enacted/en/print.html",
+        "publisher": "Irish Statute Book / Office of the Attorney General",
+        "year": 1856,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Limited liability",
+        "url": "https://www.britannica.com/money/limited-liability",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "A new understanding of the history of limited liability: an invitation for theoretical reframing",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B12B69696AC81304A2738ADE4FFF4556/S1744137420000181a.pdf/new_understanding_of_the_history_of_limited_liability_an_invitation_for_theoretical_reframing.pdf",
+        "publisher": "Journal of Institutional Economics / Cambridge University Press",
+        "year": 2020,
+        "source_type": "review",
+        "supports": [
+          "node"
         ]
       }
     ]

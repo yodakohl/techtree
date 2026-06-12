@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-12-limited-liability-company-law-scope",
+  "description": "Lock corporation_limited_liability to mid-19th-century statutory limited-liability company incorporation, not modern LLCs, generic corporate capitalism, banking, or patent systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "corporation_limited_liability",
+      "operator": "eq",
+      "value": 1855,
+      "reason": "The scoped node is anchored to the UK Limited Liability Act 1855, with the 1856 Joint Stock Companies Act as consolidation and registration framework."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "corporation_limited_liability",
+      "prerequisite": "codified_law",
+      "expected": "common_dependency",
+      "reason": "Limited liability requires statutory company law, but ancient codified law is broad legal infrastructure rather than the direct historical invention."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "corporation_limited_liability",
+      "prerequisite": "joint_stock_companies",
+      "expected": "historical_predecessor",
+      "reason": "The mid-1850s statutes applied limited liability through joint-stock company law and registration."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "corporation_limited_liability",
+      "prerequisite": "banking",
+      "reason": "Banking is broader finance context and was not a direct prerequisite for general limited-liability company incorporation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "corporation_limited_liability",
+      "prerequisite": "patent_systems",
+      "reason": "Patent systems are not a direct prerequisite for statutory company registration with limited liability."
+    }
+  ]
+}

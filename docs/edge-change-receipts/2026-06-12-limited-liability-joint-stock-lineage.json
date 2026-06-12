@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-limited-liability-joint-stock-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "corporation_limited_liability",
+    "prerequisite": "joint_stock_companies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.86,
+    "evidence_level": "primary_source",
+    "note": "The 1855 and 1856 UK statutes applied limited liability through the joint-stock company registration framework."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.irishstatutebook.ie/eli/1856/act/47/enacted/en/print.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "supports_chronology",
+    "source_locator": "Joint Stock Companies Act 1856 title and preamble describe incorporation and regulation of joint-stock companies and other associations; the Act repeals and consolidates the Limited Liability Act 1855.",
+    "source_claim_summary": "The 1856 statute made limited company registration part of joint-stock company law.",
+    "source_support_rationale": "The source supports joint-stock companies as the direct legal lineage for the limited-liability company form, not just generic business context."
+  },
+  "ontology_before": "The graph treated joint-stock companies as a generic enabling prerequisite.",
+  "ontology_after": "The graph models joint-stock companies as the historical legal predecessor for mid-19th-century limited-liability companies.",
+  "invariant_preserved_or_changed": "Changed: corporation_limited_liability -> joint_stock_companies is historical_predecessor.",
+  "would_reject_if": [
+    "The node were split into a non-shareholder LLC form such as the 1977 Wyoming LLC.",
+    "A future company_law node absorbs the legal lineage and this edge becomes too broad."
+  ],
+  "short_reason": "Limited liability was routed through joint-stock company law.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/corporation_limited_liability.before.json /tmp/corporation_limited_liability.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

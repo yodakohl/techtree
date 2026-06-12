@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-limited-liability-banking-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "corporation_limited_liability",
+    "prerequisite": "banking"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Banking provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped technology is a statutory company-law form; the inspected 1856 Act explicitly excluded banking firms from its ordinary registration provisions.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.irishstatutebook.ie/eli/1856/act/47/enacted/en/print.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Joint Stock Companies Act 1856 provisions exclude banking and insurance companies from the Act's ordinary application while creating the general company registration framework.",
+    "source_claim_summary": "Banking was not the direct prerequisite for the scoped limited-liability company form and was partly outside the 1856 Act framework.",
+    "source_support_rationale": "The source supports removing banking as a direct technology prerequisite, even though finance and investment are broader economic context."
+  },
+  "ontology_before": "The graph made limited-liability corporations depend directly on banking using a weak Wikipedia edge source.",
+  "ontology_after": "The graph removes banking from the direct prerequisites and keeps the node anchored to company law and joint-stock company lineage.",
+  "invariant_preserved_or_changed": "Changed: direct corporation_limited_liability -> banking edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to banking corporations specifically.",
+    "A stronger source showed banking infrastructure was a direct legal prerequisite for general limited-liability incorporation."
+  ],
+  "short_reason": "Banking is economic context, not a direct company-law prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/corporation_limited_liability.before.json /tmp/corporation_limited_liability.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
