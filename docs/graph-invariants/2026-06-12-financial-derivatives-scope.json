@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-12-financial-derivatives-scope",
+  "description": "Lock financial_derivatives to modern standardized exchange-traded listed options anchored to Cboe's 1973 launch, not generic bank derivatives.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "financial_derivatives",
+      "operator": "eq",
+      "value": 1973,
+      "reason": "The node is scoped to Cboe's 1973 listed-options launch and same-year Black-Scholes option-pricing paper."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "financial_derivatives",
+      "prerequisite": "stock_exchange_modern",
+      "expected": "required",
+      "reason": "The scoped node is exchange-traded listed options, so organized exchange infrastructure is defining."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "financial_derivatives",
+      "prerequisite": "probability_statistics_inference",
+      "expected": "enabling",
+      "reason": "Formal probability/statistical valuation enabled modern listed-options pricing but was not the exchange itself."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "financial_derivatives",
+      "prerequisite": "banking",
+      "reason": "Broad banking is too generic for the listed-options scope and should not be a direct edge."
+    }
+  ]
+}

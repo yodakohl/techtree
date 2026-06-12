@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-financial-derivatives-banking-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "financial_derivatives",
+    "prerequisite": "banking"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Banks and brokers supplied capital, settlement, and counterparty services for modern derivatives markets."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is scoped to standardized exchange-traded options; broad banking is background financial infrastructure, while the direct scope is better captured by organized exchanges, pricing theory, and market technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cboe.com/insights/posts/the-creation-of-listed-options-at-cboe/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Cboe's historical account centers the 1973 listed-options launch on the new options exchange, listed contracts, trading floor, price display, and Black-Scholes context rather than banks as a direct prerequisite.",
+    "source_claim_summary": "The source supports the exchange-traded listed-options scope without making broad banking a direct causal dependency.",
+    "source_support_rationale": "This supports removing the banking edge because banking may provide background financial services, but the graph already captures the scoped listed-options dependency through stock_exchange_modern."
+  },
+  "ontology_before": "The graph carried a broad banking common-dependency edge that was not source-backed and blurred listed-options market structure with general finance.",
+  "ontology_after": "The graph keeps financial_derivatives focused on the 1973 listed-options exchange, pricing, and market-technology stack.",
+  "invariant_preserved_or_changed": "Changed: direct financial_derivatives -> banking edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to over-the-counter swaps or bank-dealer derivatives markets rather than listed options.",
+    "A stronger source showed banks were a direct prerequisite for Cboe's listed-options launch rather than background market participants."
+  ],
+  "short_reason": "Broad banking is background context, not a direct listed-options prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/financial_derivatives.before.json /tmp/financial_derivatives.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
