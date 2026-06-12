@@ -9915,12 +9915,12 @@
   },
   {
     "id": "clay_tablet_receipts",
-    "name": "Clay Tablet Receipts",
+    "name": "Ur III Clay Tablet Receipts",
     "era": "Ancient",
-    "description": "Portable written records for deliveries, taxes, debts, wages, and warehouse movements.",
+    "description": "Neo-Sumerian clay cuneiform receipt tablets recording deliveries or receipts of goods within Ur III administration.",
     "prerequisites": [
       "writing",
-      "pottery"
+      "clay_gathering_and_preparation"
     ],
     "fields": [
       "Finance & Markets"
@@ -9928,52 +9928,77 @@
     "fieldLanes": {
       "Finance & Markets": "Money & Accounting"
     },
-    "firstKnownDate": -3000,
-    "datePrecision": "century",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "Cuneiform tablet: receipt of cattle",
+        "url": "https://www.metmuseum.org/art/collection/search/322446",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Cuneiform tablet: receipt of metals",
+        "url": "https://www.metmuseum.org/art/collection/search/324589",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": -2041,
+    "datePrecision": "decade",
+    "region": "Ur III Mesopotamia, including Drehem (ancient Puzrish-Dagan) and Nippur",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "writing",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "structurally_validated",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "The scoped receipts are cuneiform tablets; a written sign system is required for the receipt record.",
+        "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Writing",
-            "url": "https://en.wikipedia.org/wiki/Writing",
-            "source_type": "weak_web",
+            "title": "Cuneiform tablet: receipt of cattle",
+            "url": "https://www.metmuseum.org/art/collection/search/322446",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2026,
+            "source_type": "museum",
             "supports": [
               "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
+            ]
           }
         ]
       },
       {
-        "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated",
+        "prerequisite": "clay_gathering_and_preparation",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "The scoped receipts are clay tablets, so prepared clay suitable for inscription is the direct material prerequisite; fired pottery vessels are not required.",
+        "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Pottery",
-            "url": "https://en.wikipedia.org/wiki/Pottery",
-            "source_type": "weak_web",
+            "title": "Cuneiform tablet: receipt of metals",
+            "url": "https://www.metmuseum.org/art/collection/search/324589",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2026,
+            "source_type": "museum",
             "supports": [
               "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
+            ]
           }
         ]
       }
-    ]
+    ],
+    "scopeNote": "Scoped to preserved Ur III administrative cuneiform receipt tablets made of clay; this node should not stand for all early accounting, all writing, or fired ceramic pottery."
   },
   {
     "id": "oil_wick_lamps",

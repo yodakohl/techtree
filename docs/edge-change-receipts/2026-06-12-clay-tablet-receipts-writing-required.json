@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-12-clay-tablet-receipts-writing-required",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "clay_tablet_receipts",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "primary_source",
+    "note": "The scoped receipts are cuneiform tablets; a written sign system is required for the receipt record."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/art/collection/search/322446",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Object page title and details: 'Cuneiform tablet: receipt of cattle', period Ur III, date ca. 2041 BCE, medium clay.",
+    "source_claim_summary": "The object is a cuneiform receipt tablet.",
+    "source_support_rationale": "Because the scoped artifact is a written cuneiform receipt, writing is a direct requirement rather than only a historical predecessor."
+  },
+  "ontology_before": "The graph treated writing as general background for clay tablet receipts.",
+  "ontology_after": "The graph treats writing as a direct requirement for the scoped cuneiform receipt record.",
+  "invariant_preserved_or_changed": "Changed: writing is a required direct prerequisite for clay_tablet_receipts.",
+  "would_reject_if": [
+    "The node were rescoped to non-written counting tokens or sealed containers.",
+    "A narrower cuneiform-writing node is added and this edge is rewired to it."
+  ],
+  "short_reason": "Cuneiform receipt tablets require writing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clay_tablet_receipts.before.json /tmp/clay_tablet_receipts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

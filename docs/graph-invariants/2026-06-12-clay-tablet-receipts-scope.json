@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-12-clay-tablet-receipts-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "clay_tablet_receipts",
+      "operator": "eq",
+      "value": -2041,
+      "reason": "The node is scoped to Ur III cuneiform receipt tablets, with a Met object dated ca. 2041 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "clay_tablet_receipts",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "The scoped receipts are written cuneiform records."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "clay_tablet_receipts",
+      "prerequisite": "clay_gathering_and_preparation",
+      "expected": "required",
+      "reason": "The scoped artifacts are clay tablets and require prepared clay suitable for inscription."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "clay_tablet_receipts",
+      "prerequisite": "pottery",
+      "reason": "Fired pottery vessels are not the direct material prerequisite for inscribed clay receipt tablets."
+    }
+  ]
+}
