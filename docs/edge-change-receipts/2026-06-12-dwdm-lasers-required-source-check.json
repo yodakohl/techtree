@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-dwdm-lasers-required-source-check",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "dense_wavelength_division_multiplexing",
+    "prerequisite": "lasers"
+  },
+  "old_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "expert_inference",
+    "note": "Lasers is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "DWDM channels are optical carriers at specific wavelengths; practical systems use controlled laser transmitters for those channels."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cisco.com/c/dam/global/de_at/assets/docs/dwdm.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Cisco Introduction to DWDM Technology describes wavelength-specific optical channels and DWDM transmitters/receivers in fiber transport systems.",
+    "source_claim_summary": "Practical DWDM systems require wavelength-controlled optical transmitters, modeled here through the lasers prerequisite.",
+    "source_support_rationale": "The source supports keeping the edge required while replacing the generic inferred note with a concrete optical-carrier requirement."
+  },
+  "ontology_before": "The graph had the right broad edge type but only inferred support.",
+  "ontology_after": "The graph keeps lasers as required and gives the edge a source-backed wavelength-channel rationale.",
+  "invariant_preserved_or_changed": "Preserved: dense_wavelength_division_multiplexing -> lasers remains required; changed: evidence is source-backed.",
+  "would_reject_if": [
+    "The node were scoped to passive wavelength filters alone rather than full DWDM transport systems.",
+    "A more specific tunable-laser or optical-transmitter node replaced the broad lasers prerequisite."
+  ],
+  "short_reason": "DWDM optical carriers require controlled laser transmitters.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/dense_wavelength_division_multiplexing.before.json /tmp/dense_wavelength_division_multiplexing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

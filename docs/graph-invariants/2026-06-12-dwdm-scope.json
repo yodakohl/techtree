@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-12-dwdm-scope",
+  "description": "Lock dense_wavelength_division_multiplexing to first-generation commercial DWDM optical transport, not broader WDM research or later coherent-DSP systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "dense_wavelength_division_multiplexing",
+      "operator": "eq",
+      "value": 1996,
+      "reason": "The node is anchored to the first commercial Sprint/Ciena DWDM deployment in 1996."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dense_wavelength_division_multiplexing",
+      "prerequisite": "fiber_optics",
+      "expected": "required",
+      "reason": "Commercial DWDM optical transport requires optical fiber as the multiplexed transmission medium."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dense_wavelength_division_multiplexing",
+      "prerequisite": "lasers",
+      "expected": "required",
+      "reason": "DWDM systems use controlled optical carrier wavelengths from laser transmitters."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dense_wavelength_division_multiplexing",
+      "prerequisite": "digital_signal_processing",
+      "reason": "DSP belongs to later coherent optical transport scopes, not first-generation commercial DWDM."
+    }
+  ]
+}

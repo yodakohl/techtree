@@ -43652,15 +43652,14 @@
     "id": "dense_wavelength_division_multiplexing",
     "name": "Dense Wavelength-Division Multiplexing",
     "era": "Modern",
-    "description": "Optical multiplexing technique that carries many wavelength channels through a single fiber to scale backbone capacity.",
+    "description": "Commercial optical transport systems that multiplex many closely spaced wavelength channels over optical fiber to scale backbone capacity.",
     "prerequisites": [
       "fiber_optics",
-      "lasers",
-      "digital_signal_processing"
+      "lasers"
     ],
-    "firstKnownDate": 1995,
-    "datePrecision": "decade",
-    "region": "Global optical-networking industry",
+    "firstKnownDate": 1996,
+    "datePrecision": "exact",
+    "region": "United States long-haul carrier networks; later global optical-networking industry",
     "fields": [
       "Telecommunications & Networking"
     ],
@@ -43668,13 +43667,36 @@
       "Telecommunications & Networking": "Transmission Media"
     },
     "maturity": "established",
+    "scopeNote": "Covers commercial dense wavelength-division multiplexing optical transport systems, anchored to the first commercial Sprint/Ciena deployment in 1996 and later standardized dense frequency grids. It does not represent broader WDM research, coarse WDM, or later coherent-DSP optical transport.",
     "sources": [
       {
-        "title": "Wavelength-division multiplexing",
-        "url": "https://en.wikipedia.org/wiki/Wavelength-division_multiplexing",
-        "publisher": "Wikipedia",
+        "title": "First Commercial DWDM System",
+        "url": "https://www.comsoc.org/node/19766",
+        "publisher": "IEEE Communications Society",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "ITU-T G.694.1: Spectral grids for WDM applications",
+        "url": "https://www.itu.int/rec/T-REC-G.694.1/",
+        "publisher": "International Telecommunication Union",
+        "year": 2020,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Introduction to DWDM Technology",
+        "url": "https://www.cisco.com/c/dam/global/de_at/assets/docs/dwdm.pdf",
+        "publisher": "Cisco",
+        "year": 2000,
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
@@ -43685,21 +43707,19 @@
     "dependencyEdges": [
       {
         "prerequisite": "fiber_optics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Fiber Optics provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Commercial DWDM at this scope is an optical-fiber transport system that places multiple dense wavelength channels onto fiber links.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Wavelength-division multiplexing",
-            "url": "https://en.wikipedia.org/wiki/Wavelength-division_multiplexing",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "Introduction to DWDM Technology",
+            "url": "https://www.cisco.com/c/dam/global/de_at/assets/docs/dwdm.pdf",
+            "publisher": "Cisco",
+            "year": 2000,
+            "source_type": "review",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }
@@ -43708,42 +43728,18 @@
       {
         "prerequisite": "lasers",
         "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Lasers is modeled as a necessary component or method for this technology in the current graph.",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "DWDM channels are optical carriers at specific wavelengths; practical systems use controlled laser transmitters for those channels.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Wavelength-division multiplexing",
-            "url": "https://en.wikipedia.org/wiki/Wavelength-division_multiplexing",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "Introduction to DWDM Technology",
+            "url": "https://www.cisco.com/c/dam/global/de_at/assets/docs/dwdm.pdf",
+            "publisher": "Cisco",
+            "year": 2000,
+            "source_type": "review",
             "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "digital_signal_processing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Wavelength-division multiplexing",
-            "url": "https://en.wikipedia.org/wiki/Wavelength-division_multiplexing",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
-            "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }
