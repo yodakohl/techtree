@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-deep-learning-gpu-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "deep_learning_neural_networks",
+    "prerequisite": "graphics_processing_units_gpu"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Graphics Processing Units (GPUs) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the broad deep-learning node is dated to the 1986 backpropagation representation-learning work, which predates the 1999 modern GPU scope.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/323533a0",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nature 1986 paper 'Learning representations by back-propagating errors' establishes the broad deep-learning/backpropagation representation-learning anchor without citing or requiring GPU hardware.",
+    "source_claim_summary": "The broad deep-learning node is anchored in 1986 neural-network representation learning, before modern GPUs existed.",
+    "source_support_rationale": "The source supports the node chronology but cannot support a GPU prerequisite; keeping the edge would force a later hardware accelerator into an earlier conceptual technology."
+  },
+  "ontology_before": "The graph made broad deep learning depend directly on a 1999 GPU node despite a 1986 first-known date.",
+  "ontology_after": "The graph treats GPUs as later accelerators for specific scaled deep-learning applications, not as a prerequisite for broad deep-learning neural networks.",
+  "invariant_preserved_or_changed": "Changed: direct deep_learning_neural_networks -> graphics_processing_units_gpu edge removed.",
+  "would_reject_if": [
+    "The node is rescoped to 2012 ImageNet-era GPU-accelerated deep learning.",
+    "A separate modern GPU-deep-learning-scaling node is added with a post-1999 date."
+  ],
+  "short_reason": "A 1986 deep-learning node cannot depend on a 1999 GPU technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

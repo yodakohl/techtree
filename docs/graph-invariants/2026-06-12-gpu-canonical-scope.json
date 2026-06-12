@@ -1,0 +1,64 @@
+{
+  "id": "2026-06-12-gpu-canonical-scope",
+  "description": "Lock the canonical GPU node to the 1999 GeForce 256/NV10-era integrated graphics processor scope and prevent the removed duplicate GPU-parallel-processors prerequisite from returning.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "graphics_processing_units_gpu",
+      "operator": "eq",
+      "value": 1999,
+      "reason": "The canonical node is scoped to the modern single-chip GPU class popularized by the 1999 GeForce 256/NV10, not to 1958 computer graphics generally."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "ai_accelerators",
+      "prerequisite": "graphics_processing_units_gpu",
+      "reason": "AI accelerators should use the canonical GPU node as the GPU lineage/enabling prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ai_accelerators",
+      "prerequisite": "graphics_processing_units_gpu",
+      "expected": "enabling",
+      "reason": "The corrected AI accelerator GPU edge is enabling because GPUs are one accelerator platform, not a hard prerequisite for every AI accelerator."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ai_accelerators",
+      "prerequisite": "gpu_parallel_processors",
+      "reason": "The duplicate gpu_parallel_processors node was removed and must not be reintroduced as the AI accelerator prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "graphics_processing_units_gpu",
+      "prerequisite": "computer_graphics_3d",
+      "expected": "enabling",
+      "reason": "3D computer graphics demand enabled GPU development but should not be modeled as a hard prerequisite for every GPU-like parallel processor."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "deep_learning_neural_networks",
+      "prerequisite": "graphics_processing_units_gpu",
+      "reason": "Broad deep learning is anchored to 1986 representation-learning/backpropagation work and must not depend on a 1999 GPU node."
+    },
+    {
+      "type": "first_known_date",
+      "node": "convolutional_neural_networks",
+      "operator": "eq",
+      "value": 1980,
+      "reason": "The broad CNN lineage is anchored to Fukushima's 1980 neocognitron rather than the 2012 GPU-trained AlexNet milestone."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "convolutional_neural_networks",
+      "prerequisite": "graphics_processing_units_gpu",
+      "reason": "Broad CNN architecture predates the modern GPU class; GPUs are later scaling accelerators for specific CNN systems."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "convolutional_neural_networks",
+      "prerequisite": "digital_photography_ccd_cmos_sensors",
+      "reason": "Digital photography sensors are a data-source/application context, not a prerequisite for the CNN architecture."
+    }
+  ]
+}
