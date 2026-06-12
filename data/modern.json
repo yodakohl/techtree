@@ -18251,31 +18251,76 @@
     "id": "graphics_processing_units_gpu",
     "name": "Graphics Processing Units (GPUs)",
     "era": "Modern",
-    "description": "Massively parallel processors optimized for graphics and numerical workloads, later becoming critical for simulation and machine learning.",
+    "description": "Single-chip graphics processors with integrated 3D pipeline functions and highly parallel programmable execution, later adapted for general-purpose computing, simulation, and machine-learning workloads.",
     "prerequisites": [
       "integrated_circuits",
       "computer_graphics_3d",
       "semiconductor_devices"
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "fields": [
+      "Semiconductors & Integrated Circuits",
+      "Artificial Intelligence & Machine Learning"
+    ],
+    "fieldLanes": {
+      "Semiconductors & Integrated Circuits": "Processors & Architectures",
+      "Artificial Intelligence & Machine Learning": "Deployment & MLOps"
+    },
+    "maturity": "established",
+    "scopeNote": "Covers the modern GPU class popularized by NVIDIA's 1999 GeForce 256/NV10: single-chip graphics processors integrating transform, lighting, setup/clipping, and rendering pipeline functions, and their later programmable/GPGPU use. It does not claim that all graphics accelerators began in 1999, and it excludes earlier separate-chip geometry coprocessors and generic display controllers.",
+    "sources": [
+      {
+        "title": "Nvidia releases the GeForce 256",
+        "url": "https://www.computerhistory.org/timeline/1999/",
+        "publisher": "Computer History Museum",
+        "year": 1999,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Famous Graphics Chips: Nvidia's GeForce 256",
+        "url": "https://www.computer.org/publications/tech-news/chasing-pixels/nvidias-geforce-256",
+        "publisher": "IEEE Computer Society",
+        "year": 2021,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "A Survey of General-Purpose Computation on Graphics Hardware",
+        "url": "https://research.nvidia.com/sites/default/files/pubs/2005-08_A-Survey-of/ASurveyofGeneralPurposeComputationonGraphicsHardware.pdf",
+        "publisher": "Eurographics",
+        "year": 2005,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      }
+    ],
+    "firstKnownDate": 1999,
+    "datePrecision": "exact",
+    "region": "United States / NVIDIA GeForce 256; later global GPU vendors and semiconductor foundries",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "integrated_circuits",
         "type": "required",
-        "confidence": 0.84,
+        "confidence": 0.86,
         "evidence_level": "review",
-        "note": "A GPU is implemented as a specialized circuit or single-chip processor, placing the scoped technology inside integrated-circuit hardware.",
+        "note": "The scoped modern GPU is a single-chip graphics processor, so integrated-circuit technology is a hard implementation prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Body of Knowledge for Graphics Processing Units (GPUs)",
-            "url": "https://nepp.nasa.gov/files/29564/NEPP-BOK-2018-Wyrwas-GPU-TN60884.pdf",
-            "publisher": "NASA Electronic Parts and Packaging Program",
-            "year": 2018,
-            "source_type": "official_agency",
+            "title": "Famous Graphics Chips: Nvidia's GeForce 256",
+            "url": "https://www.computer.org/publications/tech-news/chasing-pixels/nvidias-geforce-256",
+            "publisher": "IEEE Computer Society",
+            "year": 2021,
+            "source_type": "review",
             "supports": [
               "edge"
             ]
@@ -18285,25 +18330,37 @@
       {
         "prerequisite": "computer_graphics_3d",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "3D Computer Graphics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.79,
+        "evidence_level": "review",
+        "note": "The consumer GPU emerged to meet PC video and 3D graphics demand by moving graphics calculations from the CPU to a specialized graphics processor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Nvidia releases the GeForce 256",
+            "url": "https://www.computerhistory.org/timeline/1999/",
+            "publisher": "Computer History Museum",
+            "year": 1999,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "semiconductor_devices",
         "type": "required",
-        "confidence": 0.82,
+        "confidence": 0.84,
         "evidence_level": "review",
-        "note": "The NASA GPU body of knowledge treats GPUs as advanced chip technologies fabricated at semiconductor lithography nodes.",
+        "note": "Modern GPUs are semiconductor processors fabricated as advanced graphics chips; the GeForce 256/NV10 was built as a high-transistor-count graphics processor on a semiconductor process.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Body of Knowledge for Graphics Processing Units (GPUs)",
-            "url": "https://nepp.nasa.gov/files/29564/NEPP-BOK-2018-Wyrwas-GPU-TN60884.pdf",
-            "publisher": "NASA Electronic Parts and Packaging Program",
-            "year": 2018,
-            "source_type": "official_agency",
+            "title": "Famous Graphics Chips: Nvidia's GeForce 256",
+            "url": "https://www.computer.org/publications/tech-news/chasing-pixels/nvidias-geforce-256",
+            "publisher": "IEEE Computer Society",
+            "year": 2021,
+            "source_type": "review",
             "supports": [
               "edge"
             ]
@@ -18316,10 +18373,9 @@
     "id": "deep_learning_neural_networks",
     "name": "Deep Learning Neural Networks",
     "era": "Modern",
-    "description": "Training large multi-layer neural networks on abundant data and accelerated hardware for vision, speech, language, and prediction tasks.",
+    "description": "Training multi-layer neural networks to learn internal representations for vision, speech, language, and prediction tasks, later scaled with large datasets and accelerated hardware.",
     "prerequisites": [
       "machine_learning_early_algorithms",
-      "graphics_processing_units_gpu",
       "big_data_analytics_computational_statistics"
     ],
     "fields": [
@@ -18364,28 +18420,6 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Machine Learning (Early Algorithms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Learning Representations by Back-Propagating Errors",
-            "url": "https://www.nature.com/articles/323533a0",
-            "publisher": "Nature",
-            "year": 1986,
-            "source_type": "primary_paper",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "graphics_processing_units_gpu",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Graphics Processing Units (GPUs) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -30821,127 +30855,13 @@
     ]
   },
   {
-    "id": "gpu_parallel_processors",
-    "name": "GPU Parallel Processors",
-    "era": "Modern",
-    "description": "Highly parallel processors originally built for graphics and later adapted for general-purpose and AI workloads.",
-    "prerequisites": [
-      "computer_graphics_3d",
-      "microprocessors_cpu_on_a_chip",
-      "vlsi_design"
-    ],
-    "fields": [
-      "Semiconductors & Integrated Circuits"
-    ],
-    "fieldLanes": {
-      "Semiconductors & Integrated Circuits": "Processors & Architectures"
-    },
-    "maturity": "established",
-    "sources": [
-      {
-        "title": "How the World's First GPU Leveled Up Gaming and Ignited the AI Era",
-        "url": "https://blogs.nvidia.com/blog/first-gpu-gaming-ai/",
-        "publisher": "NVIDIA",
-        "year": 2024,
-        "source_type": "generic_overview",
-        "supports": [
-          "node",
-          "maturity"
-        ]
-      },
-      {
-        "title": "CUDA Programming Guide: Introduction",
-        "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
-        "publisher": "NVIDIA",
-        "year": 2026,
-        "source_type": "generic_overview",
-        "supports": [
-          "node",
-          "maturity"
-        ]
-      }
-    ],
-    "firstKnownDate": 1999,
-    "datePrecision": "exact",
-    "region": "United States / NVIDIA GeForce 256",
-    "reviewStatus": "source_checked",
-    "dependencyEdges": [
-      {
-        "prerequisite": "computer_graphics_3d",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "3D Computer Graphics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "How the World's First GPU Leveled Up Gaming and Ignited the AI Era",
-            "url": "https://blogs.nvidia.com/blog/first-gpu-gaming-ai/",
-            "publisher": "NVIDIA",
-            "year": 2024,
-            "source_type": "generic_overview",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "microprocessors_cpu_on_a_chip",
-        "type": "historical_predecessor",
-        "confidence": 0.64,
-        "evidence_level": "expert_inference",
-        "note": "GPU processors build on microprocessor-era chip integration but specialize parallel graphics/data-parallel execution.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "How the World's First GPU Leveled Up Gaming and Ignited the AI Era",
-            "url": "https://blogs.nvidia.com/blog/first-gpu-gaming-ai/",
-            "publisher": "NVIDIA",
-            "year": 2024,
-            "source_type": "generic_overview",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "vlsi_design",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Dense VLSI design and manufacturing methods are scaling infrastructure for GPU-class processors.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "How the World's First GPU Leveled Up Gaming and Ignited the AI Era",
-            "url": "https://blogs.nvidia.com/blog/first-gpu-gaming-ai/",
-            "publisher": "NVIDIA",
-            "year": 2024,
-            "source_type": "generic_overview",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "ai_accelerators",
     "name": "AI Accelerators",
     "era": "Modern",
     "description": "Specialized processors optimized for matrix operations, tensor computation, and memory movement in machine-learning workloads.",
     "prerequisites": [
       "deep_learning_neural_networks",
-      "gpu_parallel_processors",
+      "graphics_processing_units_gpu",
       "high_bandwidth_memory_hbm"
     ],
     "fields": [
@@ -31005,22 +30925,20 @@
         ]
       },
       {
-        "prerequisite": "gpu_parallel_processors",
+        "prerequisite": "graphics_processing_units_gpu",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "GPU Parallel Processors provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "GPUs are a major accelerator platform for parallel numerical and deep-learning workloads, but specialized AI accelerators can also be built as TPUs, NPUs, FPGAs, or ASICs.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "CUDA Programming Guide: Introduction",
-            "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
-            "publisher": "NVIDIA",
-            "year": 2026,
-            "source_type": "weak_web",
+            "title": "Efficient Processing of Deep Neural Networks: A Tutorial and Survey",
+            "url": "https://semiwiki.com/wp-content/uploads/2018/03/2017_pieee_dnn.pdf",
+            "publisher": "Proceedings of the IEEE",
+            "year": 2017,
+            "source_type": "review",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }
@@ -32402,11 +32320,9 @@
     "id": "convolutional_neural_networks",
     "name": "Convolutional Neural Networks",
     "era": "Modern",
-    "description": "Neural networks using convolutional filters and hierarchical features for images, video, speech, and spatial data.",
+    "description": "Hierarchical neural networks with local feature detectors and pooling/subsampling stages for visual and spatial pattern recognition, later trained at scale with backpropagation and GPUs.",
     "prerequisites": [
-      "backpropagation_training",
-      "graphics_processing_units_gpu",
-      "digital_photography_ccd_cmos_sensors"
+      "backpropagation_training"
     ],
     "fields": [
       "Artificial Intelligence & Machine Learning"
@@ -32416,6 +32332,17 @@
     },
     "maturity": "established",
     "sources": [
+      {
+        "title": "Neocognitron: A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position",
+        "url": "https://link.springer.com/article/10.1007/BF00344251",
+        "publisher": "Biological Cybernetics",
+        "year": 1980,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "ImageNet Classification with Deep Convolutional Neural Networks",
         "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
@@ -32428,9 +32355,9 @@
         ]
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1980,
+    "datePrecision": "exact",
+    "region": "Japan / NHK Science and Technical Research Laboratories; later global machine-learning research",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -32439,50 +32366,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Backpropagation Training provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "ImageNet Classification with Deep Convolutional Neural Networks",
-            "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
-            "publisher": "NeurIPS",
-            "year": 2012,
-            "source_type": "primary_paper",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "graphics_processing_units_gpu",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Graphics Processing Units (GPUs) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "ImageNet Classification with Deep Convolutional Neural Networks",
-            "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
-            "publisher": "NeurIPS",
-            "year": 2012,
-            "source_type": "primary_paper",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "digital_photography_ccd_cmos_sensors",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Digital Photography (CCD/CMOS Sensors) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {

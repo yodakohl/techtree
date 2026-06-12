@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-12-ai-accelerators-gpu-canonical-rewire",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "ai_accelerators",
+    "prerequisite": "graphics_processing_units_gpu"
+  },
+  "replaced_edge": {
+    "dependent": "ai_accelerators",
+    "prerequisite": "gpu_parallel_processors"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "GPU Parallel Processors provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "GPUs are a major accelerator platform for parallel numerical and deep-learning workloads, but specialized AI accelerators can also be built as TPUs, NPUs, FPGAs, or ASICs."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://semiwiki.com/wp-content/uploads/2018/03/2017_pieee_dnn.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Proceedings of the IEEE DNN processing survey, abstract and hardware-platform discussion: DNNs are used in AI applications and require efficient hardware processing; the paper surveys hardware platforms and architectures for DNN processing.",
+    "source_claim_summary": "Deep neural-network workloads need efficient hardware processing, and GPUs are one of the hardware platforms used for DNN acceleration.",
+    "source_support_rationale": "This supports an enabling relationship from GPUs to AI accelerators while avoiding a required edge because the survey also frames DNN acceleration as a broader hardware-architecture problem, not a GPU-only lineage."
+  },
+  "ontology_before": "The graph used a second GPU-like node, gpu_parallel_processors, as the AI accelerator prerequisite even though graphics_processing_units_gpu already represented the same technology family.",
+  "ontology_after": "The graph rewires AI accelerators to the canonical graphics_processing_units_gpu node and deletes the duplicate GPU node from active data.",
+  "invariant_preserved_or_changed": "Changed: ai_accelerators no longer depends on gpu_parallel_processors; it now depends on graphics_processing_units_gpu.",
+  "would_reject_if": [
+    "A future split distinguishes consumer graphics GPUs from GPGPU accelerator architectures with different source-backed IDs.",
+    "The canonical graphics_processing_units_gpu node is rescoped away from programmable/parallel GPU computing."
+  ],
+  "short_reason": "AI accelerators should depend on the canonical GPU node rather than a duplicate GPU-parallel-processors node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/graphics_processing_units_gpu.before.json /tmp/graphics_processing_units_gpu.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

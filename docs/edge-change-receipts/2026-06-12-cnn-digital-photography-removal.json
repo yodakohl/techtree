@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-cnn-digital-photography-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "convolutional_neural_networks",
+    "prerequisite": "digital_photography_ccd_cmos_sensors"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Digital Photography (CCD/CMOS Sensors) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because CNNs are neural-network architectures for visual/spatial pattern recognition; digital camera sensors are a data-source/application context, not a prerequisite for the architecture.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/BF00344251",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Biological Cybernetics 1980 paper describes a neural-network model for shift-tolerant pattern recognition, not a camera-sensor technology dependency.",
+    "source_claim_summary": "The scoped CNN lineage is a neural-network architecture for pattern recognition rather than a digital-imaging sensor technology.",
+    "source_support_rationale": "The source supports removing a data-acquisition/application-context edge because the model architecture can operate on patterns without depending on CCD/CMOS digital photography."
+  },
+  "ontology_before": "The graph made CNNs depend directly on digital photography sensors, conflating an application data source with the neural-network architecture.",
+  "ontology_after": "The graph keeps CNNs in the neural-network architecture lineage and leaves sensor/image datasets to downstream computer-vision applications.",
+  "invariant_preserved_or_changed": "Changed: direct convolutional_neural_networks -> digital_photography_ccd_cmos_sensors edge removed.",
+  "would_reject_if": [
+    "The node is narrowed to digital-camera image classification systems rather than CNN architectures.",
+    "A downstream computer-vision dataset node requires CCD/CMOS image acquisition as a source-backed application dependency."
+  ],
+  "short_reason": "Digital photography is an application data source for some CNN uses, not a prerequisite for CNN architecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-cnn-gpu-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "convolutional_neural_networks",
+    "prerequisite": "graphics_processing_units_gpu"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Graphics Processing Units (GPUs) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the broad CNN node is now anchored to Fukushima's 1980 neocognitron lineage; GPUs are later scaling accelerators, not prerequisites for the CNN concept.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/BF00344251",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Biological Cybernetics 1980 abstract and citation metadata identify the neocognitron as a self-organizing neural-network model for visual pattern recognition unaffected by shift in position.",
+    "source_claim_summary": "A CNN-like hierarchical visual pattern-recognition neural network existed in 1980, before the modern GPU scope.",
+    "source_support_rationale": "The source anchors the broad CNN lineage before GPUs, so it supports removing the GPU edge from the general CNN node while leaving GPUs available for later scaled applications such as AlexNet."
+  },
+  "ontology_before": "The graph made broad convolutional neural networks depend directly on a 1999 GPU node while dating CNNs to an earlier era.",
+  "ontology_after": "The graph keeps CNNs as an earlier neural-network architecture lineage and treats GPUs as later accelerators for specific scaled CNN systems.",
+  "invariant_preserved_or_changed": "Changed: direct convolutional_neural_networks -> graphics_processing_units_gpu edge removed.",
+  "would_reject_if": [
+    "The node is rescoped narrowly to 2012 AlexNet-style GPU-trained CNNs.",
+    "A separate GPU-trained CNN scaling node is added with a post-1999 firstKnownDate."
+  ],
+  "short_reason": "Broad CNN lineage predates modern GPUs, so the GPU edge was an anachronistic dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
