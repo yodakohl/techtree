@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-12-combined-cycle-eia-source-replacement",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "combined_cycle_gas_turbines",
+    "prerequisite": "steam_turbine_power_generation"
+  },
+  "old_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "A combined-cycle gas-turbine plant couples a gas-turbine topping cycle to a steam-turbine bottoming cycle.",
+    "source_url": "https://www.softinway.com/combined-cycles-a-brief-history-and-evolution-of-cycles/"
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "A combined-cycle gas-turbine plant couples a gas-turbine topping cycle to a steam-turbine bottoming cycle.",
+    "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=52158"
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.eia.gov/todayinenergy/detail.php?id=52158",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "EIA Today in Energy, April 25, 2022: combined-cycle systems include combustion turbines and steam turbines and send combustion-turbine exhaust heat to a heat-recovery steam generator that pressurizes steam for steam turbines.",
+    "source_claim_summary": "EIA describes steam turbines as a component of combined-cycle systems.",
+    "source_support_rationale": "The source directly supports the existing required edge from combined-cycle gas turbines to steam-turbine power generation while replacing an unstable vendor URL."
+  },
+  "invariant_preserved_or_changed": "Preserved: steam_turbine_power_generation remains a required prerequisite for combined_cycle_gas_turbines.",
+  "would_reject_if": [
+    "The node were rescoped to a different combined-cycle architecture without a steam bottoming cycle.",
+    "The EIA page stopped describing steam turbines as combined-cycle components."
+  ],
+  "short_reason": "Replaced an unstable generic vendor URL with a stable official-agency source for the same required edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

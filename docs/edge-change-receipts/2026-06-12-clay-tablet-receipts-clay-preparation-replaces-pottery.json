@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-12-clay-tablet-receipts-clay-preparation-replaces-pottery",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "replaced_edge": {
+    "dependent": "clay_tablet_receipts",
+    "prerequisite": "pottery"
+  },
+  "edge": {
+    "dependent": "clay_tablet_receipts",
+    "prerequisite": "clay_gathering_and_preparation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "primary_source",
+    "note": "The scoped receipts are clay tablets, so prepared clay suitable for inscription is the direct material prerequisite; fired pottery vessels are not required."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/art/collection/search/324589",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Object page details: 'Cuneiform tablet: receipt of metals', period Ur III, date ca. 2112-2004 BCE, medium clay.",
+    "source_claim_summary": "The source identifies the receipt tablet medium as clay.",
+    "source_support_rationale": "The direct material requirement is prepared clay for tablet inscription, not the broader technology of fired ceramic vessels."
+  },
+  "ontology_before": "The graph routed clay tablet receipts through pottery, implying fired ceramic vessel production was the relevant direct prerequisite.",
+  "ontology_after": "The graph routes clay tablet receipts through clay preparation as the direct material prerequisite and removes pottery as a false specificity.",
+  "invariant_preserved_or_changed": "Changed: clay_gathering_and_preparation is required and pottery is absent.",
+  "would_reject_if": [
+    "The node were rescoped to ceramic receipt vessels rather than inscribed clay tablets.",
+    "A source showed the scoped administrative receipt tablets were normally produced through pottery vessel manufacture."
+  ],
+  "short_reason": "Clay receipt tablets require prepared clay, not pottery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clay_tablet_receipts.before.json /tmp/clay_tablet_receipts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
