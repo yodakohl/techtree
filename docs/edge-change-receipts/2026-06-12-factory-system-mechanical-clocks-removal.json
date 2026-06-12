@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-factory-system-mechanical-clocks-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "factory_system",
+    "prerequisite": "mechanical_clocks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Clocks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the inspected sources support powered textile machinery and factory labor organization, but not mechanical clocks as a direct prerequisite for the Cromford factory system.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.scienceandindustrymuseum.org.uk/objects-and-stories/richard-arkwright",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Science and Industry Museum sections 'Creating a factory system' and 'Working lives transformed' describe water-powered machinery, machine tending, and shifts without making clocks a prerequisite.",
+    "source_claim_summary": "The source explains factory-system organization through powered machinery and disciplined mill work, not mechanical clocks.",
+    "source_support_rationale": "Clock-time discipline may matter to later industrial labor, but this source does not support mechanical clocks as a direct upstream technology for the scoped node."
+  },
+  "ontology_before": "The graph treated mechanical clocks as a direct factory-system prerequisite based on weak generic inference.",
+  "ontology_after": "The graph removes the mechanical_clocks edge and keeps labor organization represented through division_of_labor.",
+  "invariant_preserved_or_changed": "Changed: direct factory_system -> mechanical_clocks edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to industrial timekeeping systems rather than factory production.",
+    "A stronger source showed Arkwright-style factory operation directly required mechanical clocks as a technology prerequisite."
+  ],
+  "short_reason": "Mechanical clocks are not sourced as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/factory_system.before.json /tmp/factory_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

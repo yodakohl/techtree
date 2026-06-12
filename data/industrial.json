@@ -2899,12 +2899,10 @@
     "id": "factory_system",
     "name": "Factory System",
     "era": "Industrial",
-    "description": "A method of manufacturing using machinery and division of labor, centralizing production in a single location.",
+    "description": "Centralized industrial production in purpose-built mills or factories, combining powered machinery, disciplined wage labor, and coordinated processes under one roof or factory complex.",
     "prerequisites": [
       "steam_engine",
       "textiles_weaving",
-      "banking",
-      "mechanical_clocks",
       "watermills",
       "division_of_labor"
     ],
@@ -2915,25 +2913,28 @@
       "Mechanical Engineering": "Automation & Systems"
     },
     "firstKnownDate": 1760,
-    "datePrecision": "exact",
-    "region": "Europe, North America, and industrializing regions",
+    "datePrecision": "decade",
+    "region": "Cromford and the Derwent Valley, England; later Britain, North America, and global industrial regions",
+    "scopeNote": "Covers the modern factory system as developed through Arkwright's late-1760s water-frame patenting and established by the Cromford water-powered cotton mill in 1771, then spreading through textile and later steam-powered manufacturing. It is not a generic claim about all workshops, proto-industrial putting-out systems, or every form of business organization.",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "steam_engine",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Steam Engine supports manufacturing, deployment, commercialization, or operational scaling.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Early factories were water-powered, while steam engines later let textile mills scale and relocate beyond fast-flowing rural water sites.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Factory system",
-            "url": "https://en.wikipedia.org/wiki/Factory_system",
-            "publisher": "Wikipedia",
-            "year": 2026,
+            "title": "Mapping Manchester's engines",
+            "url": "https://www.scienceandindustrymuseum.org.uk/objects-and-stories/mapping-manchesters-engines",
+            "publisher": "Science and Industry Museum",
+            "year": 2025,
             "source_type": "review",
             "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
@@ -2941,59 +2942,21 @@
       },
       {
         "prerequisite": "textiles_weaving",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Textiles & Weaving provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The factory system emerged from mechanizing textile production that had previously relied on home-based putting-out, spinning wheels, and hand looms.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Factory system",
-            "url": "https://en.wikipedia.org/wiki/Factory_system",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "review",
+            "title": "The Industrial Revolution in England",
+            "url": "https://www.nps.gov/lowe/learn/photosmultimedia/industry.htm",
+            "publisher": "National Park Service",
+            "year": 2015,
+            "source_type": "official_agency",
             "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Factory system",
-            "url": "https://en.wikipedia.org/wiki/Factory_system",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "review",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "mechanical_clocks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Clocks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Factory system",
-            "url": "https://en.wikipedia.org/wiki/Factory_system",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "review",
-            "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
@@ -3002,18 +2965,20 @@
       {
         "prerequisite": "watermills",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Watermills provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The scoped factory system was established in water-powered cotton mills; waterpower drove the machinery at Cromford and other Derwent Valley mills.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Factory system",
-            "url": "https://en.wikipedia.org/wiki/Factory_system",
-            "publisher": "Wikipedia",
+            "title": "Derwent Valley Mills",
+            "url": "https://whc.unesco.org/en/list/1030/",
+            "publisher": "UNESCO World Heritage Centre",
             "year": 2026,
-            "source_type": "review",
+            "source_type": "official_agency",
             "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
@@ -3022,18 +2987,20 @@
       {
         "prerequisite": "division_of_labor",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Division of Labor provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Arkwright-style factories transformed work into coordinated machine tending, shifts, and disciplined labor inside large mills.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Factory system",
-            "url": "https://en.wikipedia.org/wiki/Factory_system",
-            "publisher": "Wikipedia",
-            "year": 2026,
+            "title": "Richard Arkwright",
+            "url": "https://www.scienceandindustrymuseum.org.uk/objects-and-stories/richard-arkwright",
+            "publisher": "Science and Industry Museum",
+            "year": 2019,
             "source_type": "review",
             "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
@@ -3042,11 +3009,33 @@
     ],
     "sources": [
       {
-        "title": "Factory system",
-        "url": "https://en.wikipedia.org/wiki/Factory_system",
-        "publisher": "Wikipedia",
+        "title": "Derwent Valley Mills",
+        "url": "https://whc.unesco.org/en/list/1030/",
+        "publisher": "UNESCO World Heritage Centre",
         "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Richard Arkwright",
+        "url": "https://www.scienceandindustrymuseum.org.uk/objects-and-stories/richard-arkwright",
+        "publisher": "Science and Industry Museum",
+        "year": 2019,
         "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Sir Richard Arkwright",
+        "url": "https://www.britannica.com/biography/Richard-Arkwright",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
           "node",
           "maturity"

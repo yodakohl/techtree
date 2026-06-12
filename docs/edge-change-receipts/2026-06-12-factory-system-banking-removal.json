@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-factory-system-banking-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "factory_system",
+    "prerequisite": "banking"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Banking provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the inspected sources explain the factory system through powered textile machinery, waterpower, labor organization, and later steam scaling rather than banking.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/list/1030/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO Outstanding Universal Value describes the factory system through Arkwright's water-powered cotton mills and industrial settlements.",
+    "source_claim_summary": "UNESCO frames the factory system as a water-powered cotton-mill and industrial-settlement development, not a banking dependency.",
+    "source_support_rationale": "The source provides a concrete technology and organization lineage, making a direct banking prerequisite unsupported for this node."
+  },
+  "ontology_before": "The graph treated banking as a direct prerequisite for the factory system based on weak generic inference.",
+  "ontology_after": "The graph removes the banking edge; finance remains relevant to industrial capitalism but not as a direct technology dependency here.",
+  "invariant_preserved_or_changed": "Changed: direct factory_system -> banking edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to industrial-capital financing systems rather than factory production.",
+    "A stronger source showed banking was a direct prerequisite for the Cromford/Derwent Valley factory-system technology."
+  ],
+  "short_reason": "Banking is context, not a direct factory-system prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/factory_system.before.json /tmp/factory_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
