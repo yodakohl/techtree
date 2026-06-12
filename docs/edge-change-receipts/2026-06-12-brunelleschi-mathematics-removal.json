@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-brunelleschi-mathematics-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "renaissance_architecture_brunelleschi",
+    "prerequisite": "mathematics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mathematics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the more specific geometry edge now carries the source-backed design-method relationship for Brunelleschi's dome and architecture.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/the-Duomo",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica details geometric/structural methods for the dome, including ribs, rings, curvature, and measuring wires, rather than a broad mathematics dependency.",
+    "source_claim_summary": "The source supports a specific geometry/design-method edge but does not require a separate broad mathematics edge.",
+    "source_support_rationale": "Removing the duplicate mathematics edge keeps the graph more compact and precise because geometry already sits under mathematics elsewhere in the graph."
+  },
+  "ontology_before": "The graph had both geometry and broad mathematics as direct prerequisites, duplicating the same causal channel.",
+  "ontology_after": "The graph keeps the specific geometry edge and relies on geometry's own prerequisites for broader mathematical lineage.",
+  "invariant_preserved_or_changed": "Changed: direct renaissance_architecture_brunelleschi -> mathematics edge removed.",
+  "would_reject_if": [
+    "The geometry prerequisite is removed from the scoped node.",
+    "A source demonstrates a distinct non-geometric mathematical dependency for Brunelleschi's architecture."
+  ],
+  "short_reason": "The broad mathematics edge duplicated the more precise geometry dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

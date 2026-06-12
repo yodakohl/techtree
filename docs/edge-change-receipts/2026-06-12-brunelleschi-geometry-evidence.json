@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-brunelleschi-geometry-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "renaissance_architecture_brunelleschi",
+    "prerequisite": "geometry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Geometry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Brunelleschi's dome depended on geometric control of ribs, rings, curvature, and measuring wires, but geometry is an enabling design method rather than the whole architectural technology."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/the-Duomo",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Britannica description of Brunelleschi's dome explains the ribs, tie rings, shells, curvature, and measuring wires used to maintain the structure's geometry.",
+    "source_claim_summary": "The dome's construction used explicit geometric control of the ribs, rings, and curvature, making geometry an enabling method.",
+    "source_support_rationale": "This supports an enabling edge because the source ties geometric layout/control to Brunelleschi's dome without claiming geometry alone constitutes Renaissance architecture."
+  },
+  "invariant_preserved_or_changed": "Preserved edge type: geometry remains enabling but is now source-checked.",
+  "would_reject_if": [
+    "The node is rescoped away from Brunelleschi's dome and early Florentine architecture.",
+    "Geometry is modeled as a hard required prerequisite for all Renaissance architecture."
+  ],
+  "short_reason": "Geometry stays as an enabling method, now backed by a source-specific dome description.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

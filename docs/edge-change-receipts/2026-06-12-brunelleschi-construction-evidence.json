@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-brunelleschi-construction-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "renaissance_architecture_brunelleschi",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "The scoped technology is built architecture: Brunelleschi directed construction at the Ospedale degli Innocenti and the cathedral dome worksite, so prior monumental/civic construction practice is enabling infrastructure."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Museo degli Innocenti states that the Ospedale was built beginning in 1419 and that Brunelleschi directed its construction site from 1419 to 1427.",
+    "source_claim_summary": "Brunelleschi's early Renaissance architecture was realized through directed building construction at the Ospedale degli Innocenti.",
+    "source_support_rationale": "This backs construction as enabling infrastructure for the built works while avoiding a stronger claim that classical monumental construction is the only route to Renaissance architectural design."
+  },
+  "invariant_preserved_or_changed": "Preserved edge type: construction remains enabling but is now source-checked.",
+  "would_reject_if": [
+    "The node is narrowed to unbuilt architectural theory only.",
+    "Construction is promoted to required without distinguishing generic building practice from classical monumental construction."
+  ],
+  "short_reason": "Construction is an enabling infrastructure edge for Brunelleschi's built architectural works.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-06-12-star-fort-scope",
+  "description": "Prevent star_fort_trace_italienne from depending on Brunelleschi architecture; its direct prerequisites should remain artillery/geometry/construction oriented until the node is separately source-checked.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "star_fort_trace_italienne",
+      "prerequisite": "renaissance_architecture_brunelleschi",
+      "reason": "Trace italienne/star-fort fortification should not depend directly on Brunelleschi's Florentine architecture."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "star_fort_trace_italienne",
+      "prerequisite": "cannons",
+      "reason": "The scoped fortification form is modeled as a response to cannon/artillery pressure."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "star_fort_trace_italienne",
+      "prerequisite": "geometry",
+      "reason": "The scoped fortification form depends on geometric bastion layout."
+    }
+  ]
+}

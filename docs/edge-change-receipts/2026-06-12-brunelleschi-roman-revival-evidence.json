@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-brunelleschi-roman-revival-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "renaissance_architecture_brunelleschi",
+    "prerequisite": "roman_architecture_revival"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Roman Architecture Revival provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Brunelleschi's Florentine architecture recovered classical elements, and his dome solution drew on study of the Pantheon; Roman architectural revival is therefore an enabling lineage, not a hard component prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Museo degli Innocenti describes Brunelleschi's use of columns, capitals, arches, vaults, and recovery of classical elements as anticipating Florentine Renaissance architecture.",
+    "source_claim_summary": "The Ospedale project connects Brunelleschi's architectural language to recovered classical elements and Florentine Renaissance architecture.",
+    "source_support_rationale": "This supports Roman/classical revival as an enabling lineage while leaving the edge non-required because the source frames a stylistic/historical relationship, not a material component."
+  },
+  "invariant_preserved_or_changed": "Preserved edge type: roman_architecture_revival remains enabling but is now source-checked.",
+  "would_reject_if": [
+    "The node is rescoped to a purely Gothic continuation with no classical-revival content.",
+    "The edge is used to imply Roman concrete or Roman buildings were direct physical prerequisites for Brunelleschi."
+  ],
+  "short_reason": "Roman/classical revival is a sourced lineage for Brunelleschi's architectural language.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

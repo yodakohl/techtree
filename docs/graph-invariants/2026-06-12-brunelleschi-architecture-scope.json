@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-12-brunelleschi-architecture-scope",
+  "description": "Lock renaissance_architecture_brunelleschi to Brunelleschi's early Florentine built architecture, anchored by the 1419 Ospedale degli Innocenti commission and the 1420-1436 cathedral dome.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "renaissance_architecture_brunelleschi",
+      "operator": "eq",
+      "value": 1419,
+      "reason": "The scoped node begins with Brunelleschi's Ospedale degli Innocenti commission and construction direction from 1419."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "renaissance_architecture_brunelleschi",
+      "prerequisite": "geometry",
+      "expected": "enabling",
+      "reason": "Geometry is a design/control method for the dome and architectural order, not the whole technology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "renaissance_architecture_brunelleschi",
+      "prerequisite": "construction",
+      "expected": "enabling",
+      "reason": "Construction practice enables Brunelleschi's built architecture without making classical monumental construction a universal hard prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "renaissance_architecture_brunelleschi",
+      "prerequisite": "roman_architecture_revival",
+      "expected": "enabling",
+      "reason": "Classical/Roman revival is a historical and stylistic lineage for Brunelleschi, not a physical component."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "renaissance_architecture_brunelleschi",
+      "prerequisite": "humanism",
+      "reason": "Humanism is wider cultural context, not a direct technical prerequisite for this scoped built-architecture node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "renaissance_architecture_brunelleschi",
+      "prerequisite": "mathematics",
+      "reason": "The broad mathematics relationship is represented through the more specific geometry edge."
+    }
+  ]
+}
