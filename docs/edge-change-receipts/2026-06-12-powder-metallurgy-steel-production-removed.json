@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-12-powder-metallurgy-steel-production-removed",
+  "decision_date": "2026-06-12",
+  "edge": {
+    "dependent": "powder_metallurgy",
+    "prerequisite": "steel_production"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Steel Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from powder_metallurgy to steel_production. The corrected node is scoped to industrial metal-powder compaction and sintering, anchored to platinum-powder consolidation rather than steelmaking.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.bibliovault.org/BV.landing.epl?ISBN=9780226245874",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "BiblioVault table of contents for Pure Intelligence, Prologue and Chapter 4 summaries: Wollaston's first successful consolidation of powdered platinum into a malleable solid in April 1801; Chapter 4 notes compression of spongy platinum powder into a malleable ingot.",
+    "source_claim_summary": "The source places the corrected early industrial powder-metallurgy anchor in Wollaston's platinum-powder consolidation, not steelmaking.",
+    "source_support_rationale": "Because the dependent node is broad powder metallurgy, a steel edge would incorrectly narrow the causal model to one later material family and contradict the platinum-based anchor."
+  },
+  "ontology_before": "Powder metallurgy was modeled as a Modern 1889 node with steel production as an enabling prerequisite, despite only a Wikipedia source.",
+  "ontology_after": "Powder metallurgy is scoped to industrial compact/sinter powder processing anchored to Wollaston's 1801 platinum-powder consolidation, with steel production absent because steel is an application material rather than a prerequisite for the field.",
+  "invariant_preserved_or_changed": "Changed: powder_metallurgy is Industrial, firstKnownDate 1801, and has no direct steel_production prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to iron or steel powder-metallurgy parts only.",
+    "A source showed that the first compact-and-sinter powder metallurgy process required steel production.",
+    "A future node split introduced a separate steel powder-metallurgy manufacturing node with its own specific steel-production dependency."
+  ],
+  "short_reason": "The sourced early powder-metallurgy anchor is platinum powder consolidation, so steel production is not a prerequisite for the broad node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/powder_metallurgy.before.json /tmp/powder_metallurgy.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
