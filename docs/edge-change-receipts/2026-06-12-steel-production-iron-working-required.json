@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-steel-production-iron-working-required",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "steel_production",
+    "prerequisite": "iron_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Iron Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "Steel production requires prior ironworking because steel is an iron-carbon alloy made from iron feedstocks."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/steel",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Britannica steel article introduction and 'How iron is turned into steel' media text define steel as an iron-carbon alloy and describe iron ore as a primary input for steel production.",
+    "source_claim_summary": "Steel is an alloy of iron and carbon; iron is a base input for steel production.",
+    "source_support_rationale": "The source supports ironworking as a direct material prerequisite for steel production, rather than merely contextual enabling background."
+  },
+  "ontology_before": "The graph treated iron working as a generic enabling background for steel production.",
+  "ontology_after": "The graph treats iron working as a required material prerequisite because steel production operates on iron feedstocks.",
+  "invariant_preserved_or_changed": "Changed: steel_production -> iron_working is required and source-backed.",
+  "would_reject_if": [
+    "The node were rescoped to steel trade, recycling-only scrap sorting, or a non-production use of steel.",
+    "A stronger ontology split represented raw iron feedstock separately from iron_working."
+  ],
+  "short_reason": "Steel production requires iron feedstocks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/steel_production.before.json /tmp/steel_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

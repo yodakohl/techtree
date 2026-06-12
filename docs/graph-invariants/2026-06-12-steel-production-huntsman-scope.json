@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-12-steel-production-huntsman-scope",
+  "description": "Lock steel_production to established crucible/cast-steel production beginning in the 1740s, not low-cost bulk structural steel or generic metallurgy.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "steel_production",
+      "operator": "eq",
+      "value": 1740,
+      "reason": "The node is anchored to Huntsman's 1740s crucible/cast-steel process, with Bessemer/open-hearth bulk steel represented downstream."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "steel_production",
+      "prerequisite": "iron_working",
+      "expected": "required",
+      "reason": "Steel production requires iron feedstocks because steel is an iron-carbon alloy."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "steel_production",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "expected": "historical_predecessor",
+      "reason": "Earlier iron and steelmaking craft is the historical lineage for industrial crucible steel, not a hard universal component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "steel_production",
+      "prerequisite": "blast_furnace",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Blast furnaces supply pig iron and scaling infrastructure but are not the defining invention of Huntsman's crucible steel."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "steel_production",
+      "prerequisite": "steam_engine",
+      "reason": "Steam power is later scaling context and is not sourced as a direct prerequisite for 1740s crucible/cast-steel production."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "steel_production",
+      "prerequisite": "advanced_chemistry",
+      "reason": "Modern chemistry explains later metallurgy but is not a direct prerequisite for the scoped early industrial steel-production capability."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-steel-production-advanced-chemistry-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "steel_production",
+    "prerequisite": "advanced_chemistry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped 1740s crucible/cast-steel process was craft metallurgy before modern chemistry explained steel composition; chemistry is important to later metallurgical science but not a direct prerequisite here.",
+  "source_supports_edge": "no",
+  "source_url": "https://worldsteel.org/about-steel/steel-story/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "World Steel Association notes Iron Age and early steelmakers did not understand steel chemistry and later explains Huntsman's 1740 crucible technique through cementation bars, crucibles, heat, and casting.",
+    "source_claim_summary": "Early and crucible steelmaking existed as craft metallurgy before modern scientific understanding of steel chemistry.",
+    "source_support_rationale": "The source supports removing advanced chemistry as a direct prerequisite for this early industrial steel-production scope."
+  },
+  "ontology_before": "The graph made steel production depend directly on advanced chemistry by broad inference.",
+  "ontology_after": "The graph removes the broad chemistry prerequisite and leaves steel production anchored in ironworking, metallurgy lineage, and blast-furnace scaling.",
+  "invariant_preserved_or_changed": "Changed: direct steel_production -> advanced_chemistry edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to modern alloy design or physical metallurgy rather than steel production.",
+    "A stronger source showed Huntsman's crucible production required advanced chemistry as a direct capability."
+  ],
+  "short_reason": "Advanced chemistry is later explanatory science, not a direct prerequisite for 1740s crucible steel.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/steel_production.before.json /tmp/steel_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

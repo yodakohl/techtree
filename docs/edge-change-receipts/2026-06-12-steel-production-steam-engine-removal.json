@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-steel-production-steam-engine-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "steel_production",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Steam Engine supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct dependency remains because Huntsman's 1740s crucible/cast-steel process predates steam-powered steel scaling and the inspected sources describe steam as later industrial context rather than a direct prerequisite for steel production.",
+  "source_supports_edge": "no",
+  "source_url": "https://worldsteel.org/about-steel/steel-story/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "World Steel Association describes Huntsman's 1740 crucible technique separately from later 'From trees to steam' and mass-production developments.",
+    "source_claim_summary": "Crucible steel was established before steam is presented as industrial scaling context.",
+    "source_support_rationale": "The source anchors steel production in a 1740 crucible process, making steam power unsupported as a direct prerequisite for this scoped node."
+  },
+  "ontology_before": "The graph made steel production depend directly on steam-engine scaling by generic inference.",
+  "ontology_after": "The graph removes steam_engine as a direct prerequisite for the scoped early industrial steel-production capability.",
+  "invariant_preserved_or_changed": "Changed: direct steel_production -> steam_engine edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to steam-powered integrated steelworks rather than established steel production.",
+    "A stronger source showed Huntsman's crucible production directly required steam engines."
+  ],
+  "short_reason": "Steam is later scaling context, not a direct steel-production prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/steel_production.before.json /tmp/steel_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
