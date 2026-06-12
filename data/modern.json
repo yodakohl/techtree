@@ -29345,11 +29345,10 @@
     "id": "risc_microprocessors",
     "name": "RISC Microprocessors",
     "era": "Modern",
-    "description": "Processor architectures using simplified instruction sets, pipelining, and compiler support for high-performance chips.",
+    "description": "VLSI microprocessor implementations of reduced-instruction-set computer architectures, anchored to the Berkeley RISC-I chip and later commercial RISC families.",
     "prerequisites": [
       "microprocessors_cpu_on_a_chip",
-      "algorithms_computation_theory",
-      "integrated_circuits"
+      "vlsi_design"
     ],
     "fields": [
       "Semiconductors & Integrated Circuits"
@@ -29358,85 +29357,82 @@
       "Semiconductors & Integrated Circuits": "Processors & Architectures"
     },
     "maturity": "established",
+    "scopeNote": "Covers RISC microprocessor implementations, anchored to the Berkeley RISC-I VLSI chip received in 1981. It does not represent the earlier IBM 801 architecture work alone, general compiler theory, or all later RISC ISA families.",
     "sources": [
+      {
+        "title": "First RISC (Reduced Instruction-Set Computing) Microprocessor 1980-1982",
+        "url": "https://ethw.org/Milestones%3AFirst_RISC_%28Reduced_Instruction-Set_Computing%29_Microprocessor_1980-1982",
+        "publisher": "IEEE Engineering and Technology History Wiki",
+        "year": 2026,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Case for the Reduced Instruction Set Computer",
+        "url": "https://people.eecs.berkeley.edu/~kubitron/courses/cs252-F00/handouts/papers/patterson80.pdf",
+        "publisher": "ACM SIGARCH Computer Architecture News",
+        "year": 1980,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "RISC",
         "url": "https://www.ibm.com/history/risc",
         "publisher": "IBM",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "museum",
         "supports": [
           "node",
           "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1980,
+    "firstKnownDate": 1981,
     "datePrecision": "exact",
-    "region": "United States / IBM 801 prototype",
+    "region": "Berkeley, California, United States; later global RISC processor industry",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "microprocessors_cpu_on_a_chip",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "RISC-I was a single-chip VLSI processor in a lineage after earlier CPU-on-a-chip microprocessors; the prior microprocessor category is historical substrate, not the distinctive RISC method.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "RISC",
-            "url": "https://www.ibm.com/history/risc",
-            "publisher": "IBM",
+            "title": "First RISC (Reduced Instruction-Set Computing) Microprocessor 1980-1982",
+            "url": "https://ethw.org/Milestones%3AFirst_RISC_%28Reduced_Instruction-Set_Computing%29_Microprocessor_1980-1982",
+            "publisher": "IEEE Engineering and Technology History Wiki",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "review",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }
         ]
       },
       {
-        "prerequisite": "algorithms_computation_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "RISC",
-            "url": "https://www.ibm.com/history/risc",
-            "publisher": "IBM",
-            "year": 2026,
-            "source_type": "generic_overview",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "integrated_circuits",
+        "prerequisite": "vlsi_design",
         "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Integrated Circuits (Microchips) is modeled as a necessary component or method for this technology in the current graph.",
+        "confidence": 0.88,
+        "evidence_level": "review",
+        "note": "The scoped first RISC microprocessor was a VLSI reduced-instruction-set processor chip fabricated through MOSIS, so VLSI design is the direct implementation prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "RISC",
-            "url": "https://www.ibm.com/history/risc",
-            "publisher": "IBM",
+            "title": "First RISC (Reduced Instruction-Set Computing) Microprocessor 1980-1982",
+            "url": "https://ethw.org/Milestones%3AFirst_RISC_%28Reduced_Instruction-Set_Computing%29_Microprocessor_1980-1982",
+            "publisher": "IEEE Engineering and Technology History Wiki",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "review",
             "supports": [
-              "node",
-              "maturity",
               "edge"
             ]
           }

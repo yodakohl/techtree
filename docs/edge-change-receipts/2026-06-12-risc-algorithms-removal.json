@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-risc-algorithms-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "risc_microprocessors",
+    "prerequisite": "algorithms_computation_theory"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped technology is a VLSI RISC microprocessor implementation; compiler behavior and instruction-set design matter, but broad algorithms/computation theory is too generic as a direct edge.",
+  "source_supports_edge": "no",
+  "source_url": "https://ethw.org/Milestones%3AFirst_RISC_%28Reduced_Instruction-Set_Computing%29_Microprocessor_1980-1982",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "IEEE ETHW describes Berkeley RISC-I around simplified instructions, VLSI processor design, registers, pipelined execution, C programs, and Unix, but not broad algorithms theory as a direct prerequisite.",
+    "source_claim_summary": "The source supports compiler-aware processor design rather than a generic algorithms/computation-theory dependency.",
+    "source_support_rationale": "This supports removing the broad edge because the graph lacks a source-checked compiler-specific prerequisite here, and algorithms_computation_theory overstates the direct causal boundary."
+  },
+  "ontology_before": "The graph used broad algorithms/computation theory as a direct RISC prerequisite.",
+  "ontology_after": "The graph models RISC microprocessors through microprocessor lineage and VLSI implementation rather than generic theory.",
+  "invariant_preserved_or_changed": "Changed: direct risc_microprocessors -> algorithms_computation_theory edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to RISC compiler research rather than RISC microprocessor implementation.",
+    "A stronger source showed broad algorithms/computation theory was a direct prerequisite for Berkeley RISC-I rather than background computer science."
+  ],
+  "short_reason": "Algorithms theory is too broad for the scoped RISC microprocessor implementation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/risc_microprocessors.before.json /tmp/risc_microprocessors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
