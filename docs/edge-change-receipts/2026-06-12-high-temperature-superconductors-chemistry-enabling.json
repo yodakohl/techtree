@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-high-temperature-superconductors-chemistry-enabling",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "superconductors_high_temp",
+    "prerequisite": "advanced_chemistry"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Advanced Chemistry is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "primary_source",
+    "note": "The original Ba-La-Cu-O work depended on prepared mixed oxide ceramic compositions and processing, which is chemistry/materials synthesis evidence rather than a generic forecast edge."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://link.springer.com/article/10.1007/BF01303701",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract describes prepared Ba-La-Cu-O compounds in polycrystalline form and superconducting onset behavior.",
+    "source_claim_summary": "The first high-Tc report involved synthesized mixed oxide compositions.",
+    "source_support_rationale": "The primary paper supports chemistry/material synthesis as enabling the material discovery."
+  },
+  "ontology_before": "The graph treated chemistry as a speculative future dependency.",
+  "ontology_after": "The graph treats chemistry as enabling synthesis for the established high-Tc material class.",
+  "invariant_preserved_or_changed": "Changed: superconductors_high_temp -> advanced_chemistry is enabling.",
+  "would_reject_if": [
+    "The node were narrowed to theory-only high-Tc superconductivity.",
+    "A more specific ceramic oxide synthesis node is added and this edge is rewired."
+  ],
+  "short_reason": "The first high-Tc materials were synthesized mixed oxides.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

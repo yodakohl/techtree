@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-nanotechnology-electronics-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "nanotechnology",
+    "prerequisite": "electronics"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Electronics is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct dependency remains because electronics is too broad and is not required for nanotechnology as an established interdisciplinary nanoscale field.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nano.gov/about-nanotechnology/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NNI overview describes nanotechnology as nanoscale science and engineering across many domains, not as an electronics-dependent field.",
+    "source_claim_summary": "Nanotechnology spans physical, chemical, biological, and engineering domains at the nanoscale.",
+    "source_support_rationale": "The source does not support electronics as a direct prerequisite for the whole field."
+  },
+  "ontology_before": "The graph overfit broad nanotechnology to an electronics-like forecast lineage.",
+  "ontology_after": "Electronics can remain a downstream application or neighboring domain, but not a direct prerequisite for the whole field.",
+  "invariant_preserved_or_changed": "Changed: direct nanotechnology -> electronics edge removed.",
+  "would_reject_if": [
+    "The node were narrowed to nanoelectronics specifically.",
+    "A source showed all scoped nanotechnology in this graph is electronic-device nanofabrication."
+  ],
+  "short_reason": "Nanotechnology is broader than electronics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

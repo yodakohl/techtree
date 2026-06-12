@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-nanotechnology-molecular-biology-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "nanotechnology",
+    "prerequisite": "molecular_biology"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Molecular Biology is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct dependency remains because molecular biology is an important intersection/application area but is not required for nanotechnology as a broad established field.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nano.gov/about-nanotechnology/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NNI overview describes nanotechnology across physical, chemical, biological, and engineering properties.",
+    "source_claim_summary": "Biological properties are part of the field's scope, not a prerequisite for every nanotechnology lineage.",
+    "source_support_rationale": "The source supports biology as a domain of application, not as a hard or direct prerequisite."
+  },
+  "ontology_before": "The graph made molecular biology look like a direct prerequisite for all nanotechnology.",
+  "ontology_after": "Molecular biology remains relevant to nanomedicine and bio-nano applications, but not to the broad field node.",
+  "invariant_preserved_or_changed": "Changed: direct nanotechnology -> molecular_biology edge removed.",
+  "would_reject_if": [
+    "The node were narrowed to bionanotechnology or nanomedicine.",
+    "A future split moves this dependency to a narrower biological nanotechnology node."
+  ],
+  "short_reason": "Molecular biology is not required for the whole nanotechnology field.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

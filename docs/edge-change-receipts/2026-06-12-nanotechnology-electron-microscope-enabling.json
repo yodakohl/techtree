@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-nanotechnology-electron-microscope-enabling",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "nanotechnology",
+    "prerequisite": "electron_microscope"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "The previous graph used a generic microscope edge for a 2035 forecast nanotechnology node."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "High-resolution electron and scanning tunneling microscopy made atom-scale structure visible and measurable, enabling nanoscale science without being the only instrument path."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/physics/1986/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Press release sections on electron microscopy and scanning tunneling microscopy resolving surfaces and individual atoms.",
+    "source_claim_summary": "Electron and scanning tunneling microscopy opened atomic-scale structural study.",
+    "source_support_rationale": "The source supports a specific enabling instrumentation edge, replacing an overbroad generic microscope dependency."
+  },
+  "ontology_before": "The graph used a generic microscope prerequisite on a forecast node.",
+  "ontology_after": "The graph uses electron_microscope as a specific enabling technology for the established nanoscale field.",
+  "invariant_preserved_or_changed": "Changed: generic microscope edge removed; electron_microscope edge added as enabling.",
+  "would_reject_if": [
+    "A later split models scanning tunneling microscopy as its own node and rewires the edge there.",
+    "The node were narrowed to non-instrumental policy coordination only."
+  ],
+  "short_reason": "Use the specific nanoscale-enabling instrument family instead of a generic microscope edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

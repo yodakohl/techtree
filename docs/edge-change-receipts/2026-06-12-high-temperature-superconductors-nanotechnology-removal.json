@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-high-temperature-superconductors-nanotechnology-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "superconductors_high_temp",
+    "prerequisite": "nanotechnology"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Nanotechnology is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct dependency remains because high-temperature superconductors were discovered in 1986 through solid-state oxide materials research, not through nanotechnology as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nobelprize.org/prizes/physics/1987/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Press release describes the 1986 oxide-material discovery and prior superconductivity lineage without nanotechnology as a prerequisite.",
+    "source_claim_summary": "High-Tc superconductivity was discovered in barium-doped lanthanum-copper-oxide ceramic material.",
+    "source_support_rationale": "The source supports solid-state materials and chemistry lineage, not a nanotechnology prerequisite."
+  },
+  "ontology_before": "The graph made an established 1986 material class depend on a broad nanotechnology forecast node.",
+  "ontology_after": "The graph removes the false nanotechnology prerequisite and uses materials/chemistry/superconductivity lineage instead.",
+  "invariant_preserved_or_changed": "Changed: direct superconductors_high_temp -> nanotechnology edge removed.",
+  "would_reject_if": [
+    "The node were narrowed to future nanoscale-engineered superconductors rather than established high-Tc materials.",
+    "A source showed the 1986 Ba-La-Cu-O discovery depended on nanotechnology as a field."
+  ],
+  "short_reason": "High-Tc superconductors predate and do not require nanotechnology as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
