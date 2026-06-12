@@ -3593,8 +3593,8 @@
         ]
       },
       {
-        "title": "The Steel Story",
-        "url": "https://worldsteel.org/about-steel/steel-story/",
+        "title": "The White Book of Steel",
+        "url": "https://worldsteel.org/wp-content/uploads/The-white-book-of-steel.pdf",
         "publisher": "World Steel Association",
         "year": 2026,
         "source_type": "review",
@@ -3638,8 +3638,8 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Steel Story",
-            "url": "https://worldsteel.org/about-steel/steel-story/",
+            "title": "The White Book of Steel",
+            "url": "https://worldsteel.org/wp-content/uploads/The-white-book-of-steel.pdf",
             "publisher": "World Steel Association",
             "year": 2026,
             "source_type": "review",
@@ -13731,11 +13731,9 @@
     "id": "aluminum_smelting",
     "name": "Aluminum Smelting",
     "era": "Industrial",
-    "description": "Electrolytic production of aluminum metal from alumina, enabling lightweight corrosion-resistant structures, vehicles, packaging, and conductors.",
+    "description": "Industrial primary aluminum smelting operations using Hall-Héroult electrolytic cells to reduce alumina dissolved in molten cryolite into aluminum metal at commercial scale.",
     "prerequisites": [
-      "electricity",
-      "advanced_chemistry",
-      "advanced_metallurgy_medieval"
+      "aluminum_production_hall_heroult"
     ],
     "fields": [
       "Materials Science & Manufacturing"
@@ -13744,57 +13742,66 @@
       "Materials Science & Manufacturing": "Metals & Alloys"
     },
     "maturity": "established",
+    "scopeNote": "Covers commercial primary aluminum smelting based on Hall-Héroult electrolytic reduction, anchored to the Pittsburgh Reduction Company's 1888 pilot production. It does not represent the 1886 laboratory discovery itself, which is modeled by aluminum_production_hall_heroult, or later recycling/remelting operations.",
     "sources": [
       {
-        "title": "Materials",
-        "url": "https://www.nist.gov/materials",
-        "publisher": "NIST",
+        "title": "Production of Aluminum: The Hall-Héroult Process",
+        "url": "https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html",
+        "publisher": "American Chemical Society",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
         ]
       },
       {
-        "title": "Aluminium",
-        "url": "https://en.wikipedia.org/wiki/Aluminium",
-        "publisher": "Wikipedia",
+        "title": "Primary Production 101",
+        "url": "https://www.aluminum.org/primary-production-101",
+        "publisher": "The Aluminum Association",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Hall Process",
+        "url": "https://pittsburghacs.org/about/acs-archives/hall-process/",
+        "publisher": "Pittsburgh Section of the American Chemical Society",
         "year": 2026,
         "source_type": "review",
         "supports": [
-          "node"
+          "node",
+          "maturity"
         ]
       }
     ],
-    "firstKnownDate": 1886,
+    "firstKnownDate": 1888,
     "datePrecision": "exact",
-    "region": "Europe, North America, and industrializing regions",
+    "region": "Pittsburgh, Pennsylvania, United States; later global primary aluminum smelters",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "electricity",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electricity provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "advanced_chemistry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "advanced_metallurgy_medieval",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "aluminum_production_hall_heroult",
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "review",
+        "note": "Primary aluminum smelting at this scope is the commercial operation of Hall-Héroult electrolytic reduction cells, so the Hall-Héroult process is the defining required method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Primary Production 101",
+            "url": "https://www.aluminum.org/primary-production-101",
+            "publisher": "The Aluminum Association",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-aluminum-smelting-advanced-chemistry-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "aluminum_smelting",
+    "prerequisite": "advanced_chemistry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the electrochemical and alumina/cryolite chemistry relationship is represented through the canonical aluminum_production_hall_heroult process node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ACS Hall-Héroult landmark describes aluminum metal production by electrochemistry: alumina dissolved in molten cryolite and reduced by electric current.",
+    "source_claim_summary": "The relevant chemistry and electrochemistry belong inside the Hall-Héroult process, not as a separate direct edge on industrial smelting.",
+    "source_support_rationale": "This supports removing the broad advanced_chemistry edge because the active smelting node now depends directly on the process node that already carries the chemical method."
+  },
+  "ontology_before": "The graph duplicated the chemistry relationship on both the process-like aluminum_smelting node and the canonical Hall-Héroult process node.",
+  "ontology_after": "The graph routes the chemistry relationship through aluminum_production_hall_heroult and keeps aluminum_smelting as the industrial operation layer.",
+  "invariant_preserved_or_changed": "Changed: direct aluminum_smelting -> advanced_chemistry edge removed.",
+  "would_reject_if": [
+    "The Hall-Héroult process node stops representing the electrochemical reduction method.",
+    "A more specific alumina-cryolite-electrolyte node is added and becomes the direct prerequisite."
+  ],
+  "short_reason": "The broad chemistry edge duplicated the process node's electrochemical mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
