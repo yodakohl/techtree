@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-clay-accounting-tokens-record-keeping-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "clay_accounting_tokens",
+    "prerequisite": "record_keeping"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from record_keeping to clay_accounting_tokens. The scoped clay-token system is itself a record-keeping/counting medium, so a broad record-keeping node would be tautological rather than a source-backed predecessor.",
+  "source_supports_edge": "no",
+  "source_url": "https://sites.utexas.edu/dsb/tokens/from-accounting-to-writing/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Before Writing: Accounting with Tokens section: describes clay tokens as the accounting system used to count and account for goods.",
+    "source_claim_summary": "The source treats clay tokens as an accounting method, not as a technology downstream of a separate record-keeping technology.",
+    "source_support_rationale": "Keeping record_keeping as a direct prerequisite would collapse parent category and implementation."
+  },
+  "ontology_before": "The graph treated broad record keeping as a historical predecessor of the clay-token record-keeping implementation.",
+  "ontology_after": "The graph avoids a tautological parent-category prerequisite on the clay-token implementation.",
+  "invariant_preserved_or_changed": "Changed: record_keeping is absent as a direct prerequisite for clay_accounting_tokens.",
+  "would_reject_if": [
+    "The record_keeping node were split into a narrower pre-token counting medium that source-evidently preceded clay tokens.",
+    "A source established a distinct earlier record-keeping system as a direct predecessor of Near Eastern clay tokens."
+  ],
+  "short_reason": "Broad record keeping is the category, not a direct prerequisite for clay accounting tokens.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clay_accounting_tokens.before.json /tmp/clay_accounting_tokens.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

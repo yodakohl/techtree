@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-12-clay-accounting-tokens-clay-preparation-replaces-pottery",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "replaced_edge": {
+    "dependent": "clay_accounting_tokens",
+    "prerequisite": "pottery"
+  },
+  "edge": {
+    "dependent": "clay_accounting_tokens",
+    "prerequisite": "clay_gathering_and_preparation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "The scoped counters are shaped clay tokens; prepared clay is the direct material prerequisite, while fired pottery vessel production is not required."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/books/abs/archaeology-of-measurement/token-system-of-the-ancient-near-east-its-role-in-counting-writing-the-economy-and-cognition/0AB9E89E74F94FE95F53F145F59CCA59",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Chapter summary: describes a system of counters, clay tokens, used in the prehistoric Near East from 7500-3100 BC.",
+    "source_claim_summary": "The source identifies the represented accounting counters as clay tokens.",
+    "source_support_rationale": "Because the scoped artifacts are shaped clay counters, prepared clay is the direct material prerequisite; pottery vessel manufacture is over-specific context."
+  },
+  "ontology_before": "The graph routed clay accounting tokens through pottery, implying fired ceramic vessel production was the relevant material capability.",
+  "ontology_after": "The graph routes clay accounting tokens through clay preparation as the direct material prerequisite.",
+  "invariant_preserved_or_changed": "Changed: clay_gathering_and_preparation is required and pottery is absent.",
+  "would_reject_if": [
+    "The node were rescoped to ceramic accounting vessels rather than shaped tokens.",
+    "A source showed fired pottery manufacture, not prepared clay, was necessary for the scoped tokens."
+  ],
+  "short_reason": "Clay accounting tokens require shaped clay, not pottery vessels.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clay_accounting_tokens.before.json /tmp/clay_accounting_tokens.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

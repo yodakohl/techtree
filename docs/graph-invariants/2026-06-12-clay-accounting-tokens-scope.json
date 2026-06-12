@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-12-clay-accounting-tokens-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "clay_accounting_tokens",
+      "operator": "eq",
+      "value": -7500,
+      "reason": "The node is scoped to the Near Eastern clay-token counting/accounting tradition described as 7500-3100 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "clay_accounting_tokens",
+      "prerequisite": "clay_gathering_and_preparation",
+      "expected": "required",
+      "reason": "The scoped artifacts are shaped clay tokens."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "clay_accounting_tokens",
+      "prerequisite": "pottery",
+      "reason": "Fired pottery vessels are not the direct material prerequisite for shaped clay counters."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "clay_accounting_tokens",
+      "prerequisite": "record_keeping",
+      "reason": "Broad record keeping is the category implemented by clay tokens, not a separate direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "clay_accounting_tokens",
+      "prerequisite": "standardized_weights_and_measures",
+      "reason": "The scoped token system predates the source-checked standardized weights node."
+    }
+  ]
+}
