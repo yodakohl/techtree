@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-roman-architecture-perspective-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "roman_architecture_revival",
+    "prerequisite": "perspective_in_art"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Perspective in Art provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from roman_architecture_revival to perspective_in_art. Perspective is adjacent Renaissance visual culture, but the scoped node is the architectural recovery of classical elements.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Museo degli Innocenti, Architecture page: the source anchors the node in Brunelleschi's 1419 building project and recovery of classical elements, not linear perspective as a prerequisite.",
+    "source_claim_summary": "The source supports an architectural-language claim and does not make perspective in art a direct dependency of Roman architectural revival.",
+    "source_support_rationale": "Removing the edge prevents a sibling Renaissance visual method from being modeled as a prerequisite for classical architectural revival."
+  },
+  "ontology_before": "The node implied perspective in art enabled Roman architectural revival.",
+  "ontology_after": "The node is scoped to architectural recovery of classical forms; perspective remains available elsewhere in the graph without a direct edge here.",
+  "invariant_preserved_or_changed": "Changed topology: perspective_in_art is absent from the node.",
+  "would_reject_if": [
+    "The node were narrowed to Brunelleschi's optical perspective experiments rather than architectural revival.",
+    "A stronger source showed perspective was a direct prerequisite for recovering classical Roman architectural vocabulary."
+  ],
+  "short_reason": "Perspective is adjacent Renaissance visual culture, not a direct prerequisite for this node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

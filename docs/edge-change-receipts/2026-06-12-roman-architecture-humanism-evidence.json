@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-roman-architecture-humanism-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "roman_architecture_revival",
+    "prerequisite": "humanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Humanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Florentine humanist recovery of classical antiquity supplied cultural and intellectual context for the architectural return to classical elements, without being a physical construction prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Museo degli Innocenti, Architecture page: the Ospedale project recovered classical elements and later fifteenth-century work in the same complex is described as an expression of Florentine Humanism.",
+    "source_claim_summary": "The source ties the Brunelleschian project to recovered classical elements and places the complex within Florentine Humanist artistic culture.",
+    "source_support_rationale": "This supports humanism as broad enabling context only; it does not justify making humanism a hard material or construction prerequisite."
+  },
+  "ontology_before": "The humanism edge was an unsourced generic enabling edge.",
+  "ontology_after": "Humanism remains a non-required cultural/intellectual enabler for the classical-revival scope and now cites a museum source.",
+  "invariant_preserved_or_changed": "Preserved edge type: humanism remains enabling, with sourced evidence and a narrower note.",
+  "would_reject_if": [
+    "The node were rescoped to purely structural arch or dome construction with no cultural recovery of antiquity.",
+    "A stronger source showed that humanism had no meaningful relationship to Florentine classical architectural revival."
+  ],
+  "short_reason": "Humanism is context for classical revival, not a hard construction dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
