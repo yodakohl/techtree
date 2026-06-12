@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-12-digital-wallets-scope",
+  "description": "Lock digital_payment_wallets to phone-based payment wallets using existing payment rails, not cryptocurrency wallets.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "digital_payment_wallets",
+      "operator": "eq",
+      "value": 2011,
+      "reason": "The node is anchored to the 2011 Google Wallet U.S. launch on Sprint/Nexus S."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "digital_payment_wallets",
+      "prerequisite": "smartphones",
+      "expected": "required",
+      "reason": "The scoped wallet is mobile phone software for NFC tap-to-pay and app-based payments."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "digital_payment_wallets",
+      "prerequisite": "digital_payment_gateways",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Payment gateways and network acceptance are scaling infrastructure, not a hard software component of every wallet."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_payment_wallets",
+      "prerequisite": "blockchain_cryptocurrency",
+      "reason": "The node covers card/payment-network mobile wallets; cryptocurrency wallets are a different technology family."
+    }
+  ]
+}
