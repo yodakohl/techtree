@@ -1,0 +1,48 @@
+{
+  "id": "2026-06-12-aluminum-smelting-hall-heroult-required",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "aluminum_smelting",
+    "prerequisite": "aluminum_production_hall_heroult"
+  },
+  "replaced_edge": {
+    "dependent": "aluminum_smelting",
+    "prerequisite": "electricity"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Electricity provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "review",
+    "note": "Primary aluminum smelting at this scope is the commercial operation of Hall-Héroult electrolytic reduction cells, so the Hall-Héroult process is the defining required method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.aluminum.org/primary-production-101",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Aluminum Association Primary Production 101 states that primary production smelts alumina to pure aluminum metal and that the Hall-Héroult process remains the main industrial process for primary aluminum.",
+    "source_claim_summary": "Primary aluminum smelting is industrial production of aluminum metal by the Hall-Héroult process.",
+    "source_support_rationale": "This supports replacing a direct electricity edge with the Hall-Héroult process because electricity is already a lower-level prerequisite inside that process node."
+  },
+  "ontology_before": "The graph modeled aluminum_smelting as a second Hall-Héroult-like node with direct electricity, chemistry, and medieval metallurgy edges.",
+  "ontology_after": "The graph models aluminum_smelting as industrial primary smelting operations whose defining method is the canonical Hall-Héroult process node.",
+  "invariant_preserved_or_changed": "Changed: direct aluminum_smelting -> electricity edge replaced by aluminum_smelting -> aluminum_production_hall_heroult.",
+  "would_reject_if": [
+    "The node is rescoped to generic metal smelting rather than primary aluminum smelting.",
+    "The canonical aluminum_production_hall_heroult node is removed or rescoped away from the electrolytic reduction process."
+  ],
+  "short_reason": "Primary aluminum smelting should depend on the canonical Hall-Héroult process instead of duplicating its electricity prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-12-aluminum-smelting-scope",
+  "description": "Lock aluminum_smelting to industrial primary aluminum smelting operations built around the canonical Hall-Heroult process, avoiding duplicate low-level edges.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "aluminum_smelting",
+      "operator": "eq",
+      "value": 1888,
+      "reason": "The node is scoped to industrial primary smelting operations, anchored to Pittsburgh Reduction Company's 1888 pilot production."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "aluminum_smelting",
+      "prerequisite": "aluminum_production_hall_heroult",
+      "expected": "required",
+      "reason": "Primary aluminum smelting at this scope requires the Hall-Heroult electrolytic reduction process."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aluminum_smelting",
+      "prerequisite": "electricity",
+      "reason": "Electricity is represented through the Hall-Heroult process node, not duplicated as a direct smelting-operation edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aluminum_smelting",
+      "prerequisite": "advanced_chemistry",
+      "reason": "The electrochemistry relationship is represented through the Hall-Heroult process node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aluminum_smelting",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "reason": "Medieval metallurgy is too broad and indirect for the scoped industrial primary aluminum smelting operation."
+    }
+  ]
+}

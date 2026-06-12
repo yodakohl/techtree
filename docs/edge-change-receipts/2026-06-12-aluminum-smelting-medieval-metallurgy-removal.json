@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-aluminum-smelting-medieval-metallurgy-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "aluminum_smelting",
+    "prerequisite": "advanced_metallurgy_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because primary aluminum smelting is an industrial electrochemical production operation, not a direct continuation of medieval ferrous/nonferrous metallurgy.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.aluminum.org/primary-production-101",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Aluminum Association describes primary production as smelting alumina to aluminum metal by the Hall-Héroult process, discovered in 1886 and still the main industrial process.",
+    "source_claim_summary": "The scoped smelting operation is defined by industrial Hall-Héroult electrolysis rather than medieval metallurgy.",
+    "source_support_rationale": "This supports removing the broad medieval metallurgy edge because the source ties the production operation to a specific industrial electrochemical process."
+  },
+  "ontology_before": "The graph made aluminum smelting depend directly on broad medieval metallurgy in addition to chemistry and electricity.",
+  "ontology_after": "The graph uses the Hall-Héroult process as the direct prerequisite and leaves earlier metallurgy outside the immediate smelting operation.",
+  "invariant_preserved_or_changed": "Changed: direct aluminum_smelting -> advanced_metallurgy_medieval edge removed.",
+  "would_reject_if": [
+    "The node is rescoped to historical metal smelting generally.",
+    "A source demonstrates medieval aluminum smelting practice as a direct prerequisite for industrial primary aluminum smelting."
+  ],
+  "short_reason": "Medieval metallurgy was too broad and indirect for primary aluminum smelting.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
