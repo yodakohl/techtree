@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-12-cloud-data-warehouses-scope",
+  "description": "Lock cloud_data_warehouses to managed cloud analytical warehouse services, not generic relational warehouses or ERP reporting modules.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "cloud_data_warehouses",
+      "operator": "eq",
+      "value": 2012,
+      "reason": "The node remains anchored to Amazon Redshift's 2012 preview announcement as an early managed cloud data warehouse service."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "cloud_data_warehouses",
+      "prerequisite": "cloud_computing_distributed_systems",
+      "expected": "enabling",
+      "reason": "Managed cloud warehouses are deployed as cloud services, so cloud infrastructure is the enabling substrate."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "cloud_data_warehouses",
+      "prerequisite": "relational_data_warehousing",
+      "expected": "historical_predecessor",
+      "reason": "Cloud data warehouses are a cloud-service evolution of analytical data warehousing rather than a replacement for generic relational DBMS."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cloud_data_warehouses",
+      "prerequisite": "databases_relational_dbms",
+      "reason": "The direct lineage should flow through the more specific relational_data_warehousing node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cloud_data_warehouses",
+      "prerequisite": "enterprise_resource_planning",
+      "reason": "ERP systems are common data sources and deployment context, not direct prerequisites for cloud data warehouse services."
+    }
+  ]
+}

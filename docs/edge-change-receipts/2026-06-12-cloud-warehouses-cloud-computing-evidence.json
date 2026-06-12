@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-12-cloud-warehouses-cloud-computing-evidence",
+  "decision_date": "2026-06-12",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "cloud_data_warehouses",
+    "prerequisite": "cloud_computing_distributed_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "expert_inference",
+    "note": "Managed cloud warehouses are explicitly scoped to cloud services; cloud infrastructure is the deployment substrate."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.84,
+    "evidence_level": "primary_source",
+    "note": "Managed cloud warehouses are explicitly cloud services; Redshift and Snowflake papers describe data-warehouse systems operated on cloud infrastructure with elastic managed capacity."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cs.cmu.edu/~15721-f24/papers/Redshift.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Amazon Redshift paper title and system-architecture discussion: Redshift is presented as a simpler managed data warehouse operated as an AWS service.",
+    "source_claim_summary": "The source describes Amazon Redshift as a managed cloud data-warehouse system and discusses the service architecture used to operate it.",
+    "source_support_rationale": "This supports cloud computing as an enabling substrate because the scoped node is specifically managed cloud data warehousing, not data warehousing in general."
+  },
+  "invariant_preserved_or_changed": "Preserved: cloud_computing_distributed_systems remains an enabling dependency; changed: evidence is now source-backed by a primary architecture paper.",
+  "would_reject_if": [
+    "The node were broadened to all data warehouses, including on-premises relational warehouses.",
+    "A split created a vendor-specific Redshift node and narrowed this node away from managed cloud services.",
+    "A source showed the scoped cloud data warehouses could be deployed without cloud-service infrastructure."
+  ],
+  "short_reason": "Cloud infrastructure is the deployment substrate for managed cloud data warehouses.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
