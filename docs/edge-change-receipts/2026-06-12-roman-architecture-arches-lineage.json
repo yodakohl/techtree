@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-roman-architecture-arches-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "roman_architecture_revival",
+    "prerequisite": "arches_domes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Arches and Domes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Brunelleschi's classicalizing architectural language used columns, capitals, arches, and vaults, so ancient arch-and-vault forms are a historical vocabulary rather than a hard prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Museo degli Innocenti, Architecture page, Brunelleschian project section: columns, capitals, arches, and vaults are named as part of the recovery of classical elements.",
+    "source_claim_summary": "The source identifies arches and vaults as part of the recovered classical vocabulary in Brunelleschi's early Renaissance architectural language.",
+    "source_support_rationale": "The edge should express historical vocabulary lineage, because the source describes formal recovery rather than a necessary construction component."
+  },
+  "ontology_before": "The old edge treated arches and domes as a generic enabling capability.",
+  "ontology_after": "The corrected edge models arches and vaults as classical forms revived by early Renaissance architecture.",
+  "invariant_preserved_or_changed": "Changed edge type: arches_domes is now historical_predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to physical dome construction rather than classical architectural revival.",
+    "A source showed that the early Florentine classical-revival vocabulary did not use arches, vaults, or related ancient forms."
+  ],
+  "short_reason": "Arches and vaults are revived historical vocabulary, not a generic enabling capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

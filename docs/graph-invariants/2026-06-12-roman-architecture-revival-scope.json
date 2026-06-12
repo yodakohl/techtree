@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-12-roman-architecture-revival-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "roman_architecture_revival",
+      "operator": "eq",
+      "value": 1400,
+      "reason": "The node is scoped to early fifteenth-century Florentine classical revival, represented with century precision rather than a false exact 1400 event."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "roman_architecture_revival",
+      "prerequisite": "humanism",
+      "expected": "enabling",
+      "reason": "Humanism remains broad cultural context for classical recovery, not a hard material prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "roman_architecture_revival",
+      "prerequisite": "arches_domes",
+      "expected": "historical_predecessor",
+      "reason": "Arches and vaults are recovered historical vocabulary for the classical-revival architecture."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "roman_architecture_revival",
+      "prerequisite": "roman_concrete_opus_caementicium",
+      "reason": "The scoped node is not direct reuse of Roman concrete technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "roman_architecture_revival",
+      "prerequisite": "perspective_in_art",
+      "reason": "Perspective is adjacent Renaissance visual culture, not a direct prerequisite for classical architectural vocabulary recovery."
+    }
+  ]
+}

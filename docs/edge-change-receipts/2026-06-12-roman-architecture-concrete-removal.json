@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-roman-architecture-concrete-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "roman_architecture_revival",
+    "prerequisite": "roman_concrete_opus_caementicium"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Roman Concrete (Opus Caementicium) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from roman_architecture_revival to roman_concrete_opus_caementicium. The corrected node is scoped to recovery of classical architectural vocabulary, not reuse of Roman concrete technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Museo degli Innocenti, Architecture page: the Brunelleschian project is described through pietra serena, plaster, columns, capitals, arches, vaults, and recovery of classical elements; Roman concrete is not part of the claim.",
+    "source_claim_summary": "The source supports classical-element recovery but does not support Roman concrete as a direct prerequisite for the scoped Florentine revival node.",
+    "source_support_rationale": "Keeping the edge would confuse study of Roman architectural forms with the separate Roman concrete material technology."
+  },
+  "ontology_before": "The node implied Roman concrete technology enabled the Renaissance revival.",
+  "ontology_after": "The node explicitly excludes direct reuse of Roman concrete; classical forms remain represented through arches_domes.",
+  "invariant_preserved_or_changed": "Changed topology: roman_concrete_opus_caementicium is absent from the node.",
+  "would_reject_if": [
+    "The node were narrowed to reconstruction of Roman concrete recipes.",
+    "A source showed Brunelleschi's early classical revival required opus caementicium as a material process."
+  ],
+  "short_reason": "Roman concrete is too specific and unsupported for this classical-revival node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

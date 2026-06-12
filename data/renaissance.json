@@ -4138,12 +4138,10 @@
     "id": "roman_architecture_revival",
     "name": "Roman Architecture Revival",
     "era": "Renaissance",
-    "description": "Renewed study and adaptation of classical Roman proportion, arches, domes, concrete traditions, and civic building forms.",
+    "description": "Early Renaissance recovery and adaptation of classical Roman and ancient architectural vocabulary, proportion, columns, arches, vaults, and civic building forms.",
     "prerequisites": [
       "humanism",
-      "roman_concrete_opus_caementicium",
-      "arches_domes",
-      "perspective_in_art"
+      "arches_domes"
     ],
     "fields": [
       "Civil Engineering & Built Environment"
@@ -4152,52 +4150,62 @@
       "Civil Engineering & Built Environment": "Structural Systems"
     },
     "firstKnownDate": 1400,
-    "datePrecision": "exact",
-    "region": "Europe and connected early modern exchange networks",
+    "datePrecision": "century",
+    "region": "Florence, Italy; later Italian and European Renaissance architecture",
     "reviewStatus": "source_checked",
+    "scopeNote": "Covers the early Florentine Renaissance recovery of classical architectural elements, anchored here by Brunelleschi's 1419 Ospedale degli Innocenti project. It is not the later nineteenth-century Renaissance Revival style, all Renaissance architecture, or a claim that Roman concrete technology itself was reused.",
     "dependencyEdges": [
       {
         "prerequisite": "humanism",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Humanism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "roman_concrete_opus_caementicium",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roman Concrete (Opus Caementicium) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Florentine humanist recovery of classical antiquity supplied cultural and intellectual context for the architectural return to classical elements, without being a physical construction prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Architecture",
+            "url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+            "publisher": "Museo degli Innocenti",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "arches_domes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Arches and Domes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "perspective_in_art",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Perspective in Art provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "type": "historical_predecessor",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Brunelleschi's classicalizing architectural language used columns, capitals, arches, and vaults, so ancient arch-and-vault forms are a historical vocabulary rather than a hard prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Architecture",
+            "url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+            "publisher": "Museo degli Innocenti",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Renaissance architecture",
-        "url": "https://en.wikipedia.org/wiki/Renaissance_architecture",
-        "publisher": "Wikipedia",
+        "title": "Architecture",
+        "url": "https://www.museodeglinnocenti.it/en/museo/percorsi-espositivi/architettura/",
+        "publisher": "Museo degli Innocenti",
         "year": 2026,
-        "source_type": "review",
+        "source_type": "museum",
         "supports": [
-          "node"
+          "node",
+          "maturity"
         ]
       }
     ]
