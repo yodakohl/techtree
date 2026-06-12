@@ -1,0 +1,26 @@
+{
+  "id": "2026-06-12-thermodynamics-carnot-scope",
+  "description": "Lock thermodynamics to classical thermodynamics beginning with Carnot's 1824 heat-engine theory and later 19th-century formalization.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "thermodynamics",
+      "operator": "eq",
+      "value": 1824,
+      "reason": "Carnot's 1824 Reflections introduced the heat-engine cycle and reversibility concepts that anchor the scoped classical thermodynamics node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "thermodynamics",
+      "prerequisite": "steam_engine",
+      "expected": "historical_predecessor",
+      "reason": "Steam engines supplied the practical efficiency problem lineage for Carnot's theory, not a component prerequisite for thermodynamics as a science."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "thermodynamics",
+      "prerequisite": "advanced_chemistry",
+      "reason": "The inspected thermodynamics sources support heat engines, heat/work, and energy theory rather than advanced chemistry as a direct prerequisite."
+    }
+  ]
+}

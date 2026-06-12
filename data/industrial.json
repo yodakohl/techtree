@@ -784,7 +784,6 @@
       "steam_engine",
       "scientific_method",
       "mathematics",
-      "advanced_chemistry",
       "logarithms_calculus_early"
     ],
     "fields": [
@@ -793,26 +792,41 @@
     "fieldLanes": {
       "Mechanical Engineering": "Power & Thermal Systems"
     },
-    "firstKnownDate": 1850,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
+    "firstKnownDate": 1824,
+    "datePrecision": "exact",
+    "region": "France, Britain, Germany, and later global physical science and engineering",
+    "scopeNote": "Covers classical thermodynamics beginning with Carnot's 1824 heat-engine theory and later 19th-century formalization by Joule, Kelvin, Clausius, Rankine, Maxwell, and others. It does not cover statistical thermodynamics or every later thermodynamic subfield.",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "steam_engine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steam Engine provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "Practical steam-engine efficiency problems motivated Carnot's 1824 heat-engine theory, making steam engines the historical problem lineage rather than a required component of thermodynamics.",
         "reviewStatus": "source_checked",
         "sources": [
           {
             "title": "Thermodynamics",
-            "url": "https://en.wikipedia.org/wiki/Thermodynamics",
-            "publisher": "Wikipedia",
+            "url": "https://www.britannica.com/science/thermodynamics",
+            "publisher": "Encyclopaedia Britannica",
             "year": 2026,
-            "source_type": "review",
+            "source_type": "textbook",
             "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          },
+          {
+            "title": "Sadi Carnot's Reflections on the Motive Power of Fire",
+            "url": "https://www.asme.org/getmedia/86ef5356-ffdd-4990-a017-cfe3ec05364b/275-carnot-brochure.pdf",
+            "publisher": "ASME",
+            "year": 2020,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "maturity",
               "edge"
             ]
           }
@@ -835,26 +849,6 @@
         "reviewStatus": "structurally_validated"
       },
       {
-        "prerequisite": "advanced_chemistry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Thermodynamics",
-            "url": "https://en.wikipedia.org/wiki/Thermodynamics",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "review",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "logarithms_calculus_early",
         "type": "historical_predecessor",
         "confidence": 0.75,
@@ -866,9 +860,31 @@
     "sources": [
       {
         "title": "Thermodynamics",
-        "url": "https://en.wikipedia.org/wiki/Thermodynamics",
-        "publisher": "Wikipedia",
+        "url": "https://www.britannica.com/science/thermodynamics",
+        "publisher": "Encyclopaedia Britannica",
         "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Sadi Carnot's Reflections on the Motive Power of Fire",
+        "url": "https://www.asme.org/getmedia/86ef5356-ffdd-4990-a017-cfe3ec05364b/275-carnot-brochure.pdf",
+        "publisher": "ASME",
+        "year": 2020,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "June 12, 1824: Sadi Carnot Publishes Treatise on Heat Engines",
+        "url": "https://www.aps.org/apsnews/2009/05/sadi-carnot-heat-engines",
+        "publisher": "American Physical Society",
+        "year": 2009,
         "source_type": "review",
         "supports": [
           "node",
