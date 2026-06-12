@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-high-temperature-superconductors-early-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "superconductors_high_temp",
+    "prerequisite": "superconductors_early"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Early Superconductors is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.9,
+    "evidence_level": "review",
+    "note": "High-temperature superconductors are a later branch of superconductivity research; earlier superconductivity was discovered in 1911 and frames the temperature-limit breakthrough."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/physics/1987/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Background Information section starts from the 1911 discovery before describing the 1986 high-temperature breakthrough.",
+    "source_claim_summary": "The 1986 result exceeded prior superconducting-temperature limits in an established superconductivity research lineage.",
+    "source_support_rationale": "The source supports historical_predecessor, not speculative forecast dependency."
+  },
+  "ontology_before": "The graph treated high-temperature superconductors as a 2035 forecast connected speculatively to early superconductors.",
+  "ontology_after": "The graph treats early superconductivity as the historical predecessor to an established 1986 material class.",
+  "invariant_preserved_or_changed": "Changed: superconductors_high_temp -> superconductors_early is historical_predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to future room-temperature superconductors rather than established high-Tc materials.",
+    "A narrower high-Tc cuprates node is later added and this broad node is split."
+  ],
+  "short_reason": "High-Tc superconductors are a 1986 branch of superconductivity research.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/superconductors_high_temp.before.json /tmp/superconductors_high_temp.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-nanotechnology-quantum-common-dependency",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "nanotechnology",
+    "prerequisite": "quantum_physics"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Quantum Physics is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Quantum effects help explain why nanoscale materials can have size-dependent properties; this is a shared scientific foundation rather than a product-style prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nano.gov/about-nanotechnology/what-is-so-special-about-nano/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "NNI page section explaining that quantum effects can rule behavior and properties at the nanoscale.",
+    "source_claim_summary": "Nanoscale behavior can be governed by quantum effects.",
+    "source_support_rationale": "The source supports quantum physics as a shared explanatory foundation, not as a speculative future-only prerequisite."
+  },
+  "ontology_before": "The edge treated nanotechnology as an unsourced 2035 forecast dependency.",
+  "ontology_after": "The edge connects established nanotechnology to quantum physics as a common scientific foundation.",
+  "invariant_preserved_or_changed": "Changed: nanotechnology -> quantum_physics is common_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to purely institutional program coordination with no scientific-scope claim.",
+    "A source showed the graph should model only manufactured products rather than scientific fields."
+  ],
+  "short_reason": "Quantum physics is a shared foundation for nanoscale effects.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/nanotechnology.before.json /tmp/nanotechnology.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

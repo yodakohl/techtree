@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-12-nanotechnology-photolithography-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "nanotechnology",
+    "prerequisite": "photolithography"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Photolithography is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct dependency remains because photolithography is specific to some top-down nanofabrication and nanoelectronics paths, not to nanotechnology as a broad field.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nano.gov/about-nanotechnology/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NNI overview defines a broad field of nanoscale science, engineering, and technology.",
+    "source_claim_summary": "Nanotechnology is not limited to lithographic fabrication.",
+    "source_support_rationale": "The source does not support photolithography as a direct prerequisite for the broad field."
+  },
+  "ontology_before": "The graph implied a semiconductor-fabrication prerequisite for all nanotechnology.",
+  "ontology_after": "Photolithography remains relevant to nanoelectronics but not a direct prerequisite for nanotechnology as scoped here.",
+  "invariant_preserved_or_changed": "Changed: direct nanotechnology -> photolithography edge removed.",
+  "would_reject_if": [
+    "The node were narrowed to semiconductor nanolithography.",
+    "A later nanoelectronics-specific node inherits this edge."
+  ],
+  "short_reason": "Photolithography is too narrow for the broad nanotechnology field.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

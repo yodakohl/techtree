@@ -1,0 +1,72 @@
+{
+  "id": "2026-06-12-established-nanotechnology-scope",
+  "description": "Lock the broad nanotechnology node to established nanoscale science and engineering rather than a 2035 forecast or molecular-assembler roadmap claim.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "nanotechnology",
+      "operator": "eq",
+      "value": 2000,
+      "reason": "The node is scoped to the established, coordinated nanoscale science and engineering field around the National Nanotechnology Initiative era."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nanotechnology",
+      "prerequisite": "nanotechnology_early",
+      "expected": "historical_predecessor",
+      "reason": "The 1974 early-research node is the historical predecessor for the established field."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nanotechnology",
+      "prerequisite": "electron_microscope",
+      "expected": "enabling",
+      "reason": "High-resolution microscopy enabled nanoscale observation and measurement but is not the only path into the field."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nanotechnology",
+      "prerequisite": "advanced_materials_science",
+      "expected": "common_dependency",
+      "reason": "Materials science is a central neighboring discipline, not a hard component prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nanotechnology",
+      "prerequisite": "advanced_chemistry",
+      "expected": "common_dependency",
+      "reason": "Chemistry is a shared nanoscale science foundation, not the sole prerequisite for the field."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "nanotechnology",
+      "prerequisite": "quantum_physics",
+      "expected": "common_dependency",
+      "reason": "Quantum effects help explain nanoscale phenomena but should not be modeled as a product-style required edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nanotechnology",
+      "prerequisite": "microscope",
+      "reason": "The generic microscope edge was replaced by the more specific electron-microscope enabling edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nanotechnology",
+      "prerequisite": "electronics",
+      "reason": "Electronics is too broad and not a direct prerequisite for the established nanoscale field."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nanotechnology",
+      "prerequisite": "molecular_biology",
+      "reason": "Molecular biology is a major application/intersection area, not a direct prerequisite for the whole field."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nanotechnology",
+      "prerequisite": "photolithography",
+      "reason": "Photolithography supports some nanoelectronics paths but is not a prerequisite for nanotechnology as a broad field."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-nanotechnology-chemistry-common-dependency",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "nanotechnology",
+    "prerequisite": "advanced_chemistry"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Advanced Chemistry is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Chemistry is a core nanoscale science used to understand and exploit chemical properties at the nanoscale, but the field is broader than chemistry alone."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nano.gov/about-nanotechnology/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "NNI definition and overview describing nanotechnology across physical, chemical, and biological properties at 1-100 nm.",
+    "source_claim_summary": "Nanotechnology spans nanoscale properties and applications including chemical behavior.",
+    "source_support_rationale": "The source supports chemistry as a shared foundation, not as a required engineering component."
+  },
+  "ontology_before": "The graph modeled chemistry as a speculative forecast prerequisite.",
+  "ontology_after": "The graph models chemistry as a common dependency for the established nanoscale field.",
+  "invariant_preserved_or_changed": "Changed: nanotechnology -> advanced_chemistry is common_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to a non-chemical nanoscale instrumentation subfield.",
+    "A stronger ontology split moves all chemistry-dependent nanotechnology to narrower nanomaterials nodes."
+  ],
+  "short_reason": "Chemistry is a common foundation, not a future-only speculative dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

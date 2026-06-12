@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-12-high-temperature-superconductors-scope",
+  "description": "Lock high-temperature superconductors to the established 1986 ceramic/cuprate materials breakthrough rather than a 2035 future forecast.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "superconductors_high_temp",
+      "operator": "eq",
+      "value": 1986,
+      "reason": "Bednorz and Muller reported high-temperature superconductivity in the Ba-La-Cu-O system in 1986."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "superconductors_high_temp",
+      "prerequisite": "superconductors_early",
+      "expected": "historical_predecessor",
+      "reason": "Earlier low-temperature superconductivity is the research lineage, not a physical component prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "superconductors_high_temp",
+      "prerequisite": "advanced_materials_science",
+      "expected": "enabling",
+      "reason": "Solid-state materials research enabled the oxide/perovskite breakthrough."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "superconductors_high_temp",
+      "prerequisite": "advanced_chemistry",
+      "expected": "enabling",
+      "reason": "The original work required prepared mixed oxide ceramic compositions."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "superconductors_high_temp",
+      "prerequisite": "quantum_physics",
+      "expected": "common_dependency",
+      "reason": "Quantum theory is the shared explanatory foundation for superconductivity, not a direct hard prerequisite edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "superconductors_high_temp",
+      "prerequisite": "nanotechnology",
+      "reason": "High-temperature superconductors were discovered in 1986 without nanotechnology being a direct prerequisite."
+    }
+  ]
+}

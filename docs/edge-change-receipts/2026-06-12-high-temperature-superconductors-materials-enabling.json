@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-high-temperature-superconductors-materials-enabling",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "superconductors_high_temp",
+    "prerequisite": "advanced_materials_science"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Advanced Materials Science is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The breakthrough came from solid-state materials work on oxide/perovskite structures, making advanced materials science an enabling research capability rather than a hard component prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/uploads/2018/06/bednorz-muller-lecture.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Nobel lecture Part 1 describes the search from niobium alloys to layered copper-containing perovskite oxides and prior work on perovskite structural problems.",
+    "source_claim_summary": "The high-Tc breakthrough was rooted in solid-state oxide/perovskite materials research.",
+    "source_support_rationale": "The source supports materials science as enabling research capability, not a hard component dependency."
+  },
+  "ontology_before": "The graph treated materials science as a weak speculative edge for a future forecast.",
+  "ontology_after": "The graph treats materials science as an enabling capability for the established 1986 breakthrough.",
+  "invariant_preserved_or_changed": "Changed: superconductors_high_temp -> advanced_materials_science is enabling.",
+  "would_reject_if": [
+    "The node were narrowed to a pure theoretical-superconductivity concept rather than materials.",
+    "A more specific perovskite oxide materials node is added and this edge is rewired."
+  ],
+  "short_reason": "High-Tc superconductors emerged from solid-state oxide materials work.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

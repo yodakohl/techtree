@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-high-temperature-superconductors-quantum-common-dependency",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "superconductors_high_temp",
+    "prerequisite": "quantum_physics"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Quantum Physics is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Superconductivity is interpreted through quantum concepts such as Cooper pairing and tunneling, but this edge is a shared theoretical foundation, not a direct product prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nobelprize.org/prizes/physics/1987/press-release/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Background Information section discusses BCS theory, Cooper pairs, Josephson tunneling, and open questions for the new materials.",
+    "source_claim_summary": "The source ties superconductivity to quantum-mechanical explanations while noting high-Tc mechanisms remained under investigation.",
+    "source_support_rationale": "The source supports common_dependency rather than a required product edge."
+  },
+  "ontology_before": "The graph modeled quantum physics as a speculative future prerequisite.",
+  "ontology_after": "The graph models quantum physics as the shared theory background for superconductivity.",
+  "invariant_preserved_or_changed": "Changed: superconductors_high_temp -> quantum_physics is common_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to industrial production recipes that intentionally exclude theoretical understanding.",
+    "A more precise condensed-matter quantum theory node replaces quantum_physics."
+  ],
+  "short_reason": "Quantum physics is explanatory background, not a hard manufacturing prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
