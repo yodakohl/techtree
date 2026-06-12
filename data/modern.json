@@ -26277,9 +26277,9 @@
     "description": "Managed cloud analytical database services that provide elastic, pay-as-you-go data warehousing for integrating, storing, querying, and governing large organizational datasets.",
     "prerequisites": [
       "cloud_computing_distributed_systems",
-      "databases_relational_dbms",
-      "enterprise_resource_planning"
+      "relational_data_warehousing"
     ],
+    "maturity": "established",
     "firstKnownDate": 2012,
     "datePrecision": "exact",
     "region": "United States / AWS Redshift preview, then global cloud platforms",
@@ -26288,42 +26288,71 @@
       {
         "prerequisite": "cloud_computing_distributed_systems",
         "type": "enabling",
-        "confidence": 0.78,
-        "evidence_level": "expert_inference",
-        "note": "Managed cloud warehouses are explicitly scoped to cloud services; cloud infrastructure is the deployment substrate.",
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "Managed cloud warehouses are explicitly cloud services; Redshift and Snowflake papers describe data-warehouse systems operated on cloud infrastructure with elastic managed capacity.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Announcing Amazon Redshift",
-            "url": "https://aws.amazon.com/about-aws/whats-new/2012/11/28/announcing-amazon-redshift/",
-            "publisher": "AWS",
-            "year": 2012,
-            "source_type": "generic_overview",
+            "title": "Amazon Redshift and the Case for Simpler Data Warehouses",
+            "url": "https://www.cs.cmu.edu/~15721-f24/papers/Redshift.pdf",
+            "publisher": "ACM SIGMOD",
+            "year": 2015,
+            "source_type": "primary_paper",
             "supports": [
               "node",
+              "maturity",
               "edge"
             ]
           }
         ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "structurally_validated"
-      },
-      {
-        "prerequisite": "enterprise_resource_planning",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "structurally_validated"
+        "prerequisite": "relational_data_warehousing",
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "Cloud data warehouses inherit the analytical SQL/data-warehouse lineage while changing the deployment model to managed elastic cloud services.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Snowflake Elastic Data Warehouse",
+            "url": "https://www.cs.cmu.edu/~15721-f24/papers/Snowflake.pdf",
+            "publisher": "ACM SIGMOD",
+            "year": 2016,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "maturity",
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "Amazon Redshift and the Case for Simpler Data Warehouses",
+        "url": "https://www.cs.cmu.edu/~15721-f24/papers/Redshift.pdf",
+        "publisher": "ACM SIGMOD",
+        "year": 2015,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Snowflake Elastic Data Warehouse",
+        "url": "https://www.cs.cmu.edu/~15721-f24/papers/Snowflake.pdf",
+        "publisher": "ACM SIGMOD",
+        "year": 2016,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
       {
         "title": "Announcing Amazon Redshift",
         "url": "https://aws.amazon.com/about-aws/whats-new/2012/11/28/announcing-amazon-redshift/",

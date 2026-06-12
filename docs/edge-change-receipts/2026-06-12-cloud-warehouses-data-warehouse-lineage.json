@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-12-cloud-warehouses-data-warehouse-lineage",
+  "decision_date": "2026-06-12",
+  "edge": {
+    "dependent": "cloud_data_warehouses",
+    "prerequisite": "relational_data_warehousing"
+  },
+  "replaced_edge": {
+    "dependent": "cloud_data_warehouses",
+    "prerequisite": "databases_relational_dbms"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Databases (Relational DBMS) supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "primary_source",
+    "confidence": 0.82,
+    "note": "Cloud data warehouses inherit the analytical SQL/data-warehouse lineage while changing the deployment model to managed elastic cloud services."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cs.cmu.edu/~15721-f24/papers/Snowflake.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Snowflake SIGMOD paper title and abstract/architecture sections describing an elastic cloud data warehouse and its relation to data-warehouse architecture.",
+    "source_claim_summary": "The source presents Snowflake as an elastic cloud data warehouse, tying the cloud service category to the established data-warehouse lineage.",
+    "source_support_rationale": "This supports replacing a generic RDBMS scaling edge with a more specific historical predecessor: cloud warehouses are a cloud deployment evolution of analytical data warehousing."
+  },
+  "ontology_before": "The graph connected cloud data warehouses directly to broad relational DBMS with a generic scaling note.",
+  "ontology_after": "The graph connects cloud data warehouses to relational data warehousing as the direct historical lineage, with cloud computing as the deployment substrate.",
+  "invariant_preserved_or_changed": "Changed: databases_relational_dbms is no longer a direct dependency; relational_data_warehousing is the direct historical predecessor.",
+  "would_reject_if": [
+    "The relational_data_warehousing node were deleted without replacing this lineage edge.",
+    "The cloud_data_warehouses node were narrowed to a non-SQL object-store analytics service rather than data warehousing.",
+    "A stronger source showed cloud data warehouses should depend directly on generic RDBMS rather than on data-warehouse lineage."
+  ],
+  "short_reason": "The direct lineage is data warehousing, not generic RDBMS commercialization.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

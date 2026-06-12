@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-12-cloud-warehouses-erp-removal",
+  "decision_date": "2026-06-12",
+  "edge": {
+    "dependent": "cloud_data_warehouses",
+    "prerequisite": "enterprise_resource_planning"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because ERP systems are common enterprise data sources for warehouses, not a prerequisite for building or operating cloud data-warehouse services.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cs.cmu.edu/~15721-f24/papers/Redshift.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Amazon Redshift architecture paper describes the managed data-warehouse service and system architecture without making ERP systems a prerequisite.",
+    "source_claim_summary": "The source supports cloud data warehouses as managed analytical database services, not as systems that require ERP software to exist.",
+    "source_support_rationale": "ERP can feed business data into a warehouse, but that is application context; it should not be modeled as a direct technology prerequisite."
+  },
+  "ontology_before": "The graph made ERP software look like an enabling prerequisite for cloud data-warehouse services.",
+  "ontology_after": "The graph keeps cloud infrastructure and data-warehouse lineage as direct dependencies; ERP remains a possible upstream data source in user deployments.",
+  "invariant_preserved_or_changed": "Changed: enterprise_resource_planning is absent from direct prerequisites.",
+  "would_reject_if": [
+    "The node were narrowed to ERP-embedded warehouse modules rather than cloud data-warehouse services.",
+    "A source showed early cloud warehouse services originated strictly as ERP components.",
+    "A separate enterprise-analytics workflow node represented ERP-to-warehouse integration."
+  ],
+  "short_reason": "ERP is a common data source, not a prerequisite for cloud warehouse technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
