@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-12-risc-microprocessors-scope",
+  "description": "Lock risc_microprocessors to Berkeley RISC-I style VLSI RISC microprocessor implementation, not IBM 801 architecture alone or generic compiler theory.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "risc_microprocessors",
+      "operator": "eq",
+      "value": 1981,
+      "reason": "The node is scoped to Berkeley RISC-I chips received in 1981, not the earlier IBM 801 architectural project."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "risc_microprocessors",
+      "prerequisite": "vlsi_design",
+      "expected": "required",
+      "reason": "The scoped first RISC microprocessor was a VLSI processor chip."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "risc_microprocessors",
+      "prerequisite": "microprocessors_cpu_on_a_chip",
+      "expected": "historical_predecessor",
+      "reason": "Earlier CPU-on-chip microprocessors are lineage rather than the distinctive RISC method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "risc_microprocessors",
+      "prerequisite": "algorithms_computation_theory",
+      "reason": "Broad algorithms/computation theory is too generic for the direct RISC microprocessor implementation scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "risc_microprocessors",
+      "prerequisite": "integrated_circuits",
+      "reason": "Integrated-circuit ancestry flows through the more specific VLSI design prerequisite."
+    }
+  ]
+}

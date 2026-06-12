@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-risc-microprocessor-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "risc_microprocessors",
+    "prerequisite": "microprocessors_cpu_on_a_chip"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Microprocessors (CPU on a Chip) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "RISC-I was a single-chip VLSI processor in a lineage after earlier CPU-on-a-chip microprocessors; the prior microprocessor category is historical substrate, not the distinctive RISC method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ethw.org/Milestones%3AFirst_RISC_%28Reduced_Instruction-Set_Computing%29_Microprocessor_1980-1982",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "IEEE ETHW calls RISC-I the first VLSI RISC microprocessor and describes its single-chip processor implementation after earlier processor-chip technology existed.",
+    "source_claim_summary": "RISC-I belongs in the microprocessor lineage but is distinguished by reduced-instruction-set VLSI design choices.",
+    "source_support_rationale": "This supports a historical predecessor edge because the broad microprocessor category precedes the scoped RISC implementation but does not itself define the RISC architectural method."
+  },
+  "ontology_before": "The graph treated earlier microprocessors as a generic enabling dependency.",
+  "ontology_after": "The graph treats earlier CPU-on-chip microprocessors as lineage while VLSI design carries the direct implementation requirement.",
+  "invariant_preserved_or_changed": "Changed: risc_microprocessors -> microprocessors_cpu_on_a_chip is historical_predecessor.",
+  "would_reject_if": [
+    "The node were rescoped to abstract RISC architecture rather than RISC microprocessors.",
+    "A stronger source showed CPU-on-chip microprocessors were a strict component prerequisite rather than a lineage/category predecessor."
+  ],
+  "short_reason": "Earlier microprocessors are lineage, not the distinctive RISC implementation method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/risc_microprocessors.before.json /tmp/risc_microprocessors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

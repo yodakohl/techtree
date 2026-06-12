@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-risc-integrated-circuits-replaced-by-vlsi",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "risc_microprocessors",
+    "prerequisite": "integrated_circuits"
+  },
+  "old_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "expert_inference",
+    "note": "Integrated Circuits (Microchips) is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "No direct integrated-circuits edge remains because the more specific VLSI design node captures the implementation layer for Berkeley RISC-I while already carrying integrated-circuit ancestry.",
+  "source_supports_edge": "no",
+  "source_url": "https://ethw.org/Milestones%3AFirst_RISC_%28Reduced_Instruction-Set_Computing%29_Microprocessor_1980-1982",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "IEEE ETHW identifies RISC-I as a VLSI reduced-instruction-set computer, describes MOSIS fabrication, and emphasizes single-chip VLSI implementation.",
+    "source_claim_summary": "The direct implementation dependency for the scoped node is VLSI design, not the broader integrated-circuit category.",
+    "source_support_rationale": "This supports replacing the broad integrated-circuits edge because VLSI design is the source-backed narrower prerequisite and integrated circuits remain upstream through that node."
+  },
+  "ontology_before": "The graph connected RISC microprocessors directly to broad integrated circuits.",
+  "ontology_after": "The graph routes implementation through vlsi_design as the direct source-backed prerequisite.",
+  "invariant_preserved_or_changed": "Changed: direct risc_microprocessors -> integrated_circuits edge removed and replaced by risc_microprocessors -> vlsi_design.",
+  "would_reject_if": [
+    "The VLSI design node stopped representing single-chip IC design methodology.",
+    "A future split made RISC-I a non-VLSI architectural-only node."
+  ],
+  "short_reason": "VLSI design is the narrower implementation prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/risc_microprocessors.before.json /tmp/risc_microprocessors.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
