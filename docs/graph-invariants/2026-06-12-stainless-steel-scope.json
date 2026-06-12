@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-12-stainless-steel-scope",
+  "description": "Lock stainless_steel to Brearley's 1913 Sheffield chromium steel and modern chromium-bearing corrosion-resistant steels.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "stainless_steel",
+      "operator": "eq",
+      "value": 1913,
+      "reason": "The scoped node is anchored to Harry Brearley's 1913 chromium rustless steel in Sheffield."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "stainless_steel",
+      "prerequisite": "steel_production",
+      "expected": "required",
+      "reason": "Stainless steel is a steel alloy, so controlled steel production is a hard prerequisite for this scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "stainless_steel",
+      "prerequisite": "advanced_chemistry",
+      "expected": "enabling",
+      "reason": "Chromium/passive-film chemistry enables corrosion resistance but is not itself a material component node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "stainless_steel",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "reason": "Earlier metallurgy lineage is represented through steel_production, not duplicated as a direct stainless-steel prerequisite."
+    }
+  ]
+}

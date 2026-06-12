@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-12-stainless-steel-production-required",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "stainless_steel",
+    "prerequisite": "steel_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Steel Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Stainless steel is a chromium-bearing steel alloy; the scoped technology requires prior controlled steel production before chromium alloying can yield rustless/stainless steel."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://bssa.org.uk/bssa_articles/the-discovery-of-stainless-steel/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "British Stainless Steel Association article identifies Brearley's 13 August 1913 steel as 12.8% chromium and 0.24% carbon and frames it as stainless/rustless steel.",
+    "source_claim_summary": "The scoped stainless-steel technology is a chromium-bearing steel alloy, so steel production is part of the material's defining architecture.",
+    "source_support_rationale": "This supports a required edge because the dependent is not just corrosion resistance generally; it is stainless steel, an alloyed form of steel."
+  },
+  "ontology_before": "The graph treated steel production as merely enabling even though stainless steel is itself a steel alloy.",
+  "ontology_after": "The graph treats steel production as a hard prerequisite for the scoped chromium steel alloy.",
+  "invariant_preserved_or_changed": "Changed: steel_production -> stainless_steel edge is now required.",
+  "would_reject_if": [
+    "The node is rescoped away from steel alloys to corrosion-resistant alloys generally.",
+    "A separate chromium-steel precursor node replaces direct steel_production as the hard prerequisite."
+  ],
+  "short_reason": "Stainless steel is a steel alloy, so steel production is required for the scoped node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
