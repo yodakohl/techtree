@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-12-thermodynamics-advanced-chemistry-removal",
+  "decision_date": "2026-06-12",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "thermodynamics",
+    "prerequisite": "advanced_chemistry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Chemistry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the inspected sources anchor thermodynamics in heat-engine theory, heat/work/temperature/energy relations, and later physical formalization rather than advanced chemistry.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.asme.org/getmedia/86ef5356-ffdd-4990-a017-cfe3ec05364b/275-carnot-brochure.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ASME landmark brochure pages 2, 4, and 8 describe Carnot's 1824 book as early heat-engine theory and as laying foundations for thermodynamics.",
+    "source_claim_summary": "ASME grounds thermodynamics in heat-engine theory and mechanical engineering rather than advanced chemistry.",
+    "source_support_rationale": "The source provides a concrete upstream lineage for the node, making the broad advanced_chemistry edge unsupported and unnecessary."
+  },
+  "ontology_before": "The graph made thermodynamics depend directly on advanced chemistry based only on a Wikipedia-backed expert inference.",
+  "ontology_after": "The graph removes the unsupported chemistry edge and keeps the node anchored to heat engines, scientific method, mathematics, and early calculus.",
+  "invariant_preserved_or_changed": "Changed: direct thermodynamics -> advanced_chemistry edge removed.",
+  "would_reject_if": [
+    "The node were rescoped to chemical thermodynamics specifically.",
+    "A stronger source showed advanced chemistry was a direct prerequisite for Carnot-era classical thermodynamics."
+  ],
+  "short_reason": "Classical thermodynamics should not directly depend on advanced chemistry.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/thermodynamics.before.json /tmp/thermodynamics.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

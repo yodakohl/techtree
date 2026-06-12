@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-12-thermodynamics-steam-engine-lineage",
+  "decision_date": "2026-06-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "thermodynamics",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Steam Engine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "Practical steam-engine efficiency problems motivated Carnot's 1824 heat-engine theory, making steam engines the historical problem lineage rather than a required component of thermodynamics."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/science/thermodynamics",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Britannica thermodynamics overview: Sadi Carnot introduced the heat-engine cycle and reversibility in 1824 in work on the maximum work obtainable from a steam engine.",
+    "source_claim_summary": "Carnot's work on steam-engine limits is described as a pioneer contribution to thermodynamics.",
+    "source_support_rationale": "The source ties the steam engine to the historical problem that produced thermodynamic theory, so historical_predecessor is more accurate than a generic enabling edge."
+  },
+  "ontology_before": "The graph treated steam_engine as a generic enabling prerequisite for thermodynamics.",
+  "ontology_after": "The graph treats steam_engine as the historical problem lineage that motivated Carnot's heat-engine theory.",
+  "invariant_preserved_or_changed": "Changed: thermodynamics -> steam_engine is historical_predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to modern engineering thermodynamics courses rather than the historical emergence of classical thermodynamics.",
+    "A stronger source showed steam engines were a direct technical component required to practice thermodynamic science."
+  ],
+  "short_reason": "Steam engines motivated thermodynamics historically.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/thermodynamics.before.json /tmp/thermodynamics.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
