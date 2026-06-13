@@ -1,0 +1,18 @@
+{
+  "id": "2026-06-13-cloud-computing-prerequisite-scope",
+  "description": "Adversarial scope invariant for cloud computing prerequisites: avoid overconstraining the cloud node to specific application-development or storage technologies.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cloud_computing_distributed_systems",
+      "prerequisite": "software_engineering",
+      "reason": "Cloud computing is broader than software-engineering process maturity; it is a systems/service model and can emerge from infrastructure and software evolution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cloud_computing_distributed_systems",
+      "prerequisite": "databases_relational_dbms",
+      "reason": "Cloud delivery does not require relational DBMS as a strict prerequisite; multiple storage models can be used and are not universal."
+    }
+  ]
+}

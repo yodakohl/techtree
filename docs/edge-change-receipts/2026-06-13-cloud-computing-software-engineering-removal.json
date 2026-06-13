@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-13-cloud-computing-software-engineering-removal",
+  "decision_date": "2026-06-13",
+  "edge": {
+    "dependent": "cloud_computing_distributed_systems",
+    "prerequisite": "software_engineering"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Software Engineering provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Cloud Computing & Distributed Systems is modeled as infrastructure and service capability; it does not require a separate Software Engineering node because cloud delivery depends on multiple disciplines, and software is one of many co-evolving artifacts within the platform stack.",
+  "source_supports_edge": "no",
+  "source_url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NIST SP 800-145, 2011; sections defining cloud model and essential characteristics.",
+    "source_claim_summary": "The NIST definition frames cloud computing by networked service access, pooled resources, multi-tenant abstractions, and service models; it does not present software-engineering method as a required prerequisite.",
+    "source_support_rationale": "The official definition ties cloud technology to network access and infrastructure/software abstractions, not to a prerequisite discipline such as formal software engineering methodology."
+  },
+  "ontology_before": "Cloud Computing had an explicit software_engineering prerequisite, implying software engineering practices are required before the cloud node.",
+  "ontology_after": "The cloud node now models broader cloud service infrastructure dependencies and retains only technology-level anchors that are directly evidenced, while software engineering remains available through its downstream child technologies.",
+  "invariant_preserved_or_changed": "Changed: one prerequisite was removed because it was an over-broad contextual dependency. Preserved: cloud still depends on network access, virtualization, and early data center foundations.",
+  "would_reject_if": [
+    "A standards text explicitly states software-engineering methodology is a required prerequisite distinct from cloud service infrastructure itself.",
+    "The cloud dependency graph is later narrowed so the node is only the software layer, with no shared infrastructure semantics."
+  ],
+  "short_reason": "Software engineering is a contextual enabler, not a strict prerequisite for the cloud infrastructure+service paradigm.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-packet -- cloud_computing_distributed_systems",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

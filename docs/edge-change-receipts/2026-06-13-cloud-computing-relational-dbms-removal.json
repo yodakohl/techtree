@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-13-cloud-computing-relational-dbms-removal",
+  "decision_date": "2026-06-13",
+  "edge": {
+    "dependent": "cloud_computing_distributed_systems",
+    "prerequisite": "databases_relational_dbms"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Cloud computing does not require a specific relational database technology as a prerequisite; it can be implemented with many storage engines, and this node intentionally models the distributed service model rather than a specific storage stack.",
+  "source_supports_edge": "no",
+  "source_url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NIST SP 800-145, 2011; resource model and service model definitions for cloud deployment.",
+    "source_claim_summary": "The cloud model is defined as pooled configurable resources including networks, servers, and storage, not specifically relational database systems.",
+    "source_support_rationale": "This source explicitly characterizes cloud resources as pooled and abstracted services, which is broader than any particular database model and therefore does not support a hard relational-DB prerequisite."
+  },
+  "ontology_before": "Cloud Computing included a prerequisite on relational databases, suggesting broad cloud services could not exist without relational DBMS technologies.",
+  "ontology_after": "The cloud node now depends on network and infrastructure-level concepts; database-specific representation is preserved through downstream nodes such as cloud_data_warehouses and enterprise data systems.",
+  "invariant_preserved_or_changed": "Changed: removed one context-specific edge that overconstrained the cloud node. Preserved: relational database technologies still connect as dependent applications and specialties where the coupling is explicit.",
+  "would_reject_if": [
+    "A standards source demonstrates that cloud computing requires the relational DBMS model as part of its core definition.",
+    "Evidence appears that no meaningful non-relational cloud deployment exists across the historical period."
+  ],
+  "short_reason": "This cloud node is infrastructure/service-level, while relational DBMS is one data-store implementation choice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-packet -- cloud_computing_distributed_systems",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
