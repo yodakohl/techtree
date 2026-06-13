@@ -10,6 +10,18 @@
 
 [Live Demo](https://pushme.site/techtree/demo.html) · [CRISPR Target Trace](https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html) · [Agent Entry](llms.txt)
 
+Every technology now has a stable public URL at:
+
+- https://pushme.site/techtree/tech/`<id>`.html
+- https://pushme.site/techtree/fields/`<slug>`.html
+
+Example entry points:
+
+- CRISPR/Cas9: https://pushme.site/techtree/tech/crispr_gene_editing.html
+- Retrieval-Augmented Generation: https://pushme.site/techtree/tech/retrieval_augmented_generation.html
+- EUV lithography: https://pushme.site/techtree/tech/euv_lithography.html
+- Grid-scale battery storage: https://pushme.site/techtree/tech/grid_scale_battery_storage.html
+
 | In 10 seconds | Why it matters |
 | --- | --- |
 | **Try the demo** | Opens on CRISPR/Cas9 and traces the prerequisite stack needed to reach a target technology. |
@@ -26,10 +38,10 @@ Generated 2026-06-13 from the same dataset audit used by `npm run accuracy:risks
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,659 |
-| Source-checked nodes | 664 / 1,659 (40.0%) |
-| Nodes with node-level sources | 692 / 1,659 (41.7%) |
-| Dependency edges with edge-level sources | 4,017 / 5,473 (73.4%) |
-| Era-default placeholder dates | 515 / 1,659 (31.0%) |
+| Source-checked nodes | 671 / 1,659 (40.4%) |
+| Nodes with node-level sources | 699 / 1,659 (42.1%) |
+| Dependency edges with edge-level sources | 4,015 / 5,469 (73.4%) |
+| Era-default placeholder dates | 508 / 1,659 (30.6%) |
 | Manual risk-weighted sample | 40 / 40 (passed after correction) |
 
 Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).
@@ -65,6 +77,13 @@ Install dependencies and start the local server:
 ```bash
 npm install
 npm start
+```
+
+Build and validate generated public pages:
+
+```bash
+npm run build:public
+npm run check:public
 ```
 
 Open:
@@ -328,6 +347,8 @@ docs/                          Coverage and expansion documentation
 scripts/validate-data.js       Data validator used by npm test
 scripts/audit-temporal-consistency.js Temporal and semantic edge audit
 scripts/check-edge-change-receipts.js Semantic edge-change receipt audit
+scripts/generate-public-site.js  Generates stable public tech/field pages, sitemap, and llms.txt
+scripts/check-public-site.js     Verifies public artifact completeness, freshness, and determinism
 scripts/node-scope-packet.js   Generates broad-node scope review packets
 scripts/node-scope-snapshot.js Generates deterministic node-neighborhood behavior snapshots
 scripts/compare-node-scope-snapshots.js Compares before/after node-scope snapshots

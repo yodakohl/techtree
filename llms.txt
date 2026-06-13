@@ -1,35 +1,40 @@
 # TechTree
 
-TechTree is a source-backed human technology dependency graph. It helps users inspect what a technology depends on, what it unlocks, and what likely comes next.
+TechTree is a source-backed human technology dependency graph for AI and human consumption. It supports evidence-aware exploration and stable public page URLs.
 
 Primary links:
 
-- Live demo: https://pushme.site/techtree/demo.html
-- CRISPR target trace: https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing
-- GitHub repository: https://github.com/yodakohl/techtree
-- Contribution guide: https://github.com/yodakohl/techtree/blob/main/CONTRIBUTING.md
-- One-edge PR guide: https://github.com/yodakohl/techtree/blob/main/docs/ONE_EDGE_PR_GUIDE.md
-- Edge review queue: https://github.com/yodakohl/techtree/blob/main/docs/EDGE_REVIEW_QUEUE.md
+- Demo: https://pushme.site/techtree/demo.html
+- Graph: https://pushme.site/techtree/
+- Sorted: https://pushme.site/techtree/sorted.html
+- Technology entrypoint pattern: `https://pushme.site/techtree/tech/<id>.html` (example: `https://pushme.site/techtree/tech/crispr_gene_editing.html`)
+- Field entrypoint pattern: `https://pushme.site/techtree/fields/<slug>.html`
+- Live GitHub repository: https://github.com/yodakohl/techtree
+- Data model: https://github.com/yodakohl/techtree/blob/main/data
 - Quality snapshot: https://github.com/yodakohl/techtree/blob/main/docs/QUALITY_SNAPSHOT.md
+- Total technology pages: 1659
+- Total field pages: 18
 
-Useful local commands:
+Current quality metrics (from data/quality-snapshot.json):
+- Technologies: 1,659
+- Source-checked nodes: 671 / 1,659 (40.4%)
+- Nodes with node-level sources: 699 / 1,659 (42.1%)
+- Dependency edges with edge-level sources: 4,015 / 5,469 (73.4%)
+- Era-default placeholder dates: 508 / 1,659 (30.6%)
+- Manual risk-weighted sample: 40 / 40 (passed after correction)
 
-- `npm run agent:brief` prints branch status, quality metrics, and the current accuracy-risk queue.
-- `npm test` validates schema, missing prerequisites, cycles, and temporal consistency.
-- `npm run quality` runs duplicate, receipt, invariant, and quality snapshot checks.
-- `npm run coverage` reports current technology coverage by era and branch.
+Example technology pages:
+- CRISPR/Cas9: https://pushme.site/techtree/tech/crispr_gene_editing.html
+- RAG: https://pushme.site/techtree/tech/retrieval_augmented_generation.html
+- EUV lithography: https://pushme.site/techtree/tech/euv_lithography.html
+- Grid-scale battery storage: https://pushme.site/techtree/tech/grid_scale_battery_storage.html
 
-Contribution preference:
-
-- Prefer small, source-backed corrections over bulk expansion.
-- The highest-value PR changes one edge, one source, and one receipt.
-- Every semantic dependency edge should have a type, confidence, evidence level, note, review status, and source when available.
-- Do not add generated placeholder technologies or vague process names.
-
-Current trust snapshot:
-
-- Technologies: 1,664
-- Source-checked nodes: 500 / 1,664
-- Nodes with node-level sources: 542 / 1,664
-- Dependency edges with edge-level sources: 1,504 / 5,719
-- Manual risk-weighted sample: 40 / 40 passed after correction
+Representative field pages:
+- Agriculture & Food Systems: https://pushme.site/techtree/fields/agriculture-food-systems.html
+- Artificial Intelligence & Machine Learning: https://pushme.site/techtree/fields/artificial-intelligence-machine-learning.html
+- Civil Engineering & Built Environment: https://pushme.site/techtree/fields/civil-engineering-built-environment.html
+- Climate & Environmental Systems: https://pushme.site/techtree/fields/climate-environmental-systems.html
+- Cybersecurity & Cryptography: https://pushme.site/techtree/fields/cybersecurity-cryptography.html
+- Energy Systems & Grid: https://pushme.site/techtree/fields/energy-systems-grid.html
+- Finance & Markets: https://pushme.site/techtree/fields/finance-markets.html
+- Genome Editing / CRISPR-Cas: https://pushme.site/techtree/fields/genome-editing-crispr-cas.html
