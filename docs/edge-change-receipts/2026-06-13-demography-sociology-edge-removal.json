@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-13-demography-sociology-edge-removal",
+  "decision_date": "2026-06-13",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "demography",
+    "prerequisite": "sociology_early"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Sociology (Early) was used as a prerequisite for Demography."
+  },
+  "new_claim_absent": "No direct dependency remains; Demography is scoped to population accounting/statistical practice with earlier evidentiary roots predating formal sociology as a field.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/demography",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Historical overview identifying Graunt and early vital statistics as foundations of demography.",
+    "source_claim_summary": "Demography is historically treated as a statistical population science emerging before mature sociology as a distinct discipline.",
+    "source_support_rationale": "The source shows demographic methods and data collection (censuses, birth/death records) as foundational, making a direct dependency on Early Sociology unnecessary and chronologically late for the core node."
+  },
+  "ontology_before": "Demography inherited a direct prerequisite from Early Sociology, forcing a later chronology gate for core historical claim.",
+  "ontology_after": "Demography now depends on statistical prerequisites and historical population records, with sociology references removed from the core dependency chain.",
+  "invariant_preserved_or_changed": "Changed: core dependency and chronology constraints were decoupled. Preserved: use of census/codified law as contextual enablers remains in place.",
+  "would_reject_if": [
+    "A strong source showed demography requires formal early sociology frameworks for the node's scoped claim.",
+    "Demography were re-scoped to mean modern sociological population theory rather than population statistical practice."
+  ],
+  "short_reason": "Demography is older than a modern sociological field; edge is non-essential and created a chronological inconsistency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

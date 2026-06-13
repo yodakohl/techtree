@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-13-artificial-neurons-neuroscience-removal",
+  "decision_date": "2026-06-13",
+  "github_issue": "https://github.com/yodakohl/techtree/issues/66",
+  "edge": {
+    "dependent": "artificial_neurons",
+    "prerequisite": "neuroscience"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Neuroscience provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from Artificial Neurons to Neuroscience; earliest mathematical neuron models are documented independent of modern neuroscience institutionalization.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1007/BF02478259",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "1943 paper introducing artificial neuron formalism (McCulloch & Pitts).",
+    "source_claim_summary": "The source shows the mathematical neuron concept prior to later neuroscience scope used in this node's dependency.",
+    "source_support_rationale": "The citation dates the core modeled concept to 1943 and does not require the later neuroscience node as a hard prerequisite."
+  },
+  "ontology_before": "Artificial Neurons depended on Neuroscience as a hard/enabling prerequisite and were constrained by a later firstKnownDate.",
+  "ontology_after": "Artificial Neurons now rests on mathematical and cybernetic foundations while allowing neuroscience as contextual downstream usage where relevant.",
+  "invariant_preserved_or_changed": "Changed: remove unsupported hard prerequisite. Preserved: core early AI lineage via Mathematics and Cybernetics.",
+  "would_reject_if": [
+    "A source demonstrated that modern neuroscience concepts represented by the scoped node are required before 1948 artificial-neuron models could be formulated."
+  ],
+  "short_reason": "Core artificial-neuron models are mathematical and predate the scoped neuroscience node; this edge was creating a false chronology dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -18,6 +18,7 @@ const EVIDENCE_LEVELS = new Set([
 ]);
 
 const DATE_PRECISIONS = new Set([
+    'year',
     'exact',
     'decade',
     'century',
