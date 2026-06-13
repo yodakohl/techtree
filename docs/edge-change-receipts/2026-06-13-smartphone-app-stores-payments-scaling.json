@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-13-smartphone-app-stores-payments-scaling",
+  "decision_date": "2026-06-13",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "smartphone_app_stores",
+    "prerequisite": "digital_payment_gateways"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Digital Payment Gateways provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Payment systems and in-app purchasing are commercial infrastructure for paid apps and store monetization, not a hard prerequisite for distributing free apps."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ntia.gov/sites/default/files/publications/mobileappecosystemreport.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Mobile App Store Benefits and Technical Limitations sections: app stores provide payment systems, reduce payment frictions, and the report separately discusses in-app purchasing.",
+    "source_claim_summary": "The NTIA report treats payments and in-app purchasing as important app-store commercial infrastructure and policy surface.",
+    "source_support_rationale": "This supports a commercial/scaling edge because payment processing is central to monetized app stores but not required for every free-app distribution use case."
+  },
+  "ontology_before": "The graph treated digital payment gateways as a generic enabling capability for smartphone app stores.",
+  "ontology_after": "The graph treats payment processing and in-app purchasing as commercial scaling infrastructure for monetized app-store ecosystems.",
+  "invariant_preserved_or_changed": "Changed: digital_payment_gateways is now commercial_or_scaling_dependency rather than generic enabling.",
+  "would_reject_if": [
+    "The node were narrowed to only paid app stores with no free-app distribution.",
+    "A source showed that app-store payment processing is technically required for all app discovery, review, update, and distribution functions.",
+    "A separate node represented only in-app purchase billing rather than app stores as a whole."
+  ],
+  "short_reason": "Payments scale monetized app stores but are not a hard app-distribution prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

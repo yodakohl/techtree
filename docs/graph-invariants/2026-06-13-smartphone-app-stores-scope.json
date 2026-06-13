@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-13-smartphone-app-stores-scope",
+  "description": "Lock smartphone_app_stores to mass-market smartphone app-store platforms, not mobile SDKs or generic software repositories.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "smartphone_app_stores",
+      "operator": "eq",
+      "value": 2008,
+      "reason": "The node remains anchored to the 2008 iPhone App Store launch as the mass-market smartphone app-store scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "smartphone_app_stores",
+      "prerequisite": "smartphones",
+      "expected": "enabling",
+      "reason": "Smartphone operating systems and devices are the enabling platform for smartphone app stores."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "smartphone_app_stores",
+      "prerequisite": "digital_payment_gateways",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Payment processing and in-app purchasing are commercial scaling infrastructure, not a hard prerequisite for all app distribution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "smartphone_app_stores",
+      "prerequisite": "compiler_toolchains",
+      "reason": "Compiler toolchains are upstream app-development context, not direct app-store distribution infrastructure."
+    }
+  ]
+}

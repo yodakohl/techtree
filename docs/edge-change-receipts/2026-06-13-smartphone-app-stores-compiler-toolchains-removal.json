@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-13-smartphone-app-stores-compiler-toolchains-removal",
+  "decision_date": "2026-06-13",
+  "edge": {
+    "dependent": "smartphone_app_stores",
+    "prerequisite": "compiler_toolchains"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Compiler Toolchains provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because compiler toolchains support app development generally, but app stores are distribution, review, update, payment, identity, and governance platforms.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ntia.gov/sites/default/files/publications/mobileappecosystemreport.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Executive Summary, Mobile App Store Benefits, and review/process sections describe distribution, curation, payments, updates, and platform control rather than compiler toolchains as a store prerequisite.",
+    "source_claim_summary": "The NTIA report characterizes mobile app stores as distribution and governance infrastructure for apps, not as compiler toolchain technology.",
+    "source_support_rationale": "Compiler toolchains are upstream app-development infrastructure; keeping them as a direct edge overstates a contextual dependency for the app-store marketplace itself."
+  },
+  "ontology_before": "The graph made generic compiler toolchains a direct prerequisite of smartphone app stores.",
+  "ontology_after": "The graph keeps smartphones as the platform dependency and payments as commercial infrastructure; compiler toolchains remain app-development context rather than a direct app-store dependency.",
+  "invariant_preserved_or_changed": "Changed: compiler_toolchains is absent from direct prerequisites.",
+  "would_reject_if": [
+    "The node were rescoped to mobile SDKs or app build systems rather than app stores.",
+    "A source showed the first mass-market smartphone app stores required a specific compiler toolchain as store infrastructure.",
+    "A future node represented developer toolchains for smartphone apps."
+  ],
+  "short_reason": "Compiler toolchains are app-development context, not app-store infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
