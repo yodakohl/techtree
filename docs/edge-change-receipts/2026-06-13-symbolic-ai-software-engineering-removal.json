@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-13-symbolic-ai-software-engineering-removal",
+  "decision_date": "2026-06-13",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "symbolic_ai_expert_systems",
+    "prerequisite": "software_engineering"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.7,
+    "note": "Expert systems encode knowledge bases and inference rules in software; software engineering is required to build dependable systems."
+  },
+  "new_claim_absent": "No direct dependency remains from software engineering to Symbolic AI & Expert Systems. Early systems such as DENDRAL are scoped here as logic- and knowledge-representation techniques that predate modern software engineering practice and do not require the broad software engineering discipline as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://web.mit.edu/6.034/www/6.s966/dendral-history.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "DENDRAL history account discusses a 1960s medical reasoning system that uses declarative rules and symbol manipulation before software engineering was a named discipline in the modern sense.",
+    "source_claim_summary": "The MIT source frames expert systems as an AI methodology grounded in symbolic knowledge representation, with implementation details constrained by early AI project context.",
+    "source_support_rationale": "This supports removing the direct software-engineering dependency because the source shows that the conceptual primitive for this node predates and is only indirectly connected to later software-engineering process doctrines."
+  },
+  "ontology_before": "Symbolic AI & Expert Systems depended directly on a broad software engineering prerequisite. ",
+  "ontology_after": "The node keeps AI-scoped prerequisites only, while software engineering remains implicit context for modern deployment.",
+  "invariant_preserved_or_changed": "Changed: software_engineering is no longer a direct predecessor. Preserved: conceptual dependence on Artificial Intelligence (Early) and Formal Logic (Syllogism).",
+  "would_reject_if": [
+    "A clear primary-source timeline showed DENDRAL-like expert systems depended on a defined software-engineering stack in practice before its claimed scope date.",
+    "The node scope is narrowed to modern commercial expert-system products that require full software lifecycle engineering as prerequisite."
+  ],
+  "short_reason": "This dependency was contextual modernization pressure, not a historical prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/symbolic_ai_expert_systems.before.json /tmp/symbolic_ai_expert_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

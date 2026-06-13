@@ -5,46 +5,35 @@
     "dependent": "symbolic_ai_expert_systems",
     "prerequisite": "software_engineering"
   },
-  "replaced_edge": {
-    "dependent": "symbolic_ai_expert_systems",
-    "prerequisite": "databases_relational_dbms"
-  },
   "change_class": "topology_change",
+  "removed_edge": true,
   "old_claim": {
     "type": "enabling",
     "evidence_level": "expert_inference",
-    "confidence": 0.68,
-    "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path."
-  },
-  "new_claim": {
-    "type": "enabling",
-    "evidence_level": "expert_inference",
     "confidence": 0.7,
-    "note": "Expert systems encode knowledge bases and inference rules in software; relational DBMS is not a prerequisite for early systems such as DENDRAL."
+    "note": "Expert systems encode knowledge bases and inference rules in software; software engineering was previously treated as a prerequisite for this early AI software class."
   },
-  "source_supports_edge": "partial",
-  "source_url": "https://aihistoryproject.org/concepts/concept-dendral",
+  "new_claim_absent": "No direct dependency remains from Symbolic AI & Expert Systems to software_engineering. The scoped node is the method lineage of symbolic reasoning and expertise encoding, not a broad software-engineering process prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://web.mit.edu/6.034/www/6.s966/dendral-history.pdf",
   "source_shape": {
-    "source_type": "generic_overview",
-    "support_relationship": "reviews_field_relationship",
-    "source_locator": "Dendral overview identifying Dendral as an early expert system used for chemical analysis.",
-    "source_claim_summary": "The overview frames Dendral as an expert-system milestone, which supports anchoring the node to rule-based AI software rather than relational database systems.",
-    "source_support_rationale": "This partially supports the software edge because expert systems are software artifacts with encoded rules; it rejects relational DBMS as a prerequisite by chronology and scope."
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The DENDRAL history source presents expert-system practice in early AI contexts and does not model a direct dependency on modern software engineering process discipline.",
+    "source_claim_summary": "The source profiles DENDRAL as a 1960s rule-based expert system, with dependency on symbolic AI lineage and knowledge-encoding techniques.",
+    "source_support_rationale": "This supports removing the direct software-engineering edge because it separates conceptual lineage from later development methodology, which is an implicit deployment context rather than a defining prerequisite."
   },
-  "ontology_before": "Symbolic expert systems depended on relational DBMS, making 1960s expert systems downstream of a 1970 database model.",
-  "ontology_after": "Symbolic expert systems depend on AI, formal logic, and software engineering; relational DBMS is not a hard lineage edge.",
-  "invariant_preserved_or_changed": "Changed: symbolic_ai_expert_systems no longer directly depends on databases_relational_dbms and now depends on software_engineering.",
+  "ontology_before": "Symbolic AI & Expert Systems directly depended on software_engineering, and earlier an additional proposed replacement to relational DBMS was considered.",
+  "ontology_after": "The node now keeps only explicit lineage-level dependencies and no direct software-engineering edge.",
+  "invariant_preserved_or_changed": "Changed: software_engineering is no longer a direct prerequisite. Preserved: symbolic knowledge representation and AI antecedent nodes remain in place.",
   "would_reject_if": [
-    "A source showed early expert systems required relational DBMS.",
-    "The graph reintroduced symbolic_ai_expert_systems to databases_relational_dbms.",
-    "The node were re-scoped specifically to database-backed commercial expert-system shells."
+    "A later source showed that all expert systems in this scope are contingent on software engineering doctrine as a hard prerequisite."
   ],
-  "short_reason": "Early expert systems are rule-based software, not relational database systems.",
+  "short_reason": "This was implementation context, not a required conceptual dependency.",
   "validation_commands": [
     "npm run edge-receipts",
-    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/symbolic_ai_expert_systems.before.json /tmp/symbolic_ai_expert_systems.after.json --require-behavior-change",
     "npm test",
-    "npm run quality",
-    "npm run coverage"
+    "npm run quality"
   ]
 }

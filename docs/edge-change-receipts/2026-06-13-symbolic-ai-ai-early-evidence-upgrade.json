@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-13-symbolic-ai-ai-early-evidence-upgrade",
+  "decision_date": "2026-06-13",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "symbolic_ai_expert_systems",
+    "prerequisite": "artificial_intelligence_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Artificial Intelligence (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "primary_source",
+    "confidence": 0.75,
+    "note": "Artificial Intelligence (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://web.mit.edu/6.034/www/6.s966/dendral-history.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The DENDRAL history report explicitly places expert systems within the 1960s early AI program and frames them as descendants of early AI methods.",
+    "source_claim_summary": "The source provides a primary account of DENDRAL as one of the earliest practical expert systems in artificial intelligence.",
+    "source_support_rationale": "The report anchors expert systems to early AI as an antecedent line, justifying a stronger lineage evidence level for the dependency and its historical scope."
+  },
+  "ontology_before": "The edge was supported only as expert-inferred lineage between historical labels.",
+  "ontology_after": "The same dependency now carries primary-source evidence-level support.",
+  "invariant_preserved_or_changed": "Preserved: dependency remains Historical AI lineage. Changed: evidence strength improved from inference to primary source support.",
+  "would_reject_if": [
+    "The DENDRAL source were found to be a secondary summary rather than primary evidence for the broader Artificial Intelligence (Early) node."
+  ],
+  "short_reason": "A primary historical account now directly supports this lineage edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/symbolic_ai_expert_systems.before.json /tmp/symbolic_ai_expert_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-13-symbolic-ai-formal-logic-historical-lineage",
+  "decision_date": "2026-06-13",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "symbolic_ai_expert_systems",
+    "prerequisite": "formal_logic_syllogism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Formal Logic (Syllogism) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Formal Logic (Syllogism) is a historical predecessor for symbolic, rule-based reasoning systems."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://plato.stanford.edu/entries/logic-ai/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Stanford entry section on Logic and AI ties symbolic AI and expert systems to historical logic traditions, including syllogistic reasoning as an intellectual predecessor, without presenting logic as a direct implementation requirement.",
+    "source_claim_summary": "The entry frames logic-based AI as a historical lineage from formal logic traditions to AI representation and inference methods.",
+    "source_support_rationale": "This supports interpreting formal logic as antecedent lineage rather than a hard enabling component because expert systems rely on logic-as-antecedent ideas but can be introduced through multiple implementation traditions."
+  },
+  "ontology_before": "formal_logic_syllogism was modeled as an enabling prerequisite for Symbolic AI & Expert Systems.",
+  "ontology_after": "formal_logic_syllogism is now modeled as a historical predecessor relationship instead of an enabling component.",
+  "invariant_preserved_or_changed": "Preserved: the dependency is kept and the graph still indicates the historical path. Changed: edge semantics now encode lineage rather than enabling. ",
+  "would_reject_if": [
+    "A primary source showed that modern expert systems cannot be engineered without symbolic syllogistic formalisms."
+  ],
+  "short_reason": "Logic is the field ancestor for symbolic reasoning, not a direct required enabling substrate."
+  ,
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/symbolic_ai_expert_systems.before.json /tmp/symbolic_ai_expert_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
