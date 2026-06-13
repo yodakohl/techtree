@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-13-magnetic-tape-telegraph-removal",
+  "decision_date": "2026-06-13",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "magnetic_tape_data_storage",
+    "prerequisite": "telegraph"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Telegraph provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from magnetic_tape_data_storage to telegraph. Digital tape systems are modeled as post-telegraph digital signal recording components, not telegraph derivatives.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/storageengine/tape-unit-developed-for-data-storage/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CHM entry and timeline identify UNISERVO/IBM 726 as computer storage hardware introduced after earlier telegraph systems.",
+    "source_claim_summary": "The source gives a product-level history of magnetic tape drives in early digital computers, without describing telegraph as a direct prerequisite.",
+    "source_support_rationale": "The telegraph is not a direct prerequisite for the digital magnetic tape storage node; the node is scoped to post-telegraph computer storage architecture."
+  },
+  "ontology_before": "The graph linked telegraph as an enabling technological predecessor of magnetic_tape_data_storage.",
+  "ontology_after": "Telegraph is removed from direct dependency since the node now represents early computer storage hardware rather than telegraph communication systems.",
+  "invariant_preserved_or_changed": "Changed: removed the magnetic_tape_data_storage -> telegraph edge; direct dependencies are now restricted to enabling electronics and materials/chemistry.",
+  "would_reject_if": [
+    "The scoped node were redefined as a telegraph-adjacent communications mechanism.",
+    "A source directly demonstrated a required telegraph technology chain into digital magnetic tape storage.",
+    "The direct edge to telegraph were reintroduced without accompanying scope changes."
+  ],
+  "short_reason": "Telegraph systems are unrelated to the computer-storage architecture introduced with UNIVAC and IBM magnetic tape.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

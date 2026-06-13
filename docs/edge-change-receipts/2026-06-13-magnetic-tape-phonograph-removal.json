@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-13-magnetic-tape-phonograph-removal",
+  "decision_date": "2026-06-13",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "magnetic_tape_data_storage",
+    "prerequisite": "phonograph"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Phonograph provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from magnetic_tape_data_storage to phonograph. The scope is digital, computer-oriented magnetic tape storage rather than analog playback/recording mechanisms.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/storageengine/tape-unit-developed-for-data-storage/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CHM storage-engine timeline describes UNIVAC and IBM magnetic tape systems as computer data-storage technologies.",
+    "source_claim_summary": "The source documents 1951 UNISERVO tape drives for UNIVAC I and IBM 726 tape storage as digital computer peripherals.",
+    "source_support_rationale": "Digital-tape storage is scoped to computer I/O and auxiliary storage, while phonograph playback technology is outside this node's scope."
+  },
+  "ontology_before": "The graph treated phonograph as a generic enabling predecessor of digital tape data storage.",
+  "ontology_after": "Digital tape storage now has dependencies limited to electronics, materials, and chemistry, with no analog phonograph prerequisite.",
+  "invariant_preserved_or_changed": "Changed: removed the magnetic_tape_data_storage -> phonograph edge because the scoped node is a computer-storage technology.",
+  "would_reject_if": [
+    "The node scope were broadened again to cover analog audio playback systems.",
+    "A reliable source demonstrated that phonograph mechanics were a required component for digital magnetic tape data storage.",
+    "The same direct edge were reintroduced without a scope rewrite."
+  ],
+  "short_reason": "Digital data tape storage is not an extension of playback phonograph technology, so this prerequisite was implausible.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

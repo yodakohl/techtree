@@ -1,0 +1,24 @@
+{
+  "id": "2026-06-13-magnetic-tape-edge-scope",
+  "description": "Remove implausible media/communication prerequisites from digital magnetic tape storage and early-computers dependencies.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "magnetic_tape_data_storage",
+      "prerequisite": "phonograph",
+      "reason": "The node is scoped to digital computer magnetic tape storage, not analog phonograph mechanics."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "magnetic_tape_data_storage",
+      "prerequisite": "telegraph",
+      "reason": "Telegraph systems are not a direct prerequisite for the current computer-data-storage scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "computers_early",
+      "prerequisite": "magnetic_tape_data_storage",
+      "reason": "Early mainframe systems predate the practical 1951 magnetic tape data-storage implementation."
+    }
+  ]
+}

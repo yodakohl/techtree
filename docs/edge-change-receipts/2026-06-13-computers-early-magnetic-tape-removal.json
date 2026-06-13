@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-13-computers-early-magnetic-tape-removal",
+  "decision_date": "2026-06-13",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "computers_early",
+    "prerequisite": "magnetic_tape_data_storage"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Magnetic Tape Data Storage provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from computers_early to magnetic_tape_data_storage, since early mainframe computers predate practical magnetic tape data-storage drives and predate this node’s 1951 first-known date.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/revolution/birth-of-the-computer/4/78",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Computer History Museum ENIAC timeline and related narrative.",
+    "source_claim_summary": "ENIAC is an early stored-program era computer built before the 1951 digital magnetic tape data-storage systems became established.",
+    "source_support_rationale": "The source establishes early-computer development chronology that does not require magnetic tape storage as a prerequisite for the existence of early computers."
+  },
+  "ontology_before": "The graph made magnetic tape storage a direct enabler of early computer systems.",
+  "ontology_after": "Early computers now depend on electronics, mathematics, computation theory, and vacuum tubes, with magnetic tape removed as a downstream dependency.",
+  "invariant_preserved_or_changed": "Changed: removed computers_early -> magnetic_tape_data_storage edge to resolve an incorrect chronology inversion.",
+  "would_reject_if": [
+    "ENIAC-era sources were found to use magnetic tape as an essential prerequisite for 1946 early computers.",
+    "The edge is reintroduced again without temporal correction.",
+    "Computers_early scope is changed to a post-1951 tape-dependent lineage."
+  ],
+  "short_reason": "Digital magnetic tape storage became practical after the first vacuum-tube mainframes, so the direction was reversed.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
