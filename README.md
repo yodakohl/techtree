@@ -29,7 +29,7 @@ Generated 2026-06-13 from the same dataset audit used by `npm run accuracy:risks
 | Source-checked nodes | 647 / 1,659 (39.0%) |
 | Nodes with node-level sources | 678 / 1,659 (40.9%) |
 | Dependency edges with edge-level sources | 1,924 / 5,479 (35.1%) |
-| Era-default placeholder dates | 533 / 1,659 (32.1%) |
+| Era-default placeholder dates | 531 / 1,659 (32.0%) |
 | Manual risk-weighted sample | 40 / 40 (passed after correction) |
 
 Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).
