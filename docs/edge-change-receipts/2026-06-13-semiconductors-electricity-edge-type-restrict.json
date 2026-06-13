@@ -1,0 +1,63 @@
+{
+  "id": "2026-06-13-semiconductors-electricity-edge-type-restrict",
+  "decision_date": "2026-06-13",
+  "edge": {
+    "dependent": "semiconductors",
+    "prerequisite": "electricity"
+  },
+  "change_class": "semantic_retype",
+  "removed_edge": false,
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.78,
+    "note": "Electrical conduction and rectification are intrinsic to the scoped semiconductor-materials claim."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "textbook",
+    "confidence": 0.78,
+    "note": "Electrical phenomena are essential for describing semiconductor behavior, but other characterizations can occur without being the sole path to the material category."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.computerhistory.org/siliconengine/semiconductor-point-contact-rectifier-effect-is-discovered/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Computer History Museum profile of the 1874 point-contact rectifier discovery; electrical effect appears as characterization context, not a universal prerequisite rule.",
+    "source_claim_summary": "The source documents a specific discovery pathway where electrical measurement exposed rectifying behavior in galena, without stating that electricity is required as a formal prerequisite for all semiconductor concepts.",
+    "source_support_rationale": "The account supports an enabling interpretation because it demonstrates that understanding and detecting semiconductor behavior relies on electrical experimentation, while leaving room for alternate historical characterization and classification routes."
+  },
+  "ontology_before": "Semiconductors required the electricity node, which implied a strict technological gate that could over-constrain earlier material-level understanding.",
+  "ontology_after": "Semiconductors now treat electricity as an enabling scientific context, consistent with a broad materials node that can include non-circuit-focused classification evidence.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "advanced_chemistry",
+      "type": "enabling",
+      "reason": "Advanced chemistry remains an enabling dependency because material identification and processing methods remain central to early semiconductor discovery."
+    },
+    {
+      "prerequisite": "scientific_method",
+      "type": "enabling",
+      "reason": "Scientific method remains enabling for controlled discovery workflows and reproducibility in semiconducting material characterization."
+    },
+    {
+      "prerequisite": "mining",
+      "type": "common_dependency",
+      "reason": "Mining remains a contextual material-source dependency and is not being reclassified by this correction."
+    }
+  ],
+  "invariant_preserved_or_changed": "Changed: electricity is no longer modeled as strictly required. Preserved: the semiconductors node keeps chemistry/method/supply dependencies and timeline consistency with dependent device development.",
+  "would_reject_if": [
+    "A robust source explicitly defines semiconducting materials as impossible without a completed electricity infrastructure or formal electrical-network context.",
+    "The same evidence demonstrates electricity is a hard prerequisite for all historical and modern semiconductor developments rather than a general characterization context."
+  ],
+  "short_reason": "Converted a hard dependency into an enabling relationship to avoid over-constraining a broad materials concept.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run accuracy:risks -- --markdown --limit 24"
+  ]
+}
