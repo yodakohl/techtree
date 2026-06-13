@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-13-smartphone-app-stores-smartphones-evidence",
+  "decision_date": "2026-06-13",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "smartphone_app_stores",
+    "prerequisite": "smartphones"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "expert_inference",
+    "note": "The node is scoped to smartphone platform app stores; smartphone operating systems and installed user devices are the enabling platform."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "Smartphone app stores are the primary distribution channel for third-party apps on mobile devices, so smartphone operating systems and installed user devices are the enabling platform."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ntia.gov/sites/default/files/publications/mobileappecosystemreport.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Executive Summary and State of Play sections: smartphones are described as the primary vehicles for apps, and third-party apps on mobile devices are primarily made available through Apple and Google mobile app stores.",
+    "source_claim_summary": "The NTIA report ties mobile app stores to smartphone operating systems, mobile devices, and app distribution through Apple App Store and Google Play.",
+    "source_support_rationale": "This supports smartphones as an enabling platform for smartphone app stores without turning any specific device model or vendor store into a hard prerequisite."
+  },
+  "invariant_preserved_or_changed": "Preserved: smartphones remains an enabling dependency; changed: evidence is now source-backed.",
+  "would_reject_if": [
+    "The node were broadened to all software package repositories or desktop app stores.",
+    "The node were narrowed to a single vendor's 2008 launch event rather than the smartphone app-store model.",
+    "A stronger source showed mass-market smartphone app stores could exist independently of smartphone operating systems and installed devices."
+  ],
+  "short_reason": "The scoped technology is a smartphone platform app-store model.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
