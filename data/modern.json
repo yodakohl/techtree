@@ -21588,11 +21588,10 @@
     "id": "meteorology_advanced",
     "name": "Advanced Meteorology",
     "era": "Modern",
-    "description": "Weather science based on remote sensing, radiosondes, satellites, numerical models, radar, and global observation networks.",
+    "description": "Weather science based on numerical models, radiosondes, radar, satellites, remote sensing, and global observation networks.",
     "prerequisites": [
       "barometer",
       "radio",
-      "satellite_technology",
       "computers_early"
     ],
     "fields": [
@@ -21604,21 +21603,32 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "The History of Numerical Weather Prediction",
+        "url": "https://www.vos.noaa.gov/MWL/dec_07/weatherprediction.shtml",
+        "publisher": "NOAA Voluntary Observing Ship Program",
+        "year": 2007,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NOAA states that the first one-day nonlinear weather prediction was made in April 1950 using electronic computation, anchoring modern numerical meteorology."
+      },
+      {
         "title": "Satellite Data",
         "url": "https://www.ncei.noaa.gov/products/satellite",
         "publisher": "NOAA National Centers for Environmental Information",
         "year": 2026,
         "source_type": "official_agency",
         "supports": [
-          "node",
           "maturity"
-        ]
+        ],
+        "locator": "NOAA NCEI is retained as the maturity source for modern meteorology based on satellite data products and global observation systems."
       }
     ],
-    "firstKnownDate": 1954,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1950,
+    "datePrecision": "year",
+    "region": "United States / ENIAC numerical weather prediction",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "barometer",
@@ -21654,26 +21664,6 @@
             "publisher": "Wikipedia",
             "year": 2026,
             "source_type": "generic_overview",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "satellite_technology",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Satellite Technology provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Satellite Data",
-            "url": "https://www.ncei.noaa.gov/products/satellite",
-            "publisher": "NOAA National Centers for Environmental Information",
-            "year": 2026,
-            "source_type": "official_agency",
             "supports": [
               "edge"
             ]
@@ -33507,21 +33497,32 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "1960's Development of Negative Photoresist",
+        "url": "https://www.shmj.or.jp/english/pdf/em/exhibi2420E.pdf",
+        "publisher": "Semiconductor History Museum of Japan",
+        "year": 2020,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "locator": "The museum exhibit states that Eastman Kodak negative photoresist KPR was used in photolithography technology developed at Bell Laboratories in 1955."
+      },
+      {
         "title": "Light and Lasers: Lithography Principles",
         "url": "https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers",
         "publisher": "ASML",
         "year": 2026,
         "source_type": "generic_overview",
         "supports": [
-          "node",
           "maturity"
-        ]
+        ],
+        "locator": "ASML explains that semiconductor lithography transfers mask patterns into photoresist, retained as modern process-context support."
       }
     ],
     "firstKnownDate": 1955,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "datePrecision": "year",
+    "region": "United States / Bell Laboratories photolithography",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "photolithography",
@@ -33584,6 +33585,17 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "1960's Development of Negative Photoresist",
+        "url": "https://www.shmj.or.jp/english/pdf/em/exhibi2420E.pdf",
+        "publisher": "Semiconductor History Museum of Japan",
+        "year": 2020,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "locator": "The museum exhibit states that Fairchild applied Bell Labs photolithography technology in the 1959 planar integrated-circuit process, anchoring semiconductor mask-based pattern transfer."
+      },
+      {
         "title": "Light and Lasers: Lithography Principles",
         "url": "https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers",
         "publisher": "ASML",
@@ -33592,13 +33604,14 @@
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "locator": "ASML describes lithography as projecting a chip pattern through a mask onto a wafer coated with photoresist, matching the photomask node scope."
       }
     ],
-    "firstKnownDate": 1958,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1959,
+    "datePrecision": "year",
+    "region": "United States / Fairchild planar integrated circuit process",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "photolithography",
@@ -43064,21 +43077,33 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Air Quality Monitoring",
-        "url": "https://www.epa.gov/amtic",
+        "title": "Summary of the Clean Air Act",
+        "url": "https://www.epa.gov/laws-regulations/summary-clean-air-act",
+        "publisher": "U.S. Environmental Protection Agency",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "EPA identifies the Clean Air Act as 42 U.S.C. 7401 et seq. (1970) and states that it authorizes EPA to establish National Ambient Air Quality Standards."
+      },
+      {
+        "title": "Air Quality System (AQS)",
+        "url": "https://www.epa.gov/aqs",
         "publisher": "U.S. Environmental Protection Agency",
         "year": 2026,
         "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "locator": "EPA describes AQS as the repository for ambient air quality data from monitoring networks used for assessments, designations, modeling, and Clean Air Act reporting."
       }
     ],
-    "firstKnownDate": 1954,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1970,
+    "datePrecision": "year",
+    "region": "United States / Clean Air Act monitoring framework",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "electronics",
