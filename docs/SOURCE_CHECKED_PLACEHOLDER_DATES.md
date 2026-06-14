@@ -2,15 +2,14 @@
 
 Generated from canonical era JSON. A `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
 
-Source-checked nodes: 1262
-Source-checked nodes using era-default placeholder dates: 153 / 1262 (12.1%)
-Listed exceptions without explicit uncertainty metadata: 141
+Source-checked nodes: 1246
+Source-checked nodes using era-default placeholder dates: 135 / 1246 (10.8%)
+Listed exceptions without explicit uncertainty metadata: 135
 
 ## Summary By Era
 
 | Era | Source-checked placeholder dates | With explicit uncertainty metadata | Listed exceptions |
 | --- | --- | --- | --- |
-| Ancient | 18 | 12 | 6 |
 | Classical | 42 | 0 | 42 |
 | Future | 5 | 0 | 5 |
 | Industrial | 23 | 0 | 23 |
@@ -21,24 +20,6 @@ Listed exceptions without explicit uncertainty metadata: 141
 
 | ID | Name | Era | firstKnownDate | datePrecision | Source title | source_type | Why date is still uncertain |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `charcoal_pit_kilns` | Charcoal Pit Kilns | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `charcoal_production` | Charcoal Production | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `dugout_paddles` | Dugout Canoe Paddles | Ancient | -10000 | millennium | The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `early_boats` | Early Boats | Ancient | -10000 | millennium | The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `fish_weirs_and_traps` | Fish Weirs & Traps | Ancient | -10000 | millennium | The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `horticulture` | Horticulture | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `lime_plaster` | Lime Plaster | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `ochre_pigment_processing` | Ochre Pigment Processing | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `reed_boats` | Reed Boats | Ancient | -10000 | millennium | Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `salt_harvesting` | Salt Harvesting | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `sling` | Sling | Ancient | -10000 | millennium | Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications | primary_paper | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `smelting_basic` | Basic Smelting | Ancient | -10000 | millennium | Ngwenya Mines | official_agency | Source supports the broad technology claim, but this node still uses the Ancient era-default placeholder date until a narrower first-known-date chronology review is completed. |
-| `trapping` | Trapping | Ancient | -10000 | millennium | The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution | primary_paper | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
-| `village_settlements` | Village Settlements | Ancient | -10000 | millennium | Stone Age hut in Israel yields world's oldest evidence of bedding | primary_paper | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
-| `wattle_and_daub` | Wattle and Daub | Ancient | -10000 | millennium | Stone Age hut in Israel yields world's oldest evidence of bedding | primary_paper | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
-| `wooden_dugout_canoe_refinement` | Refined Dugout Canoes | Ancient | -10000 | millennium | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
-| `wooden_yokes` | Wooden Yokes | Ancient | -10000 | millennium | The origins of animal domestication and husbandry: A major change in the history of humanity and the biosphere | review | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
-| `yokes_and_harnesses` | Yokes & Harnesses | Ancient | -10000 | millennium | The origins of animal domestication and husbandry: A major change in the history of humanity and the biosphere | review | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
 | `apis_mellifera_domestication_beekeeping` | Beekeeping | Classical | -500 | century | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
 | `ballistics_early` | Early Ballistics | Classical | -500 | century | Indications of bow and stone-tipped arrow use 64 000 years ago in KwaZulu-Natal, South Africa | primary_paper | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |
 | `basic_chemistry_early_forms` | Basic Chemistry (Early Forms) | Classical | -500 | century | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review. |

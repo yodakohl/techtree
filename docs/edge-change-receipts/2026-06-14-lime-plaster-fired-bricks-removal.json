@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-14-lime-plaster-fired-bricks-removal",
+  "decision_date": "2026-06-14",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "lime_plaster",
+    "prerequisite": "fired_bricks_early_kilns"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Fired Bricks & Early Kilns was modeled as an enabling prerequisite for lime plaster."
+  },
+  "new_claim_absent": "No direct edge remains from lime_plaster to fired_bricks_early_kilns. Source-backed lime plaster chronology predates the current fired-bricks node and depends more generally on controlled fire and pyrotechnic processing, not brick manufacture.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10427327/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article title and introduction identify lime plaster technology 12,000 years ago and discuss early burnt-lime evidence in the southern Levant.",
+    "source_claim_summary": "The source supports early lime plaster before the graph's fired_bricks_early_kilns chronology.",
+    "source_support_rationale": "The source supports lime plaster as an early pyrotechnology but does not require fired bricks or brick-kiln technology as a prerequisite."
+  },
+  "ontology_before": "The graph made lime plaster chronologically dependent on a later fired-brick/kiln node.",
+  "ontology_after": "Lime plaster remains downstream of fire control while no longer inheriting a false brick-manufacture dependency.",
+  "invariant_preserved_or_changed": "Changed: fired_bricks_early_kilns is absent as a direct prerequisite for lime_plaster, and lime_plaster remains source-checked to 12,000 BCE chronology.",
+  "would_reject_if": [
+    "A source showed the scoped 12,000 BCE lime plaster required fired brick manufacture or the specific fired_bricks_early_kilns node.",
+    "The lime_plaster node were narrowed to later architectural lime plasters that explicitly required kiln infrastructure.",
+    "The fired_bricks_early_kilns node were rescoped and redated to cover earlier generic lime-burning pyrotechnology."
+  ],
+  "short_reason": "Early lime plaster predates the fired-bricks node and should not depend on brick manufacture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

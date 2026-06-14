@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-14-ancient-chronology-source-fit",
+  "description": "Lock Ancient source-fit cleanup for early boats, lime plaster, and ochre processing chronology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "ochre_pigment_processing",
+      "operator": "eq",
+      "value": -100000,
+      "reason": "Ochre pigment processing is anchored to the Blombos Cave ochre-processing workshop reported at 100,000 years ago."
+    },
+    {
+      "type": "first_known_date",
+      "node": "lime_plaster",
+      "operator": "eq",
+      "value": -12000,
+      "reason": "Lime plaster is anchored to southern Levant evidence for lime plaster technology around 12,000 years ago."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lime_plaster",
+      "prerequisite": "fired_bricks_early_kilns",
+      "reason": "The source-backed lime plaster chronology predates the fired-bricks node and does not require brick manufacture."
+    },
+    {
+      "type": "first_known_date",
+      "node": "wooden_dugout_canoe_refinement",
+      "operator": "eq",
+      "value": -8000,
+      "reason": "Refined dugout canoes are anchored to the Mesolithic Pesse canoe artifact."
+    }
+  ]
+}
