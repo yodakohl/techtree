@@ -114,6 +114,15 @@ function hasTerm(text, term) {
     return new RegExp(`(^|[^a-z0-9])${pattern}([^a-z0-9]|$)`, 'i').test(text);
 }
 
+function supportsSourceClaim(source, claim) {
+    return Array.isArray(source?.supports) && source.supports.includes(claim);
+}
+
+function isWikipediaSearchSource(source) {
+    return /wikipedia\.org\/wiki\/Special:Search/i.test(source?.url || '')
+        || /^Wikipedia page for /i.test(source?.title || '');
+}
+
 function loadData() {
     return fs.readdirSync(DATA_DIR)
         .filter(isTechnologyDataFile)
@@ -215,6 +224,12 @@ for (const item of data) {
             }
             if (!Array.isArray(source.supports) || source.supports.some(value => !SOURCE_SUPPORTS.has(value))) {
                 errors.push(`${item.__file}: ${item.id} source ${index + 1} has invalid supports`);
+            }
+        }
+        if (item.reviewStatus === 'source_checked') {
+            const nodeSources = item.sources.filter(source => supportsSourceClaim(source, 'node'));
+            if (nodeSources.length === 1 && isWikipediaSearchSource(nodeSources[0])) {
+                errors.push(`${item.__file}: ${item.id} is source_checked but its only node source is a Wikipedia search URL`);
             }
         }
         if (item.reviewStatus === 'source_checked' && item.sources.every(source => sourceQualityWeight(source.source_type) < 0.45)) {

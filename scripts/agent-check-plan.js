@@ -114,6 +114,10 @@ function plan(files) {
         addCommand(commands, 'Source-checked placeholder-date report freshness', ['node', 'scripts/source-checked-placeholder-report.js', '--check'], 'placeholder-date exception report changed');
     }
 
+    if (files.some(file => ['docs/RANDOM_SOURCE_FIT_AUDIT.md', 'scripts/audit-random-source-fit.js'].includes(file))) {
+        addCommand(commands, 'Random source-fit audit freshness', ['node', 'scripts/audit-random-source-fit.js', '--check'], 'random source-fit audit output changed');
+    }
+
     if (files.some(file => file === 'docs/QUALITY_GENOME_EDITING_CRISPR_CAS.md' || file === 'scripts/generate-field-quality-snapshot.js')) {
         addCommand(commands, 'CRISPR field snapshot freshness', ['node', 'scripts/generate-field-quality-snapshot.js', '--check'], 'field quality snapshot or generator changed');
     }
