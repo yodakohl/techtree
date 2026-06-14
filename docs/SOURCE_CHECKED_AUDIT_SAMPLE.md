@@ -5,12 +5,13 @@ Baseline for newly source-checked comparison: `44d9544^`.
 This deterministic sample covers 10 newly source-checked nodes from each requested era where available. It verifies local trust metadata: node-level source support, non-placeholder chronology, non-generic source status, and strong source class. Rows marked `REVIEW` need human source-content review before they should be treated as textbook-quality evidence.
 
 Sampled nodes: 50
-Rows passing all local checks: 22 / 50
+Rows passing all local checks: 24 / 50
 Rows still using era-default placeholder dates: 21 / 50
-Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
+Rows with only weak/generic/Wikipedia-like node sources: 11 / 50
 
 ## Recent Source-Check Commits
 
+- 397dc1f 2026-06-14 chore: reduce source-checked placeholder date risk
 - a6163dd 2026-06-14 chore: audit source-checked placeholder dates
 - a0e8974 2026-06-14 chore: tighten source-checked quality metrics
 - afadec2 2026-06-14 chore: make quality metrics single-source-of-truth
@@ -26,7 +27,6 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 - 2abfada 2026-06-14 chore: advance data quality with targeted source checks
 - 19dd2da 2026-06-14 chore: source renaissance, industrial, and modern nodes
 - 1a9298a 2026-06-14 chore: source renaissance medicine and finance nodes
-- c103fcd 2026-06-14 chore: source renaissance art and mapping nodes
 
 ## Sample
 
@@ -64,15 +64,14 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 | `atomic_theory_daltonian` | Industrial | non-placeholder | node | yes | yes | PASS | John Dalton - Atomic theory (textbook); John Dalton (textbook) |
 | `3d_printing_additive_manufacturing` | Modern | non-placeholder | node | yes | yes | PASS | Our Story (review); The Prototyping Technology that Disrupted the World (review) |
 | `additive_manufacturing_metal` | Modern | non-placeholder | node | yes | yes | PASS | The Story of EOS GmbH and Industrial 3D Printing (review); A Brief History of the Progress of Laser Powder Bed Fusion of Metals (review) |
-| `advanced_optics_space_based` | Modern | non-placeholder | node | no | no | REVIEW | Adaptive optics (generic_overview) |
 | `advanced_recycling_sortation` | Modern | non-placeholder | node | no | no | REVIEW | Wikipedia page for Advanced Recycling Sortation (textbook) |
 | `agribusiness` | Modern | non-placeholder | node | yes | yes | PASS | Global climate and nutrition challenges (review) |
 | `air_quality_monitoring` | Modern | non-placeholder | node | yes | yes | PASS | Summary of the Clean Air Act (official_agency); Air Quality System (AQS) (official_agency) |
-| `api_economy` | Modern | non-placeholder | node | no | no | REVIEW | API economy (generic_overview) |
 | `ballistic_missiles_icbm` | Modern | non-placeholder | node | yes | yes | PASS | R-7 (textbook) |
 | `barcodes` | Modern | non-placeholder | node | yes | yes | PASS | The barcode birth (review) |
 | `barcodes_inventory_systems` | Modern | non-placeholder | node | yes | yes | PASS | Supermarket Scanner (museum); 50 years of transforming tomorrow (official_agency) |
-| `3d_printing_advanced` | Future | placeholder | node | no | no | REVIEW | 3D printing (generic_overview) |
+| `big_data_analytics_computational_statistics` | Modern | non-placeholder | node | yes | yes | PASS | Big Data (textbook) |
+| `civic_open_data_portals` | Modern | non-placeholder | node | yes | yes | PASS | Data.gov Home (official_agency); US Government Linked Open Data: Semantic.data.gov (review) |
 | `active_support_structures` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for Active Support Structures (textbook) |
 | `adaptive_climate_grids` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for Adaptive Climate Grids (textbook) |
 | `advanced_nanomedicine` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for Advanced Nanomedicine (textbook) |
@@ -80,6 +79,7 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 | `ai_assisted_global_governance_systems` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for AI-Assisted Global Governance Systems (textbook) |
 | `ai_clinical_care_networks` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for AI Clinical Care Networks (textbook) |
 | `ai_cultural_memory_archives` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for AI Cultural Memory Archives (textbook) |
-| `ai_governance_ethics_frameworks_robust` | Future | placeholder | node | no | no | REVIEW | AI alignment (generic_overview) |
 | `ai_governed_power_markets` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for AI-Governed Power Markets (textbook) |
+| `ai_mediated_supply_negotiation` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for AI-Mediated Supply Negotiation (textbook) |
+| `ai_native_government_services` | Future | placeholder | node | no | no | REVIEW | Wikipedia page for AI-Native Government Services (textbook) |
 
