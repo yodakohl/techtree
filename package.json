@@ -24,7 +24,7 @@
     "edge-receipts": "node scripts/check-edge-change-receipts.js",
     "source-urls": "node scripts/audit-source-urls.js",
     "temporal": "node scripts/audit-temporal-consistency.js",
-    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && npm run trust:audit && node scripts/generate-quality-snapshot.js --check && node scripts/generate-field-quality-snapshot.js --check",
+    "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && npm run trust:audit && node scripts/generate-quality-snapshot.js --check && node scripts/generate-field-quality-snapshot.js --check && npm run check:public",
     "test": "node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },
