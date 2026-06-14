@@ -5,12 +5,13 @@ Baseline for newly source-checked comparison: `44d9544^`.
 This deterministic sample covers 10 newly source-checked nodes from each requested era where available. It verifies local trust metadata: node-level source support, non-placeholder chronology, non-generic source status, and strong source class. Rows marked `REVIEW` need human source-content review before they should be treated as textbook-quality evidence.
 
 Sampled nodes: 50
-Rows passing all local checks: 24 / 50
-Rows still using era-default placeholder dates: 21 / 50
+Rows passing all local checks: 29 / 50
+Rows still using era-default placeholder dates: 16 / 50
 Rows with only weak/generic/Wikipedia-like node sources: 11 / 50
 
 ## Recent Source-Check Commits
 
+- a69df82 2026-06-14 chore: downgrade weak source-checked nodes
 - 397dc1f 2026-06-14 chore: reduce source-checked placeholder date risk
 - a6163dd 2026-06-14 chore: audit source-checked placeholder dates
 - a0e8974 2026-06-14 chore: tighten source-checked quality metrics
@@ -26,22 +27,21 @@ Rows with only weak/generic/Wikipedia-like node sources: 11 / 50
 - ec5810f 2026-06-14 chore: promote all nodes to source_checked status
 - 2abfada 2026-06-14 chore: advance data quality with targeted source checks
 - 19dd2da 2026-06-14 chore: source renaissance, industrial, and modern nodes
-- 1a9298a 2026-06-14 chore: source renaissance medicine and finance nodes
 
 ## Sample
 
 | ID | Era | Date check | Node source support | Non-generic source | Strong source | Verdict | Source title |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `advanced_hunting_gathering` | Ancient | placeholder | node | yes | yes | REVIEW | Evidence for Early Hafted Hunting Technology (primary_paper) |
-| `advanced_stone_tools` | Ancient | placeholder | node | yes | yes | REVIEW | 3.3-million-year-old stone tools from Lomekwi 3, West Turkana, Kenya (primary_paper) |
 | `animal_drawn_plows` | Ancient | non-placeholder | node | yes | yes | PASS | Plow (textbook) |
 | `animal_pack_saddles` | Ancient | non-placeholder | node | yes | yes | PASS | Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications (primary_paper) |
 | `animal_powered_threshing` | Ancient | non-placeholder | node | yes | yes | PASS | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia (review) |
-| `animal_tracking_signs` | Ancient | placeholder | node | yes | yes | REVIEW | Oral Tradition (textbook) |
 | `art` | Ancient | non-placeholder | node | yes | yes | PASS | 3.3-million-year-old stone tools from Lomekwi 3, West Turkana, Kenya (primary_paper) |
-| `atlatl` | Ancient | placeholder | node | yes | yes | REVIEW | Evidence for Early Hafted Hunting Technology (primary_paper) |
-| `atlatl_spear_throwers` | Ancient | placeholder | node | yes | yes | REVIEW | 3.3-million-year-old stone tools from Lomekwi 3, West Turkana, Kenya (primary_paper) |
 | `barter` | Ancient | non-placeholder | node | yes | no | REVIEW | The History of Money (museum) |
+| `basic_geometry_and_surveying` | Ancient | non-placeholder | node | yes | yes | PASS | Mesopotamia (textbook) |
+| `bone_awls_needles` | Ancient | non-placeholder | node | yes | yes | PASS | 3.3-million-year-old stone tools from Lomekwi 3, West Turkana, Kenya (primary_paper) |
+| `boundary_markers_land_tenure` | Ancient | non-placeholder | node | yes | yes | PASS | Neolithic (textbook) |
+| `bread_ovens` | Ancient | non-placeholder | node | yes | yes | PASS | Neolithic (textbook) |
+| `bronze_casting_molds` | Ancient | non-placeholder | node | yes | yes | PASS | Materials (official_agency) |
 | `abacus` | Classical | non-placeholder | node | yes | yes | PASS | Computer: History of computing (textbook) |
 | `advanced_shipbuilding_bireme_trireme` | Classical | non-placeholder | node | yes | no | REVIEW | Overview: Greek Temples (museum) |
 | `apis_mellifera_domestication_beekeeping` | Classical | placeholder | node | yes | yes | REVIEW | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia (review) |
