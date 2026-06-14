@@ -23,6 +23,23 @@ function hasExplicitDateUncertainty(item) {
         || (typeof item.chronologyUncertainty === 'string' && item.chronologyUncertainty.trim());
 }
 
+function dateUncertaintyReason(item) {
+    if (typeof item.dateUncertaintyNote === 'string' && item.dateUncertaintyNote.trim()) {
+        return item.dateUncertaintyNote.trim();
+    }
+    if (typeof item.chronologyUncertainty === 'string' && item.chronologyUncertainty.trim()) {
+        return item.chronologyUncertainty.trim();
+    }
+    if (item.dateUncertainty === true) {
+        return 'Explicitly marked date-uncertain; source supports the node, but the canonical first-known date still needs chronology review.';
+    }
+    return 'Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review.';
+}
+
+function reportIds(markdown) {
+    return new Set(Array.from(markdown.matchAll(/^\| `([^`]+)` \|/gmu), match => match[1]));
+}
+
 function markdownTable(rows) {
     return [
         `| ${rows[0].join(' | ')} |`,
@@ -56,15 +73,17 @@ function buildReport(data = loadData()) {
         summaryRows.push([era, counts.total, counts.explicitUncertainty, counts.exceptions]);
     }
 
-    const exceptionRows = [['ID', 'Name', 'Era', 'Default date', 'Source types', 'Source titles']];
-    for (const item of exceptions) {
-        exceptionRows.push([
+    const placeholderRows = [['ID', 'Name', 'Era', 'firstKnownDate', 'datePrecision', 'Source title', 'source_type', 'Why date is still uncertain']];
+    for (const item of placeholders) {
+        placeholderRows.push([
             `\`${item.id}\``,
             item.name,
             item.era,
-            `${item.firstKnownDate} / ${item.datePrecision} / ${item.region}`,
+            item.firstKnownDate,
+            item.datePrecision,
+            (item.sources || []).map(source => source.title || source.url || 'Untitled source').join('; '),
             (item.sources || []).map(source => source.source_type || 'unknown').join(', '),
-            (item.sources || []).map(source => source.title || source.url || 'Untitled source').join('; ')
+            dateUncertaintyReason(item)
         ]);
     }
 
@@ -81,9 +100,9 @@ function buildReport(data = loadData()) {
         '',
         markdownTable(summaryRows),
         '',
-        '## Exceptions',
+        '## Placeholder-Date Nodes',
         '',
-        exceptions.length ? markdownTable(exceptionRows) : 'No exceptions.',
+        placeholders.length ? markdownTable(placeholderRows) : 'No source-checked placeholder-date nodes.',
         ''
     ].join('\n');
 }
@@ -103,6 +122,13 @@ function main() {
             console.error('Run npm run quality:placeholder-dates to regenerate.');
             process.exit(1);
         }
+        const expectedIds = reportIds(expected);
+        const actualIds = reportIds(actual);
+        const missing = [...expectedIds].filter(id => !actualIds.has(id));
+        if (missing.length) {
+            console.error(`${path.relative(ROOT_DIR, OUTPUT_FILE)} is missing placeholder-date ids: ${missing.join(', ')}`);
+            process.exit(1);
+        }
         console.log('Source-checked placeholder-date exception report is current.');
         return;
     }
@@ -117,6 +143,7 @@ if (require.main === module) {
 
 module.exports = {
     buildReport,
+    dateUncertaintyReason,
     hasExplicitDateUncertainty,
     usesEraDefaultDate
 };

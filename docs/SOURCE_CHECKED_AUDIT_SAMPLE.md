@@ -11,6 +11,7 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 
 ## Recent Source-Check Commits
 
+- a0e8974 2026-06-14 chore: tighten source-checked quality metrics
 - afadec2 2026-06-14 chore: make quality metrics single-source-of-truth
 - 1948c47 2026-06-14 chore: promote additional validated nodes and refresh source types
 - 7d582d4 2026-06-14 chore: elevate vetted classical/ancient nodes to source_checked
@@ -26,7 +27,6 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 - 1a9298a 2026-06-14 chore: source renaissance medicine and finance nodes
 - c103fcd 2026-06-14 chore: source renaissance art and mapping nodes
 - 534de5d 2026-06-14 chore: source classical administration and craft nodes
-- 16be6e9 2026-06-14 chore: source classical navigation and public health nodes
 
 ## Sample
 

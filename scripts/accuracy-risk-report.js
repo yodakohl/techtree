@@ -71,6 +71,10 @@ function allSourcesGeneric(item) {
     return hasSource(item) && item.sources.every(source => source.source_type === 'generic_overview');
 }
 
+function allSourcesWeakOrGeneric(item) {
+    return hasSource(item) && item.sources.every(source => source.source_type === 'generic_overview' || source.source_type === 'weak_web');
+}
+
 function isWikipediaSource(source) {
     let hostname = '';
     try {
@@ -119,6 +123,7 @@ function makeReport(data, taxonomy) {
     let sourceCheckedStrongSources = 0;
     let sourceCheckedNoSources = 0;
     let sourceCheckedAllWeak = 0;
+    let sourceCheckedOnlyWeakGeneric = 0;
     let sourceCheckedGenericOld = 0;
     let eraDefaultDates = 0;
     let sourceCheckedEraDefaultDates = 0;
@@ -190,6 +195,10 @@ function makeReport(data, taxonomy) {
             sourceCheckedAllWeak += 1;
             addCandidate(item, 'source_checked_all_weak_sources', 95, 'Source-checked node is supported only by weak_web sources.');
         }
+        if (item.reviewStatus === 'source_checked' && allSourcesWeakOrGeneric(item)) {
+            sourceCheckedOnlyWeakGeneric += 1;
+            addCandidate(item, 'source_checked_only_weak_or_generic_sources', 92, 'Source-checked node is supported only by weak_web or generic_overview sources.');
+        }
         if (item.reviewStatus === 'source_checked' && item.firstKnownDate < 1900 && allSourcesGeneric(item)) {
             sourceCheckedGenericOld += 1;
             addCandidate(item, 'old_source_checked_generic_only', 90, 'Pre-1900 source-checked node relies only on generic_overview sources.');
@@ -244,6 +253,7 @@ function makeReport(data, taxonomy) {
             sourceCheckedStrongSources,
             sourceCheckedNoSources,
             sourceCheckedAllWeak,
+            sourceCheckedOnlyWeakGeneric,
             sourceCheckedGenericOld,
             eraDefaultDates,
             sourceCheckedEraDefaultDates,
@@ -278,8 +288,9 @@ function renderMarkdown(report) {
         ['Nodes with node-level sources', `${t.nodesWithSources}/${t.technologies} (${percentage(t.nodesWithSources, t.technologies)})`],
         ['Source-checked nodes', `${t.sourceChecked}/${t.technologies} (${percentage(t.sourceChecked, t.technologies)})`],
         ['Source-checked nodes with non-placeholder dates', `${t.sourceCheckedNonPlaceholderDates}/${t.sourceChecked} (${percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)})`],
+        ['Source-checked nodes with placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
         ['Source-checked nodes with primary/review/textbook/official sources', `${t.sourceCheckedStrongSources}/${t.sourceChecked} (${percentage(t.sourceCheckedStrongSources, t.sourceChecked)})`],
-        ['Source-checked nodes still using era-default placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
+        ['Source-checked nodes using only weak/generic sources', `${t.sourceCheckedOnlyWeakGeneric}/${t.sourceChecked} (${percentage(t.sourceCheckedOnlyWeakGeneric, t.sourceChecked)})`],
         ['Source-checked nodes without sources', t.sourceCheckedNoSources],
         ['Source-checked nodes with only weak sources', t.sourceCheckedAllWeak],
         ['Pre-1900 source-checked nodes with only generic sources', t.sourceCheckedGenericOld],
