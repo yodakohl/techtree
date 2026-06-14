@@ -11,6 +11,7 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 
 ## Recent Source-Check Commits
 
+- a6163dd 2026-06-14 chore: audit source-checked placeholder dates
 - a0e8974 2026-06-14 chore: tighten source-checked quality metrics
 - afadec2 2026-06-14 chore: make quality metrics single-source-of-truth
 - 1948c47 2026-06-14 chore: promote additional validated nodes and refresh source types
@@ -26,7 +27,6 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 - 19dd2da 2026-06-14 chore: source renaissance, industrial, and modern nodes
 - 1a9298a 2026-06-14 chore: source renaissance medicine and finance nodes
 - c103fcd 2026-06-14 chore: source renaissance art and mapping nodes
-- 534de5d 2026-06-14 chore: source classical administration and craft nodes
 
 ## Sample
 
@@ -44,14 +44,14 @@ Rows with only weak/generic/Wikipedia-like node sources: 13 / 50
 | `barter` | Ancient | non-placeholder | node | yes | no | REVIEW | The History of Money (museum) |
 | `abacus` | Classical | non-placeholder | node | yes | yes | PASS | Computer: History of computing (textbook) |
 | `advanced_shipbuilding_bireme_trireme` | Classical | non-placeholder | node | yes | no | REVIEW | Overview: Greek Temples (museum) |
-| `advanced_textile_dyes_tyrian_purple` | Classical | placeholder | node | yes | yes | REVIEW | Textile (textbook) |
-| `algebra_basic` | Classical | placeholder | node | yes | yes | REVIEW | Mathematics (textbook) |
-| `amphora_shipping_standards` | Classical | placeholder | node | yes | yes | REVIEW | Wheel (textbook) |
-| `anatomy_early_studies` | Classical | non-placeholder | node | yes | no | REVIEW | How to write cuneiform (museum) |
 | `apis_mellifera_domestication_beekeeping` | Classical | placeholder | node | yes | yes | REVIEW | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia (review) |
 | `aqueduct_maintenance_crews` | Classical | non-placeholder | node | yes | yes | PASS | Sextus Julius Frontinus (textbook); Frontinus, The Water Supply of the City of Rome (primary_paper) |
-| `astrolabe_early` | Classical | placeholder | node | yes | yes | REVIEW | Materials (textbook) |
-| `ballista_onager` | Classical | placeholder | node | yes | yes | REVIEW | Geometry (textbook) |
+| `ballistics_early` | Classical | placeholder | node | yes | yes | REVIEW | Indications of bow and stone-tipped arrow use 64 000 years ago in KwaZulu-Natal, South Africa (primary_paper) |
+| `basic_chemistry_early_forms` | Classical | placeholder | node | yes | yes | REVIEW | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa (primary_paper) |
+| `border_customs_posts` | Classical | placeholder | node | yes | no | REVIEW | Lydia & the First Coins (museum) |
+| `bureaucracy` | Classical | non-placeholder | node | yes | no | REVIEW | How to write cuneiform (museum) |
+| `cadastral_tax_maps` | Classical | placeholder | node | yes | no | REVIEW | Taxes in the Ancient World (museum) |
+| `chain_mail_armor` | Classical | placeholder | node | yes | yes | REVIEW | 5,000 years old Egyptian iron beads made from hammered meteoritic iron (primary_paper) |
 | `advanced_chemistry` | Industrial | non-placeholder | node | yes | yes | PASS | Chemistry (textbook) |
 | `advertising_mass_media_early` | Industrial | non-placeholder | node | yes | yes | PASS | Department Store (textbook) |
 | `aerodynamics_subsonic` | Industrial | non-placeholder | node | yes | yes | PASS | Scientific Revolution (textbook) |
