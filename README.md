@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1661-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1659-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
@@ -39,6 +39,9 @@ Generated 2026-06-14 from the same dataset audit used by `npm run accuracy:risks
 | --- | --- |
 | Technologies | 1,659 |
 | Source-checked nodes | 1,551 / 1,659 (93.5%) |
+| Source-checked nodes with non-placeholder dates | 1,148 / 1,551 (74.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,135 / 1,551 (73.2%) |
+| Source-checked nodes still using era-default placeholder dates | 403 / 1,551 (26.0%) |
 | Nodes with node-level sources | 1,551 / 1,659 (93.5%) |
 | Dependency edges with edge-level sources | 4,015 / 5,461 (73.5%) |
 | Era-default placeholder dates | 438 / 1,659 (26.4%) |

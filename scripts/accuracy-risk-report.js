@@ -11,6 +11,7 @@ const { isTechnologyDataFile } = require('./data-files');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const ERA_ORDER = ['Ancient', 'Classical', 'Medieval', 'Renaissance', 'Industrial', 'Modern', 'Future'];
+const STRONG_SOURCE_TYPES = new Set(['primary_paper', 'review', 'textbook', 'official_agency']);
 
 function argValue(name, fallback) {
     const index = process.argv.indexOf(name);
@@ -70,6 +71,25 @@ function allSourcesGeneric(item) {
     return hasSource(item) && item.sources.every(source => source.source_type === 'generic_overview');
 }
 
+function isWikipediaSource(source) {
+    let hostname = '';
+    try {
+        hostname = new URL(source.url || 'https://invalid.local').hostname;
+    } catch (error) {
+        hostname = '';
+    }
+    return /(^|\.)wikipedia\.org$/i.test(hostname)
+        || /wikipedia/i.test(`${source.title || ''} ${source.publisher || ''}`);
+}
+
+function hasStrongTrustSource(item) {
+    return hasSource(item) && item.sources.some(source => {
+        if (!STRONG_SOURCE_TYPES.has(source.source_type)) return false;
+        if (isWikipediaSource(source)) return false;
+        return Array.isArray(source.supports) && source.supports.includes('node');
+    });
+}
+
 function sourceTitleList(item) {
     return (item.sources || []).map(source => source.title).join('; ');
 }
@@ -95,6 +115,8 @@ function makeReport(data, taxonomy) {
 
     let nodesWithSources = 0;
     let sourceChecked = 0;
+    let sourceCheckedNonPlaceholderDates = 0;
+    let sourceCheckedStrongSources = 0;
     let sourceCheckedNoSources = 0;
     let sourceCheckedAllWeak = 0;
     let sourceCheckedGenericOld = 0;
@@ -124,7 +146,13 @@ function makeReport(data, taxonomy) {
     for (const item of data) {
         increment(reviewStatus, item.reviewStatus || 'unknown');
         if (hasSource(item)) nodesWithSources += 1;
-        if (item.reviewStatus === 'source_checked') sourceChecked += 1;
+        const isSourceChecked = item.reviewStatus === 'source_checked';
+        const hasEraDefaultDate = usesEraDefaultDate(item);
+        if (isSourceChecked) {
+            sourceChecked += 1;
+            if (!hasEraDefaultDate) sourceCheckedNonPlaceholderDates += 1;
+            if (hasStrongTrustSource(item)) sourceCheckedStrongSources += 1;
+        }
 
         const era = eraStats[item.era];
         if (era) {
@@ -132,7 +160,7 @@ function makeReport(data, taxonomy) {
             if (item.reviewStatus === 'source_checked') era.sourceChecked += 1;
         }
 
-        if (usesEraDefaultDate(item)) {
+        if (hasEraDefaultDate) {
             eraDefaultDates += 1;
             if (era) era.eraDefaultDate += 1;
             if (item.reviewStatus === 'source_checked') {
@@ -212,6 +240,8 @@ function makeReport(data, taxonomy) {
             technologies: data.length,
             nodesWithSources,
             sourceChecked,
+            sourceCheckedNonPlaceholderDates,
+            sourceCheckedStrongSources,
             sourceCheckedNoSources,
             sourceCheckedAllWeak,
             sourceCheckedGenericOld,
@@ -247,6 +277,9 @@ function renderMarkdown(report) {
         ['Technologies', t.technologies],
         ['Nodes with node-level sources', `${t.nodesWithSources}/${t.technologies} (${percentage(t.nodesWithSources, t.technologies)})`],
         ['Source-checked nodes', `${t.sourceChecked}/${t.technologies} (${percentage(t.sourceChecked, t.technologies)})`],
+        ['Source-checked nodes with non-placeholder dates', `${t.sourceCheckedNonPlaceholderDates}/${t.sourceChecked} (${percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)})`],
+        ['Source-checked nodes with primary/review/textbook/official sources', `${t.sourceCheckedStrongSources}/${t.sourceChecked} (${percentage(t.sourceCheckedStrongSources, t.sourceChecked)})`],
+        ['Source-checked nodes still using era-default placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
         ['Source-checked nodes without sources', t.sourceCheckedNoSources],
         ['Source-checked nodes with only weak sources', t.sourceCheckedAllWeak],
         ['Pre-1900 source-checked nodes with only generic sources', t.sourceCheckedGenericOld],
@@ -333,6 +366,8 @@ if (require.main === module) {
 module.exports = {
     DATA_DIR,
     TAXONOMY_FILE,
+    STRONG_SOURCE_TYPES,
+    hasStrongTrustSource,
     loadData,
     makeReport,
     percentage,

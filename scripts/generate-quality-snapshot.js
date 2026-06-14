@@ -44,6 +44,9 @@ function buildSnapshot(report, generatedAt = report.generatedAt) {
     const metrics = [
         metric('Technologies', t.technologies),
         metric('Source-checked nodes', t.sourceChecked, t.technologies, percentage(t.sourceChecked, t.technologies)),
+        metric('Source-checked nodes with non-placeholder dates', t.sourceCheckedNonPlaceholderDates, t.sourceChecked, percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)),
+        metric('Source-checked nodes with primary/review/textbook/official sources', t.sourceCheckedStrongSources, t.sourceChecked, percentage(t.sourceCheckedStrongSources, t.sourceChecked)),
+        metric('Source-checked nodes still using era-default placeholder dates', t.sourceCheckedEraDefaultDates, t.sourceChecked, percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)),
         metric('Nodes with node-level sources', t.nodesWithSources, t.technologies, percentage(t.nodesWithSources, t.technologies)),
         metric('Dependency edges with edge-level sources', t.edgesWithSources, t.totalEdges, percentage(t.edgesWithSources, t.totalEdges)),
         metric('Era-default placeholder dates', t.eraDefaultDates, t.technologies, percentage(t.eraDefaultDates, t.technologies)),
@@ -104,6 +107,21 @@ function replaceReadmeBlock(readme, block) {
     return `${readme.slice(0, start)}${block}${readme.slice(end + END_MARKER.length)}`;
 }
 
+function replaceReadmePublicCounts(readme, snapshot) {
+    const technologies = snapshot.riskReportTotals.technologies;
+    const plainCount = String(technologies);
+    const formattedCount = formatNumber(technologies);
+    return readme
+        .replace(
+            /https:\/\/img\.shields\.io\/badge\/technologies-\d+-6f42c1\.svg/g,
+            `https://img.shields.io/badge/technologies-${plainCount}-6f42c1.svg`
+        )
+        .replace(
+            /\*\*[\d,]+ validated technologies\*\*/g,
+            `**${formattedCount} validated technologies**`
+        );
+}
+
 function existingGeneratedAt() {
     try {
         const current = JSON.parse(fs.readFileSync(SNAPSHOT_JSON_FILE, 'utf8'));
@@ -117,7 +135,10 @@ function buildOutputs(generatedAt = null) {
     const report = makeReport(loadData(), readJson(TAXONOMY_FILE));
     const snapshot = buildSnapshot(report, generatedAt || report.generatedAt);
     const readmeBlock = renderReadmeBlock(snapshot);
-    const readme = replaceReadmeBlock(fs.readFileSync(README_FILE, 'utf8'), readmeBlock);
+    const readme = replaceReadmePublicCounts(
+        replaceReadmeBlock(fs.readFileSync(README_FILE, 'utf8'), readmeBlock),
+        snapshot
+    );
     const json = `${JSON.stringify(snapshot, null, 2)}\n`;
     const markdown = renderSnapshotMarkdown(snapshot);
     return { json, markdown, readme };

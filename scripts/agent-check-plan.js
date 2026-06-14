@@ -110,6 +110,9 @@ function plan(files) {
     if (files.some(file => ['README.md', 'docs/QUALITY_SNAPSHOT.md', 'data/quality-snapshot.json'].includes(file))) {
         addCommand(commands, 'Quality snapshot freshness', ['node', 'scripts/generate-quality-snapshot.js', '--check'], 'quality snapshot output changed');
     }
+    if (files.some(file => ['docs/SOURCE_CHECKED_PLACEHOLDER_DATES.md', 'scripts/source-checked-placeholder-report.js'].includes(file))) {
+        addCommand(commands, 'Source-checked placeholder-date report freshness', ['node', 'scripts/source-checked-placeholder-report.js', '--check'], 'placeholder-date exception report changed');
+    }
 
     if (files.some(file => file === 'docs/QUALITY_GENOME_EDITING_CRISPR_CAS.md' || file === 'scripts/generate-field-quality-snapshot.js')) {
         addCommand(commands, 'CRISPR field snapshot freshness', ['node', 'scripts/generate-field-quality-snapshot.js', '--check'], 'field quality snapshot or generator changed');

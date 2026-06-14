@@ -84,6 +84,9 @@ function checkLLMSMetrics(result) {
   const metricLabels = [
     'Technologies',
     'Source-checked nodes',
+    'Source-checked nodes with non-placeholder dates',
+    'Source-checked nodes with primary/review/textbook/official sources',
+    'Source-checked nodes still using era-default placeholder dates',
     'Nodes with node-level sources',
     'Dependency edges with edge-level sources',
     'Era-default placeholder dates',
