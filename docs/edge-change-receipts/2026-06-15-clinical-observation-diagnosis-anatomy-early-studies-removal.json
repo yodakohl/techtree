@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-clinical-observation-diagnosis-anatomy-early-studies-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "clinical_observation_diagnosis",
+    "prerequisite": "anatomy_early_studies"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Anatomy (Early Studies) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because Hippocratic clinical observation and prognosis predate source-backed Alexandrian human dissection.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/biography/Hippocrates",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Life and works section describes Hippocratic Epidemics as annual records, case histories, treatments, diagnosis, and prognosis, and notes no systematic human dissection in Hippocrates' time.",
+    "source_claim_summary": "Britannica describes Hippocratic clinical medicine as observation, case histories, diagnosis, and prognosis without systematic human dissection.",
+    "source_support_rationale": "The source supports clinical observation as an empirical Hippocratic practice that did not depend on the later Alexandrian anatomy node."
+  },
+  "ontology_before": "Clinical observation was modeled as depending on early anatomy studies, creating a false later prerequisite for Hippocratic diagnostic practice.",
+  "ontology_after": "Clinical observation remains connected to writing, record keeping, and humoral theory, while anatomy is separated as a later medical-science development.",
+  "invariant_preserved_or_changed": "Invariant changed: Hippocratic clinical observation must remain independent of the later Alexandrian anatomy node.",
+  "would_reject_if": [
+    "A source shows that this node is meant only to cover post-Alexandrian anatomical diagnosis.",
+    "The anatomy node is rescoped to non-dissective observational anatomy before Hippocratic medicine.",
+    "A source demonstrates that Hippocratic diagnosis required systematic human dissection."
+  ],
+  "short_reason": "Hippocratic clinical observation predates and does not require Alexandrian anatomical dissection.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

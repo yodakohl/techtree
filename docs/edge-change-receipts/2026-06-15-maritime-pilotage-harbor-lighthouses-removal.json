@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-maritime-pilotage-harbor-lighthouses-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "maritime_pilotage",
+    "prerequisite": "harbor_lighthouses"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Harbor Lighthouses provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because maritime pilotage can use landmarks, periploi, local knowledge, and sailing directions without harbor lighthouses.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/navigation-technology",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Development of marine navigation states that early navigators used landmarks; pilot books/periploi survive from the 4th century BCE and described routes, headlands, landmarks, anchorages, currents, and port entrances.",
+    "source_claim_summary": "Britannica describes coastal piloting and pilot books as navigation practices based on landmarks and sailing instructions, independent of lighthouse infrastructure.",
+    "source_support_rationale": "Harbor lighthouses are aids for some harbors, but local pilotage is a broader practice built from route and hazard knowledge and should not require lighthouses."
+  },
+  "ontology_before": "Maritime pilotage was modeled as depending on harbor lighthouses, making a broad navigation practice depend on one later aid.",
+  "ontology_after": "Maritime pilotage remains connected to navigation and sailing, while lighthouses remain a separate harbor-safety technology.",
+  "invariant_preserved_or_changed": "Invariant changed: Maritime pilotage must not directly depend on harbor lighthouses.",
+  "would_reject_if": [
+    "A source shows this node is scoped only to lighthouse-assisted harbor pilotage.",
+    "The graph splits broad maritime pilotage from harbor approach signaling and keeps this node for the latter only.",
+    "A source demonstrates that historical pilotage could not function without harbor lighthouses."
+  ],
+  "short_reason": "Pilotage is broader than and historically independent of harbor lighthouses.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

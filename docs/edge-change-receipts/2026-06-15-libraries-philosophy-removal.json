@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-libraries-philosophy-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "libraries",
+    "prerequisite": "philosophy"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Philosophy provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because libraries can be organized collections of legal, administrative, literary, divinatory, or scientific texts without depending on philosophy as a technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/blog/library-fit-king",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "What is the Library of Ashurbanipal section describes over 30,000 cuneiform tablets from Nineveh under Ashurbanipal, who ruled 669-c.631 BCE.",
+    "source_claim_summary": "The British Museum anchors the library to cuneiform tablet collection and palace archive practice rather than to Greek philosophical schools.",
+    "source_support_rationale": "Philosophy can be library content, but it is not a prerequisite for library institutions; requiring it is a content-domain dependency, not an operational technology dependency."
+  },
+  "ontology_before": "The library node treated philosophy as an enabling predecessor, implying philosophical traditions were required for library institutions.",
+  "ontology_after": "The library node remains anchored to writing and no longer treats one content tradition as an operational prerequisite.",
+  "invariant_preserved_or_changed": "Invariant changed: Libraries must not directly depend on philosophy unless a narrower philosophical-library node is introduced.",
+  "would_reject_if": [
+    "A source shows this Libraries node is intentionally scoped only to philosophical collections.",
+    "The graph splits archives from libraries and keeps this node only for institutions built around philosophical schools.",
+    "A source demonstrates that the Ashurbanipal collection should not be treated as a library-like institution."
+  ],
+  "short_reason": "Libraries can organize many kinds of written records and do not require philosophy as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

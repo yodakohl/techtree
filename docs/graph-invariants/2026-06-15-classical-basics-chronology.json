@@ -1,0 +1,109 @@
+{
+  "id": "2026-06-15-classical-basics-chronology",
+  "description": "Lock corrected chronology and removed false dependencies for foundational Classical nodes audited on 2026-06-15.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "astrolabe_early",
+      "prerequisite": "geocentric_model_ptolemaic",
+      "reason": "The broad early astrolabe node should not require the source-backed Ptolemaic model node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "classical_sculpture",
+      "prerequisite": "anatomy_early_studies",
+      "reason": "Classical sculpture predates formal Alexandrian anatomical dissection."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "clinical_observation_diagnosis",
+      "prerequisite": "anatomy_early_studies",
+      "reason": "Hippocratic clinical observation did not require systematic human dissection."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "humoral_theory",
+      "prerequisite": "anatomy_early_studies",
+      "reason": "Humoral theory is a medical-philosophical model, not a child of Alexandrian anatomy."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "libraries",
+      "prerequisite": "codex_early_book_form",
+      "reason": "Libraries can be tablet or scroll collections and predate codices."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "maritime_pilotage",
+      "prerequisite": "harbor_lighthouses",
+      "reason": "Pilotage is broader than lighthouse-assisted harbor approach."
+    },
+    {
+      "type": "first_known_date",
+      "node": "libraries",
+      "operator": "eq",
+      "value": -650,
+      "reason": "The library node is anchored to the seventh-century BCE Ashurbanipal collection."
+    },
+    {
+      "type": "first_known_date",
+      "node": "codex_early_book_form",
+      "operator": "eq",
+      "value": 100,
+      "reason": "The codex node is anchored to early codex fragments and the first/second-century transition."
+    },
+    {
+      "type": "first_known_date",
+      "node": "harbor_lighthouses",
+      "operator": "eq",
+      "value": -280,
+      "reason": "The harbor lighthouse node is anchored to the Pharos of Alexandria around 280 BCE."
+    },
+    {
+      "type": "first_known_date",
+      "node": "maritime_pilotage",
+      "operator": "eq",
+      "value": -400,
+      "reason": "The pilotage node is anchored to surviving fourth-century BCE pilot books/periploi."
+    },
+    {
+      "type": "first_known_date",
+      "node": "geocentric_model_ptolemaic",
+      "operator": "eq",
+      "value": 150,
+      "reason": "The Ptolemaic geocentric model is anchored to the Almagest around 150 CE."
+    },
+    {
+      "type": "first_known_date",
+      "node": "formal_logic_syllogism",
+      "operator": "eq",
+      "value": -350,
+      "reason": "Syllogistic is anchored to Aristotle's Prior Analytics around 350 BCE."
+    },
+    {
+      "type": "first_known_date",
+      "node": "glass_window_panes",
+      "operator": "eq",
+      "value": 1,
+      "reason": "Roman window glass is anchored to the early imperial period."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "libraries",
+      "prerequisite": "philosophy",
+      "reason": "Libraries organize written records; philosophy is possible content, not a prerequisite technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "libraries",
+      "prerequisite": "construction",
+      "reason": "Early libraries can be tablet collections in existing palace/archive contexts and should not require Greek monumental construction."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_field_medicine",
+      "prerequisite": "clinical_observation_diagnosis",
+      "reason": "Military field medicine should not require the later formal diagnosis node for basic battlefield treatment."
+    }
+  ]
+}

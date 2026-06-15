@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-humoral-theory-anatomy-early-studies-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "humoral_theory",
+    "prerequisite": "anatomy_early_studies"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "common_dependency",
+    "evidence_level": "weak_inference",
+    "confidence": 0.55,
+    "note": "Anatomy (Early Studies) is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because humoral theory belongs to Hippocratic and philosophical medicine rather than source-backed Alexandrian anatomical dissection.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nlm.nih.gov/exhibition/shakespeare-and-the-four-humors/index.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The World of Shakespeare's Humors section says the four humors were inherited from Aristotle, Hippocrates, and Galen; the Hippocrates panel credits Hippocrates with the four humors around 460-370 BCE.",
+    "source_claim_summary": "NLM describes humoral theory as an ancient Greek medical-philosophical model associated with Hippocrates, Aristotle, and Galen, not as a result of Alexandrian anatomy.",
+    "source_support_rationale": "The humoral doctrine is a theoretical explanatory framework; it should not depend directly on later cadaveric anatomy as modeled by the anatomy node."
+  },
+  "ontology_before": "Humoral theory was modeled with early anatomy studies as a common dependency, causing a later anatomical node to constrain an older medical theory.",
+  "ontology_after": "Humoral theory remains connected to philosophy and herbalism but no longer depends on Alexandrian anatomy.",
+  "invariant_preserved_or_changed": "Invariant changed: humoral theory must not directly depend on source-backed Alexandrian anatomy.",
+  "would_reject_if": [
+    "A source shows that the humoral node is scoped to a later Galenic anatomical synthesis rather than Hippocratic humoralism.",
+    "The anatomy node is rescoped to a pre-Hippocratic bodily-theory node with suitable source support.",
+    "A source shows direct anatomical-dissection evidence was necessary for the four-humor theory."
+  ],
+  "short_reason": "Humoral theory is an older medical-philosophical model, not a dependency child of Alexandrian anatomy.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

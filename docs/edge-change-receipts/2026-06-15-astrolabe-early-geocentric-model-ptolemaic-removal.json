@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-astrolabe-early-geocentric-model-ptolemaic-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "astrolabe_early",
+    "prerequisite": "geocentric_model_ptolemaic"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Geocentric Model (Ptolemaic) provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because early astrolabe history is uncertain and should be modeled from astronomy, geometry, metalworking, and navigation rather than the later source-backed Ptolemaic system node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/astrolabe-instrument",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction identifies the planispheric astrolabe as an early analog computer; history says astrolabes are traced to the 6th century and became widely used in the early Middle Ages.",
+    "source_claim_summary": "Britannica describes the astrolabe as an astronomical instrument with late-antique and medieval attestation, not as a technology that requires the Ptolemaic geocentric node as modeled here.",
+    "source_support_rationale": "The current graph has only a broad early astrolabe node; keeping Ptolemy as a hard prerequisite creates a chronology trap and overstates one possible astronomical lineage as a necessary dependency."
+  },
+  "ontology_before": "The broad early astrolabe node treated the Ptolemaic geocentric system as an enabling prerequisite despite uncertain early astrolabe chronology.",
+  "ontology_after": "The astrolabe node remains connected to bronze working, geometry, and navigation; the Ptolemaic system is no longer modeled as a required direct predecessor.",
+  "invariant_preserved_or_changed": "Invariant changed: no direct astrolabe -> Ptolemaic system edge unless the astrolabe node is narrowed to a Ptolemaic/planispheric design explicitly sourced after Ptolemy.",
+  "would_reject_if": [
+    "A source showed that the broad astrolabe node specifically means a Ptolemaic planispheric astrolabe and excludes non-Ptolemaic/uncertain early instruments.",
+    "The astrolabe node is moved to a later era and scoped to documented late-antique or medieval planispheric astrolabes.",
+    "A source directly demonstrates that Ptolemy's geocentric model was a necessary prerequisite for all early astrolabes."
+  ],
+  "short_reason": "Ptolemaic astronomy is too narrow and too late to be a direct prerequisite for the broad early astrolabe node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

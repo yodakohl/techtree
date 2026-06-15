@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-classical-sculpture-anatomy-early-studies-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "classical_sculpture",
+    "prerequisite": "anatomy_early_studies"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Anatomy (Early Studies) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because Classical sculpture used artistic observation and workshop practice rather than formal Alexandrian anatomy as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/art/Western-sculpture/High-Classical-period-c-450-400-bce",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "High Classical sculpture section discusses 5th-century BCE sculptural style, anatomical competence, Phidias, Polyclitus, and Parthenon sculpture.",
+    "source_claim_summary": "Britannica anchors classical sculpture in 5th-century BCE Greek artistic practice, while anatomical science as patched here is anchored to later Alexandrian medical dissection.",
+    "source_support_rationale": "Artistic anatomical competence is not the same as formal anatomical studies by Herophilus; treating the latter as a predecessor forces later medical chronology onto earlier Greek sculpture."
+  },
+  "ontology_before": "The sculpture node treated early anatomy studies as a historical predecessor, creating a false dependence on later Hellenistic medical anatomy.",
+  "ontology_after": "Classical sculpture remains connected to masonry, bronze working, philosophy, geometry, and pigment creation, which are sufficient for its material and aesthetic foundations.",
+  "invariant_preserved_or_changed": "Invariant changed: Classical sculpture must not directly depend on Alexandrian anatomy unless the node is narrowed to later anatomy-informed art theory.",
+  "would_reject_if": [
+    "A source shows that the scoped Classical Sculpture node intentionally means post-Herophilus anatomy-informed sculpture.",
+    "The anatomy node is rescoped to broad bodily observation before the High Classical period with source-backed chronology.",
+    "A source demonstrates direct institutional transmission from anatomical dissection to Classical sculptural practice."
+  ],
+  "short_reason": "Formal Alexandrian anatomy is later than Classical sculpture and should not be modeled as its prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-military-field-medicine-clinical-observation-diagnosis-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "military_field_medicine",
+    "prerequisite": "clinical_observation_diagnosis"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Clinical Observation & Diagnosis provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because field wound care does not require the later source-backed clinical-diagnosis node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/diagnosis",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica Diagnosis overview describes diagnosis generally; it does not establish formal clinical diagnosis as a prerequisite for battlefield wound care.",
+    "source_claim_summary": "The cited diagnosis source supports a broad medical concept, not the specific edge from battlefield medicine to formal clinical observation.",
+    "source_support_rationale": "Military field medicine can arise from wound treatment, surgery, herbal remedies, and organized armies; requiring later formal clinical diagnosis overstates the edge."
+  },
+  "ontology_before": "Military field medicine treated Clinical Observation & Diagnosis as an enabling prerequisite.",
+  "ontology_after": "Military field medicine keeps surgical, herbal, and organized-military prerequisites without depending on later formal diagnostic practice.",
+  "invariant_preserved_or_changed": "Invariant changed: Military field medicine must not directly depend on Clinical Observation & Diagnosis unless the node is narrowed to formal diagnostic military medicine.",
+  "would_reject_if": [
+    "A source shows this node is scoped only to formal diagnostic military medicine.",
+    "The clinical observation node is redated earlier and sourced as a direct prerequisite for battlefield treatment.",
+    "A source demonstrates battlefield medicine did not exist independently of formal diagnostic systems."
+  ],
+  "short_reason": "Battlefield wound care does not require later formal clinical diagnosis as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-libraries-construction-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "libraries",
+    "prerequisite": "construction"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because the edge conflated general built space with Classical monumental construction.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/blog/library-fit-king",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "What is the Library of Ashurbanipal section describes cuneiform tablets from Nineveh; the removed edge source was about Greek temples, not library operations.",
+    "source_claim_summary": "The source-backed library anchor is an Assyrian tablet collection; the previous edge source described Greek temple construction and did not support a library dependency.",
+    "source_support_rationale": "Library operation needs writing, storage, and administration, but the graph node construction is scoped to Classical monumental construction and is too late and too broad for this edge."
+  },
+  "ontology_before": "The library node treated Classical Monumental Construction as an enabling prerequisite.",
+  "ontology_after": "The library node remains connected to writing while avoiding a false dependency on later/scope-mismatched monumental construction.",
+  "invariant_preserved_or_changed": "Invariant changed: Libraries must not directly depend on Classical Monumental Construction unless scoped to a built-library architecture node.",
+  "would_reject_if": [
+    "A source shows this Libraries node is intentionally scoped only to purpose-built monumental library buildings.",
+    "A narrower built-library architecture node is introduced and this edge is re-scoped to that node.",
+    "The construction node is re-scoped and redated to generic storage/building construction that clearly predates the library anchor."
+  ],
+  "short_reason": "The Greek-temple construction source did not support early Assyrian library operations.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}
