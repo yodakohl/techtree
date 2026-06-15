@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-nailed-horseshoes-horse-collar-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "nailed_horseshoes",
+    "prerequisite": "horse_collar"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Horse Collar provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Nailed Horseshoes and Horse Collar; Nailed horseshoes are hoof-protection hardware and do not require padded draft collars.",
+  "source_supports_edge": "no",
+  "source_url": "https://medievalwarhorse.exeter.ac.uk/2022/02/25/no-hoof-no-horse-the-study-of-medieval-horseshoes-in-relation-to-hoof-size-and-stature-of-modern-horses/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Study describes 103 medieval horseshoes from the Portable Antiquities Scheme dating c. 900-1600 CE, with Type 1 horseshoes dated c. 900-1100.",
+    "source_claim_summary": "Nailed horseshoes are hoof-protection hardware and do not require padded draft collars.",
+    "source_support_rationale": "The source supports the scoped Nailed Horseshoes chronology or adjacent technology without requiring Horse Collar as a prerequisite."
+  },
+  "ontology_before": "Nailed Horseshoes treated Horse Collar as a direct prerequisite.",
+  "ontology_after": "Nailed Horseshoes no longer directly depends on Horse Collar; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: nailed_horseshoes must not directly depend on horse_collar unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows nailed_horseshoes is intentionally scoped only to cases that require horse_collar.",
+    "The graph splits nailed_horseshoes and reserves this id for a narrower technology directly dependent on horse_collar.",
+    "A stronger source demonstrates that horse_collar is chronologically and causally necessary for nailed_horseshoes."
+  ],
+  "short_reason": "Nailed horseshoes are hoof-protection hardware and do not require padded draft collars.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

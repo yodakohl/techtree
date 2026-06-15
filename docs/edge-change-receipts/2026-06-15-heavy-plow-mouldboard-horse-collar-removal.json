@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-heavy-plow-mouldboard-horse-collar-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "heavy_plow_mouldboard",
+    "prerequisite": "horse_collar"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Horse Collar provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Heavy Plow (Mouldboard Plow) and Horse Collar; The medieval heavy plow could be ox-drawn or horse-drawn; the horse collar accelerated horse draft but is not a direct prerequisite for the plow technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/wheeled-plow",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Entry notes a wheeled asymmetrical plow was certainly in use in parts of western Europe by the late 10th century.",
+    "source_claim_summary": "The medieval heavy plow could be ox-drawn or horse-drawn; the horse collar accelerated horse draft but is not a direct prerequisite for the plow technology.",
+    "source_support_rationale": "The source supports the scoped Heavy Plow (Mouldboard Plow) chronology or adjacent technology without requiring Horse Collar as a prerequisite."
+  },
+  "ontology_before": "Heavy Plow (Mouldboard Plow) treated Horse Collar as a direct prerequisite.",
+  "ontology_after": "Heavy Plow (Mouldboard Plow) no longer directly depends on Horse Collar; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: heavy_plow_mouldboard must not directly depend on horse_collar unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows heavy_plow_mouldboard is intentionally scoped only to cases that require horse_collar.",
+    "The graph splits heavy_plow_mouldboard and reserves this id for a narrower technology directly dependent on horse_collar.",
+    "A stronger source demonstrates that horse_collar is chronologically and causally necessary for heavy_plow_mouldboard."
+  ],
+  "short_reason": "The medieval heavy plow could be ox-drawn or horse-drawn; the horse collar accelerated horse draft but is not a direct prerequisite for the plow technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

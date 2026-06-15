@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-heavy-cavalry-horse-collar-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "heavy_cavalry",
+    "prerequisite": "horse_collar"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Horse Collar provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Heavy Cavalry and Horse Collar; Heavy cavalry depends on riding, armor, weapons, and mounted stability; draft horse collars are not a cavalry prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/horsemanship",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History section notes Avar and Byzantine use of metal stirrups in the 6th century CE and use in China and Japan by about 600 CE.",
+    "source_claim_summary": "Heavy cavalry depends on riding, armor, weapons, and mounted stability; draft horse collars are not a cavalry prerequisite.",
+    "source_support_rationale": "The source supports the scoped Heavy Cavalry chronology or adjacent technology without requiring Horse Collar as a prerequisite."
+  },
+  "ontology_before": "Heavy Cavalry treated Horse Collar as a direct prerequisite.",
+  "ontology_after": "Heavy Cavalry no longer directly depends on Horse Collar; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: heavy_cavalry must not directly depend on horse_collar unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows heavy_cavalry is intentionally scoped only to cases that require horse_collar.",
+    "The graph splits heavy_cavalry and reserves this id for a narrower technology directly dependent on horse_collar.",
+    "A stronger source demonstrates that horse_collar is chronologically and causally necessary for heavy_cavalry."
+  ],
+  "short_reason": "Heavy cavalry depends on riding, armor, weapons, and mounted stability; draft horse collars are not a cavalry prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

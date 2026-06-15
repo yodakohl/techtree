@@ -1,0 +1,103 @@
+{
+  "id": "2026-06-15-medieval-agriculture-horse-power-basics",
+  "description": "Lock corrected chronology and removed false dependencies for medieval agriculture, horse-power, and cavalry-equipment basics audited on 2026-06-15.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "heavy_plow_mouldboard",
+      "prerequisite": "horse_collar",
+      "reason": "The medieval heavy plow could be ox-drawn or horse-drawn; the horse collar accelerated horse draft but is not a direct prerequisite for the plow technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "crop_rotation_three_field",
+      "prerequisite": "heavy_plow_mouldboard",
+      "reason": "Three-field rotation is a land-use and cropping system; heavy plows can improve cultivation but are not a direct prerequisite for rotating winter crop, spring crop, and fallow fields."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nailed_horseshoes",
+      "prerequisite": "horse_collar",
+      "reason": "Nailed horseshoes are hoof-protection hardware and do not require padded draft collars."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "nailed_horseshoes",
+      "prerequisite": "stirrups",
+      "reason": "Nailed horseshoes protect working animals and do not require rider foot supports."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "heavy_cavalry",
+      "prerequisite": "horse_collar",
+      "reason": "Heavy cavalry depends on riding, armor, weapons, and mounted stability; draft horse collars are not a cavalry prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "armored_cavalry_stirrups",
+      "prerequisite": "horse_collar",
+      "reason": "Armored cavalry with stirrups is a riding and combat technology; draft collars are a transport/agricultural harness, not a prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "crop_landrace_selection",
+      "prerequisite": "heavy_plow_mouldboard",
+      "reason": "Crop landrace selection is seed and crop-population management and should not require a specific medieval heavy plow technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "crop_landrace_selection",
+      "prerequisite": "crop_rotation_three_field",
+      "reason": "Crop landrace selection can occur independently of the European three-field rotation system."
+    },
+    {
+      "type": "first_known_date",
+      "node": "horse_collar",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "Horse Collar is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "horse_shoes",
+      "operator": "eq",
+      "value": 900,
+      "reason": "Horse Shoes is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "nailed_horseshoes",
+      "operator": "eq",
+      "value": 900,
+      "reason": "Nailed Horseshoes is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "stirrups",
+      "operator": "eq",
+      "value": 550,
+      "reason": "Stirrups is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "heavy_plow_mouldboard",
+      "operator": "eq",
+      "value": 900,
+      "reason": "Heavy Plow (Mouldboard Plow) is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "crop_rotation_three_field",
+      "operator": "eq",
+      "value": 700,
+      "reason": "Crop Rotation (Three-Field System) is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "agriculture_advances_medieval",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "Medieval Agricultural Advances is source-anchored during the 2026-06-15 medieval agriculture/horse-power audit."
+    }
+  ]
+}

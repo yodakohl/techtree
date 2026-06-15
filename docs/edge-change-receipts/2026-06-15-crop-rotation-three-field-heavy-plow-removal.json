@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-crop-rotation-three-field-heavy-plow-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "crop_rotation_three_field",
+    "prerequisite": "heavy_plow_mouldboard"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Heavy Plow (Mouldboard Plow) provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Crop Rotation (Three-Field System) and Heavy Plow (Mouldboard Plow); Three-field rotation is a land-use and cropping system; heavy plows can improve cultivation but are not a direct prerequisite for rotating winter crop, spring crop, and fallow fields.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/three-field-system",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article defines the three-field system as a Middle Ages European agricultural organization that rotated winter crops, spring crops, and fallow land.",
+    "source_claim_summary": "Three-field rotation is a land-use and cropping system; heavy plows can improve cultivation but are not a direct prerequisite for rotating winter crop, spring crop, and fallow fields.",
+    "source_support_rationale": "The source supports the scoped Crop Rotation (Three-Field System) chronology or adjacent technology without requiring Heavy Plow (Mouldboard Plow) as a prerequisite."
+  },
+  "ontology_before": "Crop Rotation (Three-Field System) treated Heavy Plow (Mouldboard Plow) as a direct prerequisite.",
+  "ontology_after": "Crop Rotation (Three-Field System) no longer directly depends on Heavy Plow (Mouldboard Plow); the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: crop_rotation_three_field must not directly depend on heavy_plow_mouldboard unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows crop_rotation_three_field is intentionally scoped only to cases that require heavy_plow_mouldboard.",
+    "The graph splits crop_rotation_three_field and reserves this id for a narrower technology directly dependent on heavy_plow_mouldboard.",
+    "A stronger source demonstrates that heavy_plow_mouldboard is chronologically and causally necessary for crop_rotation_three_field."
+  ],
+  "short_reason": "Three-field rotation is a land-use and cropping system; heavy plows can improve cultivation but are not a direct prerequisite for rotating winter crop, spring crop, and fallow fields.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}
