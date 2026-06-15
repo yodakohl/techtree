@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-legal-systems-early-democracy-republicanism-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "legal_systems_early",
+    "prerequisite": "democracy_republicanism"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "common_dependency",
+    "evidence_level": "weak_inference",
+    "confidence": 0.55,
+    "note": "Democracy & Republicanism is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because the source-backed legal-system chronology predates democracy and republicanism by more than a millennium.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Schoyen Collection entry anchors the Ur-Nammu law code around 2100 BCE, long before Athenian democracy or Roman republican institutions.",
+    "source_claim_summary": "Early written law-code systems existed in monarchic Sumerian contexts rather than democratic/republican civic systems.",
+    "source_support_rationale": "Democracy and republicanism are later political forms, not prerequisites for written legal codes or early dispute-ordering institutions."
+  },
+  "ontology_before": "Early Legal Systems treated Democracy & Republicanism as a contextual prerequisite.",
+  "ontology_after": "Early Legal Systems no longer depends on later civic constitutional forms.",
+  "invariant_preserved_or_changed": "Invariant changed: Early Legal Systems must not directly depend on Democracy & Republicanism unless narrowed to democratic/republican legal institutions.",
+  "would_reject_if": [
+    "The node is re-scoped only to democratic/republican legal systems.",
+    "The graph splits legal systems and reserves this node for later civic legal institutions.",
+    "A source shows Ur-Nammu-style law codes should not count as legal-system evidence."
+  ],
+  "short_reason": "Early written law codes predate democracy and republicanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}
