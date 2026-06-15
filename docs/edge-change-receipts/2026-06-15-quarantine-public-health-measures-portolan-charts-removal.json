@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-quarantine-public-health-measures-portolan-charts-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "quarantine_public_health_measures",
+    "prerequisite": "portolan_charts_maritime_navigation"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Portolan Charts & Maritime Navigation provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Quarantine & Public Health Measures and Portolan Charts & Maritime Navigation; Quarantine practice is a legal and public-health control on arrivals; it does not require portolan charts as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://stacks.cdc.gov/view/cdc/84791",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CDC history notes that quarantine practice began during the 14th century to protect coastal cities from plague epidemics, with ships from infected ports held before landing.",
+    "source_claim_summary": "Quarantine practice is a legal and public-health control on arrivals; it does not require portolan charts as a prerequisite.",
+    "source_support_rationale": "The source supports the scoped Quarantine & Public Health Measures claim or adjacent chronology without requiring Portolan Charts & Maritime Navigation as a prerequisite."
+  },
+  "ontology_before": "Quarantine & Public Health Measures treated Portolan Charts & Maritime Navigation as a direct prerequisite.",
+  "ontology_after": "Quarantine & Public Health Measures no longer directly depends on Portolan Charts & Maritime Navigation; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: quarantine_public_health_measures must not directly depend on portolan_charts_maritime_navigation unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows quarantine_public_health_measures is intentionally scoped only to cases that require portolan_charts_maritime_navigation.",
+    "The graph splits quarantine_public_health_measures and reserves this id for a narrower technology that directly depends on portolan_charts_maritime_navigation.",
+    "A stronger source demonstrates that portolan_charts_maritime_navigation is chronologically and causally necessary for quarantine_public_health_measures."
+  ],
+  "short_reason": "Quarantine practice is a legal and public-health control on arrivals; it does not require portolan charts as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

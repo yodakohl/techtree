@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-trade-leagues-lateen-sail-caravel-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "trade_leagues",
+    "prerequisite": "lateen_sail_caravel"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Lateen Sail & Caravel provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Trade Leagues and Lateen Sail & Caravel; Medieval trade leagues such as the Hanseatic League developed around merchant and city networks, not Iberian caravels.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/Hanseatic-League",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article anchors the Hanseatic League to medieval northern European trade networks and does not make Iberian caravels a prerequisite for trade leagues.",
+    "source_claim_summary": "Medieval trade leagues such as the Hanseatic League developed around merchant and city networks, not Iberian caravels.",
+    "source_support_rationale": "The source supports the scoped Trade Leagues claim or adjacent chronology without requiring Lateen Sail & Caravel as a prerequisite."
+  },
+  "ontology_before": "Trade Leagues treated Lateen Sail & Caravel as a direct prerequisite.",
+  "ontology_after": "Trade Leagues no longer directly depends on Lateen Sail & Caravel; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: trade_leagues must not directly depend on lateen_sail_caravel unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows trade_leagues is intentionally scoped only to cases that require lateen_sail_caravel.",
+    "The graph splits trade_leagues and reserves this id for a narrower technology that directly depends on lateen_sail_caravel.",
+    "A stronger source demonstrates that lateen_sail_caravel is chronologically and causally necessary for trade_leagues."
+  ],
+  "short_reason": "Medieval trade leagues such as the Hanseatic League developed around merchant and city networks, not Iberian caravels.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

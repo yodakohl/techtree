@@ -1,0 +1,146 @@
+{
+  "id": "2026-06-15-medieval-navigation-basics",
+  "description": "Lock corrected chronology and removed false dependencies for medieval navigation and maritime-documentation basics audited on 2026-06-15.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "compass",
+      "prerequisite": "astrolabe_quadrant",
+      "reason": "Navigational magnetic compasses do not require astrolabes or quadrants; they solve direction finding through magnetic alignment rather than astronomical altitude measurement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "compass",
+      "prerequisite": "basic_chemistry_early_forms",
+      "reason": "The magnetic compass source supports lodestone and magnetized needles, not a dependency on the broad Classical basic-chemistry node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dry_compass_navigation",
+      "prerequisite": "portolan_charts_maritime_navigation",
+      "reason": "Dry shipboard compasses are instrument hardware and do not require later portolan charts as a prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "maritime_pilot_books",
+      "prerequisite": "portolan_charts_maritime_navigation",
+      "reason": "Written sailing directions and pilot books are a textual navigation aid and should not depend on the later visual chart form."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ship_compass_binnacles",
+      "prerequisite": "maritime_pilot_books",
+      "reason": "A protected compass housing does not require written pilot books as a prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ship_rudders_sternpost",
+      "prerequisite": "marine_compass_routes",
+      "reason": "Sternpost rudders are steering hardware and do not depend on compass-planned sea-route systems."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lateen_sail_caravel",
+      "prerequisite": "construction",
+      "reason": "The caravel node is shipbuilding-specific; Classical monumental construction is scope-mismatched and not a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lateen_sail_caravel",
+      "prerequisite": "compass",
+      "reason": "Caravel hull and sail design is not caused by the magnetic compass, even though compass navigation helped later voyages."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lateen_sail_caravel",
+      "prerequisite": "portolan_charts_maritime_navigation",
+      "reason": "Caravel design does not require portolan charts as a direct prerequisite; charts are navigational aids, not ship-construction prerequisites."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "trade_leagues",
+      "prerequisite": "lateen_sail_caravel",
+      "reason": "Medieval trade leagues such as the Hanseatic League developed around merchant and city networks, not Iberian caravels."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "portolan_charts_maritime_navigation",
+      "reason": "A charterparty is a shipping contract and does not require portolan charts as a direct legal prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "port_crane_harbor_works",
+      "prerequisite": "maritime_pilot_books",
+      "reason": "Port cranes and harbor works are physical trade infrastructure and do not require written pilot books as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "portolan_charts_maritime_navigation",
+      "reason": "Quarantine practice is a legal and public-health control on arrivals; it does not require portolan charts as a prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pilgrimage_route_services",
+      "prerequisite": "maritime_pilot_books",
+      "reason": "Pilgrimage route services are broader than sea-route pilot books and should not depend directly on maritime sailing directions."
+    },
+    {
+      "type": "first_known_date",
+      "node": "compass",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "Compass is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "dry_compass_navigation",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "Dry Compass Navigation is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "portolan_charts_maritime_navigation",
+      "operator": "eq",
+      "value": 1290,
+      "reason": "Portolan Charts & Maritime Navigation is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "maritime_pilot_books",
+      "operator": "eq",
+      "value": 1300,
+      "reason": "Maritime Pilot Books is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "marine_compass_routes",
+      "operator": "eq",
+      "value": 1300,
+      "reason": "Compass-Based Sea Routes is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ship_compass_binnacles",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "Compass Binnacles is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "ship_rudders_sternpost",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "Sternpost Rudders is source-anchored during the 2026-06-15 medieval navigation audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "lateen_sail_caravel",
+      "operator": "eq",
+      "value": 1400,
+      "reason": "Lateen Sail & Caravel is source-anchored during the 2026-06-15 medieval navigation audit."
+    }
+  ]
+}

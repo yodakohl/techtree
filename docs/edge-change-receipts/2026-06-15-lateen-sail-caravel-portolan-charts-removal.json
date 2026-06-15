@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-lateen-sail-caravel-portolan-charts-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "lateen_sail_caravel",
+    "prerequisite": "portolan_charts_maritime_navigation"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Portolan Charts & Maritime Navigation provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Lateen Sail & Caravel and Portolan Charts & Maritime Navigation; Caravel design does not require portolan charts as a direct prerequisite; charts are navigational aids, not ship-construction prerequisites.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/caravel",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article describes the caravel as a light sailing ship of the 15th to 17th centuries, developed by the Portuguese for African coastal exploration and able to sail to windward.",
+    "source_claim_summary": "Caravel design does not require portolan charts as a direct prerequisite; charts are navigational aids, not ship-construction prerequisites.",
+    "source_support_rationale": "The source supports the scoped Lateen Sail & Caravel claim or adjacent chronology without requiring Portolan Charts & Maritime Navigation as a prerequisite."
+  },
+  "ontology_before": "Lateen Sail & Caravel treated Portolan Charts & Maritime Navigation as a direct prerequisite.",
+  "ontology_after": "Lateen Sail & Caravel no longer directly depends on Portolan Charts & Maritime Navigation; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: lateen_sail_caravel must not directly depend on portolan_charts_maritime_navigation unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows lateen_sail_caravel is intentionally scoped only to cases that require portolan_charts_maritime_navigation.",
+    "The graph splits lateen_sail_caravel and reserves this id for a narrower technology that directly depends on portolan_charts_maritime_navigation.",
+    "A stronger source demonstrates that portolan_charts_maritime_navigation is chronologically and causally necessary for lateen_sail_caravel."
+  ],
+  "short_reason": "Caravel design does not require portolan charts as a direct prerequisite; charts are navigational aids, not ship-construction prerequisites.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

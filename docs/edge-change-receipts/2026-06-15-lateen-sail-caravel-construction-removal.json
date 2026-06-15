@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-lateen-sail-caravel-construction-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "lateen_sail_caravel",
+    "prerequisite": "construction"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Lateen Sail & Caravel and construction; The caravel node is shipbuilding-specific; Classical monumental construction is scope-mismatched and not a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/caravel",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article describes the caravel as a light sailing ship of the 15th to 17th centuries, developed by the Portuguese for African coastal exploration and able to sail to windward.",
+    "source_claim_summary": "The caravel node is shipbuilding-specific; Classical monumental construction is scope-mismatched and not a direct prerequisite.",
+    "source_support_rationale": "The source supports the scoped Lateen Sail & Caravel claim or adjacent chronology without requiring construction as a prerequisite."
+  },
+  "ontology_before": "Lateen Sail & Caravel treated construction as a direct prerequisite.",
+  "ontology_after": "Lateen Sail & Caravel no longer directly depends on construction; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: lateen_sail_caravel must not directly depend on construction unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows lateen_sail_caravel is intentionally scoped only to cases that require construction.",
+    "The graph splits lateen_sail_caravel and reserves this id for a narrower technology that directly depends on construction.",
+    "A stronger source demonstrates that construction is chronologically and causally necessary for lateen_sail_caravel."
+  ],
+  "short_reason": "The caravel node is shipbuilding-specific; Classical monumental construction is scope-mismatched and not a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

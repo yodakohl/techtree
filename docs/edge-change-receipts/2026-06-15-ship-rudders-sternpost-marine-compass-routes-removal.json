@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-ship-rudders-sternpost-marine-compass-routes-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "ship_rudders_sternpost",
+    "prerequisite": "marine_compass_routes"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Compass-Based Sea Routes provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Sternpost Rudders and Compass-Based Sea Routes; Sternpost rudders are steering hardware and do not depend on compass-planned sea-route systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/sternpost-rudder",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article states that the sternpost rudder, hinged at its forward edge, became common after the 11th century.",
+    "source_claim_summary": "Sternpost rudders are steering hardware and do not depend on compass-planned sea-route systems.",
+    "source_support_rationale": "The source supports the scoped Sternpost Rudders claim or adjacent chronology without requiring Compass-Based Sea Routes as a prerequisite."
+  },
+  "ontology_before": "Sternpost Rudders treated Compass-Based Sea Routes as a direct prerequisite.",
+  "ontology_after": "Sternpost Rudders no longer directly depends on Compass-Based Sea Routes; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: ship_rudders_sternpost must not directly depend on marine_compass_routes unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows ship_rudders_sternpost is intentionally scoped only to cases that require marine_compass_routes.",
+    "The graph splits ship_rudders_sternpost and reserves this id for a narrower technology that directly depends on marine_compass_routes.",
+    "A stronger source demonstrates that marine_compass_routes is chronologically and causally necessary for ship_rudders_sternpost."
+  ],
+  "short_reason": "Sternpost rudders are steering hardware and do not depend on compass-planned sea-route systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

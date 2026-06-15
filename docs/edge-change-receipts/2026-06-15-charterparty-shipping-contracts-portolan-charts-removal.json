@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-charterparty-shipping-contracts-portolan-charts-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "charterparty_shipping_contracts",
+    "prerequisite": "portolan_charts_maritime_navigation"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Portolan Charts & Maritime Navigation provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Charterparty Shipping Contracts and Portolan Charts & Maritime Navigation; A charterparty is a shipping contract and does not require portolan charts as a direct legal prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/charter-party",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article defines a charter party as a contract by which a shipowner lets a ship or its cargo capacity to others; it does not require portolan charts.",
+    "source_claim_summary": "A charterparty is a shipping contract and does not require portolan charts as a direct legal prerequisite.",
+    "source_support_rationale": "The source supports the scoped Charterparty Shipping Contracts claim or adjacent chronology without requiring Portolan Charts & Maritime Navigation as a prerequisite."
+  },
+  "ontology_before": "Charterparty Shipping Contracts treated Portolan Charts & Maritime Navigation as a direct prerequisite.",
+  "ontology_after": "Charterparty Shipping Contracts no longer directly depends on Portolan Charts & Maritime Navigation; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: charterparty_shipping_contracts must not directly depend on portolan_charts_maritime_navigation unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows charterparty_shipping_contracts is intentionally scoped only to cases that require portolan_charts_maritime_navigation.",
+    "The graph splits charterparty_shipping_contracts and reserves this id for a narrower technology that directly depends on portolan_charts_maritime_navigation.",
+    "A stronger source demonstrates that portolan_charts_maritime_navigation is chronologically and causally necessary for charterparty_shipping_contracts."
+  ],
+  "short_reason": "A charterparty is a shipping contract and does not require portolan charts as a direct legal prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

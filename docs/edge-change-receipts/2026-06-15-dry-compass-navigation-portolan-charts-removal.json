@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-dry-compass-navigation-portolan-charts-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "dry_compass_navigation",
+    "prerequisite": "portolan_charts_maritime_navigation"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Portolan Charts & Maritime Navigation provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Dry Compass Navigation and Portolan Charts & Maritime Navigation; Dry shipboard compasses are instrument hardware and do not require later portolan charts as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.usni.org/magazines/naval-history-magazine/2022/december/history-ships-compass",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article describes 13th-century French and Italian ship-compass designs with a pivoted pointer, compass card, and protective box.",
+    "source_claim_summary": "Dry shipboard compasses are instrument hardware and do not require later portolan charts as a prerequisite.",
+    "source_support_rationale": "The source supports the scoped Dry Compass Navigation claim or adjacent chronology without requiring Portolan Charts & Maritime Navigation as a prerequisite."
+  },
+  "ontology_before": "Dry Compass Navigation treated Portolan Charts & Maritime Navigation as a direct prerequisite.",
+  "ontology_after": "Dry Compass Navigation no longer directly depends on Portolan Charts & Maritime Navigation; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: dry_compass_navigation must not directly depend on portolan_charts_maritime_navigation unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows dry_compass_navigation is intentionally scoped only to cases that require portolan_charts_maritime_navigation.",
+    "The graph splits dry_compass_navigation and reserves this id for a narrower technology that directly depends on portolan_charts_maritime_navigation.",
+    "A stronger source demonstrates that portolan_charts_maritime_navigation is chronologically and causally necessary for dry_compass_navigation."
+  ],
+  "short_reason": "Dry shipboard compasses are instrument hardware and do not require later portolan charts as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-port-crane-harbor-works-maritime-pilot-books-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "port_crane_harbor_works",
+    "prerequisite": "maritime_pilot_books"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Maritime Pilot Books provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Port Cranes & Harbor Works and Maritime Pilot Books; Port cranes and harbor works are physical trade infrastructure and do not require written pilot books as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/guild-trade-association",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Guild source supports medieval trade organization context; harbor works do not require written sailing directions as a direct prerequisite.",
+    "source_claim_summary": "Port cranes and harbor works are physical trade infrastructure and do not require written pilot books as a direct prerequisite.",
+    "source_support_rationale": "The source supports the scoped Port Cranes & Harbor Works claim or adjacent chronology without requiring Maritime Pilot Books as a prerequisite."
+  },
+  "ontology_before": "Port Cranes & Harbor Works treated Maritime Pilot Books as a direct prerequisite.",
+  "ontology_after": "Port Cranes & Harbor Works no longer directly depends on Maritime Pilot Books; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: port_crane_harbor_works must not directly depend on maritime_pilot_books unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows port_crane_harbor_works is intentionally scoped only to cases that require maritime_pilot_books.",
+    "The graph splits port_crane_harbor_works and reserves this id for a narrower technology that directly depends on maritime_pilot_books.",
+    "A stronger source demonstrates that maritime_pilot_books is chronologically and causally necessary for port_crane_harbor_works."
+  ],
+  "short_reason": "Port cranes and harbor works are physical trade infrastructure and do not require written pilot books as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

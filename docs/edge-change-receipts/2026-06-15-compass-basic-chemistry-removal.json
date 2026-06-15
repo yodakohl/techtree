@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-compass-basic-chemistry-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "compass",
+    "prerequisite": "basic_chemistry_early_forms"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Basic Chemistry (Early Forms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained between Compass and basic_chemistry_early_forms; The magnetic compass source supports lodestone and magnetized needles, not a dependency on the broad Classical basic-chemistry node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/magnetic-compass",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History section: mariners in China and Europe discovered lodestone/needle direction-finding for navigation in the 12th century.",
+    "source_claim_summary": "The magnetic compass source supports lodestone and magnetized needles, not a dependency on the broad Classical basic-chemistry node.",
+    "source_support_rationale": "The source supports the scoped Compass claim or adjacent chronology without requiring basic_chemistry_early_forms as a prerequisite."
+  },
+  "ontology_before": "Compass treated basic_chemistry_early_forms as a direct prerequisite.",
+  "ontology_after": "Compass no longer directly depends on basic_chemistry_early_forms; the dependency boundary is narrowed to operationally necessary predecessors.",
+  "invariant_preserved_or_changed": "Invariant changed: compass must not directly depend on basic_chemistry_early_forms unless a narrower source-backed node scope is introduced.",
+  "would_reject_if": [
+    "A source shows compass is intentionally scoped only to cases that require basic_chemistry_early_forms.",
+    "The graph splits compass and reserves this id for a narrower technology that directly depends on basic_chemistry_early_forms.",
+    "A stronger source demonstrates that basic_chemistry_early_forms is chronologically and causally necessary for compass."
+  ],
+  "short_reason": "The magnetic compass source supports lodestone and magnetized needles, not a dependency on the broad Classical basic-chemistry node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}
