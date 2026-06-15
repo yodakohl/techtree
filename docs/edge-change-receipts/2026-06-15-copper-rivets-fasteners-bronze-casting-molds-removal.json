@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-copper-rivets-fasteners-bronze-casting-molds-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "copper_rivets_fasteners",
+    "prerequisite": "bronze_casting_molds"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Bronze Casting Molds provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because this node is scoped to worked native-copper fastener-like objects.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Turkey/AnatoliaMetals-Yalcin2000.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Anatolian copper review anchors worked native-copper objects at Çayönü/Aşıklı; later bronze-casting molds are not required for early copper pins, hooks, and awls.",
+    "source_claim_summary": "Early copper fastener-like objects are worked native-copper objects, not bronze castings.",
+    "source_support_rationale": "Bronze casting molds are too late and too specific for early copper pins/hooks/awls."
+  },
+  "ontology_before": "Copper Rivets & Fasteners depended on Bronze Casting Molds.",
+  "ontology_after": "The node is re-scoped to Copper Pins, Hooks & Fasteners and depends on copper working plus woodworking only.",
+  "invariant_preserved_or_changed": "Invariant changed: Copper fastener-like objects must not directly depend on bronze casting molds unless narrowed to cast bronze fasteners.",
+  "would_reject_if": [
+    "The node is narrowed to cast bronze rivets only.",
+    "A source shows the early copper pins/hooks/awls should not be grouped with fastener-like objects.",
+    "Bronze casting mold chronology is moved earlier with strong direct evidence."
+  ],
+  "short_reason": "Worked native-copper pins/hooks/awls do not require later bronze molds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

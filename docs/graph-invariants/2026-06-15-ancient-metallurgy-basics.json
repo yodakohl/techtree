@@ -1,0 +1,72 @@
+{
+  "id": "2026-06-15-ancient-metallurgy-basics",
+  "description": "Lock corrected chronology and removed false bronze dependencies for foundational ancient metallurgy nodes audited on 2026-06-15.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "forging_and_smithing",
+      "prerequisite": "bronze_working",
+      "reason": "Early forging/smithing should not require later copper-tin bronze alloying."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "copper_rivets_fasteners",
+      "prerequisite": "bronze_casting_molds",
+      "reason": "Native-copper pins/hooks/awls predate bronze casting molds."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "cart_axle_bearings",
+      "prerequisite": "bronze_casting_molds",
+      "reason": "Cart axle bearings can be wood/leather friction surfaces and should not require later bronze molds."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "portable_scales",
+      "prerequisite": "bronze_casting_molds",
+      "reason": "Broad portable balances should not require cast bronze molds."
+    },
+    {
+      "type": "first_known_date",
+      "node": "bronze_working",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "Bronze Working is source-anchored during the 2026-06-15 ancient metallurgy audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "tin_working",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "Tin Working is source-anchored during the 2026-06-15 ancient metallurgy audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "bronze_casting_molds",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "Bronze Casting Molds is source-anchored during the 2026-06-15 ancient metallurgy audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "copper_alloy_edge_tools",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "Copper-Alloy Edge Tools is source-anchored during the 2026-06-15 ancient metallurgy audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "forging_and_smithing",
+      "operator": "eq",
+      "value": -8200,
+      "reason": "Forging and Smithing is source-anchored during the 2026-06-15 ancient metallurgy audit."
+    },
+    {
+      "type": "first_known_date",
+      "node": "copper_rivets_fasteners",
+      "operator": "eq",
+      "value": -8200,
+      "reason": "Copper Pins, Hooks & Fasteners is source-anchored during the 2026-06-15 ancient metallurgy audit."
+    }
+  ]
+}

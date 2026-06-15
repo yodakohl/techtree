@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-cart-axle-bearings-bronze-casting-molds-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "cart_axle_bearings",
+    "prerequisite": "bronze_casting_molds"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Bronze Casting Molds provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because the broad node is not restricted to cast bronze bearings.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/wheel",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica Wheel anchors wheeled vehicles in the fourth millennium BCE; the node description permits greased wooden, leather, or metal bearing surfaces.",
+    "source_claim_summary": "Early cart axle bearings are friction-reducing surfaces for wheeled vehicles and need not be bronze castings.",
+    "source_support_rationale": "Wooden or leather bearing surfaces can support the broad cart-bearing node before bronze casting molds."
+  },
+  "ontology_before": "Cart Axle Bearings treated Bronze Casting Molds as an enabling prerequisite.",
+  "ontology_after": "Cart Axle Bearings remains tied to wheeled vehicles and leather/wood material capability, not bronze casting.",
+  "invariant_preserved_or_changed": "Invariant changed: Cart Axle Bearings must not directly depend on Bronze Casting Molds unless narrowed to cast bronze axle bearings.",
+  "would_reject_if": [
+    "The node is narrowed to cast bronze axle bearings.",
+    "A source shows the earliest cart bearings were specifically cast bronze.",
+    "Wheeled-vehicle chronology is revised later than bronze mold chronology."
+  ],
+  "short_reason": "Broad cart bearing surfaces do not require bronze casting molds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

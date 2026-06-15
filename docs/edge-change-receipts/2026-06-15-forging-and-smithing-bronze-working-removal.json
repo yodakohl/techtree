@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-forging-and-smithing-bronze-working-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "forging_and_smithing",
+    "prerequisite": "bronze_working"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Bronze Working provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because early forging/smithing is anchored to native-copper working before bronze.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Turkey/AnatoliaMetals-Yalcin2000.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Anatolian copper review anchors early worked native-copper objects at Çayönü around 8200-7500 BCE, long before the corrected bronze-working node.",
+    "source_claim_summary": "Early metal hammering/working is source-anchored in native copper and does not require bronze.",
+    "source_support_rationale": "Bronze working is a later alloy technology; making it the prerequisite for all forging/smithing inverted the chronology."
+  },
+  "ontology_before": "Forging and Smithing treated Bronze Working as its only prerequisite.",
+  "ontology_after": "Forging and Smithing is anchored to early copper working and no longer depends on later bronze working.",
+  "invariant_preserved_or_changed": "Invariant changed: Forging and Smithing must not directly depend on Bronze Working unless narrowed to bronze smithing.",
+  "would_reject_if": [
+    "The node is narrowed to bronze smithing only.",
+    "Bronze Working is re-scoped to include all native-copper working.",
+    "A stronger source shows the Çayönü/Aşıklı evidence is not relevant to early metal hammering or smithing."
+  ],
+  "short_reason": "Native-copper working predates bronze working.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}

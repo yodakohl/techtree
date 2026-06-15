@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-15-portable-scales-bronze-casting-molds-removal",
+  "decision_date": "2026-06-15",
+  "edge": {
+    "dependent": "portable_scales",
+    "prerequisite": "bronze_casting_molds"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Bronze Casting Molds provides a capability that enables this technology without being the only possible path."
+  },
+  "removed_edge": true,
+  "new_claim_absent": "No direct dependency is retained because the node is broader than cast-bronze scale components.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.penn.museum/sites/expedition/hanging-in-the-balance/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Penn Museum balance-scale overview supports ancient weighing practices without making bronze casting molds a prerequisite for portable balances and weights.",
+    "source_claim_summary": "Portable balances and standard weights require weighing standards and market/administrative context, not bronze casting molds as a direct prerequisite.",
+    "source_support_rationale": "Weights and balances can be stone, wood, clay, or metal; bronze molds are optional implementation detail, not the broad-node dependency."
+  },
+  "ontology_before": "Portable Balance Scales treated Bronze Casting Molds as an enabling prerequisite.",
+  "ontology_after": "Portable Balance Scales remains tied to standardized weights/measures and market use, not bronze casting.",
+  "invariant_preserved_or_changed": "Invariant changed: Portable Balance Scales must not directly depend on Bronze Casting Molds unless narrowed to cast-bronze scale hardware.",
+  "would_reject_if": [
+    "The node is narrowed to cast bronze balance hardware.",
+    "A source shows the earliest portable scales required bronze-cast components.",
+    "The scale node is split and this id is reserved for metal-cast scales only."
+  ],
+  "short_reason": "Portable balances do not require bronze casting molds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls"
+  ]
+}
