@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-16-proto-writing-trade-routes-removal",
+  "decision_date": "2026-06-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "proto_writing",
+    "prerequisite": "trade_routes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trade Routes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from trade_routes to proto_writing. The corrected node is scoped to Uruk-period administrative pictographic/proto-cuneiform notation, where token/accounting systems and symbolic marking are source-backed predecessors but long-distance trade routes are not a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://sites.utexas.edu/dsb/tokens/the-evolution-of-writing/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract/introduction and phase summary: clay tokens for counting and recording goods precede pictographic script; phase (b) places two-dimensional pictographic signs around 3500-3000 BC.",
+    "source_claim_summary": "The source supports a record-keeping/accounting predecessor for proto-writing, not trade-route infrastructure as a direct prerequisite.",
+    "source_support_rationale": "Economic administration and accounting are retained through record_keeping; trade_routes would over-broaden the causal path and imply a commercial network dependency not established by the writing-origin source."
+  },
+  "ontology_before": "The graph treated broad trade-route infrastructure as a prerequisite for proto_writing.",
+  "ontology_after": "Proto_writing is tied to administrative record keeping and symbolic notation, while trade routes remain available for downstream commercial technologies where source-backed.",
+  "invariant_preserved_or_changed": "Changed: trade_routes is absent as a direct prerequisite for proto_writing; record_keeping remains the source-backed administrative predecessor.",
+  "would_reject_if": [
+    "A specific source established long-distance trade routes as a direct prerequisite for the scoped Uruk-period proto-writing technology.",
+    "The node were split into a broader commercial-signaling node where trade-route infrastructure was the sourced causal mechanism."
+  ],
+  "short_reason": "Removes unsupported broad commercial infrastructure from the proto-writing origin path.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

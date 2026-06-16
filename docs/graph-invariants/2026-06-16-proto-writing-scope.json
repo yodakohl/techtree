@@ -1,0 +1,26 @@
+{
+  "id": "2026-06-16-proto-writing-scope",
+  "description": "Lock proto-writing to source-backed Uruk-period administrative pictographic/proto-cuneiform notation, not generic archives or trade-route infrastructure.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "proto_writing",
+      "prerequisite": "trade_routes",
+      "reason": "Trade routes are broad commercial scaling context, not a source-backed direct prerequisite for the scoped proto-writing node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "proto_writing",
+      "prerequisite": "record_keeping",
+      "expected": "historical_predecessor",
+      "reason": "Token/accounting record keeping remains the source-backed predecessor to proto-cuneiform pictographic notation."
+    },
+    {
+      "type": "first_known_date",
+      "node": "proto_writing",
+      "operator": "eq",
+      "value": -3500,
+      "reason": "The proto-writing node should stay anchored to the source-backed 3500-3000 BCE pictographic/proto-cuneiform phase, not the older token-accounting date."
+    }
+  ]
+}
