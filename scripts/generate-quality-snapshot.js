@@ -20,12 +20,13 @@ const args = new Set(process.argv.slice(2));
 const checkOnly = args.has('--check');
 const silent = args.has('--silent') || checkOnly;
 
-const MANUAL_SAMPLE = {
-    label: 'Manual risk-weighted sample',
-    passed: 40,
-    total: 40,
-    note: 'Passed after correction; this is not proof of global accuracy.',
-    source: 'docs/ACCURACY_SAMPLE_2026-06-06.md'
+const MANUAL_SAMPLE_AUDIT = {
+    label: 'Risk-weighted manual sample remediation audit',
+    sampled: 40,
+    defectsFound: 25,
+    remediated: 40,
+    source: 'docs/ACCURACY_SAMPLE_2026-06-06.md',
+    interpretation: 'Risk-weighted remediation audit; not a random or global accuracy estimate.'
 };
 
 function formatNumber(value) {
@@ -50,15 +51,14 @@ function buildSnapshot(report, generatedAt = report.generatedAt) {
         metric('Source-checked nodes using only weak/generic sources', t.sourceCheckedOnlyWeakGeneric, t.sourceChecked, percentage(t.sourceCheckedOnlyWeakGeneric, t.sourceChecked)),
         metric('Nodes with node-level sources', t.nodesWithSources, t.technologies, percentage(t.nodesWithSources, t.technologies)),
         metric('Dependency edges with edge-level sources', t.edgesWithSources, t.totalEdges, percentage(t.edgesWithSources, t.totalEdges)),
-        metric('Era-default placeholder dates', t.eraDefaultDates, t.technologies, percentage(t.eraDefaultDates, t.technologies)),
-        metric(MANUAL_SAMPLE.label, MANUAL_SAMPLE.passed, MANUAL_SAMPLE.total, 'passed after correction')
+        metric('Era-default placeholder dates', t.eraDefaultDates, t.technologies, percentage(t.eraDefaultDates, t.technologies))
     ];
 
     return {
         generatedAt,
         description: 'Trust snapshot, not proof of global accuracy.',
         metrics,
-        manualSample: MANUAL_SAMPLE,
+        manualSampleAudit: MANUAL_SAMPLE_AUDIT,
         riskReportTotals: t
     };
 }
@@ -80,6 +80,8 @@ function renderReadmeBlock(snapshot) {
         '',
         renderMetricTable(snapshot.metrics),
         '',
+        'Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.',
+        '',
         `Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).`,
         END_MARKER
     ].join('\n');
@@ -95,7 +97,11 @@ function renderSnapshotMarkdown(snapshot) {
         '',
         renderMetricTable(snapshot.metrics),
         '',
-        `Manual sample source: [${snapshot.manualSample.source}](${path.basename(snapshot.manualSample.source)})`
+        '## Manual audit note',
+        '',
+        `The June 2026 risk-weighted manual sample is tracked as a remediation audit, not as a headline accuracy metric. It deliberately targeted high-risk claims; ${snapshot.manualSampleAudit.defectsFound} / ${snapshot.manualSampleAudit.sampled} sampled claims needed correction or tighter scoping before remediation. The post-fix ${snapshot.manualSampleAudit.remediated} / ${snapshot.manualSampleAudit.sampled} status means the sampled defects were closed, not that the graph is globally accurate.`,
+        '',
+        `Manual audit source: [${snapshot.manualSampleAudit.source}](${path.basename(snapshot.manualSampleAudit.source)})`
     ].join('\n') + '\n';
 }
 

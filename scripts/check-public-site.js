@@ -77,6 +77,11 @@ function checkLLMSMetrics(result) {
     .map(line => line.trim())
     .filter(Boolean);
   const actual = parseLlmMetrics(lines);
+  for (const forbidden of ['Manual risk-weighted sample', 'passed after correction']) {
+    if (lines.some(line => line.includes(forbidden))) {
+      throw new Error(`llms.txt contains deprecated accuracy-metric wording: ${forbidden}`);
+    }
+  }
   const expectedMetrics = new Map(
     (result.snapshot.metrics || []).map(item => [item.label, item])
   );
@@ -90,8 +95,7 @@ function checkLLMSMetrics(result) {
     'Source-checked nodes using only weak/generic sources',
     'Nodes with node-level sources',
     'Dependency edges with edge-level sources',
-    'Era-default placeholder dates',
-    'Manual risk-weighted sample'
+    'Era-default placeholder dates'
   ];
 
   for (const label of metricLabels) {

@@ -482,8 +482,7 @@ function buildLLms(snapshot, fieldPages, techById) {
     'Source-checked nodes using only weak/generic sources',
     'Nodes with node-level sources',
     'Dependency edges with edge-level sources',
-    'Era-default placeholder dates',
-    'Manual risk-weighted sample'
+    'Era-default placeholder dates'
   ];
   for (const name of metricNames) {
     const metric = formatMetricLine(name, metricByLabel(snapshot, name));

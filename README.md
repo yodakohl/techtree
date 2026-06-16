@@ -33,7 +33,7 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-06-15 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
+Generated 2026-06-16 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
@@ -46,7 +46,8 @@ Generated 2026-06-15 from the same dataset audit used by `npm run accuracy:risks
 | Nodes with node-level sources | 1,555 / 1,659 (93.7%) |
 | Dependency edges with edge-level sources | 4,023 / 5,422 (74.2%) |
 | Era-default placeholder dates | 394 / 1,659 (23.7%) |
-| Manual risk-weighted sample | 40 / 40 (passed after correction) |
+
+Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
 
 Full generated snapshot: [docs/QUALITY_SNAPSHOT.md](docs/QUALITY_SNAPSHOT.md).
 <!-- QUALITY_SNAPSHOT_END -->
