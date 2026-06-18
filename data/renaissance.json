@@ -2288,13 +2288,12 @@
     "prerequisites": [
       "naval_artillery_broadside_cannons",
       "lateen_sail_caravel",
-      "cartography",
-      "exploration_global"
+      "cartography"
     ],
-    "firstKnownDate": 1517,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1500,
+    "datePrecision": "century",
+    "region": "Iberian Atlantic: Spain and Portugal",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "naval_artillery_broadside_cannons",
@@ -2319,16 +2318,33 @@
         "evidence_level": "expert_inference",
         "note": "Cartography provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
+      }
+    ],
+    "sources": [
+      {
+        "title": "galleon (16th Century)",
+        "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-460994",
+        "publisher": "Royal Museums Greenwich / National Maritime Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Royal Museums Greenwich identifies a 16th-century galleon plan/model object, supporting the ship-design scope and date range."
       },
       {
-        "prerequisite": "exploration_global",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Global Exploration provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "title": "Galleon",
+        "url": "https://www.britannica.com/technology/galleon",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica describes the galleon as a full-rigged sailing ship that developed in the 15th and 16th centuries and carried broadside guns, supporting the broad ship-design node and century-level date."
       }
-    ]
+    ],
+    "dateUncertaintyNote": "The date is a century-level anchor for galleon ship design, with regional maturation across Iberian Atlantic shipbuilding rather than a single first launch."
   },
   {
     "id": "heliocentrism_copernicus",
@@ -2627,10 +2643,10 @@
       "classical_historiography_herodotus_thucydides",
       "scholasticism"
     ],
-    "firstKnownDate": 1400,
+    "firstKnownDate": 1300,
     "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
-    "reviewStatus": "structurally_validated",
+    "region": "Italy",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "philosophy",
@@ -2699,17 +2715,18 @@
     ],
     "sources": [
       {
-        "title": "Presocratic Philosophy",
-        "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
-        "publisher": "Stanford Encyclopedia of Philosophy",
-        "year": 2012,
+        "title": "Renaissance Philosophy",
+        "url": "https://iep.utm.edu/renaissa/",
+        "publisher": "Internet Encyclopedia of Philosophy",
+        "year": 2026,
         "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "The humanism section treats Petrarch as a seminal humanist figure and locates Renaissance humanism in Italian fourteenth-century intellectual culture."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Renaissance source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "dateUncertaintyNote": "Humanism is a broad intellectual movement; the century anchor reflects Petrarch and early Italian humanism rather than a single invention year."
   },
   {
     "id": "iatrochemistry_paracelsus",
@@ -3823,10 +3840,10 @@
       "mechanical_clocks",
       "advanced_metallurgy_medieval"
     ],
-    "firstKnownDate": 1400,
-    "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1620,
+    "datePrecision": "decade",
+    "region": "France",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "early_firearms",
@@ -3867,17 +3884,17 @@
     ],
     "sources": [
       {
-        "title": "Escapement",
-        "url": "https://www.britannica.com/technology/escapement",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "Flintlock Gun of Louis XIII",
+        "url": "https://www.metmuseum.org/art/collection/search/24865",
+        "publisher": "The Metropolitan Museum of Art",
         "year": 2026,
-        "source_type": "textbook",
+        "source_type": "museum",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "The Met dates a flintlock gun of Louis XIII to about 1620 and notes its French flintlock context associated with Marin Le Bourgeois."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Renaissance source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    ]
   },
   {
     "id": "musketry_formations",
@@ -3885,7 +3902,6 @@
     "era": "Renaissance",
     "description": "Military tactics developed to maximize the effectiveness of ranks of soldiers armed with muskets, such as volley fire, where ranks would fire in succession to maintain continuous pressure on the enemy.",
     "prerequisites": [
-      "muskets_flintlock",
       "organized_military_formations",
       "gunpowder",
       "printing_press"
@@ -3895,14 +3911,6 @@
     "region": "Early modern European and Ottoman armies",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "muskets_flintlock",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Muskets (Flintlock) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "organized_military_formations",
         "type": "enabling",
@@ -4095,7 +4103,6 @@
       "pigment_creation",
       "basic_chemistry",
       "humanism",
-      "perspective_in_art",
       "textiles_weaving",
       "alchemy"
     ],
@@ -4150,14 +4157,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Humanism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "perspective_in_art",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Perspective in Art provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       },
       {
@@ -4224,13 +4223,12 @@
       "geometry",
       "humanism",
       "mathematics",
-      "pigment_creation",
       "fine_arts_medieval"
     ],
-    "firstKnownDate": 1400,
-    "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1415,
+    "datePrecision": "decade",
+    "region": "Florence, Italy",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "geometry",
@@ -4281,26 +4279,6 @@
         ]
       },
       {
-        "prerequisite": "pigment_creation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pigment Creation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "A 100,000-Year-Old Ochre-Processing Workshop at Blombos Cave, South Africa",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
-            "publisher": "Science / PubMed",
-            "year": 2011,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "fine_arts_medieval",
         "type": "enabling",
         "confidence": 0.68,
@@ -4311,17 +4289,17 @@
     ],
     "sources": [
       {
-        "title": "Geometry",
-        "url": "https://www.britannica.com/science/geometry",
+        "title": "Linear perspective",
+        "url": "https://www.britannica.com/art/linear-perspective",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "Britannica dates Brunelleschi's linear-perspective demonstration to about 1415 and Alberti's written account to 1435."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Renaissance source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    ]
   },
   {
     "id": "pike_and_shot_formations",
@@ -4329,7 +4307,6 @@
     "era": "Renaissance",
     "description": "The dominant early modern infantry tactic, combining soldiers armed with long pikes to protect against cavalry with musketeers who provided ranged firepower. This required immense discipline and drill.",
     "prerequisites": [
-      "muskets_flintlock",
       "organized_military_formations",
       "iron_working",
       "musketry_formations"
@@ -4339,14 +4316,6 @@
     "region": "Afro-Eurasia and other historical societies",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "muskets_flintlock",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Muskets (Flintlock) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "organized_military_formations",
         "type": "enabling",
@@ -6814,10 +6783,10 @@
       "double_entry_diffusion",
       "maritime_insurance"
     ],
-    "firstKnownDate": 1553,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1654,
+    "datePrecision": "exact",
+    "region": "France",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "algebra_basic",
@@ -6842,6 +6811,19 @@
         "evidence_level": "expert_inference",
         "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Pascal-Fermat Correspondence",
+        "url": "https://old.maa.org/sites/default/files/images/upload_library/46/NCTM/The-Pascal-Fermat-Correspondence.pdf",
+        "publisher": "Mathematical Association of America",
+        "year": 2015,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The MAA account anchors formal probability theory to the 1654 Pascal-Fermat correspondence over the problem of points."
       }
     ]
   },
@@ -7423,7 +7405,6 @@
     "era": "Renaissance",
     "description": "Tabulated mortality and survival patterns used for annuities, insurance, public health, and population analysis.",
     "prerequisites": [
-      "probability_theory",
       "census",
       "double_entry_diffusion"
     ],
@@ -7432,14 +7413,6 @@
     "region": "Afro-Eurasia and other historical societies",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "probability_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Probability Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "census",
         "type": "enabling",
@@ -7542,8 +7515,7 @@
     "description": "Comparative experimental setups that isolate variables, repeat trials, and distinguish intervention effects from background conditions.",
     "prerequisites": [
       "scientific_method",
-      "scientific_societies",
-      "probability_theory"
+      "scientific_societies"
     ],
     "firstKnownDate": 1553,
     "datePrecision": "unknown",
@@ -7576,14 +7548,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Scientific Societies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "probability_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Probability Theory provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       }
     ],
@@ -7639,7 +7603,6 @@
     "era": "Renaissance",
     "description": "State and municipal lotteries used to raise funds for fortifications, bridges, charities, and public works.",
     "prerequisites": [
-      "probability_theory",
       "municipal_charters",
       "printing_press"
     ],
@@ -7648,14 +7611,6 @@
     "region": "England / Elizabeth I public-works lottery finance",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "probability_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Probability Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "municipal_charters",
         "type": "enabling",
@@ -7926,8 +7881,7 @@
     "description": "Use of mortality, voyage, cargo, and risk tables to price insurance and annuity contracts more systematically.",
     "prerequisites": [
       "statistical_life_tables",
-      "maritime_insurance",
-      "probability_theory"
+      "maritime_insurance"
     ],
     "fields": [
       "Finance & Markets"
@@ -7971,26 +7925,6 @@
           {
             "title": "Insurance",
             "url": "https://en.wikipedia.org/wiki/Insurance",
-            "source_type": "generic_overview",
-            "supports": [
-              "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
-          }
-        ]
-      },
-      {
-        "prerequisite": "probability_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Probability Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Probability theory",
-            "url": "https://en.wikipedia.org/wiki/Probability_theory",
             "source_type": "generic_overview",
             "supports": [
               "edge"
@@ -8570,10 +8504,10 @@
       "university_medical_faculties",
       "scientific_illustration_printing"
     ],
-    "firstKnownDate": 1543,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1594,
+    "datePrecision": "exact",
+    "region": "Padua, Republic of Venice",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "anatomical_studies_vesalius_detailed",
@@ -8598,6 +8532,19 @@
         "evidence_level": "weak_inference",
         "note": "Scientific Illustration Printing is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
         "reviewStatus": "source_checked"
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Anatomical Theatre",
+        "url": "https://heritage.unipd.it/en/storia/il-teatro-anatomico/",
+        "publisher": "Universita degli Studi di Padova",
+        "year": 2018,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The University of Padua heritage page states that the fixed anatomical theatre was built in 1594 and opened in 1595."
       }
     ]
   },
@@ -8950,7 +8897,6 @@
     "era": "Renaissance",
     "description": "Collections of human, animal, and specimen observations used to compare organs, skeletons, development, disease, and function.",
     "prerequisites": [
-      "public_anatomy_theaters",
       "scientific_illustration_printing",
       "botanical_gardens_herbaria"
     ],
@@ -8959,14 +8905,6 @@
     "region": "Afro-Eurasia and other historical societies",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "public_anatomy_theaters",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Anatomy Theaters provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "scientific_illustration_printing",
         "type": "enabling",
@@ -9511,8 +9449,7 @@
     "description": "Ticketed or civic demonstrations of experiments, instruments, anatomy, astronomy, natural philosophy, and useful arts.",
     "prerequisites": [
       "scientific_societies",
-      "printed_standardized_textbooks",
-      "public_anatomy_theaters"
+      "printed_standardized_textbooks"
     ],
     "firstKnownDate": 1543,
     "datePrecision": "unknown",
@@ -9533,14 +9470,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Printed Standardized Textbooks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_anatomy_theaters",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Anatomy Theaters provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       }
     ]
@@ -9975,7 +9904,6 @@
     "description": "Preserved organs, bones, casts, wax models, and comparative specimens for medical teaching and research.",
     "prerequisites": [
       "comparative_anatomy_collections",
-      "public_anatomy_theaters",
       "printed_standardized_textbooks"
     ],
     "firstKnownDate": 1545,
@@ -9989,14 +9917,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Comparative Anatomy Collections provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_anatomy_theaters",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Anatomy Theaters provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       },
       {
