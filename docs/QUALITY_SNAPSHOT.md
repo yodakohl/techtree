@@ -1,20 +1,20 @@
 # Quality Snapshot
 
-Generated: 2026-06-18T23:30:35.177Z
+Generated: 2026-06-18T23:47:20.858Z
 
 This is a trust snapshot generated from the same report object used by `npm run accuracy:risks`; it is not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
-| Technologies | 1,659 |
-| Source-checked nodes | 1,302 / 1,659 (78.5%) |
-| Source-checked nodes with non-placeholder dates | 1,302 / 1,302 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,302 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,133 / 1,302 (87.0%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,302 (0.0%) |
-| Nodes with node-level sources | 1,604 / 1,659 (96.7%) |
-| Dependency edges with edge-level sources | 4,018 / 5,375 (74.8%) |
-| Era-default placeholder dates | 265 / 1,659 (16.0%) |
+| Technologies | 1,658 |
+| Source-checked nodes | 1,301 / 1,658 (78.5%) |
+| Source-checked nodes with non-placeholder dates | 1,301 / 1,301 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,301 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,133 / 1,301 (87.1%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,301 (0.0%) |
+| Nodes with node-level sources | 1,603 / 1,658 (96.7%) |
+| Dependency edges with edge-level sources | 4,018 / 5,373 (74.8%) |
+| Era-default placeholder dates | 265 / 1,658 (16.0%) |
 
 ## Manual audit note
 
