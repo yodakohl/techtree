@@ -2,8 +2,8 @@
 
 Generated from canonical era JSON. A `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
 
-Source-checked nodes: 1145
-Source-checked nodes using era-default placeholder dates: 0 / 1145 (0.0%)
+Source-checked nodes: 1157
+Source-checked nodes using era-default placeholder dates: 0 / 1157 (0.0%)
 Listed exceptions without explicit uncertainty metadata: 0
 
 ## Summary By Era
