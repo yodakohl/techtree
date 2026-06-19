@@ -33,7 +33,7 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-06-18 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
+Generated 2026-06-19 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
