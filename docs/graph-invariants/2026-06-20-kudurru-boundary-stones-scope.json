@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-20-kudurru-boundary-stones-scope",
+  "description": "Kudurru boundary-stone scope must stay anchored to inscribed land-grant monuments, not generic survey stones or formal scribal institutions.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "field_boundary_survey_stones",
+      "operator": "eq",
+      "value": -1300,
+      "reason": "Seattle Art Museum dates a kudurru boundary stone to ca. 1300 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "field_boundary_survey_stones",
+      "prerequisite": "boundary_markers_land_tenure",
+      "expected": "enabling",
+      "reason": "Kudurru commemorate land grants inside a broader land-tenure and boundary-marker practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "field_boundary_survey_stones",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "The scoped monuments are inscribed kudurru records and charters."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "field_boundary_survey_stones",
+      "prerequisite": "measuring_rods_and_lines",
+      "reason": "The node is not scoped to general field-survey measurement tools."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "field_boundary_survey_stones",
+      "prerequisite": "scribe_schools",
+      "reason": "Formal scribe schools are broader social infrastructure, not the direct prerequisite for the monument."
+    }
+  ]
+}

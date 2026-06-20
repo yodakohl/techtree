@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-20-kudurru-measuring-rods-removal",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "field_boundary_survey_stones",
+    "prerequisite": "measuring_rods_and_lines"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Measuring Rods & Lines provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Kudurru evidence supports inscribed land-grant boundary monuments, not a direct dependency on measuring rods or field-survey instruments.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0522-1800",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Description and curator comments: limestone boundary-stone prepared for sculptures and inscriptions, faces bearing inscription columns, and a charter from Nebuchadnezzar I.",
+    "source_claim_summary": "The object page describes a boundary-stone with sculptures, inscriptions, and a charter rather than a measuring or surveying instrument.",
+    "source_support_rationale": "The scoped artifact is a legal inscription monument. Measuring rods may belong to field surveying, but the cited evidence does not make them a direct antecedent for kudurru."
+  },
+  "ontology_before": "The graph let a general survey-tool capability feed directly into kudurru boundary stones, broadening the node beyond the museum evidence.",
+  "ontology_after": "The graph scopes the node to inscribed kudurru land-grant monuments and removes the unsupported measuring-tool direct edge.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-kudurru-boundary-stones-scope keeps measuring_rods_and_lines absent from the direct prerequisites.",
+  "would_reject_if": [
+    "The node were renamed and sourced as a general field-survey marker technology rather than kudurru monuments.",
+    "A source showed that the earliest kudurru monuments depended on standardized measuring rods as a direct production or legal-record prerequisite."
+  ],
+  "short_reason": "Kudurru are inscribed land-grant monuments, not measuring-rod survey technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/field_boundary_survey_stones.before.json /tmp/field_boundary_survey_stones.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

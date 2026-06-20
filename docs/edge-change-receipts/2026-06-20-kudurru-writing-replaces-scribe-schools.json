@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-20-kudurru-writing-replaces-scribe-schools",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "field_boundary_survey_stones",
+    "prerequisite": "writing"
+  },
+  "replaced_edge": {
+    "dependent": "field_boundary_survey_stones",
+    "prerequisite": "scribe_schools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scribe Schools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "The scoped monuments are inscribed kudurru records; writing is required for the cuneiform charter or dedicatory inscription, while formal scribe schools are not a direct prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0522-1800",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Description and curator comments: limestone boundary-stone prepared for sculptures and inscriptions, faces bearing inscription columns, and a charter from Nebuchadnezzar I.",
+    "source_claim_summary": "The museum record classifies the object as a boundary-stone/kudurru and describes carved inscription columns plus a charter on the stone.",
+    "source_support_rationale": "A charter text on the monument makes writing part of the artifact itself. The page does not identify formal schooling as the necessary upstream technology."
+  },
+  "ontology_before": "The graph treated formal scribe schools as the direct literacy prerequisite for kudurru boundary stones, overstating the institutional dependency.",
+  "ontology_after": "The graph treats writing as the direct prerequisite for inscribed kudurru records while leaving scribal schooling as a broader social context.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-kudurru-boundary-stones-scope keeps writing required and scribe_schools absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to training institutions that produced kudurru scribes rather than the monuments themselves.",
+    "A source showed that the first scoped kudurru monuments required formal school institutions rather than only writing and inscription practice."
+  ],
+  "short_reason": "Inscribed kudurru monuments require writing, not formal scribe schools as a direct edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/field_boundary_survey_stones.before.json /tmp/field_boundary_survey_stones.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
