@@ -13422,13 +13422,11 @@
     "id": "organ_transplantation",
     "name": "Organ Transplantation",
     "era": "Modern",
-    "description": "Surgical procedures to replace failing organs with healthy ones from donors.",
+    "description": "Successful clinical replacement of failing organs with donor organs, anchored by the 1954 Boston kidney transplant and later expanded through surgical technique, infection control, and control of immune rejection.",
     "prerequisites": [
       "aseptic_surgery",
       "antibiotics",
-      "immunology_advanced",
-      "refrigeration",
-      "blood_circulation_harvey"
+      "immunology_advanced"
     ],
     "firstKnownDate": 1954,
     "datePrecision": "year",
@@ -13438,10 +13436,23 @@
       {
         "prerequisite": "aseptic_surgery",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Aseptic Surgery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Organ transplantation is major surgery; antiseptic and aseptic principles made surgery safer by preventing microbial entry into operative wounds.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Joseph Lister",
+            "url": "https://www.britannica.com/biography/Joseph-Lister-Baron-Lister-of-Lyme-Regis",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Article body: Lister's principle that bacteria must never enter an operation wound remains the basis of surgery; his antiseptic methods reduced surgical mortality."
+          }
+        ]
       },
       {
         "prerequisite": "antibiotics",
@@ -13466,26 +13477,36 @@
       {
         "prerequisite": "immunology_advanced",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Immunology provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "refrigeration",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Refrigeration provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "blood_circulation_harvey",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Blood Circulation (Harvey) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Immune rejection was the central biological barrier; identical-twin compatibility enabled the 1954 transplant, and later immunosuppression enabled broader transplantation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A transplant makes history",
+            "url": "https://news.harvard.edu/gazette/story/2011/09/a-transplant-makes-history/",
+            "publisher": "Harvard Gazette",
+            "year": 2011,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Article body: rejection of foreign tissue was poorly understood in 1954; identical twins avoided rejection, and later immune-suppressing drugs cleared the way for unrelated donor transplantation."
+          },
+          {
+            "title": "Joseph E. Murray - Facts",
+            "url": "https://www.nobelprize.org/prizes/medicine/1990/murray/facts/",
+            "publisher": "Nobel Prize",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Work section: the immune system rejects foreign bodies; Murray's 1954 kidney transplant avoided rejection between identical twins and paved the way for later organ transplants."
+          }
+        ]
       }
     ],
     "sources": [
@@ -13510,8 +13531,20 @@
           "node"
         ],
         "locator": "Harvard describes the December 23, 1954 Brigham kidney transplant between Richard and Ronald Herrick as the world's first successful organ transplant."
+      },
+      {
+        "title": "Joseph E. Murray - Facts",
+        "url": "https://www.nobelprize.org/prizes/medicine/1990/murray/facts/",
+        "publisher": "Nobel Prize",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Work section: Murray's 1954 kidney transplant between identical twins avoided immune rejection and paved the way for other organ transplants."
       }
-    ]
+    ],
+    "scopeNote": "Covers successful clinical organ transplantation as a surgical and immunologic achievement. It excludes cold-chain organ preservation and general early-modern physiology as direct prerequisites unless a narrower deceased-donor preservation or physiology-history node is being modeled."
   },
   {
     "id": "x_ray_imaging",

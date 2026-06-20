@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-20-organ-transplantation-scope",
+  "description": "Organ transplantation must stay scoped to successful clinical transplantation anchored by the 1954 Boston kidney transplant, not cold-chain preservation logistics or broad physiology lineage.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "organ_transplantation",
+      "operator": "eq",
+      "value": 1954,
+      "reason": "The node is anchored to the first successful human organ transplant, the 1954 Boston kidney transplant between identical twins."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "organ_transplantation",
+      "prerequisite": "aseptic_surgery",
+      "expected": "enabling",
+      "reason": "Safe major surgery enabled organ replacement procedures without being unique to transplantation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "organ_transplantation",
+      "prerequisite": "antibiotics",
+      "expected": "enabling",
+      "reason": "Antibiotics are retained as perioperative infection-control support for modern transplant surgery."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "organ_transplantation",
+      "prerequisite": "immunology_advanced",
+      "expected": "enabling",
+      "reason": "Immune rejection and immune suppression are central to transplant feasibility beyond identical-twin cases."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organ_transplantation",
+      "prerequisite": "refrigeration",
+      "reason": "Mechanical refrigeration belongs on organ-preservation or deceased-donor scaling nodes, not the 1954 living-donor clinical transplant achievement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organ_transplantation",
+      "prerequisite": "blood_circulation_harvey",
+      "reason": "Harvey's circulation discovery is broad physiology lineage rather than a direct clinical transplant prerequisite."
+    }
+  ]
+}

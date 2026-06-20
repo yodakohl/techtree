@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-20-organ-transplantation-blood-circulation-removal",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "organ_transplantation",
+    "prerequisite": "blood_circulation_harvey"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Blood Circulation (Harvey) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is scoped to clinical organ transplantation, where the source-supported barriers are surgical technique and immune rejection; Harvey's circulation discovery is broad physiology lineage rather than a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://news.harvard.edu/gazette/story/2011/09/a-transplant-makes-history/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article body: the technical hurdle is described as severing and reattaching blood vessels and other critical connections, while rejection of foreign tissue is identified as the biological barrier.",
+    "source_claim_summary": "The Harvard history supports surgical and immunologic prerequisites, not a direct dependency on Harvey's early-modern circulation discovery.",
+    "source_support_rationale": "Harvey's discovery remains physiology background but is too broad and remote to remain a direct enabling edge for this clinical-transplant node."
+  },
+  "ontology_before": "The graph treated early-modern circulation physiology as a direct prerequisite for organ transplantation.",
+  "ontology_after": "The graph limits the transplant node to clinical surgical and immunologic requirements and leaves broad physiology lineage on clinical medicine or physiology nodes.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-organ-transplantation-scope keeps blood_circulation_harvey absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to the intellectual history of transplant physiology rather than clinical transplantation.",
+    "A source showed Harvey's circulation discovery was the direct prerequisite for the 1954 kidney transplant procedure."
+  ],
+  "short_reason": "Blood circulation is remote physiology background, not a direct prerequisite for the scoped clinical transplant node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organ_transplantation.before.json /tmp/organ_transplantation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

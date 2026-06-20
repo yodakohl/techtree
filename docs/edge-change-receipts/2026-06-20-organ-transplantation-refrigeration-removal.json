@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-20-organ-transplantation-refrigeration-removal",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "organ_transplantation",
+    "prerequisite": "refrigeration"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Refrigeration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is scoped to successful clinical organ transplantation anchored by the 1954 living-donor kidney transplant; mechanical refrigeration and cold storage belong on deceased-donor preservation or scaling nodes.",
+  "source_supports_edge": "no",
+  "source_url": "https://news.harvard.edu/gazette/story/2011/09/a-transplant-makes-history/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Article body: the 1954 milestone was a kidney transplant between living identical twins, with rejection as the key barrier, not cold organ storage.",
+    "source_claim_summary": "The source supports the 1954 clinical-transplant claim and immunologic compatibility boundary without making refrigeration a direct prerequisite.",
+    "source_support_rationale": "Refrigeration is relevant to later organ preservation logistics, but keeping it here smuggled deceased-donor preservation and cold-chain scaling into the first successful organ-transplant node."
+  },
+  "ontology_before": "The graph treated mechanical refrigeration as a direct prerequisite for organ transplantation generally.",
+  "ontology_after": "The graph keeps cold storage out of the 1954 clinical transplant node and leaves it for preservation-specific or deceased-donor scaling nodes.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-organ-transplantation-scope keeps refrigeration absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped specifically to deceased-donor organ preservation logistics.",
+    "A source showed mechanical refrigeration was directly required for the 1954 living-donor kidney transplant."
+  ],
+  "short_reason": "Refrigeration is preservation/scaling context, not a direct prerequisite for the scoped 1954 clinical transplant achievement.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organ_transplantation.before.json /tmp/organ_transplantation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
