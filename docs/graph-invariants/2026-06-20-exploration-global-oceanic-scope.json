@@ -1,0 +1,59 @@
+{
+  "id": "2026-06-20-exploration-global-oceanic-scope",
+  "description": "Early modern oceanic exploration must stay scoped to navigation, charting, and caravel-era ship operation, not conquest, banking finance, or mercantilist policy.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "exploration_global",
+      "operator": "eq",
+      "value": 1470,
+      "reason": "The node is anchored to the late-15th-century graph boundary for charted early modern European oceanic exploration rather than a single later voyage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "exploration_global",
+      "prerequisite": "lateen_sail_caravel",
+      "expected": "enabling",
+      "reason": "Caravel-era ship design enabled long-distance oceanic exploration without being the only possible vessel lineage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "exploration_global",
+      "prerequisite": "cartography",
+      "expected": "enabling",
+      "reason": "Navigation charts and mapmaking enabled route recording and expansion."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "exploration_global",
+      "prerequisite": "compass",
+      "expected": "enabling",
+      "reason": "Compass direction-finding enabled open-sea route navigation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "exploration_global",
+      "prerequisite": "astrolabe_quadrant",
+      "expected": "enabling",
+      "reason": "Astrolabe and quadrant instruments enabled celestial navigation and latitude estimation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "exploration_global",
+      "prerequisite": "gunpowder",
+      "reason": "Gunpowder belongs to conquest or military-expansion scope, not direct oceanic route-finding."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "exploration_global",
+      "prerequisite": "banking",
+      "reason": "Banking is expedition-finance context, not a direct operational prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "exploration_global",
+      "prerequisite": "mercantilism_economic_theory",
+      "reason": "Mercantilism is later commercial policy context and should remain on trade or colonial-system nodes."
+    }
+  ]
+}

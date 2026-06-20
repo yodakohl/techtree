@@ -2180,117 +2180,136 @@
   },
   {
     "id": "exploration_global",
-    "name": "Global Exploration",
+    "name": "Early Modern Oceanic Exploration",
     "era": "Renaissance",
-    "description": "Long-distance voyages of discovery leading to increased knowledge of world geography, cultures, and resources, driven by mercantilism, religion, and curiosity.",
+    "description": "Early modern European oceanic voyages of discovery and route-finding, especially the Iberian Atlantic and transoceanic expansion enabled by navigational instruments, cartography, and caravel-era ship design.",
     "prerequisites": [
       "lateen_sail_caravel",
       "cartography",
       "compass",
-      "astrolabe_quadrant",
-      "gunpowder",
-      "banking",
-      "mercantilism_economic_theory"
+      "astrolabe_quadrant"
     ],
-    "firstKnownDate": 1517,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1470,
+    "datePrecision": "decade",
+    "region": "Iberian Atlantic and European oceanic routes",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "lateen_sail_caravel",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Lateen Sail & Caravel provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "cartography",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cartography provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "compass",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Compass provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "astrolabe_quadrant",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Astrolabe & Quadrant provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "gunpowder",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Gunpowder provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "The caravel was a 15th- to 17th-century Iberian exploration ship used for long voyages and African coastal exploration, with windward sailing capacity that enabled oceanic route-finding.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Gunpowder - Song Dynasty China",
-            "url": "https://afe.easia.columbia.edu/songdynasty-module/tech-gunpowder.html",
-            "publisher": "Asia for Educators, Columbia University",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "banking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Banking provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Historical development of banks",
-            "url": "https://www.britannica.com/money/bank/Historical-development",
+            "title": "Caravel",
+            "url": "https://www.britannica.com/technology/caravel",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
             "supports": [
+              "node",
               "edge"
-            ]
+            ],
+            "source_locator": "Article body: describes the caravel as a 15th- to 17th-century Spanish and Portuguese ship for long voyages, developed for exploring the African coast, with windward sailing capacity."
           }
         ]
       },
       {
-        "prerequisite": "mercantilism_economic_theory",
+        "prerequisite": "cartography",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mercantilism Economic Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Portolan and later projection-based mapmaking provided navigational charting and responded directly to European discovery of new lands.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Cartography",
+            "url": "https://www.britannica.com/science/cartography",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Article body: more accurate representation began with portolan seamen's charts for navigation; European discovery of the New World created a need for new cartographic projection techniques."
+          }
+        ]
+      },
+      {
+        "prerequisite": "compass",
+        "type": "enabling",
+        "confidence": 0.8,
+        "evidence_level": "textbook",
+        "note": "The magnetic compass supplied direction finding for ships and supported reliable sea charts and open-sea navigation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Compass",
+            "url": "https://www.britannica.com/technology/compass-navigational-instrument",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Article body: the compass is the primary device for direction finding; 12th-century mariners used lodestone and magnetized needles to find north and therefore other directions."
+          }
+        ]
+      },
+      {
+        "prerequisite": "astrolabe_quadrant",
+        "type": "enabling",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Astrolabes were adopted by mariners by about the mid-15th century for celestial navigation, making them an enabling navigational instrument rather than a motive or commercial dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Astrolabe",
+            "url": "https://www.britannica.com/science/astrolabe-instrument",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Article body: astrolabes were adopted by mariners by about the mid-15th century and used in celestial navigation."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Gunpowder - Song Dynasty China",
-        "url": "https://afe.easia.columbia.edu/songdynasty-module/tech-gunpowder.html",
-        "publisher": "Asia for Educators, Columbia University",
+        "title": "Caravel",
+        "url": "https://www.britannica.com/technology/caravel",
+        "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Article body: 15th- to 17th-century Spanish and Portuguese ship for long voyages, developed for African coastal exploration and used in Columbus's 1492 voyage."
+      },
+      {
+        "title": "Navigation",
+        "url": "https://www.britannica.com/technology/navigation-technology",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Development of marine navigation: the Portuguese are placed at the opening of the great age of discovery in the 15th century; reliable sea charts depended on compass and latitude/longitude methods."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The date anchors the node to the late-15th-century graph boundary for charted European oceanic exploration rather than to a single voyage.",
+    "scopeNote": "Covers early modern oceanic exploration and route-finding. It excludes colonial conquest, gunpowder warfare, banking finance, and mercantilist policy unless those are modeled as separate downstream economic or imperial systems."
   },
   {
     "id": "galleon_ship_design",
