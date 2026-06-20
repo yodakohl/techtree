@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-20-university-medical-studies-anatomy-removal",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "university_medical_studies",
+    "prerequisite": "anatomy_early_studies"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Anatomy (Early Studies) is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "The corrected node is scoped to formal medieval university medical study and curriculum; early anatomical inquiry is not source-supported as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/15458581/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the review describes Salerno's medical tradition, curriculum contribution, physician reference book, and surgery, without making early anatomy a direct prerequisite.",
+    "source_claim_summary": "The Salerno review supports medical-school and curriculum lineage but does not identify earlier anatomical study as a direct dependency.",
+    "source_support_rationale": "Anatomy belongs on anatomy-specific downstream nodes. Keeping it here preserved a broad unsourced context edge rather than the institutional curriculum claim."
+  },
+  "ontology_before": "The graph allowed early anatomy to remain a direct context edge for university medical study without source support.",
+  "ontology_after": "The graph limits the node to formal learned medical study and leaves anatomy-specific prerequisites to anatomy-focused nodes.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-university-medical-studies-scope keeps anatomy_early_studies absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to university anatomy teaching rather than general medical study.",
+    "A source showed early anatomical studies were the direct prerequisite for the first medieval university medical curricula."
+  ],
+  "short_reason": "Early anatomy is not a sourced direct prerequisite for this curriculum node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/university_medical_studies.before.json /tmp/university_medical_studies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

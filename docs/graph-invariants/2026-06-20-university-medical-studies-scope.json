@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-20-university-medical-studies-scope",
+  "description": "University medical studies must stay scoped to medieval university and Salerno medical-school curriculum, not generic herbal, distillation, or early-anatomy practice.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "university_medical_studies",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "The node is anchored to the mature eleventh- to twelfth-century Salerno and medieval university medical-curriculum tradition."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "university_medical_studies",
+      "prerequisite": "universities",
+      "expected": "required",
+      "reason": "The scoped technology is formal medical study in a university or university-like medical-school setting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "university_medical_studies",
+      "prerequisite": "early_medicine",
+      "expected": "historical_predecessor",
+      "reason": "Salerno formalized earlier learned medical traditions into medieval university curricula."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "university_medical_studies",
+      "prerequisite": "scholasticism",
+      "expected": "common_dependency",
+      "reason": "Scholastic textual methods are contextual university-study infrastructure, not the institutional setting itself."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "university_medical_studies",
+      "prerequisite": "distillation_advanced",
+      "reason": "Distillation is a pharmaceutical technique, not the direct prerequisite for the curriculum node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "university_medical_studies",
+      "prerequisite": "herbal_medicine_preparation",
+      "reason": "Herbal preparation is too narrow for the learned-medical curriculum lineage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "university_medical_studies",
+      "prerequisite": "anatomy_early_studies",
+      "reason": "Early anatomy should not be a direct prerequisite unless the node is narrowed to anatomy teaching."
+    }
+  ]
+}

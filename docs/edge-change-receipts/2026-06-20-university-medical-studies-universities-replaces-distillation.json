@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-20-university-medical-studies-universities-replaces-distillation",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "university_medical_studies",
+    "prerequisite": "universities"
+  },
+  "replaced_edge": {
+    "dependent": "university_medical_studies",
+    "prerequisite": "distillation_advanced"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Advanced Distillation is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "The scoped node is medical study within medieval universities and university-like medical schools; a university or medical-school institution is the required setting."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/University-of-Salerno",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Article body: Salerno's antecedent medical school was one of the great medical schools of the Middle Ages; by the 11th century it attracted students from Europe, Asia, and Africa.",
+    "source_claim_summary": "Britannica anchors the Salerno medical-school institution and its medieval student body as the historical setting for learned medical study.",
+    "source_support_rationale": "The edge is about institutional setting, not pharmaceutical technique. Distillation may matter to pharmacy, but it is not the direct prerequisite for university medical study."
+  },
+  "ontology_before": "The graph modeled university medical studies as depending directly on advanced distillation, a narrow pharmaceutical technique not supported by the Salerno sources.",
+  "ontology_after": "The graph models university or university-like medical-school institutions as the required setting for the scoped study tradition.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-university-medical-studies-scope keeps universities required and distillation_advanced absent.",
+  "would_reject_if": [
+    "The node were rescoped to medieval pharmaceutical laboratory training rather than university medical study.",
+    "A source showed that formal university medical study originated specifically from distillation practice rather than from medical-school institutions."
+  ],
+  "short_reason": "University medical study requires a university or medical-school setting, not advanced distillation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/university_medical_studies.before.json /tmp/university_medical_studies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

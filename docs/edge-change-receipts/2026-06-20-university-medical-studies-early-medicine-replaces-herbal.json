@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-20-university-medical-studies-early-medicine-replaces-herbal",
+  "decision_date": "2026-06-20",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "university_medical_studies",
+    "prerequisite": "early_medicine"
+  },
+  "replaced_edge": {
+    "dependent": "university_medical_studies",
+    "prerequisite": "herbal_medicine_preparation"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Herbal Medicine Preparation is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "University medical curricula formalized earlier learned medical traditions; the Salerno review ties Greco-Roman medical tradition to the medieval curriculum for universities."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/15458581/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Abstract: Salerno's long medical tradition began in the Greco-Roman period; by the 12th century it contributed to medical curriculum formulation for medieval universities.",
+    "source_claim_summary": "The review links earlier Greco-Roman medical tradition to Salerno and then to curriculum formation for medieval universities.",
+    "source_support_rationale": "The source supports a broad learned-medical predecessor lineage. A narrow herbal-preparation edge underspecifies the tradition and is not identified as the curriculum source."
+  },
+  "ontology_before": "The graph used herbal remedy preparation as the direct historical context for university medical study.",
+  "ontology_after": "The graph uses early learned medicine as the historical predecessor for formal university medical curricula.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-20-university-medical-studies-scope keeps early_medicine present and herbal_medicine_preparation absent.",
+  "would_reject_if": [
+    "The node were narrowed to pharmacognosy or herbal remedy preparation courses.",
+    "A source showed the formal university medical curriculum derived specifically from herbal preparation rather than broader learned medical traditions."
+  ],
+  "short_reason": "Early learned medicine is the predecessor; herbal preparation is too narrow.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/university_medical_studies.before.json /tmp/university_medical_studies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

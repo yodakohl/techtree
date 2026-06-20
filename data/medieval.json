@@ -2042,12 +2042,11 @@
     "id": "university_medical_studies",
     "name": "University Medical Studies",
     "era": "Medieval",
-    "description": "Formalized medical education within universities, based on the study of classical texts like Galen and Avicenna, combined with scholastic debate and limited dissections.",
+    "description": "Formalized medical education in medieval university and Salerno medical-school traditions, centered on professional curricula, learned medical texts, examinations, and scholastic textual debate.",
     "prerequisites": [
-      "herbal_medicine_preparation",
+      "universities",
       "scholasticism",
-      "anatomy_early_studies",
-      "distillation_advanced"
+      "early_medicine"
     ],
     "firstKnownDate": 1100,
     "datePrecision": "century",
@@ -2055,40 +2054,74 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "herbal_medicine_preparation",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Herbal Medicine Preparation is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "universities",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "The scoped node is medical study within medieval universities and university-like medical schools; a university or medical-school institution is the required setting.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "University of Salerno",
+            "url": "https://www.britannica.com/topic/University-of-Salerno",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Article body: Salerno's antecedent medical school was among the greatest medical schools of the Middle Ages; by the 11th century it attracted students from Europe, Asia, and Africa."
+          }
+        ]
       },
       {
         "prerequisite": "scholasticism",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Scholasticism is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.62,
+        "evidence_level": "textbook",
+        "note": "Scholastic methods of organizing authoritative texts, lectures, questions, and disputation shaped medieval university study, including learned professional curricula.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Scholasticism",
+            "url": "https://www.britannica.com/topic/Scholasticism",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Nature and significance section: Scholasticism is described as school philosophy and as a process of organizing, teaching, and disputing inherited texts."
+          }
+        ]
       },
       {
-        "prerequisite": "anatomy_early_studies",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Anatomy (Early Studies) is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "distillation_advanced",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Advanced Distillation is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "early_medicine",
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "University medical curricula formalized earlier learned medical traditions; the Salerno review ties Greco-Roman medical tradition to the medieval curriculum for universities.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Schola Medica Salernitana: the forerunner of the modern university medical schools",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/15458581/",
+            "publisher": "Neurosurgery / PubMed",
+            "year": 2004,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Abstract: Salerno's long medical tradition began in the Greco-Roman period; by the 12th century it contributed to medical curriculum formulation for medieval universities."
+          }
+        ]
       }
     ],
     "dateUncertainty": true,
-    "dateUncertaintyNote": "The date is constrained by the scholasticism prerequisite and anchors the node to the mature eleventh- to twelfth-century Salerno medical-school tradition; earlier Salerno medical activity is noted in sources.",
+    "dateUncertaintyNote": "The date anchors the node to the mature eleventh- to twelfth-century Salerno medical-school and medieval university medical-curriculum tradition; earlier Salerno medical activity is noted in sources.",
     "sources": [
       {
         "title": "University of Salerno",
@@ -2110,7 +2143,8 @@
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers formal learned medical study in medieval university and Salerno medical-school traditions; it excludes general herbal remedy preparation, distillation practice, and early anatomical inquiry unless those are separately scoped on downstream nodes."
   },
   {
     "id": "hospitals_early",
