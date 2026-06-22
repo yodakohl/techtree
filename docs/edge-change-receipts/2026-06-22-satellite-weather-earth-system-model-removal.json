@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-satellite-weather-earth-system-model-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "satellite_weather_forecasting",
+    "prerequisite": "earth_system_models"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Earth System Models provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from satellite weather forecasting to Earth system models because the 1960 TIROS forecasting scope predates coupled carbon-cycle Earth system models.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nesdis.noaa.gov/news/celebrating-65-years-of-the-worlds-first-weather-satellite",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NOAA NESDIS anniversary history: TIROS-1 gave forecasters the first view of cloud formations developing around the globe.",
+    "source_claim_summary": "The source supports the satellite-weather-forecasting node through weather-satellite observation in 1960, not through later coupled Earth system models.",
+    "source_support_rationale": "A source-backed 1960 satellite observation workflow cannot depend directly on the Earth-system-model node after that node is scoped to later coupled carbon-cycle climate modeling."
+  },
+  "ontology_before": "The graph modeled 1960 satellite weather forecasting as downstream of Earth system models.",
+  "ontology_after": "Satellite weather forecasting remains downstream of weather satellites and satellite remote sensing, while Earth system models stay as later coupled climate/ecosystem modeling infrastructure.",
+  "invariant_preserved_or_changed": "Changed: satellite_weather_forecasting must not directly depend on earth_system_models under the current TIROS-era forecasting scope.",
+  "would_reject_if": [
+    "A source shows the satellite_weather_forecasting node is intentionally scoped to modern Earth-system-model assimilation workflows rather than TIROS-era forecasting.",
+    "The Earth system model node is split and a pre-1960 numerical weather model prerequisite is introduced with a source-backed chronology.",
+    "A source demonstrates that coupled Earth system models were an enabling component of the first operational satellite weather forecasting workflow."
+  ],
+  "short_reason": "TIROS-era satellite forecasting should not depend on later coupled Earth-system models.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/satellite_weather_forecasting.before.json /tmp/satellite_weather_forecasting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

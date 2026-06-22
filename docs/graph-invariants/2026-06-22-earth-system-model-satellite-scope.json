@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-22-earth-system-model-satellite-scope",
+  "description": "Lock the Earth system model rescope and prevent TIROS-era satellite forecasting from depending on later coupled Earth-system models.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "earth_system_models",
+      "operator": "eq",
+      "value": 1995,
+      "reason": "Earth system models are anchored to NCAR's mid-1990s coupled-model lineage, not the earlier general climate-modeling placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "satellite_weather_forecasting",
+      "prerequisite": "earth_system_models",
+      "reason": "The current satellite forecasting node is scoped to TIROS-era 1960 satellite observations and should not require later coupled Earth-system models."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "satellite_weather_forecasting",
+      "prerequisite": "weather_satellites",
+      "expected": "enabling",
+      "reason": "Weather satellites remain the direct technology enabler for the TIROS-era forecasting scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "satellite_weather_forecasting",
+      "prerequisite": "satellite_remote_sensing",
+      "expected": "enabling",
+      "reason": "Satellite remote sensing remains the broader observation capability behind weather-satellite forecasting."
+    }
+  ]
+}
