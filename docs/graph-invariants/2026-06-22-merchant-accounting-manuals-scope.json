@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-22-merchant-accounting-manuals-scope",
+  "description": "Lock Merchant Accounting Manuals to source-backed printed bookkeeping/accounting manuals rather than later market-information or generic textbook infrastructure.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "merchant_accounting_manuals",
+      "operator": "eq",
+      "value": 1494,
+      "reason": "The node is anchored to Pacioli's Summa printed in Venice in 1494."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_accounting_manuals",
+      "prerequisite": "double_entry_diffusion",
+      "expected": "enabling",
+      "reason": "The accounting manual teaches and disseminates double-entry bookkeeping methods."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_accounting_manuals",
+      "prerequisite": "printed_standardized_textbooks",
+      "reason": "The node is itself an early printed accounting manual, not a later standardized-textbook infrastructure dependent."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_accounting_manuals",
+      "prerequisite": "printed_financial_price_lists",
+      "reason": "Printed financial price lists are later commercial information infrastructure, not a prerequisite for the 1494 accounting manual."
+    }
+  ]
+}

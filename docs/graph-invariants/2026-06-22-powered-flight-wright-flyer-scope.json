@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-22-powered-flight-wright-flyer-scope",
+  "description": "Lock Powered, Controlled Flight to the 1903 Wright Flyer source-backed first successful powered heavier-than-air flight.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "automobile_prototype",
+      "operator": "eq",
+      "value": 1886,
+      "reason": "The Automobile Prototype node is anchored to the Benz Patent-Motorwagen source-backed 1886 patent/motorcar scope."
+    },
+    {
+      "type": "first_known_date",
+      "node": "powered_flight_wright_flyer",
+      "operator": "eq",
+      "value": 1903,
+      "reason": "The node is anchored to the Wright Flyer's successful powered flight on December 17, 1903."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "powered_flight_wright_flyer",
+      "prerequisite": "internal_combustion_engine",
+      "expected": "required",
+      "reason": "The Wright Flyer required a lightweight gasoline engine to drive its propellers."
+    }
+  ]
+}

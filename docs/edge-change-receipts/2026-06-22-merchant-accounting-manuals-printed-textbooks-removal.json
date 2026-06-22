@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-merchant-accounting-manuals-printed-textbooks-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "merchant_accounting_manuals",
+    "prerequisite": "printed_standardized_textbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Standardized Textbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is anchored to Pacioli's 1494 printed accounting treatment in Summa; the broader printed-standardized-textbooks node is not retained as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://old.maa.org/press/periodicals/convergence/mathematical-treasure-luca-pacioli-s-summa",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "MAA identifies Pacioli's Summa as a 1494 Venice publication and describes its Particularis de computis et scripturis section as an early printed treatment of double-entry bookkeeping.",
+    "source_claim_summary": "The merchant accounting manual node is directly supported by Pacioli's printed accounting section, not by a later generalized standardized-textbook node.",
+    "source_support_rationale": "The source supports the node as a printed bookkeeping/accounting treatment. Treating the broader printed textbook category as a separate prerequisite would make the node depend on a later abstraction rather than the direct print-and-accounting lineage."
+  },
+  "ontology_before": "Merchant Accounting Manuals depended directly on Printed Standardized Textbooks, conflating the accounting manual instance with a broader textbook infrastructure node.",
+  "ontology_after": "Merchant Accounting Manuals depends directly on double-entry bookkeeping diffusion and is anchored to a source-backed printed accounting manual.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-merchant-accounting-manuals-scope keeps printed_standardized_textbooks absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to later standardized accounting textbooks as an educational infrastructure category.",
+    "A source showed Pacioli-style printed accounting manuals directly required a prior standardized-textbook infrastructure."
+  ],
+  "short_reason": "The node is itself an early printed accounting manual, so a broader textbook category is not a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/merchant_accounting_manuals.before.json /tmp/merchant_accounting_manuals.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

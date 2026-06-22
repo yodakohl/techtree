@@ -12,8 +12,16 @@ const fieldFilter = fieldArgIndex >= 0 ? args[fieldArgIndex + 1] : null;
 const checkAll = args.includes('--all') || !fieldFilter;
 const timeoutArgIndex = args.indexOf('--timeout-ms');
 const timeoutMs = timeoutArgIndex >= 0 ? Number(args[timeoutArgIndex + 1]) : 10000;
+const retryTimeoutMs = Math.max(timeoutMs, Math.min(timeoutMs * 3, 30000));
 const concurrencyArgIndex = args.indexOf('--concurrency');
 const concurrency = concurrencyArgIndex >= 0 ? Number(args[concurrencyArgIndex + 1]) : 8;
+const TRANSIENT_FAILURE_STATUSES = new Set([
+    'timeout',
+    'ECONNRESET',
+    'ETIMEDOUT',
+    'EAI_AGAIN',
+    'socket hang up'
+]);
 
 if (!checkAll && !fieldFilter) {
     console.error('Usage: node scripts/audit-source-urls.js [--all] [--field "Field Name"] [--timeout-ms 10000] [--concurrency 8]');
@@ -46,7 +54,7 @@ function collectSources(items) {
     return [...urls.entries()].map(([url, ids]) => ({ url, ids: [...ids].sort() }));
 }
 
-function requestUrl(url, method, redirects = 0) {
+function requestUrl(url, method, redirects = 0, requestTimeoutMs = timeoutMs) {
     return new Promise(resolve => {
         let parsed;
         try {
@@ -57,12 +65,12 @@ function requestUrl(url, method, redirects = 0) {
         }
 
         const client = parsed.protocol === 'http:' ? http : https;
-        const req = client.request(parsed, { method, timeout: timeoutMs, headers: { 'User-Agent': 'curl/8.5.0' } }, res => {
+        const req = client.request(parsed, { method, timeout: requestTimeoutMs, headers: { 'User-Agent': 'curl/8.5.0' } }, res => {
             const location = res.headers.location;
             res.resume();
             if (location && [301, 302, 303, 307, 308].includes(res.statusCode) && redirects < 6) {
                 const nextUrl = new URL(location, parsed).toString();
-                resolve(requestUrl(nextUrl, method, redirects + 1));
+                resolve(requestUrl(nextUrl, method, redirects + 1, requestTimeoutMs));
                 return;
             }
             resolve({ ok: res.statusCode !== 404 && res.statusCode < 500, status: res.statusCode, finalUrl: parsed.toString() });
@@ -79,10 +87,22 @@ function requestUrl(url, method, redirects = 0) {
     });
 }
 
-async function checkSource(entry) {
-    let result = await requestUrl(entry.url, 'HEAD');
+function isTransientFailure(status) {
+    return TRANSIENT_FAILURE_STATUSES.has(status);
+}
+
+async function requestWithFallback(url, requestTimeoutMs) {
+    let result = await requestUrl(url, 'HEAD', 0, requestTimeoutMs);
     if ([403, 404, 405].includes(result.status)) {
-        result = await requestUrl(entry.url, 'GET');
+        result = await requestUrl(url, 'GET', 0, requestTimeoutMs);
+    }
+    return result;
+}
+
+async function checkSource(entry) {
+    let result = await requestWithFallback(entry.url, timeoutMs);
+    if (!result.ok && isTransientFailure(result.status) && retryTimeoutMs > timeoutMs) {
+        result = await requestWithFallback(entry.url, retryTimeoutMs);
     }
     return { ...entry, ...result };
 }

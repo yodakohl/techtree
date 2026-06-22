@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-merchant-accounting-manuals-price-lists-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "merchant_accounting_manuals",
+    "prerequisite": "printed_financial_price_lists"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Financial Price Lists provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is anchored to Pacioli's 1494 printed accounting treatment; printed financial price lists are not retained as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.icaew.com/library/library-collection/historical-accounting-literature/highlights-of-the-collection/summa-di-arithmetica",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ICAEW records Pacioli's Summa as printed in Venice in 1494 and states that it includes foreign exchange calculations and double-entry bookkeeping.",
+    "source_claim_summary": "The accounting manual claim is supported by a 1494 printed mathematical and bookkeeping source, before the price-list node's 1605 anchor.",
+    "source_support_rationale": "Printed financial price lists may support later commercial information flows, but they are chronologically and causally too late to be a direct prerequisite for the 1494 accounting manual anchor."
+  },
+  "ontology_before": "Merchant Accounting Manuals depended directly on Printed Financial Price Lists, making a later market-information node a prerequisite for an earlier printed accounting manual.",
+  "ontology_after": "Merchant Accounting Manuals no longer depends directly on printed financial price lists; the node is kept on the bookkeeping/manual lineage.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-merchant-accounting-manuals-scope keeps printed_financial_price_lists absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to later accounting manuals that explicitly require printed market price circulars.",
+    "A source showed printed financial price lists were a direct prerequisite for the first printed merchant accounting manuals."
+  ],
+  "short_reason": "The source-backed accounting manual date predates the printed financial price-list node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/merchant_accounting_manuals.before.json /tmp/merchant_accounting_manuals.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
