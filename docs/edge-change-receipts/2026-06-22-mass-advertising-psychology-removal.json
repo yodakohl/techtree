@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-mass-advertising-psychology-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "advertising_mass_media_early",
+    "prerequisite": "psychology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Psychology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from early mass advertising to psychology because the current Psychology node is now source-anchored to Wundt's 1879 experimental-science scope, after the 1837 mass-advertising node date.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/biography/Wilhelm-Wundt",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says Wundt stressed experimental methods drawn from the natural sciences and established the world's first psychological laboratory at Leipzig in 1879.",
+    "source_claim_summary": "The source anchors the Psychology node to an 1879 experimental-science scope, later than the current Mass Advertising node date.",
+    "source_support_rationale": "A mass-advertising node dated to the 1837 newspaper/poster scope cannot directly depend on a psychology node that is scoped and dated to Wundt's 1879 laboratory psychology."
+  },
+  "ontology_before": "The graph modeled early mass advertising as directly downstream of Psychology while Psychology was using an unsourced 1760s date.",
+  "ontology_after": "Early mass advertising remains downstream of newspapers, department-store retail, photography, and printing; Psychology is source-anchored as a later experimental science.",
+  "invariant_preserved_or_changed": "Changed: advertising_mass_media_early must not directly depend on psychology under the current 1837 advertising scope and 1879 psychology scope.",
+  "would_reject_if": [
+    "The Psychology node is split and a pre-1837 psychological-rhetoric node is introduced with source-backed chronology.",
+    "The Mass Advertising node is rescoped and redated to post-1879 scientific advertising or consumer psychology.",
+    "A source shows that Wundt-era laboratory psychology was a direct prerequisite for the current 1837 newspaper/poster advertising scope."
+  ],
+  "short_reason": "The source-backed Psychology node now postdates early mass advertising.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/advertising_mass_media_early.before.json /tmp/advertising_mass_media_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

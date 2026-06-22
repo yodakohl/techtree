@@ -1,0 +1,26 @@
+{
+  "id": "2026-06-22-psychology-lab-chronology-scope",
+  "description": "Lock the Wundt laboratory source-check pass to 1879 psychology dates and the removed early-advertising dependency.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "psychology_experimental",
+      "operator": "eq",
+      "value": 1879,
+      "reason": "Experimental Psychology is anchored to Wundt's first psychological laboratory at Leipzig in 1879."
+    },
+    {
+      "type": "first_known_date",
+      "node": "psychology",
+      "operator": "eq",
+      "value": 1879,
+      "reason": "The current Psychology node is scoped to psychology as an experimental science anchored to Wundt's 1879 laboratory."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "advertising_mass_media_early",
+      "prerequisite": "psychology",
+      "reason": "The current 1837 mass-advertising scope predates the source-backed 1879 Psychology node."
+    }
+  ]
+}
