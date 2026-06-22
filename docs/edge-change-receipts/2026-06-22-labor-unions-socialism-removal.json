@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-labor-unions-socialism-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "labor_unions_collective_bargaining",
+    "prerequisite": "socialism_early_theories"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Socialism (Early Theories) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains from labor unions and collective bargaining to early socialist theories because the current labor-union node is anchored to 1799 British Combination Acts, while the socialism node is source-anchored to socialist terminology and movements around 1830.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/money/socialism",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says socialism's origins as a political movement lie in the Industrial Revolution and that the term socialist came into use about 1830.",
+    "source_claim_summary": "The source anchors the early-socialist-theories node around 1830, after the current 1799 labor-union node date.",
+    "source_support_rationale": "Labor combinations and collective bargaining could be shaped by industrial conditions and law before socialist terminology and utopian socialist movements became a direct intellectual predecessor."
+  },
+  "ontology_before": "The graph modeled 1799 labor unions as directly downstream of early socialist theories using an unsourced 1760s socialism date.",
+  "ontology_after": "Labor unions remain downstream of factory systems, codified law, and printing, while early socialist theories remain as an intellectual predecessor for later Marxism and communism.",
+  "invariant_preserved_or_changed": "Changed: labor_unions_collective_bargaining must not directly depend on socialism_early_theories under the current 1799 labor-union scope and 1830 socialism scope.",
+  "would_reject_if": [
+    "The Labor Unions node is rescoped and redated to post-1830 explicitly socialist trade-union movements.",
+    "A separate pre-1799 proto-socialist doctrine node is introduced with source-backed chronology and a direct labor-union relationship.",
+    "A source shows the current 1799 British labor-union scope specifically depended on socialist theories rather than shared industrial conditions."
+  ],
+  "short_reason": "The source-backed socialism node postdates the current labor-union node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/labor_unions_collective_bargaining.before.json /tmp/labor_unions_collective_bargaining.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-22-socialism-chronology-scope",
+  "description": "Lock the early-socialist-theories source-check pass to an 1830 political-movement scope and removed labor-union dependency.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "socialism_early_theories",
+      "operator": "eq",
+      "value": 1830,
+      "reason": "The Socialism (Early Theories) node is anchored to Britannica's statement that socialist terminology came into use about 1830."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "labor_unions_collective_bargaining",
+      "prerequisite": "socialism_early_theories",
+      "reason": "The current 1799 Labor Unions & Collective Bargaining node predates the source-backed 1830 Socialism (Early Theories) node."
+    }
+  ]
+}
