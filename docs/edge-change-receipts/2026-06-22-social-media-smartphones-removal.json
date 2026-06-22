@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-social-media-smartphones-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "social_media",
+    "prerequisite": "smartphones"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Smartphones provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Social Media to Smartphones edge remains because the scoped node is a 1990s web-based social network and community-publishing service category; smartphones are later access and scaling channels, not prerequisites.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/jcmc/article/13/1/210/4583062",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Social Network Sites: Definition and Early Years sections define social network sites as web-based services and identify the first recognizable social network site in 1997; the article treats mobile-specific SNSs as variants rather than as the foundation of the category.",
+    "source_claim_summary": "The source anchors social network sites to web-based services with profiles, visible connections, and traversable friend lists, with the first recognizable example launched in 1997.",
+    "source_support_rationale": "This source-backed scope places social media within web services and online community features, so smartphones are downstream client devices and adoption channels rather than an upstream dependency."
+  },
+  "ontology_before": "The graph modeled Social Media as directly downstream of Smartphones, conflating mobile access devices with the earlier web-service category.",
+  "ontology_after": "Social Media is scoped to 1990s web-based social network and community-publishing services; mobile devices remain possible downstream access channels outside this node's prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: social_media no longer has a direct smartphone prerequisite. Preserved: social_media still depends on the World Wide Web and database infrastructure.",
+  "would_reject_if": [
+    "The Social Media node is narrowed to smartphone-native social apps rather than web-based services.",
+    "A source shows that the current 1990s web social-network scope required smartphones to exist.",
+    "A separate mobile_social_media_apps node is introduced and intentionally depends on smartphones."
+  ],
+  "short_reason": "Smartphones are a downstream access channel for social media, not a prerequisite for the 1990s web social-media scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/social_media.before.json /tmp/social_media.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

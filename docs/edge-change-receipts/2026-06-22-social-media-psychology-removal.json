@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-social-media-psychology-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "social_media",
+    "prerequisite": "psychology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Psychology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Social Media to Psychology edge remains because the scoped node is defined by web-service affordances and online-community publishing; psychology is contextual user-behavior knowledge, not a technology prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/jcmc/article/13/1/210/4583062",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Definition and Early Years sections define social network sites through web-based service affordances: profiles, visible social connections, traversable friend lists, comments, and private messaging.",
+    "source_claim_summary": "The source describes social network sites as a web-service architecture and history, not as a downstream application of the Psychology node.",
+    "source_support_rationale": "Psychology can inform later study, design, and moderation of social media, but the cited node scope is implementable through web services and data systems without psychology as a direct prerequisite technology."
+  },
+  "ontology_before": "The graph treated Psychology as a direct enabler for Social Media, blurring human-behavior context with the web technology stack.",
+  "ontology_after": "Social Media keeps direct web and database prerequisites; Psychology remains available elsewhere as a scientific field rather than as an upstream technology requirement for this node.",
+  "invariant_preserved_or_changed": "Changed: social_media no longer has a direct psychology prerequisite. Preserved: the node remains a web/community platform concept with its content-moderation dependent unchanged.",
+  "would_reject_if": [
+    "The Social Media node is rescoped to social-media psychology research rather than platform technology.",
+    "A source shows that psychological science was a direct prerequisite for launching 1990s web social-network services.",
+    "A separate social_media_behavioral_design node is added and intentionally depends on psychology."
+  ],
+  "short_reason": "Psychology is contextual knowledge for social media, not a direct prerequisite for the web-service platform category.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/social_media.before.json /tmp/social_media.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
