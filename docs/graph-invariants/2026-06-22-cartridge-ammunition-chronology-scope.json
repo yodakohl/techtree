@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-22-cartridge-ammunition-chronology-scope",
+  "description": "Lock the cartridge-ammunition source-check pass to the 1847 self-contained cartridge scope and removed breech-loading dependency.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "cartridge_ammunition",
+      "operator": "eq",
+      "value": 1847,
+      "reason": "The Cartridge Ammunition node is anchored to Houllier's 1847 cartridge patent as reported by Britannica."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "breech_loading_firearms",
+      "prerequisite": "cartridge_ammunition",
+      "reason": "The current 1775 Breech-loading Firearms scope predates the source-backed 1847 Cartridge Ammunition node."
+    }
+  ]
+}

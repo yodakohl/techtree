@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-breech-loading-cartridge-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "breech_loading_firearms",
+    "prerequisite": "cartridge_ammunition"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cartridge Ammunition provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from breech-loading firearms to cartridge ammunition because the current Breech-loading Firearms node is dated to 1775, while the Cartridge Ammunition node is source-anchored to an 1847 self-contained cartridge patent.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/cartridge-ammunition",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says B. Houllier patented the first cartridge capable of being fired by the blow of the gun's hammer in 1847.",
+    "source_claim_summary": "The source anchors the self-contained cartridge-ammunition node to 1847, later than the current 1775 breech-loading-firearms node.",
+    "source_support_rationale": "Breech-loading mechanisms can predate self-contained metallic cartridge ammunition, so the current 1775 breech-loading node should not directly depend on the later 1847 cartridge node."
+  },
+  "ontology_before": "The graph modeled breech-loading firearms as directly downstream of cartridge ammunition while the cartridge node used an unsourced 1760s date.",
+  "ontology_after": "Breech-loading firearms remain downstream of rifling, steel production, and interchangeable parts; cartridge ammunition remains a later ammunition technology still available to later firearms such as machine guns.",
+  "invariant_preserved_or_changed": "Changed: breech_loading_firearms must not directly depend on cartridge_ammunition under the current 1775 breech-loading scope and 1847 cartridge-ammunition scope.",
+  "would_reject_if": [
+    "The Breech-loading Firearms node is rescoped and redated to post-1847 cartridge breechloaders.",
+    "A separate early paper-cartridge node is introduced and should support a narrower breech-loading dependency.",
+    "A source shows the current 1775 breech-loading-firearms scope specifically requires self-contained metallic cartridge ammunition."
+  ],
+  "short_reason": "The source-backed self-contained cartridge node postdates the current breech-loading firearms node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/breech_loading_firearms.before.json /tmp/breech_loading_firearms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}
