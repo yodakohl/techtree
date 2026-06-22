@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-micrometer-slide-rule-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "micrometers_precision_measurement",
+    "prerequisite": "slide_rule"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Slide Rule provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is anchored to early-1640s astronomical micrometer measurement, which is source-supported as telescope measuring apparatus rather than a slide-rule derivative.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.lindahall.org/about/news/scientist-of-the-day/william-gascoigne/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Linda Hall Library describes Gascoigne's astronomical micrometer as an early-1640s telescope measuring device with an adjustable screw for angular measurements.",
+    "source_claim_summary": "Gascoigne's micrometer work belongs to telescope-based angular measurement, not to slide-rule calculation.",
+    "source_support_rationale": "The source supports a micrometer origin path through telescope instrumentation and does not identify slide rules as a direct prerequisite."
+  },
+  "ontology_before": "Micrometers & Precision Measurement directly depended on Slide Rule through a broad calculation-instrument inference.",
+  "ontology_after": "Micrometers & Precision Measurement is scoped to precision instrument measurement and no longer depends directly on slide-rule calculation.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-renaissance-source-check-scope keeps slide_rule absent as a direct prerequisite for micrometers_precision_measurement.",
+  "would_reject_if": [
+    "The node were rescoped to slide-rule manufacturing or calculator-scale micrometry rather than telescope measurement.",
+    "A source showed slide rules were a direct prerequisite for Gascoigne-style micrometer measurement."
+  ],
+  "short_reason": "The source-backed micrometer path is telescope instrumentation, not slide-rule calculation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/micrometers_precision_measurement.before.json /tmp/micrometers_precision_measurement.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

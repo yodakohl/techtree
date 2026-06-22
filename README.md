@@ -38,13 +38,13 @@ Generated 2026-06-22 from the same dataset audit used by `npm run accuracy:risks
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,658 |
-| Source-checked nodes | 1,301 / 1,658 (78.5%) |
-| Source-checked nodes with non-placeholder dates | 1,301 / 1,301 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,301 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,134 / 1,301 (87.2%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,301 (0.0%) |
-| Nodes with node-level sources | 1,603 / 1,658 (96.7%) |
-| Dependency edges with edge-level sources | 4,033 / 5,365 (75.2%) |
+| Source-checked nodes | 1,305 / 1,658 (78.7%) |
+| Source-checked nodes with non-placeholder dates | 1,305 / 1,305 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,305 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,137 / 1,305 (87.1%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,305 (0.0%) |
+| Nodes with node-level sources | 1,607 / 1,658 (96.9%) |
+| Dependency edges with edge-level sources | 4,035 / 5,360 (75.3%) |
 | Era-default placeholder dates | 265 / 1,658 (16.0%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.

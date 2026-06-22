@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-columbian-exchange-galleon-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "columbian_exchange",
+    "prerequisite": "galleon_ship_design"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Galleon Ship Design provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is anchored to the biological exchange following Columbus's voyages beginning in 1492; galleon ship design is not retained as a direct prerequisite for that onset.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/event/Columbian-exchange",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica anchors the Columbian Exchange to Columbus's transoceanic voyages beginning in 1492 and the subsequent transfer of plants, animals, diseases, and peoples.",
+    "source_claim_summary": "The Columbian Exchange begins with 1492 transoceanic contact and biological transfer, not with a later or narrower galleon-design prerequisite.",
+    "source_support_rationale": "The source supports oceanic exploration/contact as the enabling context but does not identify galleon ship design as causally necessary."
+  },
+  "ontology_before": "The Columbian Exchange directly depended on Galleon Ship Design, implying a narrower ship-design dependency for the exchange's origin.",
+  "ontology_after": "The Columbian Exchange depends directly on global exploration/contact and not on a specific galleon design node.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-renaissance-source-check-scope keeps galleon_ship_design absent as a direct prerequisite for columbian_exchange.",
+  "would_reject_if": [
+    "The node were rescoped to a later galleon-era trade system rather than the Columbian Exchange beginning in 1492.",
+    "A source showed galleon ship design was chronologically and causally necessary for the exchange's first phase."
+  ],
+  "short_reason": "The source-backed onset is 1492 transoceanic contact, not galleon ship design.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/columbian_exchange.before.json /tmp/columbian_exchange.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-instrument-calibration-micrometers-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "instrument_calibration_standards",
+    "prerequisite": "micrometers_precision_measurement"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Micrometers & Precision Measurement provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is scoped to repeatable calibration practice for early scientific instruments; micrometers are not retained as a direct prerequisite for that broader practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/Scientific-Revolution",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica describes Tycho Brahe's 16th-century astronomical work as using larger, stabler, and better calibrated instruments, before the early-1640s micrometer anchor used by the micrometer node.",
+    "source_claim_summary": "Calibrated scientific-instrument practice predates the micrometer node and is not dependent on micrometers.",
+    "source_support_rationale": "The source supports calibration as part of earlier astronomical instrument practice, making a direct micrometer prerequisite chronologically and causally too narrow."
+  },
+  "ontology_before": "Instrument Calibration Standards directly depended on Micrometers & Precision Measurement, making a later precision-measurement node a prerequisite for earlier calibration practice.",
+  "ontology_after": "Instrument Calibration Standards depends on scientific instrument-making and scientific method, without making micrometers a direct prerequisite.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-renaissance-source-check-scope keeps micrometers_precision_measurement absent as a direct prerequisite for instrument_calibration_standards.",
+  "would_reject_if": [
+    "The node were rescoped to micrometer-specific calibration standards rather than broader early scientific-instrument calibration.",
+    "A source showed early instrument calibration standards directly required micrometers."
+  ],
+  "short_reason": "Calibrated scientific instruments predate the micrometer node, so micrometers are not a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/instrument_calibration_standards.before.json /tmp/instrument_calibration_standards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

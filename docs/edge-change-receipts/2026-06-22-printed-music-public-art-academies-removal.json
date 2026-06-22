@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-printed-music-public-art-academies-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_music_notation",
+    "prerequisite": "public_art_academies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Art Academies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is scoped to printed music by moveable type, anchored to Petrucci's 1501 Odhecaton; public art academies are not retained as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://copyrighthistory.org/cam/tools/request/showRecord.php?id=commentary_i_1498",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The commentary describes Petrucci's 1498 patent for printing polyphonic music by moveable types and states that Harmonice Musices Odhecaton A was issued from Petrucci's press in 1501.",
+    "source_claim_summary": "Printed music notation is tied to music printing by movable type and Petrucci's press, not to public art academies.",
+    "source_support_rationale": "The source supports the printing-press dependency and date while giving no role to art academies as a prerequisite."
+  },
+  "ontology_before": "Printed Music Notation directly depended on Public Art Academies, conflating visual-art teaching institutions with music-printing technology.",
+  "ontology_after": "Printed Music Notation depends directly on the printing press and is anchored to source-backed music printing by moveable type.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-renaissance-source-check-scope keeps public_art_academies absent as a direct prerequisite for printed_music_notation.",
+  "would_reject_if": [
+    "The node were rescoped to academy-based printed music pedagogy rather than printed music notation technology.",
+    "A source showed public art academies were directly necessary for the first printed music notation."
+  ],
+  "short_reason": "Printed music by movable type is a printing-press lineage, not an art-academy dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/printed_music_notation.before.json /tmp/printed_music_notation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

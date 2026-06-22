@@ -1,0 +1,78 @@
+{
+  "id": "2026-06-22-renaissance-source-check-scope",
+  "description": "Lock the 2026-06-22 Renaissance source-check pass to source-backed dates and narrowed direct dependencies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "columbian_exchange",
+      "operator": "eq",
+      "value": 1492,
+      "reason": "The Columbian Exchange node is anchored to Columbus's voyages beginning in 1492."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "columbian_exchange",
+      "prerequisite": "exploration_global",
+      "expected": "enabling",
+      "reason": "The exchange requires transoceanic exploration/contact as the enabling context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "columbian_exchange",
+      "prerequisite": "galleon_ship_design",
+      "reason": "Galleon ship design is not a source-supported direct prerequisite for the exchange's 1492 onset."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "columbian_exchange",
+      "prerequisite": "botanical_gardens_systematic_collection",
+      "reason": "Botanical garden infrastructure supports later study, not the initial exchange."
+    },
+    {
+      "type": "first_known_date",
+      "node": "slide_rule",
+      "operator": "eq",
+      "value": 1632,
+      "reason": "The Slide Rule node is anchored to Oughtred's first adjustable logarithmic rule in 1632."
+    },
+    {
+      "type": "first_known_date",
+      "node": "micrometers_precision_measurement",
+      "operator": "eq",
+      "value": 1640,
+      "reason": "The Micrometers & Precision Measurement node is anchored to Gascoigne's early-1640s astronomical micrometer."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "micrometers_precision_measurement",
+      "prerequisite": "slide_rule",
+      "reason": "The source-backed micrometer path is telescope instrumentation, not slide-rule calculation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "instrument_calibration_standards",
+      "prerequisite": "micrometers_precision_measurement",
+      "reason": "Early instrument calibration practice predates the micrometer node and should not depend directly on it."
+    },
+    {
+      "type": "first_known_date",
+      "node": "public_art_academies",
+      "operator": "eq",
+      "value": 1563,
+      "reason": "The Public Art Academies node is anchored to Florence's Accademia del Disegno in 1563."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_music_notation",
+      "operator": "eq",
+      "value": 1501,
+      "reason": "The Printed Music Notation node is anchored to Petrucci's Harmonice Musices Odhecaton A in 1501."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_music_notation",
+      "prerequisite": "public_art_academies",
+      "reason": "Printed music by movable type belongs to printing-press lineage, not public art academy infrastructure."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-22-columbian-exchange-botanical-gardens-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "columbian_exchange",
+    "prerequisite": "botanical_gardens_systematic_collection"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Botanical Gardens & Systematic Collection provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is anchored to biological exchange after Columbus's voyages beginning in 1492; systematic botanical gardens are not retained as a direct prerequisite for that exchange.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/event/Columbian-exchange",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica describes the Columbian Exchange as post-1492 transfer of plants, animals, diseases, peoples, and ideas between the Americas and the Old World.",
+    "source_claim_summary": "The exchange is a contact-and-transfer process beginning in 1492, not a process requiring systematic botanical collection infrastructure.",
+    "source_support_rationale": "Botanical gardens may support later cataloging and study of exchanged plants, but the source-backed onset of the exchange does not require them."
+  },
+  "ontology_before": "The Columbian Exchange directly depended on Botanical Gardens & Systematic Collection, conflating later scientific collection infrastructure with initial biological transfer.",
+  "ontology_after": "The Columbian Exchange no longer directly depends on botanical garden infrastructure; its direct dependency is limited to transoceanic exploration/contact.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-22-renaissance-source-check-scope keeps botanical_gardens_systematic_collection absent as a direct prerequisite for columbian_exchange.",
+  "would_reject_if": [
+    "The node were rescoped to systematic botanical cataloging of exchanged species rather than the Columbian Exchange itself.",
+    "A source showed botanical gardens were a direct prerequisite for the first transatlantic biological transfers."
+  ],
+  "short_reason": "Botanical collection infrastructure is downstream study infrastructure, not a prerequisite for the 1492 exchange onset.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/columbian_exchange.before.json /tmp/columbian_exchange.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
