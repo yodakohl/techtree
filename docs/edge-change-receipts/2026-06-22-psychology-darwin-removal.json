@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-psychology-darwin-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "psychology",
+    "prerequisite": "theory_of_evolution_darwin"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Theory of Evolution (Darwin) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from psychology to Darwinian evolution because the Psychology node is currently dated to the 1760s, while the Darwinian natural-selection node is source-anchored to 1859.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/item/06017473/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Library of Congress record for Darwin's On the origin of species by means of natural selection, published in London by J. Murray in 1859.",
+    "source_claim_summary": "The source anchors Darwinian natural selection to an 1859 publication, after the current Psychology node date.",
+    "source_support_rationale": "A node dated to the 1760s cannot directly depend on an 1859 Darwinian theory node without either changing psychology's scope or creating a temporal contradiction."
+  },
+  "ontology_before": "The graph modeled broad psychology as directly downstream of Darwinian natural selection despite psychology being dated nearly a century earlier.",
+  "ontology_after": "Psychology remains downstream of experimental psychology and printing infrastructure, while Darwinian natural selection is preserved as a later biology theory node.",
+  "invariant_preserved_or_changed": "Changed: psychology must not directly depend on theory_of_evolution_darwin under the current 1760s psychology scope.",
+  "would_reject_if": [
+    "The Psychology node is rescoped and redated to post-1859 evolutionary psychology or comparative psychology.",
+    "A separate later psychology node is introduced that intentionally depends on Darwinian natural selection.",
+    "A source shows the current Psychology node date is wrong and should move after 1859 with downstream rewiring."
+  ],
+  "short_reason": "The current psychology node predates the source-backed Darwinian evolution node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/psychology.before.json /tmp/psychology.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

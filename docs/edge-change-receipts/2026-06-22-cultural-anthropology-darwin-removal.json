@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-cultural-anthropology-darwin-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "anthropology_cultural",
+    "prerequisite": "theory_of_evolution_darwin"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Theory of Evolution (Darwin) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from cultural anthropology to Darwinian evolution because the Cultural Anthropology node is currently dated before the middle of the 19th century, while Darwin's natural-selection publication is source-anchored to 1859.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/item/06017473/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Library of Congress record for Darwin's On the origin of species by means of natural selection, published in London by J. Murray in 1859.",
+    "source_claim_summary": "The source anchors Darwinian natural selection to 1859, later than the current Cultural Anthropology node date.",
+    "source_support_rationale": "Darwinian evolution can influence later anthropological theory, but it cannot be a direct prerequisite for a node whose present chronology is before 1859."
+  },
+  "ontology_before": "The graph modeled early cultural anthropology as directly downstream of Darwinian natural selection despite the current anthropology node date preceding Darwin's 1859 publication.",
+  "ontology_after": "Cultural Anthropology remains downstream of sociology, exploration, printing, and scientific method; Darwinian natural selection remains available for later evolutionary-anthropology scopes.",
+  "invariant_preserved_or_changed": "Changed: anthropology_cultural must not directly depend on theory_of_evolution_darwin under the current pre-1859 cultural-anthropology scope.",
+  "would_reject_if": [
+    "The Cultural Anthropology node is rescoped to later 19th-century cultural evolutionism and redated after 1859.",
+    "A separate evolutionary anthropology node is introduced and intentionally depends on Darwinian natural selection.",
+    "A source-backed chronology moves the current cultural anthropology node to a post-1859 institutional scope."
+  ],
+  "short_reason": "The current cultural anthropology node predates the source-backed Darwinian evolution node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/anthropology_cultural.before.json /tmp/anthropology_cultural.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-22-experimental-botany-controls-removal",
+  "decision_date": "2026-06-22",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "experimental_botany_gardens",
+    "prerequisite": "experimental_controls"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Experimental Controls provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from experimental botany gardens to experimental controls because the source-backed 1545 Padua botanical garden scope is a university botanical research garden, not a garden dependent on formal controlled-experiment methodology.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/list/824/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO describes the world's first botanical garden as created in Padua in 1545 and continuing its original purpose as a centre for scientific research.",
+    "source_claim_summary": "The source anchors a 1545 botanical research garden, but it does not identify formal experimental controls as an enabling prerequisite.",
+    "source_support_rationale": "Keeping the controls edge would force the garden node to inherit a later and broader methodology claim that is not needed to represent Padua's 1545 scientific botanical garden."
+  },
+  "ontology_before": "Experimental Botany Gardens depended directly on Experimental Controls, pushing the node toward a formal experimental-methods scope.",
+  "ontology_after": "Experimental Botany Gardens is scoped to early university botanical research gardens downstream of botanical-garden infrastructure and orchard-grafting practice, without requiring formal controls as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: experimental_botany_gardens must not directly depend on experimental_controls under the 1545 Padua research-garden scope.",
+  "would_reject_if": [
+    "A source shows the node is intentionally scoped to controlled agricultural trials rather than early university botanical research gardens.",
+    "A source demonstrates formal controlled-experiment methodology as a direct prerequisite for Padua's 1545 botanical garden.",
+    "The node is split into a later controlled-field-trials concept that should depend on experimental controls."
+  ],
+  "short_reason": "The 1545 botanical research garden scope should not inherit a later formal controls dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/experimental_botany_gardens.before.json /tmp/experimental_botany_gardens.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

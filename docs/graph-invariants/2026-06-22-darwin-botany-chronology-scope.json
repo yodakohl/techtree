@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-22-darwin-botany-chronology-scope",
+  "description": "Lock the Darwin and Renaissance botany source-check pass to source-backed dates and removed impossible direct dependencies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "theory_of_evolution_darwin",
+      "operator": "eq",
+      "value": 1859,
+      "reason": "The Darwinian evolution node is anchored to the 1859 publication of On the origin of species by means of natural selection."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "psychology",
+      "prerequisite": "theory_of_evolution_darwin",
+      "reason": "The current Psychology node date predates Darwin's 1859 natural-selection publication."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "anthropology_cultural",
+      "prerequisite": "theory_of_evolution_darwin",
+      "reason": "The current Cultural Anthropology node date predates Darwin's 1859 natural-selection publication."
+    },
+    {
+      "type": "first_known_date",
+      "node": "experimental_botany_gardens",
+      "operator": "eq",
+      "value": 1545,
+      "reason": "The Experimental Botany Gardens node is anchored to Padua's 1545 botanical garden as a scientific research garden."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "experimental_botany_gardens",
+      "prerequisite": "experimental_controls",
+      "reason": "The 1545 botanical research garden scope should not require later formal experimental controls as a direct prerequisite."
+    },
+    {
+      "type": "first_known_date",
+      "node": "botanical_herbarium_sheets",
+      "operator": "eq",
+      "value": 1551,
+      "reason": "The Botanical Herbarium Sheets node is anchored to Aldrovandi's herbarium, probably begun in 1551 with plants glued on sheets."
+    }
+  ]
+}
