@@ -17,6 +17,7 @@ const concurrencyArgIndex = args.indexOf('--concurrency');
 const concurrency = concurrencyArgIndex >= 0 ? Number(args[concurrencyArgIndex + 1]) : 8;
 const TRANSIENT_FAILURE_STATUSES = new Set([
     'timeout',
+    'ECONNREFUSED',
     'ECONNRESET',
     'ETIMEDOUT',
     'EAI_AGAIN',
