@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-23-computational-genomics-cloud-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "computational_genomics_platforms",
+    "prerequisite": "cloud_computing_distributed_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from computational_genomics_platforms to cloud_computing_distributed_systems. The corrected node is scoped to GenBank-style public sequence database infrastructure rather than later cloud genomics workbenches.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.genome.gov/25520321/online-education-kit-1982-genbank-database-formed",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NHGRI states that GenBank, NIH's publicly accessible genetic sequence database, was formed in 1982 at Los Alamos and supports submitting, retrieving, and analyzing DNA sequence data.",
+    "source_claim_summary": "The source supports a 1982 public genetic sequence database scope, not a cloud-computing platform dependency.",
+    "source_support_rationale": "GenBank predates modern cloud-computing definitions and is adequately enabled by DNA sequencing and bioinformatics/database methods; cloud computing is a later deployment model, not a direct prerequisite for the scoped node."
+  },
+  "ontology_before": "The graph made computational genomics platforms directly depend on cloud_computing_distributed_systems, preserving a stale broad cloud-platform scope despite GenBank-specific official sources.",
+  "ontology_after": "The graph scopes computational_genomics_platforms to public sequence database infrastructure directly enabled by DNA sequencing and bioinformatics.",
+  "invariant_preserved_or_changed": "Changed: cloud_computing_distributed_systems is absent as a direct prerequisite for computational_genomics_platforms, and the node is anchored to the 1982 GenBank formation date.",
+  "would_reject_if": [
+    "The node were rescoped back to cloud-hosted genomics analysis workbenches.",
+    "A source showed that the 1982 GenBank system required cloud computing as a direct prerequisite.",
+    "DNA sequencing or bioinformatics were removed as the direct enabling prerequisites for sequence database infrastructure."
+  ],
+  "short_reason": "GenBank-style sequence database infrastructure does not require a direct cloud-computing prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/computational_genomics_platforms.before.json /tmp/computational_genomics_platforms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage"
+  ]
+}

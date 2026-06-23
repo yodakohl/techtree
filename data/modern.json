@@ -28374,14 +28374,13 @@
     "id": "computational_genomics_platforms",
     "name": "Computational Genomics Platforms",
     "era": "Modern",
-    "description": "Cloud and database platforms for storing, analyzing, comparing, and clinically interpreting large-scale genomic data.",
+    "description": "Public sequence-database infrastructure for submitting, archiving, searching, retrieving, comparing, and analyzing DNA sequence records.",
     "prerequisites": [
       "dna_sequencing",
-      "bioinformatics",
-      "cloud_computing_distributed_systems"
+      "bioinformatics"
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
+    "firstKnownDate": 1982,
+    "datePrecision": "exact",
     "region": "United States / Los Alamos, NIH, NCBI and international GenBank sequence-data infrastructure",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
@@ -28424,26 +28423,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "cloud_computing_distributed_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The NIST Definition of Cloud Computing",
-            "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
-            "publisher": "NIST",
-            "year": 2011,
-            "source_type": "official_agency",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
       }
     ],
     "sources": [
@@ -28455,7 +28434,8 @@
         "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "The NHGRI timeline states that GenBank, NIH's publicly accessible genetic sequence database, was formed at Los Alamos National Laboratory in 1982, and that scientists submit DNA sequence data for retrieval and analysis."
       },
       {
         "title": "GenBank Overview",
@@ -28465,12 +28445,11 @@
         "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "The NCBI overview defines GenBank as the NIH genetic sequence database and an annotated collection of all publicly available DNA sequences; it lists Entrez, BLAST, E-utilities, FTP, submission, processing, and public release workflows."
       }
     ],
-    "sourceCheckedDowngradeNote": "Real GenBank/NIH sources added, but exact 1982 database chronology is broader than the current cloud-platform dependency scope; keep structurally validated pending computational genomics/database scope split.",
-    "dateUncertainty": true,
-    "dateUncertaintyNote": "GenBank was formed in 1982; the canonical 1980s decade anchor is kept compatible with current graph prerequisites for distributed computing platforms."
+    "scopeNote": "Covers public genetic sequence database infrastructure exemplified by GenBank and INSDC-style sequence exchange. Later cloud genomics workbenches, clinical interpretation systems, and personal health-twin platforms are outside this node."
   },
   {
     "id": "graphical_user_interfaces",

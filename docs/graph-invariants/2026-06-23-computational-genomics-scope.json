@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-23-computational-genomics-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "computational_genomics_platforms",
+      "operator": "eq",
+      "value": 1982,
+      "reason": "The node is scoped to GenBank-style public sequence database infrastructure formed in 1982."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "computational_genomics_platforms",
+      "prerequisite": "dna_sequencing",
+      "expected": "enabling",
+      "reason": "Submitted sequence records require DNA sequencing output."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "computational_genomics_platforms",
+      "prerequisite": "bioinformatics",
+      "expected": "enabling",
+      "reason": "The scoped infrastructure stores, searches, retrieves, compares, and analyzes sequence records using bioinformatics methods."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "computational_genomics_platforms",
+      "prerequisite": "cloud_computing_distributed_systems",
+      "reason": "Cloud computing is a later deployment model and not a direct prerequisite for the 1982 GenBank sequence database scope."
+    }
+  ]
+}
