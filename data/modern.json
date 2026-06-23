@@ -42060,7 +42060,6 @@
     "description": "Robotic systems that plan and execute motion through environments using sensing, localization, maps, and control.",
     "prerequisites": [
       "robotics",
-      "gps",
       "cybernetics"
     ],
     "fields": [
@@ -42079,7 +42078,8 @@
         "source_type": "museum",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "CHM describes Shakey as a mobile robot with cameras and touch sensors, developed at SRI from 1966 to 1972, and says it advanced visual analysis, route finding, object manipulation, and waypoint planning."
       },
       {
         "title": "Milestones:SHAKEY: The World's First Mobile Intelligent Robot, 1972",
@@ -42089,7 +42089,8 @@
         "source_type": "textbook",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "ETHW citation states that SRI developed SHAKEY as the world's first mobile intelligent robot, able to perceive surroundings, create plans, recover from execution errors, and use navigation and planning methods."
       }
     ],
     "firstKnownDate": 1966,
@@ -42103,28 +42104,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Robotics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Robotics",
-            "url": "https://www.nist.gov/robotics",
-            "publisher": "NIST",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "gps",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Global Positioning System (GPS) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -42164,7 +42143,7 @@
         ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the current broad robotics source does not establish the specific mobile robot navigation chronology and edges."
+    "scopeNote": "Scoped to Shakey-era indoor mobile robot navigation using onboard sensing, remote computing, planning, route finding, and control. It excludes outdoor satellite/GPS localization, which is a later application dependency for some mobile robots but not a prerequisite for this node."
   },
   {
     "id": "slam_robotics",

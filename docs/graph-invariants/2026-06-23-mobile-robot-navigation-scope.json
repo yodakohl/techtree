@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-23-mobile-robot-navigation-scope",
+  "description": "Lock mobile_robot_navigation to Shakey-era sensing, planning, route-finding, and control rather than GPS/satellite localization.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mobile_robot_navigation",
+      "operator": "eq",
+      "value": 1966,
+      "reason": "The node remains anchored to the start of the SRI Shakey project chronology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mobile_robot_navigation",
+      "prerequisite": "gps",
+      "reason": "GPS is not a direct prerequisite for Shakey-era indoor mobile robot navigation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mobile_robot_navigation",
+      "prerequisite": "robotics",
+      "expected": "enabling",
+      "reason": "The node remains a robotics capability rather than a generic geolocation system."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mobile_robot_navigation",
+      "prerequisite": "cybernetics",
+      "expected": "enabling",
+      "reason": "Control and feedback concepts remain enabling context for mobile robot sensing and action loops."
+    }
+  ]
+}

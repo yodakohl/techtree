@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-23-mobile-robot-navigation-gps-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "mobile_robot_navigation",
+    "prerequisite": "gps"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Global Positioning System (GPS) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected node is scoped to Shakey-era indoor mobile robot navigation; GPS/satellite localization belongs on outdoor navigation applications, not as a direct prerequisite for the 1966-1972 Shakey capability.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/revolution/artificial-intelligence-robotics/13/289",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CHM describes Shakey as a 1966-1972 mobile robot using cameras, touch sensors, remote computing, route finding, and waypoint planning, with no GPS or satellite-localization component.",
+    "source_claim_summary": "The source supports Shakey-era mobile navigation as sensing, route finding, planning, and remote-computer control rather than satellite positioning.",
+    "source_support_rationale": "Because the node chronology is anchored to Shakey, retaining GPS would smuggle a later outdoor localization technology into an indoor research-robot navigation scope."
+  },
+  "ontology_before": "The graph treated GPS as a direct enabler for mobile robot navigation generally, even though the scoped first-known Shakey example navigated indoors without satellite positioning.",
+  "ontology_after": "The graph keeps mobile robot navigation anchored to sensing, planning, route finding, and control; GPS remains available for later outdoor navigation nodes without being a direct prerequisite here.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-23-mobile-robot-navigation-scope keeps GPS absent as a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to outdoor GPS-guided autonomous vehicles rather than Shakey-era mobile robot navigation.",
+    "A source showed Shakey's route finding or planning depended on GPS or satellite localization.",
+    "A downstream application node required GPS and no longer had a direct or separate path to it."
+  ],
+  "short_reason": "GPS is an application-specific outdoor localization technology, not a direct prerequisite for Shakey-era mobile robot navigation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/mobile_robot_navigation.before.json /tmp/mobile_robot_navigation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
