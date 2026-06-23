@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-23-search-engines-web-scope",
+  "description": "Lock Search Engines to a 1993 web-search scope with algorithmic indexing/query methods and without storage/scaling implementation overreach.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "search_engines",
+      "operator": "eq",
+      "value": 1993,
+      "reason": "W3 Catalog provides a 1993 source-backed anchor for early web search engines."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "search_engines",
+      "prerequisite": "world_wide_web",
+      "reason": "The node is scoped to searchable catalogs and indexes of World Wide Web resources."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "search_engines",
+      "prerequisite": "algorithms_computation_theory",
+      "expected": "enabling",
+      "reason": "Search engines depend on algorithmic crawling, indexing, ranking, and query-processing methods."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "search_engines",
+      "prerequisite": "databases_relational_dbms",
+      "reason": "Search engines require indexing and storage structures, not relational DBMS specifically."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "search_engines",
+      "prerequisite": "cloud_computing_distributed_systems",
+      "reason": "Cloud computing is later scaling infrastructure for some deployments, not a prerequisite for early web search."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_advertising_exchanges",
+      "prerequisite": "search_engines",
+      "reason": "RTB/programmatic ad exchanges do not require public search indexing."
+    }
+  ]
+}

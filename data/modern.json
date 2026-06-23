@@ -7526,17 +7526,15 @@
     "id": "search_engines",
     "name": "Search Engines",
     "era": "Modern",
-    "description": "Software systems designed to carry out web searches, which means to search the World Wide Web in a systematic way for particular information.",
+    "description": "Web software systems that build searchable catalogs or indexes of World Wide Web resources, from early list-based catalogs to crawler, indexer, ranking, and query engines.",
     "prerequisites": [
       "world_wide_web",
-      "databases_relational_dbms",
-      "algorithms_computation_theory",
-      "cloud_computing_distributed_systems"
+      "algorithms_computation_theory"
     ],
-    "firstKnownDate": 1989,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1993,
+    "datePrecision": "year",
+    "region": "Early World Wide Web research communities in Europe and the United States",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "world_wide_web",
@@ -7559,60 +7557,21 @@
         ]
       },
       {
-        "prerequisite": "databases_relational_dbms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "A relational model of data for large shared data banks",
-            "url": "https://cir.nii.ac.jp/crid/1361137046260998912",
-            "publisher": "Communications of the ACM",
-            "year": 1970,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "algorithms_computation_theory",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "Web search engines depend on algorithmic crawling, indexing, ranking, and query-processing techniques; Brin and Page describe these components for a large-scale web search engine.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
-            "url": "https://doi.org/10.1112/plms/s2-42.1.230",
-            "publisher": "Proceedings of the London Mathematical Society",
-            "year": 1937,
+            "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine",
+            "url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/",
+            "publisher": "Computer Networks and ISDN Systems / Google Research",
+            "year": 1998,
             "source_type": "primary_paper",
             "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "cloud_computing_distributed_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The NIST Definition of Cloud Computing",
-            "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
-            "publisher": "NIST",
-            "year": 2011,
-            "source_type": "official_agency",
-            "supports": [
+              "node",
               "edge"
             ]
           }
@@ -7621,17 +7580,40 @@
     ],
     "sources": [
       {
-        "title": "Search engine",
-        "url": "https://en.wikipedia.org/wiki/Search_engine",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "W3 Catalog History",
+        "url": "https://scg.unibe.ch/archive/software/w3catalog/W3CatalogHistory.html",
+        "publisher": "University of Bern Software Composition Group archive",
+        "year": 1996,
+        "source_type": "review",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "What is W3 Catalog and startup sections: W3 Catalog was one of the first search engines for WWW resources, ran from September 2, 1993, and was announced that day as a searchable catalog built from WWW resource lists."
+      },
+      {
+        "title": "WebCrawler",
+        "url": "https://www.britannica.com/topic/WebCrawler",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica identifies Brian Pinkerton's WebCrawler as the early search engine that first allowed users to search for any word on indexed Web pages, launched on April 20, 1994."
+      },
+      {
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine",
+        "url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/",
+        "publisher": "Computer Networks and ISDN Systems / Google Research",
+        "year": 1998,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Abstract and introduction: Google is presented as a large-scale search engine designed to crawl and index the Web efficiently, using hypertext structure to improve search results."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    ]
   },
   {
     "id": "e-commerce",
@@ -21570,15 +21552,16 @@
         ]
       },
       {
-        "title": "Primary Cell Culture Guide",
-        "url": "https://www.atcc.org/resources/culture-guides/primary-cell-culture-guide",
-        "publisher": "ATCC",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "A Brief History of Cell Culture: From Harrison to Organs-on-a-Chip",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11674496/",
+        "publisher": "PMC / Journal of Functional Biomaterials",
+        "year": 2024,
+        "source_type": "review",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "Historical overview describes Ross Harrison's early tissue-culture experiments as foundational to cell culture and traces later cell-culture milestones through modern biomedical applications."
       }
     ]
   },
@@ -29782,7 +29765,6 @@
     "era": "Modern",
     "description": "Automated markets for buying, selling, targeting, measuring, and settling online advertising impressions in real time.",
     "prerequisites": [
-      "search_engines",
       "e_commerce_platforms",
       "api_economy"
     ],
@@ -29791,14 +29773,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "search_engines",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Search engines improve ad discovery infrastructure, but real-time digital ad exchanges do not strictly require public search indexing.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "e_commerce_platforms",
         "type": "enabling",
@@ -47469,26 +47443,28 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "High-Speed Rail History",
-        "url": "https://css2.uic.org/passenger/highspeed/article/high-speed-rail-history",
-        "publisher": "International Union of Railways",
-        "year": 2015,
-        "source_type": "official_agency",
+        "title": "High-speed rail",
+        "url": "https://www.britannica.com/technology/high-speed-rail",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "History and technology sections: Britannica identifies Japan's 1964 Shinkansen as the first high-speed rail and describes high-speed rail as passenger trains traveling at least 200 km/h."
       },
       {
-        "title": "Intercity and High-Speed",
-        "url": "https://uic.org/passenger/highspeed/",
-        "publisher": "International Union of Railways",
+        "title": "About the Shinkansen",
+        "url": "https://global.jr-central.co.jp/en/company/about_shinkansen/",
+        "publisher": "Central Japan Railway Company",
         "year": 2026,
         "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "JR Central states that the Tokaido Shinkansen has operated since its 1964 inauguration and lists modern speed, frequency, safety, and ridership performance."
       }
     ],
     "firstKnownDate": 1964,
@@ -47505,16 +47481,17 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "High-Speed Rail History",
-            "url": "https://css2.uic.org/passenger/highspeed/article/high-speed-rail-history",
-            "publisher": "International Union of Railways",
-            "year": 2015,
-            "source_type": "official_agency",
+            "title": "High-speed rail",
+            "url": "https://www.britannica.com/technology/high-speed-rail",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "History section: the first high-speed rail was Japan's Shinkansen line, anchoring the node as a specialized passenger-rail lineage."
           }
         ]
       },
@@ -47527,16 +47504,17 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "High-Speed Rail History",
-            "url": "https://css2.uic.org/passenger/highspeed/article/high-speed-rail-history",
-            "publisher": "International Union of Railways",
-            "year": 2015,
-            "source_type": "official_agency",
+            "title": "High-speed rail",
+            "url": "https://www.britannica.com/technology/high-speed-rail",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "Technology section: Britannica describes Japan's Shinkansen as electric multiple-unit trains deriving power from an overhead wire system."
           }
         ]
       },
@@ -47549,16 +47527,17 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Intercity and High-Speed",
-            "url": "https://uic.org/passenger/highspeed/",
-            "publisher": "International Union of Railways",
+            "title": "High-speed rail",
+            "url": "https://www.britannica.com/technology/high-speed-rail",
+            "publisher": "Encyclopaedia Britannica",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "Technology section: Britannica states that high-speed train movements are monitored and controlled by a central computerized facility."
           }
         ]
       },
@@ -47571,16 +47550,17 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Intercity and High-Speed",
-            "url": "https://uic.org/passenger/highspeed/",
-            "publisher": "International Union of Railways",
+            "title": "High-speed rail",
+            "url": "https://www.britannica.com/technology/high-speed-rail",
+            "publisher": "Encyclopaedia Britannica",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "textbook",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "Technology section: Britannica describes Shinkansen electric multiple-unit trains deriving power from an overhead wire system."
           }
         ]
       }

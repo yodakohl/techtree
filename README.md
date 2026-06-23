@@ -33,18 +33,18 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-06-22 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
+Generated 2026-06-23 from the same dataset audit used by `npm run accuracy:risks`. This is a trust snapshot, not proof of global accuracy.
 
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,658 |
-| Source-checked nodes | 1,315 / 1,658 (79.3%) |
-| Source-checked nodes with non-placeholder dates | 1,315 / 1,315 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,315 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,148 / 1,315 (87.3%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,315 (0.0%) |
+| Source-checked nodes | 1,316 / 1,658 (79.4%) |
+| Source-checked nodes with non-placeholder dates | 1,316 / 1,316 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,316 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,149 / 1,316 (87.3%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,316 (0.0%) |
 | Nodes with node-level sources | 1,611 / 1,658 (97.2%) |
-| Dependency edges with edge-level sources | 4,035 / 5,350 (75.4%) |
+| Dependency edges with edge-level sources | 4,033 / 5,347 (75.4%) |
 | Era-default placeholder dates | 260 / 1,658 (15.7%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-23-search-engines-algorithms-evidence",
+  "decision_date": "2026-06-23",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "search_engines",
+    "prerequisite": "algorithms_computation_theory"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Algorithms & Computation Theory provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "primary_source",
+    "note": "Web search engines depend on algorithmic crawling, indexing, ranking, and query-processing techniques; Brin and Page describe these components for a large-scale web search engine."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and introduction: Google is designed to crawl and index the Web efficiently, use hypertext structure, handle large web indexes, and answer large volumes of queries.",
+    "source_claim_summary": "The paper describes a search engine as an algorithmic system for crawling, indexing, ranking, and answering queries over web pages.",
+    "source_support_rationale": "This supports algorithms as an enabling dependency because the cited search-engine architecture is built around algorithmic indexing and ranking methods, not only generic software execution."
+  },
+  "invariant_preserved_or_changed": "Preserved: algorithms_computation_theory remains an enabling prerequisite. Changed: the edge now has direct search-engine architecture evidence instead of a broad computability paper.",
+  "would_reject_if": [
+    "The Search Engines node is narrowed to a manual web directory with no algorithmic indexing or ranking.",
+    "A narrower information_retrieval node is added and replaces the broader algorithms prerequisite.",
+    "A source shows early web search engines did not depend on algorithmic query or indexing methods."
+  ],
+  "short_reason": "The retained algorithms edge now cites a search-engine architecture source.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

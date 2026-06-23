@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-search-engines-cloud-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "search_engines",
+    "prerequisite": "cloud_computing_distributed_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Search Engines to Cloud Computing edge remains because the scoped search-engine node is anchored to 1993-1994 web search systems that ran as early web services before cloud computing became a service model.",
+  "source_supports_edge": "no",
+  "source_url": "https://scg.unibe.ch/archive/software/w3catalog/W3CatalogHistory.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "W3 Catalog History says W3 Catalog ran from September 2, 1993 to November 8, 1996, and describes implementation as Perl/Plexus/CGI-style web server search over mirrored resource lists.",
+    "source_claim_summary": "The source anchors early web search to ordinary early-Web server scripts and searchable catalogs, not cloud service infrastructure.",
+    "source_support_rationale": "A 1993 web search catalog implemented with early web server scripts can establish the search-engine node without cloud computing as an upstream dependency."
+  },
+  "ontology_before": "Search Engines depended directly on Cloud Computing & Distributed Systems, conflating later scaling infrastructure with the initial web-search technology.",
+  "ontology_after": "Search Engines are scoped to early web catalogs and crawler/indexer systems; cloud and distributed systems can remain later scaling context for large deployments.",
+  "invariant_preserved_or_changed": "Changed: removed a later/scaling infrastructure edge. Preserved: the node still depends on the World Wide Web and algorithmic query/indexing methods.",
+  "would_reject_if": [
+    "The Search Engines node is narrowed to cloud-hosted commercial search platforms only.",
+    "A source shows 1993-1994 web search systems required cloud computing as a service model.",
+    "A new large_scale_cloud_search node is introduced and intentionally depends on cloud computing."
+  ],
+  "short_reason": "Cloud computing is later scaling infrastructure, not a prerequisite for early web search engines.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/search_engines.before.json /tmp/search_engines.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

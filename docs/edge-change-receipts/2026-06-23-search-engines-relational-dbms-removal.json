@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-search-engines-relational-dbms-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "search_engines",
+    "prerequisite": "databases_relational_dbms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Databases (Relational DBMS) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Search Engines to Relational DBMS edge remains because early web search engines required searchable catalogs or indexes, not the relational database model specifically.",
+  "source_supports_edge": "no",
+  "source_url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Architecture discussion describes crawling, repository storage, document indexes, lexicons, hit lists, forward indexes, and inverted indexes for a web search engine.",
+    "source_claim_summary": "The source describes specialized search-engine storage and indexing structures rather than a dependency on relational DBMS technology.",
+    "source_support_rationale": "This supports removing the relational-DB prerequisite because the search-engine architecture depends on indexing and retrieval structures that are not equivalent to the relational model."
+  },
+  "ontology_before": "Search Engines depended directly on relational DBMS technology, implying web search required relational database systems rather than generic indexing/storage.",
+  "ontology_after": "Search Engines keep web and algorithmic dependencies while database-specific implementations are left out unless a narrower search-storage node is added.",
+  "invariant_preserved_or_changed": "Changed: removed a storage-implementation-specific edge. Preserved: search engines still require web resources and algorithmic indexing/query methods.",
+  "would_reject_if": [
+    "The node is narrowed to a specific relational-database-backed site-search product.",
+    "A source shows first-generation web search engines required relational DBMS engines.",
+    "A narrower relational_search_backend node is introduced and intentionally depends on relational DBMS."
+  ],
+  "short_reason": "Search engines need indexes and storage, but not relational DBMS specifically.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/search_engines.before.json /tmp/search_engines.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

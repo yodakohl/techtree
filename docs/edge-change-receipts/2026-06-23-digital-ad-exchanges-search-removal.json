@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-digital-ad-exchanges-search-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "digital_advertising_exchanges",
+    "prerequisite": "search_engines"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Search engines improve ad discovery infrastructure, but real-time digital ad exchanges do not strictly require public search indexing."
+  },
+  "new_claim_absent": "No direct Digital Advertising Exchanges to Search Engines edge remains because the node is scoped to RTB/programmatic ad markets, which transact ad impressions through exchanges, supply sources, and bidders rather than requiring public search indexing.",
+  "source_supports_edge": "no",
+  "source_url": "https://iabtechlab.com/standards/openrtb/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "OpenRTB overview defines real-time bidding as transacting media by putting an individual ad impression up for bid in real time through a programmatic auction.",
+    "source_claim_summary": "The source defines digital ad exchange mechanics around impression auctions and programmatic bidding, not search-engine infrastructure.",
+    "source_support_rationale": "Search advertising is one channel, but the RTB exchange scope is implemented through auction protocols among exchanges, supply sources, and bidders without a direct search-engine prerequisite."
+  },
+  "ontology_before": "Digital Advertising Exchanges depended directly on Search Engines even though the edge note already stated that real-time exchanges do not strictly require public search indexing.",
+  "ontology_after": "Digital Advertising Exchanges retain e-commerce and API ecosystem context while public search indexing is left as adjacent advertising infrastructure, not a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: removed the direct search_engines prerequisite from digital_advertising_exchanges. Preserved: downstream streaming platform links remain unchanged.",
+  "would_reject_if": [
+    "The node is narrowed to search-engine advertising auctions only.",
+    "A source shows RTB ad exchanges require public web search indexing as an architectural prerequisite.",
+    "A separate search_ad_auction_platforms node is introduced and intentionally depends on search engines."
+  ],
+  "short_reason": "Programmatic ad exchanges are auction/API infrastructure, not search-engine infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/digital_advertising_exchanges.before.json /tmp/digital_advertising_exchanges.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
