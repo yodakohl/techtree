@@ -72,6 +72,18 @@ function titles(sources) {
         .join('; ');
 }
 
+function sourceEvidenceText(sources) {
+    return (sources || [])
+        .map(source => [
+            source?.title,
+            source?.publisher,
+            source?.source_locator,
+            source?.locator
+        ].filter(Boolean).join(' '))
+        .filter(Boolean)
+        .join('; ');
+}
+
 function isWikipediaSearchSource(source) {
     return /wikipedia\.org\/wiki\/Special:Search/i.test(source?.url || '')
         || /^Wikipedia page for /i.test(source?.title || '');
@@ -90,18 +102,22 @@ function meaningfulTokens(value) {
         .filter(token => token.length >= 4 && !stop.has(token));
 }
 
-function titleMismatch(node) {
+function sourceEvidenceMismatch(node) {
     const nodeSources = (node.sources || []).filter(source => source.supports?.includes('node'));
     if (!nodeSources.length) return false;
     const tokens = meaningfulTokens(`${node.id} ${node.name}`);
     if (!tokens.length) return false;
-    const titleText = nodeSources.map(source => source.title || '').join(' ').toLowerCase();
-    return !tokens.some(token => titleText.includes(token));
+    const evidenceText = sourceEvidenceText(nodeSources).toLowerCase();
+    return !tokens.some(token => evidenceText.includes(token));
 }
 
 function hasConceptOrInstitutionScope(node) {
-    const text = `${node.id} ${node.name}`.toLowerCase();
-    return /\b(treaty|treaties|economics|governance|government|rights|philosophy|law|legal|libraries|library|school|schools|accounting|market|markets|policy|justice|culture|archive|archives)\b/.test(text);
+    const labelText = `${node.id} ${node.name}`.toLowerCase();
+    const scopeText = `${labelText} ${node.description || ''} ${sourceEvidenceText(node.sources || [])}`.toLowerCase();
+    const broadConceptPattern = /\b(treaty|treaties|economics|governance|government|rights|philosophy|law|legal|libraries|library|school|schools|market|markets|policy|justice|culture|archive|archives)\b/;
+    if (broadConceptPattern.test(labelText)) return true;
+    if (!/\baccounting\b/.test(labelText)) return false;
+    return !/\b(software|tools?|calculators?|tablets?|tokens?|ledgers?|bookkeeping|records?|platforms?|inventor(?:y|ies))\b/.test(scopeText);
 }
 
 function hasGenericTemplateEdgeNote(edge) {
@@ -115,7 +131,7 @@ function nodeFlags(node, edges) {
     if (allSources.some(isWikipediaSearchSource)) flags.push('wikipedia_search_source');
     if (edges.length && edges.some(edge => !Array.isArray(edge.sources) || edge.sources.length === 0)) flags.push('no_edge_sources');
     if (edges.some(hasGenericTemplateEdgeNote)) flags.push('generic_template_edge_note');
-    if (titleMismatch(node)) flags.push('source_title_mismatch');
+    if (sourceEvidenceMismatch(node)) flags.push('source_evidence_mismatch');
     if (node.era === 'Future' && node.reviewStatus === 'source_checked') flags.push('future_node_marked_source_checked');
     if (node.reviewStatus === 'source_checked' && node.firstKnownDate === ERA_DEFAULT_DATES[node.era]) flags.push('source_checked_placeholder_date');
     if (hasConceptOrInstitutionScope(node)) flags.push('concept_or_institution_not_technology');
@@ -158,6 +174,7 @@ function renderReport() {
     lines.push(`- Seed: \`${SEED}\``);
     lines.push(`- Sample size: ${SAMPLE_SIZE}`);
     lines.push(`- Canonical node count: ${nodes.length}`);
+    lines.push('- Source evidence matching checks node-source titles, publishers, and inspected locators when present.');
     lines.push('');
     lines.push('## Flag totals');
     lines.push('');
