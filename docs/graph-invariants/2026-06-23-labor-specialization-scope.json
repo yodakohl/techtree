@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-23-labor-specialization-scope",
+  "description": "Lock labor specialization as food-surplus-enabled division of work, not a construct that requires pottery first.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "labor_specialization",
+      "prerequisite": "pottery",
+      "reason": "Pottery is a specialized craft example, not a prerequisite for labor specialization itself."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "labor_specialization",
+      "prerequisite": "agriculture",
+      "reason": "Agricultural food production and surplus remain the source-backed enabler for specialized crafts and divided work."
+    },
+    {
+      "type": "first_known_date",
+      "node": "labor_specialization",
+      "operator": "eq",
+      "value": -9000,
+      "reason": "The date remains anchored to early Neolithic food production and farming communities rather than to later craft-specific workshops."
+    }
+  ]
+}

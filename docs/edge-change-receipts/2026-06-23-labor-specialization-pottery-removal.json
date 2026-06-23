@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-labor-specialization-pottery-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "labor_specialization",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Pottery to Labor Specialization edge remains because pottery is an example of specialized craft work, not a prerequisite that enabled the broader division of labor.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/event/Neolithic",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's Neolithic overview says intensive food production allowed some farming-community members to pursue specialized crafts and lists pottery as one of the crafts appearing in the period.",
+    "source_claim_summary": "The source presents intensive food production and farming communities as the enabler of specialized crafts, while pottery is one craft example.",
+    "source_support_rationale": "Because pottery is presented as a craft that specialization can produce, the source does not support pottery as an upstream prerequisite for labor specialization itself."
+  },
+  "ontology_before": "Labor Specialization depended directly on Pottery, making a particular craft example appear to be a causal prerequisite for the broader social division of work.",
+  "ontology_after": "Labor Specialization depends on Agriculture as the food-production and surplus context; pottery remains a downstream or parallel craft example rather than an upstream dependency.",
+  "invariant_preserved_or_changed": "Changed: removed the direct pottery prerequisite. Preserved: agriculture remains the source-backed enabling dependency for labor specialization.",
+  "would_reject_if": [
+    "The Labor Specialization node is narrowed to pottery-specialist workshops rather than broad division of labor.",
+    "A source shows early labor specialization could only emerge after pottery technology existed.",
+    "A separate pottery_specialist_workshops node is introduced and intentionally depends on pottery."
+  ],
+  "short_reason": "Pottery is an example of specialized work, not a prerequisite for labor specialization.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/labor_specialization.before.json /tmp/labor_specialization.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
