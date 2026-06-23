@@ -1,0 +1,55 @@
+{
+  "id": "2026-06-23-carbon-accounting-software-scope",
+  "description": "Lock carbon-accounting software as a post-standards GHG inventory tooling layer, not a prerequisite for older GHG inventory or CCS technologies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "carbon_accounting_software",
+      "operator": "eq",
+      "value": 2001,
+      "reason": "GHG Protocol anchors the modern corporate GHG accounting standard and related calculation-tool lineage around the 2001 Corporate Standard."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "greenhouse_gas_inventories",
+      "prerequisite": "carbon_accounting_software",
+      "reason": "GHG inventory standards and reporting practice precede the software tools that implement them."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "greenhouse_gas_inventories",
+      "prerequisite": "probability_statistics_inference",
+      "reason": "Inventory estimation and uncertainty handling still rely on statistical inference."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "greenhouse_gas_inventories",
+      "prerequisite": "environmentalism_ecology",
+      "reason": "Environmental accounting context remains a foundation for GHG inventory practice."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "carbon_capture_and_storage",
+      "prerequisite": "carbon_accounting_software",
+      "reason": "Carbon accounting is reporting context for CCS, not a physical prerequisite for capture and storage systems."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "carbon_capture_and_storage",
+      "prerequisite": "advanced_chemistry",
+      "reason": "CCS still depends on chemistry for gas separation and process control."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "carbon_capture_and_storage",
+      "prerequisite": "deep_drilling_technology",
+      "reason": "Geologic sequestration still depends on deep well and subsurface storage capabilities."
+    },
+    {
+      "type": "path_absent",
+      "from": "carbon_accounting_software",
+      "to": "direct_air_capture",
+      "reason": "Direct air capture should inherit from physical CCS, not from carbon-accounting reporting software."
+    }
+  ]
+}

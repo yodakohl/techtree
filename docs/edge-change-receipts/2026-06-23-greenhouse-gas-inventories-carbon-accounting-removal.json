@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-greenhouse-gas-inventories-carbon-accounting-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "greenhouse_gas_inventories",
+    "prerequisite": "carbon_accounting_software"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Carbon Accounting Software provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Carbon Accounting Software to Greenhouse Gas Inventories edge remains because standardized GHG inventories are the accounting/reporting practice that later digital tools implement, not a technology that required those tools first.",
+  "source_supports_edge": "no",
+  "source_url": "https://ghgprotocol.org/about-us",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "GHG Protocol says the need for an international standard for corporate GHG accounting and reporting arose in the late 1990s, the first Corporate Standard was published in 2001, and calculation tools were later developed to help companies calculate GHG emissions.",
+    "source_claim_summary": "The source presents greenhouse-gas accounting standards and reporting programs as the foundation for inventories and associated calculation tools.",
+    "source_support_rationale": "Because the source places standards and inventory practice before the supporting calculation tools, it does not support software as an upstream prerequisite for GHG inventories."
+  },
+  "ontology_before": "Greenhouse Gas Inventories depended on Carbon Accounting Software, making a later digital-tool node a prerequisite for the older standardized accounting practice.",
+  "ontology_after": "Greenhouse Gas Inventories are scoped to standardized emissions accounting and reporting practice; carbon-accounting software remains a later tooling layer for implementing and automating that practice.",
+  "invariant_preserved_or_changed": "Changed: removed a temporally later software prerequisite. Preserved: the node still depends on environmental accounting context and statistical inference.",
+  "would_reject_if": [
+    "The Greenhouse Gas Inventories node is explicitly narrowed to post-2001 software-managed inventories only.",
+    "A source shows organizational GHG inventories could not exist before carbon-accounting software tools.",
+    "A separate software_managed_ghg_inventory_platforms node is introduced and intentionally depends on carbon_accounting_software."
+  ],
+  "short_reason": "Carbon-accounting software automates GHG inventories; it is not a prerequisite for the inventory practice itself.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/greenhouse_gas_inventories.before.json /tmp/greenhouse_gas_inventories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

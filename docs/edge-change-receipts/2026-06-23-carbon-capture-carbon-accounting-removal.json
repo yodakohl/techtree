@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-carbon-capture-carbon-accounting-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "carbon_capture_and_storage",
+    "prerequisite": "carbon_accounting_software"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Carbon Accounting Software provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Carbon Accounting Software to Carbon Capture and Storage edge remains because CCS is an industrial separation, transport, injection, and storage technology rather than a software-dependent accounting workflow.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.epa.gov/uic/class-vi-wells-used-geologic-sequestration-carbon-dioxide",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "EPA describes Class VI wells as wells used to inject carbon dioxide into deep rock formations for long-term underground storage as part of geologic sequestration.",
+    "source_claim_summary": "The source frames carbon capture and storage around geologic sequestration infrastructure and underground injection wells.",
+    "source_support_rationale": "Because the cited CCS source supports physical storage infrastructure and not GHG reporting software, it does not justify carbon-accounting software as a prerequisite."
+  },
+  "ontology_before": "Carbon Capture and Storage depended on Carbon Accounting Software, conflating measurement/reporting tooling with the physical CCS technology stack.",
+  "ontology_after": "Carbon Capture and Storage remains scoped to chemistry, separation, drilling, and geologic storage capabilities; carbon accounting is contextual reporting infrastructure outside the prerequisite chain.",
+  "invariant_preserved_or_changed": "Changed: removed a temporal and semantic overreach edge. Preserved: the node still depends on advanced chemistry and deep drilling technology.",
+  "would_reject_if": [
+    "The Carbon Capture and Storage node is narrowed to software-managed carbon-credit accounting systems rather than physical CCS systems.",
+    "A source shows CCS separation and geologic sequestration technically require carbon-accounting software.",
+    "A new monitored_carbon_storage_reporting_platforms node is introduced and intentionally depends on carbon_accounting_software."
+  ],
+  "short_reason": "Carbon-accounting software is reporting context for CCS, not a prerequisite for physical capture and storage systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/carbon_capture_and_storage.before.json /tmp/carbon_capture_and_storage.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

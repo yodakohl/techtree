@@ -27473,7 +27473,7 @@
     "id": "carbon_accounting_software",
     "name": "Carbon Accounting Software",
     "era": "Modern",
-    "description": "Software platforms for measuring, attributing, auditing, and reporting greenhouse gas emissions across organizations and supply chains.",
+    "description": "Digital tools and software platforms for measuring, attributing, auditing, and reporting greenhouse gas emissions across organizations and supply chains.",
     "prerequisites": [
       "environmentalism_ecology",
       "enterprise_resource_planning",
@@ -27488,21 +27488,35 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Climate Change 2022: Mitigation of Climate Change",
-        "url": "https://www.ipcc.ch/report/ar6/wg3/",
-        "publisher": "IPCC",
-        "year": 2022,
-        "source_type": "review",
+        "title": "About Us",
+        "url": "https://ghgprotocol.org/about-us",
+        "publisher": "Greenhouse Gas Protocol",
+        "year": 2026,
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "GHG Protocol says its Corporate Accounting and Reporting Standard provides the accounting platform for virtually every corporate GHG reporting program, and that it developed a suite of calculation tools to help companies calculate greenhouse gas emissions."
+      },
+      {
+        "title": "Simplified GHG Emissions Calculator",
+        "url": "https://www.epa.gov/climateleadership/simplified-ghg-emissions-calculator",
+        "publisher": "U.S. Environmental Protection Agency",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "EPA describes the calculator as a free tool that helps organizations estimate and inventory annual GHG emissions, including scopes 1, 2, and 3 based on organizational activity data."
       }
     ],
-    "firstKnownDate": 1983,
+    "firstKnownDate": 2001,
     "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "region": "Greenhouse Gas Protocol, U.S. EPA, and organizational GHG reporting programs",
     "reviewStatus": "source_checked",
+    "scopeNote": "Covers organizational greenhouse-gas inventory calculation and reporting tools, including spreadsheet calculators and later software platforms. It does not claim that enterprise SaaS carbon-accounting platforms were established in 2001.",
     "dependencyEdges": [
       {
         "prerequisite": "environmentalism_ecology",
@@ -27510,19 +27524,20 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Environmentalism & Ecology provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
+        "reviewStatus": "structurally_validated",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "About Us",
+            "url": "https://ghgprotocol.org/about-us",
+            "publisher": "Greenhouse Gas Protocol",
+            "year": 2026,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "GHG Protocol arose from a need for standardized corporate GHG accounting and reporting, providing environmental-accounting context for carbon-accounting tools."
           }
         ]
       },
@@ -27532,19 +27547,20 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
+        "reviewStatus": "structurally_validated",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "Simplified GHG Emissions Calculator",
+            "url": "https://www.epa.gov/climateleadership/simplified-ghg-emissions-calculator",
+            "publisher": "U.S. Environmental Protection Agency",
+            "year": 2026,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "EPA says organizations must collect activity data for the defined annual period before emissions are quantified; this supports business-data-system context, but the ERP dependency remains structurally validated."
           }
         ]
       },
@@ -27554,23 +27570,25 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Big Data Analytics & Computational Statistics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
+        "reviewStatus": "structurally_validated",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "Calculation Tools and Guidance",
+            "url": "https://ghgptechassistance.zendesk.com/hc/en-us/categories/27448673565716-Calculation-Tools-and-Guidance",
+            "publisher": "Greenhouse Gas Protocol",
+            "year": 2026,
+            "source_type": "official_agency",
             "supports": [
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "GHG Protocol's calculation-tools guidance says accurate inventories require quality control and activity data before emissions are estimated, supporting the data-processing context for carbon-accounting tools."
           }
         ]
       }
-    ]
+    ],
+    "sourceFitAuditNote": "Re-anchored during launch hardening on 2026-06-23 from a broad IPCC mitigation report and a 1983 placeholder-like software date to direct GHG inventory standards/tooling sources."
   },
   {
     "id": "electrolyzer_manufacturing",
@@ -44069,7 +44087,6 @@
     "era": "Modern",
     "description": "Standardized accounting systems for estimating, reporting, and verifying greenhouse gas emissions and removals.",
     "prerequisites": [
-      "carbon_accounting_software",
       "probability_statistics_inference",
       "environmentalism_ecology"
     ],
@@ -44098,28 +44115,6 @@
     "region": "Global / multiple regions",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "carbon_accounting_software",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Carbon Accounting Software provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
       {
         "prerequisite": "probability_statistics_inference",
         "type": "enabling",
@@ -44173,8 +44168,7 @@
     "description": "Systems that separate carbon dioxide from industrial or power-plant streams and store it underground or in durable products.",
     "prerequisites": [
       "advanced_chemistry",
-      "deep_drilling_technology",
-      "carbon_accounting_software"
+      "deep_drilling_technology"
     ],
     "fields": [
       "Climate & Environmental Systems"
@@ -44240,28 +44234,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Deep Drilling Technology provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Class VI Wells Used for Geologic Sequestration of Carbon Dioxide",
-            "url": "https://www.epa.gov/uic/class-vi-wells-used-geologic-sequestration-carbon-dioxide",
-            "publisher": "U.S. Environmental Protection Agency",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "carbon_accounting_software",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Carbon Accounting Software provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked",
         "sources": [
           {
