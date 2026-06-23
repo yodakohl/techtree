@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-stone-enclosures-market-squares-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "stone_paved_courtyards",
+    "prerequisite": "town_market_squares"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Town Market Squares provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Town Market Squares to stone_paved_courtyards edge remains because the node is rescoped to Pre-Pottery Neolithic ritual enclosures, not urban market paving.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/decisions/7148/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO describes Gobekli Tepe as Pre-Pottery Neolithic monumental enclosures probably used for public rituals by hunter-gatherer groups, with no market-square context.",
+    "source_claim_summary": "The source anchors the node in ritual megalithic enclosures at Gobekli Tepe before urban market-square infrastructure.",
+    "source_support_rationale": "Because the cited site is ritual enclosure architecture rather than a market or exchange space, town market squares are not a source-backed prerequisite."
+  },
+  "ontology_before": "The node depended on town market squares, conflating ritual or architectural enclosure surfaces with later urban market infrastructure.",
+  "ontology_after": "The node is scoped to Gobekli Tepe megalithic enclosures and retains only masonry as the source-backed architectural enabler.",
+  "invariant_preserved_or_changed": "Changed: removed the town_market_squares prerequisite. Preserved: the node remains an Ancient source-checked built-environment technology.",
+  "would_reject_if": [
+    "The node is renamed back to urban market paving or formal market courtyards.",
+    "A source shows the cited Gobekli Tepe enclosures functioned as town market squares.",
+    "A separate urban_market_paving node is introduced and intentionally depends on town_market_squares."
+  ],
+  "short_reason": "Gobekli Tepe ritual enclosures are not urban market-square infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/stone_paved_courtyards.before.json /tmp/stone_paved_courtyards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

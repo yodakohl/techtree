@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-23-gobekli-tepe-enclosures-scope",
+  "description": "Lock stone_paved_courtyards to the source-backed Gobekli Tepe megalithic enclosure scope, not generic market courtyard paving.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "stone_paved_courtyards",
+      "operator": "eq",
+      "value": -9500,
+      "reason": "The node is dated to the source-backed Pre-Pottery Neolithic 10th-9th millennia BC enclosure evidence."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "stone_paved_courtyards",
+      "prerequisite": "masonry",
+      "reason": "The remaining prerequisite should preserve the shaped-stone construction capability supported by UNESCO's limestone-pillar evidence."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "stone_paved_courtyards",
+      "prerequisite": "town_market_squares",
+      "reason": "The source-backed scope is ritual megalithic enclosures, not urban market-square infrastructure."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "stone_paved_courtyards",
+      "prerequisite": "measuring_rods_and_lines",
+      "reason": "The cited source does not establish standardized measuring rods or marked lines as a prerequisite."
+    }
+  ]
+}

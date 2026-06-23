@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-stone-enclosures-measuring-rods-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "stone_paved_courtyards",
+    "prerequisite": "measuring_rods_and_lines"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Measuring Rods & Lines provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Measuring Rods & Lines to stone_paved_courtyards edge remains because the cited Gobekli Tepe evidence supports megalithic enclosure construction but does not establish standardized rods or marked lines as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/decisions/7148/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO describes monolithic T-shaped pillars carved from the adjacent limestone plateau and semi-subterranean architecture, but does not cite standardized rods, ropes, or marked measuring lines.",
+    "source_claim_summary": "The source supports shaped-stone architectural construction at Gobekli Tepe, not a measurement-tool dependency.",
+    "source_support_rationale": "Because the source documents limestone carving and enclosure architecture without measurement-tool evidence, the measuring-rods edge overstates the supported prerequisite set."
+  },
+  "ontology_before": "The node depended on measuring rods and lines, overconstraining a source-backed megalithic enclosure claim with an unsupported measurement-infrastructure dependency.",
+  "ontology_after": "The node keeps masonry as the architectural enabler while leaving measuring rods and lines to nodes where direct surveying evidence is available.",
+  "invariant_preserved_or_changed": "Changed: removed the measuring_rods_and_lines prerequisite. Preserved: masonry remains the source-backed enabling edge.",
+  "would_reject_if": [
+    "A source shows standardized rods or marked measuring lines were required for the cited Gobekli Tepe enclosures.",
+    "The node is narrowed to formal surveyed courtyard paving rather than megalithic enclosures.",
+    "A separate surveyed_stone_courtyards node is introduced and intentionally depends on measuring_rods_and_lines."
+  ],
+  "short_reason": "The cited enclosure source does not support measuring rods and lines as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/stone_paved_courtyards.before.json /tmp/stone_paved_courtyards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
