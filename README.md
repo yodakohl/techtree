@@ -38,11 +38,11 @@ Generated 2026-06-23 from the same dataset audit used by `npm run accuracy:risks
 | Metric | Current |
 | --- | --- |
 | Technologies | 1,658 |
-| Source-checked nodes | 1,320 / 1,658 (79.6%) |
-| Source-checked nodes with non-placeholder dates | 1,320 / 1,320 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,320 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,153 / 1,320 (87.3%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,320 (0.0%) |
+| Source-checked nodes | 1,319 / 1,658 (79.6%) |
+| Source-checked nodes with non-placeholder dates | 1,319 / 1,319 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,319 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,152 / 1,319 (87.3%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,319 (0.0%) |
 | Nodes with node-level sources | 1,612 / 1,658 (97.2%) |
 | Dependency edges with edge-level sources | 4,032 / 5,343 (75.5%) |
 | Era-default placeholder dates | 260 / 1,658 (15.7%) |
