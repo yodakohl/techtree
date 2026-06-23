@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-technical-drawing-patent-systems-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "technical_drawing_standards",
+    "prerequisite": "early_patent_systems"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Invention Privilege Systems is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct Technical Drawing Standards to Invention Privilege Systems edge remains because the source-backed node is scoped to machine-book illustration conventions, not patent privilege administration.",
+  "source_supports_edge": "no",
+  "source_url": "https://digital.sciencehistory.org/works/4b29b614k",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Collection note frames Ramelli's 1588 book as a late-sixteenth-century theatre of machines with illustrated engineering designs and detailed bilingual descriptions.",
+    "source_claim_summary": "The source supports technical machine illustrations as a publishing and engineering-communication practice independent of patent examination or privilege systems.",
+    "source_support_rationale": "Patent systems may later use drawings, but Ramelli's machine-book evidence establishes the scoped technical drawing convention without requiring patent institutions as a predecessor."
+  },
+  "ontology_before": "Technical Drawing Standards depended directly on early patent systems, conflating invention-privilege administration with technical illustration practice.",
+  "ontology_after": "Technical Drawing Standards are scoped to late Renaissance machine-book illustration conventions; patent workflows remain downstream or adjacent uses.",
+  "invariant_preserved_or_changed": "Changed: removed the direct early_patent_systems prerequisite. Preserved: downstream patent specification and examination nodes may still depend on technical drawings.",
+  "would_reject_if": [
+    "The node is narrowed to patent drawings only.",
+    "A source shows Renaissance technical machine drawing conventions emerged specifically from patent privilege administration.",
+    "A separate patent_drawing_requirements node is introduced and intentionally depends on early patent systems."
+  ],
+  "short_reason": "Patent administration is an application context, not a prerequisite for the Ramelli-style technical drawing scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/technical_drawing_standards.before.json /tmp/technical_drawing_standards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

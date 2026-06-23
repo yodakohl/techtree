@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-23-technical-drawing-ramelli-scope",
+  "description": "Lock Technical Drawing Standards to a 1588 Ramelli-style machine illustration scope without patent or calibration prerequisites.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "technical_drawing_standards",
+      "operator": "eq",
+      "value": 1588,
+      "reason": "Ramelli's Le diverse et artificiose machine provides a source-backed 1588 anchor for detailed Renaissance technical machine drawings."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "technical_drawing_standards",
+      "prerequisite": "perspective_in_art",
+      "reason": "The scoped node remains a visual projection and technical illustration convention."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "technical_drawing_standards",
+      "prerequisite": "early_patent_systems",
+      "reason": "Patent systems are downstream or adjacent users of drawings, not prerequisites for the Ramelli-style machine-book scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "technical_drawing_standards",
+      "prerequisite": "instrument_calibration_standards",
+      "reason": "Instrument calibration standards are narrower measurement infrastructure, not required for Renaissance machine illustration conventions."
+    }
+  ]
+}

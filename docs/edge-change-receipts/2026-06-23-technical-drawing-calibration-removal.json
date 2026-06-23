@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-23-technical-drawing-calibration-removal",
+  "decision_date": "2026-06-23",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "technical_drawing_standards",
+    "prerequisite": "instrument_calibration_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Instrument Calibration Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Technical Drawing Standards to Instrument Calibration Standards edge remains because the source-backed node is scoped to machine illustration conventions, not calibrated measurement regimes.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sil.si.edu/ondisplay/ramelli/intro.htm",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction describes Ramelli's 1588 machine book as 195 engravings and detailed machine descriptions influenced by mathematics and geometry.",
+    "source_claim_summary": "The source anchors the node in visual engineering communication through engravings and descriptions, without making instrument calibration standards a prerequisite.",
+    "source_support_rationale": "Geometric drawing and illustrated machine description can precede formal calibration regimes; the cited scope needs visual/projection practice, not instrument-standard infrastructure."
+  },
+  "ontology_before": "Technical Drawing Standards depended directly on instrument calibration standards, overconstraining a broad visual communication practice with a measurement-standard dependency.",
+  "ontology_after": "Technical Drawing Standards retain only perspective/artistic projection context; calibration standards remain relevant to narrower measurement and instrumentation nodes.",
+  "invariant_preserved_or_changed": "Changed: removed the direct instrument_calibration_standards prerequisite. Preserved: technical drawings still derive from visual projection conventions.",
+  "would_reject_if": [
+    "The node is narrowed to calibrated industrial drafting standards rather than Renaissance machine illustration conventions.",
+    "A source shows Ramelli-style machine drawings required formal instrument calibration standards.",
+    "A separate precision_engineering_drawings node is introduced and intentionally depends on calibration standards."
+  ],
+  "short_reason": "Calibration standards are later/narrower measurement infrastructure, not a prerequisite for Renaissance technical machine drawings.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/technical_drawing_standards.before.json /tmp/technical_drawing_standards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
