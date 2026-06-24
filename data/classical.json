@@ -1468,9 +1468,9 @@
   },
   {
     "id": "basic_chemistry_early_forms",
-    "name": "Basic Chemistry (Early Forms)",
+    "name": "Classical Chemical Arts",
     "era": "Classical",
-    "description": "Early understanding of material properties, reactions, and transformations observed in dyeing, metallurgy, fermentation, and medicine.",
+    "description": "Empirical material-transformation knowledge in metals, ceramics, dyes, drugs, glass, foodstuffs, and fermentation known around the classical Mediterranean and inherited from older craft traditions.",
     "prerequisites": [
       "fire_control",
       "pottery",
@@ -1479,10 +1479,11 @@
       "fermentation_basic",
       "pigment_creation"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -600,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Classical Mediterranean and older Eurasian craft traditions",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers empirical chemical arts and material-transformation knowledge known before and during the classical Mediterranean tradition; excludes modern chemical theory and formal laboratory chemistry.",
     "dependencyEdges": [
       {
         "prerequisite": "fire_control",
@@ -1550,7 +1551,20 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Herbalism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Pharmacy",
+            "url": "https://www.britannica.com/science/pharmacy",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "locator": "The history of pharmacy describes ancient drug preparation from plant juices, Egyptian temple remedy preparation, and herbalist raw materials in Greece and Rome.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "fermentation_basic",
@@ -1558,7 +1572,20 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Chemistry",
+            "url": "https://www.britannica.com/science/chemistry",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "locator": "Britannica identifies fermentation, glass making, and metallurgy as chemical processes practiced from the beginnings of civilization.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "pigment_creation",
@@ -1583,17 +1610,40 @@
     ],
     "sources": [
       {
-        "title": "Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa",
-        "url": "https://www.pnas.org/doi/10.1073/pnas.1117620109",
-        "publisher": "Proceedings of the National Academy of Sciences",
-        "year": 2012,
-        "source_type": "primary_paper",
+        "title": "Chemistry and Society",
+        "url": "https://www.britannica.com/science/chemistry/Chemistry-and-society",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "locator": "Britannica says metalsmiths, assayers, ceramists, and dyers used empirically derived knowledge of chemical processes before Aristotle; by Hellenistic and Roman times ceramics, glasses, dyes, drugs, steels, bronze, brass, alloys, and foodstuffs were well advanced.",
         "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Chemistry",
+        "url": "https://www.britannica.com/science/chemistry",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "locator": "Britannica identifies cooking, fermentation, glass making, and metallurgy as chemical processes from the beginnings of civilization.",
+        "supports": [
+          "node",
           "edge"
         ]
+      },
+      {
+        "title": "The Secrets of Alchemy",
+        "url": "https://www.sciencehistory.org/stories/magazine/the-secrets-of-alchemy/",
+        "publisher": "Science History Institute",
+        "year": 2013,
+        "source_type": "review",
+        "locator": "The Science History Institute describes late-antique alchemy as a Greco-Roman Egyptian merger of craft traditions and philosophical traditions, including apparatus for distillation, sublimation, filtration, and fixation.",
+        "supports": [
+          "node"
+        ]
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    ]
   },
   {
     "id": "blown_glass",
