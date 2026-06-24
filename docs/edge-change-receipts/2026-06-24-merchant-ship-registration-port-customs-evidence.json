@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-merchant-ship-registration-port-customs-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "merchant_marine_registry",
+    "prerequisite": "port_customs_ledgers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Port Customs Ledgers provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Merchant ship registration was administered through Custom Houses and port officials, making port customs recordkeeping the enabling institutional record practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.rmg.co.uk/collections/research-guides/research-guide-c12-merchant-navy-ship-registration-custom-house-records",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Royal Museums Greenwich explains ship registration and Custom House records, including 1661 registration with Custom Houses and 1786 registration with Customs in the home port.",
+    "source_claim_summary": "The source places merchant ship registration inside Custom House and home-port Customs record systems.",
+    "source_support_rationale": "This supports port_customs_ledgers as the enabling recordkeeping context because the registry was administered through customs offices rather than through voyage logbooks or insurance claims offices."
+  },
+  "invariant_preserved_or_changed": "Preserved: merchant_marine_registry keeps a direct port_customs_ledgers dependency, now source-backed and scoped to Custom House ship registration.",
+  "would_reject_if": [
+    "The node were rescoped away from Custom House ship registration to a private shipping directory.",
+    "A stronger source showed merchant ship registration was administered independently of Customs or port registry offices.",
+    "The port_customs_ledgers node were narrowed to exclude port-based official customs recordkeeping."
+  ],
+  "short_reason": "The registration source explicitly places the practice in Custom House and port Customs records.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_marine_registry.before.json /tmp/merchant_marine_registry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

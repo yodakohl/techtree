@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-merchant-ship-registration-logbooks-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "merchant_marine_registry",
+    "prerequisite": "naval_logbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped node is a Custom House ship-registration record, while voyage logbooks record courses, weather, observations, or voyage particulars rather than vessel ownership registry.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.crewlist.org.uk/registers/registernotes",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The registration guide says shipping registers generally do not show voyage, cargo, or crew details except masters in earlier registers.",
+    "source_claim_summary": "The source separates registry contents from voyage/logbook-style details.",
+    "source_support_rationale": "That separation makes naval logbooks adjacent maritime records, not a direct prerequisite for the scoped Custom House registration practice."
+  },
+  "ontology_before": "Merchant Marine Registry depended directly on Naval Logbooks, implying voyage logs enabled official ship registration.",
+  "ontology_after": "Merchant Ship Registration depends directly on port customs recordkeeping; voyage logbooks are outside the corrected registry scope.",
+  "invariant_preserved_or_changed": "Changed: merchant_marine_registry no longer directly depends on naval_logbooks.",
+  "would_reject_if": [
+    "The node were broadened to include voyage logging and operational sea records.",
+    "A stronger source showed Custom House ship registers were built from naval logbooks.",
+    "The naval_logbooks node were narrowed to mean official ship identity registers rather than voyage logs."
+  ],
+  "short_reason": "Ship registration records are not voyage logbooks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_marine_registry.before.json /tmp/merchant_marine_registry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

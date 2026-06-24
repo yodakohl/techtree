@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-merchant-ship-registration-insurance-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "merchant_marine_registry",
+    "prerequisite": "insurance_claims_adjustment"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Insurance Claims Adjustment provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped registry documents vessel identity, ownership, dimensions, port, and registration changes, while the insurance node is specifically fire-insurance claims assessment.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.crewlist.org.uk/registers/registernotes",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The registration guide says shipping registers contain ship dimensions, tonnage, rig, owners, builders, masters, ownership changes, and fate, and do not show financial information except mortgages.",
+    "source_claim_summary": "The source describes ship-registration contents without making insurance claims assessment part of the registry process.",
+    "source_support_rationale": "The existing insurance_claims_adjustment node is scoped to fire-insurance claim settlement, so it is not evidenced as a direct prerequisite for Custom House ship registration."
+  },
+  "ontology_before": "Merchant Marine Registry depended directly on Early Insurance Claims Assessment, implying fire-insurance claims procedures enabled ship registration.",
+  "ontology_after": "Merchant Ship Registration is scoped to Custom House vessel registration and no longer depends on insurance-claims assessment.",
+  "invariant_preserved_or_changed": "Changed: merchant_marine_registry no longer directly depends on insurance_claims_adjustment.",
+  "would_reject_if": [
+    "The node were rescoped to marine insurance underwriting or insurance classification registers.",
+    "A stronger source showed fire-insurance claims assessment directly enabled Custom House merchant ship registration.",
+    "The insurance_claims_adjustment node were broadened away from fire-insurance loss adjustment into all maritime ownership documentation."
+  ],
+  "short_reason": "Fire-insurance claims assessment is not a direct prerequisite for ship registration.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_marine_registry.before.json /tmp/merchant_marine_registry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

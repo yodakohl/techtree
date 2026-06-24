@@ -11532,44 +11532,67 @@
   },
   {
     "id": "merchant_marine_registry",
-    "name": "Merchant Marine Registry",
+    "name": "Merchant Ship Registration",
     "era": "Renaissance",
-    "description": "Official ship lists, owners, tonnage, crews, flags, insurance, voyages, and port documentation.",
+    "description": "Custom House registration records for merchant vessels, identifying ships, owners, masters, tonnage or dimensions, home ports, and later changes of ownership or registry.",
     "prerequisites": [
-      "naval_logbooks",
-      "insurance_claims_adjustment",
       "port_customs_ledgers"
     ],
-    "firstKnownDate": 1680,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1661,
+    "datePrecision": "exact",
+    "region": "British Custom Houses and connected colonial trade",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "naval_logbooks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "insurance_claims_adjustment",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Insurance Claims Adjustment provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "port_customs_ledgers",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Port Customs Ledgers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Merchant ship registration was administered through Custom Houses and port officials, making port customs recordkeeping the enabling institutional record practice.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Research guide C12: Merchant Navy - ship registration and Custom House records",
+            "url": "https://www.rmg.co.uk/collections/research-guides/research-guide-c12-merchant-navy-ship-registration-custom-house-records",
+            "publisher": "Royal Museums Greenwich",
+            "year": 2026,
+            "source_type": "museum",
+            "source_locator": "The guide explains ship registration and Custom House records, says foreign-built ships were required to register with Custom Houses in 1661, and says the 1786 act required registration with Customs in the home port.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Rescoped from a broad 1680 merchant-marine registry placeholder to British Custom House merchant ship registration. Ship registers identify vessels and ownership/registry facts; they do not generally record full voyages, cargo, crews, or insurance claims.",
+    "sources": [
+      {
+        "title": "Research guide C12: Merchant Navy - ship registration and Custom House records",
+        "url": "https://www.rmg.co.uk/collections/research-guides/research-guide-c12-merchant-navy-ship-registration-custom-house-records",
+        "publisher": "Royal Museums Greenwich",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Royal Museums Greenwich says ships began to be registered around the middle of the seventeenth century, foreign-built ships had to register with Custom Houses in 1661, British-built colonial-trade ships had to register in 1695, and general registration followed in 1786.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Registration of shipping",
+        "url": "https://www.crewlist.org.uk/registers/registernotes",
+        "publisher": "Crew List Index Project",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "source_locator": "The project summarizes British shipping registers as port-based records whose entries include ship dimensions, tonnage, rig, owners, builders, masters, ownership changes, and registry or sale outcomes; it also notes they generally do not show voyages, cargo, or crew apart from masters in earlier registers.",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1661 date anchors the scoped node to the Royal Museums Greenwich registration requirement for foreign-built ships at Custom Houses. Local registration began around the middle of the seventeenth century, British-built colonial-trade registration followed in 1695, and general centralized registration was established in 1786."
   },
   {
     "id": "early_scientific_conferences",

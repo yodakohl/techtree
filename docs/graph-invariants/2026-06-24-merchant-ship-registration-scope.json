@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-24-merchant-ship-registration-scope",
+  "description": "Lock the 2026-06-24 rescope of merchant_marine_registry to British Custom House merchant ship registration rather than broad voyage, crew, or insurance records.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "merchant_marine_registry",
+      "operator": "eq",
+      "value": 1661,
+      "reason": "The node is anchored to Royal Museums Greenwich's 1661 Custom House registration requirement for foreign-built ships, not the previous 1680 placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_marine_registry",
+      "prerequisite": "naval_logbooks",
+      "reason": "Voyage logbooks are adjacent maritime records, not a direct prerequisite for official ship registration."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_marine_registry",
+      "prerequisite": "insurance_claims_adjustment",
+      "reason": "The insurance node is scoped to fire-insurance claims assessment and does not directly enable Custom House ship registration."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_marine_registry",
+      "prerequisite": "port_customs_ledgers",
+      "expected": "enabling",
+      "reason": "Ship registration was administered through Custom House and port Customs record systems."
+    }
+  ]
+}
