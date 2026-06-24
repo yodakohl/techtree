@@ -1,0 +1,86 @@
+{
+  "id": "2026-06-24-professional-patent-examination-scope",
+  "description": "Lock the professional patent examination and patent model collection nodes to their 1836/1840 U.S. Patent Office scope and prevent old Renaissance placeholder dependencies from returning.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "technical_patent_examination",
+      "operator": "eq",
+      "value": 1836,
+      "reason": "The source-backed scope is the professional U.S. Patent Office examination system created by the Patent Act of 1836."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "technical_patent_examination",
+      "prerequisite": "patent_systems",
+      "expected": "required",
+      "reason": "Professional patent examination is an administrative function inside a statutory patent-granting system."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "technical_patent_examination",
+      "prerequisite": "public_archives",
+      "expected": "required",
+      "reason": "The Patent Office needed filed application records, specifications, drawings, and models for examination."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "technical_patent_examination",
+      "prerequisite": "technical_drawing_standards",
+      "expected": "enabling",
+      "reason": "Application drawings enabled technical inspection but are not the legal container for examination."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "technical_patent_examination",
+      "prerequisite": "printed_patent_specifications",
+      "reason": "Printed patent publication is not the source-backed substrate for 1836 application examination."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "technical_patent_examination",
+      "prerequisite": "early_patent_systems",
+      "reason": "The corrected node depends on the statutory patent-system category, not a broad invention-privilege predecessor."
+    },
+    {
+      "type": "first_known_date",
+      "node": "patent_model_collections",
+      "operator": "eq",
+      "value": 1840,
+      "reason": "The source-backed collection/display scope is the 1840 purpose-built Patent Office museum collection."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "patent_model_collections",
+      "prerequisite": "technical_patent_examination",
+      "expected": "enabling",
+      "reason": "Submitted patent models had an application-examination purpose before public display."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "patent_model_collections",
+      "prerequisite": "public_archives",
+      "expected": "enabling",
+      "reason": "The Patent Office retained and restored models, specifications, drawings, and records as a collection."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "patent_model_collections",
+      "prerequisite": "public_art_museums",
+      "expected": "common_dependency",
+      "reason": "Public museum practice is display context, not a hard technical dependency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "patent_model_collections",
+      "prerequisite": "printed_patent_specifications",
+      "reason": "The model collection was not merely a printed-specification publication system."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "patent_model_collections",
+      "prerequisite": "public_museum_catalogs",
+      "reason": "Printed cabinet catalogs are outside the corrected Patent Office model-gallery scope."
+    }
+  ]
+}

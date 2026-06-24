@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-patent-model-collections-public-archives-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "patent_model_collections",
+    "prerequisite": "public_archives"
+  },
+  "replaced_edge": {
+    "dependent": "patent_model_collections",
+    "prerequisite": "printed_patent_specifications"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Patent Specifications provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "The Patent Office retained submitted models, specifications, drawings, and records, turning application artifacts into a public institutional collection."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://americanhistory.si.edu/collections/object-groups/patent-models-graphic-arts",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Smithsonian says the Patent Office became keeper of a huge model collection and that 1840 restoration recovered models and specifications lost in the 1836 fire.",
+    "source_claim_summary": "The source identifies Patent Office custody and restoration of models and specifications as the collection mechanism.",
+    "source_support_rationale": "This supports replacing printed specifications with public archives because the collection was formed by institutional retention of application artifacts rather than publication alone."
+  },
+  "ontology_before": "Patent Model Collections depended on printed patent specifications, overemphasizing publication instead of retained physical and documentary records.",
+  "ontology_after": "Patent Model Collections depends on public_archives for Patent Office custody of models, specifications, drawings, and records.",
+  "invariant_preserved_or_changed": "Changed: patent_model_collections now depends on public_archives and no longer directly on printed_patent_specifications.",
+  "would_reject_if": [
+    "The node were rescoped to printed patent documents without retained physical models.",
+    "A source showed patent model collections emerged from publication rather than Patent Office custody.",
+    "The public_archives node were narrowed away from official institutional record repositories."
+  ],
+  "short_reason": "The model collection was an archive of retained application artifacts, not a printed-specification system.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/patent_model_collections.before.json /tmp/patent_model_collections.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

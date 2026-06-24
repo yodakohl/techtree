@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-professional-patent-exam-public-archives-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "technical_patent_examination",
+    "prerequisite": "public_archives"
+  },
+  "replaced_edge": {
+    "dependent": "technical_patent_examination",
+    "prerequisite": "printed_patent_specifications"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Patent Specifications provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.8,
+    "evidence_level": "primary_source",
+    "note": "The 1836 system depended on Patent Office custody of recorded descriptions, specifications, drawings, papers, models, and application files used in examination."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patentlyo.com/media/docs/2008/03/Patent_Act_of_1836.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Sections 5-7 require descriptions, specifications, drawings, papers, models, and application files to be recorded, filed, and examined in the Patent Office.",
+    "source_claim_summary": "The statute describes examination as operating over filed Patent Office records and application materials.",
+    "source_support_rationale": "This supports replacing printed patent specifications because the source-backed mechanism is office custody and examination of filed records, not printed publication of specifications."
+  },
+  "ontology_before": "Technical Patent Examination depended on printed patent specifications as if print publication were the administrative substrate.",
+  "ontology_after": "Professional Patent Examination depends on public_archives for Patent Office custody of the records, drawings, models, and papers used in examination.",
+  "invariant_preserved_or_changed": "Changed: technical_patent_examination now depends on public_archives and no longer directly on printed_patent_specifications.",
+  "would_reject_if": [
+    "The node were rescoped to later printed patent-publication systems rather than application examination.",
+    "A source showed professional examination was performed without retained application records, drawings, models, or files.",
+    "The public_archives node were narrowed away from state office records."
+  ],
+  "short_reason": "Patent examination used filed office records; printed specifications are the wrong substrate.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/technical_patent_examination.before.json /tmp/technical_patent_examination.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

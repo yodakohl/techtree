@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-professional-patent-exam-drawing-standards-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "technical_patent_examination",
+    "prerequisite": "technical_drawing_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Technical Drawing Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "primary_source",
+    "note": "Applications had to include drawings and written references where the invention admitted drawings, so technical drawing conventions enabled examiners to inspect and compare inventions."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patentlyo.com/media/docs/2008/03/Patent_Act_of_1836.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Section 6 requires drawings and written references where the invention admits drawings, and Section 7 makes the filed application the subject of examination.",
+    "source_claim_summary": "The source shows that drawings were part of patent applications examined under the 1836 system.",
+    "source_support_rationale": "This upgrades the edge because technical drawing standards help make application drawings legible for examination, while the statute does not make drawing conventions the sole legal foundation."
+  },
+  "invariant_preserved_or_changed": "Preserved: technical_drawing_standards remains an enabling edge; changed: the edge now has primary-source evidence and a patent-application-specific note.",
+  "would_reject_if": [
+    "The node were narrowed to legal-only examination that explicitly excludes drawings and models.",
+    "A source showed drawings were not used in the 1836 professional examination process.",
+    "The technical_drawing_standards node were narrowed to non-technical art conventions only."
+  ],
+  "short_reason": "The 1836 Act directly required application drawings where applicable.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/technical_patent_examination.before.json /tmp/technical_patent_examination.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

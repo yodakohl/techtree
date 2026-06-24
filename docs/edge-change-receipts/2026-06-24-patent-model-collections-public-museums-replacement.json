@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-patent-model-collections-public-museums-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "patent_model_collections",
+    "prerequisite": "public_art_museums"
+  },
+  "replaced_edge": {
+    "dependent": "patent_model_collections",
+    "prerequisite": "public_museum_catalogs"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Museum Catalogs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.58,
+    "evidence_level": "review",
+    "note": "Public museum exhibition practice supplied the display context for Patent Office model galleries, but the patent model collection remained a specialized invention archive rather than an art museum."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.uspto.gov/patents/milestones",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "USPTO says the 1840 Patent Office was the first federally funded museum collection in U.S. history and displayed rows of patent models to visitors.",
+    "source_claim_summary": "The source frames the Patent Office galleries as a public museum collection, not a printed catalog tradition.",
+    "source_support_rationale": "This supports public_art_museums as shared exhibition context and weakens the relationship because the collection was a patent-office invention archive rather than a direct descendant of printed cabinet catalogs."
+  },
+  "ontology_before": "Patent Model Collections depended on Printed Cabinet Catalogs through a generic enabling edge.",
+  "ontology_after": "Patent Model Collections uses public_art_museums as a contextual public-exhibition precedent and no longer depends on printed cabinet catalogs.",
+  "invariant_preserved_or_changed": "Changed: patent_model_collections now depends on public_art_museums as common_dependency and no longer directly on public_museum_catalogs.",
+  "would_reject_if": [
+    "The node were rescoped to printed catalogs of invention models rather than the Patent Office model collection.",
+    "A source showed printed cabinet catalogs were a direct prerequisite for Patent Office galleries.",
+    "The public_art_museums node were narrowed to exclude public collecting and exhibiting institutions."
+  ],
+  "short_reason": "Patent model galleries are museum-display context; printed cabinet catalogs are too narrow and indirect.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/patent_model_collections.before.json /tmp/patent_model_collections.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

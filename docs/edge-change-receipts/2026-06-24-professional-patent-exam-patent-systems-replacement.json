@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-professional-patent-exam-patent-systems-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "technical_patent_examination",
+    "prerequisite": "patent_systems"
+  },
+  "replaced_edge": {
+    "dependent": "technical_patent_examination",
+    "prerequisite": "early_patent_systems"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Invention Privilege Systems is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "Professional patent examination is an administrative layer inside a statutory patent-granting system; the 1836 Act created the Patent Office and required examination before grant."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.uspto.gov/patents/milestones",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "USPTO 1836 milestone says the Patent Act required examination before patents were granted and established professional patent examiners.",
+    "source_claim_summary": "The 1836 professional examiner system was part of a statutory Patent Office grant process.",
+    "source_support_rationale": "This supports replacing a broad invention-privilege predecessor with the narrower patent-system prerequisite because professional examination only functions as a grant step inside a statutory patent regime."
+  },
+  "ontology_before": "Technical Patent Examination depended on a broad early invention-privilege node with only historical-predecessor force.",
+  "ontology_after": "Professional Patent Examination depends on the statutory patent-system node as the required legal container for examination before grant.",
+  "invariant_preserved_or_changed": "Changed: technical_patent_examination now depends on patent_systems and no longer directly on early_patent_systems.",
+  "would_reject_if": [
+    "The node were rescoped to premodern discretionary invention privileges rather than professional patent-office examination.",
+    "A stronger source showed professional examination can exist outside a patent-granting legal system.",
+    "The patent_systems node were narrowed away from statutory patent grants."
+  ],
+  "short_reason": "Professional examination is a statutory patent-system function, not merely a generic invention-privilege lineage.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/technical_patent_examination.before.json /tmp/technical_patent_examination.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

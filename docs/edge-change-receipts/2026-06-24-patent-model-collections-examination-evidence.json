@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-patent-model-collections-examination-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "patent_model_collections",
+    "prerequisite": "technical_patent_examination"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Technical Patent Examination provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Patent models were submitted with descriptions and drawings for Patent Office examination, giving the retained model collection its administrative purpose before public display."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.hagley.org/patentmodels",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Hagley says patent applicants submitted scale models with written descriptions and drawings for examination by the U.S. Patent Office.",
+    "source_claim_summary": "The source connects patent models directly to Patent Office examination practice.",
+    "source_support_rationale": "This upgrades the existing edge because examination explains why models were submitted and retained, while public display is a later use of the same artifacts."
+  },
+  "invariant_preserved_or_changed": "Preserved: technical_patent_examination remains an enabling prerequisite; changed: the edge now has museum-source evidence and a model-specific note.",
+  "would_reject_if": [
+    "The node were rescoped to private collector holdings detached from Patent Office applications.",
+    "A source showed patent models were never used for examination or application review.",
+    "The technical_patent_examination node were removed or narrowed away from the Patent Office process."
+  ],
+  "short_reason": "Patent models were submitted for Patent Office examination.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/patent_model_collections.before.json /tmp/patent_model_collections.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
