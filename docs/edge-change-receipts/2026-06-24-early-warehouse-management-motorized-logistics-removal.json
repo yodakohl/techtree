@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-early-warehouse-management-motorized-logistics-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "warehouse_management_systems_early",
+    "prerequisite": "motorized_logistics"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Motorized Logistics supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct Early Warehouse Management to Motorized Logistics edge remains because the scoped early warehouse node is anchored to mid-nineteenth-century grain elevator receipts, scale tickets, customer accounts, daily position records, grade standards, and rail-linked storage before motorized truck logistics.",
+  "source_supports_edge": "no",
+  "source_url": "https://eh.net/encyclopedia/a-history-of-futures-trading-in-the-united-states/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Santos says that before the mid-1860s commission agents obtained warehouse receipts for lots and quantities of grain in store, and that by the 1840s grain elevators and railroads facilitated high-volume grain storage and shipment.",
+    "source_claim_summary": "The source anchors the early warehouse-management mechanism to receipts, grain elevators, railroads, and fungible inventory grades rather than motorized logistics.",
+    "source_support_rationale": "A warehouse-control practice operating through rail-linked grain elevators and receipt finance before the mid-1860s cannot depend on later motorized logistics as a prerequisite."
+  },
+  "ontology_before": "Early Warehouse Management depended on Motorized Logistics, making a nineteenth-century warehouse-recordkeeping node depend on a later truck-and-tractor logistics abstraction.",
+  "ontology_after": "Early Warehouse Management is scoped to rail-linked grain elevator inventory records and receipts; motorized logistics remains later freight-distribution infrastructure rather than an upstream requirement.",
+  "invariant_preserved_or_changed": "Changed: removed the direct motorized_logistics prerequisite. Preserved: the node still depends on railroads for high-volume rail-linked storage and shipment.",
+  "would_reject_if": [
+    "The node is later rescoped to twentieth-century truck-depot warehouse operations.",
+    "A source shows the specific early warehouse-management practices require motor trucks or tractors rather than rail-linked elevators and receipt accounting.",
+    "A separate motorized_warehouse_logistics node is introduced for twentieth-century depot operations."
+  ],
+  "short_reason": "Early warehouse receipts and grain-elevator records predate motorized logistics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/warehouse_management_systems_early.before.json /tmp/warehouse_management_systems_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

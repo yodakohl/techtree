@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-24-early-warehouse-management-scope",
+  "description": "Lock Early Warehouse Management to rail-linked grain elevator receipt accounting rather than later motorized depot logistics.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "warehouse_management_systems_early",
+      "operator": "eq",
+      "value": 1850,
+      "reason": "EH.Net anchors high-volume grain elevator and railroad storage in the 1840s, with 1850s grain-port growth and documented receipt-based grain finance before the mid-1860s."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "warehouse_management_systems_early",
+      "prerequisite": "railroads",
+      "reason": "The scoped node depends on rail-linked high-volume grain storage and shipment."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "warehouse_management_systems_early",
+      "prerequisite": "motorized_logistics",
+      "reason": "Motorized logistics is later freight-distribution infrastructure, not a prerequisite for mid-nineteenth-century warehouse receipts, scale tickets, customer accounts, and grain elevator records."
+    }
+  ]
+}

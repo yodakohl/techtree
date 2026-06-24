@@ -14712,38 +14712,30 @@
     "id": "warehouse_management_systems_early",
     "name": "Early Warehouse Management",
     "era": "Industrial",
-    "description": "Standardized bins, ledgers, labels, stock rotation, rail links, and paperwork for controlling inventory at industrial scale.",
+    "description": "Manual warehouse inventory control using warehouse receipts, scale tickets, customer accounts, daily position records, grade standards, and rail-linked elevators to manage stored commodities at industrial scale.",
     "prerequisites": [
-      "motorized_logistics",
       "railroads"
     ],
-    "firstKnownDate": 1860,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1850,
+    "datePrecision": "decade",
+    "region": "United States grain elevator and railroad markets",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "motorized_logistics",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Motorized Logistics supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "source_checked"
-      },
-      {
         "prerequisite": "railroads",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Railroads provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Rail-linked grain elevators enabled high-volume storage and shipment, which required fungible grades, receipts, and inventory records.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Stockton & Darlington Railway",
-            "url": "https://www.britannica.com/topic/Stockton-and-Darlington-Railway",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "A History of Futures Trading in the United States",
+            "url": "https://eh.net/encyclopedia/a-history-of-futures-trading-in-the-united-states/",
+            "publisher": "EH.Net Encyclopedia",
+            "year": 2008,
+            "source_type": "review",
+            "source_locator": "Santos says that by the 1840s grain elevators and railroads facilitated high-volume grain storage and shipment, and that this scale required fungible inventoried grain grades.",
             "supports": [
               "edge"
             ]
@@ -14753,13 +14745,25 @@
     ],
     "sources": [
       {
-        "title": "Stockton & Darlington Railway",
-        "url": "https://www.britannica.com/topic/Stockton-and-Darlington-Railway",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "A History of Futures Trading in the United States",
+        "url": "https://eh.net/encyclopedia/a-history-of-futures-trading-in-the-united-states/",
+        "publisher": "EH.Net Encyclopedia",
+        "year": 2008,
+        "source_type": "review",
+        "source_locator": "Santos describes pre-mid-1860s warehouse receipts as dealer-certified negotiable titles to specific lots and quantities of grain in store, and explains how railroads, grain elevators, fungible grades, and 1850s Chicago grain trade growth scaled storage and shipment.",
         "supports": [
-          "edge",
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Federal and State Regulation of Grain Warehouses and Grain Warehouse Receipts",
+        "url": "https://nationalaglawcenter.org/wp-content/uploads/assets/bibarticles/hamiltonlooney_warehouses.pdf",
+        "publisher": "South Dakota Law Review / National Agricultural Law Center",
+        "year": 1982,
+        "source_type": "review",
+        "source_locator": "Hamilton and Looney describe grain warehouse transactions in which scale tickets record deposited quantity and grade, elevators post grain to customer accounts and daily position records, and storage may be evidenced by negotiable or nonnegotiable warehouse receipts.",
+        "supports": [
           "node"
         ]
       }
