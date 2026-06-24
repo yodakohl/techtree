@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-24-self-healing-civil-infrastructure-scope",
+  "description": "Lock self_healing_civil_infrastructure to civil public-works systems combining smart/self-healing materials, robotic inspection or repair, and digital-twin monitoring rather than a separate nanobot-infrastructure duplicate.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "self_healing_civil_infrastructure",
+      "prerequisite": "smart_materials_self_healing",
+      "expected": "speculative",
+      "reason": "Self-healing infrastructure requires materials that can sense damage or autonomously repair cracks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "self_healing_civil_infrastructure",
+      "prerequisite": "robotic_construction_swarms",
+      "expected": "speculative",
+      "reason": "Robotic inspection and maintenance provide the field repair layer for distributed civil assets."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "self_healing_civil_infrastructure",
+      "prerequisite": "digital_twin_infrastructure",
+      "expected": "speculative",
+      "reason": "Digital twins provide sensor-updated monitoring and predictive-maintenance models for civil infrastructure."
+    }
+  ]
+}

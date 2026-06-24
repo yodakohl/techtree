@@ -19914,31 +19914,64 @@
     "era": "Future",
     "description": "Embedded sensors, smart materials, and robotic maintenance that detect damage and repair public works.",
     "prerequisites": [
+      "smart_materials_self_healing",
       "robotic_construction_swarms",
       "digital_twin_infrastructure"
     ],
+    "fields": [
+      "Civil Engineering & Built Environment",
+      "Materials Science & Manufacturing",
+      "Robotics & Autonomous Systems"
+    ],
+    "fieldLanes": {
+      "Civil Engineering & Built Environment": "Construction Automation & Roadmap",
+      "Materials Science & Manufacturing": "Roadmap",
+      "Robotics & Autonomous Systems": "Autonomy & AI"
+    },
     "firstKnownDate": 2035,
     "datePrecision": "decade",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
+        "prerequisite": "smart_materials_self_healing",
+        "type": "speculative",
+        "confidence": 0.35,
+        "evidence_level": "speculative",
+        "note": "Self-healing civil infrastructure requires smart materials that can sense damage or autonomously close cracks in built assets.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Sustainable and Innovative Self-Healing Concrete Technologies to Mitigate Environmental Impacts in Construction",
+            "url": "https://www.mdpi.com/2673-4109/5/3/29",
+            "publisher": "CivilEng",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The review defines self-healing concrete as autogenous or autonomous crack repair and surveys microbial calcite precipitation, shape-memory polymers, encapsulation, hydration, and swelling-agent approaches for buildings, bridges, roads, and tunnels."
+          }
+        ]
+      },
+      {
         "prerequisite": "robotic_construction_swarms",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Robotic Construction Swarms is a plausible dependency for a forecast technology and should be treated as speculative.",
+        "note": "Robotic construction and inspection systems provide the field-maintenance layer for detecting defects and executing repair work on distributed infrastructure.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Robotics",
-            "url": "https://www.nist.gov/robotics",
-            "publisher": "NIST",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "Robots in Inspection and Monitoring of Buildings and Infrastructure: A Systematic Review",
+            "url": "https://www.mdpi.com/2076-3417/13/4/2304",
+            "publisher": "Applied Sciences",
+            "year": 2023,
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "The systematic review covers robots for built-environment inspection and monitoring, including UAVs, UGVs, wall-climbing robots, cable-crawling robots, maintenance inspection, autonomous navigation, sensing, and multi-robot collaboration."
           }
         ]
       },
@@ -19947,23 +19980,70 @@
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Digital Twin Infrastructure is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Digital twin infrastructure supplies the real-time model, sensor integration, structural health monitoring, and predictive-maintenance layer for self-healing public works.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Advancing civil infrastructure with digital twins: a review of applications and challenges",
+            "url": "https://journals.vilniustech.lt/index.php/JCEM/article/view/24921",
+            "publisher": "Journal of Civil Engineering and Management",
+            "year": 2025,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The review describes digital twins for civil infrastructure as virtual representations continuously updated from IoT sensors and simulations for real-time monitoring, predictive maintenance, structural health monitoring, and optimized asset management."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Wikipedia page for Self-Healing Civil Infrastructure",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Self-Healing%20Civil%20Infrastructure",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Sustainable and Innovative Self-Healing Concrete Technologies to Mitigate Environmental Impacts in Construction",
+        "url": "https://www.mdpi.com/2673-4109/5/3/29",
+        "publisher": "CivilEng",
+        "year": 2024,
+        "source_type": "review",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "The review says concrete in buildings, bridges, roads, and tunnels is susceptible to micro-cracks and defines self-healing concrete as autogenous or autonomous crack repair using microbial, polymer, encapsulation, hydration, and swelling-agent technologies."
+      },
+      {
+        "title": "Applications of Smart and Self-Sensing Materials for Structural Health Monitoring in Civil Engineering: A Systematic Review",
+        "url": "https://www.mdpi.com/2075-5309/14/8/2345",
+        "publisher": "Buildings",
+        "year": 2024,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The systematic review covers self-sensing smart materials for structural health monitoring in civil infrastructure, including continuous monitoring, early damage detection, bridges, buildings, transportation systems, and geotechnics."
+      },
+      {
+        "title": "Robots in Inspection and Monitoring of Buildings and Infrastructure: A Systematic Review",
+        "url": "https://www.mdpi.com/2076-3417/13/4/2304",
+        "publisher": "Applied Sciences",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The review identifies robotic systems for inspection and monitoring of buildings and infrastructure, including maintenance inspection, sensing, autonomous navigation, and multi-robot collaboration."
+      },
+      {
+        "title": "Advancing civil infrastructure with digital twins: a review of applications and challenges",
+        "url": "https://journals.vilniustech.lt/index.php/JCEM/article/view/24921",
+        "publisher": "Journal of Civil Engineering and Management",
+        "year": 2025,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The review frames digital twins in civil infrastructure as IoT- and simulation-updated representations for real-time monitoring, predictive maintenance, structural health monitoring, smart city frameworks, and infrastructure safety."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the only node-level source was a Wikipedia search URL, not evidence supporting the exact node claim."
+    "sourceCheckedDowngradeNote": "Source-backed as a forecast/roadmap capability rather than source_checked: review sources support smart materials, self-sensing monitoring, digital twins, and robotic inspection for civil infrastructure, but not broad self-healing public-works deployment by 2035."
   },
   {
     "id": "planetary_climate_control_systems",
