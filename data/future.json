@@ -1613,16 +1613,14 @@
     "id": "longevity_escape_velocity_lev",
     "name": "Longevity Escape Velocity (LEV)",
     "era": "Future",
-    "description": "Hypothetical point where life-extending technologies advance rapidly enough to increase remaining life expectancy faster than time passes.",
+    "description": "Forecast threshold where repeated geroscience and rejuvenation interventions would extend healthy remaining life expectancy faster than chronological time passes.",
     "prerequisites": [
       "personalized_medicine",
-      "advanced_nanomedicine",
-      "synthetic_organs_bio_printing",
       "aging_research_senolytics",
       "epigenetic_engineering_rejuvenation"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -1631,55 +1629,135 @@
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Personalized Medicine is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "advanced_nanomedicine",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Advanced Nanomedicine is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "synthetic_organs_bio_printing",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Synthetic Organs & Bioprinting is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Biomarker-guided, individualized geroscience or geromedicine is relevant to selecting and measuring rejuvenation interventions, but it does not by itself establish that LEV is achievable.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "National Institute on Aging (NIA)",
+            "url": "https://www.nih.gov/about-nih/nih-almanac/national-institute-aging-nia",
+            "publisher": "National Institutes of Health",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NIA describes aging research portfolios on hallmarks of aging, heterogeneity of aging, genetics and epigenetics, translational human research, clinical trials, and interventions that may affect rates of age-related functional decline."
+          }
+        ]
       },
       {
         "prerequisite": "aging_research_senolytics",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Aging Research (Senolytics & Rejuvenation) is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Senolytics and other gerotherapeutics are direct research lines for extending healthspan by targeting aging mechanisms; human benefit and safety remain unsettled.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Drugs Targeting Mechanisms of Aging to Delay Age-Related Disease and Promote Healthspan",
+            "url": "https://academic.oup.com/biomedgerontology/article/78/Supplement_1/53/7199275",
+            "publisher": "The Journals of Gerontology: Series A",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The NIA workshop proceedings review the geroscience hypothesis, senolytics, NAD+ boosters, and metformin as interventions targeting hallmarks of aging, while noting that wider human benefit and safety need more research."
+          },
+          {
+            "title": "Cellular senescence: a key therapeutic target in aging and diseases",
+            "url": "https://www.jci.org/articles/view/158450",
+            "publisher": "Journal of Clinical Investigation",
+            "year": 2022,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The review identifies cellular senescence as a hallmark of aging, describes senolytics and senomorphics, and notes preclinical evidence plus multiple clinical trials under way."
+          }
+        ]
       },
       {
         "prerequisite": "epigenetic_engineering_rejuvenation",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Epigenetic Engineering & Rejuvenation is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Partial epigenetic and cellular reprogramming is a plausible rejuvenation research path, but it remains translationally limited by delivery, identity, and safety concerns.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The long and winding road of reprogramming-induced rejuvenation",
+            "url": "https://www.nature.com/articles/s41467-024-46020-5",
+            "publisher": "Nature Communications",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The review discusses reprogramming-induced rejuvenation, partial cell reprogramming, epigenetic aging clocks, mouse and cell results, translational potential, and unresolved safety concerns."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Longevity escape velocity",
-        "url": "https://en.wikipedia.org/wiki/Longevity_escape_velocity",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "Escape Velocity: Why the Prospect of Extreme Human Life Extension Matters Now",
+        "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.0020187",
+        "publisher": "PLOS Biology",
+        "year": 2004,
+        "source_type": "review",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "The article frames actuarial escape velocity as a scenario where sustained rejuvenation therapies reduce age-specific mortality fast enough that remaining life expectancy rises over time."
+      },
+      {
+        "title": "National Institute on Aging (NIA)",
+        "url": "https://www.nih.gov/about-nih/nih-almanac/national-institute-aging-nia",
+        "publisher": "National Institutes of Health",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NIA describes aging-biology, geroscience, translational aging, clinical-trials, genetics/epigenetics, and intervention portfolios aimed at extending healthy active years, not an achieved LEV milestone."
+      },
+      {
+        "title": "Drugs Targeting Mechanisms of Aging to Delay Age-Related Disease and Promote Healthspan",
+        "url": "https://academic.oup.com/biomedgerontology/article/78/Supplement_1/53/7199275",
+        "publisher": "The Journals of Gerontology: Series A",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The NIA workshop proceedings review geroscience interventions targeting hallmarks of aging, including senolytics, but stress that broader human benefits and safety remain to be demonstrated."
+      },
+      {
+        "title": "Cellular senescence: a key therapeutic target in aging and diseases",
+        "url": "https://www.jci.org/articles/view/158450",
+        "publisher": "Journal of Clinical Investigation",
+        "year": 2022,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The review ties cellular senescence to aging and age-related disease, describes senolytics and senomorphics, and summarizes preclinical and clinical progress."
+      },
+      {
+        "title": "The long and winding road of reprogramming-induced rejuvenation",
+        "url": "https://www.nature.com/articles/s41467-024-46020-5",
+        "publisher": "Nature Communications",
+        "year": 2024,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The review frames partial reprogramming as a rejuvenation strategy with cellular and mouse evidence, translational promise, and substantial safety and delivery constraints."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "sourceCheckedDowngradeNote": "PLOS, NIH/NIA, geroscience, senescence, and partial-reprogramming sources added during Future forecast review; kept structurally_validated because sources support the LEV concept and research pathways, not achieved LEV by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for possible LEV-related biomedical progress, not a source-backed date for achieved LEV or clinically validated rejuvenation stacks."
   },
   {
     "id": "cryogenics_advanced",

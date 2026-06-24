@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-lev-synthetic-organs-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "longevity_escape_velocity_lev",
+    "prerequisite": "synthetic_organs_bio_printing"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Synthetic Organs & Bioprinting is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Longevity Escape Velocity to Synthetic Organs & Bioprinting edge remains because source-backed LEV scope covers aging-mechanism and rejuvenation interventions, not whole-organ replacement as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/biomedgerontology/article/78/Supplement_1/53/7199275",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and introduction: the NIA workshop proceedings define the geroscience hypothesis as targeting key hallmarks of aging to delay age-related diseases and promote healthspan, with reviewed intervention classes including senolytics, NAD+ boosters, and metformin.",
+    "source_claim_summary": "The cited geroscience review supports LEV-relevant healthspan intervention research through aging mechanisms, not organ bioprinting or synthetic organ replacement as a required upstream capability.",
+    "source_support_rationale": "This supports removing the synthetic-organ prerequisite because the LEV node now represents a forecast threshold from repeated rejuvenation and geroscience progress; organ replacement may be relevant to separate regenerative-medicine nodes but is not a source-backed direct dependency here."
+  },
+  "ontology_before": "The graph implied that whole-organ bioprinting or synthetic organs were direct prerequisites for the broad LEV forecast.",
+  "ontology_after": "The graph leaves synthetic organs and bioprinting as separate regenerative-medicine concepts rather than mandatory upstream dependencies for LEV.",
+  "invariant_preserved_or_changed": "Changed: direct longevity_escape_velocity_lev -> synthetic_organs_bio_printing edge removed and locked absent in 2026-06-24-longevity-escape-velocity-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to whole-organ replacement as the mechanism for LEV.",
+    "A credible LEV source states that synthetic organs or bioprinting are required before LEV can occur.",
+    "A downstream node represents organ-replacement-based indefinite life extension and should point separately to synthetic_organs_bio_printing."
+  ],
+  "short_reason": "LEV evidence supports aging-mechanism intervention pathways, not synthetic organs as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/longevity_escape_velocity_lev.before.json /tmp/longevity_escape_velocity_lev.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

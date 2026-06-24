@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-lev-advanced-nanomedicine-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "longevity_escape_velocity_lev",
+    "prerequisite": "advanced_nanomedicine"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Advanced Nanomedicine is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Longevity Escape Velocity to Advanced Nanomedicine edge remains because source-backed LEV scope is geroscience and rejuvenation intervention progress, not a requirement for molecular nanomedical machinery.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/biomedgerontology/article/78/Supplement_1/53/7199275",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and introduction: the NIA workshop proceedings frame geroscience around targeting hallmarks of aging with interventions such as senolytics, NAD+ boosters, and metformin, while stressing that human benefit and safety need more research.",
+    "source_claim_summary": "The reviewed geroscience path to healthspan extension centers on aging mechanisms and pharmacological interventions, not advanced nanomedicine as a required technology class.",
+    "source_support_rationale": "This supports removing the nanomedicine prerequisite because the retained LEV node is scoped to repeated geroscience and rejuvenation interventions whose direct source-backed inputs are senolytics, biomarkers, and reprogramming, not molecular nanomedical machinery."
+  },
+  "ontology_before": "The graph implied that advanced nanomedicine was a direct prerequisite for any LEV-style forecast.",
+  "ontology_after": "The graph keeps LEV scoped to speculative geroscience and rejuvenation progress without requiring a separate advanced nanomedicine milestone.",
+  "invariant_preserved_or_changed": "Changed: direct longevity_escape_velocity_lev -> advanced_nanomedicine edge removed and locked absent in 2026-06-24-longevity-escape-velocity-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to nanomedical cell-repair systems rather than broad geroscience and rejuvenation interventions.",
+    "A credible LEV roadmap source states that advanced nanomedicine is required before LEV can be achieved.",
+    "A downstream node represents nanomedical rejuvenation and should point separately to advanced_nanomedicine."
+  ],
+  "short_reason": "LEV evidence supports geroscience and rejuvenation pathways, not nanomedicine as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/longevity_escape_velocity_lev.before.json /tmp/longevity_escape_velocity_lev.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
