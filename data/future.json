@@ -5510,7 +5510,7 @@
     "id": "space_colonization",
     "name": "Space Colonization",
     "era": "Future",
-    "description": "Permanent, self-sustaining human settlement off Earth.",
+    "description": "Long-duration off-Earth human settlements and infrastructure progressing toward self-sustaining operations on the Moon, Mars, or other destinations.",
     "prerequisites": [
       "space_stations",
       "fusion_power",
@@ -5522,7 +5522,7 @@
       "3d_printing_advanced"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -5632,7 +5632,20 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "Closed-Loop Life Support is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Overview: In-Situ Resource Utilization",
+            "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+            "publisher": "NASA",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA says humans living and working in deep space for months or years have less immediate access to Earth supplies, making local production of air, water, plant-growth inputs, propellants, building materials, and other supplies increasingly important."
+          }
+        ]
       },
       {
         "prerequisite": "asteroid_mining",
@@ -5640,7 +5653,31 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "Asteroid Mining is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Overview: In-Situ Resource Utilization",
+            "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+            "publisher": "NASA",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA frames sustained exploration around collecting space-based resources and transforming extraterrestrial resources into breathable air, water, propellants, building materials, and other useful products."
+          },
+          {
+            "title": "Space Resources Roundtable 2",
+            "url": "https://ntrs.nasa.gov/citations/20010001658",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2000,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The NTRS proceedings list an end-to-end Near-Earth asteroid resource exploitation plan and an engineering and cost model for human space settlement architectures."
+          }
+        ]
       },
       {
         "prerequisite": "3d_printing_advanced",
@@ -5648,22 +5685,59 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "3D Printing (Advanced / Multi-Material) is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "3D-Printed Habitat Challenge (2015 - 2019)",
+            "url": "https://www.nasa.gov/prizes-challenges-and-crowdsourcing/centennial-challenges/3d-printed-habitat-challenge/",
+            "publisher": "NASA",
+            "year": 2019,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA's 3D-Printed Habitat Challenge advanced additive construction technologies for sustainable housing solutions on Earth, the Moon, Mars, and beyond, including autonomous 3D-printed habitat elements."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Space colonization",
-        "url": "https://en.wikipedia.org/wiki/Space_colonization",
-        "publisher": "Wikipedia",
+        "title": "Moon to Mars Architecture",
+        "url": "https://www.nasa.gov/moontomarsarchitecture/",
+        "publisher": "NASA",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "NASA describes its Moon to Mars Architecture as a roadmap for long-term lunar-surface exploration, first steps on Mars, and the journey beyond, defining elements needed for long-term human-led deep-space discovery."
+      },
+      {
+        "title": "Moon to Mars Architecture - Strategy and Objectives",
+        "url": "https://www.nasa.gov/moontomarsarchitecture-strategyandobjectives/",
+        "publisher": "NASA",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NASA says its Moon to Mars Objectives support long-term Moon utilization for science, discovery, and economic benefit, set the stage for Mars exploration, and form a strategy for sustained human presence and exploration throughout the Solar System."
+      },
+      {
+        "title": "Overview: In-Situ Resource Utilization",
+        "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+        "publisher": "NASA",
+        "year": 2023,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NASA states that ISRU becomes more important as humans journey farther from Earth, making sustained exploration more viable by using local resources rather than carrying everything from Earth."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "sourceCheckedDowngradeNote": "Concrete NASA sources added during Future placeholder-source review; kept structurally_validated because sources support sustained-presence architectures, ISRU, and enabling technologies, not mature self-sustaining off-Earth settlements by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for sustained off-Earth settlement infrastructure, not a source-backed first-known date for permanent or self-sustaining space colonies."
   },
   {
     "id": "space_elevators",
