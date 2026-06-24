@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-24-computational-social-science-scope",
+  "description": "Lock Computational Social Science & Predictive Modeling to empirical social-data prediction methods rather than broad advanced-AI or advanced-game-theory scope.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "computational_social_science_predictive_modeling",
+      "prerequisite": "supervised_learning_pipelines",
+      "expected": "speculative",
+      "reason": "Supervised learning pipelines capture the prediction, training, validation, and held-out evaluation workflow used for social outcome modeling."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "computational_social_science_predictive_modeling",
+      "prerequisite": "probability_statistics_inference",
+      "expected": "speculative",
+      "reason": "Probability and statistical inference capture the uncertainty and error-evaluation basis for predictive social modeling."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "computational_social_science_predictive_modeling",
+      "prerequisite": "advanced_ai",
+      "reason": "Broad advanced AI is too general as a direct prerequisite for the scoped empirical prediction workflow."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "computational_social_science_predictive_modeling",
+      "prerequisite": "game_theory_advanced",
+      "reason": "Advanced game theory is narrower than the node's computational social-data and outcome-prediction scope."
+    }
+  ]
+}

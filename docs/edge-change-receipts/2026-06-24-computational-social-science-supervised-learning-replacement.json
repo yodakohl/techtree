@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-computational-social-science-supervised-learning-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "computational_social_science_predictive_modeling",
+    "prerequisite": "supervised_learning_pipelines"
+  },
+  "replaced_edge": {
+    "dependent": "computational_social_science_predictive_modeling",
+    "prerequisite": "advanced_ai"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Advanced AI Systems is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Supervised learning pipelines provide the common-task prediction workflows, model training, validation, and held-out evaluation used in social outcome prediction."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7165437/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract and introduction: 160 teams built predictive models for six life outcomes using a birth cohort study; the project used a machine-learning common-task design and held-out error metrics.",
+    "source_claim_summary": "The Fragile Families Challenge operationalized social prediction through machine-learning prediction tasks, model submissions, held-out data, and common error metrics.",
+    "source_support_rationale": "This supports the supervised-learning-pipeline prerequisite more directly than a broad future advanced-AI category, because the source names the prediction workflow and evaluation method used for social outcomes."
+  },
+  "ontology_before": "The graph made computational social science predictive modeling depend on broad future advanced AI, implying a general AI capability was required for the scoped prediction workflow.",
+  "ontology_after": "The graph routes the node through supervised learning pipelines, keeping the dependency anchored to training, validation, and prediction workflows used in social outcome modeling.",
+  "invariant_preserved_or_changed": "Changed: computational_social_science_predictive_modeling now depends on supervised_learning_pipelines and no longer directly on advanced_ai.",
+  "would_reject_if": [
+    "The node is later rescoped to autonomous governance AI rather than computational social-science prediction methods.",
+    "A source shows broad advanced AI is the direct prerequisite for computational social-science prediction rather than supervised prediction workflows."
+  ],
+  "short_reason": "Supervised prediction workflows are the direct method; advanced AI is too broad for this prerequisite edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/computational_social_science_predictive_modeling.before.json /tmp/computational_social_science_predictive_modeling.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

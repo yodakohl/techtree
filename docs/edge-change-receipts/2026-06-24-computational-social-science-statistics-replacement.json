@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-computational-social-science-statistics-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "computational_social_science_predictive_modeling",
+    "prerequisite": "probability_statistics_inference"
+  },
+  "replaced_edge": {
+    "dependent": "computational_social_science_predictive_modeling",
+    "prerequisite": "game_theory_advanced"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Game Theory (Advanced) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Probability and statistical inference provide the uncertainty modeling and error-evaluation basis for predicting social outcomes from observed data."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7165437/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract and common-task-method description: predictions were evaluated with held-out data and error metrics, and prediction error was analyzed across outcomes, families, and techniques.",
+    "source_claim_summary": "The social-outcome prediction study measured predictability with statistical machine-learning models, held-out data, and explicit prediction-error analysis.",
+    "source_support_rationale": "This supports replacing the advanced-game-theory dependency because the scoped node is about empirical prediction and model evaluation, not primarily strategic-interaction solution concepts."
+  },
+  "ontology_before": "The graph made computational social science predictive modeling depend on advanced game theory, overemphasizing strategic interaction as a prerequisite for broad social prediction.",
+  "ontology_after": "The graph routes the node through probability and statistical inference, preserving the uncertainty, prediction, and error-evaluation foundation needed for empirical social modeling.",
+  "invariant_preserved_or_changed": "Changed: computational_social_science_predictive_modeling now depends on probability_statistics_inference and no longer directly on game_theory_advanced.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to strategic-interaction simulations rather than broad social outcome and behavior prediction.",
+    "A source shows advanced game theory is a direct prerequisite for computational social-science prediction across the node's full scope."
+  ],
+  "short_reason": "Statistical inference is the direct prediction foundation; advanced game theory is narrower and not required for the broad node claim.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/computational_social_science_predictive_modeling.before.json /tmp/computational_social_science_predictive_modeling.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
