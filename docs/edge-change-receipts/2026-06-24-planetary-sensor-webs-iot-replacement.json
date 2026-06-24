@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-planetary-sensor-webs-iot-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "planetary_scale_sensor_webs",
+    "prerequisite": "internet_of_things_iot_ubiquitous_connectivity"
+  },
+  "replaced_edge": {
+    "dependent": "planetary_scale_sensor_webs",
+    "prerequisite": "global_climate_control_treaties"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Global Climate Control Treaties is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "IoT and ubiquitous connectivity provide the networked sensor, software, internet, and data-exchange substrate for linking distributed remote and in-situ instruments."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ai.jpl.nasa.gov/public/projects/sensorweb/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Background and Description: JPL defines a sensorweb as a network of sensors linked by software and the internet, and as networked instruments whose sensor information automatically reconfigures other sensors.",
+    "source_claim_summary": "NASA/JPL frames sensorwebs as networked sensors linked by software and the internet, with sensor information driving automatic reconfiguration of other instruments.",
+    "source_support_rationale": "This supports IoT and ubiquitous connectivity as the direct networking substrate, while global climate treaties are governance consumers or coordinators rather than a technical prerequisite for sensor-web construction."
+  },
+  "ontology_before": "The graph made planetary-scale sensor webs depend on global climate control treaties, implying governance agreements were required before the sensing network could exist.",
+  "ontology_after": "The graph routes planetary-scale sensor webs through IoT and ubiquitous connectivity, keeping treaties as downstream governance or application context rather than technical prerequisite infrastructure.",
+  "invariant_preserved_or_changed": "Changed: planetary_scale_sensor_webs now depends on internet_of_things_iot_ubiquitous_connectivity and no longer directly on global_climate_control_treaties.",
+  "would_reject_if": [
+    "The node is later rescoped to treaty verification institutions rather than dense technical monitoring networks.",
+    "A source shows global climate-control treaties are a direct prerequisite for building planetary sensor webs rather than a downstream use case."
+  ],
+  "short_reason": "IoT connectivity is the direct sensor-network substrate; climate treaties are downstream governance context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/planetary_scale_sensor_webs.before.json /tmp/planetary_scale_sensor_webs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
