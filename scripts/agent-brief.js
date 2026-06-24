@@ -7,6 +7,7 @@ const {
     makeReport,
     readJson
 } = require('./accuracy-risk-report');
+const { buildQueue } = require('./agent-next');
 
 const ROOT = path.join(__dirname, '..');
 
@@ -23,10 +24,15 @@ function maybeGit(args) {
 }
 
 function currentRiskQueue() {
-    const report = makeReport(loadData(), readJson(TAXONOMY_FILE));
-    return report.candidateQueue
-        .slice(0, 8)
-        .map(item => `${item.id} (${item.era}, ${item.firstKnownDate}: ${item.risks.map(risk => risk.risk).join(', ')})`);
+    const data = loadData();
+    const report = makeReport(data, readJson(TAXONOMY_FILE));
+    if (report.candidateQueue.length) {
+        return report.candidateQueue
+            .slice(0, 8)
+            .map(item => `${item.id} (${item.era}, ${item.firstKnownDate}: ${item.risks.map(risk => risk.risk).join(', ')})`);
+    }
+    return buildQueue(data, { limit: 8 }).queue
+        .map(item => `${item.id} [${item.score}] (${item.era}, ${item.firstKnownDate}: ${item.debt.join(', ')})`);
 }
 
 function metricLines(snapshot) {
@@ -54,7 +60,7 @@ function main() {
     for (const line of metricLines(snapshot)) console.log(`- ${line}`);
     console.log('');
 
-    console.log('Next Accuracy Queue (live)');
+    console.log('Next Review Queue (live)');
     if (riskQueue.length) {
         for (const item of riskQueue) console.log(`- ${item}`);
     } else {
@@ -63,13 +69,14 @@ function main() {
     console.log('');
 
     console.log('Fast Commands');
-    for (const name of ['test', 'quality', 'coverage', 'accuracy:risks', 'source-urls', 'start']) {
+    for (const name of ['agent:next', 'test', 'quality', 'coverage', 'accuracy:risks', 'source-urls', 'start']) {
         if (pkg.scripts?.[name]) console.log(`- npm run ${name}`);
     }
     console.log('');
 
     console.log('Token-Saving Workflow');
     console.log('- Start with this brief, then targeted rg/node reads; avoid opening whole data/*.json files.');
+    console.log('- Use npm run agent:next for a ranked launch-readiness target and copy-ready review commands.');
     console.log('- For data changes, inspect exact node packets with npm run node-packet -- <id> before editing.');
     console.log('- For bulk additions, use compact TSV + scripts/import-compact-tech.js; do not hand-edit era JSON in bulk.');
     console.log('- For demo/UI work, touch demo.html, demo.js, style.css; run node --check demo.js plus npm test.');

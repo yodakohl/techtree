@@ -10,6 +10,12 @@ npm run agent:brief
 
 It prints branch status, latest commit, quality snapshot metrics, the current accuracy-risk queue, and the shortest validation command list.
 
+For the next launch-readiness target with packet/setup commands:
+
+```bash
+npm run agent:next
+```
+
 ## Repo Shape
 
 - Canonical data: `data/{ancient,classical,medieval,renaissance,industrial,modern,future}.json`
@@ -24,6 +30,7 @@ It prints branch status, latest commit, quality snapshot metrics, the current ac
 
 - Do not read whole data files unless absolutely necessary; use `rg '"id": "node_id"' data/*.json`, `npm run node-packet -- <id>`, or short Node snippets.
 - Use `npm run agent:brief` and `docs/QUALITY_SNAPSHOT.md` instead of recomputing context manually.
+- Use `npm run agent:next` when the accuracy queue is empty or too broad; it ranks remaining placeholder-date, node-source, edge-source, and review-status debt and prints the packet/snapshot/check commands for the top target.
 - After edits, run `npm run agent:check` to see the minimal validation plan for changed files. Use `npm run agent:check -- --run` to execute that targeted plan once.
 - Keep a validation ledger mentally: if no files changed after a command passed, do not rerun it. Rerun only checks affected by later edits.
 - For UI work, read only the relevant view files and run `node --check` on changed JS.
