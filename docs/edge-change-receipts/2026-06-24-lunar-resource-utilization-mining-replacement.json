@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-lunar-resource-utilization-mining-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "lunar_resource_utilization",
+    "prerequisite": "mining"
+  },
+  "replaced_edge": {
+    "dependent": "lunar_resource_utilization",
+    "prerequisite": "orbital_manufacturing"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Orbital Manufacturing is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Mining provides the excavation and material-extraction capability needed to collect lunar regolith, ice, and other resources before processing."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "ISRU Investments and Regolith-Based Volatiles Acquisition and Processing Technology: NASA describes excavating or drilling into regolith-based water deposits and processing, transporting, and storing resources as oxygen, water, and methane.",
+    "source_claim_summary": "NASA identifies excavation or drilling into regolith-based water deposits, followed by processing and storage of resources, as a core ISRU investment area.",
+    "source_support_rationale": "This makes extraction and material handling the direct prerequisite family for lunar resource utilization, while orbital manufacturing is an off-surface production context that may consume ISRU products later."
+  },
+  "ontology_before": "The graph made broad lunar extraction and processing depend on orbital manufacturing, implying an orbital production capability was needed before lunar surface resource use.",
+  "ontology_after": "The graph routes lunar resource utilization through mining, keeping the node anchored to extraction of lunar regolith, ice, and materials before downstream manufacturing or export applications.",
+  "invariant_preserved_or_changed": "Changed: lunar_resource_utilization now depends on mining and no longer directly on orbital_manufacturing.",
+  "would_reject_if": [
+    "The lunar resource node is later rescoped to orbital factories using lunar feedstock rather than extraction and processing on or from the lunar surface.",
+    "A source shows orbital manufacturing is a direct prerequisite for lunar regolith, ice, oxygen, or metal extraction."
+  ],
+  "short_reason": "Mining is the direct extraction capability; orbital manufacturing is a downstream or adjacent production context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/lunar_resource_utilization.before.json /tmp/lunar_resource_utilization.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

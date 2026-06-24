@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-lunar-resource-utilization-robotics-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "lunar_resource_utilization",
+    "prerequisite": "robotics"
+  },
+  "replaced_edge": {
+    "dependent": "lunar_resource_utilization",
+    "prerequisite": "robotic_construction_swarms"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Robotic Construction Swarms is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Robotics provides remote and autonomous resource mapping, excavation, and processing capabilities for lunar ISRU systems."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Current Missions and ISRU Investments: NASA discusses robotic lunar and Mars missions, VIPER as a mobile robot for lunar resource mapping, and autonomous excavation and processing concepts.",
+    "source_claim_summary": "NASA ties lunar ISRU knowledge and development to robotic missions, a mobile resource-mapping rover, and autonomous excavation and processing system concepts.",
+    "source_support_rationale": "This supports a general robotics prerequisite because resource mapping, excavation, and processing can require remote or autonomous machines without requiring the narrower future concept of coordinated construction swarms."
+  },
+  "ontology_before": "The graph made lunar resource utilization depend on robotic construction swarms, a narrower and more future-specific construction concept.",
+  "ontology_after": "The graph routes lunar resource utilization through the broader robotics capability, preserving robotic mapping and excavation without making construction swarms a prerequisite for all lunar resource processing.",
+  "invariant_preserved_or_changed": "Changed: lunar_resource_utilization now depends on robotics and no longer directly on robotic_construction_swarms.",
+  "would_reject_if": [
+    "The lunar resource node is later rescoped only to autonomous lunar construction fleets rather than resource extraction and processing.",
+    "A source shows coordinated construction swarms are required before lunar resource mapping, excavation, oxygen extraction, or water recovery can occur."
+  ],
+  "short_reason": "General robotics fits lunar resource mapping and excavation; construction swarms are narrower than the node claim.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/lunar_resource_utilization.before.json /tmp/lunar_resource_utilization.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-lunar-resource-utilization-spaceflight-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "lunar_resource_utilization",
+    "prerequisite": "space_flight"
+  },
+  "replaced_edge": {
+    "dependent": "lunar_resource_utilization",
+    "prerequisite": "space_colonization"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Space Colonization is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Spaceflight provides the access and mission-operations substrate for collecting, processing, and using resources on the lunar surface."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Using Space-Based Resources for Deep Space Exploration: NASA frames lunar ISRU around Artemis return-to-Moon operations, lunar surface and lunar-orbit stays, Gateway logistics, and longer deep-space journeys.",
+    "source_claim_summary": "NASA places lunar ISRU inside Moon and deep-space exploration operations, where crews, cargo, Gateway logistics, and lunar surface activity need local material use.",
+    "source_support_rationale": "This supports replacing a downstream settlement-scale colonization edge with the more direct spaceflight access and mission-operations substrate needed before lunar resources can be collected and used."
+  },
+  "ontology_before": "The graph made lunar resource utilization depend on space colonization, suggesting established off-world settlement was a prerequisite for lunar ISRU.",
+  "ontology_after": "The graph routes lunar resource utilization through spaceflight, keeping settlement or colonization as a downstream application of resource use rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: lunar_resource_utilization now depends on space_flight and no longer directly on space_colonization.",
+  "would_reject_if": [
+    "The lunar resource node is later rescoped to self-sufficient lunar settlement rather than extraction and processing of local resources.",
+    "A source shows space colonization, rather than spaceflight access and operations, is a direct prerequisite for lunar ISRU."
+  ],
+  "short_reason": "Spaceflight is the direct access substrate; space colonization is a downstream use case.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/lunar_resource_utilization.before.json /tmp/lunar_resource_utilization.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

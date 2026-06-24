@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-24-lunar-resource-utilization-scope",
+  "description": "Lock Lunar Resource Utilization to lunar surface/resource extraction and processing rather than downstream colonization, orbital manufacturing, or construction-swarm scope.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "lunar_resource_utilization",
+      "prerequisite": "space_flight",
+      "expected": "speculative",
+      "reason": "Spaceflight is the direct access and operations substrate for lunar ISRU."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "lunar_resource_utilization",
+      "prerequisite": "mining",
+      "expected": "speculative",
+      "reason": "Mining captures the extraction capability needed for lunar regolith, ice, and material collection."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "lunar_resource_utilization",
+      "prerequisite": "robotics",
+      "expected": "speculative",
+      "reason": "Robotics captures remote and autonomous mapping, excavation, and processing capabilities without narrowing the node to construction swarms."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lunar_resource_utilization",
+      "prerequisite": "space_colonization",
+      "reason": "Space colonization is a downstream use case for lunar ISRU, not a direct prerequisite for collecting and processing local resources."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lunar_resource_utilization",
+      "prerequisite": "orbital_manufacturing",
+      "reason": "Orbital manufacturing is an adjacent or downstream production context, not a direct prerequisite for lunar surface resource extraction."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lunar_resource_utilization",
+      "prerequisite": "robotic_construction_swarms",
+      "reason": "Construction swarms are narrower than the node's resource mapping, excavation, processing, oxygen, water, metal, and material scope."
+    }
+  ]
+}

@@ -15382,65 +15382,94 @@
     "era": "Future",
     "description": "Extraction and processing of lunar ice, regolith, metals, oxygen, and construction materials for sustained off-world activity.",
     "prerequisites": [
-      "space_colonization",
-      "orbital_manufacturing",
-      "robotic_construction_swarms"
+      "space_flight",
+      "mining",
+      "robotics"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
-        "prerequisite": "space_colonization",
+        "prerequisite": "space_flight",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Space Colonization is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "orbital_manufacturing",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Orbital Manufacturing is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "robotic_construction_swarms",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Robotic Construction Swarms is a plausible dependency for a forecast technology and should be treated as speculative.",
+        "note": "Spaceflight provides the access and mission-operations substrate for collecting, processing, and using resources on the lunar surface.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Robotics",
-            "url": "https://www.nist.gov/robotics",
-            "publisher": "NIST",
-            "year": 2026,
+            "title": "Overview: In-Situ Resource Utilization",
+            "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+            "publisher": "NASA",
+            "year": 2023,
             "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Using Space-Based Resources for Deep Space Exploration: NASA frames lunar ISRU around Artemis return-to-Moon operations, lunar surface and lunar-orbit stays, Gateway logistics, and longer deep-space journeys."
+          }
+        ]
+      },
+      {
+        "prerequisite": "mining",
+        "type": "speculative",
+        "confidence": 0.35,
+        "evidence_level": "speculative",
+        "note": "Mining provides the excavation and material-extraction capability needed to collect lunar regolith, ice, and other resources before processing.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Overview: In-Situ Resource Utilization",
+            "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+            "publisher": "NASA",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "ISRU Investments and Regolith-Based Volatiles Acquisition and Processing Technology: NASA describes excavating or drilling into regolith-based water deposits and processing, transporting, and storing resources as oxygen, water, and methane."
+          }
+        ]
+      },
+      {
+        "prerequisite": "robotics",
+        "type": "speculative",
+        "confidence": 0.35,
+        "evidence_level": "speculative",
+        "note": "Robotics provides remote and autonomous resource mapping, excavation, and processing capabilities for lunar ISRU systems.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Overview: In-Situ Resource Utilization",
+            "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+            "publisher": "NASA",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Current Missions and ISRU Investments: NASA discusses robotic lunar and Mars missions, VIPER as a mobile robot for lunar resource mapping, and autonomous excavation and processing concepts."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Wikipedia page for Lunar Resource Utilization",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Lunar%20Resource%20Utilization",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Overview: In-Situ Resource Utilization",
+        "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+        "publisher": "NASA",
+        "year": 2023,
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Using Space-Based Resources for Deep Space Exploration and ISRU Investments: NASA defines ISRU as generating products with local materials and identifies Moon-resource technologies for water, fuel, supplies, excavation, construction, oxygen, drinkable water, methane, propellant, and life-support consumables."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the only node-level source was a Wikipedia search URL, not evidence supporting the exact node claim."
+    "sourceCheckedDowngradeNote": "Source-backed as a lunar ISRU roadmap capability rather than source_checked: NASA supports lunar resource use, water/fuel/supplies, excavation/construction, oxygen/water/methane products, propellant, and life-support consumables, but not mature broad lunar resource utilization by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for broad lunar resource utilization, not a source-backed first-known date for lunar ISRU research or demonstrations."
   },
   {
     "id": "mars_surface_habitats",
