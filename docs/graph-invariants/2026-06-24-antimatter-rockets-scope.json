@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-24-antimatter-rockets-scope",
+  "description": "Lock antimatter_rockets to matter-antimatter annihilation rocket propulsion rather than fusion-rocket or generalized force-field architectures.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "antimatter_rockets",
+      "prerequisite": "antimatter_production_containment",
+      "expected": "speculative",
+      "reason": "Antimatter rockets require production, storage, extraction, and delivery of antimatter to the engine."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "antimatter_rockets",
+      "prerequisite": "rocketry",
+      "expected": "speculative",
+      "reason": "The node represents rocket propulsion using antimatter annihilation to produce thrust."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "antimatter_rockets",
+      "prerequisite": "advanced_materials_science",
+      "expected": "speculative",
+      "reason": "NASA antimatter propulsion concepts require shielding, radiators, support structures, magnetic nozzles, and other demanding vehicle materials."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "antimatter_rockets",
+      "prerequisite": "fusion_rockets",
+      "reason": "Fusion rockets are not prerequisite to antimatter annihilation rockets broadly; they are only relevant to some hybrid antimatter-catalyzed concepts."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "antimatter_rockets",
+      "prerequisite": "force_fields_containment_deflection",
+      "reason": "NASA sources support specific magnetic and shielding systems, not a broad force-field prerequisite."
+    }
+  ]
+}

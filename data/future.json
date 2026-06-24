@@ -12587,12 +12587,11 @@
     "description": "Propulsion systems using matter-antimatter annihilation for the highest specific impulse, enabling rapid interplanetary and interstellar travel.",
     "prerequisites": [
       "antimatter_production_containment",
-      "fusion_rockets",
-      "advanced_materials_science",
-      "force_fields_containment_deflection"
+      "rocketry",
+      "advanced_materials_science"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -12602,15 +12601,41 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "Antimatter Production & Containment is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Concepts for the design of an antimatter annihilation rocket",
+            "url": "https://ntrs.nasa.gov/citations/19820013176",
+            "publisher": "NASA Technical Reports Server",
+            "year": 1982,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The NASA contractor report says an antimatter annihilation rocket requires an antimatter storage system, extraction from storage, transport to the rocket engine, and the engine where annihilation produces thrust."
+          }
+        ]
       },
       {
-        "prerequisite": "fusion_rockets",
+        "prerequisite": "rocketry",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Fusion Rockets is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Rocketry provides the engine, propellant-flow, thrust-generation, and spacecraft propulsion lineage for antimatter annihilation rocket concepts.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Concepts for the design of an antimatter annihilation rocket",
+            "url": "https://ntrs.nasa.gov/citations/19820013176",
+            "publisher": "NASA Technical Reports Server",
+            "year": 1982,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The report discusses antimatter annihilation as spacecraft propulsion and identifies the rocket engine as the system in which annihilation occurs and thrust is produced."
+          }
+        ]
       },
       {
         "prerequisite": "advanced_materials_science",
@@ -12621,39 +12646,45 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Materials Science",
-            "url": "https://ethos.lps.library.cmu.edu/article/id/40/",
-            "publisher": "Encyclopedia of the History of Science",
+            "title": "Antimatter Propulsion",
+            "url": "https://ntrs.nasa.gov/citations/20200001904",
+            "publisher": "NASA Technical Reports Server",
             "year": 2020,
-            "source_type": "review",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "The NASA presentation lists radiation shielding for high-energy gamma rays, thermal radiators, support structures, magnetic nozzles, payload placement, and additional propellant among antimatter propulsion vehicle requirements."
           }
         ]
-      },
-      {
-        "prerequisite": "force_fields_containment_deflection",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Force Fields (Containment & Deflection) is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Wikipedia page for Antimatter Rockets",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Antimatter%20Rockets",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Concepts for the design of an antimatter annihilation rocket",
+        "url": "https://ntrs.nasa.gov/citations/19820013176",
+        "publisher": "NASA Technical Reports Server",
+        "year": 1982,
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "The NASA contractor report considers matter-antimatter annihilation for spacecraft propulsion, says it produces more energy per unit mass than any other known means of energy production, and outlines storage, extraction, transport, and engine systems."
+      },
+      {
+        "title": "Antimatter Propulsion",
+        "url": "https://ntrs.nasa.gov/citations/20200001904",
+        "publisher": "NASA Technical Reports Server",
+        "year": 2020,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "The NASA MSFC presentation compares antimatter energy density with chemical, fission, and fusion propulsion; reviews annihilation products; and summarizes production, storage, delivery-to-engine, shielding, radiator, and vehicle-structure challenges."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the only node-level source was a Wikipedia search URL, not evidence supporting the exact node claim."
+    "sourceCheckedDowngradeNote": "Source-backed as a propulsion concept rather than source_checked: NASA sources support antimatter annihilation rocket concepts and major storage, production, shielding, and vehicle-design requirements, but not broadly deployed antimatter rockets by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for deployed antimatter rocket systems, not a source-backed first-known date for antimatter propulsion concepts."
   },
   {
     "id": "starlifting",

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-antimatter-rockets-force-fields-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "antimatter_rockets",
+    "prerequisite": "force_fields_containment_deflection"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Force Fields (Containment & Deflection) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Antimatter Rockets to Force Fields edge remains because the cited NASA sources support specific engineering needs such as storage, electromagnetic transport, magnetic nozzles, radiation shielding, radiators, and structures rather than a broad force-field capability.",
+  "source_supports_edge": "no",
+  "source_url": "https://ntrs.nasa.gov/citations/20200001904",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The NASA MSFC antimatter propulsion presentation lists magnetic nozzles, radiation shielding, thermal radiators, support structures, payload placement, and propellant needs, but does not require a generalized force-field containment or deflection technology.",
+    "source_claim_summary": "Antimatter propulsion vehicle design requires concrete electromagnetic, shielding, thermal, and structural systems.",
+    "source_support_rationale": "The old edge laundered ordinary magnetic and shielding engineering into a broad forecast force-field node; the retained advanced-materials and antimatter-containment edges better match the cited requirements."
+  },
+  "ontology_before": "The graph made antimatter rockets depend on a broad future force-field technology, implying stable localized fields for containment or deflection are a prerequisite to the rocket concept.",
+  "ontology_after": "The graph keeps antimatter rockets tied to antimatter production/containment, rocketry, and advanced materials while leaving force fields as a separate speculative capability.",
+  "invariant_preserved_or_changed": "Changed: removed the direct force_fields_containment_deflection prerequisite from antimatter_rockets.",
+  "would_reject_if": [
+    "The node is later rescoped to a specific force-field-propelled or force-field-confined antimatter spacecraft architecture.",
+    "A source shows generalized force-field containment and deflection is required for antimatter rockets rather than specific storage, magnetic-channeling, shielding, thermal, or structural systems.",
+    "A downstream node requires force-field antimatter vehicles and should point to both antimatter_rockets and force_fields_containment_deflection."
+  ],
+  "short_reason": "NASA sources support specific magnetic, shielding, thermal, and structural requirements, not a broad force-field prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/antimatter_rockets.before.json /tmp/antimatter_rockets.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

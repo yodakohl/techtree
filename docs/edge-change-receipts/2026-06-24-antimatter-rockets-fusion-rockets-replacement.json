@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-antimatter-rockets-fusion-rockets-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "antimatter_rockets",
+    "prerequisite": "rocketry"
+  },
+  "replaced_edge": {
+    "dependent": "antimatter_rockets",
+    "prerequisite": "fusion_rockets"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Fusion Rockets is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Rocketry provides the engine, propellant-flow, thrust-generation, and spacecraft propulsion lineage for antimatter annihilation rocket concepts."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ntrs.nasa.gov/citations/19820013176",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The NASA contractor report describes antimatter annihilation for spacecraft propulsion and identifies the rocket engine as the component where annihilation occurs and thrust is produced.",
+    "source_claim_summary": "Antimatter rockets are rocket propulsion systems using matter-antimatter annihilation rather than a subtype that necessarily depends on fusion rockets.",
+    "source_support_rationale": "Fusion appears in some hybrid antimatter-catalyzed concepts, but the broader node is defined by rocket propulsion and antimatter annihilation, so rocketry is the direct lineage and fusion rockets are not a prerequisite."
+  },
+  "ontology_before": "The graph made antimatter rockets depend directly on fusion rockets, implying antimatter annihilation rockets require prior fusion rocket propulsion rather than treating fusion as one possible hybrid design.",
+  "ontology_after": "The graph routes antimatter rockets through general rocketry plus antimatter production/containment and advanced materials, preserving fusion rockets as a separate advanced propulsion family.",
+  "invariant_preserved_or_changed": "Changed: antimatter_rockets now depends on rocketry and no longer directly on fusion_rockets.",
+  "would_reject_if": [
+    "The node is later rescoped only to antimatter-catalyzed fusion propulsion rather than antimatter annihilation rockets broadly.",
+    "A source shows all antimatter rocket concepts require a prior fusion rocket architecture rather than rocket propulsion and antimatter handling.",
+    "A dedicated antimatter-catalyzed microfusion node is added and should carry the fusion_rockets edge separately."
+  ],
+  "short_reason": "Fusion rockets are an adjacent or hybrid propulsion path, while rocketry is the direct propulsion lineage for antimatter annihilation rockets.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/antimatter_rockets.before.json /tmp/antimatter_rockets.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
