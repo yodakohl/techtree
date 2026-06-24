@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-perspective-stage-machinery-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mechanical_theater_machinery",
+      "operator": "eq",
+      "value": 1585,
+      "reason": "The corrected Renaissance node is anchored to Teatro Olimpico's 1585 forced-perspective stage set rather than a generic 1614 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mechanical_theater_machinery",
+      "prerequisite": "theater_stage_machinery",
+      "expected": "historical_predecessor",
+      "reason": "Greek and Hellenistic stage devices are the documented stage-machinery lineage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mechanical_theater_machinery",
+      "prerequisite": "perspective_in_art",
+      "expected": "enabling",
+      "reason": "Renaissance perspective stage sets depended on linear and forced-perspective illusion."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanical_theater_machinery",
+      "prerequisite": "commedia_dell_arte",
+      "reason": "Commedia performance practice is not the direct machinery lineage for the corrected stage-system node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanical_theater_machinery",
+      "prerequisite": "scientific_instrument_making_guilds",
+      "reason": "Scientific instrument guild organization is outside the source-backed Renaissance stage-machinery scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanical_theater_machinery",
+      "prerequisite": "technical_drawing_standards",
+      "reason": "The local 1588 technical-drawing node should not be a direct prerequisite for the 1585 stage-system anchor."
+    }
+  ]
+}

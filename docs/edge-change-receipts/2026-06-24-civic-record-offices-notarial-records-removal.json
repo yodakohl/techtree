@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-civic-record-offices-notarial-records-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "civic_record_offices",
+    "prerequisite": "notarial_records"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Notarial Records provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because civic_record_offices is anchored to 1086 Norman administrative records, while the notarial_records node is now anchored to 1155 Genoese notarial registers.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalarchives.gov.uk/education/resources/domesday-book/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The National Archives Domesday source supports the 1086 administrative-record anchor for civic_record_offices, not dependence on later Genoese notarial registers.",
+    "source_claim_summary": "The civic record office anchor is an 1086 administrative survey/record system rather than a twelfth-century notarial register.",
+    "source_support_rationale": "Keeping the edge would create an anachronistic dependency from 1086 civic records to a notarial-register node dated 1155."
+  },
+  "ontology_before": "Civic record offices depended directly on notarial_records, partly via a later Lucca notarial archive source that did not match the 1086 Domesday anchor.",
+  "ontology_after": "Civic record offices remain scoped to municipal/administrative archives without requiring the later Genoese notarial-register tradition.",
+  "invariant_preserved_or_changed": "Changed: civic_record_offices no longer has a direct notarial_records prerequisite.",
+  "would_reject_if": [
+    "Civic record offices were redated to late medieval city archives that explicitly incorporated notarial registers.",
+    "A source showed the 1086 Domesday administrative-record anchor depended on notarial registers.",
+    "The notarial_records node were split and one child represented earlier administrative legal records compatible with 1086."
+  ],
+  "short_reason": "The 1086 civic-record scope should not depend on a 1155 Genoese notarial-register node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

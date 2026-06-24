@@ -7966,69 +7966,126 @@
   },
   {
     "id": "notarial_records",
-    "name": "Notarial Records",
+    "name": "Medieval Notarial Registers",
     "era": "Medieval",
-    "description": "Authenticated written records of contracts, property transfers, wills, debts, and civic acts maintained by trained legal scribes.",
+    "description": "Authenticated registers and cartularies compiled by trained notaries to preserve commercial agreements, property transfers, debts, wills, and civic legal acts.",
     "prerequisites": [
       "contract_law",
       "paper_making",
       "legal_systems_common_civil"
     ],
-    "firstKnownDate": 500,
-    "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1155,
+    "datePrecision": "exact",
+    "region": "Genoa / medieval Italian notarial recordkeeping",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "contract_law",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Contract Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Notarial registers preserved commercial agreements and legal acts, so contract law supplies the agreement and obligation framework that the records authenticated.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Genoa at the Dawn of the Commercial Expansion",
+            "url": "https://doi.org/10.1017/CBO9780511576423.002",
+            "publisher": "Cambridge University Press",
+            "year": 2009,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter summary dates Giovanni Scriba's surviving notarial cartularies to 1155-64 and ties Genoese social encounters to commercial agreements."
+          }
+        ]
       },
       {
         "prerequisite": "paper_making",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Paper Making provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "The scoped anchor artifact is a paper manuscript, making paper production an enabling medium for this surviving register tradition.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Papermaking",
-            "url": "https://www.britannica.com/technology/papermaking",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Cartulary of Giovanni Scriba",
+            "url": "https://www.museidigenova.it/en/cartulary-giovanni-scriba",
+            "publisher": "Museums in Genoa / State Archive of Genoa",
             "year": 2026,
-            "source_type": "textbook",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The State Archive of Genoa object page identifies the register as a paper manuscript and the oldest paper code in Western Europe."
           }
         ]
       },
       {
         "prerequisite": "legal_systems_common_civil",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Legal Systems (Common/Civil Law) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Medieval Italian notarial records developed in Roman-law-influenced legal systems where notaries authenticated private legal acts.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman Notarial Records between Market and State",
+            "url": "https://academic.oup.com/past/article/230/suppl_11/71/2884263",
+            "publisher": "Past & Present / Oxford Academic",
+            "year": 2016,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Article extract says areas influenced by Roman law used notaries and that medieval Italians developed notarial records as a powerful form of writing."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Papermaking",
-        "url": "https://www.britannica.com/technology/papermaking",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "Cartulary of Giovanni Scriba",
+        "url": "https://www.museidigenova.it/en/cartulary-giovanni-scriba",
+        "publisher": "Museums in Genoa / State Archive of Genoa",
         "year": 2026,
-        "source_type": "textbook",
+        "source_type": "official_agency",
         "supports": [
+          "node",
+          "maturity",
           "edge"
-        ]
+        ],
+        "source_locator": "The State Archive of Genoa page identifies Giovanni Scriba's register as the oldest existing notarial register, a paper manuscript, and the start of a long medieval Genoese notarial series."
+      },
+      {
+        "title": "Genoa at the Dawn of the Commercial Expansion",
+        "url": "https://doi.org/10.1017/CBO9780511576423.002",
+        "publisher": "Cambridge University Press",
+        "year": 2009,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ],
+        "source_locator": "Chapter summary says the Genoese created the oldest surviving notarial cartularies in Europe, Giovanni Scriba, 1155-64, and connects them to commercial agreements."
+      },
+      {
+        "title": "Roman Notarial Records between Market and State",
+        "url": "https://academic.oup.com/past/article/230/suppl_11/71/2884263",
+        "publisher": "Past & Present / Oxford Academic",
+        "year": 2016,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Article extract explains that notarial records in Italy reflect medieval Italy's commercial dynamism and political fragmentation, and that Roman-law-influenced areas used notaries."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Medieval source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "scopeNote": "Covers source-backed medieval notarial register/cartulary practice anchored by Giovanni Scriba's Genoese register. It does not stand for all ancient written records, all civic archives, or every legal document witnessed by a scribe.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1155 anchor follows Cambridge's 1155-64 dating for Giovanni Scriba's oldest surviving European notarial cartularies; some archival cataloging and scholarship describe the register as beginning in 1154."
   },
   {
     "id": "marine_compass_routes",
@@ -8960,7 +9017,6 @@
     "description": "Municipal archives for charters, taxes, property deeds, court decisions, guild records, and public works accounts.",
     "prerequisites": [
       "municipal_charters",
-      "notarial_records",
       "paper_making"
     ],
     "firstKnownDate": 1086,
@@ -8986,27 +9042,6 @@
               "edge"
             ],
             "source_locator": "The State Archives says medieval municipal corporations left rich archives, with charter collections, cartularies or charter registers, and account books among the most prominent medieval archival items."
-          }
-        ]
-      },
-      {
-        "prerequisite": "notarial_records",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Notarial Records provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Notarial Register",
-            "url": "https://www.textmanuscripts.com/medieval/notarial-register-196898",
-            "publisher": "Les Enluminures / Text Manuscripts",
-            "year": 2026,
-            "source_type": "review",
-            "supports": [
-              "edge"
-            ],
-            "source_locator": "The manuscript catalog says late medieval notaries preserved towns' social and political memories, describes a Lucca notarial register of land and goods transactions, and notes that a 1446 statute required notarial transaction registers to be transferred to the city archives after a notary's death."
           }
         ]
       },
@@ -9322,16 +9357,6 @@
         "supports": [
           "node"
         ]
-      },
-      {
-        "title": "Historical grinding machine for spectacle lenses",
-        "url": "https://mafo-optics.com/historical-grinding-machine-for-spectacle-lenses/",
-        "publisher": "MAFO - The Conference",
-        "year": 2020,
-        "source_type": "generic_overview",
-        "supports": [
-          "node"
-        ]
       }
     ],
     "sourceCheckedDowngradeNote": "Downgraded during Medieval source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology.",
@@ -9610,7 +9635,6 @@
     "era": "Medieval",
     "description": "Written contracts for hiring ships, allocating cargo space, assigning risk, scheduling voyages, and resolving maritime trade disputes.",
     "prerequisites": [
-      "notarial_records",
       "banking_early_forms"
     ],
     "firstKnownDate": 500,
@@ -9618,14 +9642,6 @@
     "region": "Afro-Eurasia and other medieval societies",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "notarial_records",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Notarial Records provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "banking_early_forms",
         "type": "historical_predecessor",
@@ -10665,8 +10681,7 @@
     "description": "Guild marks, hallmarks, seals, and inspections used to certify origin, purity, weight, and workmanship.",
     "prerequisites": [
       "guilds",
-      "standardized_weights_and_measures",
-      "notarial_records"
+      "standardized_weights_and_measures"
     ],
     "firstKnownDate": 500,
     "datePrecision": "century",
@@ -10712,14 +10727,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "notarial_records",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Notarial Records provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
@@ -11549,16 +11556,6 @@
         "publisher": "The College of Optometrists / British Optical Association Museum",
         "year": 2026,
         "source_type": "museum",
-        "supports": [
-          "node"
-        ]
-      },
-      {
-        "title": "Historical grinding machine for spectacle lenses",
-        "url": "https://mafo-optics.com/historical-grinding-machine-for-spectacle-lenses/",
-        "publisher": "MAFO - The Conference",
-        "year": 2020,
-        "source_type": "generic_overview",
         "supports": [
           "node"
         ]
@@ -12897,42 +12894,109 @@
   },
   {
     "id": "castle_signal_beacons",
-    "name": "Castle Signal Beacons",
+    "name": "Formalized Medieval Beacon Networks",
     "era": "Medieval",
-    "description": "Beacon chains and watch systems for warning castles, ports, towns, and armies of attack or fire.",
+    "description": "Formalized fire-beacon chains and lookout networks using smoke by day and flame by night to warn of hostile forces and mobilize local defense.",
     "prerequisites": [
-      "castle_garrison_logistics",
+      "fire_control",
       "defensive_watchtowers",
-      "military_signal_flags"
+      "early_fortifications"
     ],
-    "firstKnownDate": 1150,
-    "datePrecision": "decade",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1325,
+    "datePrecision": "exact",
+    "region": "England / medieval beacon warning systems",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers formalized medieval fire-beacon early-warning systems and lookout chains, not every ancient signal fire, lighthouse, castle garrison routine, or flag/bannner signalling practice.",
+    "dateUncertaintyNote": "Earlier Anglo-Saxon beacon and lookout networks are probable from place-name and landscape evidence; 1325 is used as the source-backed formalization anchor.",
     "dependencyEdges": [
       {
-        "prerequisite": "castle_garrison_logistics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Castle Garrison Logistics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "fire_control",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The scoped warning network used deliberately lit fires, smoke by day, and flame by night, so controlled fire is the required signal medium.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Medieval beacon on Bircham Common",
+            "url": "https://historicengland.org.uk/listing/the-list/list-entry/1020825",
+            "publisher": "Historic England",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Historic England says beacons were fires deliberately lit to give warning by smoke in daylight and flame at night, and describes bonfires, pitch barrels, and fire baskets."
+          }
+        ]
       },
       {
         "prerequisite": "defensive_watchtowers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Defensive Watchtowers provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Medieval beacon networks grew from raised lookout and watch-site traditions; beacons and lookout posts often went together in early medieval civil-defense landscapes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Signalling Intent: Beacons, Lookouts and Military Communications",
+            "url": "https://discovery.ucl.ac.uk/1471709/1/Baker%20and%20Brookes%20Beacons%20OA.pdf",
+            "publisher": "University College London / Liverpool University Press",
+            "year": 2015,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Baker and Brookes state that fire signals are attested in medieval England and that maintenance of lookout posts and beacons often went hand in hand."
+          }
+        ]
       },
       {
-        "prerequisite": "military_signal_flags",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Military Signal Flags provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "early_fortifications",
+        "type": "common_dependency",
+        "confidence": 0.56,
+        "evidence_level": "review",
+        "note": "Beacon warning systems were part of defensive landscapes linked to strongholds, frontiers, military posts, and protected communities, while fortification was contextual rather than the signal mechanism.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Signalling Intent: Beacons, Lookouts and Military Communications",
+            "url": "https://discovery.ucl.ac.uk/1471709/1/Baker%20and%20Brookes%20Beacons%20OA.pdf",
+            "publisher": "University College London / Liverpool University Press",
+            "year": 2015,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Baker and Brookes describe beacon systems in relation to military posts, defensive structures, frontiers such as Offa's Dyke, strongholds, and the general population."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Medieval beacon on Bircham Common",
+        "url": "https://historicengland.org.uk/listing/the-list/list-entry/1020825",
+        "publisher": "Historic England",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Historic England describes medieval beacons as warning fires using smoke by day and flame by night, usually placed in groups, chains, or lines as early-warning systems, and says their use was formalised by 1325."
+      },
+      {
+        "title": "Signalling Intent: Beacons, Lookouts and Military Communications",
+        "url": "https://discovery.ucl.ac.uk/1471709/1/Baker%20and%20Brookes%20Beacons%20OA.pdf",
+        "publisher": "University College London / Liverpool University Press",
+        "year": 2015,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "The chapter reviews Anglo-Saxon and medieval beacon/lookout evidence, including signal fires, elevated structures, intervisibility, defensive routes, frontiers, and possible early warning systems."
       }
     ]
   },
@@ -13610,7 +13674,7 @@
     "era": "Medieval",
     "description": "Defended river and harbor gates regulating boats, flood control, tolls, and city security.",
     "prerequisites": [
-      "castle_signal_beacons",
+      "early_fortifications",
       "port_crane_harbor_works"
     ],
     "firstKnownDate": 1150,
@@ -13619,12 +13683,25 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "castle_signal_beacons",
+        "prerequisite": "early_fortifications",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Castle Signal Beacons provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Fortified water gates were gates in defensive wall circuits leading to river fords, so wall-and-gate fortification is the enabling context rather than beacon signaling.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Fortification of the Peninsula",
+            "url": "https://www.durhamworldheritagesite.com/learn/architecture/castle/intro/peninsula",
+            "publisher": "Durham World Heritage Site",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Durham World Heritage Site says masonry walls were built around the peninsula between 1099 and 1128, strengthened with towers, and included gates leading to fords across the river, including Water Gate."
+          }
+        ]
       },
       {
         "prerequisite": "port_crane_harbor_works",

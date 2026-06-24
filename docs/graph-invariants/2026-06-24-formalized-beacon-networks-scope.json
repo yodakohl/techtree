@@ -1,0 +1,58 @@
+{
+  "id": "2026-06-24-formalized-beacon-networks-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "castle_signal_beacons",
+      "operator": "eq",
+      "value": 1325,
+      "reason": "The corrected node is scoped to formalized medieval beacon warning systems, using Historic England's 1325 formalization anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "castle_signal_beacons",
+      "prerequisite": "fire_control",
+      "expected": "required",
+      "reason": "The signal mechanism is deliberately lit fire, smoke, and flame."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "castle_signal_beacons",
+      "prerequisite": "defensive_watchtowers",
+      "expected": "historical_predecessor",
+      "reason": "Raised lookout and watch-site traditions are the lineage for beacon networks, not a hard tower requirement."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "castle_signal_beacons",
+      "prerequisite": "early_fortifications",
+      "expected": "common_dependency",
+      "reason": "Beacon systems were part of defensive landscapes but fortifications were contextual rather than the signal mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "castle_signal_beacons",
+      "prerequisite": "castle_garrison_logistics",
+      "reason": "Castle stores, payroll, and garrison logistics are outside the corrected regional beacon-network scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "castle_signal_beacons",
+      "prerequisite": "military_signal_flags",
+      "reason": "Flag and banner signalling is a separate visual-signalling practice from fire-beacon warning networks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "fortified_water_gates",
+      "prerequisite": "early_fortifications",
+      "expected": "enabling",
+      "reason": "Fortified water gates are gates in wall circuits and river approaches, so fortification is the source-backed enabling context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fortified_water_gates",
+      "prerequisite": "castle_signal_beacons",
+      "reason": "Beacon warning networks are not a direct prerequisite for fortified water gates."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-notarial-registers-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "notarial_records",
+      "operator": "eq",
+      "value": 1155,
+      "reason": "The source-checked node is anchored to Cambridge's 1155-64 dating for Giovanni Scriba's oldest surviving European notarial cartularies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "notarial_records",
+      "prerequisite": "contract_law",
+      "expected": "enabling",
+      "reason": "The registers authenticated commercial agreements and legal acts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "notarial_records",
+      "prerequisite": "paper_making",
+      "expected": "enabling",
+      "reason": "The anchor Giovanni Scriba register is described by the State Archive of Genoa as a paper manuscript."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "notarial_records",
+      "prerequisite": "legal_systems_common_civil",
+      "expected": "enabling",
+      "reason": "The scoped medieval Italian register tradition belongs to Roman-law-influenced legal systems."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "notarial_records",
+      "reason": "The broad charterparty placeholder is dated before the source-backed 1155 notarial-register node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "craft_quality_marks",
+      "prerequisite": "notarial_records",
+      "reason": "Craft marks, hallmarks, seals, and inspections should not directly depend on notarial registers without a narrower notarized-certification source."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "civic_record_offices",
+      "prerequisite": "notarial_records",
+      "reason": "The 1086 civic-record scope should not depend on a later Genoese notarial-register tradition."
+    }
+  ]
+}

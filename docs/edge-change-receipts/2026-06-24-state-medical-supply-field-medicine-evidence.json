@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-state-medical-supply-field-medicine-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "state_medical_supply_stores",
+    "prerequisite": "military_field_medicine"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Field Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Roman medical supply provisioning was organized inside military hospitals and field infirmaries staffed by medici and orderlies, so military field medicine supplies the care setting."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://jmvh.org/article/692/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The JMVH article describes Augustus-era specialization, medici tending the wounded and sick on the march and at valetudinaria, and valetudinaria developing from tents into equipped military hospitals.",
+    "source_claim_summary": "Roman military medical care included medici, march care, temporary hospitals, and equipped valetudinaria.",
+    "source_support_rationale": "The retained edge is not claiming that military field medicine creates every stored item; it anchors the institutional care setting where military medical supplies were stocked and used."
+  },
+  "invariant_preserved_or_changed": "Preserved: state_medical_supply_stores still depends on military_field_medicine, but the edge now has a review source and a scoped note.",
+  "would_reject_if": [
+    "The node is later rescoped to civilian civic stores rather than Roman military infirmary provisioning.",
+    "A source shows the earliest scoped supply practice was independent of military medical care settings.",
+    "The edge is strengthened to required without a source showing military field medicine as the only possible prerequisite."
+  ],
+  "short_reason": "Roman medical supplies are anchored to military medical care settings, not an unsourced generic state-store claim.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/state_medical_supply_stores.before.json /tmp/state_medical_supply_stores.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

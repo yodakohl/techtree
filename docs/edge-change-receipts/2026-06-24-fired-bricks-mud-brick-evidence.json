@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-fired-bricks-mud-brick-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "fired_bricks_early_kilns",
+    "prerequisite": "mud_brick_sun_dried"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mud Brick (Sun-Dried) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Kiln-fired bricks are a fired variant within the same clay-brick building tradition that includes earlier sun-dried adobe bricks."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archeologie.culture.gouv.fr/en/glossary/brick",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The French Ministry of Culture glossary describes Mesopotamian bricks as clay mixed with temper, initially hand-modelled in the Neolithic, later sun-dried adobe or kiln-fired bricks.",
+    "source_claim_summary": "The source places sun-dried adobe and kiln-fired bricks in one Mesopotamian clay-brick technology sequence.",
+    "source_support_rationale": "The edge is retained as an enabling lineage from unfired brick-making to fired brick-making, with chronology supplied by the same glossary."
+  },
+  "invariant_preserved_or_changed": "Preserved: mud_brick_sun_dried remains an enabling prerequisite for fired_bricks_early_kilns.",
+  "would_reject_if": [
+    "The fired-brick node is later rescoped to general kiln technology rather than clay building bricks.",
+    "A stronger source shows kiln-fired bricks did not develop from or alongside sun-dried clay-brick practice.",
+    "A separate clay_brick_forms node is added and should carry the lineage instead."
+  ],
+  "short_reason": "Kiln-fired bricks are source-backed as a later fired variant of clay-brick practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fired_bricks_early_kilns.before.json /tmp/fired_bricks_early_kilns.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

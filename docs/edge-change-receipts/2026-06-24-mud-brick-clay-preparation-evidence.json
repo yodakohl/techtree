@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-mud-brick-clay-preparation-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "mud_brick_sun_dried",
+    "prerequisite": "clay_gathering_and_preparation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Clay Gathering and Preparation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Mud brick uses clay, sand, silt, water, and sometimes fibrous temper, so clay-rich material preparation is enabling material practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/mud-brick",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Britannica defines mud brick as clay, sand, and silt combined with water and sometimes fibrous material, shaped into bricks and dried in the sun.",
+    "source_claim_summary": "Mud brick is made from prepared clay-rich sediment with water and optional fibrous temper.",
+    "source_support_rationale": "The source identifies the material preparation inputs, supporting clay preparation as an enabling material practice rather than a generic inferred prerequisite."
+  },
+  "invariant_preserved_or_changed": "Preserved: clay_gathering_and_preparation remains an enabling material prerequisite for sun-dried mud brick.",
+  "would_reject_if": [
+    "The node is later narrowed to brick use only, with no material-production claim.",
+    "A stronger source shows the earliest scoped bricks were not clay-rich mud or sediment units.",
+    "The clay_gathering_and_preparation node is narrowed to pottery-only processing and no longer covers clay-rich building materials."
+  ],
+  "short_reason": "Mud brick production directly uses prepared clay-rich sediment and temper.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mud_brick_sun_dried.before.json /tmp/mud_brick_sun_dried.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

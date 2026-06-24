@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-mythic-cosmologies-oral-tradition-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "mythology_and_cosmology",
+    "prerequisite": "oral_tradition_storytelling"
+  },
+  "replaced_edge": {
+    "dependent": "mythology_and_cosmology",
+    "prerequisite": "shamanism_animism"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Shamanism & Animism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.70,
+    "evidence_level": "textbook",
+    "note": "Mythic narratives such as Gilgamesh and other ancient epics circulated through oral-traditional systems before surviving as written texts."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/oral-tradition",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica describes oral tradition as the first mode for transmitting knowledge, art, and ideas and says Gilgamesh was a broadly distributed tale in the ancient Middle East before being inscribed on tablets.",
+    "source_claim_summary": "Oral tradition carries long-form epics and mythic tales before their written survival.",
+    "source_support_rationale": "The source supports oral narrative transmission as the predecessor for surviving mythic texts, while the older shamanism edge was a speculative religious-practice overlap rather than a documented dependency."
+  },
+  "ontology_before": "Mythology & Cosmology depended on Shamanism & Animism, implying prehistoric shamanic or animistic practice directly enabled the node.",
+  "ontology_after": "Early Written Mythic Cosmologies is scoped to Mesopotamian written mythic texts with oral-traditional narrative background.",
+  "invariant_preserved_or_changed": "Changed: mythology_and_cosmology now points to oral_tradition_storytelling and no longer directly depends on shamanism_animism.",
+  "would_reject_if": [
+    "The node is later rescoped back to prehistoric shamanic practice rather than written mythic cosmologies.",
+    "A source shows the earliest scoped Mesopotamian mythic texts did not draw on oral-traditional narrative systems.",
+    "The shamanism_animism node is split and a narrower animistic-worldview node becomes the source-backed prerequisite."
+  ],
+  "short_reason": "Oral tradition is the source-backed narrative predecessor; shamanism was too speculative for this scoped node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mythology_and_cosmology.before.json /tmp/mythology_and_cosmology.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

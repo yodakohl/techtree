@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-notarial-registers-contract-law-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "notarial_records",
+    "prerequisite": "contract_law"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Contract Law provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Notarial registers preserved commercial agreements and legal acts, so contract law supplies the agreement and obligation framework that the records authenticated."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1017/CBO9780511576423.002",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Chapter summary dates Giovanni Scriba's surviving notarial cartularies to 1155-64 and ties Genoese social encounters to commercial agreements.",
+    "source_claim_summary": "The source connects the earliest surviving Genoese notarial cartularies to a commercial-agreement environment.",
+    "source_support_rationale": "A register that authenticates commercial agreements depends on the legal category of enforceable agreement rather than on generic recordkeeping alone."
+  },
+  "ontology_before": "Notarial records depended on contract law through a generic expert-inference edge.",
+  "ontology_after": "Medieval notarial registers keep contract law as the source-backed legal-act framework for authenticated agreements.",
+  "invariant_preserved_or_changed": "Preserved: contract_law remains a direct enabling prerequisite, now source-backed.",
+  "would_reject_if": [
+    "The node were broadened back to all written administrative records.",
+    "The cited source only mentioned paper or archives without commercial agreements.",
+    "Contract law were treated as a hard prerequisite for every kind of notarial act rather than enabling infrastructure for this scoped register tradition."
+  ],
+  "short_reason": "Genoese notarial cartularies preserve commercial agreements, so contract law is a direct enabling framework.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

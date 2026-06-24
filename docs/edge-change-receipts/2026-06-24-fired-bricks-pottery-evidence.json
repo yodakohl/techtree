@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-fired-bricks-pottery-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "fired_bricks_early_kilns",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Controlled ceramic firing practice supplies the kiln and heat-control background for producing fired clay bricks."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/brick-building-material",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica says potters at Ur discovered the principle of the closed kiln in which heat could be controlled, immediately after discussing burned brick production.",
+    "source_claim_summary": "The source links fired-brick history to controlled kiln practice associated with potters at Ur.",
+    "source_support_rationale": "The edge is enabling, not a claim that pottery vessels are components of bricks; it records the shared ceramic firing and kiln-control background."
+  },
+  "invariant_preserved_or_changed": "Preserved: pottery remains an enabling prerequisite for early kiln-fired bricks, now with a source-backed kiln rationale.",
+  "would_reject_if": [
+    "The fired-brick node is later narrowed to unfired adobe or mud-brick architecture.",
+    "A stronger source shows early kiln-fired bricks developed without ceramic kiln or pottery firing practice.",
+    "The pottery node is narrowed to vessel form only and excludes kiln-firing knowledge."
+  ],
+  "short_reason": "Fired bricks share controlled clay-firing and kiln practice with pottery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/fired_bricks_early_kilns.before.json /tmp/fired_bricks_early_kilns.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-06-24-amphora-shipping-standards-scope",
+  "description": "Keep amphora_shipping_standards separate from port tax account records.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "port_customs_ledgers",
+      "reason": "Amphora standardization should not be made downstream of port-tax accounts."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "pottery_wheel",
+      "reason": "The retained mechanism remains ceramic vessel production."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "maritime_law_codes",
+      "reason": "The retained context remains maritime commercial practice."
+    }
+  ]
+}

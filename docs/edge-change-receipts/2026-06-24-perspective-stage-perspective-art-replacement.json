@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-perspective-stage-perspective-art-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "mechanical_theater_machinery",
+    "prerequisite": "perspective_in_art"
+  },
+  "replaced_edge": {
+    "dependent": "mechanical_theater_machinery",
+    "prerequisite": "scientific_instrument_making_guilds"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Scientific Instrument Making Guilds is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Renaissance perspective stage systems depended on linear-perspective illusion to create deep scenic streets and controlled audience sightlines."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://smarthistory.org/palladio-teatro-olimpico/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Smarthistory describes Teatro Olimpico as putting contemporary developments like linear perspective into practice and highlights Scamozzi's permanent forced-perspective stage set.",
+    "source_claim_summary": "The source connects Renaissance theater design to linear perspective and the forced-perspective stage set at Teatro Olimpico.",
+    "source_support_rationale": "The corrected node centers on perspective stage systems, so perspective_in_art supplies the relevant visual method; scientific instrument guilds are not shown as a direct prerequisite."
+  },
+  "ontology_before": "Mechanical Theater Machinery depended on scientific_instrument_making_guilds through a weak context edge with no source-backed theater relationship.",
+  "ontology_after": "Renaissance Perspective Stage Machinery depends on perspective_in_art for the visual method behind deep scenic streets and controlled sightlines.",
+  "invariant_preserved_or_changed": "Changed: mechanical_theater_machinery now depends on perspective_in_art and no longer directly depends on scientific_instrument_making_guilds.",
+  "would_reject_if": [
+    "The node were narrowed to scientific instruments used in theaters rather than stage scenery and machinery.",
+    "A source showed Teatro Olimpico-style stage systems did not use linear or forced perspective.",
+    "A narrower perspective-stagecraft node were introduced and should receive this edge instead."
+  ],
+  "short_reason": "The sourced Renaissance stage system depends on perspective illusion, not scientific instrument guild organization.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/mechanical_theater_machinery.before.json /tmp/mechanical_theater_machinery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-printed-cabinet-catalogs-printing-press-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "public_museum_catalogs",
+    "prerequisite": "printing_press"
+  },
+  "replaced_edge": {
+    "dependent": "public_museum_catalogs",
+    "prerequisite": "printed_standardized_textbooks"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Printed Standardized Textbooks is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The scoped practice is a published museum/cabinet book, so print infrastructure is the direct medium that made the catalog reproducible and distributable."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.lindahall.org/about/news/scientist-of-the-day/francesco-calzolari/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Linda Hall Library says Calzolari wanted to publish a catalog, that there were no museum catalogs in print in 1580, and that Ferrante Imperato published his museum book in 1599.",
+    "source_claim_summary": "The source identifies the key transition from unpublished inventories to printed museum/cabinet books.",
+    "source_support_rationale": "A printed catalog should depend on printing infrastructure, not on standardized educational textbooks, because the source describes publication format rather than classroom text standardization."
+  },
+  "ontology_before": "Public Museum Catalogs depended on Printed Standardized Textbooks, conflating collection catalog publication with educational textbook standardization.",
+  "ontology_after": "Printed Cabinet Catalogs depends directly on the printing press as the publication medium for museum/cabinet books.",
+  "invariant_preserved_or_changed": "Changed: public_museum_catalogs now depends on printing_press and no longer directly depends on printed_standardized_textbooks.",
+  "would_reject_if": [
+    "The node were narrowed to standardized educational museum textbooks rather than printed collection catalogs.",
+    "A source showed early printed cabinet catalogs specifically emerged from textbook standardization rather than print publication.",
+    "A separate educational museum textbook node were introduced and should keep the textbook dependency."
+  ],
+  "short_reason": "Printed museum catalogs depend on print publication infrastructure, not standardized textbooks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_museum_catalogs.before.json /tmp/public_museum_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-fire-assay-mining-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "chemical_assay_laboratories",
+    "prerequisite": "mining"
+  },
+  "replaced_edge": {
+    "dependent": "chemical_assay_laboratories",
+    "prerequisite": "coin_mint_assay_offices"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Coin Mint Assay Offices provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Fire-assay workshops scaled around mining valuation: assayers determined metal content in rocks to decide whether material qualified as ore worth mining."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The introduction says assayers determine the amount of metal in rock so people can decide whether rock should be defined as ore to be mined.",
+    "source_claim_summary": "The source frames fire assaying as a method for evaluating metal content in rocks before mining and ore processing decisions.",
+    "source_support_rationale": "That application makes mining the economic and operational context for assay workshops, while coin-mint assay offices are a different institutional lineage excluded from the corrected scope."
+  },
+  "ontology_before": "Chemical Assay Laboratories depended on coin_mint_assay_offices, preserving a coin-administration lineage inside a broad chemical-lab placeholder.",
+  "ontology_after": "Metallurgical Fire Assay Workshops depend on mining as the commercial context for ore valuation, without claiming that coin-mint offices enabled Agricola-style fire assay.",
+  "invariant_preserved_or_changed": "Changed: chemical_assay_laboratories now depends on mining and no longer directly depends on coin_mint_assay_offices.",
+  "would_reject_if": [
+    "The node were narrowed to government coin-mint assaying rather than ore and precious-metal fire assay workshops.",
+    "A source showed the earliest scoped workshops were administratively derived from coin-mint assay offices rather than mining valuation.",
+    "A separate early mint assay laboratory node were added and should preserve the coin_mint_assay_offices edge."
+  ],
+  "short_reason": "The source-backed scope is ore valuation for mining, not coin-mint administration.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/chemical_assay_laboratories.before.json /tmp/chemical_assay_laboratories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

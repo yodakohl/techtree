@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-24-postal-money-orders-scope",
+  "description": "Lock postal_money_orders to modern postal remittance instruments, not Classical courier or contract-registry payments.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "postal_money_orders",
+      "operator": "eq",
+      "value": 1864,
+      "reason": "The sourced node is the U.S. Post Office Department money-order system introduced during the Civil War."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "postal_money_orders",
+      "prerequisite": "civic_contract_registries",
+      "reason": "Civic contract registries are not the source-backed causal boundary for postal remittance instruments."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "postal_money_orders",
+      "prerequisite": "banking",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Postal money orders performed bank-like funds-transfer functions at post offices."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "postal_money_orders",
+      "prerequisite": "postal_relay_systems",
+      "expected": "historical_predecessor",
+      "reason": "Earlier postal relay systems are postal infrastructure predecessors, not an ancient money-order mechanism."
+    }
+  ]
+}

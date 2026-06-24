@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-beacon-networks-fortifications-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "castle_signal_beacons",
+    "prerequisite": "early_fortifications"
+  },
+  "replaced_edge": {
+    "dependent": "castle_signal_beacons",
+    "prerequisite": "castle_garrison_logistics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Castle Garrison Logistics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.56,
+    "evidence_level": "review",
+    "note": "Beacon warning systems were part of defensive landscapes linked to strongholds, frontiers, military posts, and protected communities, while fortification was contextual rather than the signal mechanism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://discovery.ucl.ac.uk/1471709/1/Baker%20and%20Brookes%20Beacons%20OA.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Baker and Brookes describe beacon systems in relation to military posts, defensive structures, frontiers such as Offa's Dyke, strongholds, and the general population.",
+    "source_claim_summary": "The source reviews beacon and lookout networks as parts of broader civil-defense and defensive-landscape systems.",
+    "source_support_rationale": "Fortification is the defensive context in which the warning network operated, but it is not the signal mechanism itself. Castle garrison logistics is too narrow and laterally administrative for the source-backed beacon-network scope."
+  },
+  "ontology_before": "Castle Signal Beacons depended on Castle Garrison Logistics, making castle stores and watch rotations look like the direct cause of regional beacon chains.",
+  "ontology_after": "Formalized Medieval Beacon Networks keep fortification as a contextual defensive dependency while excluding castle-garrison logistics from the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: castle_signal_beacons now depends on early_fortifications and no longer directly depends on castle_garrison_logistics.",
+  "would_reject_if": [
+    "The node were narrowed to a castle garrison operating procedure rather than a regional beacon warning network.",
+    "A source showed castle stores, payroll, or garrison logistics were required to create the beacon network.",
+    "The early_fortifications node were later narrowed so it no longer covers defensive strongholds, walls, or protected settlements."
+  ],
+  "short_reason": "Beacon networks belong to defensive landscapes, not castle-garrison logistics specifically.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/castle_signal_beacons.before.json /tmp/castle_signal_beacons.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

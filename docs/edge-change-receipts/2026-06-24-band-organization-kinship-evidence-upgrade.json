@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-band-organization-kinship-evidence-upgrade",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "tribalism",
+    "prerequisite": "kinship_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Kinship Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Hunter-gatherer small-group organization is repeatedly characterized by multirelational or flexible kinship ties, making kinship systems enabling social infrastructure."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.anthroencyclopedia.com/entry/hunting-and-gathering",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract and social-relations sections: most hunter-gatherers live in very small groups characterized by multirelational kinship ties, and hunter-gatherers across the globe differ in kinship systems.",
+    "source_claim_summary": "The source ties hunter-gatherer small-group social organization to multirelational and flexible kinship systems.",
+    "source_support_rationale": "That evidence supports kinship as social infrastructure for the rescoped band-organization node instead of leaving the edge as generic expert inference."
+  },
+  "invariant_preserved_or_changed": "Preserved: kinship_systems remains an enabling prerequisite, now with a source-backed rationale for the band-organization scope.",
+  "would_reject_if": [
+    "The node were rescoped back to modern ethnic or political tribalism rather than band-level gatherer-hunter organization.",
+    "A stronger source showed band organization is not structured through kinship or kin-like co-residence.",
+    "The kinship_systems node were narrowed to formal descent-lineage systems only."
+  ],
+  "short_reason": "Kinship remains the correct enabling social infrastructure, but the edge now has explicit anthropology-source support.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/tribalism.before.json /tmp/tribalism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

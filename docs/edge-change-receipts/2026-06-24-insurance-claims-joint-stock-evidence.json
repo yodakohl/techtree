@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-insurance-claims-joint-stock-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "insurance_claims_adjustment",
+    "prerequisite": "joint_stock_insurance_pools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Insurance Pools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Barbon's 1680 Fire Office organized fire insurance as a joint-stock office with policy terms and payouts, providing the institutional pool that made repeat claims assessment operational."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://insurance.museum/rising-from-the-ashes/part-2",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Insurance Museum describes Barbon's Fire Office as the first joint-stock insurance company in 1680 and quotes early policy terms promising payment if an insured house burned down.",
+    "source_claim_summary": "The source ties the 1680 joint-stock Fire Office to fire policies and payout terms for burned insured houses.",
+    "source_support_rationale": "That institutional risk pool makes repeat fire-insurance claims assessment operational, while avoiding a claim that every later claims office required this exact London company form."
+  },
+  "invariant_preserved_or_changed": "Preserved: joint_stock_insurance_pools remains an enabling edge, now with source-locatable rationale.",
+  "would_reject_if": [
+    "The node were broadened back to all maritime and property claims adjustment rather than early London fire-insurance assessment.",
+    "A stronger source showed the scoped claims-assessment practice emerged outside institutional fire-insurance pools.",
+    "The joint_stock_insurance_pools node were narrowed to exclude Barbon's 1680 Fire Office."
+  ],
+  "short_reason": "The source-backed 1680 Fire Office gives the claims-assessment node an institutional insurance-pool anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/insurance_claims_adjustment.before.json /tmp/insurance_claims_adjustment.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

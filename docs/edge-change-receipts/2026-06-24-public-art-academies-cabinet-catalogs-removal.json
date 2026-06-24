@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-24-public-art-academies-cabinet-catalogs-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "public_art_academies",
+    "prerequisite": "public_museum_catalogs"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Museum Catalogs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because public_art_academies is anchored to Florence in 1563, while public_museum_catalogs is now scoped to printed cabinet catalogs anchored by Imperato's 1599 publication.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.lindahall.org/about/news/scientist-of-the-day/francesco-calzolari/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Linda Hall Library says no museum catalogs were in print in 1580 and that Imperato published his museum book in 1599.",
+    "source_claim_summary": "The source places printed museum/cabinet catalogs after the 1563 public-art-academy anchor.",
+    "source_support_rationale": "Keeping the edge would make a 1599 printed catalog tradition a prerequisite for a 1563 art academy, reversing chronology and broadening the catalog node beyond its source-backed scope."
+  },
+  "ontology_before": "Public Art Academies depended directly on Public Museum Catalogs through a generic expert-inference edge.",
+  "ontology_after": "Public Art Academies no longer depends on printed cabinet catalogs; the catalog node remains available for later collection and design traditions.",
+  "invariant_preserved_or_changed": "Changed: public_art_academies no longer has public_museum_catalogs as a direct prerequisite.",
+  "would_reject_if": [
+    "The public_art_academies node were redated to a later academy explicitly organized around printed collection catalogs.",
+    "A source showed the 1563 Florence academy required a printed museum/cabinet catalog tradition.",
+    "The catalog node were split and an earlier art-inventory node became the prerequisite instead."
+  ],
+  "short_reason": "The 1563 art-academy node should not depend on 1599 printed cabinet catalogs.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_museum_catalogs.before.json /tmp/public_museum_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

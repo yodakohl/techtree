@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-beacon-networks-fire-control-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "castle_signal_beacons",
+    "prerequisite": "fire_control"
+  },
+  "replaced_edge": {
+    "dependent": "castle_signal_beacons",
+    "prerequisite": "military_signal_flags"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Signal Flags provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The scoped warning network used deliberately lit fires, smoke by day, and flame by night, so controlled fire is the required signal medium."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://historicengland.org.uk/listing/the-list/list-entry/1020825",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Historic England says beacons were fires deliberately lit to give warning by smoke in daylight and flame at night, and describes bonfires, pitch barrels, and fire baskets.",
+    "source_claim_summary": "The source defines medieval beacons as deliberately lit fire signals using smoke and flame for warning.",
+    "source_support_rationale": "Because fire and smoke are the signal medium, controlled fire is a required method dependency. Flag signalling is a separate visual-signalling practice and is not evidenced as the prerequisite for this beacon-network scope."
+  },
+  "ontology_before": "Castle Signal Beacons depended on Military Signal Flags, mixing fire-beacon warning networks with flag and banner command signaling.",
+  "ontology_after": "Formalized Medieval Beacon Networks depend on controlled fire as the physical signaling medium and exclude military flags as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: castle_signal_beacons now depends on fire_control and no longer directly depends on military_signal_flags.",
+  "would_reject_if": [
+    "The node were broadened back to all visual military signalling including flags and banners.",
+    "A source showed the formalized medieval beacon system depended on flag signalling rather than fire and smoke.",
+    "The fire_control node were later narrowed to exclude maintained signal fires, smoke, or night flame."
+  ],
+  "short_reason": "Medieval beacon networks used fire and smoke, not flag signalling, as the signal medium.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/castle_signal_beacons.before.json /tmp/castle_signal_beacons.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

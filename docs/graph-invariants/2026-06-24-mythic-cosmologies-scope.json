@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-24-mythic-cosmologies-scope",
+  "description": "Lock mythology_and_cosmology to source-backed early Mesopotamian mythic cosmologies, not generic prehistoric shamanism or unsourced symbolic communication.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mythology_and_cosmology",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "The scoped claim is anchored to Mesopotamian written mythic evidence in and after the third millennium BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mythology_and_cosmology",
+      "prerequisite": "oral_tradition_storytelling",
+      "expected": "historical_predecessor",
+      "reason": "Surviving written mythic texts preserve older oral-traditional narrative systems."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mythology_and_cosmology",
+      "prerequisite": "proto_writing",
+      "expected": "historical_predecessor",
+      "reason": "Proto-cuneiform and early cuneiform are the Mesopotamian documentary lineage leading into the surviving mythological tablets."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mythology_and_cosmology",
+      "prerequisite": "early_symbolic_communication",
+      "reason": "Generic symbolic communication is broader than the written mythological corpus supported by the sources."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mythology_and_cosmology",
+      "prerequisite": "shamanism_animism",
+      "reason": "The scoped Mesopotamian written mythic-cosmology node must not inherit an unsourced prehistoric shamanism claim."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mythology_and_cosmology",
+      "prerequisite": "writing",
+      "reason": "A direct writing edge currently reintroduces a calendar-astronomy-writing cycle; proto_writing carries the non-cyclic documentary lineage."
+    }
+  ]
+}

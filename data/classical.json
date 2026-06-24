@@ -12480,42 +12480,97 @@
     "id": "civic_contract_registries",
     "name": "Civic Contract Registries",
     "era": "Classical",
-    "description": "Public or semi-public records of sales, loans, leases, inheritance, partnerships, and court-recognized agreements.",
+    "description": "Civic record systems that registered or published property sales, public leases, public-works contracts, tax-farming rights, and other court-recognized agreements.",
     "prerequisites": [
       "contract_law",
-      "public_archives",
-      "merchant_partnership_contracts"
+      "public_archives"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -450,
+    "datePrecision": "decade",
+    "region": "Classical Athens / Athenian Agora public leasing and poletai inscription records",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "contract_law",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Contract Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "The scoped registry records legally meaningful property and contract transactions, so contract-law concepts supply the enforceable claim categories being recorded.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Legal Foundations of Economic Growth in Ancient Greece",
+            "url": "https://www.cambridge.org/core/books/abs/ancient-greek-economy/legal-foundations-of-economic-growth-in-ancient-greece/04936A16268700FC1D59BC6E08942549",
+            "publisher": "Cambridge University Press",
+            "year": 2015,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter title and subtitle frame the evidence as legal foundations and the role of property records in Ancient Greek market exchange."
+          }
+        ]
       },
       {
         "prerequisite": "public_archives",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "The Athenian evidence is published public inscription and archive material from civic spaces, making public archival practice enabling infrastructure for the registry node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Inscriptions: Horoi, Poletai Records, Leases of Public Lands",
+            "url": "https://www.ascsa.edu.gr/publications/book/?i=9780876612194",
+            "publisher": "American School of Classical Studies at Athens",
+            "year": 1991,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Description states that the volume publishes Athenian poletai records and public/sacred land leases that once stood in the Agora."
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Covers civic publication or registration of contract-like property transactions in public records or inscriptions. It excludes modern centralized searchable registries and private merchant partnership agreements that were merely one possible class of recordable contract.",
+    "sources": [
+      {
+        "title": "Inscriptions: Horoi, Poletai Records, Leases of Public Lands",
+        "url": "https://www.ascsa.edu.gr/publications/book/?i=9780876612194",
+        "publisher": "American School of Classical Studies at Athens",
+        "year": 1991,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Description: poletai were magistrates charged with letting public-works contracts, leasing state silver mines and tax-collection privileges, and leasing or selling confiscated property; the same volume presents public and sacred land lease records from the Agora."
       },
       {
-        "prerequisite": "merchant_partnership_contracts",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Merchant Partnership Contracts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "title": "The Athenian Agora XIX",
+        "url": "https://epigraphy.osu.edu/collections/greek-squeeze/athenian-agora-xix",
+        "publisher": "Ohio State University Center for Epigraphical and Palaeographical Studies",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Digital catalogue lists public-property lease and poletai record inscriptions, including a decree concerning lease of public property ca. 450 BCE and multiple fourth-century BCE poletai/mining-lease records."
+      },
+      {
+        "title": "The Legal Foundations of Economic Growth in Ancient Greece",
+        "url": "https://www.cambridge.org/core/books/abs/ancient-greek-economy/legal-foundations-of-economic-growth-in-ancient-greece/04936A16268700FC1D59BC6E08942549",
+        "publisher": "Cambridge University Press",
+        "year": 2015,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Cambridge Core identifies the chapter subtitle as The Role of Property Records in Ancient Greek legal foundations for market exchange."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -450 decade anchor follows the ca. 450 BCE public-property lease decree listed in the Athenian Agora XIX epigraphic catalogue; fuller poletai and mining-lease record series cluster in the fourth and third centuries BCE."
   },
   {
     "id": "concrete_road_surfaces",
@@ -12721,72 +12776,6 @@
         ]
       }
     ]
-  },
-  {
-    "id": "postal_money_orders",
-    "name": "Postal Money Orders",
-    "era": "Classical",
-    "description": "Recorded payment instructions and courier-backed transfers that reduced the need to physically move coin across long routes.",
-    "prerequisites": [
-      "postal_relay_systems",
-      "currency",
-      "civic_contract_registries"
-    ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
-      {
-        "prerequisite": "postal_relay_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Postal Relay Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "currency",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Currency provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Lydia & the First Coins",
-            "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-            "publisher": "American Numismatic Association Money Museum",
-            "year": 2026,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "civic_contract_registries",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Civic Contract Registries provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      }
-    ],
-    "sources": [
-      {
-        "title": "Lydia & the First Coins",
-        "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-        "publisher": "American Numismatic Association Money Museum",
-        "year": 2026,
-        "source_type": "museum",
-        "supports": [
-          "edge"
-        ]
-      }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
   },
   {
     "id": "public_notice_boards",
@@ -13104,35 +13093,102 @@
   },
   {
     "id": "state_medical_supply_stores",
-    "name": "State Medical Supply Stores",
+    "name": "Roman Military Medical Supply Stores",
     "era": "Classical",
-    "description": "Organized storage and issue of bandages, instruments, herbs, oils, splints, and emergency supplies for armies and civic institutions.",
+    "description": "Organized provisioning of surgical instruments, herbs, ointments, prescription scrolls, beds, and field-infirmary medical stores for Roman military hospitals and marching camps.",
     "prerequisites": [
       "military_field_medicine",
-      "public_archives"
+      "herbal_medicine_preparation"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -100,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman military valetudinaria / Vindonissa and wider imperial army hospital practice",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "military_field_medicine",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Military Field Medicine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Roman medical supply provisioning was organized inside military hospitals and field infirmaries staffed by medici and orderlies, so military field medicine supplies the care setting.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "From Milites Medici to Army Medics",
+            "url": "https://jmvh.org/article/692/",
+            "publisher": "Journal of Military and Veterans' Health",
+            "year": 2008,
+            "source_type": "review",
+            "source_locator": "The article describes Augustus-era military medical specialization, medici caring for soldiers on the march and at valetudinaria, and valetudinaria developing from tents to equipped military hospitals.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "public_archives",
+        "prerequisite": "herbal_medicine_preparation",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.73,
+        "evidence_level": "review",
+        "note": "The Vindonissa field infirmary display includes herbs and ointments alongside instruments and prescriptions, so prepared medicinal materials are part of the stocked Roman medical-supply setting.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Military hospital (Valetudinarium)",
+            "url": "https://www.museumaargau.ch/en/legionary-trail/roman-sites/military-hospital-valetudinarium",
+            "publisher": "Museum Aargau / Vindonissa Legionary Trail",
+            "year": 2026,
+            "source_type": "museum",
+            "source_locator": "The page describes a fully equipped reconstructed field infirmary and lists surgical instruments, herbs, ointments, prescription scrolls, and camp beds.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Military hospital (Valetudinarium)",
+        "url": "https://www.museumaargau.ch/en/legionary-trail/roman-sites/military-hospital-valetudinarium",
+        "publisher": "Museum Aargau / Vindonissa Legionary Trail",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Museum Aargau describes the Vindonissa valetudinarium, a reconstructed fully equipped field infirmary, medics and orderlies, sick rooms, instruments, herbs, ointments, prescription scrolls, and camp beds.",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Hospital",
+        "url": "https://www.britannica.com/science/hospital",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica dates Roman valetudinaria for sick and injured soldiers to around 100 BCE.",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "From Milites Medici to Army Medics",
+        "url": "https://jmvh.org/article/692/",
+        "publisher": "Journal of Military and Veterans' Health",
+        "year": 2008,
+        "source_type": "review",
+        "source_locator": "The article describes medici, treatment on the march and at valetudinaria, and valetudinaria developing into equipped military hospitals.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      }
+    ],
+    "scopeNote": "Covers Roman military hospital and field-infirmary provisioning of medical materials. It excludes generic civic archives, modern hospital pharmacies, surgical-instrument typologies as a prerequisite, and battlefield casualty triage.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "Britannica anchors Roman valetudinaria around 100 BCE; Vindonissa evidence is early imperial/about 2,000 years old, so century precision is retained."
   },
   {
     "id": "military_signal_flags",
@@ -14045,42 +14101,108 @@
     "id": "standard_legal_forms",
     "name": "Standard Legal Forms",
     "era": "Classical",
-    "description": "Reusable templates for wills, sales, leases, loans, citizenship claims, and court petitions.",
+    "description": "Reusable written legal-document formats and clause patterns for leases, sales, credit, wills, petitions, and related contracts.",
     "prerequisites": [
+      "writing",
       "contract_law",
-      "civic_contract_registries",
       "public_archives"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -300,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Ptolemaic and Roman Egypt / Greek legal papyri",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "contract_law",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Contract Law is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "writing",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The scoped technology is reusable written legal-document form; writing is the medium that carries the document structure and clauses.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Law and Legal Practice in Egypt from Alexander to the Arab Conquest",
+            "url": "https://www.cambridge.org/core/books/law-and-legal-practice-in-egypt-from-alexander-to-the-arab-conquest/9A5A29F9154F8F6D11B3D0A4707F0333",
+            "publisher": "Cambridge University Press",
+            "year": 2014,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Book description states that legal documents written on papyrus are presented from Ptolemaic to late Byzantine Egypt, with translations and expert commentary."
+          }
+        ]
       },
       {
-        "prerequisite": "civic_contract_registries",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Civic Contract Registries is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "contract_law",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Reusable legal forms organize legally recognized transaction and petition categories such as credit, sale, lease, family, labor, and judicial documents.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Law and Legal Practice in Egypt from Alexander to the Arab Conquest",
+            "url": "https://www.cambridge.org/core/books/law-and-legal-practice-in-egypt-from-alexander-to-the-arab-conquest/9A5A29F9154F8F6D11B3D0A4707F0333",
+            "publisher": "Cambridge University Press",
+            "year": 2014,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Book description presents legal documents from Ptolemaic to late Byzantine Egypt; contents include legal-document form/content/administration, capital, sale, leases, labor, family, and judicial-system chapters."
+          }
+        ]
       },
       {
         "prerequisite": "public_archives",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Public Archives is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.62,
+        "evidence_level": "review",
+        "note": "Public archive and state-sanctioned record practices helped stabilize and preserve legal-document forms, but private scribal formats also existed.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Law and Legal Practice in Egypt from Alexander to the Arab Conquest. A Selection of Papyrological Sources in Translation, with Introductions and Commentary",
+            "url": "https://bmcr.brynmawr.edu/2015/2015.02.07/",
+            "publisher": "Bryn Mawr Classical Review",
+            "year": 2015,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Review notes the volume's focus on form, content, and administration of legal documents and on state archives and state-sanctioned systems of knowledge production."
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers recurring documentary formats and formulaic clauses in Hellenistic and Greco-Roman legal papyri. It does not claim that all societies had standardized legal boilerplate by -300 BCE or that civic contract registries were required for every legal form.",
+    "sources": [
+      {
+        "title": "Law and Legal Practice in Egypt from Alexander to the Arab Conquest",
+        "url": "https://www.cambridge.org/core/books/law-and-legal-practice-in-egypt-from-alexander-to-the-arab-conquest/9A5A29F9154F8F6D11B3D0A4707F0333",
+        "publisher": "Cambridge University Press",
+        "year": 2014,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Book description says the volume presents legal documents from Egypt from the Ptolemaic to late Byzantine periods with translations and expert commentary."
+      },
+      {
+        "title": "Law and Legal Practice in Egypt from Alexander to the Arab Conquest. A Selection of Papyrological Sources in Translation, with Introductions and Commentary",
+        "url": "https://bmcr.brynmawr.edu/2015/2015.02.07/",
+        "publisher": "Bryn Mawr Classical Review",
+        "year": 2015,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Review summarizes the contents as chapters on form, content, and administration of legal documents, capital including loans/security, sale, leases, labor, family, and judicial practice."
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -300 century anchor follows the Hellenistic/Ptolemaic start of the Cambridge and BMCR source scopes; earlier Demotic legal forms exist but are outside this node's scoped Greek/Egyptian papyrological-form claim."
   },
   {
     "id": "glass_lamp_chimneys",
@@ -14230,42 +14352,117 @@
   },
   {
     "id": "port_customs_ledgers",
-    "name": "Port Customs Ledgers",
+    "name": "Port Tax Accounts",
     "era": "Classical",
-    "description": "Recorded manifests, taxes, fees, inspections, cargo origins, and merchant obligations at harbors.",
+    "description": "Written harbor-linked tax and cargo-account records for grain shipments, weights, fees, guarantors, public proceeds, and merchant obligations.",
     "prerequisites": [
-      "border_customs_posts",
-      "maritime_law_codes",
+      "writing",
+      "currency",
       "public_archives"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -374,
+    "datePrecision": "year",
+    "region": "Classical Athens / Piraeus grain-tax law",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "border_customs_posts",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Border Customs Posts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "writing",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "The scoped practice is an inscribed written law/accounting record that specifies tax portions, weights, fees, guarantors, and account rendering.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "RO 26 Law on grain tax from Lemnos, Imbros and Skyros, 374/3 BC",
+            "url": "https://www.atticinscriptions.com/inscription/RO/26",
+            "publisher": "Attic Inscriptions Online",
+            "year": 2024,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Translated inscription lines 5-61 specify written arrangements for tax portions, Piraeus transport, weighing, fees, guarantors, sale proceeds, and rendering accounts."
+          }
+        ]
       },
       {
-        "prerequisite": "maritime_law_codes",
+        "prerequisite": "currency",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Maritime Law Codes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "primary_source",
+        "note": "The port-linked tax account records fees in drachmas and directs sale proceeds and prior cash advances through public financial administration.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "RO 26 Law on grain tax from Lemnos, Imbros and Skyros, 374/3 BC",
+            "url": "https://www.atticinscriptions.com/inscription/RO/26",
+            "publisher": "Attic Inscriptions Online",
+            "year": 2024,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Translated inscription lines 27-29 require sales taxes and auction fees of twenty drachmas per portion; lines 51-61 discuss sale proceeds, advance payments, and public monies."
+          }
+        ]
       },
       {
         "prerequisite": "public_archives",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "common_dependency",
+        "confidence": 0.67,
+        "evidence_level": "review",
+        "note": "The evidence is a public inscribed law and accounting record from the Athenian Agora, making civic archival/publication practice contextual infrastructure for the node.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Athenian Tax Law of 374/3 B.C. Hesperia Supplement 29",
+            "url": "https://bmcr.brynmawr.edu/1999/1999.03.13/",
+            "publisher": "Bryn Mawr Classical Review",
+            "year": 1999,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Review describes the law as an inscribed stele found in the Agora, with detailed arrangements for tax farming, storage, weighing, sale proceeds, and account rendering."
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Covers written harbor-linked tax/accounting records such as the Athenian grain-tax law for shipments via Piraeus. It excludes a claim that all Classical ports kept surviving customs ledgers or that amphora standards required customs records.",
+    "sources": [
+      {
+        "title": "RO 26 Law on grain tax from Lemnos, Imbros and Skyros, 374/3 BC",
+        "url": "https://www.atticinscriptions.com/inscription/RO/26",
+        "publisher": "Attic Inscriptions Online",
+        "year": 2024,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "AIO dates the inscription to 374/3 BC and translates provisions for grain conveyed to Piraeus, weighed under written rules, sold by appointed officials, and accounted for before the People."
+      },
+      {
+        "title": "The Athenian Tax Law of 374/3 B.C. Hesperia Supplement 29",
+        "url": "https://bmcr.brynmawr.edu/1999/1999.03.13/",
+        "publisher": "Bryn Mawr Classical Review",
+        "year": 1999,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Review states that the inscribed law lays down arrangements for farming grain taxes, conveying grain to Athens, supervising weighing, selling it, and paying proceeds to the stratiotic fund."
+      },
+      {
+        "title": "Food security: the Athenian grain-tax law of 374/3 BC",
+        "url": "https://strathprints.strath.ac.uk/13285/",
+        "publisher": "Strathprints / University of Strathclyde",
+        "year": 2009,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Repository abstract frames the Athenian grain-tax law as accounting-history evidence and highlights accounting for tax collection, measurability, accountability, grain, and coinage."
       }
     ]
   },
@@ -14341,8 +14538,7 @@
     "description": "Standard vessel shapes, stamps, capacities, seals, and stacking methods for wine, oil, grain, and preserved foods.",
     "prerequisites": [
       "pottery_wheel",
-      "maritime_law_codes",
-      "port_customs_ledgers"
+      "maritime_law_codes"
     ],
     "firstKnownDate": -500,
     "datePrecision": "century",
@@ -14375,14 +14571,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Maritime Law Codes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "port_customs_ledgers",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Port Customs Ledgers provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       }
     ],

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-urbanization-fired-bricks-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "urbanization",
+    "prerequisite": "fired_bricks_early_kilns"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Fired Bricks & Early Kilns is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains because source-backed urbanization is a broad settlement and social-density process, while kiln-fired bricks are a later Mesopotamian construction-material variant rather than a prerequisite for early urbanization.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/urbanization",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's urbanization overview supports population-density and social-process context but does not identify kiln-fired brick manufacture as a prerequisite.",
+    "source_claim_summary": "The source frames urbanization as population concentration and social transformation, not as a fired-brick construction dependency.",
+    "source_support_rationale": "After fired bricks are redated to the third millennium BCE, a direct predecessor edge would incorrectly make fired brick manufacture prior to fourth-millennium urbanization."
+  },
+  "ontology_before": "Urbanization depended on Fired Bricks & Early Kilns, implying fired building-brick technology was a general predecessor to early urbanization.",
+  "ontology_after": "Urbanization keeps social stratification and irrigation context without requiring a later, narrower fired-brick material node.",
+  "invariant_preserved_or_changed": "Changed: urbanization no longer directly depends on fired_bricks_early_kilns.",
+  "would_reject_if": [
+    "The urbanization node is later narrowed to a specific kiln-fired-brick urban construction phase after the third millennium BCE.",
+    "A source shows the earliest scoped urbanization required kiln-fired bricks rather than broader settlement, irrigation, and social organization.",
+    "A separate fired_brick_urban_monumentality node is added and should carry the dependency."
+  ],
+  "short_reason": "Fired brick manufacture is too narrow and too late as a direct urbanization prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/urbanization.before.json /tmp/urbanization.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

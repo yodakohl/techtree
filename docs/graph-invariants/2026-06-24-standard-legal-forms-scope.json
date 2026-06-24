@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-24-standard-legal-forms-scope",
+  "description": "Lock standard_legal_forms to written legal-document formats and clauses, not civic registry infrastructure.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "standard_legal_forms",
+      "prerequisite": "civic_contract_registries",
+      "reason": "Civic contract registries are not a general prerequisite for written legal-document forms."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "standard_legal_forms",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "The scoped legal-form technology is a written-document and clause-pattern practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "standard_legal_forms",
+      "prerequisite": "contract_law",
+      "expected": "enabling",
+      "reason": "Contract-law practice supplies the transaction and petition categories organized by the forms."
+    },
+    {
+      "type": "first_known_date",
+      "node": "standard_legal_forms",
+      "operator": "gte",
+      "value": -350,
+      "reason": "The scoped claim is anchored to Hellenistic/Ptolemaic documentary legal forms rather than a generic Classical placeholder."
+    }
+  ]
+}

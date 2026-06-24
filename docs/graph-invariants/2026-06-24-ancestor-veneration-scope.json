@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-24-ancestor-veneration-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "ancestor_worship",
+      "operator": "eq",
+      "value": -8200,
+      "reason": "The rescoped node is anchored to the British Museum Jericho Skull date range of 8200-7500 BC."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ancestor_worship",
+      "prerequisite": "kinship_systems",
+      "expected": "enabling",
+      "reason": "Kinship supplies the social relationship for remembered dead persons becoming community forebears."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ancestor_worship",
+      "prerequisite": "shamanism_animism",
+      "reason": "Jericho plastered-skull evidence supports ancestor figures and community forebears, not a direct shamanic-mediation dependency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ancestor_worship",
+      "prerequisite": "ritual_burial_practices",
+      "reason": "The ancestor-veneration node should not turn broad intentional burial evidence into an ancestor-cult prerequisite."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-craft-quality-marks-notarial-records-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "craft_quality_marks",
+    "prerequisite": "notarial_records"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Notarial Records provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because craft quality marks are certification and inspection marks, while the source-backed notarial_records node now covers twelfth-century Genoese notarial registers.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.museidigenova.it/en/cartulary-giovanni-scriba",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The State Archive of Genoa source supports Giovanni Scriba's notarial register and medieval Genoese notarial archival series; it does not support craft marks as dependent on notarial registers.",
+    "source_claim_summary": "The source anchors notarial registers, not guild marks, hallmarks, or inspection systems.",
+    "source_support_rationale": "Keeping the edge would launder generic legal recordkeeping into a craft-certification node without source support."
+  },
+  "ontology_before": "Craft quality marks depended directly on notarial_records through a generic expert-inference edge.",
+  "ontology_after": "Craft quality marks rely on guild and measurement infrastructure only; notarial registers remain a separate legal-document tradition.",
+  "invariant_preserved_or_changed": "Changed: craft_quality_marks no longer has a direct notarial_records prerequisite.",
+  "would_reject_if": [
+    "The craft node were narrowed to notarized certification records rather than marks, hallmarks, seals, and inspections.",
+    "A source showed medieval craft quality marks required notarial registers.",
+    "A separate notarial certification node were introduced for notarized inspection acts."
+  ],
+  "short_reason": "The reviewed notarial-register sources do not support a direct dependency for craft quality marks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-fire-assay-portable-scales-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "chemical_assay_laboratories",
+    "prerequisite": "portable_scales"
+  },
+  "replaced_edge": {
+    "dependent": "chemical_assay_laboratories",
+    "prerequisite": "instrument_calibration_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Instrument Calibration Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Assay results depended on weighing sampled material and the recovered precious-metal bead, making balance-scale practice an enabling measurement capability."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The Fire Assaying Today section describes mixing a known amount of carefully sampled powdered rock, weighing the gold and silver bead, and reweighing after parting.",
+    "source_claim_summary": "The source makes weighing an explicit part of the fire-assay workflow before and after separating precious metals.",
+    "source_support_rationale": "Because the corrected node is anchored to 1556, a 1614 instrument-calibration node is chronologically wrong; earlier balance-scale practice captures the measurement step without importing later scientific-instrument standardization."
+  },
+  "ontology_before": "Chemical Assay Laboratories depended on 1614 Instrument Calibration Standards, which was same-year placeholder infrastructure and becomes later than the 1556 assay anchor.",
+  "ontology_after": "Metallurgical Fire Assay Workshops depend on earlier balance-scale practice for weighing sampled ore and recovered beads.",
+  "invariant_preserved_or_changed": "Changed: chemical_assay_laboratories now depends on portable_scales and no longer directly depends on instrument_calibration_standards.",
+  "would_reject_if": [
+    "The node were redated back to a post-1614 laboratory standardization scope.",
+    "A source showed early fire assay did not require weighing samples or recovered metal beads.",
+    "A narrower early laboratory-balance node were introduced and should replace portable_scales."
+  ],
+  "short_reason": "Fire assay needs weighing, while the previous calibration-standard edge is later than the 1556 anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/chemical_assay_laboratories.before.json /tmp/chemical_assay_laboratories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

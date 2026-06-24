@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-charterparty-notarial-records-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "charterparty_shipping_contracts",
+    "prerequisite": "notarial_records"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Notarial Records provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the charterparty node is still a broad placeholder-dated shipping-contract concept, while notarial_records is now scoped to source-backed Genoese notarial registers dated 1155.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1017/CBO9780511576423.002",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Cambridge dates Giovanni Scriba's oldest surviving European notarial cartularies to 1155-64; the source does not support them as a prerequisite for a generic year-500 charterparty node.",
+    "source_claim_summary": "The source supports twelfth-century Genoese notarial cartularies, not a year-500 dependency for all charterparty shipping contracts.",
+    "source_support_rationale": "Keeping the edge would make a 1155 source-backed register tradition a prerequisite for an earlier, broader shipping-contract placeholder."
+  },
+  "ontology_before": "Charterparty shipping contracts depended directly on notarial_records through a generic expert-inference edge.",
+  "ontology_after": "Charterparty shipping contracts no longer depend directly on medieval notarial registers until that node is itself source-checked and dated compatibly.",
+  "invariant_preserved_or_changed": "Changed: charterparty_shipping_contracts no longer has a direct notarial_records prerequisite.",
+  "would_reject_if": [
+    "Charterparty shipping contracts were resourced and redated to a notarial-register-based twelfth-century Mediterranean scope.",
+    "A source showed the earliest scoped charterparties required Genoese notarial registers.",
+    "The notarial_records node were split into an earlier generic legal-scribe record node."
+  ],
+  "short_reason": "A 1155 Genoese notarial-register node cannot be a direct prerequisite for a broad year-500 charterparty placeholder.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-band-organization-hunting-gathering-common",
+  "decision_date": "2026-06-24",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "tribalism",
+    "prerequisite": "hunting_gathering_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Hunting & Gathering is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.66,
+    "evidence_level": "textbook",
+    "note": "Band organization is the small-scale political/social form associated with gatherer-hunter subsistence, so hunting and gathering is contextual economic infrastructure rather than a separate earlier predecessor."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://openstax.org/books/introduction-anthropology/pages/8-2-acephalous-societies-bands-and-tribes",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Section 8.2 states that band societies are gatherer-hunters living in small groups of 20 to 30 people, strongly egalitarian, cooperative, sharing-oriented, and making decisions through discussion and consensus.",
+    "source_claim_summary": "OpenStax presents band societies as the small-group social form of gatherer-hunters.",
+    "source_support_rationale": "This supports hunting and gathering as the economic context for the social organization, while retyping away from an inaccurate predecessor relationship."
+  },
+  "ontology_before": "The edge treated Basic Hunting & Gathering as an earlier predecessor of Tribalism, implying a staged sequence from subsistence to a broader tribal category.",
+  "ontology_after": "The node is now scoped to band-level gatherer-hunter organization, with hunting and gathering modeled as contextual economic infrastructure.",
+  "invariant_preserved_or_changed": "Changed: hunting_gathering_basic remains connected but is retyped from historical_predecessor to common_dependency.",
+  "would_reject_if": [
+    "The node were split so that a separate later tribal-society node, not band organization, inherited this edge.",
+    "A source showed the graph should model a strict staged transition from hunting and gathering to band organization.",
+    "The hunting_gathering_basic node were narrowed away from gatherer-hunter subsistence."
+  ],
+  "short_reason": "Band organization is the social form of gatherer-hunter lifeways, not a later technology descended from them.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/tribalism.before.json /tmp/tribalism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

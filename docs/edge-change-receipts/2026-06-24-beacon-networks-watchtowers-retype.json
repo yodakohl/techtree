@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-beacon-networks-watchtowers-retype",
+  "decision_date": "2026-06-24",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "castle_signal_beacons",
+    "prerequisite": "defensive_watchtowers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Defensive Watchtowers provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Medieval beacon networks grew from raised lookout and watch-site traditions; beacons and lookout posts often went together in early medieval civil-defense landscapes."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://discovery.ucl.ac.uk/1471709/1/Baker%20and%20Brookes%20Beacons%20OA.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Baker and Brookes state that fire signals are attested in medieval England and that maintenance of lookout posts and beacons often went hand in hand.",
+    "source_claim_summary": "The source links medieval beacon use to lookout posts, elevated watch sites, and earlier civil-defense landscapes.",
+    "source_support_rationale": "The relationship is a lineage from raised watch and lookout practices into beacon-chain systems, not a hard engineering dependency requiring a tower for every beacon."
+  },
+  "ontology_before": "Castle Signal Beacons treated Defensive Watchtowers as a generic enabling capability.",
+  "ontology_after": "Formalized Medieval Beacon Networks treat Defensive Watchtowers as the historical lookout lineage behind beacon sites and chains.",
+  "invariant_preserved_or_changed": "Changed: defensive_watchtowers remains a direct edge but is retyped from enabling to historical_predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to freestanding beacon baskets with no lookout-site lineage.",
+    "A stronger source showed watchtowers were a required component of every formalized beacon chain.",
+    "The defensive_watchtowers node were later broadened to unrelated non-signalling structures."
+  ],
+  "short_reason": "Watchtowers are the lookout lineage for beacon sites, not a strict enabling component.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/castle_signal_beacons.before.json /tmp/castle_signal_beacons.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

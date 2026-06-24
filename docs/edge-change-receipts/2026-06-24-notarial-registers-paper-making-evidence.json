@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-notarial-registers-paper-making-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "notarial_records",
+    "prerequisite": "paper_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Paper Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "The scoped anchor artifact is a paper manuscript, making paper production an enabling medium for this surviving register tradition."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.museidigenova.it/en/cartulary-giovanni-scriba",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The State Archive of Genoa object page identifies the register as a paper manuscript and the oldest paper code in Western Europe.",
+    "source_claim_summary": "The source directly identifies the anchor notarial register as a paper manuscript.",
+    "source_support_rationale": "Because this node is anchored to the surviving Giovanni Scriba register, paper is an enabling material for the scoped register artifact."
+  },
+  "ontology_before": "Notarial records depended on paper making through a generic expert-inference edge supported only by a broad papermaking source.",
+  "ontology_after": "Medieval notarial registers keep paper making as an enabling material for the source-backed Genoese paper register.",
+  "invariant_preserved_or_changed": "Preserved: paper_making remains a direct enabling prerequisite, now tied to the anchor artifact.",
+  "would_reject_if": [
+    "The node were broadened to all notarial acts including parchment and papyrus documents.",
+    "The source did not identify the anchor register as paper.",
+    "Paper making were treated as a hard prerequisite for all notarial practice."
+  ],
+  "short_reason": "The anchor notarial register is explicitly a paper manuscript.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

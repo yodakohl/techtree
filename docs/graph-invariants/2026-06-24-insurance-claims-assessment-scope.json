@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-24-insurance-claims-assessment-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "insurance_claims_adjustment",
+      "operator": "eq",
+      "value": 1680,
+      "reason": "The corrected node is anchored to Barbon's 1680 Fire Office as the institutional fire-insurance setting for early claims assessment."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "insurance_claims_adjustment",
+      "prerequisite": "joint_stock_insurance_pools",
+      "expected": "enabling",
+      "reason": "The 1680 Fire Office pooled insured fire risk and issued policies with payout terms, enabling repeat claims assessment."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "insurance_claims_adjustment",
+      "prerequisite": "property_concepts",
+      "expected": "common_dependency",
+      "reason": "The scoped claims are for insured houses and buildings, making property concepts contextual but not a specialized adjustment mechanism."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "insurance_claims_adjustment",
+      "prerequisite": "record_keeping",
+      "expected": "enabling",
+      "reason": "Policy registers, endorsements, property descriptions, and claims minutes are the source-backed records used for coverage and loss assessment."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "insurance_claims_adjustment",
+      "prerequisite": "notarial_records",
+      "reason": "Medieval notarial registers are outside the corrected London fire-insurance claims-assessment scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "insurance_claims_adjustment",
+      "prerequisite": "printed_financial_price_lists",
+      "reason": "Printed financial price lists are market-information artifacts and are not source-backed as a prerequisite for fire-insurance claims assessment."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-printed-cabinet-catalogs-scientific-illustration-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "public_museum_catalogs",
+    "prerequisite": "scientific_illustration_printing"
+  },
+  "replaced_edge": {
+    "dependent": "public_museum_catalogs",
+    "prerequisite": "art_conservation_workshops"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Art Conservation Workshops is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Early cabinet catalogs used printed images and woodcuts to represent collection rooms and specimens, making scientific illustration printing an enabling practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://blog.biodiversitylibrary.org/2017/03/ferrante-imperato-step-into-his-cabinet-of-wonders",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "BHL describes Imperato's 1599 Dell'historia Naturale as a 791-page printed work with 119 woodcut illustrations and the first published pictorial representation of a Renaissance cabinet of curiosity.",
+    "source_claim_summary": "The source ties the anchor cabinet catalog to printed woodcut illustration and pictorial representation.",
+    "source_support_rationale": "The old conservation-workshop edge described preservation context, while the source-backed mechanism for catalog readers is printed visual representation of objects and rooms."
+  },
+  "ontology_before": "Public Museum Catalogs depended on Art Conservation Workshops, implying preservation practice was the collection-catalog mechanism.",
+  "ontology_after": "Printed Cabinet Catalogs depends on scientific illustration printing as the mechanism for representing specimens and collection rooms.",
+  "invariant_preserved_or_changed": "Changed: public_museum_catalogs now depends on scientific_illustration_printing and no longer directly depends on art_conservation_workshops.",
+  "would_reject_if": [
+    "The node were narrowed to conservation records rather than printed cabinet catalogs.",
+    "A source showed early cabinet catalogs required conservation workshops rather than printed illustration practice.",
+    "A separate art-conservation catalog node were introduced for restoration records."
+  ],
+  "short_reason": "Printed illustration is source-backed for the catalog; conservation workshops are not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_museum_catalogs.before.json /tmp/public_museum_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-bread-ovens-fired-bricks-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bread_ovens",
+    "prerequisite": "fired_bricks_early_kilns"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Fired Bricks & Early Kilns is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains because Neolithic bread ovens are scoped to early grain-processing and baking practice, while source-backed kiln-fired building bricks are later third-millennium Mesopotamian construction materials.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/event/Neolithic",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's Neolithic overview supports early farming and food-production context but does not identify fired building bricks or brick kilns as a prerequisite for bread ovens.",
+    "source_claim_summary": "The bread-oven node's source supports Neolithic food-production context, not a fired-brick construction prerequisite.",
+    "source_support_rationale": "After fired bricks are source-dated to the third millennium BCE, keeping this edge would make a later building material a predecessor to much earlier bread-oven practice."
+  },
+  "ontology_before": "Bread Ovens depended on Fired Bricks & Early Kilns, implying kiln-fired building bricks preceded Neolithic bread ovens.",
+  "ontology_after": "Bread Ovens keeps its agriculture and fermentation context without an anachronistic fired-brick prerequisite.",
+  "invariant_preserved_or_changed": "Changed: bread_ovens no longer directly depends on fired_bricks_early_kilns.",
+  "would_reject_if": [
+    "The bread_ovens node is later narrowed to baked-brick urban ovens dated after the third millennium BCE.",
+    "A source shows the earliest scoped bread ovens required kiln-fired building bricks.",
+    "A separate kiln_built_bread_ovens node is added and should carry a fired-brick prerequisite."
+  ],
+  "short_reason": "Fired building bricks are later than the scoped Neolithic bread-oven practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/bread_ovens.before.json /tmp/bread_ovens.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

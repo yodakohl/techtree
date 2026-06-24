@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-amphora-shipping-port-tax-accounts-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "amphora_shipping_standards",
+    "prerequisite": "port_customs_ledgers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Port Customs Ledgers provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from amphora_shipping_standards to port_customs_ledgers; amphora shape, stamp, and transport-standard practices were container and market-network features, not dependent on surviving port-tax account records.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/books/ancient-greek-economy/patterns-of-amphora-stamp-distribution/5C33675A0CA43D4B08FF4F9977AA7CEC",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Cambridge Core chapter page places amphora stamp distribution in The Ancient Greek Economy, Part III Markets and Trade Networks, with related chapters on markets, amphora trade, wine industry, and transport amphoras from the sixth to first centuries BCE.",
+    "source_claim_summary": "The source frames amphora stamps and transport amphoras as market, trade-network, and container evidence.",
+    "source_support_rationale": "That scope supports amphora standards as packaging/trade infrastructure while leaving port-tax accounts as a separate fiscal-record technology."
+  },
+  "ontology_before": "Amphora Shipping Standards depended on Port Customs Ledgers, implying standardized ancient containers required port-tax account systems.",
+  "ontology_after": "Amphora Shipping Standards keeps pottery and maritime-commercial context while port tax accounts remain separate fiscal records.",
+  "invariant_preserved_or_changed": "Changed: removed the direct port_customs_ledgers prerequisite from amphora_shipping_standards.",
+  "would_reject_if": [
+    "The amphora node is later narrowed specifically to customs-stamped port-entry containers.",
+    "A source shows amphora standardization originated from port tax ledgers rather than workshop, container, and trade-network practice.",
+    "A new customs_container_seals node is added and should depend on port tax records."
+  ],
+  "short_reason": "Amphora standards are container/trade practices, not a downstream product of port-tax accounts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/amphora_shipping_standards.before.json /tmp/amphora_shipping_standards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

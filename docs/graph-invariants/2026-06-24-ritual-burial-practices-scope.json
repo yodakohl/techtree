@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-24-ritual-burial-practices-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "ritual_burial_practices",
+      "operator": "eq",
+      "value": -100000,
+      "reason": "The node is anchored to the Smithsonian Qafzeh intentional burial evidence at about 100,000 years old."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ritual_burial_practices",
+      "prerequisite": "pigment_creation",
+      "expected": "common_dependency",
+      "reason": "Red ocher is documented near the Qafzeh bones, but pigment practice is contextual rather than a universal hard prerequisite for burial."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ritual_burial_practices",
+      "prerequisite": "early_symbolic_communication",
+      "reason": "The corrected node should not depend directly on the later broad symbolic-communication placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ritual_burial_practices",
+      "prerequisite": "ancestor_worship",
+      "reason": "Intentional burial evidence should not be laundered into ancestor-worship claims without a source."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ritual_burial_practices",
+      "prerequisite": "tribalism",
+      "reason": "The Qafzeh mortuary evidence should not imply tribal political organization as a direct prerequisite."
+    }
+  ]
+}

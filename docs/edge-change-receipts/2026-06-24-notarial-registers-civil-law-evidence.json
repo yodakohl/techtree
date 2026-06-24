@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-notarial-registers-civil-law-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "notarial_records",
+    "prerequisite": "legal_systems_common_civil"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Legal Systems (Common/Civil Law) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Medieval Italian notarial records developed in Roman-law-influenced legal systems where notaries authenticated private legal acts."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://academic.oup.com/past/article/230/suppl_11/71/2884263",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Article extract says areas influenced by Roman law used notaries and that medieval Italians developed notarial records as a powerful form of writing.",
+    "source_claim_summary": "The source links notarial records to Roman-law-influenced areas and medieval Italian notarial practice.",
+    "source_support_rationale": "The legal-system prerequisite is justified by the Roman-law/civil-law context of medieval Italian notarial records."
+  },
+  "ontology_before": "Notarial records depended on legal systems through a generic expert-inference edge.",
+  "ontology_after": "Medieval notarial registers keep legal_systems_common_civil as a source-backed legal institutional context.",
+  "invariant_preserved_or_changed": "Preserved: legal_systems_common_civil remains a direct enabling prerequisite, now source-backed.",
+  "would_reject_if": [
+    "The node were scoped to common-law notaries rather than civil-law notarial registers.",
+    "The source only supported general archives without Roman-law or notarial context.",
+    "The prerequisite were interpreted as a claim that common-law and civil-law systems both caused the Genoese register tradition."
+  ],
+  "short_reason": "Medieval Italian notarial records are source-linked to Roman-law-influenced legal systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

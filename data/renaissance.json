@@ -1258,15 +1258,15 @@
         "locator": "National Geographic dates Mercator's world map to 1569 and explains that its projection was designed to help sailors navigate with straight-line courses."
       },
       {
-        "title": "Mercator, World Map (1569)",
-        "url": "https://www.cabinet.ox.ac.uk/mercator-world-map-1569-1",
-        "publisher": "University of Oxford, Cabinet",
+        "title": "Mercator projection",
+        "url": "https://www.britannica.com/science/Mercator-projection",
+        "publisher": "Encyclopaedia Britannica",
         "year": 2026,
-        "source_type": "museum",
+        "source_type": "textbook",
         "supports": [
           "node"
         ],
-        "locator": "Oxford Cabinet describes Mercator's 1569 world map as a large planisphere projection of the spherical Earth onto a plane, printed from copper plates."
+        "locator": "Britannica defines the Mercator projection as a map projection introduced in 1569 by Gerardus Mercator, with meridians as equally spaced vertical lines and parallels as horizontally spaced lines."
       }
     ]
   },
@@ -9394,44 +9394,99 @@
   },
   {
     "id": "mechanical_theater_machinery",
-    "name": "Mechanical Theater Machinery",
+    "name": "Renaissance Perspective Stage Machinery",
     "era": "Renaissance",
-    "description": "Stage machinery using pulleys, winches, gears, perspective scenery, lighting, and timed effects for public performance.",
+    "description": "Renaissance stage systems combining forced-perspective scenery, built scenic streets, hidden stage machinery, lighting effects, and movable scenic devices.",
     "prerequisites": [
-      "commedia_dell_arte",
-      "technical_drawing_standards",
-      "scientific_instrument_making_guilds"
+      "theater_stage_machinery",
+      "perspective_in_art"
     ],
-    "firstKnownDate": 1614,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1585,
+    "datePrecision": "exact",
+    "region": "Vicenza and Italian Renaissance court/public theater",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "commedia_dell_arte",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Commedia dell'arte is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "theater_stage_machinery",
+        "type": "historical_predecessor",
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Ancient Greek and Hellenistic stage devices are the documented lineage for later Renaissance stage machinery, not a commedia-specific dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Stage machinery",
+            "url": "https://www.britannica.com/art/stage-machinery",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica says stage machinery has been used since at least fifth-century BCE Greek theater, including deus ex machina and Hellenistic movable scenery, before describing its Renaissance development."
+          }
+        ]
       },
       {
-        "prerequisite": "technical_drawing_standards",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Technical Drawing Standards is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "scientific_instrument_making_guilds",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Scientific Instrument Making Guilds is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "perspective_in_art",
+        "type": "enabling",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Renaissance perspective stage systems depended on linear-perspective illusion to create deep scenic streets and controlled audience sightlines.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Andrea Palladio, Teatro Olimpico",
+            "url": "https://smarthistory.org/palladio-teatro-olimpico/",
+            "publisher": "Smarthistory",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Smarthistory describes Teatro Olimpico as putting contemporary developments like linear perspective into practice and highlights Scamozzi's permanent forced-perspective stage set."
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Andrea Palladio, Teatro Olimpico",
+        "url": "https://smarthistory.org/palladio-teatro-olimpico/",
+        "publisher": "Smarthistory",
+        "year": 2026,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Smarthistory dates Teatro Olimpico to 1580-1585, notes it was inaugurated in 1585, and identifies Scamozzi's permanent stage set as a forced-perspective scenic construction."
+      },
+      {
+        "title": "Stage machinery",
+        "url": "https://www.britannica.com/art/stage-machinery",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Britannica defines stage machinery as devices for rapid scene changes, lighting, sound effects, and supernatural or magical illusions, then traces a Renaissance expansion of elaborate Italian stage machinery."
+      },
+      {
+        "title": "Pratica di fabricar scene e macchine ne' teatri",
+        "url": "https://archive.org/details/praticadifabrica00sabb",
+        "publisher": "Internet Archive / Getty Research Institute scan",
+        "year": 1638,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Internet Archive identifies Sabbattini's 1638 Pratica as a work on theaters, stage-setting, scenery, and machines, with woodcut in-text illustrations and diagrams."
+      }
+    ],
+    "scopeNote": "Covers Renaissance perspective stage systems and documented stage machinery for scenic illusion and effects, anchored by Teatro Olimpico's 1585 permanent perspective set and later Sabbattini-style machine manuals. It excludes classical Greek stage devices, commedia performance practice, generic scientific instrument guilds, and technical drawing as a direct prerequisite."
   },
   {
     "id": "printed_standardized_textbooks",
@@ -9863,42 +9918,129 @@
   },
   {
     "id": "insurance_claims_adjustment",
-    "name": "Insurance Claims Adjustment",
+    "name": "Early Insurance Claims Assessment",
     "era": "Renaissance",
-    "description": "Procedures for documenting losses, estimating damages, verifying contracts, assigning liability, and settling maritime or fire insurance claims.",
+    "description": "Early procedures for assessing insured fire losses, checking policy records, identifying covered property, and settling fire-insurance claims.",
     "prerequisites": [
       "joint_stock_insurance_pools",
-      "notarial_records",
-      "printed_financial_price_lists"
+      "property_concepts",
+      "record_keeping"
     ],
     "firstKnownDate": 1680,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "datePrecision": "exact",
+    "region": "London / post-Great-Fire fire-insurance market",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers early London fire-insurance loss assessment around Barbon's Fire Office, policy records, insured-property identifiers, and settlement practices after the Great Fire. It does not claim modern licensed loss adjusters, public adjusters, or all marine-average adjustment practice.",
+    "dateUncertaintyNote": "The 1680 anchor follows the first joint-stock Fire Office and early policy terms; the CILA history places loss-adjusting practice after the 1666 Great Fire, so this is an institutional anchor rather than a claim that the later professional title existed in 1680.",
     "dependencyEdges": [
       {
         "prerequisite": "joint_stock_insurance_pools",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Joint-Stock Insurance Pools provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Barbon's 1680 Fire Office organized fire insurance as a joint-stock office with policy terms and payouts, providing the institutional pool that made repeat claims assessment operational.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Rising from the Ashes: Part 2",
+            "url": "https://insurance.museum/rising-from-the-ashes/part-2",
+            "publisher": "Insurance Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Insurance Museum describes Barbon's Fire Office as the first joint-stock insurance company in 1680 and quotes early policy terms promising payment if an insured house burned down."
+          }
+        ]
       },
       {
-        "prerequisite": "notarial_records",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Notarial Records provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "property_concepts",
+        "type": "common_dependency",
+        "confidence": 0.58,
+        "evidence_level": "review",
+        "note": "The scoped claim assesses losses to insured houses and buildings, so property ownership supplies the claim subject without being a specialized adjustment mechanism.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "How the Great Fire of London created insurance",
+            "url": "https://www.londonmuseum.org.uk/blog/how-the-great-fire-of-london-created-insurance/",
+            "publisher": "London Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The London Museum explains that the Great Fire destroyed thousands of properties and that Barbon's Fire Office insured London houses by 1680."
+          }
+        ]
       },
       {
-        "prerequisite": "printed_financial_price_lists",
+        "prerequisite": "record_keeping",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printed Financial Price Lists provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Fire-insurance claims assessment relied on policy registers, endorsements, property descriptions, premiums, and recorded claims or committee minutes rather than printed market price lists.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Fire insurance records",
+            "url": "https://www.thelondonarchives.org/your-research/research-guides/fire-insurance-records",
+            "publisher": "The London Archives",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The London Archives guide says fire-insurance policy registers record policy number, date, policy holder, property description, premium, and endorsements, and identifies company minutes recording claims against loss."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Our History and CILA Arms",
+        "url": "https://cila.co.uk/about-us/our-history-cila-arms/",
+        "publisher": "Chartered Institute of Loss Adjusters",
+        "year": 2026,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "CILA dates the beginnings of loss adjusting to the aftermath of the 1666 Great Fire, when independent surveyors and tradesmen used expertise in settling claims after building fire insurance appeared."
+      },
+      {
+        "title": "How the Great Fire of London created insurance",
+        "url": "https://www.londonmuseum.org.uk/blog/how-the-great-fire-of-london-created-insurance/",
+        "publisher": "London Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The London Museum places Nicholas Barbon's Fire Office in 1680 and describes early London house insurance after the Great Fire."
+      },
+      {
+        "title": "Rising from the Ashes: Part 2",
+        "url": "https://insurance.museum/rising-from-the-ashes/part-2",
+        "publisher": "Insurance Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The Insurance Museum describes the 1680 Fire Office, early fire policies, insured-building marks, and policy payout terms if a house burned down."
+      },
+      {
+        "title": "Fire insurance records",
+        "url": "https://www.thelondonarchives.org/your-research/research-guides/fire-insurance-records",
+        "publisher": "The London Archives",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The research guide summarizes surviving fire-insurance policy registers and company minutes that recorded claims against loss."
       }
     ]
   },
@@ -10204,44 +10346,114 @@
   },
   {
     "id": "public_museum_catalogs",
-    "name": "Public Museum Catalogs",
+    "name": "Printed Cabinet Catalogs",
     "era": "Renaissance",
-    "description": "Systematic lists of art, specimens, antiquities, instruments, donors, provenance, and exhibition order.",
+    "description": "Published accounts and catalogs of early modern cabinets or museums that described, illustrated, and organized specimens, artifacts, and collection rooms for readers and visitors.",
     "prerequisites": [
-      "art_conservation_workshops",
-      "botanical_gardens_herbaria",
-      "printed_standardized_textbooks"
+      "printing_press",
+      "scientific_illustration_printing",
+      "botanical_gardens_herbaria"
     ],
-    "firstKnownDate": 1545,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1599,
+    "datePrecision": "exact",
+    "region": "Naples / early modern European cabinets of curiosities",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "art_conservation_workshops",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Art Conservation Workshops is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "printing_press",
+        "type": "enabling",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The scoped practice is a published museum/cabinet book, so print infrastructure is the direct medium that made the catalog reproducible and distributable.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Francesco Calzolari",
+            "url": "https://www.lindahall.org/about/news/scientist-of-the-day/francesco-calzolari/",
+            "publisher": "Linda Hall Library",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Linda Hall Library says Calzolari wanted to publish a catalog, that there were no museum catalogs in print in 1580, and that Ferrante Imperato published his museum book in 1599."
+          }
+        ]
+      },
+      {
+        "prerequisite": "scientific_illustration_printing",
+        "type": "enabling",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Early cabinet catalogs used printed images and woodcuts to represent collection rooms and specimens, making scientific illustration printing an enabling practice.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ferrante Imperato: Step Into His Cabinet of Wonders!",
+            "url": "https://blog.biodiversitylibrary.org/2017/03/ferrante-imperato-step-into-his-cabinet-of-wonders",
+            "publisher": "Biodiversity Heritage Library",
+            "year": 2017,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "BHL describes Imperato's 1599 Dell'historia Naturale as a 791-page printed work with 119 woodcut illustrations and the first published pictorial representation of a Renaissance cabinet of curiosity."
+          }
+        ]
       },
       {
         "prerequisite": "botanical_gardens_herbaria",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Botanical Gardens & Herbaria is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.58,
+        "evidence_level": "review",
+        "note": "Botanical and natural-history collection culture supplied major subject matter for early cabinet catalogs, but it is contextual rather than a universal hard prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ferrante Imperato: Step Into His Cabinet of Wonders!",
+            "url": "https://blog.biodiversitylibrary.org/2017/03/ferrante-imperato-step-into-his-cabinet-of-wonders",
+            "publisher": "Biodiversity Heritage Library",
+            "year": 2017,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "BHL says Renaissance cabinets gathered formerly animate, inanimate, and botanical objects, and that Imperato's cabinet contained plant, animal, and mineral specimens."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Ferrante Imperato: Step Into His Cabinet of Wonders!",
+        "url": "https://blog.biodiversitylibrary.org/2017/03/ferrante-imperato-step-into-his-cabinet-of-wonders",
+        "publisher": "Biodiversity Heritage Library",
+        "year": 2017,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ],
+        "source_locator": "BHL says Imperato's 1599 Dell'historia Naturale was a 791-page printed account of his cabinet with 119 woodcut illustrations, one of the first European natural history research collections, and the first published pictorial representation of a Renaissance cabinet of curiosity."
       },
       {
-        "prerequisite": "printed_standardized_textbooks",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Printed Standardized Textbooks is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "title": "Francesco Calzolari",
+        "url": "https://www.lindahall.org/about/news/scientist-of-the-day/francesco-calzolari/",
+        "publisher": "Linda Hall Library",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ],
+        "source_locator": "Linda Hall Library states that no museum catalogs were in print in 1580, that Imperato published his museum book in 1599, and that Calzolari's illustrated museum catalog appeared in 1622."
       }
-    ]
+    ],
+    "scopeNote": "Covers early printed catalogs and published accounts of cabinets or museums, anchored by Imperato's 1599 museum book. It excludes modern public museum catalog systems, generic inventories, art-academy curricula, and conservation workshops.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1599 anchor follows institutional summaries that identify Imperato's museum book as the first printed museum/cabinet catalog. Earlier inventories and Quiccheberg's 1565 museum treatise establish classification context but are not used here as the first printed cabinet catalog."
   },
   {
     "id": "commercial_auction_houses",
@@ -10510,44 +10722,99 @@
   },
   {
     "id": "chemical_assay_laboratories",
-    "name": "Chemical Assay Laboratories",
+    "name": "Metallurgical Fire Assay Workshops",
     "era": "Renaissance",
-    "description": "Workshops for testing ores, coins, medicines, pigments, salts, and industrial materials with repeatable procedures.",
+    "description": "Workshops for fire-assaying ores and precious-metal samples with fluxes, assay furnaces, cupels, parting, and weighing.",
     "prerequisites": [
-      "iatrochemistry_paracelsus",
-      "instrument_calibration_standards",
-      "coin_mint_assay_offices"
+      "basic_chemistry",
+      "portable_scales",
+      "mining"
     ],
-    "firstKnownDate": 1614,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1556,
+    "datePrecision": "exact",
+    "region": "Central European mining districts / Agricola's De re metallica",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "iatrochemistry_paracelsus",
+        "prerequisite": "basic_chemistry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Iatrochemistry (Paracelsus) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Fire assay used fluxes, lead collection, cupellation, and nitric-acid parting, so earlier practical chemistry is an enabling capability for the scoped assay workshop.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Science of the Comstock - Fire Assaying",
+            "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+            "publisher": "Nevada Bureau of Mines and Geology",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Fire Assaying page describes Agricola's 1556 method as adding ore-specific fluxes, melting the ore and flux mixture in an assay furnace, cupellation, and nitric-acid parting."
+          }
+        ]
       },
       {
-        "prerequisite": "instrument_calibration_standards",
+        "prerequisite": "portable_scales",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Instrument Calibration Standards provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Assay results depended on weighing sampled material and the recovered precious-metal bead, making balance-scale practice an enabling measurement capability.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Science of the Comstock - Fire Assaying",
+            "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+            "publisher": "Nevada Bureau of Mines and Geology",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Fire Assaying Today section describes mixing a known amount of carefully sampled powdered rock, weighing the gold and silver bead, and reweighing after parting."
+          }
+        ]
       },
       {
-        "prerequisite": "coin_mint_assay_offices",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Coin Mint Assay Offices provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "mining",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Fire-assay workshops scaled around mining valuation: assayers determined metal content in rocks to decide whether material qualified as ore worth mining.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Science of the Comstock - Fire Assaying",
+            "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+            "publisher": "Nevada Bureau of Mines and Geology",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The introduction says assayers determine the amount of metal in rock so people can decide whether rock should be defined as ore to be mined."
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Science of the Comstock - Fire Assaying",
+        "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+        "publisher": "Nevada Bureau of Mines and Geology",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ],
+        "source_locator": "The Fire Assaying page defines assaying as measuring metal content in rock, says Agricola described the method in 1556 in De Re Metallica, and summarizes fluxes, assay furnaces, cupels, weighing, and parting."
+      }
+    ],
+    "scopeNote": "Covers early modern metallurgical fire-assay workshops for ores and precious-metal samples. It excludes broad modern analytical chemistry laboratories, Paracelsian medical iatrochemistry, generic industrial materials testing, and coin-mint administration."
   },
   {
     "id": "public_newspaper_advertising",
@@ -11291,7 +11558,6 @@
     "description": "Formal institutions for teaching drawing, anatomy, perspective, painting, sculpture, theory, and artistic status.",
     "prerequisites": [
       "perspective_in_art",
-      "public_museum_catalogs",
       "art_conservation_workshops"
     ],
     "firstKnownDate": 1563,
@@ -11305,14 +11571,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Perspective in Art provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_museum_catalogs",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Museum Catalogs provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       },
       {

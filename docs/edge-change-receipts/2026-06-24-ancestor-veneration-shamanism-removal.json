@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-ancestor-veneration-shamanism-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "ancestor_worship",
+    "prerequisite": "shamanism_animism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Shamanism & Animism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because Jericho plastered-skull evidence supports ancestor figures, community forebears, and an ancestor-cult interpretation, not a shamanic mediator or generic animistic spirit-world dependency.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/blog/facing-past-jericho-skull",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The British Museum describes the skulls as likely ancestor figures and portraits of community forebears without identifying shamans, shamanic mediation, or a generic animist belief system.",
+    "source_claim_summary": "The source supports ancestor-veneration scope but not the shamanism_animism prerequisite.",
+    "source_support_rationale": "Keeping the edge would launder a broader spirit-mediation model into a Jericho-specific ancestor-cult claim."
+  },
+  "ontology_before": "Ancestor Worship depended directly on Shamanism & Animism through a generic expert-inference edge.",
+  "ontology_after": "Neolithic Ancestor Veneration depends directly on kinship systems only; shamanism remains a separate broad belief-system node for cases with evidence of spirit mediation.",
+  "invariant_preserved_or_changed": "Changed: shamanism_animism is no longer a direct prerequisite for ancestor_worship.",
+  "would_reject_if": [
+    "A Jericho plastered-skull source directly identified shamanic mediation as required for the ancestor-cult interpretation.",
+    "The node were intentionally broadened to a comparative anthropology category covering many spirit-world practices.",
+    "Downstream nodes depended on this edge and needed a shamanism path preserved."
+  ],
+  "short_reason": "The reviewed Jericho evidence does not identify shamanic mediation as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

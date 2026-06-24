@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-24-state-medical-supply-stores-scope",
+  "description": "Lock state_medical_supply_stores to Roman military infirmary supply provisioning, not generic civic archives or surgical-instrument typology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "state_medical_supply_stores",
+      "operator": "eq",
+      "value": -100,
+      "reason": "The scoped claim is anchored to Roman valetudinaria dated around 100 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "state_medical_supply_stores",
+      "prerequisite": "military_field_medicine",
+      "expected": "enabling",
+      "reason": "The supply practice is organized inside Roman military medical care settings."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "state_medical_supply_stores",
+      "prerequisite": "herbal_medicine_preparation",
+      "expected": "enabling",
+      "reason": "The source names herbs and ointments as stocked medical materials in the field infirmary setting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "state_medical_supply_stores",
+      "prerequisite": "public_archives",
+      "reason": "Public archival repositories are not the source-backed mechanism for stocked Roman medical materials."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "state_medical_supply_stores",
+      "prerequisite": "surgical_instrument_sets",
+      "reason": "The source can mention instruments without making Pompeian/Roman surgical instrument sets the causal prerequisite."
+    }
+  ]
+}

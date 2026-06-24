@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-24-printed-cabinet-catalogs-botanical-collections-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "public_museum_catalogs",
+    "prerequisite": "botanical_gardens_herbaria"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Botanical Gardens & Herbaria is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.58,
+    "evidence_level": "review",
+    "note": "Botanical and natural-history collection culture supplied major subject matter for early cabinet catalogs, but it is contextual rather than a universal hard prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://blog.biodiversitylibrary.org/2017/03/ferrante-imperato-step-into-his-cabinet-of-wonders",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "BHL says Renaissance cabinets gathered formerly animate, inanimate, and botanical objects, and that Imperato's cabinet contained plant, animal, and mineral specimens.",
+    "source_claim_summary": "The source shows botanical and natural-history specimens as major content of early cabinet catalogs.",
+    "source_support_rationale": "The relationship stays contextual because botanical collections supplied subject matter, while printed cabinet catalogs could also cover minerals, animals, instruments, and artifacts."
+  },
+  "ontology_before": "Public Museum Catalogs had a weak inferred botanical-garden common dependency with no source locator.",
+  "ontology_after": "Printed Cabinet Catalogs keeps botanical_gardens_herbaria as source-backed contextual collection culture rather than a hard prerequisite.",
+  "invariant_preserved_or_changed": "Preserved: botanical_gardens_herbaria remains a direct common-dependency edge, now source-backed.",
+  "would_reject_if": [
+    "The node were narrowed to non-natural-history art catalogs with no botanical or specimen content.",
+    "A source showed the first scoped cabinet catalog had no botanical or natural-history collection context.",
+    "The edge were promoted to required or enabling despite catalog subject matter being broader than botany."
+  ],
+  "short_reason": "Botanical and natural-history collections supplied source-backed subject matter but not a hard prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_museum_catalogs.before.json /tmp/public_museum_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

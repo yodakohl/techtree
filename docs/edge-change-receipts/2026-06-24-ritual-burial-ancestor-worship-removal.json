@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-24-ritual-burial-ancestor-worship-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "ritual_burial_practices",
+    "prerequisite": "ancestor_worship"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Ancestor Worship is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct dependency remains from ritual_burial_practices to ancestor_worship; the Qafzeh evidence supports intentional mortuary treatment with ocher but does not establish belief in influential dead relatives.",
+  "source_supports_edge": "no",
+  "source_url": "https://humanorigins.si.edu/evidence/behavior/burial/qafzeh-oldest-intentional-burial",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Intentional burial section: describes Qafzeh human remains, red ocher, ocher-stained stone tools, ritual inference, and age; it does not claim ancestor worship.",
+    "source_claim_summary": "The source supports intentional burial and ritual pigment association without identifying ancestor veneration as the mechanism.",
+    "source_support_rationale": "Ancestor worship is a narrower religious-social claim than intentional burial, so retaining it would launder an unsupported belief system into the Qafzeh mortuary evidence."
+  },
+  "ontology_before": "The burial node treated ancestor worship as a direct common dependency for ritual interment.",
+  "ontology_after": "The burial node preserves mortuary treatment evidence without requiring ancestor-veneration belief systems.",
+  "invariant_preserved_or_changed": "Changed: ancestor_worship no longer points directly into ritual_burial_practices.",
+  "would_reject_if": [
+    "A source directly connected the earliest scoped Qafzeh burial evidence to ancestor veneration.",
+    "The node were narrowed to later ancestor-cult funerary rites rather than early intentional burial.",
+    "The ancestor_worship node were itself resourced to the same mortuary evidence and renamed to avoid overclaiming."
+  ],
+  "short_reason": "Intentional burial evidence does not justify a direct ancestor-worship prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

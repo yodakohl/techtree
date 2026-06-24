@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-ancestor-veneration-kinship-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "ancestor_worship",
+    "prerequisite": "kinship_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Kinship Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Ancestor veneration depends on remembered persons becoming community forebears, so kinship and descent categories supply the social relationship being ritually maintained."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britishmuseum.org/blog/facing-past-jericho-skull",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The British Museum says the Jericho plastered skulls likely became ancestor figures who may have been worshipped and were portraits of community forebears.",
+    "source_claim_summary": "The source ties plastered skulls to remembered individuals becoming ancestor figures and community forebears.",
+    "source_support_rationale": "Ancestor veneration is a social relationship with remembered dead forebears; kinship systems supply the categories that make those forebear relationships meaningful."
+  },
+  "ontology_before": "Ancestor worship depended on kinship systems through a generic expert-inference edge.",
+  "ontology_after": "Neolithic ancestor veneration keeps kinship systems as the source-backed social prerequisite for forebear veneration.",
+  "invariant_preserved_or_changed": "Preserved: kinship_systems remains the direct social prerequisite, now source-backed.",
+  "would_reject_if": [
+    "The node were broadened back to all ancestor worship traditions worldwide.",
+    "A source only supported intentional burial without identifying ancestor figures or community forebears.",
+    "Kinship systems were treated as a hard prerequisite for every mortuary ritual rather than enabling infrastructure for this ancestor-veneration scope."
+  ],
+  "short_reason": "Jericho plastered-skull evidence supports ancestor figures and community forebears, making kinship the direct social prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

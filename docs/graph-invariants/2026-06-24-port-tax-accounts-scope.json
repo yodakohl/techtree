@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-port-tax-accounts-scope",
+  "description": "Lock port_customs_ledgers to written Piraeus-linked tax/account records, not generic customs posts or maritime law.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "port_customs_ledgers",
+      "operator": "eq",
+      "value": -374,
+      "reason": "The scoped claim is anchored to the Athenian grain-tax law of 374/3 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "port_customs_ledgers",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "The source-backed mechanism is a written fiscal/accounting record."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "port_customs_ledgers",
+      "prerequisite": "currency",
+      "expected": "enabling",
+      "reason": "The record includes monetary fees, proceeds, and advances."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "port_customs_ledgers",
+      "prerequisite": "public_archives",
+      "expected": "common_dependency",
+      "reason": "The evidence is an inscribed public fiscal law/account record."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "port_customs_ledgers",
+      "prerequisite": "border_customs_posts",
+      "reason": "A customs post is not the direct source-backed mechanism for this written account record."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "port_customs_ledgers",
+      "prerequisite": "maritime_law_codes",
+      "reason": "General maritime law is broader than the fiscal/accounting mechanism supported by the source."
+    }
+  ]
+}

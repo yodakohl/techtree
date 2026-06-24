@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-port-tax-accounts-writing-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "port_customs_ledgers",
+    "prerequisite": "writing"
+  },
+  "replaced_edge": {
+    "dependent": "port_customs_ledgers",
+    "prerequisite": "border_customs_posts"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Border Customs Posts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "primary_source",
+    "note": "The scoped practice is an inscribed written law/accounting record that specifies tax portions, weights, fees, guarantors, and account rendering."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.atticinscriptions.com/inscription/RO/26",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "AIO RO 26 translates the 374/3 BC inscription, including provisions for tax portions, Piraeus transport, weighing, fees, guarantors, sale proceeds, and rendering accounts.",
+    "source_claim_summary": "The source presents a written inscribed law/accounting record for harbor-linked grain tax administration.",
+    "source_support_rationale": "The prior edge made a customs checkpoint the mechanism; the source shows the scoped record itself depends first on written fiscal/accounting instructions."
+  },
+  "ontology_before": "Port Customs Ledgers depended on Border Customs Posts, implying physical checkpoint infrastructure was the direct mechanism for the records.",
+  "ontology_after": "Port Tax Accounts is scoped to written harbor-linked tax/accounting records, so writing carries the direct record format while currency and public archives provide financial and publication context.",
+  "invariant_preserved_or_changed": "Changed: port_customs_ledgers now requires writing and no longer directly depends on border_customs_posts.",
+  "would_reject_if": [
+    "The node is later rescoped to physical border inspection stations rather than written harbor-linked tax and cargo accounts.",
+    "A source shows the earliest scoped port accounts were oral checkpoint practices with no written record component.",
+    "A separate customs_checkpoint_records node is added and should take the border_customs_posts dependency."
+  ],
+  "short_reason": "The source-backed mechanism is a written tax/accounting record, not the border post itself.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/port_customs_ledgers.before.json /tmp/port_customs_ledgers.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

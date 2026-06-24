@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-24-perspective-stage-technical-drawing-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "mechanical_theater_machinery",
+    "prerequisite": "technical_drawing_standards"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Technical Drawing Standards is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct technical_drawing_standards edge remains because the corrected node is anchored to Teatro Olimpico's 1585 perspective stage, while the local technical_drawing_standards node is anchored to 1588 machine-book conventions.",
+  "source_supports_edge": "no",
+  "source_url": "https://smarthistory.org/palladio-teatro-olimpico/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Smarthistory dates Teatro Olimpico to 1580-1585 and identifies its forced-perspective stage set without tying the 1585 construction to later 1588 technical drawing standards.",
+    "source_claim_summary": "The source supports a 1585 Renaissance perspective-stage anchor independent of the later local technical-drawing node.",
+    "source_support_rationale": "Keeping the edge would route a 1585 stage system through a 1588 prerequisite, so the old weak context edge fails chronology and direct-dependency tests."
+  },
+  "ontology_before": "Mechanical Theater Machinery depended on technical_drawing_standards as weak context, creating a later prerequisite once the node is anchored to 1585.",
+  "ontology_after": "Renaissance Perspective Stage Machinery is anchored directly to theater-stage lineage and perspective art, without a direct technical_drawing_standards prerequisite.",
+  "invariant_preserved_or_changed": "Changed: technical_drawing_standards is absent as a direct prerequisite for mechanical_theater_machinery.",
+  "would_reject_if": [
+    "The node were redated to a post-1588 machine-book manual scope such as Sabbattini's 1638 Pratica.",
+    "A source showed the 1585 Teatro Olimpico perspective stage depended on the specific technical_drawing_standards node.",
+    "The local technical_drawing_standards node were redated earlier and rescoped to include Teatro Olimpico design drawings."
+  ],
+  "short_reason": "A 1588 technical-drawing node cannot be a direct prerequisite for a 1585 stage-system anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/mechanical_theater_machinery.before.json /tmp/mechanical_theater_machinery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-ritual-burial-pigment-context-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "ritual_burial_practices",
+    "prerequisite": "pigment_creation"
+  },
+  "replaced_edge": {
+    "dependent": "ritual_burial_practices",
+    "prerequisite": "early_symbolic_communication"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Early Symbolic Communication is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.62,
+    "evidence_level": "review",
+    "note": "Qafzeh links intentional burial to red ocher near human remains, making pigment practice documented symbolic context rather than a universal hard prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://humanorigins.si.edu/evidence/behavior/burial/qafzeh-oldest-intentional-burial",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Intentional burial section: as many as 15 Homo sapiens individuals at Qafzeh were found with 71 pieces of red ocher and ocher-stained stone tools; ocher near the bones suggests ritual use.",
+    "source_claim_summary": "The Smithsonian source ties the Qafzeh intentional burial evidence to red ocher and ritual interpretation.",
+    "source_support_rationale": "This supports pigment practice as the documented symbolic context for the scoped burial evidence while avoiding a broader unsourced dependency on later symbolic communication categories."
+  },
+  "ontology_before": "Ritual Burial Practices depended on a broad Early Symbolic Communication node dated much later than the Qafzeh evidence.",
+  "ontology_after": "Ritual Burial Practices is scoped to Qafzeh-style intentional mortuary treatment with pigment as documented symbolic context.",
+  "invariant_preserved_or_changed": "Changed: the direct early_symbolic_communication prerequisite is replaced by a source-backed pigment_creation common-dependency edge.",
+  "would_reject_if": [
+    "The node were rescoped to Upper Paleolithic cave-art communication instead of mortuary treatment.",
+    "A source showed Qafzeh burial ritual depended on a separate symbolic communication system rather than contextual pigment use.",
+    "The pigment_creation node were narrowed away from ocher-rich pigment practices."
+  ],
+  "short_reason": "Pigment context is source-backed for Qafzeh burial; broad symbolic communication was temporally and semantically too loose.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/ritual_burial_practices.before.json /tmp/ritual_burial_practices.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

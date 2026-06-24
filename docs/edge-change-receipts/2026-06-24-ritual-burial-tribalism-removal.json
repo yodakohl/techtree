@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-24-ritual-burial-tribalism-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "ritual_burial_practices",
+    "prerequisite": "tribalism"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Tribalism is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct dependency remains from ritual_burial_practices to tribalism; the Qafzeh evidence supports mortuary behavior but not tribal political organization as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://humanorigins.si.edu/evidence/behavior/burial/qafzeh-oldest-intentional-burial",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Intentional burial section: describes Qafzeh human remains and ritual-use inference from red ocher near bones; it does not identify tribal organization.",
+    "source_claim_summary": "The source supports intentional burial with ritual pigment context but gives no evidence for tribal governance as a dependency.",
+    "source_support_rationale": "Tribalism is an overbroad social-organization category, and the scoped archaeological evidence can be modeled without treating it as a direct prerequisite."
+  },
+  "ontology_before": "The burial node treated tribalism as a direct common dependency for ritual interment.",
+  "ontology_after": "The burial node is anchored to archaeological mortuary evidence without adding unsupported political or kin-group structure.",
+  "invariant_preserved_or_changed": "Changed: tribalism no longer points directly into ritual_burial_practices.",
+  "would_reject_if": [
+    "A source showed tribal organization was necessary for the earliest scoped intentional burials.",
+    "The node were narrowed to later tribal funerary institutions rather than early mortuary treatment.",
+    "The tribalism node were resourced and retitled to a narrower small-group social-care prerequisite with direct burial evidence."
+  ],
+  "short_reason": "Qafzeh intentional burial evidence does not require a tribalism prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

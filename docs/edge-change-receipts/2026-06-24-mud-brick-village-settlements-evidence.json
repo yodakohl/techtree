@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-mud-brick-village-settlements-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "mud_brick_sun_dried",
+    "prerequisite": "village_settlements"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Village Settlements provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "The source-backed examples are permanent or semi-permanent Neolithic settlement houses, so village settlement context supplies the architectural demand for mud-brick construction."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://smarthistory.org/jericho/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Smarthistory describes Pre-Pottery Neolithic A Jericho as a large settlement with circular homes made with mud brick and domed roofs.",
+    "source_claim_summary": "The mud-brick evidence is embedded in Neolithic settlement house construction at Jericho.",
+    "source_support_rationale": "The edge is contextual rather than material: the source shows mud bricks serving settled architecture, replacing an unsourced generic settlement claim."
+  },
+  "invariant_preserved_or_changed": "Preserved: village_settlements remains an enabling prerequisite for the scoped Neolithic mud-brick architecture node.",
+  "would_reject_if": [
+    "The node is later rescoped to isolated loose bricks or craft production outside settlement architecture.",
+    "A stronger source shows early sun-dried mud bricks were first used outside permanent or semi-permanent buildings.",
+    "The village_settlements node is narrowed to a later agricultural-village definition that excludes PPNA Jericho."
+  ],
+  "short_reason": "The mud-brick source is specifically Neolithic settlement house construction.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mud_brick_sun_dried.before.json /tmp/mud_brick_sun_dried.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "2026-06-24-civic-contract-registries-scope",
+  "description": "Lock Civic Contract Registries to public/legal record infrastructure rather than merchant partnership contracts as a prerequisite.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "civic_contract_registries",
+      "prerequisite": "merchant_partnership_contracts",
+      "reason": "Merchant partnership contracts are one possible class of contract that could be recorded, not prerequisite infrastructure for public contract registries."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "civic_contract_registries",
+      "prerequisite": "contract_law",
+      "reason": "The scoped registry records legally meaningful property and contract transactions."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "civic_contract_registries",
+      "prerequisite": "public_archives",
+      "reason": "The scoped registry depends on civic publication and recordkeeping practices."
+    },
+    {
+      "type": "first_known_date",
+      "node": "civic_contract_registries",
+      "operator": "eq",
+      "value": -450,
+      "reason": "The node should stay anchored to the ca. 450 BCE Athenian public-property lease evidence rather than the Classical era default."
+    }
+  ]
+}

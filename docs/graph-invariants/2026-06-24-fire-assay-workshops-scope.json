@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-fire-assay-workshops-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "chemical_assay_laboratories",
+      "operator": "eq",
+      "value": 1556,
+      "reason": "The corrected node is anchored to Agricola's 1556 De re metallica fire-assay description."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chemical_assay_laboratories",
+      "prerequisite": "basic_chemistry",
+      "expected": "enabling",
+      "reason": "Fire assay uses fluxing, cupellation, lead collection, and acid parting rather than Paracelsian medical chemistry."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chemical_assay_laboratories",
+      "prerequisite": "portable_scales",
+      "expected": "enabling",
+      "reason": "The assay workflow depends on weighing sampled material and recovered precious-metal beads."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chemical_assay_laboratories",
+      "prerequisite": "mining",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "The source-backed practice is used to determine whether metal-bearing rock is ore worth mining."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_assay_laboratories",
+      "prerequisite": "iatrochemistry_paracelsus",
+      "reason": "Paracelsian medical chemistry is outside the corrected metallurgical fire-assay scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_assay_laboratories",
+      "prerequisite": "instrument_calibration_standards",
+      "reason": "The 1614 calibration-standard node is later than the 1556 fire-assay anchor."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_assay_laboratories",
+      "prerequisite": "coin_mint_assay_offices",
+      "reason": "Coin-mint administration is excluded from the corrected ore and precious-metal fire-assay workshop scope."
+    }
+  ]
+}

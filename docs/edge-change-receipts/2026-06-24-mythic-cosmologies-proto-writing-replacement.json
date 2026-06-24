@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-mythic-cosmologies-proto-writing-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "mythology_and_cosmology",
+    "prerequisite": "proto_writing"
+  },
+  "replaced_edge": {
+    "dependent": "mythology_and_cosmology",
+    "prerequisite": "early_symbolic_communication"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Symbolic Communication is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Proto-cuneiform and early Mesopotamian sign systems are the documentary lineage leading into the cuneiform literary tablets that preserve the mythic corpus."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/essays/the-origins-of-writing",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The Met traces proto-cuneiform and early cuneiform from Uruk accounting tablets through phonetic writing, and states that by the middle of the third millennium BCE cuneiform on clay tablets served religious, literary, and scholarly documents.",
+    "source_claim_summary": "Proto-cuneiform and early cuneiform form the documentary lineage before cuneiform religious and literary clay-tablet documents.",
+    "source_support_rationale": "The old edge used generic symbolic communication; this source narrows the predecessor to the Mesopotamian sign-system lineage that leads into the surviving mythological corpus."
+  },
+  "ontology_before": "Mythology & Cosmology depended on Early Symbolic Communication, preserving a broad prehistoric-symbolism claim with no source-backed textual boundary.",
+  "ontology_after": "Early Mesopotamian Mythic Cosmologies depends on proto_writing as the non-cyclic documentary predecessor to the cuneiform literary tablets that preserve the source-backed corpus.",
+  "invariant_preserved_or_changed": "Changed: mythology_and_cosmology now depends on proto_writing and no longer directly depends on early_symbolic_communication.",
+  "would_reject_if": [
+    "The node is later rescoped to non-written prehistoric symbolism rather than Mesopotamian mythological literature.",
+    "A source shows the earliest scoped Mesopotamian mythic cosmologies are documented without the proto-cuneiform/cuneiform lineage.",
+    "The broader writing/calendar dependency cycle is split and a direct writing prerequisite can be added without reintroducing a cycle."
+  ],
+  "short_reason": "The source-backed predecessor is Mesopotamian proto-writing/cuneiform lineage, not generic symbolic communication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mythology_and_cosmology.before.json /tmp/mythology_and_cosmology.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

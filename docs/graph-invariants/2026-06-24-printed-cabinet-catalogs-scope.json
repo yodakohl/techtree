@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-printed-cabinet-catalogs-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "public_museum_catalogs",
+      "operator": "eq",
+      "value": 1599,
+      "reason": "The corrected node is anchored to Imperato's 1599 printed museum/cabinet book."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_museum_catalogs",
+      "prerequisite": "printing_press",
+      "expected": "enabling",
+      "reason": "Printed cabinet catalogs require print publication infrastructure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_museum_catalogs",
+      "prerequisite": "scientific_illustration_printing",
+      "expected": "enabling",
+      "reason": "Imperato's catalog used printed illustrations to represent the cabinet and specimens."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_museum_catalogs",
+      "prerequisite": "botanical_gardens_herbaria",
+      "expected": "common_dependency",
+      "reason": "Botanical and natural-history collection culture supplies contextual subject matter but is not a universal hard prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_museum_catalogs",
+      "prerequisite": "printed_standardized_textbooks",
+      "reason": "Printed cabinet catalogs should not be routed through standardized educational textbooks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_museum_catalogs",
+      "prerequisite": "art_conservation_workshops",
+      "reason": "The source-backed catalog mechanism is publication and illustration, not conservation workshop practice."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_art_academies",
+      "prerequisite": "public_museum_catalogs",
+      "reason": "The 1563 art academy anchor predates the 1599 printed cabinet catalog anchor."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-postal-money-orders-banking-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "postal_money_orders",
+    "prerequisite": "banking"
+  },
+  "replaced_edge": {
+    "dependent": "postal_money_orders",
+    "prerequisite": "civic_contract_registries"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Civic Contract Registries provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Postal money orders performed bank-like remittance functions at post offices, so mature banking and funds-transfer practice are the closest financial-service context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ideas.repec.org/p/mcl/mclwop/2009-11.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "RePEc abstract states that the postal money order system performed a major function of a bank by transferring funds cheaply, safely, and reliably to places with post offices.",
+    "source_claim_summary": "The source frames U.S. postal money orders as a nineteenth-century postal banking/remittance system.",
+    "source_support_rationale": "A bank-like remittance source supports routing this payment product through banking and funds-transfer practice rather than through unrelated civic contract registries."
+  },
+  "ontology_before": "Postal Money Orders were modeled as a Classical-era courier-backed transfer dependent on civic contract registries.",
+  "ontology_after": "Postal Money Orders are modeled as an Industrial-era postal financial product that depends on postal networks, currency value, and banking-like remittance practice.",
+  "invariant_preserved_or_changed": "Changed: postal_money_orders now depends on banking and no longer directly depends on civic_contract_registries.",
+  "would_reject_if": [
+    "A source demonstrates that the node is intentionally scoped to ancient courier payment instructions rather than modern postal money orders.",
+    "A source shows civic contract registries were the direct institutional basis for postal money orders.",
+    "A separate postal_banking node is added and becomes a better prerequisite than banking."
+  ],
+  "short_reason": "Postal money orders are a postal banking/remittance product, not a civic contract registry technology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/postal_money_orders.before.json /tmp/postal_money_orders.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -13999,17 +13999,6 @@
         "supports": [
           "node"
         ]
-      },
-      {
-        "title": "Werner von Siemens on Electric Trolleys in Berlin-Lichterfelde",
-        "url": "https://germanhistorydocs.org/en/forging-an-empire-bismarckian-germany-1866-1890/werner-von-siemens-on-electric-trolleys-in-berlin-lichterfelde-letter-of-may-12-1881",
-        "publisher": "German History in Documents and Images",
-        "year": 2026,
-        "source_type": "review",
-        "source_locator": "GHDI presents Siemens's 1881 letter describing the opening of the first electric tramway in Berlin-Lichterfelde.",
-        "supports": [
-          "node"
-        ]
       }
     ]
   },
@@ -17447,17 +17436,6 @@
           "node"
         ],
         "locator": "DGUV states that Germany's accident insurance code was adopted on 6 July 1884, was the first of its kind worldwide, and shifted occupational accident claims from employers to statutory accident insurance institutions."
-      },
-      {
-        "title": "Bismarck's Reichstag Speech on the Law for Workers' Compensation (March 15, 1884)",
-        "url": "https://germanhistorydocs.org/en/forging-an-empire-bismarckian-germany-1866-1890/bismarck-s-reichstag-speech-on-the-law-for-workers-compensation-march-15-1884",
-        "publisher": "German History in Documents and Images",
-        "year": 1884,
-        "source_type": "primary_paper",
-        "supports": [
-          "node"
-        ],
-        "locator": "GHDI identifies the March 15, 1884 Reichstag speech as Bismarck defending accident insurance for workers and notes that the workers compensation law passed in 1884."
       }
     ],
     "dependencyEdges": [
@@ -17550,6 +17528,120 @@
         "supports": [
           "node"
         ]
+      }
+    ]
+  },
+  {
+    "id": "postal_money_orders",
+    "name": "Postal Money Orders",
+    "era": "Industrial",
+    "description": "Prepaid postal payment instruments sold by post offices for safer long-distance remittances and small-value payments without mailing cash.",
+    "prerequisites": [
+      "postal_relay_systems",
+      "currency",
+      "banking"
+    ],
+    "fields": [
+      "Finance & Markets"
+    ],
+    "fieldLanes": {
+      "Finance & Markets": "Institutions & Law"
+    },
+    "maturity": "established",
+    "firstKnownDate": 1864,
+    "datePrecision": "exact",
+    "region": "United States Post Office Department / Civil War remittance system",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "postal_relay_systems",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Postal money orders were a financial service layered onto public postal networks; earlier relay and post-office systems are historical postal predecessors, not a Classical-era payment mechanism.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Postal system: History",
+            "url": "https://www.britannica.com/topic/postal-system/History",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica traces postal systems from ancient relay systems through state postal monopolies and modern public postal services."
+          }
+        ]
+      },
+      {
+        "prerequisite": "currency",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Postal money orders are prepaid payment instruments; currency or cash value is the value being remitted and guaranteed by the order.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Modernizing the Postal Money Order",
+            "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-007_0.pdf",
+            "publisher": "U.S. Postal Service Office of Inspector General",
+            "year": 2016,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Executive Summary describes postal money orders as prepaid checks and as a safe way to send payments over long distances."
+          }
+        ]
+      },
+      {
+        "prerequisite": "banking",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Postal money orders performed bank-like remittance functions at post offices, so mature banking and funds-transfer practice are the closest financial-service context.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The United States Post Office Domestic Postal Money Order System In The 19th Century: A Nascient Banking System",
+            "url": "https://ideas.repec.org/p/mcl/mclwop/2009-11.html",
+            "publisher": "RePEc / McGill University Department of Economics",
+            "year": 2009,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract states that the system performed a major function of a bank by providing a cheap, safe, reliable means of transferring funds to places with post offices."
+          }
+        ]
+      }
+    ],
+    "scopeNote": "Covers modern post-office money orders as prepaid remittance instruments. It excludes ancient courier-carried payment instructions, informal hawala/hundi networks, and generic contract registries.",
+    "sources": [
+      {
+        "title": "Modernizing the Postal Money Order",
+        "url": "https://www.uspsoig.gov/sites/default/files/reports/2023-01/RARC-WP-16-007_0.pdf",
+        "publisher": "U.S. Postal Service Office of Inspector General",
+        "year": 2016,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Executive Summary and Highlights state that the Post Office Department introduced postal money orders in 1864 as a safe way to send payments over long distances."
+      },
+      {
+        "title": "The United States Post Office Domestic Postal Money Order System In The 19th Century: A Nascient Banking System",
+        "url": "https://ideas.repec.org/p/mcl/mclwop/2009-11.html",
+        "publisher": "RePEc / McGill University Department of Economics",
+        "year": 2009,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Abstract dates the domestic U.S. Postal Money Order System to 1864 and describes its development, scale, and bank-like fund-transfer role."
       }
     ]
   },
@@ -19102,14 +19194,25 @@
     "sources": [
       {
         "title": "Thor Electric Washing Machine, circa 1907",
-        "url": "https://www.thehenryford.org/collections/explore/artifact/280860",
-        "publisher": "The Henry Ford",
+        "url": "https://artsandculture.google.com/asset/thor-electric-washing-machine-circa-1907-hurley-machine-company/ygHvPsX_aU9gTg?hl=en",
+        "publisher": "Google Arts & Culture / The Henry Ford",
         "year": 2026,
         "source_type": "museum",
         "supports": [
           "node"
         ],
-        "source_locator": "The Henry Ford collection record identifies a Thor electric washer circa 1907, manufactured by Hurley Machine Co., supporting early electric/mechanized laundry systems."
+        "source_locator": "The Henry Ford object record mirrored by Google Arts & Culture identifies the Thor electric washing machine, circa 1907, by Hurley Machine Company and Alva J. Fisher."
+      },
+      {
+        "title": "Clothes Washing Machines",
+        "url": "https://edisontechcenter.org/WashingMachines.html",
+        "publisher": "Edison Tech Center",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Edison Tech Center states that Alva Fisher used electric motors in a drum-based system and that the Thor washing machine was sold by Hurley Electric Laundry Equipment Company in 1907."
       }
     ]
   },

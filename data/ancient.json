@@ -325,35 +325,102 @@
   },
   {
     "id": "tribalism",
-    "name": "Tribalism",
+    "name": "Kin-Based Band Organization",
     "era": "Ancient",
-    "description": "Organization of society into small-scale kinship-based groups, establishing social cohesion, identity, and early forms of governance.",
+    "description": "Small gatherer-hunter communities organized through flexible kinship, sharing, consensus, and informal situational leadership rather than formal offices.",
     "prerequisites": [
       "kinship_systems",
       "hunting_gathering_basic"
     ],
     "firstKnownDate": -10000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Global / pre-agricultural gatherer-hunter societies",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "kinship_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Kinship Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Hunter-gatherer small-group organization is repeatedly characterized by multirelational or flexible kinship ties, making kinship systems enabling social infrastructure.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Hunting and gathering",
+            "url": "https://www.anthroencyclopedia.com/entry/hunting-and-gathering",
+            "publisher": "The Open Encyclopedia of Anthropology",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract and social-relations sections: most hunter-gatherers live in very small groups characterized by multirelational kinship ties, and hunter-gatherers across the globe differ in kinship systems."
+          }
+        ]
       },
       {
         "prerequisite": "hunting_gathering_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Hunting & Gathering is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "type": "common_dependency",
+        "confidence": 0.66,
+        "evidence_level": "textbook",
+        "note": "Band organization is the small-scale political/social form associated with gatherer-hunter subsistence, so hunting and gathering is contextual economic infrastructure rather than a separate earlier predecessor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Acephalous Societies: Bands and Tribes",
+            "url": "https://openstax.org/books/introduction-anthropology/pages/8-2-acephalous-societies-bands-and-tribes",
+            "publisher": "OpenStax",
+            "year": 2022,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Section 8.2 states that band societies are gatherer-hunters living in small groups of 20 to 30 people, strongly egalitarian, cooperative, sharing-oriented, and making decisions through discussion and consensus."
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Keeps the historical `tribalism` id for graph stability, but the launch-quality concept is band-level gatherer-hunter social organization. It does not model modern political tribalism, colonial-era tribal categories, ethnic identity, or a deterministic band-to-tribe-to-chiefdom sequence.",
+    "sources": [
+      {
+        "title": "Acephalous Societies: Bands and Tribes",
+        "url": "https://openstax.org/books/introduction-anthropology/pages/8-2-acephalous-societies-bands-and-tribes",
+        "publisher": "OpenStax",
+        "year": 2022,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Section 8.2 defines band societies as gatherer-hunters in small groups of 20 to 30 people, emphasizes egalitarian cooperation, sharing, discussion, and consensus, and cautions that many anthropologists avoid the word tribe."
+      },
+      {
+        "title": "Hunting and gathering",
+        "url": "https://www.anthroencyclopedia.com/entry/hunting-and-gathering",
+        "publisher": "The Open Encyclopedia of Anthropology",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Abstract and introduction: hunting and gathering is the oldest human mode of making a living; most hunter-gatherers live in very small groups with multirelational kinship ties, equality, sharing, and levelling practices."
+      },
+      {
+        "title": "Hunter-gatherer",
+        "url": "https://www.britannica.com/topic/hunter-gatherer",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Opening definition: until about 12,000 to 11,000 years ago, when agriculture and animal domestication emerged in Southwest Asia and Mesoamerica, all peoples were hunter-gatherers."
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -10000 anchor is a conservative source-uncertain by-date aligned with current local prerequisite chronology; the cited sources support older hunter-gatherer context but do not prove an exact first emergence date for band organization."
   },
   {
     "id": "shamanism_animism",
@@ -744,35 +811,115 @@
   },
   {
     "id": "mythology_and_cosmology",
-    "name": "Mythology & Cosmology",
+    "name": "Early Mesopotamian Mythic Cosmologies",
     "era": "Ancient",
-    "description": "Complex narratives explaining the origin of the world, natural phenomena, and the place of humanity within the cosmos.",
+    "description": "Orally rooted mythic narratives, preserved in early Mesopotamian literature, explaining gods, cosmic order, creation, natural forces, and humanity's place in the world.",
     "prerequisites": [
-      "early_symbolic_communication",
-      "shamanism_animism"
+      "oral_tradition_storytelling",
+      "proto_writing"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -3000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Mesopotamia / early Sumerian and Babylonian mythological literature",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "early_symbolic_communication",
+        "prerequisite": "oral_tradition_storytelling",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Symbolic Communication is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.70,
+        "evidence_level": "textbook",
+        "note": "Mythic narratives such as Gilgamesh and other ancient epics circulated through oral-traditional systems before surviving as written texts.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Oral Tradition",
+            "url": "https://www.britannica.com/topic/oral-tradition",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Britannica describes oral tradition as the first mode for transmitting knowledge, art, and ideas, and identifies Gilgamesh as a tale that circulated across cultures and languages before being inscribed on tablets.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "shamanism_animism",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Shamanism & Animism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "proto_writing",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Proto-cuneiform and early Mesopotamian sign systems are the documentary lineage leading into the cuneiform literary tablets that preserve the mythic corpus.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Origins of Writing",
+            "url": "https://www.metmuseum.org/essays/the-origins-of-writing",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2004,
+            "source_type": "museum",
+            "source_locator": "The Met traces proto-cuneiform and early cuneiform from Uruk accounting tablets through phonetic writing, and states that by the middle of the third millennium BCE cuneiform on clay tablets served religious, literary, and scholarly documents.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Mesopotamian Mythology",
+        "url": "https://www.britannica.com/topic/Mesopotamian-mythology",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica defines Mesopotamian mythology as myths, epics, hymns, incantations, wisdom literature, ritual and omen handbooks, with surviving literature written primarily on stone or clay tablets.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Mesopotamian Creation Myths",
+        "url": "https://www.metmuseum.org/essays/epic-of-creation-mesopotamia",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2009,
+        "source_type": "museum",
+        "source_locator": "The Met states that surviving evidence for Mesopotamian creation traditions runs from the third millennium to the first millennium BCE and summarizes myths separating heaven and earth, creating humankind, and organizing the cosmos.",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Mesopotamian Religion",
+        "url": "https://www.britannica.com/topic/Mesopotamian-religion",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica states that recorded history begins shortly after 3000 BCE at the end of the Protoliterate period, during which writing was invented, and frames Mesopotamian religion as the intellectual framework for understanding existence.",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Origins of Writing",
+        "url": "https://www.metmuseum.org/essays/the-origins-of-writing",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2004,
+        "source_type": "museum",
+        "source_locator": "The Met explains the development from proto-cuneiform tablets to cuneiform, noting that by the middle of the third millennium BCE clay-tablet cuneiform was used for religious, literary, and scholarly documents.",
+        "supports": [
+          "node",
+          "edge",
+          "maturity"
+        ]
+      }
+    ],
+    "scopeNote": "Covers source-backed Mesopotamian mythic cosmologies and their oral-traditional and documentary background. It does not claim that all prehistoric myth, all animism, or all shamanic practice had this textual form.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -3000 millennium anchor follows Britannica's recorded-history boundary shortly after 3000 BCE and the Met's third-millennium BCE surviving evidence for Mesopotamian creation traditions; full literary cuneiform is clearer later in the third millennium BCE."
   },
   {
     "id": "tally_marks",
@@ -834,76 +981,145 @@
   },
   {
     "id": "ancestor_worship",
-    "name": "Ancestor Worship",
+    "name": "Neolithic Ancestor Veneration",
     "era": "Ancient",
-    "description": "Ritualistic veneration of deceased relatives, who are believed to hold influence over the fortunes of the living.",
+    "description": "Ritual veneration of remembered dead community forebears, represented archaeologically by plastered skulls and curated human remains in Neolithic Jericho.",
     "prerequisites": [
-      "kinship_systems",
-      "shamanism_animism"
+      "kinship_systems"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -8200,
+    "datePrecision": "century",
+    "region": "Jericho / southern Levant Pre-Pottery Neolithic plastered skull tradition",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "kinship_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Kinship Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Ancestor veneration depends on remembered persons becoming community forebears, so kinship and descent categories supply the social relationship being ritually maintained.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Facing the past: the Jericho Skull",
+            "url": "https://www.britishmuseum.org/blog/facing-past-jericho-skull",
+            "publisher": "British Museum",
+            "year": 2017,
+            "source_type": "museum",
+            "source_locator": "The British Museum says the Jericho plastered skulls likely became ancestor figures who may have been worshipped and were portraits of community forebears.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Facing the past: the Jericho Skull",
+        "url": "https://www.britishmuseum.org/blog/facing-past-jericho-skull",
+        "publisher": "British Museum",
+        "year": 2017,
+        "source_type": "museum",
+        "source_locator": "Caption dates the Jericho Skull to 8200-7500 BC; text says the plastered skulls likely became ancestor figures who may have been worshipped and were portraits of community forebears.",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
       },
       {
-        "prerequisite": "shamanism_animism",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Shamanism & Animism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "title": "human skeletal remains; religious/ritual equipment",
+        "url": "https://www.britishmuseum.org/collection/object/W_1954-0215-1",
+        "publisher": "British Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Collection record identifies the Jericho skull as Pre-Pottery Neolithic B religious/ritual equipment, dates it to 8200-7500 BC, and notes a probable religious purpose perhaps connected with an ancestor cult.",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "The Jericho Skull",
+        "url": "https://smarthistory.org/jericho-skull/",
+        "publisher": "Smarthistory",
+        "year": 2017,
+        "source_type": "textbook",
+        "source_locator": "Smarthistory describes the Jericho plastered skulls as likely ancestor figures who may have been worshipped and reburied as portraits of community forebears.",
+        "supports": [
+          "node"
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers source-backed Neolithic ancestor veneration associated with Jericho plastered skulls. It excludes generic intentional burial, all prehistoric mortuary symbolism, shamanic mediation, or proof that every curated skull was worshipped.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -8200 century anchor follows British Museum dating of the Jericho Skull to 8200-7500 BC; related plastered-skull evidence is sometimes described with broader Pre-Pottery Neolithic B or 7th-millennium BC ranges."
   },
   {
     "id": "ritual_burial_practices",
     "name": "Ritual Burial Practices",
     "era": "Ancient",
-    "description": "Development of formal practices for interring the dead, often involving grave goods and symbolic acts, indicating abstract belief systems.",
+    "description": "Intentional mortuary interments with symbolic treatment such as ocher placement near the dead or other non-utilitarian grave associations.",
     "prerequisites": [
-      "early_symbolic_communication",
-      "ancestor_worship",
-      "tribalism"
+      "pigment_creation"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -100000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Qafzeh Cave, Israel",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "early_symbolic_communication",
+        "prerequisite": "pigment_creation",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Early Symbolic Communication is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "ancestor_worship",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Ancestor Worship is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "tribalism",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Tribalism is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.62,
+        "evidence_level": "review",
+        "note": "Qafzeh links intentional burial to red ocher near human remains, making pigment practice documented symbolic context rather than a universal hard prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Qafzeh: Oldest Intentional Burial",
+            "url": "https://humanorigins.si.edu/evidence/behavior/burial/qafzeh-oldest-intentional-burial",
+            "publisher": "Smithsonian National Museum of Natural History",
+            "year": 2024,
+            "source_type": "museum",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Intentional burial section: as many as 15 Homo sapiens individuals at Qafzeh were found with 71 pieces of red ocher and ocher-stained stone tools; ocher near the bones suggests ritual use."
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers archaeologically evidenced intentional mortuary treatment with symbolic associations. It does not imply formal ancestor worship, tribal political organization, or all later funerary religions.",
+    "sources": [
+      {
+        "title": "Qafzeh: Oldest Intentional Burial",
+        "url": "https://humanorigins.si.edu/evidence/behavior/burial/qafzeh-oldest-intentional-burial",
+        "publisher": "Smithsonian National Museum of Natural History",
+        "year": 2024,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Smithsonian Human Origins describes Qafzeh as intentional burial, reports modern human remains with red ocher and ocher-stained stone tools near the bones, and gives the age as about 100,000 years old."
+      },
+      {
+        "title": "Shells and ochre in Middle Paleolithic Qafzeh Cave, Israel: indications for modern behavior",
+        "url": "https://in-africa.org/wp-content/uploads/2012/12/Bar-Yosef-Mayer-et-al-2009-JHE-shells-and-ochre-in-Middle-Pal-Qafzeh.pdf",
+        "publisher": "Journal of Human Evolution",
+        "year": 2009,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Abstract and archaeological-context section: Qafzeh lower layers dated to about 92 ka BP contained human graves, red ocher, shells, hearths, and flint artifacts; the authors connect systematic burials, ochre use, and shells to symbolic modern behavior."
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The public Smithsonian anchor gives the Qafzeh burial age as about 100,000 years old; the Journal of Human Evolution source reports 92 ka BP for the lower Qafzeh burial layers, so the node keeps millennium precision."
   },
   {
     "id": "advanced_stone_tools",
@@ -5244,33 +5460,100 @@
     "id": "mud_brick_sun_dried",
     "name": "Mud Brick (Sun-Dried)",
     "era": "Ancient",
-    "description": "Forming bricks from a mixture of mud and organic material (like straw), then drying them in the sun. A primary building material in arid climates.",
+    "description": "Hand-formed mud or clay-rich bricks, often tempered with organic material, dried in the sun for Neolithic permanent architecture.",
     "prerequisites": [
       "village_settlements",
       "clay_gathering_and_preparation"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -9000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Jericho / southern Levant Pre-Pottery Neolithic mud-brick architecture",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "village_settlements",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Village Settlements provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "The source-backed examples are permanent or semi-permanent Neolithic settlement houses, so village settlement context supplies the architectural demand for mud-brick construction.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Jericho",
+            "url": "https://smarthistory.org/jericho/",
+            "publisher": "Smarthistory",
+            "year": 2015,
+            "source_type": "textbook",
+            "source_locator": "Smarthistory describes Pre-Pottery Neolithic A Jericho as a large settlement with circular homes made with mud brick and domed roofs, and dates the Neolithic Jericho artwork/site scope to c. 9000-5200 BCE.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "clay_gathering_and_preparation",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Clay Gathering and Preparation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Mud brick uses clay, sand, silt, water, and sometimes fibrous temper, so clay-rich material preparation is enabling material practice.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Mud brick",
+            "url": "https://www.britannica.com/technology/mud-brick",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Britannica defines mud brick as clay, sand, and silt combined with water and sometimes fibrous material, shaped into bricks and dried in the sun.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Jericho",
+        "url": "https://smarthistory.org/jericho/",
+        "publisher": "Smarthistory",
+        "year": 2015,
+        "source_type": "textbook",
+        "source_locator": "Smarthistory describes Pre-Pottery Neolithic A Jericho as a large settlement with circular homes made with mud brick and domed roofs, and gives the Neolithic Jericho site/artwork scope as c. 9000-5200 BCE.",
+        "supports": [
+          "node",
+          "maturity",
+          "edge"
+        ]
+      },
+      {
+        "title": "Mud brick",
+        "url": "https://www.britannica.com/technology/mud-brick",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica describes mud brick/adobe as clay, sand, and silt with water and sometimes fibrous material, shaped into bricks and dried in the sun.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Brick and tile",
+        "url": "https://www.britannica.com/technology/brick-building-material",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "The history section says mud brick dried in the sun was one of the first building materials.",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
+    "scopeNote": "Covers sun-dried mud/adobe brick as a Neolithic building unit, especially Jericho-style Pre-Pottery Neolithic architecture. It excludes later kiln-fired bricks, baked brick inscriptions, and generic unfired daub or packed-clay walls.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -9000 millennium anchor follows Smarthistory's c. 9000-5200 BCE Jericho scope and its Pre-Pottery Neolithic A mud-brick house description; PPNA regional ranges vary by publication."
   },
   {
     "id": "wattle_and_daub",
@@ -5366,32 +5649,33 @@
   },
   {
     "id": "fired_bricks_early_kilns",
-    "name": "Fired Bricks & Early Kilns",
+    "name": "Early Kiln-Fired Bricks",
     "era": "Ancient",
-    "description": "Manufacturing durable building bricks from clay by firing them in kilns, allowing for larger and more complex buildings.",
+    "description": "Manufacturing durable clay building bricks by firing dried brick forms in controlled kilns or kiln-like firing systems.",
     "prerequisites": [
       "pottery",
       "mud_brick_sun_dried"
     ],
-    "firstKnownDate": -10000,
+    "firstKnownDate": -3000,
     "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "region": "Mesopotamia / third-millennium kiln-fired brick evidence",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "pottery",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Controlled ceramic firing practice supplies the kiln and heat-control background for producing fired clay bricks.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "primary_paper",
+            "title": "Brick and tile",
+            "url": "https://www.britannica.com/technology/brick-building-material",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Britannica says potters at Ur discovered the principle of the closed kiln in which heat could be controlled, immediately after discussing burned brick production.",
             "supports": [
               "edge"
             ]
@@ -5401,26 +5685,55 @@
       {
         "prerequisite": "mud_brick_sun_dried",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mud Brick (Sun-Dried) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Kiln-fired bricks are a fired variant within the same clay-brick building tradition that includes earlier sun-dried adobe bricks.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Brick",
+            "url": "https://archeologie.culture.gouv.fr/en/glossary/brick",
+            "publisher": "French Ministry of Culture / Archaeology in the Near East",
+            "year": 2026,
+            "source_type": "official_agency",
+            "source_locator": "The glossary describes bricks as clay mixed with temper such as straw, initially hand-modelled in the Neolithic, later sun-dried adobe or kiln-fired, with the first kiln-fired bricks dating to the 3rd millennium in Mesopotamia.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-        "publisher": "Science / PubMed",
-        "year": 2012,
-        "source_type": "primary_paper",
+        "title": "Brick",
+        "url": "https://archeologie.culture.gouv.fr/en/glossary/brick",
+        "publisher": "French Ministry of Culture / Archaeology in the Near East",
+        "year": 2026,
+        "source_type": "official_agency",
+        "source_locator": "The glossary states that Mesopotamian bricks were sun-dried adobe or kiln-fired, and that the first kiln-fired bricks date to the 3rd millennium in Mesopotamia.",
         "supports": [
           "edge",
-          "node"
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Brick and tile",
+        "url": "https://www.britannica.com/technology/brick-building-material",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica discusses burned brick production, the controlled closed kiln at Ur, and later burned-brick replacement on the ziggurat at Ur.",
+        "supports": [
+          "node",
+          "edge"
         ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current source does not directly support this node's specific scope and chronology strongly enough."
+    "scopeNote": "Covers kiln-fired clay building bricks, not generic pottery firing, lime burning, bread ovens, or all early urbanization. Sun-dried mud brick remains the earlier unfired building-material predecessor.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -3000 millennium anchor follows the French Ministry of Culture glossary's third-millennium Mesopotamian kiln-fired-brick date; widespread building use is later."
   },
   {
     "id": "early_fortifications",
@@ -6591,8 +6904,7 @@
     "description": "The growth of large, dense population centers (cities) with complex social structures and monumental architecture.",
     "prerequisites": [
       "social_stratification",
-      "irrigation",
-      "fired_bricks_early_kilns"
+      "irrigation"
     ],
     "fields": [
       "Civil Engineering & Built Environment"
@@ -6631,26 +6943,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Irrigation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Urbanization",
-            "url": "https://www.britannica.com/topic/urbanization",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "fired_bricks_early_kilns",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fired Bricks & Early Kilns is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -8202,8 +8494,7 @@
     "description": "Enclosed heated chambers for baking leavened and unleavened breads at scale, supporting urban food supply and specialized labor.",
     "prerequisites": [
       "agriculture",
-      "fermentation_basic",
-      "fired_bricks_early_kilns"
+      "fermentation_basic"
     ],
     "firstKnownDate": -7000,
     "datePrecision": "millennium",
@@ -8236,14 +8527,6 @@
         "confidence": 0.75,
         "evidence_level": "expert_inference",
         "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "fired_bricks_early_kilns",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fired Bricks & Early Kilns is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
         "reviewStatus": "source_checked"
       }
     ],

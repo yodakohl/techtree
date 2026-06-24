@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-water-gates-fortifications-replace-beacons",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "fortified_water_gates",
+    "prerequisite": "early_fortifications"
+  },
+  "replaced_edge": {
+    "dependent": "fortified_water_gates",
+    "prerequisite": "castle_signal_beacons"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Castle Signal Beacons provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Fortified water gates were gates in defensive wall circuits leading to river fords, so wall-and-gate fortification is the enabling context rather than beacon signaling."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.durhamworldheritagesite.com/learn/architecture/castle/intro/peninsula",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Durham World Heritage Site says masonry walls were built around the peninsula between 1099 and 1128, strengthened with towers, and included gates leading to fords across the river, including Water Gate.",
+    "source_claim_summary": "The source describes Water Gate as part of a fortified wall circuit with river fords and defensive walls.",
+    "source_support_rationale": "Wall-and-gate fortification is the architectural context that enables a fortified water gate; beacon networks are warning systems and are not evidenced as a prerequisite for the gate structure."
+  },
+  "ontology_before": "Fortified Water Gates depended on Castle Signal Beacons, coupling a river-gate fortification to regional warning fires.",
+  "ontology_after": "Fortified Water Gates depend on early fortification practice as the wall-and-gate context, leaving beacon networks outside the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: fortified_water_gates now depends on early_fortifications and no longer directly depends on castle_signal_beacons.",
+  "would_reject_if": [
+    "The fortified water-gate node were narrowed to a beacon-triggered alarm gate rather than an architectural gate in fortifications.",
+    "A source showed medieval water gates directly required beacon chains to function.",
+    "The early_fortifications node were later narrowed to exclude walls, gates, towers, or defensive settlement architecture."
+  ],
+  "short_reason": "Water gates are fortified wall-and-river gate structures, not beacon-network equipment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/castle_signal_beacons.before.json /tmp/castle_signal_beacons.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

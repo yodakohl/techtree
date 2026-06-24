@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-insurance-claims-property-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "insurance_claims_adjustment",
+    "prerequisite": "property_concepts"
+  },
+  "replaced_edge": {
+    "dependent": "insurance_claims_adjustment",
+    "prerequisite": "notarial_records"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Notarial Records provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.58,
+    "evidence_level": "review",
+    "note": "The scoped claim assesses losses to insured houses and buildings, so property ownership supplies the claim subject without being a specialized adjustment mechanism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.londonmuseum.org.uk/blog/how-the-great-fire-of-london-created-insurance/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The London Museum explains that the Great Fire destroyed thousands of properties and that Barbon's Fire Office insured London houses by 1680.",
+    "source_claim_summary": "The source frames early fire insurance around insured houses and property losses after the Great Fire.",
+    "source_support_rationale": "Insured property is the object being assessed in the scoped claims practice. Medieval notarial registers are a different record institution and are not required for this London fire-insurance scope."
+  },
+  "ontology_before": "Insurance Claims Adjustment depended on medieval notarial records, laundering a broad legal-document dependency into a London fire-insurance claims practice.",
+  "ontology_after": "Early Insurance Claims Assessment depends contextually on property concepts because the claims are for insured houses and buildings, without treating notaries as a direct enabling technology.",
+  "invariant_preserved_or_changed": "Changed: insurance_claims_adjustment now depends on property_concepts and no longer directly depends on notarial_records.",
+  "would_reject_if": [
+    "The node were narrowed to notarial maritime protest or notarial loss-recording practice.",
+    "A source showed London fire-insurance claims assessment depended directly on medieval-style notarial registers.",
+    "The property_concepts node were later narrowed so it no longer covers owned buildings or insured property."
+  ],
+  "short_reason": "The claim subject is insured property, not notarial record production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/insurance_claims_adjustment.before.json /tmp/insurance_claims_adjustment.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

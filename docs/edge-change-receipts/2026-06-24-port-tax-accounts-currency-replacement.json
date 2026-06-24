@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-port-tax-accounts-currency-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "port_customs_ledgers",
+    "prerequisite": "currency"
+  },
+  "replaced_edge": {
+    "dependent": "port_customs_ledgers",
+    "prerequisite": "maritime_law_codes"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Law Codes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "primary_source",
+    "note": "The port-linked tax account records fees in drachmas and directs sale proceeds and prior cash advances through public financial administration."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.atticinscriptions.com/inscription/RO/26",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "AIO RO 26 translated lines 27-29 require fees of twenty drachmas per portion; lines 51-61 discuss sale proceeds, advance payments, and public monies.",
+    "source_claim_summary": "The inscription records monetary fees and public financial administration alongside grain-tax collection.",
+    "source_support_rationale": "The old maritime-law edge was too broad; the source demonstrates that monetary accounting is the concrete financial component in this scoped port-tax record."
+  },
+  "ontology_before": "Port Customs Ledgers depended directly on Maritime Law Codes, implying general maritime legal doctrine was the key prerequisite for the records.",
+  "ontology_after": "Port Tax Accounts keeps the scope on written fiscal/accounting records, with currency supporting fees, proceeds, and cash advances in the public account.",
+  "invariant_preserved_or_changed": "Changed: port_customs_ledgers now depends on currency and no longer directly depends on maritime_law_codes.",
+  "would_reject_if": [
+    "The node is later rescoped to maritime insurance or sea-loan law rather than tax/account records.",
+    "A source shows the scoped records were non-monetary cargo manifests with no fees, proceeds, or cash-accounting component.",
+    "A future maritime_customs_law node is added and better captures the legal framing without replacing currency."
+  ],
+  "short_reason": "Currency is the direct accounting substrate for fees and proceeds; maritime law was an overbroad dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/port_customs_ledgers.before.json /tmp/port_customs_ledgers.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

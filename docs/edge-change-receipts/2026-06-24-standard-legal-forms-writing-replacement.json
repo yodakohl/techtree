@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-standard-legal-forms-writing-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "standard_legal_forms",
+    "prerequisite": "writing"
+  },
+  "replaced_edge": {
+    "dependent": "standard_legal_forms",
+    "prerequisite": "civic_contract_registries"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Civic Contract Registries is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "The scoped technology is reusable written legal-document form; writing is the medium that carries the document structure and clauses."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/books/law-and-legal-practice-in-egypt-from-alexander-to-the-arab-conquest/9A5A29F9154F8F6D11B3D0A4707F0333",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Cambridge Core's book description states that legal documents written on papyrus are presented from Ptolemaic to late Byzantine Egypt with translations and expert commentary.",
+    "source_claim_summary": "The source frames the corpus as written papyrus legal documents from ancient Egypt, not registry entries alone.",
+    "source_support_rationale": "The old edge made a civic registry the general prerequisite; the source pins this scoped legal-form corpus to written legal documents instead."
+  },
+  "ontology_before": "Standard Legal Forms depended on Civic Contract Registries, implying that public civic registration was a prerequisite for reusable legal-document templates.",
+  "ontology_after": "Standard Legal Forms is scoped to written legal-document formats and clause patterns, with writing as the required medium and contract/public-archive practices as surrounding legal context.",
+  "invariant_preserved_or_changed": "Changed: standard_legal_forms now requires writing and no longer directly depends on civic_contract_registries.",
+  "would_reject_if": [
+    "A source shows this node is specifically about registry-issued standard forms rather than written papyrus or documentary legal forms.",
+    "The node is later widened back to all legal boilerplate across all societies and eras.",
+    "Civic contract registries become the only kept mechanism for formulaic legal documents."
+  ],
+  "short_reason": "Reusable legal forms are a written-document and clause-pattern technology, not a civic registry dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/standard_legal_forms.before.json /tmp/standard_legal_forms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

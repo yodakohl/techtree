@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-24-civic-contract-registries-merchant-partnership-removal",
+  "decision_date": "2026-06-24",
+  "github_issue": "local quality queue cleanup",
+  "edge": {
+    "dependent": "civic_contract_registries",
+    "prerequisite": "merchant_partnership_contracts"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Merchant Partnership Contracts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No dependency edge remains from civic_contract_registries to merchant_partnership_contracts; partnership contracts are one possible recordable agreement class, not a prerequisite for civic record systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ascsa.edu.gr/publications/book/?i=9780876612194",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ASCSA description of Athenian Agora XIX: the poletai records cover public-works contracts, state mine leases, tax-collection privileges, confiscated-property sales, and public/sacred land leases.",
+    "source_claim_summary": "The source supports the registry node through civic/public records of property, leases, public contracts, tax-farming rights, and confiscated-property sales.",
+    "source_support_rationale": "Because the source derives civic registry practice from public magistrate records and land/contract inscriptions, it does not require merchant partnership contracts as an upstream technology."
+  },
+  "ontology_before": "The graph treated merchant partnership contracts as an enabling prerequisite for civic contract registries, laundering one possible commercial contract type into the definition of a public record system.",
+  "ontology_after": "Civic contract registries are scoped as public/legal record infrastructure enabled by contract law and public archives, while merchant partnership contracts remain a separate contract subtype.",
+  "invariant_preserved_or_changed": "Changed: the direct merchant-partnership dependency is removed. Preserved: contract-law and public-archive prerequisites still explain the legal and recordkeeping capabilities needed by the scoped registry.",
+  "would_reject_if": [
+    "A source showed that Athenian or comparable civic contract registries emerged specifically from merchant partnership contracts rather than broader public legal-record practice.",
+    "The node were narrowed to merchant partnership registration only instead of public leases, property sales, public contracts, and tax-farming records.",
+    "Removing the edge made downstream nodes lose all contract-law or archive context."
+  ],
+  "short_reason": "Merchant partnership contracts are recordable content, not prerequisite infrastructure for civic contract registries.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/civic_contract_registries.before.json /tmp/civic_contract_registries.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality",
+    "npm run coverage",
+    "npm run source-urls -- --field \"Finance & Markets\" --timeout-ms 15000 --concurrency 4"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-perspective-stage-theater-stage-machinery-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "mechanical_theater_machinery",
+    "prerequisite": "theater_stage_machinery"
+  },
+  "replaced_edge": {
+    "dependent": "mechanical_theater_machinery",
+    "prerequisite": "commedia_dell_arte"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Commedia dell'arte is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Ancient Greek and Hellenistic stage devices are the documented lineage for later Renaissance stage machinery, not a commedia-specific dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/art/stage-machinery",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Britannica says stage machinery has been used since at least fifth-century BCE Greek theater, including deus ex machina and Hellenistic movable scenery, before describing its Renaissance development.",
+    "source_claim_summary": "The source presents ancient Greek and Hellenistic stage devices as the historical lineage for later Renaissance stage machinery.",
+    "source_support_rationale": "That lineage maps to the existing theater_stage_machinery node, while commedia dell'arte is a performance tradition rather than the documented mechanical ancestry of stage effects."
+  },
+  "ontology_before": "Mechanical Theater Machinery depended on commedia_dell_arte through a weak contextual edge, conflating performance genre with stage-technology lineage.",
+  "ontology_after": "Renaissance Perspective Stage Machinery depends on the existing classical theater_stage_machinery node as a historical predecessor.",
+  "invariant_preserved_or_changed": "Changed: mechanical_theater_machinery now depends on theater_stage_machinery and no longer directly depends on commedia_dell_arte.",
+  "would_reject_if": [
+    "The node were narrowed to commedia dell'arte troupe practice rather than stage machinery and scenery.",
+    "A source showed Renaissance stage machinery emerged directly from commedia performance practice rather than older stage devices and Italian scenic engineering.",
+    "The classical theater_stage_machinery node were removed or rescoped away from stage devices such as mechane and movable scenery."
+  ],
+  "short_reason": "Stage machinery has a documented theatrical-device lineage; commedia is not the direct machinery prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/mechanical_theater_machinery.before.json /tmp/mechanical_theater_machinery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

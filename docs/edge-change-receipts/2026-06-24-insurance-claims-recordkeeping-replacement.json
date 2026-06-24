@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-insurance-claims-recordkeeping-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "insurance_claims_adjustment",
+    "prerequisite": "record_keeping"
+  },
+  "replaced_edge": {
+    "dependent": "insurance_claims_adjustment",
+    "prerequisite": "printed_financial_price_lists"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Financial Price Lists provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Fire-insurance claims assessment relied on policy registers, endorsements, property descriptions, premiums, and recorded claims or committee minutes rather than printed market price lists."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.thelondonarchives.org/your-research/research-guides/fire-insurance-records",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The London Archives guide says fire-insurance policy registers record policy number, date, policy holder, property description, premium, and endorsements, and identifies company minutes recording claims against loss.",
+    "source_claim_summary": "The source documents policy registers and claim records as the relevant information substrate for fire-insurance claims.",
+    "source_support_rationale": "That recordkeeping is directly related to checking coverage and claims, whereas printed financial price lists are market-information artifacts not evidenced as a claims-assessment prerequisite."
+  },
+  "ontology_before": "Insurance Claims Adjustment depended on printed financial price lists, implying market quotation publication enabled claims settlement.",
+  "ontology_after": "Early Insurance Claims Assessment depends on record keeping because policy registers, endorsements, and claim minutes are the relevant documented inputs.",
+  "invariant_preserved_or_changed": "Changed: insurance_claims_adjustment now depends on record_keeping and no longer directly depends on printed_financial_price_lists.",
+  "would_reject_if": [
+    "The node were broadened to actuarial market pricing rather than claims assessment.",
+    "A source showed early fire claims settlement depended directly on printed financial price lists.",
+    "The record_keeping node were later narrowed to exclude institutional policy registers, endorsements, or claims minutes."
+  ],
+  "short_reason": "Claims assessment needs policy and claim records, not printed financial price lists.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/insurance_claims_adjustment.before.json /tmp/insurance_claims_adjustment.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

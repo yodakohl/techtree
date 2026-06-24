@@ -1,0 +1,60 @@
+{
+  "id": "2026-06-24-mudbrick-fired-brick-scope",
+  "description": "Lock sun-dried mud brick to Neolithic Jericho architecture and kiln-fired bricks to later Mesopotamian fired-clay building materials.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mud_brick_sun_dried",
+      "operator": "eq",
+      "value": -9000,
+      "reason": "Sun-dried mud brick is anchored to c. 9000-5200 BCE Jericho and PPNA mud-brick house evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mud_brick_sun_dried",
+      "prerequisite": "village_settlements",
+      "expected": "enabling",
+      "reason": "The source-backed mud-brick examples are settlement houses."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mud_brick_sun_dried",
+      "prerequisite": "clay_gathering_and_preparation",
+      "expected": "enabling",
+      "reason": "Mud bricks are made from clay-rich sediment, water, and temper."
+    },
+    {
+      "type": "first_known_date",
+      "node": "fired_bricks_early_kilns",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "Kiln-fired bricks are anchored to third-millennium Mesopotamian evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "fired_bricks_early_kilns",
+      "prerequisite": "pottery",
+      "expected": "enabling",
+      "reason": "Controlled ceramic firing and kiln practice enable fired clay brick production."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "fired_bricks_early_kilns",
+      "prerequisite": "mud_brick_sun_dried",
+      "expected": "enabling",
+      "reason": "Sun-dried clay brick is the unfired building-material predecessor/context for later kiln-fired bricks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bread_ovens",
+      "prerequisite": "fired_bricks_early_kilns",
+      "reason": "Neolithic bread ovens must not depend directly on later kiln-fired building bricks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urbanization",
+      "prerequisite": "fired_bricks_early_kilns",
+      "reason": "Early urbanization must not depend directly on a later, narrow fired-brick material node."
+    }
+  ]
+}
