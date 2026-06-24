@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-merchant-risk-pooling-trade-routes-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "merchant_risk_pooling",
+    "prerequisite": "trade_routes"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_risk_pooling",
+    "prerequisite": "charterparty_shipping_contracts"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Charterparty Shipping Contracts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Long-distance maritime trade routes created the repeated voyage risks and capital-allocation problem addressed by sea loans, commenda, and early insurance-style contracts."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Introduction says medieval insurance contracts protected short- and long-distance maritime trading activities from the North Sea to the Middle East, and that maritime trade risks created demand for protection.",
+    "source_claim_summary": "The source ties medieval insurance-style risk pooling to long-distance maritime trading routes and their voyage risks.",
+    "source_support_rationale": "Trade routes are the direct risk-producing commercial setting for the scoped sea-loan, commenda, and insurance-style contracts; charterparty hiring contracts are a separate shipping-document form."
+  },
+  "ontology_before": "Merchant Risk Pooling depended on charterparty shipping contracts, implying ship-hire contracts were the direct mechanism for risk pooling.",
+  "ontology_after": "Sea Loan & Commenda Risk Sharing depends on the long-distance maritime trade setting that created voyage risks and capital-allocation needs.",
+  "invariant_preserved_or_changed": "Changed: merchant_risk_pooling now depends on trade_routes and no longer directly depends on charterparty_shipping_contracts.",
+  "would_reject_if": [
+    "The node is later rescoped to charterparty ship-hire agreements rather than maritime risk-sharing finance.",
+    "A stronger source shows charterparty shipping contracts were the direct precursor to medieval sea loans or commenda risk sharing.",
+    "A separate charterparty-risk-allocation node is added and should take the charterparty dependency."
+  ],
+  "short_reason": "The source-backed setting is long-distance maritime trade risk, not charterparty ship hire.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_risk_pooling.before.json /tmp/merchant_risk_pooling.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

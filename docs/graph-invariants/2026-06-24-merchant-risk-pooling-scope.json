@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-merchant-risk-pooling-scope",
+  "description": "Lock the 2026-06-24 rescope of merchant_risk_pooling to medieval sea-loan, commenda, and early insurance-style maritime risk-sharing contracts.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "merchant_risk_pooling",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "The node is now anchored to twelfth- and thirteenth-century medieval Italian maritime risk-sharing practice, not a broad 1250 finance placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_risk_pooling",
+      "prerequisite": "charterparty_shipping_contracts",
+      "reason": "The scoped technology is risk-sharing finance, not generic ship-hire charterparty contracting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_risk_pooling",
+      "prerequisite": "bills_of_exchange_clearing",
+      "reason": "Bills-of-exchange clearing settles debts but is not source-backed as a direct prerequisite for sea-loan or commenda risk sharing."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_risk_pooling",
+      "prerequisite": "trade_routes",
+      "expected": "enabling",
+      "reason": "Long-distance maritime trade routes created the repeated risks these contracts allocated."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_risk_pooling",
+      "prerequisite": "notarial_records",
+      "expected": "enabling",
+      "reason": "Notarial deeds are the documented legal form for the source-attested medieval insurance-style contracts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_risk_pooling",
+      "prerequisite": "merchant_courts",
+      "expected": "enabling",
+      "reason": "Contract-enforcement institutions supported commitment to sea-loan and commenda risk-sharing contracts."
+    }
+  ]
+}

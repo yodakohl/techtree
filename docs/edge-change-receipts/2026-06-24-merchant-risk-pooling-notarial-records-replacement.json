@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-merchant-risk-pooling-notarial-records-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "merchant_risk_pooling",
+    "prerequisite": "notarial_records"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_risk_pooling",
+    "prerequisite": "bills_of_exchange_clearing"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bills of Exchange Clearing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Medieval risk-sharing and insurance-style contracts were preserved as notarial deeds in Italian commercial archives, making notarial records an enabling documentation layer."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The article analyzes about 7,000 insurance contracts redacted by notaries and notes that Genoese insurance contracts were valid as notarial deeds and typically written in Latin.",
+    "source_claim_summary": "The source identifies notarial deeds as the surviving and legally valid documentary form for the scoped medieval insurance-style contracts.",
+    "source_support_rationale": "Notarial records are the documentation layer evidenced for these risk-sharing contracts, while bills-of-exchange clearing settles debts and is not the direct risk-sharing mechanism."
+  },
+  "ontology_before": "Merchant Risk Pooling depended on bills-of-exchange clearing, mixing debt settlement with maritime risk-sharing contracts.",
+  "ontology_after": "Sea Loan & Commenda Risk Sharing depends on notarial records as the documented legal form for medieval Italian maritime risk contracts.",
+  "invariant_preserved_or_changed": "Changed: merchant_risk_pooling now depends on notarial_records and no longer directly depends on bills_of_exchange_clearing.",
+  "would_reject_if": [
+    "The node is later rescoped to fair-clearing or debt-settlement instruments rather than maritime risk-sharing contracts.",
+    "A stronger source shows bills-of-exchange clearing was a direct prerequisite for sea loans, commenda, or early insurance contracts.",
+    "A separate exchange-clearing risk-transfer node is introduced and should take the bills_of_exchange_clearing dependency."
+  ],
+  "short_reason": "The source-backed documentary mechanism is notarial contracting, not bill clearing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_risk_pooling.before.json /tmp/merchant_risk_pooling.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

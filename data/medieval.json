@@ -11985,34 +11985,60 @@
   },
   {
     "id": "merchant_risk_pooling",
-    "name": "Merchant Risk Pooling",
+    "name": "Sea Loan & Commenda Risk Sharing",
     "era": "Medieval",
-    "description": "Shared ventures and pooled losses for caravans, ships, cargo, loans, and politically risky trade.",
+    "description": "Sea-loan, commenda, and early insurance-style contracts that allocated capital, profits, losses, and maritime trading risks among investors, traveling merchants, and insurers.",
     "prerequisites": [
-      "charterparty_shipping_contracts",
-      "bills_of_exchange_clearing",
+      "trade_routes",
+      "notarial_records",
       "merchant_courts"
     ],
-    "firstKnownDate": 1250,
-    "datePrecision": "decade",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1200,
+    "datePrecision": "century",
+    "region": "Genoa and Venice / medieval Italian maritime trade",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "charterparty_shipping_contracts",
+        "prerequisite": "trade_routes",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Charterparty Shipping Contracts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Long-distance maritime trade routes created the repeated voyage risks and capital-allocation problem addressed by sea loans, commenda, and early insurance-style contracts.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Beauty of Uncertainty: The Rise of Insurance Contracts and Markets in Medieval Europe",
+            "url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+            "publisher": "Journal of the European Economic Association",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "source_locator": "Introduction says medieval insurance contracts protected short- and long-distance maritime trading activities from the North Sea to the Middle East, and that maritime trade risks created demand for protection.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "bills_of_exchange_clearing",
+        "prerequisite": "notarial_records",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Bills of Exchange Clearing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Medieval risk-sharing and insurance-style contracts were preserved as notarial deeds in Italian commercial archives, making notarial records an enabling documentation layer.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Beauty of Uncertainty: The Rise of Insurance Contracts and Markets in Medieval Europe",
+            "url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+            "publisher": "Journal of the European Economic Association",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "source_locator": "The article analyzes about 7,000 insurance contracts redacted by notaries and notes that Genoese insurance contracts were valid as notarial deeds and typically written in Latin.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "merchant_courts",
@@ -12020,9 +12046,62 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Merchant Courts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Institutions for contract enforcement and risk-sharing: From the sea loan to the commenda in late medieval Venice",
+            "url": "https://www.cambridge.org/core/journals/european-review-of-economic-history/article/institutions-for-contract-enforcement-and-risksharing-from-the-sea-loan-to-the-commenda-in-late-medieval-venice/0F0319A6E615DFD7BC43868DA6F83979",
+            "publisher": "European Review of Economic History / Cambridge University Press",
+            "year": 2002,
+            "source_type": "review",
+            "source_locator": "Extract frames the sea loan and commenda as contracts enabled by institutions for contract enforcement and asks what institutions allowed Venetians to commit to those forms.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Rescoped from broad caravan, ship, cargo, loan, and political-risk pooling to source-attested medieval maritime risk-sharing contracts: sea loans, commenda, and the transition toward insurance contracts. It excludes bills-of-exchange clearing and generic charterparty hiring contracts as direct prerequisites.",
+    "sources": [
+      {
+        "title": "The Beauty of Uncertainty: The Rise of Insurance Contracts and Markets in Medieval Europe",
+        "url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+        "publisher": "Journal of the European Economic Association",
+        "year": 2023,
+        "source_type": "primary_paper",
+        "source_locator": "Introduction says medieval merchants pooled risks through insurance; it traces insurance contracts and markets to mid-14th-century Italian maritime trade, and separately notes 12th-century Genoese sea loans whose insurance component had become central.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Institutions for contract enforcement and risk-sharing: From the sea loan to the commenda in late medieval Venice",
+        "url": "https://www.cambridge.org/core/journals/european-review-of-economic-history/article/institutions-for-contract-enforcement-and-risksharing-from-the-sea-loan-to-the-commenda-in-late-medieval-venice/0F0319A6E615DFD7BC43868DA6F83979",
+        "publisher": "European Review of Economic History / Cambridge University Press",
+        "year": 2002,
+        "source_type": "review",
+        "source_locator": "Extract says long-distance trade mobilized capital and shared risk, and asks what contract-enforcement institutions enabled Venetian sea-loan and commenda contracts.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "The Commenda Contract: How Italian Merchants of the Middle Ages Helped Shape Modern Private Equity",
+        "url": "https://blogs.law.ox.ac.uk/business-law-blog/blog/2022/06/commenda-contract-how-italian-merchants-middle-ages-helped-shape",
+        "publisher": "Oxford Law Faculty",
+        "year": 2022,
+        "source_type": "generic_overview",
+        "source_locator": "Oxford Law explains that the medieval commenda financed maritime trade and that bilateral commenda divided profits while also sharing losses.",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The date anchors the broader sea-loan and commenda risk-sharing scope to twelfth- and thirteenth-century medieval Italian maritime practice; fully separate modern insurance contracts are a later mid-fourteenth-century development."
   },
   {
     "id": "town_wall_maintenance_taxes",
