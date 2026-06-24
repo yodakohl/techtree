@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-brain-mapping-connectomics-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "brain_mapping",
+    "prerequisite": "connectomics"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Connectomics is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Brain Mapping to Connectomics edge remains because connectomics is a specialized neighboring brain-network mapping subfield, while the source-backed Brain Mapping node covers the broader established field of neuroimaging, brain anatomy/function mapping, and computational data integration.",
+  "source_supports_edge": "no",
+  "source_url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002043",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "PLOS Biology says connectome/connectomics terminology was coined in 2005 and describes connectomics as the study of the brain's structural connections.",
+    "source_claim_summary": "The source scopes connectomics as a specialized structural-connectivity field rather than a prerequisite for the broader human brain mapping field.",
+    "source_support_rationale": "A specialized 2005 connectomics subfield should not be required for a broader brain mapping field already source-backed in the 1990s."
+  },
+  "ontology_before": "Brain Mapping depended on Connectomics as a speculative forecast prerequisite.",
+  "ontology_after": "Brain Mapping is a Modern broad field; connectomics remains a neighboring specialized structural-connectivity concept rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: removed the direct connectomics prerequisite from the broader brain_mapping node.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to comprehensive connectome production rather than broad brain mapping.",
+    "Connectomics is moved and sourced as the canonical parent for a narrower brain-connectivity mapping node.",
+    "A source shows that the first-known human brain mapping field required connectomics rather than neuroimaging and neuroscience data integration."
+  ],
+  "short_reason": "Connectomics is narrower than broad brain mapping and postdates the field anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/brain_mapping.before.json /tmp/brain_mapping.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

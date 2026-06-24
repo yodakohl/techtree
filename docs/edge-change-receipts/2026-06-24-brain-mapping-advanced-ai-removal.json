@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-brain-mapping-advanced-ai-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "brain_mapping",
+    "prerequisite": "advanced_ai"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Advanced AI Systems is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Brain Mapping to Advanced AI Systems edge remains because the source-backed node is an established modern human brain mapping field anchored to 1990s neuroimaging and brain-mapping initiatives, not a forecast-only advanced-AI capability.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/9419065",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NLM Catalog lists Human Brain Mapping with publication start year 1993 and MeSH term Brain Mapping.",
+    "source_claim_summary": "The source anchors brain mapping as an established 1993 biomedical research field rather than a future AI-dependent capability.",
+    "source_support_rationale": "A field attested by a 1993 NLM-indexed journal cannot require future advanced AI systems as a first-known prerequisite."
+  },
+  "ontology_before": "Brain Mapping was a Future placeholder with a speculative advanced_ai prerequisite.",
+  "ontology_after": "Brain Mapping is a Modern source-checked neuroimaging and neuroscience data-integration field without a direct advanced_ai prerequisite.",
+  "invariant_preserved_or_changed": "Changed: removed the direct advanced_ai prerequisite and locked the node to a Modern brain-mapping scope.",
+  "would_reject_if": [
+    "The node is later rescoped to a future-only automated whole-brain interpretation system that explicitly requires advanced AI.",
+    "A separate advanced_ai_brain_mapping node is introduced for forecast AI-mediated mapping.",
+    "A source shows that the first-known human brain mapping field depended on advanced AI rather than earlier neuroimaging and computational data infrastructure."
+  ],
+  "short_reason": "Established brain mapping predates advanced AI systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/brain_mapping.before.json /tmp/brain_mapping.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

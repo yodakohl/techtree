@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-24-brain-mapping-scope",
+  "description": "Lock brain_mapping to the established modern human brain mapping field, not a future-only advanced-AI or connectomics placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "brain_mapping",
+      "operator": "eq",
+      "value": 1993,
+      "reason": "The source-backed field anchor is the NLM-indexed Human Brain Mapping journal start year."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "brain_mapping",
+      "prerequisite": "neuroscience",
+      "expected": "enabling",
+      "reason": "Brain mapping is an interdisciplinary neuroscience research field."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "brain_mapping",
+      "prerequisite": "magnetic_resonance_imaging",
+      "expected": "enabling",
+      "reason": "MRI is a concrete non-invasive neuroimaging modality used in human brain mapping."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "brain_mapping",
+      "prerequisite": "bioinformatics",
+      "expected": "enabling",
+      "reason": "Brain mapping required common data formats, computerized representations, databases, and information-technology integration."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "brain_mapping",
+      "prerequisite": "advanced_ai",
+      "reason": "Established brain mapping predates forecast advanced AI systems."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "brain_mapping",
+      "prerequisite": "superconductors_high_temp",
+      "reason": "The concrete imaging dependency is MRI; high-temperature superconductors are too specific and not source-backed for this field-level node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "brain_mapping",
+      "prerequisite": "connectomics",
+      "reason": "Connectomics is a specialized neighboring structural-connectivity field, not a prerequisite for broad human brain mapping."
+    }
+  ]
+}
