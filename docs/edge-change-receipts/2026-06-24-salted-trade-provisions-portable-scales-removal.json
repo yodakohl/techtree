@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-salted-trade-provisions-portable-scales-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "salted_trade_provisions",
+    "prerequisite": "portable_scales"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Portable Balance Scales provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is now scoped to Roman salted fish and fish-sauce production, preservation, distribution, and consumption; the inspected sources identify salting, storage, and empire-wide commerce, not balance scales as a necessary technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/roman-atlantic-garum-dna-confirms-sardine-use-and-population-continuity-in-northwestern-iberia/9487347327F3724D1D2C4F72266DAEF3",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction states that Roman fish-salting plants processed and preserved fish through salting and fermentation, extending shelf life and facilitating commerce throughout the empire.",
+    "source_claim_summary": "The source describes the salted-fish technology through salting, fermentation, storage, and commerce, without making portable balances a direct mechanism.",
+    "source_support_rationale": "Portable scales may belong to market enforcement or pricing nodes, but this source pins the direct technological boundary to preservation and distribution of fish products rather than weighing equipment."
+  },
+  "ontology_before": "Salted Trade Provisions depended directly on portable balance scales, implying weighing equipment was an enabling technology for the preserved-food practice itself.",
+  "ontology_after": "Roman Salted Fish Provisions depends on food preservation and trade-route context; portable scales remain relevant to markets but are no longer a direct prerequisite for the salted-fish technology.",
+  "invariant_preserved_or_changed": "Changed: direct salted_trade_provisions -> portable_scales edge removed while the node keeps preservation and trade-route prerequisites.",
+  "would_reject_if": [
+    "The node is later rescoped to official market weighing of salted goods rather than production and distribution of salted fish products.",
+    "A stronger source shows portable balance scales were a direct prerequisite for earliest Roman salted-fish production or distribution.",
+    "A separate salted-fish-market-inspection node is added and should take the portable_scales dependency."
+  ],
+  "short_reason": "Portable scales are market infrastructure, not a direct prerequisite for Roman salted-fish preservation and trade.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/salted_trade_provisions.before.json /tmp/salted_trade_provisions.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

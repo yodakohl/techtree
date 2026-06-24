@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-24-salted-trade-provisions-scope",
+  "description": "Lock the 2026-06-24 rescope of salted_trade_provisions to Roman salted fish and fish-sauce products, not broad third-millennium BCE salted provisions or market weighing infrastructure.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "salted_trade_provisions",
+      "operator": "eq",
+      "value": 1,
+      "reason": "The node is now source-anchored to Roman-period salted fish and fish-sauce trade rather than the prior unsourced -3000 global provisions claim."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "salted_trade_provisions",
+      "prerequisite": "portable_scales",
+      "reason": "Portable balance scales are market infrastructure, not a direct prerequisite for Roman salted-fish preservation and trade."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "salted_trade_provisions",
+      "prerequisite": "food_preservation_drying_salting",
+      "expected": "enabling",
+      "reason": "Salting and related preservation methods are the relevant enabling capability for Roman salted-fish products."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "salted_trade_provisions",
+      "prerequisite": "trade_routes",
+      "expected": "enabling",
+      "reason": "The scoped technology is distributed through Roman Mediterranean markets, making trade routes an enabler rather than weighing equipment."
+    }
+  ]
+}
