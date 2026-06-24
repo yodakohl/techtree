@@ -1,6 +1,6 @@
 # Quality Snapshot
 
-Generated: 2026-06-24T08:50:20.374Z
+Generated: 2026-06-24T08:58:08.284Z
 
 This is a trust snapshot generated from the same report object used by `npm run accuracy:risks`; it is not proof of global accuracy.
 
@@ -12,8 +12,8 @@ This is a trust snapshot generated from the same report object used by `npm run 
 | Source-checked nodes with placeholder dates | 0 / 1,317 (0.0%) |
 | Source-checked nodes with primary/review/textbook/official sources | 1,152 / 1,317 (87.5%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,317 (0.0%) |
-| Nodes with node-level sources | 1,613 / 1,658 (97.3%) |
-| Dependency edges with edge-level sources | 4,052 / 5,334 (76.0%) |
+| Nodes with node-level sources | 1,614 / 1,658 (97.3%) |
+| Dependency edges with edge-level sources | 4,055 / 5,334 (76.0%) |
 | Era-default placeholder dates | 260 / 1,658 (15.7%) |
 
 ## Manual audit note
