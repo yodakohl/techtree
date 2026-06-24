@@ -2405,7 +2405,7 @@
     "id": "quantum_computing",
     "name": "Quantum Computing",
     "era": "Future",
-    "description": "Exploitation of quantum phenomena like superposition and entanglement to perform computation, solving problems intractable for classical computers.",
+    "description": "Computing systems that use quantum-mechanical effects such as superposition, entanglement, and interference to run quantum algorithms, with broad useful and fault-tolerant capability still forecast.",
     "prerequisites": [
       "quantum_physics",
       "nanotechnology",
@@ -2415,7 +2415,7 @@
       "algorithms_computation_theory"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -2505,7 +2505,31 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "Cryogenics (Advanced) is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Flux Quantum Electronics",
+            "url": "https://www.nist.gov/programs-projects/flux-quantum-electronics",
+            "publisher": "NIST",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NIST describes superconductive circuits for the control and readout of cryogenic quantum bits in a quantum computer."
+          },
+          {
+            "title": "IBM cools down world's largest quantum-ready cryostat",
+            "url": "https://www.ibm.com/quantum/blog/goldeneye-cryogenic-concept-system",
+            "publisher": "IBM Quantum",
+            "year": 2022,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "IBM explains that studying and controlling quantum effects requires access to temperatures close to absolute zero, and that dilution refrigerators cool volumes to the millikelvin regime."
+          }
+        ]
       },
       {
         "prerequisite": "algorithms_computation_theory",
@@ -2536,12 +2560,35 @@
         "year": 2026,
         "source_type": "official_agency",
         "supports": [
-          "edge"
+          "node"
         ],
         "locator": "IBM portfolio describes quantum systems and computing methods for non-classical information processing."
+      },
+      {
+        "title": "Quantum Computing Explained",
+        "url": "https://www.nist.gov/quantum-information-science/quantum-computing-explained",
+        "publisher": "NIST",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NIST explains that quantum computers harness quantum physics and that current systems are rudimentary and error-prone, while more advanced robust versions could solve certain problems much faster than current computers."
+      },
+      {
+        "title": "Quantum Information Science",
+        "url": "https://www.energy.gov/topics/quantum-information-science",
+        "publisher": "U.S. Department of Energy",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "DOE says quantum information science uses principles from quantum mechanics to transform computing, sensing, and communication."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Future source-fit review: the source describes the concept or current field, but the 2035 placeholder forecast is not a source-backed first-known date."
+    "sourceCheckedDowngradeNote": "Concrete NIST, DOE, and IBM sources added during Future placeholder-source review; kept structurally_validated because sources support active quantum-computing systems and roadmaps, not broad mature fault-tolerant quantum computing by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for robust useful quantum computing, not the first historical date of quantum-computing theory, demonstrations, or cloud-accessible quantum processors."
   },
   {
     "id": "quantum_sensors_high_precision_measurement",
