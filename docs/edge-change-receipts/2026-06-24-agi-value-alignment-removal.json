@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-agi-value-alignment-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "artificial_general_intelligence",
+    "prerequisite": "ai_value_alignment_problem"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "AI Value Alignment Problem is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct AGI to AI Value Alignment Problem edge remains because alignment is a safety and risk-management concern around capable systems, not a prerequisite for AGI capability.",
+  "source_supports_edge": "no",
+  "source_url": "https://arxiv.org/abs/2311.02462",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Section 6 discusses risk, autonomy, human-AI interaction, and responsible deployment as context around AGI capability levels, while Section 4 defines the levels by performance and generality.",
+    "source_claim_summary": "The paper separates AGI capability progression from deployment risk and alignment considerations, so alignment is not a prerequisite for the basic AGI capability node.",
+    "source_support_rationale": "This supports removing the alignment edge because alignment should remain connected to safety and governance nodes; the broad AGI node tracks whether systems reach general capability thresholds."
+  },
+  "ontology_before": "The graph implied solving or defining the AI value alignment problem was a direct prerequisite for broad AGI capability.",
+  "ontology_after": "The graph keeps value alignment as safety and governance context rather than a requirement for AGI capability existence.",
+  "invariant_preserved_or_changed": "Changed: direct artificial_general_intelligence -> ai_value_alignment_problem edge removed and locked absent in 2026-06-24-artificial-general-intelligence-scope.json.",
+  "would_reject_if": [
+    "The AGI node is later rescoped to safe, aligned, or deployable AGI rather than capability-level AGI.",
+    "A credible AGI source states that value alignment must be solved before AGI can exist.",
+    "A downstream node represents aligned AGI deployment and should depend directly on ai_value_alignment_problem."
+  ],
+  "short_reason": "Alignment is a safety and governance concern, not a direct AGI capability prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/artificial_general_intelligence.before.json /tmp/artificial_general_intelligence.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

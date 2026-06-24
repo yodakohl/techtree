@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-agi-quantum-computing-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "artificial_general_intelligence",
+    "prerequisite": "quantum_computing"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Quantum Computing is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct AGI to Quantum Computing edge remains because source-backed AGI scope is capability breadth and performance, not a requirement for quantum hardware.",
+  "source_supports_edge": "no",
+  "source_url": "https://arxiv.org/abs/2311.02462",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and Sections 4-6: Morris et al. classify AGI models and precursors by performance, generality, autonomy, and deployment context rather than by a specific computing substrate.",
+    "source_claim_summary": "The AGI framework measures breadth and depth of AI capabilities and does not make quantum computing a prerequisite for AGI.",
+    "source_support_rationale": "This supports removing quantum computing because the retained node is scoped to broad cognitive capability progress; hardware accelerators may affect scaling, but the source does not require quantum computation for AGI."
+  },
+  "ontology_before": "The graph implied quantum computing was a direct prerequisite for broad AGI.",
+  "ontology_after": "The graph keeps AGI as a capability-level forecast downstream of advanced AI systems without requiring a quantum-computing substrate.",
+  "invariant_preserved_or_changed": "Changed: direct artificial_general_intelligence -> quantum_computing edge removed and locked absent in 2026-06-24-artificial-general-intelligence-scope.json.",
+  "would_reject_if": [
+    "The AGI node is later rescoped specifically to quantum artificial intelligence systems.",
+    "A credible AGI roadmap source states that quantum computing is required before AGI can be achieved.",
+    "A downstream node represents quantum-computing-based AGI and should point separately to quantum_computing."
+  ],
+  "short_reason": "AGI is defined by general capability and performance, not by quantum hardware.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/artificial_general_intelligence.before.json /tmp/artificial_general_intelligence.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

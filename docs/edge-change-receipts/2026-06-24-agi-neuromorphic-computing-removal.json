@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-agi-neuromorphic-computing-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "artificial_general_intelligence",
+    "prerequisite": "neuromorphic_computing"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Neuromorphic Computing is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct AGI to Neuromorphic Computing edge remains because neuromorphic hardware is one possible AI architecture path, not a source-backed requirement for broad AGI.",
+  "source_supports_edge": "no",
+  "source_url": "https://arxiv.org/abs/2311.02462",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The AGI levels framework defines progress by model capabilities, performance, generality, and autonomy rather than requiring a brain-inspired hardware architecture.",
+    "source_claim_summary": "The cited AGI framework supports a substrate-neutral capability definition and does not require neuromorphic computing.",
+    "source_support_rationale": "This supports removing neuromorphic computing because brain-inspired hardware can remain a separate AI architecture path without being a direct prerequisite for AGI under the current capability-level scope."
+  },
+  "ontology_before": "The graph implied neuromorphic computing was a direct prerequisite for broad AGI.",
+  "ontology_after": "The graph separates neuromorphic computing as an optional architecture family rather than a required AGI precursor.",
+  "invariant_preserved_or_changed": "Changed: direct artificial_general_intelligence -> neuromorphic_computing edge removed and locked absent in 2026-06-24-artificial-general-intelligence-scope.json.",
+  "would_reject_if": [
+    "The AGI node is later rescoped specifically to neuromorphic or brain-inspired AGI.",
+    "A credible AGI roadmap source states that neuromorphic computing is required before AGI can be achieved.",
+    "A downstream node represents neuromorphic AGI and should depend directly on neuromorphic_computing."
+  ],
+  "short_reason": "Neuromorphic hardware is optional architecture context, not a broad AGI prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/artificial_general_intelligence.before.json /tmp/artificial_general_intelligence.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

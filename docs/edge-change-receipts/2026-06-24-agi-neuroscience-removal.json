@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-agi-neuroscience-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "artificial_general_intelligence",
+    "prerequisite": "neuroscience"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Neuroscience is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct AGI to Neuroscience edge remains because source-backed AGI scope is behavioral capability across tasks, not biological brain science as a required precursor.",
+  "source_supports_edge": "no",
+  "source_url": "https://arxiv.org/abs/2311.02462",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Levels of AGI paper emphasizes AGI performance and generality across cognitive and metacognitive tasks and distinguishes capability measurement from processes or deployment context.",
+    "source_claim_summary": "The cited AGI taxonomy evaluates what systems can do across tasks rather than whether they are derived from neuroscience or human brain mechanisms.",
+    "source_support_rationale": "This supports removing neuroscience because biological inspiration may inform some AI research, but the AGI node is not scoped to brain-derived architectures and the source does not require neuroscience as an upstream capability."
+  },
+  "ontology_before": "The graph implied neuroscience was a direct prerequisite for broad AGI.",
+  "ontology_after": "The graph treats neuroscience as separate from the broad AGI capability forecast unless a future node is explicitly brain-inspired AGI.",
+  "invariant_preserved_or_changed": "Changed: direct artificial_general_intelligence -> neuroscience edge removed and locked absent in 2026-06-24-artificial-general-intelligence-scope.json.",
+  "would_reject_if": [
+    "The AGI node is later rescoped to biologically faithful cognitive emulation.",
+    "A credible AGI source states that neuroscience is required before AGI can be achieved.",
+    "A separate brain-inspired AGI node is added and should depend directly on neuroscience."
+  ],
+  "short_reason": "AGI capability definitions do not require biological neuroscience as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/artificial_general_intelligence.before.json /tmp/artificial_general_intelligence.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
