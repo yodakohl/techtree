@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-consciousness-studies-agi-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "consciousness_studies_advanced",
+    "prerequisite": "artificial_general_intelligence"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Artificial General Intelligence (AGI) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Advanced Consciousness Studies to AGI edge remains because source-backed consciousness science uses neural evidence, psychological models, and philosophical analysis without requiring AGI.",
+  "source_supports_edge": "no",
+  "source_url": "https://plato.stanford.edu/entries/consciousness-neuroscience/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Opening sections: the entry says explaining consciousness requires neural data, computational and psychological models, philosophical analysis, introspective reports, behavior, and physiological evidence.",
+    "source_claim_summary": "The cited consciousness-science scope is built around neuroscience, psychology, behavior, physiology, and philosophy, not AGI as a prerequisite.",
+    "source_support_rationale": "This supports removing AGI because artificial minds may become an application or dependent question, but the retained consciousness-studies node represents the interdisciplinary study of consciousness rather than AGI-enabled research."
+  },
+  "ontology_before": "The graph implied AGI was a direct prerequisite for advanced consciousness studies broadly.",
+  "ontology_after": "The graph keeps AGI-related consciousness questions downstream or adjacent, while the consciousness-studies node depends on neuroscience, psychology, and philosophy.",
+  "invariant_preserved_or_changed": "Changed: direct consciousness_studies_advanced -> artificial_general_intelligence edge removed and locked absent in 2026-06-24-consciousness-studies-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to AGI-assisted consciousness research.",
+    "A credible consciousness-science source states that AGI is required to study consciousness.",
+    "A downstream node represents artificial consciousness research and should point separately to artificial_general_intelligence."
+  ],
+  "short_reason": "Consciousness studies do not require AGI as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consciousness_studies_advanced.before.json /tmp/consciousness_studies_advanced.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

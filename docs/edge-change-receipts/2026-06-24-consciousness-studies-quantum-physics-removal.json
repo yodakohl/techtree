@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-consciousness-studies-quantum-physics-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "consciousness_studies_advanced",
+    "prerequisite": "quantum_physics"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Quantum Physics is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Advanced Consciousness Studies to Quantum Physics edge remains because source-backed consciousness science centers on neural, psychological, and philosophical evidence rather than quantum physics.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/s41583-022-00587-4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the Nature Reviews Neuroscience article reviews higher-order, global workspace, re-entry and predictive-processing, and integrated-information theories, including their neurobiological commitments and empirical evidence.",
+    "source_claim_summary": "The cited review frames leading consciousness theories through cognitive and neurobiological theory testing, not quantum physics as a required foundation.",
+    "source_support_rationale": "This supports removing quantum physics because quantum approaches are not part of the retained broad consciousness-science prerequisite set; a narrower quantum-consciousness node could be modeled separately if needed."
+  },
+  "ontology_before": "The graph implied quantum physics was a direct prerequisite for advanced consciousness studies broadly.",
+  "ontology_after": "The graph scopes advanced consciousness studies to neuroscience, psychology, and philosophy, leaving quantum-consciousness hypotheses out of the direct prerequisite chain.",
+  "invariant_preserved_or_changed": "Changed: direct consciousness_studies_advanced -> quantum_physics edge removed and locked absent in 2026-06-24-consciousness-studies-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to quantum theories of consciousness.",
+    "A review source for mainstream consciousness science states that quantum physics is required to study consciousness.",
+    "A separate quantum-consciousness node is introduced and should depend directly on quantum_physics."
+  ],
+  "short_reason": "Mainstream consciousness-theory reviews do not require quantum physics as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consciousness_studies_advanced.before.json /tmp/consciousness_studies_advanced.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

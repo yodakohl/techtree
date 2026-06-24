@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-consciousness-studies-mind-uploading-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "consciousness_studies_advanced",
+    "prerequisite": "mind_uploading"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Mind Uploading (Whole Brain Emulation) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Advanced Consciousness Studies to Mind Uploading edge remains because mind uploading is a speculative application of consciousness theory, not a prerequisite for studying consciousness.",
+  "source_supports_edge": "no",
+  "source_url": "https://plato.stanford.edu/entries/consciousness-neuroscience/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Opening sections: the entry identifies neural data, computational and psychological models, philosophical analysis, reports, behavior, and physiology as evidence sources for explaining consciousness.",
+    "source_claim_summary": "The cited consciousness-science scope does not require whole-brain emulation or mind uploading before consciousness can be studied.",
+    "source_support_rationale": "This supports removing mind uploading because whole-brain emulation should remain a speculative downstream or adjacent node, while consciousness studies already proceed through neural, psychological, behavioral, and philosophical methods."
+  },
+  "ontology_before": "The graph implied mind uploading was a direct prerequisite for advanced consciousness studies.",
+  "ontology_after": "The graph treats mind uploading as a speculative dependent or application area rather than an upstream requirement for consciousness science.",
+  "invariant_preserved_or_changed": "Changed: direct consciousness_studies_advanced -> mind_uploading edge removed and locked absent in 2026-06-24-consciousness-studies-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to consciousness studies enabled by whole-brain emulation.",
+    "A credible consciousness-science source states that mind uploading is required before mature consciousness studies can proceed.",
+    "A downstream node represents uploaded-mind phenomenology and should depend directly on mind_uploading."
+  ],
+  "short_reason": "Mind uploading is an application context, not a prerequisite for studying consciousness.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consciousness_studies_advanced.before.json /tmp/consciousness_studies_advanced.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
