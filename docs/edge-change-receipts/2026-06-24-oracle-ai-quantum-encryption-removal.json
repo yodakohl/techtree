@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-oracle-ai-quantum-encryption-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "oracle_ai",
+    "prerequisite": "quantum_encryption"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Quantum Encryption is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Oracle AI to Quantum Encryption edge remains because the node is scoped to an AI-safety confinement/control pattern: an advanced AI limited to answering questions. Secure communication may be relevant to deployments, but the cited concept does not require quantum cryptography.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/s11023-012-9282-2",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Armstrong, Sandberg, and Bostrom define Oracle AI as an AI that does not act in the world except by answering questions, then discuss capability control, motivational control, checks, and confinement risks without making quantum encryption a prerequisite.",
+    "source_claim_summary": "Oracle AI is a control strategy for superintelligent AI centered on limiting action channels to answers.",
+    "source_support_rationale": "A quantum-encryption prerequisite would smuggle a secure-communications implementation detail into a concept that is instead defined by confinement, output limitation, and AI-safety control."
+  },
+  "ontology_before": "The graph made confined Oracle AI depend directly on quantum encryption, implying quantum-cryptographic communication is prerequisite to the Oracle AI safety concept.",
+  "ontology_after": "The graph keeps Oracle AI scoped to a confined-superintelligence control pattern with artificial superintelligence and AI alignment as speculative prerequisites, while leaving quantum encryption available for communication-security nodes.",
+  "invariant_preserved_or_changed": "Changed: removed the direct quantum_encryption prerequisite from oracle_ai.",
+  "would_reject_if": [
+    "The node is later rescoped from the Oracle AI safety concept to a specific quantum-secured deployment architecture.",
+    "A source shows that Oracle AI confinement specifically requires quantum encryption rather than conventional isolation, output limits, verification, or other control methods.",
+    "A downstream dependent is added that needs quantum-secured Oracle AI communication and should instead point directly to quantum_encryption."
+  ],
+  "short_reason": "Quantum encryption is a possible deployment security layer, not a prerequisite for the Oracle AI confinement concept.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/oracle_ai.before.json /tmp/oracle_ai.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
