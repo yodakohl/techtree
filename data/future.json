@@ -16804,11 +16804,11 @@
     "description": "Coordinated logistics networks linking Earth, orbital depots, lunar sites, Mars habitats, asteroid industry, and autonomous manufacturing.",
     "prerequisites": [
       "orbital_propellant_depots",
-      "asteroid_industrial_ecosystems",
-      "mars_surface_habitats"
+      "supply_chain_management_software",
+      "space_flight"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -16818,38 +16818,90 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "Orbital Propellant Depots is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Space Superhighway: Systems Analysis of an In-Space Logistics Delivery Network",
+            "url": "https://ntrs.nasa.gov/api/citations/20220013397/downloads/ASCEND2022-TiffinFinal2.pdf",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2022,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The NASA paper defines an in-space logistics network consisting of commercial launch vehicles, resupply tankers, orbital depots, and in-space tugs, with payload and propellant delivery as central demand."
+          }
+        ]
       },
       {
-        "prerequisite": "asteroid_industrial_ecosystems",
+        "prerequisite": "supply_chain_management_software",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Asteroid Industrial Ecosystems is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Supply-chain management software and logistics modeling provide the planning, inventory, routing, campaign analysis, and network-optimization foundation for interplanetary supply chains.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A Modeling Framework for Interplanetary Supply Chains",
+            "url": "https://arc.aiaa.org/doi/10.2514/6.2006-7229",
+            "publisher": "AIAA SPACE 2006 Conference & Exposition",
+            "year": 2006,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The AIAA paper is listed by AIAA's Space Logistics Technical Committee under space campaign logistics analysis methods and directly frames interplanetary supply chains as a modeling problem."
+          }
+        ]
       },
       {
-        "prerequisite": "mars_surface_habitats",
+        "prerequisite": "space_flight",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Mars Surface Habitats is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Space flight supplies the launch, in-space transport, tug, rendezvous, depot, and destination-transfer capabilities that any interplanetary logistics network must coordinate.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Space Superhighway: Systems Analysis of an In-Space Logistics Delivery Network",
+            "url": "https://ntrs.nasa.gov/api/citations/20220013397/downloads/ASCEND2022-TiffinFinal2.pdf",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2022,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The paper describes commercial launch vehicles delivering propellant and payloads to LEO, payloads rendezvousing with depots, and in-space electric tugs transporting payloads to final orbits and cislunar destinations."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Wikipedia page for Interplanetary Supply Chains",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Interplanetary%20Supply%20Chains",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "A Modeling Framework for Interplanetary Supply Chains",
+        "url": "https://arc.aiaa.org/doi/10.2514/6.2006-7229",
+        "publisher": "AIAA SPACE 2006 Conference & Exposition",
+        "year": 2006,
+        "source_type": "primary_paper",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "AIAA's Space Logistics Technical Committee lists Gralla, Shull, Lee, Shishko, and de Weck's paper under space campaign logistics analysis methods as a modeling framework for interplanetary supply chains."
+      },
+      {
+        "title": "The Space Superhighway: Systems Analysis of an In-Space Logistics Delivery Network",
+        "url": "https://ntrs.nasa.gov/api/citations/20220013397/downloads/ASCEND2022-TiffinFinal2.pdf",
+        "publisher": "NASA Technical Reports Server",
+        "year": 2022,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NASA's in-space logistics network study evaluates a network of commercial launch vehicles, resupply tankers, orbital depots, and in-space tugs for payload and propellant delivery across cislunar destination orbits."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the only node-level source was a Wikipedia search URL, not evidence supporting the exact node claim."
+    "sourceCheckedDowngradeNote": "Source-backed as a space-logistics architecture and modeling concept rather than source_checked: sources support interplanetary supply-chain modeling and in-space logistics networks, but not mature coordinated Earth-orbit-Moon-Mars-asteroid supply chains by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for deployed interplanetary supply chains, not a source-backed first-known date for space logistics or interplanetary supply-chain modeling."
   },
   {
     "id": "molecular_assemblers_practical",

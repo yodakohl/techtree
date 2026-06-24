@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-interplanetary-supply-chains-scm-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "interplanetary_supply_chains",
+    "prerequisite": "supply_chain_management_software"
+  },
+  "replaced_edge": {
+    "dependent": "interplanetary_supply_chains",
+    "prerequisite": "asteroid_industrial_ecosystems"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Asteroid Industrial Ecosystems is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Supply-chain management software and logistics modeling provide the planning, inventory, routing, campaign analysis, and network-optimization foundation for interplanetary supply chains."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://arc.aiaa.org/doi/10.2514/6.2006-7229",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "AIAA's Space Logistics Technical Committee lists A Modeling Framework for Interplanetary Supply Chains under space campaign logistics analysis methods, alongside related asset-management and interplanetary supply-chain database work.",
+    "source_claim_summary": "Interplanetary supply chains are modeled through logistics-analysis and supply-chain-management methods rather than requiring a full asteroid industrial ecosystem.",
+    "source_support_rationale": "The old edge made one destination industry a prerequisite; the source supports the broader planning, modeling, inventory, and logistics-management capability that coordinates all destinations."
+  },
+  "ontology_before": "The graph made interplanetary supply chains depend directly on asteroid industrial ecosystems, implying asteroid mining/refining/manufacturing infrastructure must precede the logistics network.",
+  "ontology_after": "The graph routes interplanetary supply chains through supply-chain management software, space flight, and orbital propellant depots, keeping asteroid industrial ecosystems as one possible serviced destination rather than a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: interplanetary_supply_chains now depends on supply_chain_management_software and no longer directly on asteroid_industrial_ecosystems.",
+  "would_reject_if": [
+    "The node is later rescoped only to asteroid-based industry logistics rather than Earth-orbit-Moon-Mars-asteroid logistics broadly.",
+    "A source shows interplanetary supply chains specifically require asteroid industrial ecosystems rather than logistics modeling and supply-chain management.",
+    "A downstream node requires asteroid industrial supply networks and should point directly to asteroid_industrial_ecosystems."
+  ],
+  "short_reason": "Supply-chain management is the direct logistics foundation; asteroid industrial ecosystems are a serviced domain, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/interplanetary_supply_chains.before.json /tmp/interplanetary_supply_chains.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

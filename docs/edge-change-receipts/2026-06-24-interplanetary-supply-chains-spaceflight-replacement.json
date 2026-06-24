@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-interplanetary-supply-chains-spaceflight-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "interplanetary_supply_chains",
+    "prerequisite": "space_flight"
+  },
+  "replaced_edge": {
+    "dependent": "interplanetary_supply_chains",
+    "prerequisite": "mars_surface_habitats"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Mars Surface Habitats is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Space flight supplies the launch, in-space transport, tug, rendezvous, depot, and destination-transfer capabilities that any interplanetary logistics network must coordinate."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ntrs.nasa.gov/api/citations/20220013397/downloads/ASCEND2022-TiffinFinal2.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The NASA paper describes commercial launch vehicles, in-space tugs, orbital depots, resupply tankers, payload and propellant delivery, and delivery nodes across cislunar destination orbits.",
+    "source_claim_summary": "Interplanetary supply chains require spaceflight transport and logistics infrastructure, while Mars surface habitats are one destination served by such networks.",
+    "source_support_rationale": "The old edge made a downstream destination habitat prerequisite; the source supports a more general spaceflight transport foundation for moving payloads, propellant, spares, and logistics cargo."
+  },
+  "ontology_before": "The graph made interplanetary supply chains depend directly on Mars surface habitats, implying a destination settlement must precede the logistics network that serves it.",
+  "ontology_after": "The graph makes interplanetary supply chains depend on space_flight directly, with Mars habitats remaining a serviced destination or downstream application.",
+  "invariant_preserved_or_changed": "Changed: interplanetary_supply_chains now depends on space_flight and no longer directly on mars_surface_habitats.",
+  "would_reject_if": [
+    "The node is later rescoped only to Mars habitat logistics rather than interplanetary logistics broadly.",
+    "A source shows mature Mars surface habitats are required before interplanetary supply chains can exist.",
+    "A downstream node specifically requires Mars habitat logistics and should point directly to mars_surface_habitats."
+  ],
+  "short_reason": "Space flight is the transport substrate; Mars surface habitats are a destination, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/interplanetary_supply_chains.before.json /tmp/interplanetary_supply_chains.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

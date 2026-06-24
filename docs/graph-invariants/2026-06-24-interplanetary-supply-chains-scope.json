@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-24-interplanetary-supply-chains-scope",
+  "description": "Lock interplanetary_supply_chains to space-logistics network planning and in-space transport infrastructure, not to any single destination industry or Mars habitat.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "interplanetary_supply_chains",
+      "prerequisite": "orbital_propellant_depots",
+      "expected": "speculative",
+      "reason": "Propellant and depot infrastructure are central to reusable in-space logistics networks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "interplanetary_supply_chains",
+      "prerequisite": "supply_chain_management_software",
+      "expected": "speculative",
+      "reason": "Interplanetary supply chains rely on logistics modeling, inventory, routing, and supply-chain coordination methods."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "interplanetary_supply_chains",
+      "prerequisite": "space_flight",
+      "expected": "speculative",
+      "reason": "Spaceflight transport is the substrate for moving payloads, propellant, spares, and cargo between nodes."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interplanetary_supply_chains",
+      "prerequisite": "asteroid_industrial_ecosystems",
+      "reason": "Asteroid industrial ecosystems are one possible served domain, not a prerequisite for the logistics network."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interplanetary_supply_chains",
+      "prerequisite": "mars_surface_habitats",
+      "reason": "Mars surface habitats are destination demand nodes, not prerequisites for interplanetary logistics."
+    }
+  ]
+}
