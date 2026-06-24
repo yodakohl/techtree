@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-asteroid-habitat-caverns-mining-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "asteroid_habitat_caverns",
+    "prerequisite": "asteroid_mining"
+  },
+  "replaced_edge": {
+    "dependent": "asteroid_habitat_caverns",
+    "prerequisite": "asteroid_industrial_ecosystems"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Asteroid Industrial Ecosystems is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Asteroid mining supplies the excavation, cavity creation, and in-situ resource access foundation for habitat caverns inside mined asteroids."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2019.00037/full",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The paper's abstract frames the concept around caverns of mined asteroids and investigates housing a habitat inside an entire mined asteroid.",
+    "source_claim_summary": "Asteroid habitat caverns are directly tied to mined asteroids and excavation/cavity creation, not to a full asteroid industrial ecosystem.",
+    "source_support_rationale": "The old edge required a broad linked mining, refining, manufacturing, propellant, habitat, and logistics ecosystem; the source supports the narrower mining and excavation foundation."
+  },
+  "ontology_before": "The graph made asteroid habitat caverns depend on full asteroid industrial ecosystems, implying broad orbital supply-chain and manufacturing infrastructure is prerequisite to the habitat concept.",
+  "ontology_after": "The graph routes asteroid habitat caverns through asteroid mining, radiation shielding, and closed-loop life support, keeping industrial ecosystems as a broader downstream scaling concept.",
+  "invariant_preserved_or_changed": "Changed: asteroid_habitat_caverns now depends on asteroid_mining and no longer directly on asteroid_industrial_ecosystems.",
+  "would_reject_if": [
+    "The node is later rescoped to full asteroid-city industrial networks rather than mined asteroid habitat caverns.",
+    "A source shows asteroid habitat caverns specifically require the entire asteroid industrial ecosystem, not just mining/excavation, shielding, and life support.",
+    "A downstream node requires a full industrial asteroid settlement and should point to asteroid_industrial_ecosystems separately."
+  ],
+  "short_reason": "Asteroid mining is the direct excavation and resource-access prerequisite; asteroid industrial ecosystems were too broad for the cavern habitat concept.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/asteroid_habitat_caverns.before.json /tmp/asteroid_habitat_caverns.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-asteroid-habitat-caverns-life-support-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "asteroid_habitat_caverns",
+    "prerequisite": "closed_loop_life_support"
+  },
+  "replaced_edge": {
+    "dependent": "asteroid_habitat_caverns",
+    "prerequisite": "orbital_habitat_cities"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Orbital Habitat Cities is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Closed-loop life support supplies the air, water, recycling, food, and lighting systems required for sustained habitation inside mined asteroid caverns."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2019.00037/full",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The introduction says sustaining human life on a station inside a mined asteroid requires air, water, recycling systems, food, light, and sufficient gravity.",
+    "source_claim_summary": "Human habitation inside a mined asteroid directly requires life-support systems rather than a prior orbital habitat city.",
+    "source_support_rationale": "The old edge made a large orbital city a prerequisite; the source supports the underlying life-support capability needed by the smaller asteroid-cavern habitat."
+  },
+  "ontology_before": "The graph made asteroid habitat caverns depend on orbital habitat cities, implying a large orbital settlement must precede or enable the asteroid-cavern concept.",
+  "ontology_after": "The graph makes asteroid habitat caverns depend on closed-loop life support directly while leaving orbital habitat cities as a separate, broader settlement form.",
+  "invariant_preserved_or_changed": "Changed: asteroid_habitat_caverns now depends on closed_loop_life_support and no longer directly on orbital_habitat_cities.",
+  "would_reject_if": [
+    "The node is later rescoped to asteroid neighborhoods within mature orbital habitat city systems rather than standalone mined-asteroid habitats.",
+    "A source shows orbital habitat cities are prerequisite to asteroid habitat caverns rather than an adjacent settlement architecture.",
+    "A dependent node requires large civic orbital settlements and should point to orbital_habitat_cities separately."
+  ],
+  "short_reason": "Closed-loop life support is the direct habitation prerequisite; orbital habitat cities were too broad and adjacent.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/asteroid_habitat_caverns.before.json /tmp/asteroid_habitat_caverns.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

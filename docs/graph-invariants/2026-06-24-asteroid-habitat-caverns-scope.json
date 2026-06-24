@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-24-asteroid-habitat-caverns-scope",
+  "description": "Lock asteroid_habitat_caverns to mined or rubble-pile asteroid habitat cavities rather than full asteroid industrial ecosystems or orbital habitat cities.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "asteroid_habitat_caverns",
+      "prerequisite": "asteroid_mining",
+      "expected": "speculative",
+      "reason": "Mined asteroid caverns and excavation are the direct basis for the habitat concept."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "asteroid_habitat_caverns",
+      "prerequisite": "radiation_shielding_materials",
+      "expected": "speculative",
+      "reason": "The literature explicitly treats the asteroid hull, rubble, and regolith as radiation shielding for the interior volume."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "asteroid_habitat_caverns",
+      "prerequisite": "closed_loop_life_support",
+      "expected": "speculative",
+      "reason": "Human habitation inside mined asteroids requires air, water, recycling, food, and lighting systems."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "asteroid_habitat_caverns",
+      "prerequisite": "asteroid_industrial_ecosystems",
+      "reason": "Asteroid industrial ecosystems are broader scaling infrastructure, not prerequisite to the cavern habitat concept."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "asteroid_habitat_caverns",
+      "prerequisite": "orbital_habitat_cities",
+      "reason": "Orbital habitat cities are adjacent settlement architectures, not a prerequisite for mined asteroid caverns."
+    }
+  ]
+}

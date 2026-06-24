@@ -18413,22 +18413,35 @@
     "era": "Future",
     "description": "Pressurized living and industrial spaces excavated inside asteroids for shielding, resource access, and low-gravity settlement.",
     "prerequisites": [
-      "asteroid_industrial_ecosystems",
+      "asteroid_mining",
       "radiation_shielding_materials",
-      "orbital_habitat_cities"
+      "closed_loop_life_support"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
       {
-        "prerequisite": "asteroid_industrial_ecosystems",
+        "prerequisite": "asteroid_mining",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Asteroid Industrial Ecosystems is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Asteroid mining supplies the excavation, cavity creation, and in-situ resource access foundation for habitat caverns inside mined asteroids.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Stability of a Rotating Asteroid Housing a Space Station",
+            "url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2019.00037/full",
+            "publisher": "Frontiers in Astronomy and Space Sciences",
+            "year": 2019,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The abstract frames the concept around caverns of mined asteroids and investigates housing a habitat inside an entire mined asteroid."
+          }
+        ]
       },
       {
         "prerequisite": "radiation_shielding_materials",
@@ -18436,30 +18449,69 @@
         "confidence": 0.35,
         "evidence_level": "speculative",
         "note": "Radiation Shielding Materials is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Habitat Bennu: Design Concepts for Spinning Habitats Constructed From Rubble Pile Near-Earth Asteroids",
+            "url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2021.645363/full",
+            "publisher": "Frontiers in Astronomy and Space Sciences",
+            "year": 2022,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The paper says subsurface asteroid settlements can provide protective radiation shielding and proposes a thick rubble/regolith shield forming a shielded interior volume for human occupation."
+          }
+        ]
       },
       {
-        "prerequisite": "orbital_habitat_cities",
+        "prerequisite": "closed_loop_life_support",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Orbital Habitat Cities is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Closed-loop life support supplies the air, water, recycling, food, and lighting systems required for sustained habitation inside mined asteroid caverns.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Stability of a Rotating Asteroid Housing a Space Station",
+            "url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2019.00037/full",
+            "publisher": "Frontiers in Astronomy and Space Sciences",
+            "year": 2019,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The introduction says sustaining human life inside a mined asteroid requires air, water, recycling systems, food, light, and sufficient gravity."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Wikipedia page for Asteroid Habitat Caverns",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Asteroid%20Habitat%20Caverns",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Stability of a Rotating Asteroid Housing a Space Station",
+        "url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2019.00037/full",
+        "publisher": "Frontiers in Astronomy and Space Sciences",
+        "year": 2019,
+        "source_type": "primary_paper",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "Maindl, Miksch, and Loibnegger analyze a cylindrical space station inside a mined asteroid, including mined-asteroid caverns, radiation shielding from the hull, artificial gravity, and material-stress limits."
+      },
+      {
+        "title": "Habitat Bennu: Design Concepts for Spinning Habitats Constructed From Rubble Pile Near-Earth Asteroids",
+        "url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2021.645363/full",
+        "publisher": "Frontiers in Astronomy and Space Sciences",
+        "year": 2022,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "locator": "Miklavcic and colleagues review hollowed/spinning asteroid habitat studies and propose expanding rubble-pile asteroid material into a shielded interior volume with regolith shielding and artificial gravity."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the only node-level source was a Wikipedia search URL, not evidence supporting the exact node claim."
+    "sourceCheckedDowngradeNote": "Source-backed as a habitat concept rather than source_checked: sources support mined or rubble-pile asteroid habitat concepts, shielding, artificial gravity, and life-support needs, but not deployed asteroid habitat caverns by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast maturity placeholder for deployed asteroid habitat caverns, not a source-backed first-known date for asteroid-habitat concept studies."
   },
   {
     "id": "ai_treaty_verification_systems",
