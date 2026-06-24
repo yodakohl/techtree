@@ -1673,67 +1673,103 @@
     "id": "horticulture",
     "name": "Horticulture",
     "era": "Ancient",
-    "description": "Small-scale, non-intensive cultivation of plants using simple tools; a transition between foraging and large-scale agriculture.",
+    "description": "Small-scale cultivation of useful plants, anchored here to Ohalo II evidence for hunter-gatherer trial cultivation of wild cereals before Neolithic farming.",
     "prerequisites": [
-      "advanced_hunting_gathering",
       "foraging_and_botany",
-      "fire_control"
+      "advanced_stone_tools"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
+    "fields": [
+      "Agriculture & Food Systems"
+    ],
+    "fieldLanes": {
+      "Agriculture & Food Systems": "Foundations"
+    },
+    "scopeNote": "Represents early small-scale or trial plant cultivation before fully domesticated agriculture, not later professional horticulture, orchard grafting, greenhouse cultivation, or broad settled farming.",
+    "sources": [
       {
-        "prerequisite": "advanced_hunting_gathering",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Hunting & Gathering provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "title": "The Origin of Cultivation and Proto-Weeds, Long Before Neolithic Farming",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131422",
+        "publisher": "PLOS ONE",
+        "year": 2015,
+        "source_type": "primary_paper",
+        "source_locator": "The abstract describes proto-weeds and small-scale trial cultivation in the 23,000-year-old Ohalo II hunter-gatherer camp, while the conclusion says the finds are the earliest indications of proto-weeds and most probably small-scale cultivated plots.",
+        "supports": [
+          "node",
+          "edge"
+        ]
       },
+      {
+        "title": "Composite Sickles and Cereal Harvesting Methods at 23,000-Years-Old Ohalo II, Israel",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+        "publisher": "PLOS ONE",
+        "year": 2016,
+        "source_type": "primary_paper",
+        "source_locator": "The paper reports use-wear on glossed flint blades from Ohalo II as the earliest evidence for composite cereal-harvesting tools used on near-ripe wild cereals.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": -21000,
+    "datePrecision": "millennium",
+    "region": "Ohalo II, Sea of Galilee, Levant",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
       {
         "prerequisite": "foraging_and_botany",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "fire_control",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.8,
+        "evidence_level": "primary_source",
+        "note": "The Ohalo II evidence links trial cultivation to gathering, identifying, grinding, and harvesting wild cereals and other plant species.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa",
-            "url": "https://www.pnas.org/doi/10.1073/pnas.1117620109",
-            "publisher": "Proceedings of the National Academy of Sciences",
-            "year": 2012,
+            "title": "The Origin of Cultivation and Proto-Weeds, Long Before Neolithic Farming",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131422",
+            "publisher": "PLOS ONE",
+            "year": 2015,
             "source_type": "primary_paper",
+            "source_locator": "The paper reports extensive gathering of more than 140 plant species, grinding of wild wheat and barley, and wild cereals mixed with proto-weeds.",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Composite Sickles and Cereal Harvesting Methods at 23,000-Years-Old Ohalo II, Israel",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+            "publisher": "PLOS ONE",
+            "year": 2016,
+            "source_type": "primary_paper",
+            "source_locator": "The use-wear analysis says glossed flint blades from Ohalo II were used to harvest near-ripe semi-green wild cereals.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "advanced_stone_tools",
+        "type": "enabling",
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "Glossed flint blades from Ohalo II provide source-backed harvesting-tool evidence for planned wild-cereal harvesting in the cultivation context.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Composite Sickles and Cereal Harvesting Methods at 23,000-Years-Old Ohalo II, Israel",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+            "publisher": "PLOS ONE",
+            "year": 2016,
+            "source_type": "primary_paper",
+            "source_locator": "The use-wear analysis reports glossed flint blades at Ohalo II used for harvesting near-ripe semi-green wild cereals and describes them as the earliest composite cereal-harvesting tools.",
             "supports": [
               "edge"
             ]
           }
         ]
       }
-    ],
-    "sources": [
-      {
-        "title": "Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa",
-        "url": "https://www.pnas.org/doi/10.1073/pnas.1117620109",
-        "publisher": "Proceedings of the National Academy of Sciences",
-        "year": 2012,
-        "source_type": "primary_paper",
-        "supports": [
-          "edge"
-        ]
-      }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Ancient chronology/source-fit review: the retained source is useful prerequisite context but does not support the exact node claim or first-known date."
+    ]
   },
   {
     "id": "plant_domestication",

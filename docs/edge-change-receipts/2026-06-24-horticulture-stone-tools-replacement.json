@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-horticulture-stone-tools-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "horticulture",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "replaced_edge": {
+    "dependent": "horticulture",
+    "prerequisite": "advanced_hunting_gathering"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Hunting & Gathering provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "primary_source",
+    "note": "Glossed flint blades from Ohalo II provide source-backed harvesting-tool evidence for planned wild-cereal harvesting in the cultivation context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The use-wear analysis reports glossed flint blades at Ohalo II used for harvesting near-ripe semi-green wild cereals and describes them as the earliest composite cereal-harvesting tools.",
+    "source_claim_summary": "The source directly documents stone harvesting tools in the same Ohalo II wild-cereal cultivation context.",
+    "source_support_rationale": "The corrected prerequisite identifies the concrete tool capability visible in the evidence, while the former advanced_hunting_gathering edge was a later-dated social context and not a source-backed cultivation mechanism."
+  },
+  "ontology_before": "Horticulture depended on advanced_hunting_gathering, a broad and later-dated social-context node that created a chronology conflict after anchoring horticulture to Ohalo II.",
+  "ontology_after": "Horticulture depends on advanced_stone_tools as the source-backed harvesting-tool capability documented in the Ohalo II cultivation evidence.",
+  "invariant_preserved_or_changed": "Changed: horticulture now depends on advanced_stone_tools and no longer directly depends on advanced_hunting_gathering.",
+  "would_reject_if": [
+    "The horticulture node were later rescoped back to a generic post-10000 BCE social transition rather than the Ohalo II cultivation evidence.",
+    "A source showed Ohalo II cultivation did not involve flint harvesting tools or planned cereal harvesting.",
+    "The advanced_hunting_gathering node were source-checked and redated before Ohalo II with a specific plant-cultivation mechanism."
+  ],
+  "short_reason": "The Ohalo II source supports a stone harvesting-tool edge, not a later-dated advanced hunter-gatherer prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/horticulture.before.json /tmp/horticulture.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

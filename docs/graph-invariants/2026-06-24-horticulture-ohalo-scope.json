@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-24-horticulture-ohalo-scope",
+  "description": "Lock the 2026-06-24 correction of horticulture to Ohalo II small-scale trial cultivation rather than a generic era-default placeholder or fire-control lineage.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "horticulture",
+      "operator": "eq",
+      "value": -21000,
+      "reason": "The corrected node is anchored to the 23,000-year-old Ohalo II trial-cultivation evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "horticulture",
+      "prerequisite": "advanced_stone_tools",
+      "expected": "enabling",
+      "reason": "The Ohalo II evidence includes glossed flint blades used for planned wild-cereal harvesting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "horticulture",
+      "prerequisite": "foraging_and_botany",
+      "expected": "enabling",
+      "reason": "The cultivation evidence is tied to gathered wild cereals, plant identification, grinding, and harvesting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "horticulture",
+      "prerequisite": "advanced_hunting_gathering",
+      "reason": "The broad advanced-hunter-gatherer node is later-dated than the Ohalo II cultivation anchor and should not be a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "horticulture",
+      "prerequisite": "fire_control",
+      "reason": "Fire control is not part of the source-backed Ohalo II cultivation mechanism."
+    }
+  ]
+}

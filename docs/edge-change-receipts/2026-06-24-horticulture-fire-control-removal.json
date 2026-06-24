@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-24-horticulture-fire-control-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "horticulture",
+    "prerequisite": "fire_control"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct dependency remains because the corrected horticulture scope is small-scale trial cultivation at Ohalo II, and the source-backed mechanism is wild-cereal gathering, harvesting, and cultivation rather than controlled fire.",
+  "source_supports_edge": "no",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131422",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The PLOS ONE paper supports Ohalo II small-scale trial cultivation through proto-weeds, wild cereals, domestic-type rachis scars, and sickle blades, without identifying fire control as a cultivation prerequisite.",
+    "source_claim_summary": "The source grounds the horticulture milestone in archaeobotanical and harvesting evidence at Ohalo II rather than in fire technology.",
+    "source_support_rationale": "Fire control remains a much earlier general human technology, but attaching it directly to this cultivation node preserved an unrelated Wonderwerk fire citation instead of the plant-cultivation evidence now used for the corrected scope."
+  },
+  "ontology_before": "Horticulture directly depended on fire_control and cited a Wonderwerk Cave fire paper, implying controlled fire was a source-backed predecessor for early plant cultivation.",
+  "ontology_after": "Horticulture is scoped to Ohalo II small-scale trial cultivation and depends directly on advanced hunter-gatherer context and plant foraging/botanical knowledge, with no direct fire-control edge.",
+  "invariant_preserved_or_changed": "Changed: horticulture no longer directly depends on fire_control.",
+  "would_reject_if": [
+    "The node were later rescoped to cooking, controlled burning, slash-and-burn cultivation, or fire-managed landscapes.",
+    "A source showed Ohalo II trial cultivation required controlled burning as part of the cultivation method.",
+    "The fire_control node were narrowed to include plant cultivation or field management rather than controlled combustion generally."
+  ],
+  "short_reason": "The source-backed Ohalo II cultivation claim is botanical and harvesting evidence, not controlled fire.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/horticulture.before.json /tmp/horticulture.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
