@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-interstellar-travel-space-colonization-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "interstellar_travel",
+    "prerequisite": "space_colonization"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Space Colonization is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Interstellar Travel to Space Colonization edge remains because NASA sources support robotic interstellar-space probes and advanced propulsion studies without requiring prior off-world settlement.",
+  "source_supports_edge": "no",
+  "source_url": "https://science.nasa.gov/solar-system/10-things-going-interstellar/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA's overview identifies Voyager 1 and Voyager 2 as current spacecraft in interstellar space and says human travel across the void to other stars remains science fiction.",
+    "source_claim_summary": "Interstellar-space access currently exists through robotic probes, while human travel to other stars is not an operational capability.",
+    "source_support_rationale": "Space colonization may be a downstream settlement context, but the source-backed interstellar-travel scope is spacecraft crossing into interstellar space or precursor mission studies, not a capability that first requires colonies."
+  },
+  "ontology_before": "The graph implied space colonization was a prerequisite for the broad ability to conduct interstellar travel.",
+  "ontology_after": "The graph keeps interstellar travel scoped to propulsion, materials, and possible crew-support engineering while leaving space colonization as a separate downstream or parallel future capability.",
+  "invariant_preserved_or_changed": "Changed: direct interstellar_travel -> space_colonization edge removed and locked absent in 2026-06-24-interstellar-travel-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to permanent interstellar settlement rather than travel or precursor missions.",
+    "A source shows a prior space-colonization infrastructure is required to launch or sustain interstellar missions.",
+    "A downstream node needs interstellar colonization and should point to both interstellar_travel and space_colonization."
+  ],
+  "short_reason": "NASA sources support robotic precursor interstellar-space missions, not prior space colonization as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/interstellar_travel.before.json /tmp/interstellar_travel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

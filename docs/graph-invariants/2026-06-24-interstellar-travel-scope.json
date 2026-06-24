@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-24-interstellar-travel-scope",
+  "description": "Lock interstellar_travel to source-backed interstellar-space and star-system travel concepts, avoiding unsupported colonization, AGI, or biomedical-longevity prerequisites.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "interstellar_travel",
+      "prerequisite": "fusion_rockets",
+      "expected": "speculative",
+      "reason": "NASA NIAC treats fusion propulsion as a plausible high-energy path for heliosphere and local-interstellar-medium missions, but not the only possible propulsion route."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "interstellar_travel",
+      "prerequisite": "advanced_materials_science",
+      "expected": "speculative",
+      "reason": "NASA interstellar-medium mission studies require demanding heat-shield and thermal-protection materials for close-solar maneuvers."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "interstellar_travel",
+      "prerequisite": "closed_loop_life_support",
+      "expected": "speculative",
+      "reason": "Closed-loop life support applies to crewed long-duration interstellar travel concepts, while robotic interstellar probes do not require it."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interstellar_travel",
+      "prerequisite": "space_colonization",
+      "reason": "Robotic interstellar-space probes and precursor missions do not require prior off-world settlement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interstellar_travel",
+      "prerequisite": "artificial_general_intelligence",
+      "reason": "NASA interstellar-probe studies emphasize propulsion, trajectory, materials, and operations rather than AGI as a prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interstellar_travel",
+      "prerequisite": "longevity_escape_velocity_lev",
+      "reason": "Biomedical longevity escape velocity is not required for robotic interstellar probes and is not the direct crew-support technology for long-duration human spaceflight."
+    }
+  ]
+}

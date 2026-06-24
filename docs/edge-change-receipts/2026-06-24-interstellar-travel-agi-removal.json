@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-interstellar-travel-agi-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "interstellar_travel",
+    "prerequisite": "artificial_general_intelligence"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Artificial General Intelligence (AGI) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Interstellar Travel to AGI edge remains because NASA interstellar-probe and propulsion sources frame the capability around spacecraft, propulsion, trajectories, heat shields, and long-duration operations rather than artificial general intelligence.",
+  "source_supports_edge": "no",
+  "source_url": "https://ntrs.nasa.gov/citations/20160004404",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA's propulsion technology assessment evaluates low-thrust propulsion candidates, launch windows, trajectories, kick stages, and heat-shield assumptions for interstellar-medium exploration.",
+    "source_claim_summary": "The NASA study frames interstellar-medium mission feasibility as an advanced propulsion and trajectory problem, not an AGI-dependent capability.",
+    "source_support_rationale": "Autonomy may be useful for distant spacecraft, but replacing ordinary spacecraft autonomy with AGI would overstate the dependency and launder a separate AI forecast into a propulsion/mission-architecture node."
+  },
+  "ontology_before": "The graph implied artificial general intelligence was a prerequisite for broad interstellar travel.",
+  "ontology_after": "The graph removes AGI from direct interstellar-travel prerequisites while preserving concrete spacecraft engineering dependencies.",
+  "invariant_preserved_or_changed": "Changed: direct interstellar_travel -> artificial_general_intelligence edge removed and locked absent in 2026-06-24-interstellar-travel-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to autonomous self-directed interstellar civilization expansion.",
+    "A mission-architecture source states AGI is required rather than optional autonomy or fault management.",
+    "A downstream node represents AGI-piloted interstellar exploration and should point to both interstellar_travel and artificial_general_intelligence."
+  ],
+  "short_reason": "NASA interstellar-probe studies support propulsion and mission-architecture dependencies, not AGI as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/interstellar_travel.before.json /tmp/interstellar_travel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

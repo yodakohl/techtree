@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-interstellar-travel-lev-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "interstellar_travel",
+    "prerequisite": "longevity_escape_velocity_lev"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Longevity Escape Velocity (LEV) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Interstellar Travel to Longevity Escape Velocity edge remains because source-backed interstellar travel covers robotic precursor missions and spacecraft engineering, while crewed long-duration travel is better represented by life-support requirements than speculative biomedical immortality.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalacademies.org/read/5826/chapter/4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The National Academies report describes open-loop and closed-loop life support as the resource-management problem for human spaceflight, with resupply needs increasing with mission duration and crew size.",
+    "source_claim_summary": "For crewed long-duration spaceflight, the cited engineering problem is life-support resource closure, not biomedical longevity escape velocity.",
+    "source_support_rationale": "LEV is a speculative biomedical forecast and is not necessary for robotic interstellar probes; for crewed mission concepts, closed-loop life support is the directly scoped dependency already retained on the node."
+  },
+  "ontology_before": "The graph implied biomedical longevity escape velocity was a prerequisite for interstellar travel broadly.",
+  "ontology_after": "The graph removes the biomedical immortality dependency and keeps closed-loop life support as the crewed-mission-specific support edge.",
+  "invariant_preserved_or_changed": "Changed: direct interstellar_travel -> longevity_escape_velocity_lev edge removed and locked absent in 2026-06-24-interstellar-travel-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to biological humans surviving multi-century generationless voyages.",
+    "A credible interstellar mission source states LEV-like biomedical rejuvenation is required instead of life support, hibernation, or robotic mission architectures.",
+    "A downstream node represents immortal crewed starflight and should point separately to longevity_escape_velocity_lev."
+  ],
+  "short_reason": "LEV is not required for robotic interstellar probes, and crewed duration constraints are better modeled through life support.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/interstellar_travel.before.json /tmp/interstellar_travel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

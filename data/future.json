@@ -7468,17 +7468,14 @@
     "id": "interstellar_travel",
     "name": "Interstellar Travel",
     "era": "Future",
-    "description": "Travel between star systems, requiring advanced propulsion and life support.",
+    "description": "Forecast class of spacecraft missions that cross into interstellar space or eventually travel between star systems, currently supported by robotic precursor studies rather than operational star-to-star transport.",
     "prerequisites": [
       "fusion_rockets",
-      "space_colonization",
-      "artificial_general_intelligence",
       "advanced_materials_science",
-      "closed_loop_life_support",
-      "longevity_escape_velocity_lev"
+      "closed_loop_life_support"
     ],
     "firstKnownDate": 2035,
-    "datePrecision": "decade",
+    "datePrecision": "unknown",
     "region": "Forecast / not yet broadly established",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
@@ -7487,24 +7484,32 @@
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Fusion Rockets is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "space_colonization",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Space Colonization is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "artificial_general_intelligence",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Artificial General Intelligence (AGI) is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Fusion propulsion is a plausible high-energy option for future interstellar precursor and deep-space missions, not the only possible interstellar propulsion path.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Fusion-Enabled Comprehensive Exploration of the Heliosphere",
+            "url": "https://www.nasa.gov/directorates/stmd/niac/fusion-enabled-comprehensive-exploration-of-the-heliosphere/",
+            "publisher": "NASA Innovative Advanced Concepts",
+            "year": 2025,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA NIAC describes the Helicity Drive as a compact fusion propulsion system for heliosphere and local-interstellar-medium mission concepts, while noting it could pave the way for future interstellar missions."
+          },
+          {
+            "title": "Interstellar Propulsion Concepts Assessment",
+            "url": "https://ntrs.nasa.gov/citations/20000021228",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2000,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA's NTRS record frames interstellar mission feasibility as a propulsion-technology assessment for an Interstellar Probe to the heliopause and beyond."
+          }
+        ]
       },
       {
         "prerequisite": "advanced_materials_science",
@@ -7523,6 +7528,17 @@
             "supports": [
               "edge"
             ]
+          },
+          {
+            "title": "Propulsion Technology Assessment: Science and Enabling Technologies to Explore the Interstellar Medium",
+            "url": "https://ntrs.nasa.gov/citations/20160004404",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2016,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA's propulsion trade study for interstellar-medium exploration says a close-solar Oberth maneuver requires heat-shield technology similar to Solar Probe Plus, tying advanced materials and thermal protection to fast interstellar precursor concepts."
           }
         ]
       },
@@ -7531,31 +7547,72 @@
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Closed-Loop Life Support is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "longevity_escape_velocity_lev",
-        "type": "speculative",
-        "confidence": 0.35,
-        "evidence_level": "speculative",
-        "note": "Longevity Escape Velocity (LEV) is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Closed-loop life support is relevant to crewed long-duration interstellar travel concepts, but is not required for robotic interstellar probes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Advanced Technology for Human Support in Space",
+            "url": "https://www.nationalacademies.org/read/5826/chapter/4",
+            "publisher": "National Research Council / National Academies Press",
+            "year": 1997,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The report explains that closed-loop life support recovers resources such as oxygen and water from waste streams, reducing resupply needs as crewed mission duration and crew size grow."
+          },
+          {
+            "title": "Advanced Closed Loop System",
+            "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Research/Advanced_Closed_Loop_System",
+            "publisher": "European Space Agency",
+            "year": 2018,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "ESA describes the Advanced Closed Loop System as a step toward keeping astronauts in space indefinitely without costly supplies from Earth."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Interstellar travel",
-        "url": "https://en.wikipedia.org/wiki/Interstellar_travel",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "10 Things: Going Interstellar",
+        "url": "https://science.nasa.gov/solar-system/10-things-going-interstellar/",
+        "publisher": "NASA Science",
+        "year": 2022,
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "NASA explains that Voyager 1 and 2 are in interstellar space, while sending humans across the void to other stars remains science fiction and depends on future technology development."
+      },
+      {
+        "title": "Interstellar Propulsion Concepts Assessment",
+        "url": "https://ntrs.nasa.gov/citations/20000021228",
+        "publisher": "NASA Technical Reports Server",
+        "year": 2000,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "The NTRS record says NASA investigated extra-solar and interstellar mission feasibility over a 10-to-50-year horizon and assessed candidate propulsion systems for an Interstellar Probe to 250 AU and beyond."
+      },
+      {
+        "title": "Propulsion Technology Assessment: Science and Enabling Technologies to Explore the Interstellar Medium",
+        "url": "https://ntrs.nasa.gov/citations/20160004404",
+        "publisher": "NASA Technical Reports Server",
+        "year": 2016,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "roadmap"
+        ],
+        "locator": "NASA's Advanced Concepts Office assessed low-thrust propulsion candidates for a Voyager-like satellite to reach about 100 AU in a 2025 to 2035 launch window."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "sourceCheckedDowngradeNote": "NASA, NTRS, ESA, and National Academies sources added during Future forecast review; kept structurally_validated because sources support robotic precursor missions and engineering studies, not broadly deployed star-to-star travel by 2035.",
+    "dateUncertaintyNote": "2035 is a forecast placeholder tied to interstellar-medium mission-study launch windows, not a source-backed first operational date for star-to-star travel or crewed interstellar transport."
   },
   {
     "id": "von_neumann_probes",
