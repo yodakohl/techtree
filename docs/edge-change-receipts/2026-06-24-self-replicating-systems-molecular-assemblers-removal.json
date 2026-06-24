@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-self-replicating-systems-molecular-assemblers-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "self_replicating_systems",
+    "prerequisite": "molecular_assemblers_universal_construction"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Molecular Assemblers / Universal Construction is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Self-Replicating Systems to Molecular Assemblers / Universal Construction edge remains because the node is scoped broadly to machines or synthetic organisms capable of reproducing themselves, while molecular assemblers are one possible future implementation path rather than a prerequisite for the broader class.",
+  "source_supports_edge": "no",
+  "source_url": "https://fab.cba.mit.edu/classes/865.18/replication/Sipper.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Sipper reviews self-replication across cellular automata, programs, strings, artificial machines, synthetic molecules, nanomachines, and space exploration, and states that universal construction is sufficient for self-replication but not necessary.",
+    "source_claim_summary": "Self-replication is a broad artificial-systems research area spanning multiple substrates and implementations.",
+    "source_support_rationale": "A molecular-assembler prerequisite would narrow the node to one nanotechnology implementation path, while the source supports broader machine, computational, molecular, and space-factory self-replication lineages."
+  },
+  "ontology_before": "The graph made all self-replicating systems depend directly on molecular assemblers/universal construction, implying atomically precise assemblers are prerequisite to robotic, synthetic-biological, and space-factory self-replication.",
+  "ontology_after": "The graph keeps self-replicating systems broad, depending on nanotechnology, synthetic biology, advanced AI, and robotics while leaving molecular assemblers as a separate narrower implementation family.",
+  "invariant_preserved_or_changed": "Changed: removed the direct molecular_assemblers_universal_construction prerequisite from self_replicating_systems.",
+  "would_reject_if": [
+    "The node is later rescoped only to molecular nanotechnology self-replicators rather than machines or synthetic organisms broadly.",
+    "A source shows that broad artificial self-replication requires molecular assemblers rather than robotics, synthetic biology, AI, or other substrates.",
+    "The dependent nodes are narrowed to molecular-assembler-only systems and no longer need the broader self_replicating_systems abstraction."
+  ],
+  "short_reason": "Molecular assemblers are a possible implementation of self-replication, not a prerequisite for the broad self-replicating systems node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/self_replicating_systems.before.json /tmp/self_replicating_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
