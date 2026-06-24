@@ -10144,42 +10144,117 @@
   },
   {
     "id": "military_map_rooms",
-    "name": "Military Map Rooms",
+    "name": "Depot de la Guerre Military Map Archive",
     "era": "Renaissance",
-    "description": "Centralized map, fortification, route, logistics, and reconnaissance archives for planning campaigns and defenses.",
+    "description": "French military cartography and archive office that produced and conserved military maps, plans, memoirs, and topographic information for campaigns and defense.",
     "prerequisites": [
-      "printed_map_atlases",
+      "cartography",
       "artillery_fortification_schools",
-      "naval_logbooks"
+      "public_archives"
     ],
-    "firstKnownDate": 1614,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1688,
+    "datePrecision": "exact",
+    "region": "France / Louis XIV's Depot de la Guerre",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers the French Depot de la Guerre as a state military map-producing and map-conserving archive office; excludes generic war rooms, naval logbooks, printed atlases, and all military mapping practices.",
+    "sources": [
+      {
+        "title": "Depot de la Guerre",
+        "url": "https://archeologie.culture.gouv.fr/sources-archeologie/fr/glossary/depot-de-la-guerre",
+        "publisher": "Ministere de la Culture",
+        "year": 2026,
+        "source_type": "official_agency",
+        "locator": "Glossary entry states that Louvois created the Depot de la Guerre in 1688 as a bureau that produced and conserved military maps and had an important topographic/cartographic function.",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "La bibliotheque du Service historique de la Defense",
+        "url": "https://publications-prairial.fr/arabesques/index.php?id=1896",
+        "publisher": "Arabesques / Prairial",
+        "year": 2020,
+        "source_type": "review",
+        "locator": "Article says Louis XIV assigned Louvois in 1688 to create a Depot general de la Guerre to conserve military-domain documents, including institutional archives and instructional material for military personnel.",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Les atlas de Louis XIV",
+        "url": "https://www.bimcc.org/history-of-cartography/atlas-louisxiv",
+        "publisher": "The Brussels Map Circle",
+        "year": 2023,
+        "source_type": "review",
+        "locator": "Article describes Louis XIV's wars driving military cartography, engineer-map production during campaigns, and seventeenth-century manuscript military atlases held in French institutions.",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
     "dependencyEdges": [
       {
-        "prerequisite": "printed_map_atlases",
+        "prerequisite": "cartography",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printed Map Atlases provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "The Depot produced and conserved military maps and had an explicit topographic/cartographic function, so cartographic practice is the enabling capability rather than bound printed atlases.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Depot de la Guerre",
+            "url": "https://archeologie.culture.gouv.fr/sources-archeologie/fr/glossary/depot-de-la-guerre",
+            "publisher": "Ministere de la Culture",
+            "year": 2026,
+            "source_type": "official_agency",
+            "locator": "Glossary entry states that the Depot produced and conserved military maps and had an important topographic and cartographic function.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "artillery_fortification_schools",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Artillery & Fortification Schools provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "common_dependency",
+        "confidence": 0.6,
+        "evidence_level": "review",
+        "note": "The Depot served a military-technical milieu in which engineering and artillery required geometry, ballistics, and siegecraft, making fortification and artillery schooling contextual rather than a strict enabler.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "La bibliotheque du Service historique de la Defense",
+            "url": "https://publications-prairial.fr/arabesques/index.php?id=1896",
+            "publisher": "Arabesques / Prairial",
+            "year": 2020,
+            "source_type": "review",
+            "locator": "Article says the Depot's printed and manuscript works corresponded to the rise of engineering and artillery, requiring geometry, ballistics, and siegecraft.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "naval_logbooks",
+        "prerequisite": "public_archives",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "The Depot was a state military archive conserving maps, plans, memoirs, printed works, and manuscript works, so archival practice enables the institution; naval voyage logs are outside scope.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "La bibliotheque du Service historique de la Defense",
+            "url": "https://publications-prairial.fr/arabesques/index.php?id=1896",
+            "publisher": "Arabesques / Prairial",
+            "year": 2020,
+            "source_type": "review",
+            "locator": "Article says the Depot general de la Guerre conserved documents linked to the military domain, including archives and printed and manuscript works.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -11721,7 +11796,6 @@
     "era": "Renaissance",
     "description": "Professional engineers for fortifications, artillery positions, bridges, maps, mines, roads, and siege works.",
     "prerequisites": [
-      "military_map_rooms",
       "artillery_fortification_schools",
       "technical_drawing_standards"
     ],
@@ -11730,14 +11804,6 @@
     "region": "Afro-Eurasia and other historical societies",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "military_map_rooms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Military Map Rooms provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "artillery_fortification_schools",
         "type": "enabling",

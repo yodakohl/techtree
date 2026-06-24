@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-depot-guerre-fortification-schools-retype",
+  "decision_date": "2026-06-24",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "military_map_rooms",
+    "prerequisite": "artillery_fortification_schools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Artillery & Fortification Schools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.6,
+    "evidence_level": "review",
+    "note": "The Depot served a military-technical milieu in which engineering and artillery required geometry, ballistics, and siegecraft, making fortification and artillery schooling contextual rather than a strict enabler."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://publications-prairial.fr/arabesques/index.php?id=1896",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Arabesques article says many Depot printed and manuscript works corresponded to the rise of engineering and artillery, requiring geometry, ballistics, and siegecraft.",
+    "source_claim_summary": "The source links the Depot collection to engineering and artillery knowledge rather than saying schools caused the Depot.",
+    "source_support_rationale": "This justifies weakening the edge to a shared military-technical context: fortification and artillery schooling belong in the same knowledge ecosystem but are not shown as a direct enabling mechanism."
+  },
+  "ontology_before": "Military Map Rooms treated Artillery & Fortification Schools as a generic enabling prerequisite.",
+  "ontology_after": "Depot de la Guerre Military Map Archive keeps fortification and artillery schooling only as a contextual common dependency for the same military-technical field.",
+  "invariant_preserved_or_changed": "Changed: artillery_fortification_schools remains a direct edge but is retyped from enabling to common_dependency.",
+  "would_reject_if": [
+    "A source showed the 1688 Depot was founded as an output of artillery or fortification schools.",
+    "The artillery_fortification_schools node were narrowed to the exact instructional archive inside the Depot.",
+    "The Depot node were split and a later military engineering curriculum node took this edge instead."
+  ],
+  "short_reason": "The source supports shared military-technical context, not a direct enabling prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_map_rooms.before.json /tmp/military_map_rooms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-depot-guerre-cartography-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "military_map_rooms",
+    "prerequisite": "cartography"
+  },
+  "replaced_edge": {
+    "dependent": "military_map_rooms",
+    "prerequisite": "printed_map_atlases"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Map Atlases provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "The Depot produced and conserved military maps and had an explicit topographic/cartographic function, so cartographic practice is the enabling capability rather than bound printed atlases."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archeologie.culture.gouv.fr/sources-archeologie/fr/glossary/depot-de-la-guerre",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Ministere de la Culture glossary entry: created in 1688 by Louvois, the Depot de la Guerre produced and conserved military maps and had an important topographic and cartographic function.",
+    "source_claim_summary": "The source identifies the institution as a military-map bureau with cartographic and topographic functions.",
+    "source_support_rationale": "This supports replacing printed atlases because the source-backed capability is making and preserving military maps, not the narrower artifact category of bound atlases."
+  },
+  "ontology_before": "Military Map Rooms depended directly on Printed Map Atlases, laundering a publication format into a broader military cartography/archive office.",
+  "ontology_after": "Depot de la Guerre Military Map Archive depends directly on cartography as the map-making and topographic practice that the source describes.",
+  "invariant_preserved_or_changed": "Changed: military_map_rooms no longer depends on printed_map_atlases and now depends on cartography.",
+  "would_reject_if": [
+    "The node were rescoped back to bound printed military atlases rather than the Depot bureau.",
+    "A source showed the 1688 Depot required printed atlases specifically, not cartography and map production more broadly.",
+    "The cartography node were narrowed away from map-making and topographic representation."
+  ],
+  "short_reason": "Cartography is the source-backed map-production capability; printed atlases are too narrow.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_map_rooms.before.json /tmp/military_map_rooms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

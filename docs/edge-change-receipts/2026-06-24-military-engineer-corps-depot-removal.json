@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-military-engineer-corps-depot-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "military_engineer_corps",
+    "prerequisite": "military_map_rooms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Map Rooms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because military_map_rooms is now scoped to the Depot de la Guerre founded in 1688, later than the 1614 military_engineer_corps node.",
+  "source_supports_edge": "no",
+  "source_url": "https://archeologie.culture.gouv.fr/sources-archeologie/fr/glossary/depot-de-la-guerre",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Ministere de la Culture glossary entry dates the Depot de la Guerre to 1688 and describes it as a bureau producing and conserving military maps.",
+    "source_claim_summary": "The source places the corrected Depot node decades after the current military_engineer_corps date.",
+    "source_support_rationale": "A 1688 institution cannot be a prerequisite for a 1614 engineer-corps node, and the source describes the Depot as a later archive/cartography bureau rather than the cause of earlier professional engineers."
+  },
+  "ontology_before": "Military Engineer Corps depended directly on the generic Military Map Rooms node through an unsourced expert-inference edge.",
+  "ontology_after": "Military Engineer Corps no longer depends on the later Depot de la Guerre node; its remaining direct prerequisites cover fortification schooling and technical drawing.",
+  "invariant_preserved_or_changed": "Changed: direct military_engineer_corps -> military_map_rooms edge removed.",
+  "would_reject_if": [
+    "The military_engineer_corps node were redated to a post-1688 French Depot-specific corps.",
+    "The military_map_rooms node were split and an earlier source-backed military-map archive became available.",
+    "A source showed the 1614 engineer-corps claim actually depends on the 1688 Depot rather than earlier military engineering institutions."
+  ],
+  "short_reason": "The corrected Depot node is later than the engineer-corps node, so the direct prerequisite was time-reversed.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_engineer_corps.before.json /tmp/military_engineer_corps.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

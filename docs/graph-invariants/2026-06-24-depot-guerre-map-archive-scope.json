@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-24-depot-guerre-map-archive-scope",
+  "description": "Lock military_map_rooms to the 1688 Depot de la Guerre military map archive scope and prevent old generic atlas, naval-logbook, and engineer-corps edges from returning.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "military_map_rooms",
+      "operator": "eq",
+      "value": 1688,
+      "reason": "The source-backed scope is the Depot de la Guerre created by Louvois in 1688."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_map_rooms",
+      "prerequisite": "cartography",
+      "expected": "enabling",
+      "reason": "The source-backed mechanism is military map production and cartographic/topographic function."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_map_rooms",
+      "prerequisite": "public_archives",
+      "expected": "enabling",
+      "reason": "The Depot conserved military-domain documents as a state archive office."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_map_rooms",
+      "prerequisite": "artillery_fortification_schools",
+      "expected": "common_dependency",
+      "reason": "Engineering and artillery schooling is shared military-technical context, not a strict enabling cause."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_map_rooms",
+      "prerequisite": "printed_map_atlases",
+      "reason": "Bound printed atlases are narrower than the Depot's broader cartographic bureau and archive scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_map_rooms",
+      "prerequisite": "naval_logbooks",
+      "reason": "Naval voyage logbooks are outside the corrected land-war map archive scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_engineer_corps",
+      "prerequisite": "military_map_rooms",
+      "reason": "The corrected 1688 Depot node cannot be a prerequisite for the 1614 military engineer-corps node."
+    }
+  ]
+}

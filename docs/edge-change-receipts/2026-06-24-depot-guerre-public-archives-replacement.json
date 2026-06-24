@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-depot-guerre-public-archives-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "military_map_rooms",
+    "prerequisite": "public_archives"
+  },
+  "replaced_edge": {
+    "dependent": "military_map_rooms",
+    "prerequisite": "naval_logbooks"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "The Depot was a state military archive conserving maps, plans, memoirs, printed works, and manuscript works, so archival practice enables the institution; naval voyage logs are outside scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://publications-prairial.fr/arabesques/index.php?id=1896",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Arabesques article says the Depot general de la Guerre conserved military-domain documents, including institutional archives and printed and manuscript works.",
+    "source_claim_summary": "The source presents the Depot as an archive and document-conservation institution for the military domain.",
+    "source_support_rationale": "This supports public archives as the enabling institutional practice and rejects naval logbooks, which are a different maritime record type outside the corrected scope."
+  },
+  "ontology_before": "Military Map Rooms depended directly on Naval Logbooks, mixing maritime voyage records into a land-war cartography and archive office.",
+  "ontology_after": "Depot de la Guerre Military Map Archive depends on public_archives for state document conservation and archival practice.",
+  "invariant_preserved_or_changed": "Changed: military_map_rooms no longer depends on naval_logbooks and now depends on public_archives.",
+  "would_reject_if": [
+    "The node were rescoped to naval chart rooms or shipboard logbook systems rather than the Depot de la Guerre.",
+    "A source showed the Depot's map archive depended specifically on naval logbook practice.",
+    "The public_archives node were narrowed away from state archival repositories."
+  ],
+  "short_reason": "The corrected node is an archive office; naval logbooks are outside scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_map_rooms.before.json /tmp/military_map_rooms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
