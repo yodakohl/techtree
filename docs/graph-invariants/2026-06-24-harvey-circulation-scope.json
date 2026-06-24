@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-24-harvey-circulation-scope",
+  "description": "Lock blood_circulation_harvey to Harvey's 1628 De Motu Cordis circulation demonstration, grounded in anatomy, observation, experiment, and quantitative reasoning rather than Galileo's projectile kinematics.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "blood_circulation_harvey",
+      "operator": "eq",
+      "value": 1628,
+      "reason": "The scoped node is anchored to publication of De Motu Cordis in 1628."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "blood_circulation_harvey",
+      "prerequisite": "human_anatomy_physiology",
+      "expected": "enabling",
+      "reason": "Harvey's claim depends on anatomical and physiological observation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "blood_circulation_harvey",
+      "prerequisite": "scientific_method",
+      "expected": "enabling",
+      "reason": "Observation, experiment, and argument support the circulation claim."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "blood_circulation_harvey",
+      "prerequisite": "anatomical_studies_vesalius_detailed",
+      "expected": "enabling",
+      "reason": "Harvey's work advanced earlier anatomical study rather than bypassing that lineage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "blood_circulation_harvey",
+      "prerequisite": "ballistics_and_kinematics_galileo",
+      "reason": "Galileo's projectile-motion kinematics are not a direct prerequisite for Harvey's circulation demonstration."
+    }
+  ]
+}

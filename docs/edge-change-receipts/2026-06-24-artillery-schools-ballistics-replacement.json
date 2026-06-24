@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-artillery-schools-ballistics-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "artillery_fortification_schools",
+    "prerequisite": "ballistics_early"
+  },
+  "replaced_edge": {
+    "dependent": "artillery_fortification_schools",
+    "prerequisite": "ballistics_and_kinematics_galileo"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Ballistics and Kinematics (Galileo) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "review",
+    "note": "Earlier practical ballistics and projectile-motion traditions are historical foundations for artillery instruction; Galileo's later published kinematics is not required for the earlier school scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://echo.mpiwg-berlin.mpg.de/content/shipbuilding/venice_arsenal/lettura_gal.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Renn and Valleriani describe Galileo's artillery teaching and state that military treatises reflected shared practical ballistics knowledge among practitioners before his mature Discorsi formulation.",
+    "source_claim_summary": "The source supports practical ballistics as the historical knowledge base for artillery instruction and treatises.",
+    "source_support_rationale": "This supports replacing the later Galileo-specific edge with the broader earlier ballistics node, preserving the artillery knowledge lineage without creating a temporal dependency violation."
+  },
+  "ontology_before": "The graph made artillery and fortification schools depend directly on Galileo's 1638 projectile-motion kinematics while dating the schools to 1609.",
+  "ontology_after": "The graph routes the school dependency through earlier practical ballistics, leaving Galileo's later mathematical formalization as a separate development.",
+  "invariant_preserved_or_changed": "Changed: artillery_fortification_schools now depends on ballistics_early and no longer directly on ballistics_and_kinematics_galileo.",
+  "would_reject_if": [
+    "The school node is later rescoped only to post-1638 Galilean artillery curricula.",
+    "A source shows formal artillery instruction before 1638 specifically required Galileo's published projectile theorem rather than earlier practical ballistics."
+  ],
+  "short_reason": "Earlier ballistics is the chronologically valid prerequisite for artillery instruction.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/artillery_fortification_schools.before.json /tmp/artillery_fortification_schools.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-24-galileo-ballistics-kepler-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "ballistics_and_kinematics_galileo",
+    "prerequisite": "planetary_motion_kepler"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Planetary Motion (Kepler's Laws) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because Kepler's planetary laws are a sibling mathematical-science development, not an enabling prerequisite for Galileo's projectile-motion theorem.",
+  "source_supports_edge": "no",
+  "source_url": "https://galileoandeinstein.phys.virginia.edu/tns_draft/tns_244to279.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "In the Fourth Day projectile-motion section, Galileo derives the semi-parabolic trajectory from uniform horizontal motion and naturally accelerated vertical motion, using conic geometry and falling-body motion rather than Keplerian planetary laws.",
+    "source_claim_summary": "The primary source grounds the scoped projectile-motion claim in Galileo's compound-motion proof and local kinematic assumptions.",
+    "source_support_rationale": "Because the proof's stated ingredients are mathematical geometry, uniform horizontal motion, and accelerated vertical fall, Kepler's laws should not be modeled as a direct enabling prerequisite."
+  },
+  "ontology_before": "The graph implied that Kepler's 1609 planetary-motion work enabled Galileo's projectile-motion kinematics.",
+  "ontology_after": "The graph treats Kepler's laws and Galileo's projectile-motion theorem as neighboring Scientific Revolution developments with shared mathematical foundations, not as a direct dependency.",
+  "invariant_preserved_or_changed": "Changed: direct ballistics_and_kinematics_galileo -> planetary_motion_kepler edge removed.",
+  "would_reject_if": [
+    "A future source demonstrates that Galileo's projectile-motion theorem explicitly depended on Kepler's planetary laws.",
+    "The node is later rescoped from Galileo's projectile kinematics to a broader astronomy-and-mechanics synthesis."
+  ],
+  "short_reason": "Kepler is parallel scientific context, not a prerequisite for Galileo's projectile-motion proof.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

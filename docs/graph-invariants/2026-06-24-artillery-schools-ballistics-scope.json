@@ -1,0 +1,19 @@
+{
+  "id": "2026-06-24-artillery-schools-ballistics-scope",
+  "description": "Lock artillery_fortification_schools to early formal military instruction grounded in star-fort practice, earlier ballistics, and print dissemination, not Galileo's later 1638 projectile-motion formalization.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "artillery_fortification_schools",
+      "prerequisite": "ballistics_early",
+      "expected": "historical_predecessor",
+      "reason": "Earlier ballistics is a historical knowledge lineage for artillery instruction."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "artillery_fortification_schools",
+      "prerequisite": "ballistics_and_kinematics_galileo",
+      "reason": "Galileo's 1638 projectile-motion theorem cannot be a prerequisite for the earlier school scope."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-24-galileo-ballistics-scope",
+  "description": "Lock ballistics_and_kinematics_galileo to Galileo's published 1638 projectile-motion and kinematics treatment in Two New Sciences, not the whole Scientific Revolution or the separate strength-of-materials science.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "ballistics_and_kinematics_galileo",
+      "operator": "eq",
+      "value": 1638,
+      "reason": "The scoped claim is anchored to the published 1638 Fourth Day treatment of projectile motion in Two New Sciences."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ballistics_and_kinematics_galileo",
+      "prerequisite": "scientific_method",
+      "expected": "enabling",
+      "reason": "The node remains a mathematical and experimental mechanics result, not a standalone weapon technology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ballistics_and_kinematics_galileo",
+      "prerequisite": "mathematics",
+      "expected": "enabling",
+      "reason": "Galileo's projectile-motion proof uses geometrical decomposition and conic-section reasoning."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "ballistics_and_kinematics_galileo",
+      "prerequisite": "early_firearms",
+      "expected": "historical_predecessor",
+      "reason": "Artillery practice supplied the practical projectile problems, but is not a hard component dependency of kinematics."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ballistics_and_kinematics_galileo",
+      "prerequisite": "construction",
+      "reason": "Construction and strength-of-materials practice belong to a separate Galileo scope from projectile-motion kinematics."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "ballistics_and_kinematics_galileo",
+      "prerequisite": "planetary_motion_kepler",
+      "reason": "Kepler's laws are neighboring Scientific Revolution work, not a direct prerequisite for Galileo's projectile-motion theorem."
+    }
+  ]
+}

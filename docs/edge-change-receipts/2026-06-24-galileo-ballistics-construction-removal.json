@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-24-galileo-ballistics-construction-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "ballistics_and_kinematics_galileo",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because classical construction practice is not a prerequisite for the scoped projectile-motion and kinematics claim.",
+  "source_supports_edge": "no",
+  "source_url": "https://echo.mpiwg-berlin.mpg.de/content/shipbuilding/venice_arsenal/lettura_gal.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Renn and Valleriani separate Galileo's first new science, strength of materials, from the second new science of accelerated motion in the Third and Fourth Days; the sampled node is scoped to projectile motion and kinematics.",
+    "source_claim_summary": "The source supports Galileo's projectile-motion scope through accelerated motion and artillery practice, while treating construction-related strength of materials as a different part of the Discorsi.",
+    "source_support_rationale": "This justifies removing construction from the direct prerequisite set because the node is not scoped to Galileo's material-strength or architecture work."
+  },
+  "ontology_before": "The graph treated broad construction practice as a direct enabling prerequisite for Galileo's projectile-motion kinematics.",
+  "ontology_after": "The graph keeps the ballistics and mathematical-method lineage while leaving construction/material-strength practice outside this scoped node.",
+  "invariant_preserved_or_changed": "Changed: direct ballistics_and_kinematics_galileo -> construction edge removed.",
+  "would_reject_if": [
+    "A future source shows Galileo's projectile-motion theorem required construction methods rather than artillery practice and mathematical analysis.",
+    "The node is later rescoped to include Galileo's strength-of-materials science instead of projectile motion and kinematics."
+  ],
+  "short_reason": "Construction belonged to Galileo's separate materials-strength work, not this projectile-motion node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-24-harvey-circulation-galileo-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "blood_circulation_harvey",
+    "prerequisite": "ballistics_and_kinematics_galileo"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Ballistics and Kinematics (Galileo) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because Harvey's circulation proof is grounded in anatomy, physiology, observation, and experiment rather than Galileo's projectile-motion kinematics.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/biography/William-Harvey/Key-discoveries-and-influences",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says Harvey's work depended on experiments and arguments about blood flow, venous valves, heartbeat, and quantitative flow, then cautions that this differs from the precise mathematical laws of someone like Galileo.",
+    "source_claim_summary": "The source supports Harvey's circulation scope through anatomy, venous valves, heartbeat observations, and quantitative flow estimates rather than through Galilean projectile kinematics.",
+    "source_support_rationale": "This justifies removing the Galileo edge because the source names the relevant mechanisms for Harvey's claim and explicitly distinguishes them from Galileo-style mathematical mechanics."
+  },
+  "ontology_before": "The graph made Harvey's circulation discovery depend directly on Galileo's projectile-motion and kinematics node.",
+  "ontology_after": "The graph keeps anatomy, Vesalian anatomical studies, and scientific method as the direct foundations for Harvey's circulation discovery.",
+  "invariant_preserved_or_changed": "Changed: direct blood_circulation_harvey -> ballistics_and_kinematics_galileo edge removed.",
+  "would_reject_if": [
+    "A future source shows Harvey's circulation proof directly used Galileo's projectile-motion kinematics.",
+    "The node is later rescoped to a broad seventeenth-century mechanical philosophy of the body rather than Harvey's circulation demonstration."
+  ],
+  "short_reason": "Harvey's circulation proof is anatomical and experimental, not a direct use of Galileo's projectile kinematics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
