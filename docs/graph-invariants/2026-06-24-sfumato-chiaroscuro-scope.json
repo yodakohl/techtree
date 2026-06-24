@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-24-sfumato-chiaroscuro-scope",
+  "description": "Lock the 2026-06-24 rescope of sfumato_chiaroscuro_techniques to Leonardo-era painting techniques for smoky transitions and light-dark modelling.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "sfumato_chiaroscuro_techniques",
+      "operator": "eq",
+      "value": 1480,
+      "reason": "The node is now anchored to Leonardo's late-15th-century chiaroscuro and sfumato practice, not to Vesalius 1543 or Caravaggio's seventeenth-century dramatic use."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sfumato_chiaroscuro_techniques",
+      "prerequisite": "perspective_in_art",
+      "reason": "Perspective is adjacent Renaissance visual practice, not a direct prerequisite for the scoped tonal and smoky edge-transition techniques."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sfumato_chiaroscuro_techniques",
+      "prerequisite": "human_anatomy_physiology",
+      "reason": "The 1543 anatomy node is later than the corrected Leonardo-era painting-technique anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sfumato_chiaroscuro_techniques",
+      "prerequisite": "oil_painting",
+      "expected": "enabling",
+      "reason": "Oil painting is the material painting technique source-linked to Leonardo's light-dark and sfumato effects."
+    }
+  ]
+}

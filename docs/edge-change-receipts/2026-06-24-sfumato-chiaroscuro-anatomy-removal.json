@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-sfumato-chiaroscuro-anatomy-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "sfumato_chiaroscuro_techniques",
+    "prerequisite": "human_anatomy_physiology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Human Anatomy & Physiology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because Leonardo's late-15th-century sfumato and chiaroscuro practice predates the 1543 Vesalian anatomy node and is sourced as a painting/light-shadow technique, not as an anatomy technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/art/chiaroscuro",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica defines chiaroscuro as the representation of light and shadow to define three-dimensional objects and says Leonardo brought it to full potential in European painting in the late 15th century.",
+    "source_claim_summary": "The source dates the corrected technique to Leonardo's late-15th-century painting practice, before the graph's 1543 anatomy node.",
+    "source_support_rationale": "The chronology and source scope make human_anatomy_physiology a later scientific context rather than a direct prerequisite for the painting technique."
+  },
+  "ontology_before": "Sfumato & Chiaroscuro depended on Renaissance human anatomy, forcing a 1543 date and laundering anatomical science into a painting-technique node.",
+  "ontology_after": "Leonardo Sfumato & Chiaroscuro is anchored to late-15th-century painting sources and no longer depends on the later Vesalian anatomy node.",
+  "invariant_preserved_or_changed": "Changed: sfumato_chiaroscuro_techniques no longer directly depends on human_anatomy_physiology.",
+  "would_reject_if": [
+    "The node is later rescoped to anatomical illustration or scientifically anatomical figure modelling.",
+    "A stronger source shows Vesalian-style anatomy was a direct prerequisite for Leonardo's sfumato or chiaroscuro technique.",
+    "The graph splits a separate anatomy-informed-figure-modelling node that should carry the anatomy dependency."
+  ],
+  "short_reason": "The technique predates and does not directly require the 1543 anatomy node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sfumato_chiaroscuro_techniques.before.json /tmp/sfumato_chiaroscuro_techniques.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

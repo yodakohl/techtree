@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-sfumato-chiaroscuro-perspective-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "sfumato_chiaroscuro_techniques",
+    "prerequisite": "perspective_in_art"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Perspective in Art provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is now scoped to Leonardo-era tonal transitions and light-dark modelling; perspective is adjacent Renaissance visual practice but not sourced as a prerequisite for sfumato or chiaroscuro.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalgallery.org.uk/exhibitions/past/leonardo-experience-a-masterpiece/leonardo-and-the-virgin-of-the-rocks",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The National Gallery explains The Virgin of the Rocks through chiaroscuro defining three-dimensional figures and sfumato's smoky transitions between light and shadow, without making linear perspective a prerequisite.",
+    "source_claim_summary": "The source grounds the technique in tonal modelling and smoky light-shadow transitions rather than perspectival construction.",
+    "source_support_rationale": "Perspective may be relevant to broader Renaissance pictorial space, but this scoped node is about light-dark modelling and edge transitions, so perspective is not a direct edge."
+  },
+  "ontology_before": "Sfumato & Chiaroscuro depended directly on perspective_in_art, implying linear perspective enabled the tonal and edge-transition techniques.",
+  "ontology_after": "Leonardo Sfumato & Chiaroscuro depends directly on oil painting as the material technique evidenced for light-dark and sfumato effects; perspective is excluded as adjacent context.",
+  "invariant_preserved_or_changed": "Changed: sfumato_chiaroscuro_techniques no longer directly depends on perspective_in_art.",
+  "would_reject_if": [
+    "The node is later rescoped to a broader Leonardo pictorial-system node that includes perspectival projection.",
+    "A stronger source explicitly states that Renaissance linear perspective was a direct prerequisite for sfumato or chiaroscuro technique.",
+    "A separate perspective-lighting-composition node is introduced and should carry the perspective dependency."
+  ],
+  "short_reason": "The source-backed mechanism is tonal light-shadow modelling, not linear perspective.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sfumato_chiaroscuro_techniques.before.json /tmp/sfumato_chiaroscuro_techniques.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
