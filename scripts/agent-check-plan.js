@@ -42,7 +42,8 @@ function removeQualityCoveredCommands(commands) {
         ['npm', 'run', 'invariant-coverage'].join('\0'),
         ['npm', 'run', 'trust:audit'].join('\0'),
         ['node', 'scripts/generate-quality-snapshot.js', '--check'].join('\0'),
-        ['node', 'scripts/generate-field-quality-snapshot.js', '--check'].join('\0')
+        ['node', 'scripts/generate-field-quality-snapshot.js', '--check'].join('\0'),
+        ['npm', 'run', 'metrics:check'].join('\0')
     ]);
     return commands.filter(command => !covered.has(command.cmd.join('\0')));
 }
@@ -62,6 +63,21 @@ function isJs(file) {
 function isTechnologyData(file) {
     return /^data\/.+\.json$/.test(file)
         && !['data/taxonomy.json', 'data/quality-snapshot.json'].includes(file);
+}
+
+function isPublishedMetricSurface(file) {
+    return [
+        'README.md',
+        'docs/QUALITY_SNAPSHOT.md',
+        'docs/TECH_EXPANSION_RUNBOOK.md',
+        'llms.txt',
+        'sorted.html',
+        'sitemap.xml',
+        'data/quality-snapshot.json',
+        'data/taxonomy.json',
+        'package.json',
+        'scripts/check-published-metrics.js'
+    ].includes(file);
 }
 
 function plan(files) {
@@ -109,6 +125,9 @@ function plan(files) {
 
     if (files.some(file => ['README.md', 'docs/QUALITY_SNAPSHOT.md', 'data/quality-snapshot.json'].includes(file))) {
         addCommand(commands, 'Quality snapshot freshness', ['node', 'scripts/generate-quality-snapshot.js', '--check'], 'quality snapshot output changed');
+    }
+    if (files.some(isPublishedMetricSurface)) {
+        addCommand(commands, 'Published metrics', ['npm', 'run', 'metrics:check'], 'published metric surfaces changed');
     }
     if (files.some(file => ['docs/SOURCE_CHECKED_PLACEHOLDER_DATES.md', 'scripts/source-checked-placeholder-report.js'].includes(file))) {
         addCommand(commands, 'Source-checked placeholder-date report freshness', ['node', 'scripts/source-checked-placeholder-report.js', '--check'], 'placeholder-date exception report changed');

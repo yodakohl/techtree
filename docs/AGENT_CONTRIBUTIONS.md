@@ -182,7 +182,7 @@ one-edge challenge will be recorded as the first outside agent contribution.
   source-check coverage, era-default date debt, edge-source coverage, and a
   deterministic manual review queue.
 - Published [Accuracy Risk Report 2026-06-07](ACCURACY_RISK_REPORT_2026-06-07.md).
-  Current headline: 491/1,664 source-checked nodes, zero pre-1900
+  At the 2026-06-07 baseline: 491/1,664 source-checked nodes, zero pre-1900
   source-checked nodes supported only by generic sources, 1,025 era-default
   dates, and 1,485/5,780 dependency edges with edge-level sources.
 - Source cleanup: `alternating_current_power` now treats the Britannica
