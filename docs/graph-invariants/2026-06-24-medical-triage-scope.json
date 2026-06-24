@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-24-medical-triage-scope",
+  "description": "Lock medical_triage_practices to source-backed modern battlefield casualty sorting, not a Classical-era supply-store practice.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "medical_triage_practices",
+      "operator": "gte",
+      "value": 1800,
+      "reason": "The scoped claim is anchored to Larrey-era and later battlefield casualty sorting systems rather than Classical medicine."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_triage_practices",
+      "prerequisite": "military_field_medicine",
+      "expected": "enabling",
+      "reason": "Modern triage emerged within military medical practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_triage_practices",
+      "prerequisite": "logistics_supply_lines",
+      "expected": "enabling",
+      "reason": "Larrey-style casualty sorting operated through evacuation logistics, medical teams, wagons, and mobile hospitals."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_triage_practices",
+      "prerequisite": "public_hospitals_infirmaries",
+      "expected": "enabling",
+      "reason": "Triage sorts casualties across constrained treatment echelons such as aid stations, field hospitals, and general hospitals."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "medical_triage_practices",
+      "prerequisite": "state_medical_supply_stores",
+      "reason": "State medical supply storage is not the source-backed causal boundary for modern battlefield casualty sorting."
+    }
+  ]
+}

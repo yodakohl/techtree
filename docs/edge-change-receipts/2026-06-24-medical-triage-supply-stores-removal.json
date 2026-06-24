@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-medical-triage-supply-stores-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "medical_triage_practices",
+    "prerequisite": "state_medical_supply_stores"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "State Medical Supply Stores provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Medical Triage Practices to State Medical Supply Stores edge remains because the source-backed triage scope is organized Revolutionary/Napoleonic battlefield casualty sorting, driven by military medicine, evacuation logistics, and treatment-capacity echelons rather than a standalone classical medical-supply-store abstraction.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.civilwarmed.org/surgeons-call/triage/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The National Museum of Civil War Medicine article describes Larrey's early-1800s triage system as medical teams, wagons, mobile hospitals, battlefield treatment, removal to hospitals, and sorting by wound severity; it does not identify state medical supply stores as a prerequisite.",
+    "source_claim_summary": "The source anchors triage to battlefield casualty sorting and evacuation/treatment infrastructure.",
+    "source_support_rationale": "A source-backed triage node should depend on military medical organization, evacuation logistics, and hospital/infirmary capacity, not on an unsourced classical supply-store node."
+  },
+  "ontology_before": "Medical Triage Practices was dated to the Classical era and depended on State Medical Supply Stores, implying a generic ancient supply-store prerequisite for triage.",
+  "ontology_after": "Medical Triage Practices is scoped to Industrial-era Revolutionary/Napoleonic battlefield casualty sorting and depends on military medicine, logistics, and hospital/infirmary capacity.",
+  "invariant_preserved_or_changed": "Changed: removed the direct state_medical_supply_stores prerequisite and moved the node to a source-backed Industrial-era triage scope.",
+  "would_reject_if": [
+    "A source demonstrates an organized Classical-era casualty triage system specifically dependent on state medical supply stores.",
+    "The node is later rescoped away from battlefield casualty sorting to supply depots or medical stockroom operations.",
+    "A separate medical_supply_prioritization node is added for allocating scarce bandages, instruments, or medicines."
+  ],
+  "short_reason": "Modern triage is sourced to battlefield casualty sorting and evacuation capacity, not classical supply stores.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/medical_triage_practices.before.json /tmp/medical_triage_practices.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
