@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-24-mars-agriculture-life-support-replacement",
+  "decision_date": "2026-06-24",
+  "edge": {
+    "dependent": "mars_closed_loop_agriculture",
+    "prerequisite": "closed_loop_life_support"
+  },
+  "replaced_edge": {
+    "dependent": "mars_closed_loop_agriculture",
+    "prerequisite": "synthetic_ecosystem_restoration"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Synthetic Ecosystem Restoration is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Closed-loop agriculture is part of bioregenerative life support, recycling water, nutrients, waste, CO2, and plant biomass to reduce resupply for Mars habitats."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ntrs.nasa.gov/citations/20250004370",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "NTRS staged BLiSS architecture uses recycled water and nutrients to produce habitat food supply with plants, while plants provide oxygen, remove carbon dioxide, and support water purification.",
+    "source_claim_summary": "NASA's staged BLiSS roadmap places plant food production, atmosphere regeneration, water purification, and waste/feedstock recycling inside Mars-relevant closed-loop life support.",
+    "source_support_rationale": "This supports replacing the broad ecosystem-restoration dependency with the life-support capability that directly supplies the water, nutrient, atmosphere, waste, and crop-production loops in the node claim."
+  },
+  "ontology_before": "The graph made Mars closed-loop agriculture depend on synthetic ecosystem restoration, suggesting AI-guided open ecosystem repair was a prerequisite for habitat food loops.",
+  "ontology_after": "The graph routes Mars closed-loop agriculture through closed-loop life support and orbital greenhouse lineage, keeping the node scoped to controlled-environment food systems inside habitats.",
+  "invariant_preserved_or_changed": "Changed: mars_closed_loop_agriculture now depends on closed_loop_life_support and no longer directly on synthetic_ecosystem_restoration.",
+  "would_reject_if": [
+    "The Mars agriculture node is later rescoped to open Martian ecosystem repair or terraforming rather than habitat food systems.",
+    "A source shows Mars closed-loop agriculture requires synthetic ecosystem restoration as a direct prerequisite instead of bioregenerative life-support and controlled-environment crop systems."
+  ],
+  "short_reason": "Closed-loop life support is the direct enabling system for recycled-water, nutrient, waste, atmosphere, and crop loops in Martian habitat agriculture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mars_closed_loop_agriculture.before.json /tmp/mars_closed_loop_agriculture.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

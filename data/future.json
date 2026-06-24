@@ -19208,7 +19208,7 @@
     "prerequisites": [
       "mars_surface_habitats",
       "orbital_greenhouses",
-      "synthetic_ecosystem_restoration"
+      "closed_loop_life_support"
     ],
     "firstKnownDate": 2035,
     "datePrecision": "decade",
@@ -19220,39 +19220,101 @@
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Mars Surface Habitats is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Martian closed-loop agriculture is scoped to food production inside long-duration Martian surface habitats rather than open-field farming.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Human Exploration Beyond Low Earth Orbit: Staged Evolution of BLiSS Technologies",
+            "url": "https://ntrs.nasa.gov/citations/20250004370",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2025,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA NTRS describes BLiSS as sustainable life support for crews living in lunar and Martian surface habitats, with staged architectures for food, water, air, and waste loops."
+          }
+        ]
       },
       {
         "prerequisite": "orbital_greenhouses",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Orbital Greenhouses is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "ISS plant-growth chambers and orbital greenhouse research provide the controlled-environment crop-production lineage for later Martian agriculture.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Advanced Plant Habitat",
+            "url": "https://science.nasa.gov/mission/advanced-plant-habitat/",
+            "publisher": "NASA Science",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NASA describes APH as a fully enclosed, closed-loop plant life-support system on the ISS with controlled water, nutrients, oxygen delivery, atmosphere, moisture, temperature, LEDs, and automation."
+          }
+        ]
       },
       {
-        "prerequisite": "synthetic_ecosystem_restoration",
+        "prerequisite": "closed_loop_life_support",
         "type": "speculative",
         "confidence": 0.35,
         "evidence_level": "speculative",
-        "note": "Synthetic Ecosystem Restoration is a plausible dependency for a forecast technology and should be treated as speculative.",
-        "reviewStatus": "source_checked"
+        "note": "Closed-loop agriculture is part of bioregenerative life support, recycling water, nutrients, waste, CO2, and plant biomass to reduce resupply for Mars habitats.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Human Exploration Beyond Low Earth Orbit: Staged Evolution of BLiSS Technologies",
+            "url": "https://ntrs.nasa.gov/citations/20250004370",
+            "publisher": "NASA Technical Reports Server",
+            "year": 2025,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "locator": "NTRS staged BLiSS architecture uses recycled water and nutrients to produce habitat food supply with plants, while plants provide oxygen, remove carbon dioxide, and support water purification."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Wikipedia page for Mars Closed-Loop Agriculture",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Mars%20Closed-Loop%20Agriculture",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Human Exploration Beyond Low Earth Orbit: Staged Evolution of BLiSS Technologies",
+        "url": "https://ntrs.nasa.gov/citations/20250004370",
+        "publisher": "NASA Technical Reports Server",
+        "year": 2025,
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "locator": "NASA NTRS frames BLiSS for lunar and Martian surface habitats and describes recycled water/nutrients, plant food production, oxygen production, CO2 removal, and waste/feedstock reuse."
+      },
+      {
+        "title": "Next-Level Farming",
+        "url": "https://spinoff.nasa.gov/Next-Level_Farming",
+        "publisher": "NASA Spinoff",
+        "year": 2024,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NASA Spinoff says small-scale farming will be essential for extended lunar exploration and long Mars missions, and that bioregenerative research grew crops for oxygen and food while recycling waste and CO2."
+      },
+      {
+        "title": "Advanced Plant Habitat",
+        "url": "https://science.nasa.gov/mission/advanced-plant-habitat/",
+        "publisher": "NASA Science",
+        "year": 2023,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "locator": "NASA describes APH as an enclosed, automated, closed-loop plant life support system that supports crop-production, water-recycling, and atmosphere-revitalization research for sustainable long-term space colonies."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during semantic source-fit audit: the only node-level source was a Wikipedia search URL, not evidence supporting the exact node claim."
+    "sourceCheckedDowngradeNote": "Source-backed as a forecast/roadmap capability rather than source_checked: NASA sources support bioregenerative closed-loop crop production for Mars-relevant habitats, but not broad establishment by 2035."
   },
   {
     "id": "autonomous_lunar_construction_fleets",

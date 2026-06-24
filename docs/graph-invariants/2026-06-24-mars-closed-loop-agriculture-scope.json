@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-24-mars-closed-loop-agriculture-scope",
+  "description": "Lock mars_closed_loop_agriculture to controlled-environment crop production for Martian habitats, grounded in habitat infrastructure, orbital plant-growth systems, and closed-loop life support rather than open ecosystem restoration.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "mars_closed_loop_agriculture",
+      "prerequisite": "mars_surface_habitats",
+      "expected": "speculative",
+      "reason": "The node is scoped to food systems inside long-duration Martian surface habitats."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mars_closed_loop_agriculture",
+      "prerequisite": "orbital_greenhouses",
+      "expected": "speculative",
+      "reason": "Orbital plant-growth systems provide the controlled-environment crop-production lineage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mars_closed_loop_agriculture",
+      "prerequisite": "closed_loop_life_support",
+      "expected": "speculative",
+      "reason": "Closed-loop life support supplies the water, nutrient, waste, atmosphere, and crop-loop capability in the node claim."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mars_closed_loop_agriculture",
+      "prerequisite": "synthetic_ecosystem_restoration",
+      "reason": "Open ecosystem repair is broader than habitat closed-loop agriculture and should not be a direct prerequisite for this node."
+    }
+  ]
+}
