@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-petty-double-bottomed-ship-dry-compass-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "double_hulled_ship_designs",
+    "prerequisite": "dry_compass_navigation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Dry Compass Navigation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is now scoped to Petty's double-bottomed hull design and sailing trials; dry-compass navigation is not sourced as a prerequisite for the vessel architecture.",
+  "source_supports_edge": "no",
+  "source_url": "https://pictures.royalsociety.org/image-rs-17377",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Royal Society Picture Library catalog entry for Double-bottomed ship: the object history records review of the structure and sailing of Petty's new ship, not compass navigation.",
+    "source_claim_summary": "The source documents Petty's double-bottomed ship as a structural and sailing experiment reviewed by the Royal Society.",
+    "source_support_rationale": "Dry-compass navigation may matter to wider seafaring, but the cited evidence supports the vessel's hull and sailing scope without making compass navigation a direct dependency."
+  },
+  "ontology_before": "Double-Hulled Ship Designs depended directly on dry_compass_navigation, implying compass navigation enabled the specialized hull form.",
+  "ontology_after": "Petty Double-Bottomed Ship depends directly on sailing; dry-compass navigation is excluded from the scoped hull-design dependency set.",
+  "invariant_preserved_or_changed": "Changed: double_hulled_ship_designs no longer directly depends on dry_compass_navigation.",
+  "would_reject_if": [
+    "The node were rescoped to a navigation practice rather than Petty's vessel architecture.",
+    "A stronger source showed Petty's paired-hull design specifically required dry-compass navigation.",
+    "The dry_compass_navigation node were broadened away from compass navigation into all sailing practice."
+  ],
+  "short_reason": "Dry-compass navigation is not evidenced as a direct prerequisite for the hull experiment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/double_hulled_ship_designs.before.json /tmp/double_hulled_ship_designs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

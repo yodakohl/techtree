@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-petty-double-bottomed-ship-mercator-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "double_hulled_ship_designs",
+    "prerequisite": "cartography_mercator_projection"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cartography (Mercator Projection) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is now scoped to William Petty's paired-hull sailing experiments; Mercator projection is navigation and map context, not an evidenced prerequisite for the hull design.",
+  "source_supports_edge": "no",
+  "source_url": "https://pictures.royalsociety.org/image-rs-17377",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Royal Society Picture Library catalog entry for Double-bottomed ship: the object history describes committee review of Petty's ship structure and sailing, not cartographic projection or map use.",
+    "source_claim_summary": "The source grounds the documented technology in a double-bottomed ship design and its sailing performance.",
+    "source_support_rationale": "Because the source-backed scope is the hull experiment itself, Mercator projection remains adjacent maritime context rather than a direct edge for this node."
+  },
+  "ontology_before": "Double-Hulled Ship Designs depended directly on cartography_mercator_projection, implying Mercator navigation enabled the hull form.",
+  "ontology_after": "Petty Double-Bottomed Ship is scoped to paired-hull sailing-vessel experimentation and does not require a direct Mercator-projection dependency.",
+  "invariant_preserved_or_changed": "Changed: double_hulled_ship_designs no longer directly depends on cartography_mercator_projection.",
+  "would_reject_if": [
+    "The node were later broadened to oceanic navigation systems rather than hull-form experimentation.",
+    "A stronger source explicitly tied Petty's double-bottomed ship construction to Mercator projection as a required or enabling prerequisite.",
+    "The Mercator projection node were rescoped to include general early modern sailing practice rather than cartographic projection."
+  ],
+  "short_reason": "Mercator projection is not source-backed as a direct prerequisite for Petty's hull experiment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/double_hulled_ship_designs.before.json /tmp/double_hulled_ship_designs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

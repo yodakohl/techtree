@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-petty-double-bottomed-ship-sailing-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "double_hulled_ship_designs",
+    "prerequisite": "sailing"
+  },
+  "replaced_edge": {
+    "dependent": "double_hulled_ship_designs",
+    "prerequisite": "galleon_ship_design"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Galleon Ship Design provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Petty's double-bottomed vessels were sailing vessels; the Royal Society record describes examination of the structure and sailing of the new ship."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pictures.royalsociety.org/image-rs-17377",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Royal Society Picture Library catalog entry for Double-bottomed ship: the object history records a January 28, 1663 committee report on the structure and sailing of Sir William Petty's new ship.",
+    "source_claim_summary": "The source identifies Petty's double-bottomed vessel as a ship whose structure and sailing performance were examined by the Royal Society.",
+    "source_support_rationale": "This supports a direct sailing prerequisite because the scoped technology is an experimental sailing vessel; a galleon-specific lineage is not evidenced for Petty's paired-hull design."
+  },
+  "ontology_before": "Double-Hulled Ship Designs depended on galleon_ship_design, implying a Spanish-style oceanic war-cargo ship lineage enabled the hull experiment.",
+  "ontology_after": "Petty Double-Bottomed Ship depends on sailing as the broad operating practice evidenced for the documented paired-hull vessel.",
+  "invariant_preserved_or_changed": "Changed: double_hulled_ship_designs now depends on sailing and no longer directly depends on galleon_ship_design.",
+  "would_reject_if": [
+    "The node were broadened back to galleon-era oceangoing ship design rather than Petty's double-bottomed experiments.",
+    "A stronger source showed Petty's 1662-1664 vessels required galleon ship design specifically.",
+    "The sailing node were narrowed to exclude experimental early modern sailing vessels."
+  ],
+  "short_reason": "The source-backed operating capability is sailing, not galleon design.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/double_hulled_ship_designs.before.json /tmp/double_hulled_ship_designs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

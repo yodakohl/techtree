@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-24-petty-double-bottomed-ship-scope",
+  "description": "Lock the 2026-06-24 rescope of double_hulled_ship_designs to Sir William Petty's documented 1662 double-bottomed or twin-hulled sailing experiments.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "double_hulled_ship_designs",
+      "operator": "eq",
+      "value": 1662,
+      "reason": "The node is now anchored to Petty's first twin-hulled prototype and Royal Society/National Maritime Museum evidence beginning in 1662, not to the 1569 Mercator projection placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "double_hulled_ship_designs",
+      "prerequisite": "galleon_ship_design",
+      "reason": "Petty's documented double-bottomed hull experiment is not sourced as a galleon-design derivative."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "double_hulled_ship_designs",
+      "prerequisite": "cartography_mercator_projection",
+      "reason": "Mercator projection is map/navigation context, not an evidenced direct prerequisite for the paired-hull vessel architecture."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "double_hulled_ship_designs",
+      "prerequisite": "dry_compass_navigation",
+      "reason": "Dry-compass navigation is adjacent seafaring context, not source-backed as a direct dependency for Petty's hull experiment."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "double_hulled_ship_designs",
+      "prerequisite": "sailing",
+      "expected": "enabling",
+      "reason": "The Royal Society record describes examination of the structure and sailing of Petty's new double-bottomed ship."
+    }
+  ]
+}
