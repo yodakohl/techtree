@@ -10305,42 +10305,120 @@
   },
   {
     "id": "naval_convoy_systems",
-    "name": "Naval Convoy Systems",
+    "name": "Spanish Treasure Fleet Convoys",
     "era": "Renaissance",
-    "description": "Organized protected merchant fleets with schedules, escorts, signals, insurance rules, ports, and naval logistics.",
+    "description": "Spanish Atlantic treasure-fleet convoys that required merchant ships to sail in grouped fleets with armed warship escorts for protection from privateers and enemy navies.",
     "prerequisites": [
-      "naval_logbooks",
+      "merchant_convoy_systems",
       "naval_artillery_broadside_cannons",
-      "maritime_insurance"
+      "galleon_ship_design"
     ],
-    "firstKnownDate": 1569,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1530,
+    "datePrecision": "decade",
+    "region": "Spanish Atlantic / Carrera de Indias treasure routes",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers the Spanish treasure-fleet convoy system for Atlantic colonial trade and treasure transport. It does not claim every naval convoy in history, merchant insurance pooling, logbook practice, or Venetian arsenal parts standardization.",
+    "dateUncertaintyNote": "The National Park Service says the fleet system began in the 1530s; later sources describe larger, more regularized convoy and warship arrangements from 1555 and the 1560s.",
     "dependencyEdges": [
       {
-        "prerequisite": "naval_logbooks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "merchant_convoy_systems",
+        "type": "common_dependency",
+        "confidence": 0.58,
+        "evidence_level": "review",
+        "note": "The Spanish system applied a merchant-convoy pattern to colonial treasure routes, grouping merchant ships in scheduled fleets while adding state-mandated armed escort.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Spanish Treasure Fleets of 1715 and 1733: Disasters Strike at Sea",
+            "url": "https://www.nps.gov/teachers/classrooms/129shipwrecks.htm",
+            "publisher": "National Park Service",
+            "year": 2023,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The NPS lesson says Spain required merchant ships to sail in fleets or convoys escorted by armed warships for protection, and that the fleet system began in the 1530s."
+          }
+        ]
       },
       {
         "prerequisite": "naval_artillery_broadside_cannons",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Naval Artillery (Broadside Cannons) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Treasure-fleet defense depended on cannon-armed merchant ships and escort warships that could provide protective fire within the convoy.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Spanish Treasure Fleets",
+            "url": "https://www.worldhistory.org/Spanish_Treasure_Fleets/",
+            "publisher": "World History Encyclopedia",
+            "year": 2021,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The article says galleons could carry up to 60 cannons, merchant ships were armed with cannons, convoys had multiple warships, and one galleon could give protective fire for another."
+          }
+        ]
       },
       {
-        "prerequisite": "maritime_insurance",
+        "prerequisite": "galleon_ship_design",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Spanish galleons supplied the convoy's heavily armed ocean-going cargo-and-warship platform, combining treasure transport with defensive firepower.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Spanish Treasure Fleets",
+            "url": "https://www.worldhistory.org/Spanish_Treasure_Fleets/",
+            "publisher": "World History Encyclopedia",
+            "year": 2021,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The article says Spanish galleons and other ships sailed in the fleets, galleons were heavily armed, and in convoy one galleon could give protective fire for another."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Spanish Treasure Fleets of 1715 and 1733: Disasters Strike at Sea",
+        "url": "https://www.nps.gov/teachers/classrooms/129shipwrecks.htm",
+        "publisher": "National Park Service",
+        "year": 2023,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "NPS describes Spain's treasure fleet system, says Spain required merchant ships to sail in fleets or convoys escorted by armed warships, and dates the fleet system to the 1530s."
+      },
+      {
+        "title": "Spanish treasure fleet",
+        "url": "https://www.britannica.com/topic/Spanish-treasure-fleet",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica defines the Spanish treasure fleet as a Spanish convoy of ships and says regular Spain-Americas shipping in the 1560s used two fleets that returned together from Havana protected by warships."
+      },
+      {
+        "title": "Spanish Treasure Fleets",
+        "url": "https://www.worldhistory.org/Spanish_Treasure_Fleets/",
+        "publisher": "World History Encyclopedia",
+        "year": 2021,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "World History Encyclopedia describes Spanish galleons, convoy escorts, the 1555 multiple-warship convoy arrangement, and tight convoy formation rules."
       }
     ]
   },
@@ -11087,7 +11165,6 @@
     "era": "Renaissance",
     "description": "State or commercial arsenals producing repeatable hull, mast, rigging, artillery, and repair components.",
     "prerequisites": [
-      "naval_convoy_systems",
       "technical_drawing_standards",
       "galleon_ship_design"
     ],
@@ -11096,27 +11173,6 @@
     "region": "Afro-Eurasia and other historical societies",
     "reviewStatus": "structurally_validated",
     "dependencyEdges": [
-      {
-        "prerequisite": "naval_convoy_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Naval Convoy Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Arsenale: The Shipyard and Arsenal of Venice",
-            "url": "https://www.worldhistory.org/article/2776/arsenale/",
-            "publisher": "World History Encyclopedia",
-            "year": 2025,
-            "source_type": "review",
-            "supports": [
-              "edge"
-            ],
-            "source_locator": "The article says the Republic of Venice's trade, wealth, and sea power were rooted in ships built at the Arsenale, a government-controlled factory designed to produce ships and weapons to defend trade and dominate the Mediterranean."
-          }
-        ]
-      },
       {
         "prerequisite": "technical_drawing_standards",
         "type": "enabling",

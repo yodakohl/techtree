@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-treasure-fleet-artillery-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "naval_convoy_systems",
+    "prerequisite": "naval_artillery_broadside_cannons"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Artillery (Broadside Cannons) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Treasure-fleet defense depended on cannon-armed merchant ships and escort warships that could provide protective fire within the convoy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.worldhistory.org/Spanish_Treasure_Fleets/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The article says galleons could carry up to 60 cannons, merchant ships were armed with cannons, convoys had multiple warships, and one galleon could give protective fire for another.",
+    "source_claim_summary": "The source describes cannon-armed galleons, armed merchant ships, warship escorts, and protective fire within Spanish treasure-fleet convoys.",
+    "source_support_rationale": "Those details make naval artillery an enabling defensive capability for the convoy system while still leaving the organizational convoy requirement separate from the weapons themselves."
+  },
+  "invariant_preserved_or_changed": "Preserved: naval_artillery_broadside_cannons remains an enabling edge, now with source-locatable rationale.",
+  "would_reject_if": [
+    "The node were narrowed to unarmed administrative sailing schedules only.",
+    "A source showed the Spanish treasure fleets operated without armed merchant ships or warship escorts.",
+    "The naval_artillery_broadside_cannons node were later narrowed to exclude shipboard cannon fire used by galleons."
+  ],
+  "short_reason": "The Spanish treasure-fleet convoy system used cannon-armed ships and warship escorts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/naval_convoy_systems.before.json /tmp/naval_convoy_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-treasure-fleet-galleon-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "naval_convoy_systems",
+    "prerequisite": "galleon_ship_design"
+  },
+  "replaced_edge": {
+    "dependent": "naval_convoy_systems",
+    "prerequisite": "maritime_insurance"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Spanish galleons supplied the convoy's heavily armed ocean-going cargo-and-warship platform, combining treasure transport with defensive firepower."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.worldhistory.org/Spanish_Treasure_Fleets/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The article says Spanish galleons and other ships sailed in the fleets, galleons were heavily armed, and in convoy one galleon could give protective fire for another.",
+    "source_claim_summary": "The source presents galleons as the armed oceangoing ships that carried treasure and protected each other in convoy.",
+    "source_support_rationale": "Galleon ship design is therefore an enabling platform for the scoped treasure-fleet convoys. Maritime insurance may price risk, but it is not evidenced as a direct prerequisite for Spain's armed convoy requirement."
+  },
+  "ontology_before": "Naval Convoy Systems depended on Maritime Insurance, implying insurance rules enabled the protected-fleet system.",
+  "ontology_after": "Spanish Treasure Fleet Convoys depend on galleon_ship_design as the armed cargo-and-warship platform for convoy operation.",
+  "invariant_preserved_or_changed": "Changed: naval_convoy_systems now depends on galleon_ship_design and no longer directly depends on maritime_insurance.",
+  "would_reject_if": [
+    "The node were broadened back to maritime insurance institutions rather than Spanish armed treasure-fleet convoys.",
+    "A source showed marine insurance was required for the Spanish Crown to mandate convoy sailing.",
+    "The galleon_ship_design node were later narrowed to exclude armed Spanish treasure-fleet ships."
+  ],
+  "short_reason": "The source-backed platform is the armed galleon, not maritime insurance.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/naval_convoy_systems.before.json /tmp/naval_convoy_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

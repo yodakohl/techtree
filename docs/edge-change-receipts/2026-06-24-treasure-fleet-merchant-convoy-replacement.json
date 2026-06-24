@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-treasure-fleet-merchant-convoy-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "naval_convoy_systems",
+    "prerequisite": "merchant_convoy_systems"
+  },
+  "replaced_edge": {
+    "dependent": "naval_convoy_systems",
+    "prerequisite": "naval_logbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.58,
+    "evidence_level": "review",
+    "note": "The Spanish system applied a merchant-convoy pattern to colonial treasure routes, grouping merchant ships in scheduled fleets while adding state-mandated armed escort."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nps.gov/teachers/classrooms/129shipwrecks.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The NPS lesson says Spain required merchant ships to sail in fleets or convoys escorted by armed warships for protection, and that the fleet system began in the 1530s.",
+    "source_claim_summary": "The source defines the Spanish fleet system as merchant ships grouped into fleets or convoys with armed warship escort.",
+    "source_support_rationale": "That makes the merchant-convoy organization the shared commercial-fleet pattern. Naval logbooks may document voyages, but the cited fleet-system source does not make logbooks a direct prerequisite."
+  },
+  "ontology_before": "Naval Convoy Systems depended on naval_logbooks, tying the convoy concept to voyage recordkeeping rather than to grouped merchant shipping.",
+  "ontology_after": "Spanish Treasure Fleet Convoys depend contextually on the merchant convoy pattern while adding state escort and imperial treasure-route organization.",
+  "invariant_preserved_or_changed": "Changed: naval_convoy_systems now depends on merchant_convoy_systems and no longer directly depends on naval_logbooks.",
+  "would_reject_if": [
+    "The node were narrowed to naval recordkeeping rather than Spanish treasure-fleet convoys.",
+    "A source showed logbook standardization was required before the Spanish fleet system could operate.",
+    "The merchant_convoy_systems node were later narrowed to exclude maritime merchant fleets."
+  ],
+  "short_reason": "The source-backed system is merchant ships grouped into protected convoys, not logbook practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/naval_convoy_systems.before.json /tmp/naval_convoy_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-spanish-treasure-fleet-convoys-scope",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "naval_convoy_systems",
+      "operator": "eq",
+      "value": 1530,
+      "reason": "The corrected node is scoped to the Spanish treasure-fleet convoy system, which NPS dates to the 1530s."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "naval_convoy_systems",
+      "prerequisite": "merchant_convoy_systems",
+      "expected": "common_dependency",
+      "reason": "The Spanish system grouped merchant ships into protected convoys while adding state armed escort."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "naval_convoy_systems",
+      "prerequisite": "naval_artillery_broadside_cannons",
+      "expected": "enabling",
+      "reason": "Cannon-armed merchant ships and warship escorts supplied convoy protection."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "naval_convoy_systems",
+      "prerequisite": "galleon_ship_design",
+      "expected": "enabling",
+      "reason": "Galleons were the armed oceangoing cargo-and-warship platform for Spanish treasure fleets."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "naval_convoy_systems",
+      "prerequisite": "naval_logbooks",
+      "reason": "Voyage recordkeeping is outside the corrected Spanish treasure-fleet convoy scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "naval_convoy_systems",
+      "prerequisite": "maritime_insurance",
+      "reason": "Maritime insurance prices commercial risk but is not source-backed as a direct prerequisite for Spain's armed convoy requirement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "arsenal_standardized_ship_parts",
+      "prerequisite": "naval_convoy_systems",
+      "reason": "Venetian arsenal standardized parts should not depend directly on the Spanish treasure-fleet convoy node."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Quality Snapshot
 
-Generated: 2026-06-24T18:18:37.488Z
+Generated: 2026-06-24T20:37:04.987Z
 
 This is a launch-quality trust snapshot generated from the same report object used by `npm run accuracy:risks`; it covers non-Future nodes and is not proof of global accuracy.
 
@@ -10,13 +10,13 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | --- | --- |
 | Technologies | 1,658 |
 | Launch-quality scope (non-Future nodes) | 1,420 / 1,658 (85.6%; 238 Future excluded) |
-| Source-checked nodes | 1,302 / 1,420 (91.7%) |
-| Source-checked nodes with non-placeholder dates | 1,302 / 1,302 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,302 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,137 / 1,302 (87.3%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,302 (0.0%) |
-| Nodes with node-level sources | 1,392 / 1,420 (98.0%) |
-| Dependency edges with edge-level sources | 3,572 / 4,406 (81.1%) |
+| Source-checked nodes | 1,303 / 1,420 (91.8%) |
+| Source-checked nodes with non-placeholder dates | 1,303 / 1,303 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,303 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,138 / 1,303 (87.3%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,303 (0.0%) |
+| Nodes with node-level sources | 1,393 / 1,420 (98.1%) |
+| Dependency edges with edge-level sources | 3,574 / 4,405 (81.1%) |
 | Era-default placeholder dates | 52 / 1,420 (3.7%) |
 
 ## Manual audit note

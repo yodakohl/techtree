@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-arsenal-parts-convoy-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "arsenal_standardized_ship_parts",
+    "prerequisite": "naval_convoy_systems"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Convoy Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected convoy node is scoped to Spanish treasure-fleet convoys, and the arsenal source does not make that system a direct prerequisite for standardized ship parts.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.worldhistory.org/article/2776/arsenale/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Arsenale article says Venice's trade, wealth, and sea power were rooted in ships built at the Arsenale, a government-controlled factory designed to produce ships and weapons to defend trade and dominate the Mediterranean.",
+    "source_claim_summary": "The source supports Venetian arsenal ship and weapon production for Venetian trade and sea power, not a Spanish treasure-fleet prerequisite.",
+    "source_support_rationale": "After the convoy node is narrowed to Spanish treasure-fleet convoys, the Venetian arsenal relationship no longer preserves the same causal boundary. The arsenal node already retains direct ship-design and technical-drawing dependencies."
+  },
+  "ontology_before": "Arsenal Standardized Ship Parts depended on a generic Naval Convoy Systems node, using a Venetian arsenal source to support a broad trade-defense context.",
+  "ontology_after": "Arsenal Standardized Ship Parts no longer depends on the now-scoped Spanish Treasure Fleet Convoys node.",
+  "invariant_preserved_or_changed": "Changed: arsenal_standardized_ship_parts no longer directly depends on naval_convoy_systems.",
+  "would_reject_if": [
+    "The convoy node were broadened back to all state naval trade-defense systems including Venice.",
+    "A source showed Spanish treasure-fleet convoy practice directly caused Venetian-style arsenal parts standardization.",
+    "A separate generic naval trade-defense logistics node were added and sourced to the Venetian Arsenale."
+  ],
+  "short_reason": "Venetian arsenal standardization is not directly caused by Spanish treasure-fleet convoys.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/naval_convoy_systems.before.json /tmp/naval_convoy_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
