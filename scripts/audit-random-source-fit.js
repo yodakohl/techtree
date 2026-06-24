@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { isTechnologyDataFile } = require('./data-files');
 const { ERA_DEFAULT_DATES, getDependencyEdges } = require('./edge-schema');
+const { FUTURE_EXCLUSION_NOTE, launchQualityNodes } = require('./quality-scope');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const REPORT_PATH = path.join(__dirname, '..', 'docs', 'RANDOM_SOURCE_FIT_AUDIT.md');
@@ -132,7 +133,6 @@ function nodeFlags(node, edges) {
     if (edges.length && edges.some(edge => !Array.isArray(edge.sources) || edge.sources.length === 0)) flags.push('no_edge_sources');
     if (edges.some(hasGenericTemplateEdgeNote)) flags.push('generic_template_edge_note');
     if (sourceEvidenceMismatch(node)) flags.push('source_evidence_mismatch');
-    if (node.era === 'Future' && node.reviewStatus === 'source_checked') flags.push('future_node_marked_source_checked');
     if (node.reviewStatus === 'source_checked' && node.firstKnownDate === ERA_DEFAULT_DATES[node.era]) flags.push('source_checked_placeholder_date');
     if (hasConceptOrInstitutionScope(node)) flags.push('concept_or_institution_not_technology');
     return flags;
@@ -151,7 +151,7 @@ function edgeSourceSummary(edges) {
 }
 
 function renderReport() {
-    const nodes = loadNodes();
+    const nodes = launchQualityNodes(loadNodes());
     const sampled = sample(nodes);
     const rows = sampled.map(node => {
         const edges = getDependencyEdges(node);
@@ -173,7 +173,8 @@ function renderReport() {
     lines.push('');
     lines.push(`- Seed: \`${SEED}\``);
     lines.push(`- Sample size: ${SAMPLE_SIZE}`);
-    lines.push(`- Canonical node count: ${nodes.length}`);
+    lines.push(`- Launch-quality node count: ${nodes.length}`);
+    lines.push(`- ${FUTURE_EXCLUSION_NOTE}`);
     lines.push('- Source evidence matching checks node-source titles, publishers, and inspected locators when present.');
     lines.push('');
     lines.push('## Flag totals');

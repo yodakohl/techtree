@@ -3,6 +3,7 @@ const http = require('http');
 const https = require('https');
 const path = require('path');
 const { isTechnologyDataFile } = require('./data-files');
+const { FUTURE_EXCLUSION_NOTE, isLaunchQualityNode } = require('./quality-scope');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
@@ -16,6 +17,10 @@ const retryTimeoutMs = Math.max(timeoutMs, Math.min(timeoutMs * 3, 30000));
 const concurrencyArgIndex = args.indexOf('--concurrency');
 const concurrency = concurrencyArgIndex >= 0 ? Number(args[concurrencyArgIndex + 1]) : 8;
 const TRANSIENT_FAILURE_STATUSES = new Set([
+    500,
+    502,
+    503,
+    504,
     'timeout',
     'ECONNREFUSED',
     'ECONNRESET',
@@ -39,6 +44,7 @@ function loadData() {
 function collectSources(items) {
     const urls = new Map();
     for (const item of items) {
+        if (!isLaunchQualityNode(item)) continue;
         if (fieldFilter && !item.fields?.includes(fieldFilter)) continue;
         const sources = [
             ...(Array.isArray(item.sources) ? item.sources : []),
@@ -94,7 +100,7 @@ function isTransientFailure(status) {
 
 async function requestWithFallback(url, requestTimeoutMs) {
     let result = await requestUrl(url, 'HEAD', 0, requestTimeoutMs);
-    if ([403, 404, 405].includes(result.status)) {
+    if ([403, 404, 405, 500, 502, 503, 504].includes(result.status)) {
         result = await requestUrl(url, 'GET', 0, requestTimeoutMs);
     }
     return result;
@@ -125,7 +131,7 @@ async function runPool(entries) {
 async function main() {
     const sources = collectSources(loadData());
     if (sources.length === 0) {
-        console.log(`No source URLs found${fieldFilter ? ` for ${fieldFilter}` : ''}.`);
+        console.log(`No pre-Future source URLs found${fieldFilter ? ` for ${fieldFilter}` : ''}. ${FUTURE_EXCLUSION_NOTE}`);
         return;
     }
 
@@ -134,14 +140,16 @@ async function main() {
     const scope = fieldFilter ? ` for ${fieldFilter}` : '';
 
     if (failures.length) {
-        console.error(`Source URL audit failed${scope}: ${failures.length}/${results.length} URL(s) failed.`);
+        console.error(`Source URL audit failed${scope}: ${failures.length}/${results.length} pre-Future URL(s) failed.`);
         for (const failure of failures) {
             console.error(`- ${failure.status} ${failure.url} (${failure.ids.slice(0, 5).join(', ')})`);
         }
+        console.error(FUTURE_EXCLUSION_NOTE);
         process.exit(1);
     }
 
-    console.log(`Source URL audit passed${scope}: ${results.length} unique URL(s) returned non-404/non-5xx statuses.`);
+    console.log(`Source URL audit passed${scope}: ${results.length} pre-Future unique URL(s) returned non-404/non-5xx statuses.`);
+    console.log(FUTURE_EXCLUSION_NOTE);
 }
 
 main().catch(error => {

@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const {
+    FUTURE_EXCLUSION_NOTE,
     TAXONOMY_FILE,
     loadData,
     makeReport,
@@ -43,20 +44,22 @@ function metric(label, value, denominator = null, note = null) {
 function buildSnapshot(report, generatedAt = report.generatedAt) {
     const t = report.totals;
     const metrics = [
-        metric('Technologies', t.technologies),
-        metric('Source-checked nodes', t.sourceChecked, t.technologies, percentage(t.sourceChecked, t.technologies)),
+        metric('Technologies', t.totalTechnologies),
+        metric('Launch-quality scope (non-Future nodes)', t.launchQualityTechnologies, t.totalTechnologies, `${percentage(t.launchQualityTechnologies, t.totalTechnologies)}; ${t.excludedFutureTechnologies} Future excluded`),
+        metric('Source-checked nodes', t.sourceChecked, t.launchQualityTechnologies, percentage(t.sourceChecked, t.launchQualityTechnologies)),
         metric('Source-checked nodes with non-placeholder dates', t.sourceCheckedNonPlaceholderDates, t.sourceChecked, percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)),
         metric('Source-checked nodes with placeholder dates', t.sourceCheckedEraDefaultDates, t.sourceChecked, percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)),
         metric('Source-checked nodes with primary/review/textbook/official sources', t.sourceCheckedStrongSources, t.sourceChecked, percentage(t.sourceCheckedStrongSources, t.sourceChecked)),
         metric('Source-checked nodes using only weak/generic sources', t.sourceCheckedOnlyWeakGeneric, t.sourceChecked, percentage(t.sourceCheckedOnlyWeakGeneric, t.sourceChecked)),
-        metric('Nodes with node-level sources', t.nodesWithSources, t.technologies, percentage(t.nodesWithSources, t.technologies)),
+        metric('Nodes with node-level sources', t.nodesWithSources, t.launchQualityTechnologies, percentage(t.nodesWithSources, t.launchQualityTechnologies)),
         metric('Dependency edges with edge-level sources', t.edgesWithSources, t.totalEdges, percentage(t.edgesWithSources, t.totalEdges)),
-        metric('Era-default placeholder dates', t.eraDefaultDates, t.technologies, percentage(t.eraDefaultDates, t.technologies))
+        metric('Era-default placeholder dates', t.eraDefaultDates, t.launchQualityTechnologies, percentage(t.eraDefaultDates, t.launchQualityTechnologies))
     ];
 
     return {
         generatedAt,
-        description: 'Trust snapshot, not proof of global accuracy.',
+        description: 'Launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.',
+        futureExclusionNote: FUTURE_EXCLUSION_NOTE,
         metrics,
         manualSampleAudit: MANUAL_SAMPLE_AUDIT,
         riskReportTotals: t
@@ -76,7 +79,9 @@ function renderReadmeBlock(snapshot) {
         START_MARKER,
         '## Quality Snapshot',
         '',
-        `Generated ${snapshot.generatedAt.slice(0, 10)} from the same dataset audit used by \`npm run accuracy:risks\`. This is a trust snapshot, not proof of global accuracy.`,
+        `Generated ${snapshot.generatedAt.slice(0, 10)} from the same dataset audit used by \`npm run accuracy:risks\`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.`,
+        '',
+        snapshot.futureExclusionNote,
         '',
         renderMetricTable(snapshot.metrics),
         '',
@@ -93,7 +98,9 @@ function renderSnapshotMarkdown(snapshot) {
         '',
         `Generated: ${snapshot.generatedAt}`,
         '',
-        'This is a trust snapshot generated from the same report object used by `npm run accuracy:risks`; it is not proof of global accuracy.',
+        'This is a launch-quality trust snapshot generated from the same report object used by `npm run accuracy:risks`; it covers non-Future nodes and is not proof of global accuracy.',
+        '',
+        snapshot.futureExclusionNote,
         '',
         renderMetricTable(snapshot.metrics),
         '',
@@ -115,7 +122,7 @@ function replaceReadmeBlock(readme, block) {
 }
 
 function replaceReadmePublicCounts(readme, snapshot) {
-    const technologies = snapshot.riskReportTotals.technologies;
+    const technologies = snapshot.riskReportTotals.totalTechnologies;
     const plainCount = String(technologies);
     const formattedCount = formatNumber(technologies);
     return readme

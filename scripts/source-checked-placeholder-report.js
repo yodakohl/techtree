@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { ERA_DEFAULT_DATES } = require('./edge-schema');
 const { loadData, percentage } = require('./accuracy-risk-report');
+const { FUTURE_EXCLUSION_NOTE, isLaunchQualityNode } = require('./quality-scope');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const OUTPUT_FILE = path.join(ROOT_DIR, 'docs', 'SOURCE_CHECKED_PLACEHOLDER_DATES.md');
@@ -49,7 +50,9 @@ function markdownTable(rows) {
 }
 
 function buildReport(data = loadData()) {
-    const sourceChecked = data.filter(item => item.reviewStatus === 'source_checked');
+    const sourceChecked = data
+        .filter(isLaunchQualityNode)
+        .filter(item => item.reviewStatus === 'source_checked');
     const placeholders = sourceChecked
         .filter(item => usesEraDefaultDate(item))
         .sort((a, b) => {
@@ -90,7 +93,11 @@ function buildReport(data = loadData()) {
     return [
         '# Source-Checked Placeholder Date Exceptions',
         '',
-        'Generated from canonical era JSON. A `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.',
+        'Generated from canonical era JSON. Future forecast nodes are excluded from this launch-quality report.',
+        '',
+        FUTURE_EXCLUSION_NOTE,
+        '',
+        'A pre-Future `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.',
         '',
         `Source-checked nodes: ${sourceChecked.length}`,
         `Source-checked nodes using era-default placeholder dates: ${placeholders.length} / ${sourceChecked.length} (${percentage(placeholders.length, sourceChecked.length)})`,

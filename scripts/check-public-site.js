@@ -88,6 +88,7 @@ function checkLLMSMetrics(result) {
 
   const metricLabels = [
     'Technologies',
+    'Launch-quality scope (non-Future nodes)',
     'Source-checked nodes',
     'Source-checked nodes with non-placeholder dates',
     'Source-checked nodes with placeholder dates',

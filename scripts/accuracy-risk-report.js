@@ -7,10 +7,17 @@ const {
     sourceQualityWeight
 } = require('./edge-schema');
 const { isTechnologyDataFile } = require('./data-files');
+const {
+    FUTURE_EXCLUSION_NOTE,
+    LAUNCH_QUALITY_SCOPE_LABEL,
+    isLaunchQualityNode,
+    launchQualityNodes
+} = require('./quality-scope');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const TAXONOMY_FILE = path.join(DATA_DIR, 'taxonomy.json');
 const ERA_ORDER = ['Ancient', 'Classical', 'Medieval', 'Renaissance', 'Industrial', 'Modern', 'Future'];
+const LAUNCH_QUALITY_ERA_ORDER = ERA_ORDER.filter(era => era !== 'Future');
 const STRONG_SOURCE_TYPES = new Set(['primary_paper', 'review', 'textbook', 'official_agency']);
 
 function argValue(name, fallback) {
@@ -100,7 +107,8 @@ function sourceTitleList(item) {
 
 function makeReport(data, taxonomy) {
     const reviewStatus = new Map();
-    const eraStats = Object.fromEntries(ERA_ORDER.map(era => [era, {
+    const scopedData = launchQualityNodes(data);
+    const eraStats = Object.fromEntries(LAUNCH_QUALITY_ERA_ORDER.map(era => [era, {
         total: 0,
         eraDefaultDate: 0,
         sourceChecked: 0,
@@ -150,6 +158,9 @@ function makeReport(data, taxonomy) {
 
     for (const item of data) {
         increment(reviewStatus, item.reviewStatus || 'unknown');
+    }
+
+    for (const item of scopedData) {
         if (hasSource(item)) nodesWithSources += 1;
         const isSourceChecked = item.reviewStatus === 'source_checked';
         const hasEraDefaultDate = usesEraDefaultDate(item);
@@ -255,6 +266,11 @@ function makeReport(data, taxonomy) {
             sourceCheckedAllWeak,
             sourceCheckedOnlyWeakGeneric,
             sourceCheckedGenericOld,
+            totalTechnologies: data.length,
+            launchQualityTechnologies: scopedData.length,
+            excludedFutureTechnologies: data.length - scopedData.length,
+            launchQualityScope: LAUNCH_QUALITY_SCOPE_LABEL,
+            futureExclusionNote: FUTURE_EXCLUSION_NOTE,
             eraDefaultDates,
             sourceCheckedEraDefaultDates,
             totalEdges,
@@ -284,9 +300,10 @@ function renderMarkdown(report) {
     const t = report.totals;
     const summary = markdownTable([
         ['Metric', 'Value'],
-        ['Technologies', t.technologies],
-        ['Nodes with node-level sources', `${t.nodesWithSources}/${t.technologies} (${percentage(t.nodesWithSources, t.technologies)})`],
-        ['Source-checked nodes', `${t.sourceChecked}/${t.technologies} (${percentage(t.sourceChecked, t.technologies)})`],
+        ['Technologies', t.totalTechnologies],
+        ['Launch-quality scope', `${t.launchQualityTechnologies} ${t.launchQualityScope} nodes; ${t.excludedFutureTechnologies} Future nodes excluded`],
+        ['Nodes with node-level sources', `${t.nodesWithSources}/${t.launchQualityTechnologies} (${percentage(t.nodesWithSources, t.launchQualityTechnologies)})`],
+        ['Source-checked nodes', `${t.sourceChecked}/${t.launchQualityTechnologies} (${percentage(t.sourceChecked, t.launchQualityTechnologies)})`],
         ['Source-checked nodes with non-placeholder dates', `${t.sourceCheckedNonPlaceholderDates}/${t.sourceChecked} (${percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)})`],
         ['Source-checked nodes with placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
         ['Source-checked nodes with primary/review/textbook/official sources', `${t.sourceCheckedStrongSources}/${t.sourceChecked} (${percentage(t.sourceCheckedStrongSources, t.sourceChecked)})`],
@@ -294,13 +311,13 @@ function renderMarkdown(report) {
         ['Source-checked nodes without sources', t.sourceCheckedNoSources],
         ['Source-checked nodes with only weak sources', t.sourceCheckedAllWeak],
         ['Pre-1900 source-checked nodes with only generic sources', t.sourceCheckedGenericOld],
-        ['Era-default placeholder dates', `${t.eraDefaultDates}/${t.technologies} (${percentage(t.eraDefaultDates, t.technologies)})`],
+        ['Era-default placeholder dates', `${t.eraDefaultDates}/${t.launchQualityTechnologies} (${percentage(t.eraDefaultDates, t.launchQualityTechnologies)})`],
         ['Source-checked era-default placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
         ['Dependency edges with edge-level sources', `${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`]
     ]);
 
     const eraRows = [['Era', 'Nodes', 'Era-default placeholder date', 'Source-checked', 'Source-checked placeholder date']];
-    for (const era of ERA_ORDER) {
+    for (const era of LAUNCH_QUALITY_ERA_ORDER) {
         const stats = report.eraStats[era];
         eraRows.push([
             era,
@@ -329,6 +346,8 @@ function renderMarkdown(report) {
         '',
         'This is an informational risk report. It does not estimate global truth accuracy; it identifies where manual review is likely to pay off next.',
         '',
+        FUTURE_EXCLUSION_NOTE,
+        '',
         '## Summary',
         '',
         summary,
@@ -347,11 +366,13 @@ function renderMarkdown(report) {
 function renderText(report) {
     const t = report.totals;
     console.log(`Accuracy risk report (${report.generatedAt})`);
-    console.log(`Technologies: ${t.technologies}`);
-    console.log(`Source-checked: ${t.sourceChecked}/${t.technologies} (${percentage(t.sourceChecked, t.technologies)})`);
+    console.log(`Technologies: ${t.totalTechnologies}`);
+    console.log(`Launch-quality scope: ${t.launchQualityTechnologies} ${t.launchQualityScope} nodes; ${t.excludedFutureTechnologies} Future nodes excluded`);
+    console.log(`Source-checked: ${t.sourceChecked}/${t.launchQualityTechnologies} (${percentage(t.sourceChecked, t.launchQualityTechnologies)})`);
     console.log(`Pre-1900 source-checked generic-only: ${t.sourceCheckedGenericOld}`);
-    console.log(`Era-default placeholder dates: ${t.eraDefaultDates}/${t.technologies} (${percentage(t.eraDefaultDates, t.technologies)})`);
+    console.log(`Era-default placeholder dates: ${t.eraDefaultDates}/${t.launchQualityTechnologies} (${percentage(t.eraDefaultDates, t.launchQualityTechnologies)})`);
     console.log(`Edge source coverage: ${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`);
+    console.log(FUTURE_EXCLUSION_NOTE);
     console.log('\nNext manual review queue:');
     for (const item of report.candidateQueue) {
         console.log(`- ${item.id} (${item.era}, ${item.firstKnownDate}) [${item.priority}]: ${item.risks.map(risk => risk.risk).join(', ')}`);
@@ -378,7 +399,10 @@ module.exports = {
     DATA_DIR,
     TAXONOMY_FILE,
     STRONG_SOURCE_TYPES,
+    FUTURE_EXCLUSION_NOTE,
+    LAUNCH_QUALITY_SCOPE_LABEL,
     hasStrongTrustSource,
+    isLaunchQualityNode,
     loadData,
     makeReport,
     percentage,

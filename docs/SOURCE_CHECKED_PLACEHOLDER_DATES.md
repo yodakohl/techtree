@@ -1,9 +1,13 @@
 # Source-Checked Placeholder Date Exceptions
 
-Generated from canonical era JSON. A `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
+Generated from canonical era JSON. Future forecast nodes are excluded from this launch-quality report.
 
-Source-checked nodes: 1320
-Source-checked nodes using era-default placeholder dates: 0 / 1320 (0.0%)
+Future-era technologies are forecast/roadmap nodes. They are structurally validated, but they are excluded from launch-quality source-check, placeholder-date, edge-source, source-fit, and source-URL gates.
+
+A pre-Future `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
+
+Source-checked nodes: 1285
+Source-checked nodes using era-default placeholder dates: 0 / 1285 (0.0%)
 Listed exceptions without explicit uncertainty metadata: 0
 
 ## Summary By Era

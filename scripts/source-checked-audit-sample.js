@@ -5,11 +5,12 @@ const { execFileSync } = require('child_process');
 const { ERA_DEFAULT_DATES } = require('./edge-schema');
 const { isTechnologyDataFile } = require('./data-files');
 const { hasStrongTrustSource, loadData } = require('./accuracy-risk-report');
+const { FUTURE_EXCLUSION_NOTE, isLaunchQualityNode } = require('./quality-scope');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const DATA_DIR = path.join(ROOT_DIR, 'data');
 const OUTPUT_FILE = path.join(ROOT_DIR, 'docs', 'SOURCE_CHECKED_AUDIT_SAMPLE.md');
-const SAMPLE_ERAS = ['Ancient', 'Classical', 'Industrial', 'Modern', 'Future'];
+const SAMPLE_ERAS = ['Ancient', 'Classical', 'Industrial', 'Modern'];
 const DEFAULT_BASE_REF = '44d9544^';
 
 function argValue(name, fallback) {
@@ -79,6 +80,7 @@ function rowVerdict(item) {
 function buildReport({ baseRef = DEFAULT_BASE_REF } = {}) {
     const base = dataFilesAt(baseRef);
     const current = loadData()
+        .filter(isLaunchQualityNode)
         .filter(item => SAMPLE_ERAS.includes(item.era))
         .filter(item => item.reviewStatus === 'source_checked')
         .filter(item => base.get(item.id)?.reviewStatus !== 'source_checked');
@@ -128,7 +130,9 @@ function buildReport({ baseRef = DEFAULT_BASE_REF } = {}) {
         '',
         `Baseline for newly source-checked comparison: \`${baseRef}\`.`,
         '',
-        'This deterministic sample covers 10 newly source-checked nodes from each requested era where available. It verifies local trust metadata: node-level source support, non-placeholder chronology, non-generic source status, and strong source class. Rows marked `REVIEW` need human source-content review before they should be treated as textbook-quality evidence.',
+        'This deterministic sample covers 10 newly source-checked pre-Future nodes from each requested era where available. It verifies local trust metadata: node-level source support, non-placeholder chronology, non-generic source status, and strong source class. Rows marked `REVIEW` need human source-content review before they should be treated as textbook-quality evidence.',
+        '',
+        FUTURE_EXCLUSION_NOTE,
         '',
         `Sampled nodes: ${sampled.length}`,
         `Rows passing all local checks: ${passCount} / ${sampled.length}`,

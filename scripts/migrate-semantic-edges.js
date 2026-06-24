@@ -1482,7 +1482,7 @@ FIELD_OVERRIDES.ai_closed_loop_drug_discovery.roadmap = {
 
 const WATER_SOURCES = {
     whoDrinking: { title: 'Drinking-water', url: 'https://www.who.int/news-room/fact-sheets/detail/drinking-water', publisher: 'World Health Organization', year: 2023, source_type: 'official_agency' },
-    whoSanitationSafety: { title: 'Sanitation Safety', url: 'https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health/sanitation-safety', publisher: 'World Health Organization', year: 2026, source_type: 'official_agency' },
+    whoSanitationSafety: { title: 'Sanitation', url: 'https://www.who.int/news-room/fact-sheets/detail/sanitation', publisher: 'World Health Organization', year: 2026, source_type: 'official_agency' },
     cdcDrinkingWater: { title: 'Preventing Waterborne Germs at Home', url: 'https://www.cdc.gov/drinking-water/prevention/index.html', publisher: 'CDC', year: 2026, source_type: 'official_agency' },
     epaDrinkingWater: { title: 'Ground Water and Drinking Water', url: 'https://www.epa.gov/ground-water-and-drinking-water', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },
     epaSdwa: { title: 'Summary of the Safe Drinking Water Act', url: 'https://www.epa.gov/sdwa', publisher: 'U.S. Environmental Protection Agency', year: 2026, source_type: 'official_agency' },

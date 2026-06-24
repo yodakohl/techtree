@@ -475,6 +475,7 @@ function buildLLms(snapshot, fieldPages, techById) {
   lines.push('', 'Current quality metrics (from data/quality-snapshot.json):');
   const metricNames = [
     'Technologies',
+    'Launch-quality scope (non-Future nodes)',
     'Source-checked nodes',
     'Source-checked nodes with non-placeholder dates',
     'Source-checked nodes with placeholder dates',

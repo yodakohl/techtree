@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { isLaunchQualityNode } = require('./quality-scope');
 
 const ERA_FILES = [
   'ancient.json',
@@ -75,6 +76,7 @@ const coverageText = [
 
 const candidates = [];
 for (const node of nodes) {
+  if (!isLaunchQualityNode(node)) continue;
   const sources = node.sources || [];
   if (node.reviewStatus !== 'source_checked' || sources.length === 0) continue;
 

@@ -7,6 +7,10 @@ const {
     ERA_DEFAULT_DATES,
     getDependencyEdges
 } = require('./edge-schema');
+const {
+    FUTURE_EXCLUSION_NOTE,
+    isLaunchQualityNode
+} = require('./quality-scope');
 
 const DEFAULT_LIMIT = 10;
 
@@ -49,7 +53,8 @@ function usage(exitCode = 1) {
     stream.write(`Usage: node scripts/agent-next.js [--limit 10] [--id node_id] [--json]
 
 Ranks the next launch-readiness data-quality targets from remaining source,
-edge-source, review-status, and placeholder-date debt.
+edge-source, review-status, and placeholder-date debt. Future forecast nodes
+are excluded from launch-quality source/perfection debt.
 `);
     process.exit(exitCode);
 }
@@ -108,6 +113,20 @@ function dependentMap(data) {
 }
 
 function debtFor(item, dependents) {
+    if (!isLaunchQualityNode(item)) {
+        return {
+            score: 0,
+            labels: ['Future forecast node excluded from launch-quality source/perfection checks'],
+            missingEdgeSources: [],
+            missingNodeSource: false,
+            weakNodeSources: false,
+            lacksStrongNodeSource: false,
+            eraDefaultDate: false,
+            generated: false,
+            structurallyValidated: false
+        };
+    }
+
     const edges = getDependencyEdges(item);
     const missingEdgeSources = edges.filter(edge => !edgeHasSource(edge));
     const eraDefaultDate = usesEraDefaultDate(item);
@@ -155,6 +174,7 @@ function buildQueue(data = loadData(), options = {}) {
     const byId = new Map(data.map(item => [item.id, item]));
 
     const queue = data
+        .filter(item => isLaunchQualityNode(item))
         .map(item => {
             const dependentIds = dependents.get(item.id) || [];
             const debt = debtFor(item, dependentIds);
@@ -284,7 +304,8 @@ function renderTarget(target) {
 
 function renderText(result) {
     console.log('Launch Readiness Work Queue');
-    console.log('Basis: remaining placeholder-date, node-source, edge-source, and review-status debt.');
+    console.log('Basis: remaining pre-Future placeholder-date, node-source, edge-source, and review-status debt.');
+    console.log(FUTURE_EXCLUSION_NOTE);
     console.log('');
     if (!result.queue.length) {
         console.log('No scored data-quality debt found.');

@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const { isTechnologyDataFile } = require('./data-files');
+const { FUTURE_EXCLUSION_NOTE, isLaunchQualityNode } = require('./quality-scope');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const DATA_DIR = path.join(ROOT_DIR, 'data');
@@ -68,7 +69,9 @@ function row(label, current, target, ok) {
 function buildSnapshot() {
     const data = loadData();
     const receipts = loadReceipts();
-    const nodes = data.filter(node => (node.fields || []).includes(FIELD));
+    const nodes = data
+        .filter(isLaunchQualityNode)
+        .filter(node => (node.fields || []).includes(FIELD));
     if (!nodes.length) throw new Error(`No nodes found for field ${FIELD}`);
 
     const edges = nodes.flatMap(node => {
@@ -83,15 +86,6 @@ function buildSnapshot() {
         return node.reviewStatus === 'source_checked' && node.firstKnownDate === ERA_DEFAULT[node.era];
     });
     const broadNodes = nodes.filter(isBroadNode);
-    const futureNodes = nodes.filter(node => node.era === 'Future');
-    const futureComplete = futureNodes.filter(node => {
-        return node.timeframe
-            && Array.isArray(node.blockers)
-            && node.blockers.length > 0
-            && typeof node.forecastConfidence === 'number'
-            && node.forecastConfidence >= 0
-            && node.forecastConfidence <= 1;
-    });
     const nodeSources = nodes.filter(node => (node.sources || []).length > 0);
     const edgeSources = edges.filter(edge => (edge.sources || []).length > 0);
     const requiredWithReceipts = required.filter(edge => receiptFor(receipts, edge));
@@ -112,8 +106,7 @@ function buildSnapshot() {
         row('Source-checked era-default dates', `${sourceCheckedEraDefaults.length}`, '0', sourceCheckedEraDefaults.length === 0),
         row('Required edges with formal receipts', `${requiredWithReceipts.length}/${required.length} (${pct(requiredWithReceipts.length, required.length)})`, '100%', requiredWithReceipts.length === required.length),
         row('Broad nodes with scope notes', `${broadWithScope.length}/${broadNodes.length} (${pct(broadWithScope.length, broadNodes.length)})`, '100%', broadWithScope.length === broadNodes.length),
-        row('All field nodes with scope notes', `${allWithScope.length}/${nodes.length} (${pct(allWithScope.length, nodes.length)})`, 'extra guardrail', allWithScope.length === nodes.length),
-        row('Future nodes with timeframe, blockers, confidence', `${futureComplete.length}/${futureNodes.length} (${pct(futureComplete.length, futureNodes.length)})`, '100%', futureComplete.length === futureNodes.length)
+        row('All field nodes with scope notes', `${allWithScope.length}/${nodes.length} (${pct(allWithScope.length, nodes.length)})`, 'extra guardrail', allWithScope.length === nodes.length)
     ];
 
     return {
@@ -122,13 +115,12 @@ function buildSnapshot() {
         required,
         receipts,
         rows,
-        futureNodes,
         sourceTypeCounts
     };
 }
 
 function render(snapshot) {
-    const { nodes, edges, required, receipts, rows, futureNodes, sourceTypeCounts } = snapshot;
+    const { nodes, edges, required, receipts, rows, sourceTypeCounts } = snapshot;
     const sourceTypes = Object.entries(sourceTypeCounts)
         .sort(([left], [right]) => left.localeCompare(right))
         .map(([type, count]) => `${type}: ${count}`)
@@ -138,7 +130,9 @@ function render(snapshot) {
         '',
         `Generated: ${GENERATED_DATE}`,
         '',
-        `This is a field-specific trust snapshot for the \`${FIELD}\` lens. It is a local quality gate for this field, not proof that the whole TechTree graph has the same trust level.`,
+        `This is a field-specific trust snapshot for the \`${FIELD}\` lens. It is a local launch-quality gate for pre-Future nodes in this field, not proof that the whole TechTree graph has the same trust level.`,
+        '',
+        FUTURE_EXCLUSION_NOTE,
         '',
         '## Gate Results',
         '',
@@ -161,11 +155,6 @@ function render(snapshot) {
     for (const edge of required.sort((left, right) => `${left.from}->${left.to}`.localeCompare(`${right.from}->${right.to}`))) {
         const match = receiptFor(receipts, edge);
         lines.push(`- \`${edge.from}\` -> \`${edge.to}\`: ${match ? `\`${match.file}\`` : 'MISSING'}`);
-    }
-
-    lines.push('', '## Future Nodes', '');
-    for (const node of futureNodes.sort((left, right) => left.id.localeCompare(right.id))) {
-        lines.push(`- \`${node.id}\` (${node.name}): timeframe ${node.timeframe}; forecastConfidence ${node.forecastConfidence}; blockers: ${node.blockers.join('; ')}`);
     }
 
     lines.push('', '## Scope Notes', '');
