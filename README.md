@@ -44,8 +44,8 @@ Generated 2026-06-24 from the same dataset audit used by `npm run accuracy:risks
 | Source-checked nodes with primary/review/textbook/official sources | 1,155 / 1,320 (87.5%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,320 (0.0%) |
 | Nodes with node-level sources | 1,616 / 1,658 (97.5%) |
-| Dependency edges with edge-level sources | 4,083 / 5,330 (76.6%) |
-| Era-default placeholder dates | 249 / 1,658 (15.0%) |
+| Dependency edges with edge-level sources | 4,085 / 5,330 (76.6%) |
+| Era-default placeholder dates | 247 / 1,658 (14.9%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
 
