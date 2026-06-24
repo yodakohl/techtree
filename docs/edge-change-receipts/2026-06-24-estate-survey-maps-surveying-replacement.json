@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-24-estate-survey-maps-surveying-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "estate_survey_maps",
+    "prerequisite": "surveying"
+  },
+  "replaced_edge": {
+    "dependent": "estate_survey_maps",
+    "prerequisite": "surveying_cadastral_states"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "State Cadastral Surveys provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Estate maps were large-scale maps resulting from surveying and measuring land; the scoped practice therefore depends directly on surveying rather than printed atlases or state cadastres."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://press.uchicago.edu/books/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter28.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "History of Cartography chapter 28 defines estate maps as large-scale, usually manuscript maps resulting from surveying and measuring land.",
+    "source_claim_summary": "The source explains estate maps as products of land surveying and measurement for rural land management.",
+    "source_support_rationale": "This supports surveying as the direct enabling method; state cadastral surveys are a different public administrative mapping tradition and are not required for private estate maps."
+  },
+  "ontology_before": "Estate Survey Maps depended on State Cadastral Surveys, implying private estate maps derived from large-scale state cadastral programs.",
+  "ontology_after": "Estate Survey Maps depend directly on surveying as the source-backed measuring practice that produced private estate maps.",
+  "invariant_preserved_or_changed": "Changed: estate_survey_maps now depends on surveying and no longer directly depends on surveying_cadastral_states.",
+  "would_reject_if": [
+    "The node were broadened back to state cadastral surveys rather than private estate maps.",
+    "A stronger source showed early estate maps required a state cadastral survey program before they could be produced.",
+    "The surveying node were narrowed away from land measurement and boundary surveying."
+  ],
+  "short_reason": "Surveying is the source-backed method for producing estate maps.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/estate_survey_maps.before.json /tmp/estate_survey_maps.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

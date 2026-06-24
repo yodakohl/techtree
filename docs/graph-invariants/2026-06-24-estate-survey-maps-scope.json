@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-24-estate-survey-maps-scope",
+  "description": "Lock the 2026-06-24 rescope of estate_survey_maps to early modern private estate/manor survey maps produced from land surveying.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "estate_survey_maps",
+      "operator": "eq",
+      "value": 1596,
+      "reason": "The node is anchored to the 1596 surveying-by-plan discussion cited in History of Cartography, not to the unrelated 1614 atlas/logarithm placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "estate_survey_maps",
+      "prerequisite": "surveying_cadastral_states",
+      "reason": "Private estate maps do not require a state cadastral survey program as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "estate_survey_maps",
+      "prerequisite": "printed_map_atlases",
+      "reason": "Estate maps were usually manuscript land-management maps, not bound printed map atlases."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "estate_survey_maps",
+      "prerequisite": "cadastral_tax_maps",
+      "reason": "Cadastral tax maps are public fiscal land-register maps, not a direct prerequisite for individual private estate maps."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "estate_survey_maps",
+      "prerequisite": "surveying",
+      "expected": "enabling",
+      "reason": "The source-backed estate-map mechanism is surveying and measuring land."
+    }
+  ]
+}

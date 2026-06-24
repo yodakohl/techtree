@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-estate-survey-maps-cadastral-tax-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "estate_survey_maps",
+    "prerequisite": "cadastral_tax_maps"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cadastral Tax Maps provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because estate maps are scoped to individual privately commissioned estates, while cadastral tax maps are public fiscal land-register maps covering all properties in an administrative unit.",
+  "source_supports_edge": "no",
+  "source_url": "https://press.uchicago.edu/books/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter28.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History of Cartography chapter 28 distinguishes estate maps from cadastral maps by noting that cadastral maps show all properties in an administrative unit and were drawn up by governments for tax reform.",
+    "source_claim_summary": "The source separates privately commissioned estate maps from public cadastral tax mapping.",
+    "source_support_rationale": "The distinction makes Roman or state fiscal cadastre maps historical context, not a direct prerequisite for early modern private estate survey maps."
+  },
+  "ontology_before": "Estate Survey Maps depended directly on Cadastral Tax Maps, implying fiscal cadastre maps enabled private estate survey mapping.",
+  "ontology_after": "Estate Survey Maps are scoped to individual estate/manor maps and no longer inherit a direct fiscal-cadastre dependency.",
+  "invariant_preserved_or_changed": "Changed: estate_survey_maps no longer directly depends on cadastral_tax_maps.",
+  "would_reject_if": [
+    "The node were rescoped to public fiscal cadastral maps rather than private estate survey maps.",
+    "A stronger source showed early estate maps directly derived from cadastral tax-map systems.",
+    "The cadastral_tax_maps node were narrowed to the same individual-private-estate scope."
+  ],
+  "short_reason": "Private estate maps and public cadastral tax maps are adjacent but distinct mapping traditions.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/estate_survey_maps.before.json /tmp/estate_survey_maps.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -11074,42 +11074,65 @@
     "id": "estate_survey_maps",
     "name": "Estate Survey Maps",
     "era": "Renaissance",
-    "description": "Measured property maps for inheritance, taxation, drainage, rents, crops, roads, and legal disputes.",
+    "description": "Large-scale, usually manuscript maps of individual manors or landed estates produced from surveying and measuring for property management, rents, boundaries, land use, and disputes.",
     "prerequisites": [
-      "surveying_cadastral_states",
-      "printed_map_atlases",
-      "cadastral_tax_maps"
+      "surveying"
     ],
-    "firstKnownDate": 1614,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1596,
+    "datePrecision": "exact",
+    "region": "England and early modern European rural land-management contexts",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "surveying_cadastral_states",
+        "prerequisite": "surveying",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "State Cadastral Surveys provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "printed_map_atlases",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printed Map Atlases provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "cadastral_tax_maps",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cadastral Tax Maps provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Estate maps were large-scale maps resulting from surveying and measuring land; the scoped practice therefore depends directly on surveying rather than printed atlases or state cadastres.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Maps and Rural Land Management in Early Modern Europe",
+            "url": "https://press.uchicago.edu/books/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter28.pdf",
+            "publisher": "University of Chicago Press / History of Cartography",
+            "year": 2007,
+            "source_type": "textbook",
+            "source_locator": "The chapter says large-scale, usually manuscript maps resulting from surveying and measuring are known in England as estate maps.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Rescoped from a broad 1614 placeholder to early modern estate maps: private, large-scale maps of individual manors or estates. This excludes printed map atlases and state-sponsored cadastral tax maps as direct prerequisites.",
+    "sources": [
+      {
+        "title": "Maps and Rural Land Management in Early Modern Europe",
+        "url": "https://press.uchicago.edu/books/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter28.pdf",
+        "publisher": "University of Chicago Press / History of Cartography",
+        "year": 2007,
+        "source_type": "textbook",
+        "source_locator": "The chapter describes Agas's 1596 surveying textbook on survey by plan, defines estate maps as large-scale maps resulting from surveying and measuring, and notes late-sixteenth-century English estate-management use.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Manuscript estate maps",
+        "url": "https://www.library.wales/catalogues-searching/about-our-collections/maps/manuscript-estate-maps",
+        "publisher": "National Library of Wales",
+        "year": 2026,
+        "source_type": "official_agency",
+        "source_locator": "The National Library of Wales defines estate maps as plans ranging from a single property to an entire large estate, usually commissioned by landowners for private use by commercial surveyors, with schedules of acreages, land use, field names, and tenants.",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1596 date anchors the node to Ralph Agas's published surveying-by-plan discussion cited in the History of Cartography; the same chapter also describes late-sixteenth-century estate-map practice and earlier/later individual manuscript examples."
   },
   {
     "id": "scientific_correspondence_networks",

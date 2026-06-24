@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-estate-survey-maps-printed-atlases-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "estate_survey_maps",
+    "prerequisite": "printed_map_atlases"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Map Atlases provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped node is about private, large-scale, usually manuscript estate maps; printed atlas publication is a different cartographic product and distribution form.",
+  "source_supports_edge": "no",
+  "source_url": "https://press.uchicago.edu/books/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter28.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History of Cartography chapter 28 says estate maps were large-scale and usually manuscript, resulting from surveying and measuring.",
+    "source_claim_summary": "The source grounds estate maps in manuscript land-survey practice rather than in printed atlas production.",
+    "source_support_rationale": "Printed atlases may share cartographic conventions, but the source-backed estate-map mechanism is local surveying and manuscript plan making, not bound printed map publication."
+  },
+  "ontology_before": "Estate Survey Maps depended directly on Printed Map Atlases, implying printed atlas production enabled local estate surveying maps.",
+  "ontology_after": "Estate Survey Maps are scoped to private manuscript land-management maps and do not require printed atlas production as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: estate_survey_maps no longer directly depends on printed_map_atlases.",
+  "would_reject_if": [
+    "The node were later rescoped to printed estate atlases rather than manuscript estate survey maps.",
+    "A stronger source explicitly showed printed atlases were required for early estate-map production.",
+    "The printed_map_atlases node were broadened away from bound printed collections into all cartographic drawing."
+  ],
+  "short_reason": "Estate maps were usually manuscript land-survey products, not printed atlases.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/estate_survey_maps.before.json /tmp/estate_survey_maps.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
