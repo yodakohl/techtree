@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-24-pneumatic-tire-production-scope",
+  "description": "Lock the 2026-06-24 rescope of pneumatic_tire_mass_production to source-backed 1890 commercial pneumatic tire production for bicycles.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pneumatic_tire_mass_production",
+      "operator": "eq",
+      "value": 1890,
+      "reason": "Britannica anchors Dunlop tire commercial production to 1890, not the previous 1913 automobile-mass-production decade."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pneumatic_tire_mass_production",
+      "prerequisite": "vulcanized_rubber",
+      "expected": "enabling",
+      "reason": "The corrected scope is pneumatic rubber tire production, and the source-backed material basis is durable vulcanized rubber."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pneumatic_tire_mass_production",
+      "prerequisite": "bicycle",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Bicycle and tricycle use supplied the early commercial application context for Dunlop's tire."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pneumatic_tire_mass_production",
+      "prerequisite": "bicycle_safety_design",
+      "reason": "The source-backed scope should not require the narrower safety-bicycle package, whose description already includes pneumatic tires."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pneumatic_tire_mass_production",
+      "prerequisite": "automobile_mass_production",
+      "reason": "The corrected 1890 tire-production milestone predates 1913 automobile mass production."
+    }
+  ]
+}

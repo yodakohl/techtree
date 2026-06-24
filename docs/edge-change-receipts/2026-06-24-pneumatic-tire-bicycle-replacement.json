@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-24-pneumatic-tire-bicycle-replacement",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pneumatic_tire_mass_production",
+    "prerequisite": "bicycle"
+  },
+  "replaced_edge": {
+    "dependent": "pneumatic_tire_mass_production",
+    "prerequisite": "bicycle_safety_design"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Safety Bicycle Design provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Bicycles and tricycles provided the first commercial application context for Dunlop's pneumatic tire before later automobile use."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/biography/John-Boyd-Dunlop",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Britannica describes Dunlop constructing the pneumatic tire for his son's tricycle and says it was invented as an improvement on the bicycle before aiding automobiles.",
+    "source_claim_summary": "The source places Dunlop's practical tire in tricycle and bicycle use, then commercial production, before later automobile impact.",
+    "source_support_rationale": "The corrected prerequisite captures the early vehicle market that made the tire useful without requiring the narrower safety-bicycle design node, whose own scope already includes pneumatic tires."
+  },
+  "ontology_before": "Pneumatic tire production depended on safety_bicycle_design, implying the specific safety-bicycle package enabled tire production even though that node already contains pneumatic tires.",
+  "ontology_after": "Pneumatic tire production depends on the broader bicycle application context that drove early commercial use, while leaving safety-bicycle design as a neighboring transport design rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: pneumatic_tire_mass_production now depends on bicycle and no longer directly depends on bicycle_safety_design.",
+  "would_reject_if": [
+    "The node were later narrowed to tire supply for safety bicycles only rather than commercial pneumatic tire production.",
+    "A source showed early pneumatic tire commercialization required the Starley-style safety bicycle package rather than bicycle and tricycle use generally.",
+    "The bicycle node were rescoped away from human-powered two-wheel road vehicles."
+  ],
+  "short_reason": "The source-backed application context is bicycle and tricycle use, not the narrower safety-bicycle package.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pneumatic_tire_mass_production.before.json /tmp/pneumatic_tire_mass_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

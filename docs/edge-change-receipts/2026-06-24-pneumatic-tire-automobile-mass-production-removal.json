@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-24-pneumatic-tire-automobile-mass-production-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "pneumatic_tire_mass_production",
+    "prerequisite": "automobile_mass_production"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Mass-Produced Automobile supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct dependency remains because commercial pneumatic tire production is source-anchored to 1890 bicycle and tricycle tire production, before 1913 automobile mass production.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/biography/John-Boyd-Dunlop",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says Dunlop's pneumatic tire entered commercial production in 1890 and only later contributed to automobile success.",
+    "source_claim_summary": "The source dates commercial production before automobile mass production and describes automobiles as a later beneficiary, not a prerequisite.",
+    "source_support_rationale": "A 1913 automobile-mass-production dependency reverses the chronology for the corrected 1890 tire-production scope, so the automobile node is a downstream adoption context rather than an enabling input."
+  },
+  "ontology_before": "Pneumatic tire production depended directly on 1913 automobile mass production, making a later automotive manufacturing system appear to enable an earlier tire-production industry.",
+  "ontology_after": "Commercial pneumatic tire production is anchored to 1890 bicycle-era commercialization; automobile mass production remains a later scaling context outside the direct prerequisites.",
+  "invariant_preserved_or_changed": "Changed: pneumatic_tire_mass_production no longer directly depends on automobile_mass_production.",
+  "would_reject_if": [
+    "The node were explicitly rescoped back to 1913 automobile tire factory output rather than commercial pneumatic tire production.",
+    "A source showed pneumatic tires did not reach commercial production before automobile mass production.",
+    "The automobile_mass_production node were redated to an earlier commercially relevant automobile-production milestone before 1890."
+  ],
+  "short_reason": "The source-backed tire-production milestone predates automobile mass production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pneumatic_tire_mass_production.before.json /tmp/pneumatic_tire_mass_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

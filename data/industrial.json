@@ -17346,42 +17346,97 @@
   },
   {
     "id": "pneumatic_tire_mass_production",
-    "name": "Pneumatic Tire Mass Production",
+    "name": "Commercial Pneumatic Tire Production",
     "era": "Industrial",
-    "description": "Large-scale manufacture of air-filled tires for bicycles, automobiles, carts, aircraft, and industrial equipment.",
+    "description": "Commercial production of air-filled rubber tires for bicycles, following John Boyd Dunlop's practical pneumatic tire and the Belfast manufacturing company that became Dunlop.",
     "prerequisites": [
       "vulcanized_rubber",
-      "bicycle_safety_design",
-      "automobile_mass_production"
+      "bicycle"
     ],
-    "firstKnownDate": 1913,
-    "datePrecision": "decade",
-    "region": "Europe and United States",
-    "reviewStatus": "structurally_validated",
+    "sources": [
+      {
+        "title": "John Boyd Dunlop",
+        "url": "https://www.britannica.com/biography/John-Boyd-Dunlop",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica says Dunlop constructed a pneumatic tire in Belfast in 1887, patented it the next year, and the tire entered commercial production in 1890 through the Belfast manufacturing company that developed into Dunlop.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "The Dunlop tyre: Air apparent",
+        "url": "https://www.nms.ac.uk/discover-catalogue/dunlop-tyre-air-apparent",
+        "publisher": "National Museums Scotland",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "The museum account says vulcanised rubber strengthened natural rubber, Thomson's pneumatic tire inflated vulcanised rubber, and Dunlop developed the first practical pneumatic tire with inner tubes in 1888.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "John Boyd Dunlop",
+        "url": "https://www.invent.org/inductees/john-boyd-dunlop",
+        "publisher": "National Inventors Hall of Fame",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "The Hall of Fame says Dunlop developed the first practical pneumatic tire in 1888, that it provided the foundation for the Dunlop Tire Company, and that the Dunlop tire became the bicycle standard before later automobile use.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      }
+    ],
+    "firstKnownDate": 1890,
+    "datePrecision": "exact",
+    "region": "Belfast, Ireland / Dunlop pneumatic tire production",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "vulcanized_rubber",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Vulcanized Rubber provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Vulcanized rubber supplied the durable rubber material basis for practical pneumatic tires.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Dunlop tyre: Air apparent",
+            "url": "https://www.nms.ac.uk/discover-catalogue/dunlop-tyre-air-apparent",
+            "publisher": "National Museums Scotland",
+            "year": 2026,
+            "source_type": "museum",
+            "source_locator": "The museum account says vulcanised rubber made natural rubber more durable, flexible, and waterproof, and describes early pneumatic tires as inflated vulcanised rubber.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "bicycle_safety_design",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Safety Bicycle Design provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "automobile_mass_production",
+        "prerequisite": "bicycle",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Mass-Produced Automobile supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Bicycles and tricycles provided the first commercial application context for Dunlop's pneumatic tire before later automobile use.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "John Boyd Dunlop",
+            "url": "https://www.britannica.com/biography/John-Boyd-Dunlop",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Britannica describes Dunlop constructing the pneumatic tire for his son's tricycle and says it was invented as an improvement on the bicycle before aiding automobiles.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ]
   },
