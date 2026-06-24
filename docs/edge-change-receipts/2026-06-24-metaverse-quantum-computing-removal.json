@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-metaverse-quantum-computing-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "metaverse_deep_immersion",
+    "prerequisite": "quantum_computing"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Quantum Computing is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Metaverse Deep Immersion to Quantum Computing edge remains because virtual-world sources emphasize low-latency networks, cloud-edge/HPC computing, XR, data, AI, cybersecurity, HCI, and media standards rather than quantum computing as a required runtime capability.",
+  "source_supports_edge": "no",
+  "source_url": "https://interoperable-europe.ec.europa.eu/collection/rolling-plan-ict-standardisation/web-40-and-virtual-worlds-rp-2024",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The European Commission Rolling Plan says virtual worlds require coordinated integration of low-latency networks, high-performance computing/storage, VR/AR, data and AI, blockchain/NFT, cybersecurity, HCI, media, and interoperability building blocks.",
+    "source_claim_summary": "The source-backed virtual-world infrastructure stack uses networks, cloud-edge or high-performance computing, XR, data, and AI, not quantum computing as a direct prerequisite.",
+    "source_support_rationale": "Quantum technologies may appear as an adjacent standards topic, but the source does not make quantum computing an enabling or required technology for immersive virtual worlds."
+  },
+  "ontology_before": "The graph implied quantum computing was a prerequisite for broad deep-immersion metaverse systems.",
+  "ontology_after": "The graph removes the unsupported quantum-computing dependency and keeps concrete digital-platform and interface dependencies.",
+  "invariant_preserved_or_changed": "Changed: direct metaverse_deep_immersion -> quantum_computing edge removed and locked absent in 2026-06-24-metaverse-deep-immersion-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped to a quantum-simulated virtual world architecture.",
+    "A source shows quantum computing is required to run or network immersive virtual worlds rather than an adjacent research area.",
+    "A downstream node represents quantum-generated simulation environments and should point separately to quantum_computing."
+  ],
+  "short_reason": "Virtual-world sources support networked XR and cloud-edge/HPC infrastructure, not quantum computing as a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/metaverse_deep_immersion.before.json /tmp/metaverse_deep_immersion.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

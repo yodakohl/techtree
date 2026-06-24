@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-metaverse-bci-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "metaverse_deep_immersion",
+    "prerequisite": "brain_computer_interface"
+  },
+  "old_claim": {
+    "type": "speculative",
+    "confidence": 0.35,
+    "evidence_level": "speculative",
+    "note": "Brain-Computer Interface (BCI) is a plausible dependency for a forecast technology and should be treated as speculative."
+  },
+  "new_claim_absent": "No direct Metaverse Deep Immersion to BCI edge remains because policy and standards sources describe virtual worlds through XR, HCI, network, AI, haptics, and platform interoperability rather than requiring brain-computer interfaces.",
+  "source_supports_edge": "no",
+  "source_url": "https://interoperable-europe.ec.europa.eu/collection/rolling-plan-ict-standardisation/web-40-and-virtual-worlds-rp-2024",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The European Commission Rolling Plan defines virtual worlds through 3D/XR, network, computing, AI, HCI, haptics, media, and interoperability building blocks, while its human-interface section focuses on screens, sound, keyboards, voice, motion, spatial computing, and VR/AR devices.",
+    "source_claim_summary": "The source-backed virtual-world stack is based on XR and human-computer interfaces, not BCI as a required input channel.",
+    "source_support_rationale": "BCI may become an optional access modality or a separate neural-interface forecast, but keeping it as a direct prerequisite overstates the broad metaverse node and leaks the full-sensory BCI variant into all dependents."
+  },
+  "ontology_before": "The graph made broad deep-immersion metaverse systems depend on brain-computer interfaces.",
+  "ontology_after": "The graph keeps metaverse deep immersion tied to XR, AI, internet platforms, haptics, and human-computer interfaces while leaving BCI as a separate optional or downstream modality.",
+  "invariant_preserved_or_changed": "Changed: direct metaverse_deep_immersion -> brain_computer_interface edge removed and locked absent in 2026-06-24-metaverse-deep-immersion-scope.json.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to full-sensory neural metaverse access rather than immersive virtual worlds broadly.",
+    "A source shows brain-computer interfaces are required for virtual worlds rather than optional advanced interfaces.",
+    "A downstream node represents neural-metaverse interaction and should point separately to both metaverse_deep_immersion and brain_computer_interface."
+  ],
+  "short_reason": "BCI is optional neural-interface scope, not a source-backed prerequisite for virtual-world metaverse systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/metaverse_deep_immersion.before.json /tmp/metaverse_deep_immersion.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
