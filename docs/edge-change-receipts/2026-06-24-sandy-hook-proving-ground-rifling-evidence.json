@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-24-sandy-hook-proving-ground-rifling-evidence",
+  "decision_date": "2026-06-24",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "industrial_ballistics_laboratories",
+    "prerequisite": "rifling_firearms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Rifling in Firearms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Rifled cannon and other post-Civil-War weapon innovations created the need for a dedicated proving ground where new ordnance could be tested."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nps.gov/gate/learn/historyculture/shpg.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "NPS says rifled cannon fired pointed-nosed projectiles farther and faster after the Civil War, and the Army needed a place to test its own new weapons.",
+    "source_claim_summary": "The source identifies rifled-cannon innovation as a direct reason for establishing the Sandy Hook proving ground.",
+    "source_support_rationale": "This supports rifling_firearms as an enabling edge because the proving ground's source-backed purpose was testing new rifled ordnance and related weapons."
+  },
+  "invariant_preserved_or_changed": "Preserved and strengthened: industrial_ballistics_laboratories keeps rifling_firearms as a direct dependency, now source-backed.",
+  "would_reject_if": [
+    "The node were rescoped away from ordnance proving grounds to chemical propellant laboratories only.",
+    "A stronger source showed Sandy Hook was not created to test rifled or post-Civil-War ordnance.",
+    "The rifling_firearms node were narrowed away from rifled artillery and firearm barrel technology."
+  ],
+  "short_reason": "Rifled ordnance was a source-backed driver for the proving ground.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_ballistics_laboratories.before.json /tmp/industrial_ballistics_laboratories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

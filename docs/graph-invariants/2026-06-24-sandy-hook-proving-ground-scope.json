@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-24-sandy-hook-proving-ground-scope",
+  "description": "Lock the 2026-06-24 rescope of industrial_ballistics_laboratories to the 1874 Sandy Hook ordnance proving ground and its weapons-testing scope.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "industrial_ballistics_laboratories",
+      "operator": "eq",
+      "value": 1874,
+      "reason": "The node is anchored to the U.S. National Park Service's 1874 Sandy Hook proving-ground date, not the previous 1884 smokeless-powder placeholder."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_ballistics_laboratories",
+      "prerequisite": "smokeless_powder",
+      "reason": "The proving-ground scope predates smokeless powder, so smokeless powder is a later test subject rather than a direct prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_ballistics_laboratories",
+      "prerequisite": "rifling_firearms",
+      "expected": "enabling",
+      "reason": "Rifled ordnance was a source-backed reason for the proving ground's establishment."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_ballistics_laboratories",
+      "prerequisite": "industrial_laboratories_standard_testing",
+      "expected": "enabling",
+      "reason": "The source-backed node is a dedicated systematic weapons-testing facility."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-24-sandy-hook-proving-ground-smokeless-powder-removal",
+  "decision_date": "2026-06-24",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_ballistics_laboratories",
+    "prerequisite": "smokeless_powder"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Smokeless Powder provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is now anchored to the Sandy Hook proving ground established in 1874, a decade before the source-checked 1884 smokeless-powder node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/gate/learn/historyculture/shpg.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS states that the Sandy Hook proving ground was established in 1874 and tested guns, gunpowder, shells, fuses, and primers.",
+    "source_claim_summary": "The source anchors the proving ground before smokeless powder and describes general ordnance testing rather than smokeless-powder invention.",
+    "source_support_rationale": "Because the source-backed proving-ground scope predates smokeless powder, smokeless powder can be a later test subject but not a direct prerequisite for the node."
+  },
+  "ontology_before": "Industrial Ballistics Laboratories depended directly on Smokeless Powder, forcing the laboratory scope to 1884 or later.",
+  "ontology_after": "Sandy Hook Ordnance Proving Ground is anchored to 1874 weapons and ordnance testing; smokeless powder is excluded as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: industrial_ballistics_laboratories no longer directly depends on smokeless_powder.",
+  "would_reject_if": [
+    "The node were rescoped back to smokeless-powder-specific production or acceptance laboratories.",
+    "A source showed Sandy Hook's establishment depended on smokeless powder rather than broader ordnance testing.",
+    "The smokeless_powder node were redated before 1874 with strong evidence."
+  ],
+  "short_reason": "Sandy Hook's 1874 proving-ground scope predates smokeless powder.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_ballistics_laboratories.before.json /tmp/industrial_ballistics_laboratories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
