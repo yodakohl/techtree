@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-state-armories-record-keeping-enabling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "state_armories",
+    "prerequisite": "record_keeping"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "primary_source",
+    "note": "Qin weapon marks and inscriptions supported tracking, quality control, production accountability, and inventory-like accounting for weapon components."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/s40494-018-0239-5",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The paper says Qin marking practices let objects and people be tracked, quality checked, and numbers marshalled, and discusses marks on bronze weapons and crossbow triggers.",
+    "source_claim_summary": "The source identifies marking and accountancy as active practices in Qin weapon production and logistics.",
+    "source_support_rationale": "Record keeping is not merely a distant historical ancestor here; marked weapons and components directly enabled quality control, tracking, and accountability in the scoped armory system."
+  },
+  "ontology_before": "State Armories treated Record Keeping as a generic ancient predecessor while relying on a cuneiform-writing source that did not support the armory claim.",
+  "ontology_after": "State Armories treats Record Keeping as a direct enabling practice for Qin weapon marking, quality control, and logistics.",
+  "invariant_preserved_or_changed": "Changed: state_armories->record_keeping is now an enabling edge with direct source support.",
+  "would_reject_if": [
+    "The node were rescoped to an unmarked household weapon cache rather than state-controlled weapon production and issue.",
+    "A stronger source showed Qin weapon marks were unrelated to tracking, accountancy, quality control, or production accountability.",
+    "A more precise weapon-inscription-accounting node replaced record_keeping as the direct prerequisite."
+  ],
+  "short_reason": "Qin weapon markings directly supported production tracking and quality control.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/state_armories.before.json /tmp/state_armories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -11338,68 +11338,109 @@
     "id": "state_armories",
     "name": "State Armories",
     "era": "Classical",
-    "description": "Centralized weapon and armor stores for producing, repairing, inspecting, and issuing military equipment at state scale.",
+    "description": "State-controlled workshops and arsenals that manufactured, marked, stored, transported, and issued standardized weapons for organized armies.",
     "prerequisites": [
       "organized_military_formations",
-      "chain_mail_armor",
+      "bronze_working",
       "record_keeping"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -246,
+    "datePrecision": "exact",
+    "region": "Qin China / First Emperor's mausoleum and Terracotta Army bronze-weapon logistics",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "organized_military_formations",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Organized Military Formations provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "chain_mail_armor",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Chain Mail Armor provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "record_keeping",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "The source-pinned Qin armory scope supplied weaponry for a large, organized battle formation of warriors, chariots, and crossbow units.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "Forty Thousand Arms for a Single Emperor",
+            "url": "https://discovery.ucl.ac.uk/id/eprint/1361957/1/Rehren_Forty_thousand_arms_for_a_single_emperor.pdf",
+            "publisher": "Journal of Archaeological Method and Theory / UCL Discovery",
+            "year": 2014,
+            "source_type": "primary_paper",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The paper describes Pit 1 as containing over a thousand ceramic warriors in battle formation, with chariots, and studies the logistics of technology, standardization, and labor organization behind the Terracotta Army."
+          }
+        ]
+      },
+      {
+        "prerequisite": "bronze_working",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "The Qin evidence is an arsenal-scale bronze-weapon assemblage, especially bronze arrowheads and crossbow parts, rather than chain-mail armor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Forty Thousand Arms for a Single Emperor",
+            "url": "https://discovery.ucl.ac.uk/id/eprint/1361957/1/Rehren_Forty_thousand_arms_for_a_single_emperor.pdf",
+            "publisher": "Journal of Archaeological Method and Theory / UCL Discovery",
+            "year": 2014,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The paper focuses on 40,000 bronze arrowheads from the Terracotta Army and discusses bronze weapon manufacture, batches, standardization, and production organization."
+          }
+        ]
+      },
+      {
+        "prerequisite": "record_keeping",
+        "type": "enabling",
+        "confidence": 0.76,
+        "evidence_level": "primary_source",
+        "note": "Qin weapon marks and inscriptions supported tracking, quality control, production accountability, and inventory-like accounting for weapon components.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ink marks, bronze crossbows and their implications for the Qin Terracotta Army",
+            "url": "https://www.nature.com/articles/s40494-018-0239-5",
+            "publisher": "Heritage Science",
+            "year": 2018,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The paper says Qin marking practices let objects and people be tracked, quality checked, and numbers marshalled, and discusses marks on bronze weapons and crossbow triggers."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "How to write cuneiform",
-        "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-        "publisher": "British Museum",
-        "year": 2020,
-        "source_type": "museum",
+        "title": "Forty Thousand Arms for a Single Emperor",
+        "url": "https://discovery.ucl.ac.uk/id/eprint/1361957/1/Rehren_Forty_thousand_arms_for_a_single_emperor.pdf",
+        "publisher": "Journal of Archaeological Method and Theory / UCL Discovery",
+        "year": 2014,
+        "source_type": "primary_paper",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "The paper studies 40,000 bronze arrowheads from the Terracotta Army to investigate specialization, standardization, and production organization behind a large-scale technological enterprise, arguing for a cellular production model and efficient logistical organization."
+      },
+      {
+        "title": "Ink marks, bronze crossbows and their implications for the Qin Terracotta Army",
+        "url": "https://www.nature.com/articles/s40494-018-0239-5",
+        "publisher": "Heritage Science",
+        "year": 2018,
+        "source_type": "primary_paper",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "The paper describes Qin bronze-weapon inscriptions and marks as evidence for craft organisation, logistics, imperial workshop organisation, and product quality control."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "scopeNote": "Anchored to Qin imperial bronze-weapon workshops and arsenal logistics attested by the Terracotta Army assemblage. It excludes generic weapon caches, household arms storage, later medieval/early modern arsenals, and chain-mail production as a prerequisite.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -246 BCE date pins the beginning of the First Emperor mausoleum project; the source-backed bronze-weapon workshop and arsenal logistics span the Qin reign and intensified after imperial unification in 221 BCE."
   },
   {
     "id": "early_veterinary_medicine",
@@ -13160,7 +13201,6 @@
     "description": "Standard visual signals using flags, banners, smoke, lamps, and formations to coordinate armies and fleets.",
     "prerequisites": [
       "organized_military_formations",
-      "state_armories",
       "roads"
     ],
     "firstKnownDate": -500,
@@ -13174,14 +13214,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Organized Military Formations provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "state_armories",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "State Armories provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       },
       {

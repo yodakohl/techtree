@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-25-state-armories-qin-scope",
+  "description": "Lock the 2026-06-25 source-check of state_armories to Qin imperial bronze-weapon workshop and arsenal logistics.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "state_armories",
+      "operator": "eq",
+      "value": -246,
+      "reason": "The corrected node is anchored to the First Emperor mausoleum project and Qin weapon-production logistics, not the old -500 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "state_armories",
+      "prerequisite": "organized_military_formations",
+      "expected": "enabling",
+      "reason": "The state armory scope supplies organized military formations rather than generic domestic weapon storage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "state_armories",
+      "prerequisite": "bronze_working",
+      "expected": "enabling",
+      "reason": "The source-pinned evidence is a Qin bronze-weapon assemblage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "state_armories",
+      "prerequisite": "record_keeping",
+      "expected": "enabling",
+      "reason": "Qin weapon markings and inscriptions support tracking, quality control, and production accountability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "state_armories",
+      "prerequisite": "chain_mail_armor",
+      "reason": "Chain-mail armor is excluded from the corrected Qin bronze-weapon workshop and arsenal scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_signal_flags",
+      "prerequisite": "state_armories",
+      "reason": "The -500 military signal flags node must not depend on the corrected -246 Qin armory scope."
+    }
+  ]
+}

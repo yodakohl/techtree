@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-state-armories-bronze-working-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "state_armories",
+    "prerequisite": "bronze_working"
+  },
+  "replaced_edge": {
+    "dependent": "state_armories",
+    "prerequisite": "chain_mail_armor"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Chain Mail Armor provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "primary_source",
+    "note": "The Qin evidence is an arsenal-scale bronze-weapon assemblage, especially bronze arrowheads and crossbow parts, rather than chain-mail armor."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://discovery.ucl.ac.uk/id/eprint/1361957/1/Rehren_Forty_thousand_arms_for_a_single_emperor.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The paper focuses on 40,000 bronze arrowheads from the Terracotta Army and discusses bronze weapon manufacture, batches, standardization, and production organization.",
+    "source_claim_summary": "The source-pinned armory evidence is a large Qin bronze-weapon production and logistics assemblage.",
+    "source_support_rationale": "Bronze working is the material capability visible in the source, while chain-mail armor is a separate armor technology not needed for Qin state weapon workshops."
+  },
+  "ontology_before": "State Armories depended on Chain Mail Armor, laundering a specific flexible-armor technology into a broader state arsenal and weapon-production node.",
+  "ontology_after": "State Armories is anchored to Qin bronze weapon workshops and arsenal logistics, with Bronze Working as the source-backed material capability.",
+  "invariant_preserved_or_changed": "Changed: state_armories now depends on bronze_working and no longer directly depends on chain_mail_armor.",
+  "would_reject_if": [
+    "The node were later rescoped specifically to chain-mail production or storage.",
+    "A stronger source showed the earliest state-armory scope in this graph required chain-mail armor rather than bronze weapon production.",
+    "The bronze_working node were narrowed away from bronze weapons and fittings."
+  ],
+  "short_reason": "The source supports Qin bronze weapon production, not chain-mail armor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/state_armories.before.json /tmp/state_armories.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

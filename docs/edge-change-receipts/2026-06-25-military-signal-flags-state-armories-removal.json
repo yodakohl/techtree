@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-military-signal-flags-state-armories-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "military_signal_flags",
+    "prerequisite": "state_armories"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "State Armories provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because military signal flags are visual coordination practices, and the corrected state_armories node is a later Qin bronze-weapon workshop and arsenal-logistics scope.",
+  "source_supports_edge": "no",
+  "source_url": "https://discovery.ucl.ac.uk/id/eprint/1361957/1/Rehren_Forty_thousand_arms_for_a_single_emperor.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Qin armory source anchors state_armories to the First Emperor mausoleum project beginning in 246 BCE and weapon-production logistics intensified after imperial unification in 221 BCE.",
+    "source_claim_summary": "The source supports a later Qin bronze-weapon production and logistics scope, not a prerequisite for earlier generic military signal flags.",
+    "source_support_rationale": "A -500 visual-signaling node cannot depend on a -246 Qin armory scope; organized formations and roads preserve the relevant coordination context."
+  },
+  "ontology_before": "Military Signal Flags depended on State Armories, creating an unsourced and now chronologically invalid dependency after state_armories was source-checked to Qin evidence.",
+  "ontology_after": "Military Signal Flags keeps formation and road context while state_armories remains available for later depot-record and arsenal-logistics paths.",
+  "invariant_preserved_or_changed": "Changed: military_signal_flags no longer directly depends on state_armories.",
+  "would_reject_if": [
+    "The military_signal_flags node were redated and rescoped specifically to Qin arsenal-issued military standards or flags.",
+    "A source showed early military signal flags required state-controlled weapon arsenals rather than command formations and movement infrastructure.",
+    "The state_armories node were split and a pre-500 BCE armory node with direct flag-equipment evidence were added."
+  ],
+  "short_reason": "The corrected armory chronology is later than the signal-flags node and does not support a direct dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/military_signal_flags.before.json /tmp/military_signal_flags.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
