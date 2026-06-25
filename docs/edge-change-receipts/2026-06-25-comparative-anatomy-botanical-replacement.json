@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-25-comparative-anatomy-botanical-replacement",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "comparative_anatomy_collections",
+    "prerequisite": "human_anatomy_physiology"
+  },
+  "replaced_edge": {
+    "dependent": "comparative_anatomy_collections",
+    "prerequisite": "botanical_gardens_herbaria"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Botanical Gardens & Herbaria provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Comparative anatomy used knowledge of human anatomy and physiology as the baseline for comparing animal structures and interpreting animal models."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://link.springer.com/rwe/10.1007/978-3-319-20791-9_270-1",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Springer definition/introduction: comparative anatomy compares human and animal body structures across species, and early modern anatomists used animal comparison to learn more about human anatomy and physiology.",
+    "source_claim_summary": "The source defines early modern comparative anatomy around human-animal and animal-animal comparison, with human anatomy and physiology as an explicit interpretive target.",
+    "source_support_rationale": "This supports replacing the plant-collection analogy with the human-anatomy prerequisite because the corrected node is about cross-species anatomical comparison rather than botanical collection infrastructure."
+  },
+  "ontology_before": "Comparative Anatomy Collections depended on Botanical Gardens & Herbaria, implying plant collection and herbarium infrastructure directly enabled early comparative anatomy.",
+  "ontology_after": "Comparative Anatomy Collections now depend on human anatomy/physiology and scientific illustration printing, keeping the node scoped to cross-species anatomical observation and printed comparison.",
+  "invariant_preserved_or_changed": "Changed: comparative_anatomy_collections no longer directly depends on botanical_gardens_herbaria and now preserves a direct human-anatomy prerequisite.",
+  "would_reject_if": [
+    "The node is later rescoped to general natural-history cabinet collecting where botanical and zoological specimen systems are the central mechanism.",
+    "A stronger source shows botanical gardens or herbaria directly enabled Belon's comparative anatomy rather than serving only as parallel collection institutions."
+  ],
+  "short_reason": "Human-animal anatomical comparison needs human anatomy as its baseline; botanical gardens are not the direct mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/comparative_anatomy_collections.before.json /tmp/comparative_anatomy_collections.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

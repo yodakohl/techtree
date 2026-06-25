@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-comparative-anatomy-scope",
+  "description": "Lock Comparative Anatomy Collections to source-backed human-animal anatomical comparison rather than botanical collection lineage.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "comparative_anatomy_collections",
+      "operator": "eq",
+      "value": 1555,
+      "reason": "The corrected node is anchored to Belon's 1555 printed comparison of human and bird skeletons."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "comparative_anatomy_collections",
+      "prerequisite": "scientific_illustration_printing",
+      "expected": "enabling",
+      "reason": "Belon's source-backed comparison used printed scientific illustrations with lettered anatomical structures."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "comparative_anatomy_collections",
+      "prerequisite": "human_anatomy_physiology",
+      "expected": "enabling",
+      "reason": "Human anatomy and physiology provide the baseline for comparing animal structures and animal models."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "comparative_anatomy_collections",
+      "prerequisite": "botanical_gardens_herbaria",
+      "reason": "Botanical garden and herbarium infrastructure is outside the corrected human-animal comparative anatomy scope."
+    }
+  ]
+}

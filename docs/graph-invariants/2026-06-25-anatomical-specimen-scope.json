@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-25-anatomical-specimen-scope",
+  "description": "Lock Anatomical Specimen Collections to source-backed preserved teaching collections rather than an unsourced 1545 placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "anatomical_specimen_collections",
+      "operator": "eq",
+      "value": 1600,
+      "reason": "The corrected node is anchored to seventeenth-century wet anatomical specimens while documenting earlier dry skeletal collecting as context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "anatomical_specimen_collections",
+      "prerequisite": "comparative_anatomy_collections",
+      "expected": "enabling",
+      "reason": "Comparative anatomy supplies the cross-species observation framework for human and animal teaching specimens."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "anatomical_specimen_collections",
+      "prerequisite": "printed_standardized_textbooks",
+      "expected": "common_dependency",
+      "reason": "Printed anatomy standardized the teaching context but was not a direct preservation requirement."
+    }
+  ]
+}

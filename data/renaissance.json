@@ -9287,31 +9287,115 @@
     "id": "comparative_anatomy_collections",
     "name": "Comparative Anatomy Collections",
     "era": "Renaissance",
-    "description": "Collections of human, animal, and specimen observations used to compare organs, skeletons, development, disease, and function.",
+    "description": "Printed and manuscript collections of human and animal anatomical observations used to compare skeletons, organs, development, disease, and function across species.",
     "prerequisites": [
       "scientific_illustration_printing",
-      "botanical_gardens_herbaria"
+      "human_anatomy_physiology"
     ],
-    "firstKnownDate": 1545,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1555,
+    "datePrecision": "exact",
+    "region": "France and European early modern anatomy/natural history",
+    "scopeNote": "Date is anchored to Pierre Belon's 1555 printed comparison of human and bird skeletons; this node covers comparative anatomical observation collections and illustrations, not later museum-scale anatomical specimen repositories.",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "scientific_illustration_printing",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scientific Illustration Printing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.8,
+        "evidence_level": "primary_source",
+        "note": "Belon's comparative anatomy depended on printed scientific illustrations that placed human and bird skeletons side by side with lettered bones for comparison.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Portraict de l'amas des os humains, mis en comparaison de l'anatomie de ceux des oyseaux",
+            "url": "https://www.loc.gov/pictures/item/92516863/",
+            "publisher": "Library of Congress",
+            "year": 1555,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Catalog summary: human skeleton with bones lettered for comparison with a bird skeleton; format is an engraving/scientific illustration published in Belon's 1555 L'histoire de la nature des oyseaux."
+          },
+          {
+            "title": "L'histoire de la natvre des oyseavx",
+            "url": "https://www.biodiversitylibrary.org/bibliography/78886",
+            "publisher": "Biodiversity Heritage Library / Getty Research Institute",
+            "year": 1555,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Bibliographic notes: the 1555 book's woodcuts include two comparing human and bird skeletons plus 158 bird images."
+          }
+        ]
       },
       {
-        "prerequisite": "botanical_gardens_herbaria",
+        "prerequisite": "human_anatomy_physiology",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Botanical Gardens & Herbaria provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Comparative anatomy used knowledge of human anatomy and physiology as the baseline for comparing animal structures and interpreting animal models.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Comparative Anatomy in Early Modern Times",
+            "url": "https://link.springer.com/rwe/10.1007/978-3-319-20791-9_270-1",
+            "publisher": "Springer",
+            "year": 2020,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Definition/introduction: comparative anatomy compares human and animal body structures across species and early modern anatomists used animal comparison to learn more about human anatomy and physiology."
+          },
+          {
+            "title": "Comparative Anatomy",
+            "url": "https://www.britannica.com/science/comparative-anatomy",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica dates modern comparative anatomy to Belon's 1555 demonstration that human and bird skeletons share similarly arranged elements."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Comparative Anatomy",
+        "url": "https://www.britannica.com/science/comparative-anatomy",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica states that modern comparative anatomy dates from Pierre Belon, who in 1555 showed that human and bird skeletons have similar elements arranged in the same way."
+      },
+      {
+        "title": "Comparative Anatomy in Early Modern Times",
+        "url": "https://link.springer.com/rwe/10.1007/978-3-319-20791-9_270-1",
+        "publisher": "Springer",
+        "year": 2020,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Definition/introduction: comparative anatomy uses dissection and comparison of human and animal body structures across species; early modern Europe included human-animal and animal-animal comparisons."
+      },
+      {
+        "title": "L'histoire de la natvre des oyseavx",
+        "url": "https://www.biodiversitylibrary.org/bibliography/78886",
+        "publisher": "Biodiversity Heritage Library / Getty Research Institute",
+        "year": 1555,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Bibliographic record: Belon's book was published in Paris in 1555 and contains woodcuts comparing human and bird skeletons."
       }
     ]
   },
@@ -10898,33 +10982,86 @@
     "id": "anatomical_specimen_collections",
     "name": "Anatomical Specimen Collections",
     "era": "Renaissance",
-    "description": "Preserved organs, bones, casts, wax models, and comparative specimens for medical teaching and research.",
+    "description": "Preserved anatomical preparations, bones, casts, wet specimens, wax models, and comparative specimens for medical teaching and research.",
     "prerequisites": [
       "comparative_anatomy_collections",
       "printed_standardized_textbooks"
     ],
-    "firstKnownDate": 1545,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1600,
+    "datePrecision": "century",
+    "region": "European anatomical teaching collections",
+    "scopeNote": "Date is anchored to seventeenth-century fluid-preserved anatomical specimens; Renaissance dry skeletal/body-part collecting existed earlier, and eighteenth-century wax model collections are included as later extensions rather than the first anchor.",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "comparative_anatomy_collections",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Comparative Anatomy Collections provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Comparative anatomy supplied the human-animal observational framework for assembling and interpreting teaching specimens across species.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Comparative Anatomy in Early Modern Times",
+            "url": "https://link.springer.com/rwe/10.1007/978-3-319-20791-9_270-1",
+            "publisher": "Springer",
+            "year": 2020,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Definition/introduction: comparative anatomy compares human and animal structures across species and early modern anatomists used animal models to learn more about human anatomy and physiology."
+          }
+        ]
       },
       {
         "prerequisite": "printed_standardized_textbooks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printed Standardized Textbooks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "common_dependency",
+        "confidence": 0.56,
+        "evidence_level": "review",
+        "note": "Printed anatomical books standardized the teaching context and visual vocabulary around dissection, but specimen preservation itself did not require printed textbooks.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Anatomy: art and science",
+            "url": "https://www.sciencemuseum.org.uk/objects-and-stories/medicine/anatomy-art-and-science",
+            "publisher": "Science Museum",
+            "year": 2019,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Vesalius and Renaissance anatomy section: Vesalius's 1543 De humani corporis fabrica relied on direct observation of human dissection, used artists and engravers, and helped standardize printed portrayals of the human body."
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Techniques",
+        "url": "https://www.museumvrolik.nl/en/about-the-museum/techniques/",
+        "publisher": "Museum Vrolik",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Preserving preparations section: non-religious collection of body parts is placed from the Renaissance; initially mostly skeletal remains, while wet specimens preserved in fluids are dated from the seventeenth century onward."
+      },
+      {
+        "title": "Anatomy: art and science",
+        "url": "https://www.sciencemuseum.org.uk/objects-and-stories/medicine/anatomy-art-and-science",
+        "publisher": "Science Museum",
+        "year": 2019,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Public dissection and Vesalius sections: without preservation cadavers decayed within days, while sixteenth-century printed anatomy and dissection practice supplied the teaching context for later anatomical collections."
+      }
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1600 century-level anchor follows Museum Vrolik's statement that wet specimens were preserved in fluids from the seventeenth century onward; it is not a claim that every included specimen format began exactly in 1600."
   },
   {
     "id": "printed_music_publishing",
