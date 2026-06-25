@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-hunting-gathering-foraging-evidence",
+  "decision_date": "2026-06-25",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "hunting_gathering_basic",
+    "prerequisite": "foraging_and_botany"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Foraging & Botany provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "Plant gathering and practical ecological knowledge are core parts of the forager subsistence pattern."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://hraf.yale.edu/ehc/summaries/hunter-gatherers",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Definition section says foraged wild resources include gathering plants, collecting shellfish and small fauna, hunting, scavenging, and fishing; it also reports gathering as a major activity in sampled forager societies.",
+    "source_claim_summary": "The source defines hunter-gatherers through foraging wild resources, explicitly including gathering plants and other food collection methods.",
+    "source_support_rationale": "The foraging_and_botany node covers identifying and gathering wild plants, so it is a direct component of the broad forager subsistence pattern rather than an unrelated background skill."
+  },
+  "invariant_preserved_or_changed": "Changed: the foraging_and_botany edge remains enabling but now has source-backed review evidence and a more specific note.",
+  "would_reject_if": [
+    "The hunting_gathering_basic node were narrowed to a hunting-only technique with no plant gathering component.",
+    "The foraging_and_botany node were narrowed away from wild-plant gathering and ecological identification.",
+    "A stronger source showed plant gathering was not part of the scoped forager subsistence pattern."
+  ],
+  "short_reason": "Forager subsistence includes gathered wild plant foods.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/hunting_gathering_basic.before.json /tmp/hunting_gathering_basic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-25-hunting-gathering-basic-scope",
+  "description": "Lock Basic Hunting & Gathering to broad Homo sapiens forager subsistence rather than a specific persistence-hunting technique or an unsourced 10,000 BCE placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "hunting_gathering_basic",
+      "operator": "eq",
+      "value": -250000,
+      "reason": "The node uses a conservative non-placeholder by-date tied to Homo sapiens foraging evidence rather than the Ancient era default."
+    },
+    {
+      "type": "first_known_date",
+      "node": "foraging_and_botany",
+      "operator": "eq",
+      "value": -250000,
+      "reason": "The foraging node is date-aligned with sourced early Homo sapiens gathering and hunting context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hunting_gathering_basic",
+      "prerequisite": "foraging_and_botany",
+      "expected": "enabling",
+      "reason": "Plant gathering and practical ecological knowledge are source-backed components of forager subsistence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "hunting_gathering_basic",
+      "prerequisite": "stone_tool_making",
+      "expected": "enabling",
+      "reason": "Stone tools are part of the simple food-procurement toolkit for this scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hunting_gathering_basic",
+      "prerequisite": "persistence_hunting",
+      "reason": "Persistence hunting is a specific hunting technique, not a direct prerequisite for broad forager subsistence."
+    }
+  ]
+}

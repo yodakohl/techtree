@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-hunting-gathering-stone-tools-enabling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "hunting_gathering_basic",
+    "prerequisite": "stone_tool_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Stone Tool Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Stone tools are part of the simple toolkit used by early humans while gathering, hunting, scavenging, and processing food."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "How They Survived section says prehistoric Homo sapiens made and used stone tools and that all humans gathered plants and hunted or scavenged animals for food.",
+    "source_claim_summary": "The source connects early human food procurement with stone-tool use by prehistoric Homo sapiens.",
+    "source_support_rationale": "Stone_tool_making is not merely a distant predecessor here; the scoped node explicitly includes simple tool use for food procurement."
+  },
+  "ontology_before": "Basic Hunting & Gathering treated Stone Tool Making as only an earlier historical predecessor while also describing a simple toolkit.",
+  "ontology_after": "Basic Hunting & Gathering treats Stone Tool Making as an enabling toolkit component for gathering, hunting, scavenging, and food processing.",
+  "invariant_preserved_or_changed": "Changed: stone_tool_making->hunting_gathering_basic is now an enabling edge with direct official-agency evidence.",
+  "would_reject_if": [
+    "The hunting_gathering_basic node were narrowed to tool-free food collection.",
+    "A stronger source showed the scoped Homo sapiens forager subsistence did not use stone tools.",
+    "The stone_tool_making node were narrowed to a later specialized tool industry unrelated to simple food procurement."
+  ],
+  "short_reason": "Stone tools are an active component of the scoped simple forager toolkit.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/hunting_gathering_basic.before.json /tmp/hunting_gathering_basic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

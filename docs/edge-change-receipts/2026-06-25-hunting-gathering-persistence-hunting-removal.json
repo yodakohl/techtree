@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-hunting-gathering-persistence-hunting-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "hunting_gathering_basic",
+    "prerequisite": "persistence_hunting"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Persistence Hunting provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from persistence_hunting to hunting_gathering_basic because persistence hunting is a specific hunting technique, not a prerequisite for broad forager subsistence.",
+  "source_supports_edge": "no",
+  "source_url": "https://hraf.yale.edu/ehc/summaries/hunter-gatherers",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Definition section describes foraged wild resources as obtained by gathering plants, collecting shellfish or other small fauna, hunting, scavenging, and fishing, and notes that hunting was least important in one cross-cultural sample.",
+    "source_claim_summary": "The source frames hunter-gatherer subsistence as a broad mix of wild-resource procurement methods rather than a single hunting technique.",
+    "source_support_rationale": "Persistence_hunting can remain a specific hunting practice elsewhere, but requiring it would over-narrow a broad node that also covers gathering, scavenging, fishing, and varied hunting methods."
+  },
+  "ontology_before": "Basic Hunting & Gathering depended on Persistence Hunting, implying a specialized endurance-hunting technique was upstream of broad forager subsistence.",
+  "ontology_after": "Basic Hunting & Gathering is scoped to broad forager subsistence and no longer depends on a specific persistence-hunting method.",
+  "invariant_preserved_or_changed": "Changed: persistence_hunting is absent as a direct prerequisite of hunting_gathering_basic.",
+  "would_reject_if": [
+    "The hunting_gathering_basic node were narrowed specifically to endurance-running game pursuit.",
+    "A source showed all or most broad forager societies required persistence hunting as a prerequisite.",
+    "The persistence_hunting node were expanded to represent all hunting methods and wild-resource procurement."
+  ],
+  "short_reason": "Persistence hunting was too specific for the broad hunter-gatherer scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/hunting_gathering_basic.before.json /tmp/hunting_gathering_basic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
