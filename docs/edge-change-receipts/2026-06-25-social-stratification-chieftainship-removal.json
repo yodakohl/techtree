@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-social-stratification-chieftainship-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "social_stratification",
+    "prerequisite": "chieftainship"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Chieftainship provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains: chieftainship is a later, formal centralized-leadership pattern, while broad social stratification can be represented through agriculture and property concepts without forcing a chiefdom prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://openstax.org/books/introduction-anthropology/pages/8-3-centralized-societies-chiefdoms-and-states",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Centralized Societies section describes chiefdoms developing from agricultural intensification, surplus, inherited leadership, and concentrated power, and separately discusses social stratification as associated with centralization.",
+    "source_claim_summary": "OpenStax presents chiefdoms as centralized societies with formal inherited chiefs and describes stratification as a broader companion process of centralization.",
+    "source_support_rationale": "The source supports association between chiefdoms and stratification, not a prerequisite relation. Once chieftainship is dated to early chiefdoms around 7,000 years ago, keeping it as a prerequisite would misorder earlier agricultural stratification."
+  },
+  "ontology_before": "Social Stratification depended directly on Chieftainship, implying the formal chiefdom office was needed before early hierarchy could emerge.",
+  "ontology_after": "Social Stratification remains anchored to agriculture and property concepts; chieftainship is treated as one later form of centralized hierarchy rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: chieftainship->social_stratification is removed. Preserved: agriculture and property_concepts remain the broad economic hierarchy substrate.",
+  "would_reject_if": [
+    "The social_stratification node were narrowed to social hierarchy specifically inside chiefdoms rather than broad early agricultural stratification.",
+    "A source showed formal hereditary chieftainship preceded and caused the earliest source-backed agricultural social stratification.",
+    "The chieftainship node were broadened back into any informal leadership or rank distinction."
+  ],
+  "short_reason": "Chiefdom leadership is associated with stratification but is too narrow and too late as a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/social_stratification.before.json /tmp/social_stratification.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

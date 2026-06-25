@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-chieftainship-scope",
+  "description": "Lock Chieftainship to formal hereditary chiefdom leadership and keep broad Social Stratification independent from the later chiefdom-specific office.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "chieftainship",
+      "operator": "eq",
+      "value": -5000,
+      "reason": "The corrected chronology uses the early-chiefdom literature's broad 7,000-years-ago lower bound rather than the previous unsupported -9000 date."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "social_stratification",
+      "prerequisite": "chieftainship",
+      "reason": "Broad social stratification is not allowed to depend on the later, narrower hereditary chiefdom office."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chieftainship",
+      "prerequisite": "tribalism",
+      "expected": "enabling",
+      "reason": "Kin and lineage organization enables inherited chiefly authority without making every band or lineage order a chiefdom."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chieftainship",
+      "prerequisite": "property_concepts",
+      "expected": "enabling",
+      "reason": "Chiefly authority depends on controlling land, surplus, trade, and prestige goods, but property concepts are enabling rather than sufficient on their own."
+    }
+  ]
+}
