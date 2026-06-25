@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-patent-specification-drawings-scope",
+  "description": "Lock patent_specification_drawings to formal patent specification drawings, drafts, and model references anchored to the U.S. Patent Act of 1790, not generic Renaissance invention illustrations or map engraving.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "patent_specification_drawings",
+      "operator": "eq",
+      "value": 1790,
+      "reason": "The source-backed scope is the 1790 U.S. Patent Act requirement for specifications accompanied by drafts or models."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "patent_specification_drawings",
+      "prerequisite": "patent_systems",
+      "expected": "required",
+      "reason": "The scoped artifact exists inside a statutory patent filing process, so the patent system is required rather than merely adjacent."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "patent_specification_drawings",
+      "prerequisite": "technical_drawing_standards",
+      "expected": "enabling",
+      "reason": "Specification drawings are referenced technical figures, so drawing conventions enable the disclosure format."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "patent_specification_drawings",
+      "prerequisite": "precision_map_engraving",
+      "reason": "Map engraving is a cartographic reproduction technology, not a documented prerequisite for patent specification drawings."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-patent-specification-drawings-map-engraving-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "patent_specification_drawings",
+    "prerequisite": "technical_drawing_standards"
+  },
+  "replaced_edge": {
+    "dependent": "patent_specification_drawings",
+    "prerequisite": "precision_map_engraving"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Precision Map Engraving provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "primary_source",
+    "note": "Patent drawings translate an invention into referenced figures inside the specification, so technical drawing conventions enable the disclosure without making map engraving a prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gov.uk/guidance/patent-factsheet-drawings",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Patent specification and drawings sections: the factsheet explains that drawings are referred to by the specification and use figures plus reference numbers or letters tied to the description.",
+    "source_claim_summary": "The source documents patent drawings as a specification-linked technical disclosure format rather than a cartographic engraving practice.",
+    "source_support_rationale": "Because the corrected edge only needs a general technical-figure dependency, referenced figures in patent specifications support technical drawing standards and do not support map engraving as a prerequisite."
+  },
+  "ontology_before": "Patent Specification Drawings depended directly on Precision Map Engraving, implying a cartographic print-production pathway for patent disclosure drawings.",
+  "ontology_after": "Patent Specification Drawings depend on Patent Systems and Technical Drawing Standards, with map engraving left as a separate cartographic reproduction technology.",
+  "invariant_preserved_or_changed": "Changed: patent_specification_drawings now depends on technical_drawing_standards and no longer directly depends on precision_map_engraving.",
+  "would_reject_if": [
+    "The node were rescoped to engraved map plates used as patent exhibits rather than formal patent specification drawings.",
+    "A source showed early patent drawings specifically required map engraving techniques as a direct prerequisite.",
+    "The node were broadened to any illustration attached to an invention privilege regardless of whether a patent specification was filed."
+  ],
+  "short_reason": "Patent drawings are specification-linked technical figures, not map engraving.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/patent_specification_drawings.before.json /tmp/patent_specification_drawings.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
