@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-25-merchant-partnerships-codified-law-replacement",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "merchant_partnership_contracts",
+    "prerequisite": "codified_law"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_partnership_contracts",
+    "prerequisite": "contract_law"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Contract Law provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.66,
+    "evidence_level": "textbook",
+    "note": "Ancient law-code traditions and legal concepts supplied a shared legal context for written commercial obligations, but the node is not claiming a direct descent from one specific code."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sfu.ca/~poitras/Equity-Capital_ch2.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Chapter 2 links Bronze Age law-code traditions to commercial contracts, notes written-contract requirements for common commercial activities, and describes legal concepts of partnership and written contracts in Old Assyrian trade networks.",
+    "source_claim_summary": "The source reviews the relationship among Bronze Age law codes, commercial contracts, partnership concepts, and written obligations in Mesopotamian and Old Assyrian trade.",
+    "source_support_rationale": "This supports keeping an ancient legal-code context as a common dependency while removing the later broad Classical contract_law node from the Old Assyrian partnership-contract scope."
+  },
+  "ontology_before": "Merchant Partnership Contracts depended on a broad Classical contract_law node, making a source-backed Old Assyrian contract form appear later and more generic than the evidence supports.",
+  "ontology_after": "Merchant Partnership Contracts is scoped to Bronze Age written merchant contracts and keeps codified_law only as a shared ancient legal context, not as a direct claim about one specific law code.",
+  "invariant_preserved_or_changed": "Changed: merchant_partnership_contracts now depends on codified_law as a common dependency and no longer depends on contract_law.",
+  "would_reject_if": [
+    "The node is broadened back to all Classical or global contract law rather than Old Assyrian and Mesopotamian merchant partnership contracts.",
+    "A source shows the Old Assyrian partnership-contract evidence requires the later local contract_law node as a direct prerequisite.",
+    "The codified_law node is narrowed away from ancient law-code traditions and legal-decision inscriptions."
+  ],
+  "short_reason": "Old Assyrian partnership contracts need ancient legal context, not a later broad Classical contract-law prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_partnership_contracts.before.json /tmp/merchant_partnership_contracts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

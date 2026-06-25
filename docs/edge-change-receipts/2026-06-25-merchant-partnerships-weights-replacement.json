@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-25-merchant-partnerships-weights-replacement",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "merchant_partnership_contracts",
+    "prerequisite": "standardized_weights_and_measures"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_partnership_contracts",
+    "prerequisite": "currency"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Currency provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Trade-capital contracts in the Old Assyrian network used silver, tin, textiles, prices, and exchange values; shared metrology scaled the valuation and settlement of those commercial obligations without requiring coined currency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.penn.museum/sites/expedition/hanging-in-the-balance-2/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Research notes describe Bronze Age eastern Mediterranean weights, a comparative sample across greater Mesopotamia, and weighing as evidence for economic interactions and high-value commodities.",
+    "source_claim_summary": "The source documents standardized Bronze Age weights and weighing practice as commercial infrastructure for economic interaction and high-value commodities.",
+    "source_support_rationale": "This supports replacing coined currency with standardized_weights_and_measures because Old Assyrian silver, tin, textile, price, and exchange-value obligations were valued and settled before coined currency."
+  },
+  "ontology_before": "Merchant Partnership Contracts depended on currency, laundering later coinage into Bronze Age trade-capital contracts whose evidence predates standardized coinage.",
+  "ontology_after": "Merchant Partnership Contracts depends on standardized_weights_and_measures as commercial scaling infrastructure for silver and commodity valuation, while coined currency is explicitly outside scope.",
+  "invariant_preserved_or_changed": "Changed: merchant_partnership_contracts now depends on standardized_weights_and_measures and no longer depends on currency.",
+  "would_reject_if": [
+    "The node is rescoped to later Classical monetary partnerships that specifically require coined currency.",
+    "A source shows Old Assyrian partnership contracts operated without weight-based silver or commodity valuation.",
+    "The standardized_weights_and_measures node is narrowed away from Mesopotamian or eastern Mediterranean commercial metrology."
+  ],
+  "short_reason": "Bronze Age partnership contracts used metrology and silver valuation, not coined-currency infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_partnership_contracts.before.json /tmp/merchant_partnership_contracts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

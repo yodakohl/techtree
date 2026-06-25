@@ -1,0 +1,58 @@
+{
+  "id": "2026-06-25-merchant-partnerships-kultepe-scope",
+  "description": "Lock the 2026-06-25 source-check of merchant_partnership_contracts to Old Assyrian/Kultepe written merchant partnership contracts.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "merchant_partnership_contracts",
+      "operator": "eq",
+      "value": -1900,
+      "reason": "The corrected node is anchored to the Old Assyrian period and 19th-century BCE Assur-Kanes/Kultepe merchant evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_partnership_contracts",
+      "prerequisite": "record_keeping",
+      "expected": "required",
+      "reason": "The scoped technology is written cuneiform merchant contracts, so durable commercial recordkeeping is required."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_partnership_contracts",
+      "prerequisite": "codified_law",
+      "expected": "common_dependency",
+      "reason": "Ancient law-code traditions are shared legal context, not a direct claim that one code created Old Assyrian partnership contracts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_partnership_contracts",
+      "prerequisite": "standardized_weights_and_measures",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Silver, tin, textiles, prices, and exchange values require metrology for scaling and settlement before coined currency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_partnership_contracts",
+      "prerequisite": "contract_law",
+      "reason": "The corrected scope must not route through the broad later Classical contract_law node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_partnership_contracts",
+      "prerequisite": "currency",
+      "reason": "The corrected Bronze Age scope predates coined currency and uses metrology/silver valuation instead."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_partnership_contracts",
+      "prerequisite": "public_archives",
+      "reason": "Private merchant tablets and written commercial records are not the same as public archive infrastructure."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "shipyard_drydocks",
+      "prerequisite": "merchant_partnership_contracts",
+      "reason": "Classical naval shipsheds and drydock-like maintenance infrastructure do not depend on merchant partnership contracts."
+    }
+  ]
+}

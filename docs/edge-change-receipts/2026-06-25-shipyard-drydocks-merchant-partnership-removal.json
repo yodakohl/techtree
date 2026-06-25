@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-25-shipyard-drydocks-merchant-partnership-removal",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "shipyard_drydocks",
+    "prerequisite": "merchant_partnership_contracts"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Merchant Partnership Contracts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains from shipyard_drydocks to merchant_partnership_contracts; Classical ship sheds and haul-out maintenance infrastructure require naval shipbuilding and harbor infrastructure, not a specific merchant partnership contract form.",
+  "source_supports_edge": "no",
+  "source_url": "https://archaeology.org/uncategorized/2016/06/13/160613-athens-naval-base/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Archaeology Magazine reports Piraeus ship sheds associated with Classical Athenian naval bases and trireme storage, supporting a shipshed and haul-out maintenance scope.",
+    "source_claim_summary": "The source supports shipyard drydocks through Classical naval-base shipsheds and trireme storage rather than merchant partnership contracting.",
+    "source_support_rationale": "Because the source ties the node to naval shipshed infrastructure, the merchant partnership contract node is unrelated commercial content rather than a prerequisite capability."
+  },
+  "ontology_before": "Shipyard Drydocks depended on Merchant Partnership Contracts, mixing commercial-legal contract forms into naval-base haul-out and maintenance infrastructure.",
+  "ontology_after": "Shipyard Drydocks remains scoped to shipsheds, shipbuilding, and harbor infrastructure without a direct merchant partnership contract dependency.",
+  "invariant_preserved_or_changed": "Changed: shipyard_drydocks no longer depends on merchant_partnership_contracts. Preserved: shipbuilding and harbor engineering still carry the technical infrastructure dependencies.",
+  "would_reject_if": [
+    "The shipyard_drydocks node is rescoped to privately financed merchant shipyards where partnership contracts are a source-backed direct prerequisite.",
+    "A source shows Classical Piraeus shipsheds depended specifically on merchant partnership contracts rather than naval and harbor infrastructure.",
+    "Removing the edge leaves shipyard_drydocks without any shipbuilding or harbor prerequisite."
+  ],
+  "short_reason": "Merchant partnership contracts are not prerequisite infrastructure for Classical naval shipsheds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/shipyard_drydocks.before.json /tmp/shipyard_drydocks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

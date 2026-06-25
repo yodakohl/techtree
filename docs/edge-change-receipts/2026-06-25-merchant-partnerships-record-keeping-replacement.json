@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-25-merchant-partnerships-record-keeping-replacement",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "merchant_partnership_contracts",
+    "prerequisite": "record_keeping"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_partnership_contracts",
+    "prerequisite": "public_archives"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Archives provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "textbook",
+    "note": "The scoped technology is documented through cuneiform tablets and written contracts; durable commercial records are the medium that preserves and operationalizes these agreements."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sfu.ca/~poitras/Equity-Capital_ch2.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Chapter 2 states that Mesopotamian law codes required written contracts for common commercial activities, producing many cuneiform tablets; it also says commercial situations were managed through written contracts, including partnership contracts.",
+    "source_claim_summary": "The source presents written contracts and cuneiform records as the medium through which ancient commercial and partnership arrangements were managed and preserved.",
+    "source_support_rationale": "This directly supports record_keeping as required for the scoped written-contract node and rejects public_archives, which would incorrectly imply a public repository prerequisite for private merchant tablets."
+  },
+  "ontology_before": "Merchant Partnership Contracts depended on public_archives even though the source-backed evidence is private or merchant cuneiform recordkeeping, not public archive infrastructure.",
+  "ontology_after": "Merchant Partnership Contracts depends on record_keeping because written tablets and durable commercial records are the operating medium for the scoped contract form.",
+  "invariant_preserved_or_changed": "Changed: merchant_partnership_contracts now depends on record_keeping and no longer depends on public_archives.",
+  "would_reject_if": [
+    "The node is rescoped to public contract registries rather than merchant partnership contracts.",
+    "A source shows the Old Assyrian partnership contracts required public archival institutions rather than durable written commercial records.",
+    "The record_keeping node is narrowed away from clay-token, tablet, or commercial-accounting record systems."
+  ],
+  "short_reason": "The source-backed prerequisite is written commercial recordkeeping, not public archives.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_partnership_contracts.before.json /tmp/merchant_partnership_contracts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
