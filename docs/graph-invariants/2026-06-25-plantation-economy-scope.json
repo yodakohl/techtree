@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-plantation-economy-scope",
+  "description": "Lock Plantation Economy to the early São Tomé tropical sugar-plantation economy, not a generic medieval European agriculture-surplus bundle.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "plantation_economy",
+      "operator": "eq",
+      "value": 1517,
+      "reason": "The node anchors the date to two São Tomé sugar mills operating by 1517, with the mature plantation economy expanding through the 1530s."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plantation_economy",
+      "prerequisite": "exploration_global",
+      "expected": "enabling",
+      "reason": "Portuguese Atlantic expansion and the São Tomé-Elmina trade setting enabled the colonial island context for the sugar plantation economy."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plantation_economy",
+      "prerequisite": "watermills",
+      "expected": "enabling",
+      "reason": "The scoped São Tomé economy used hydraulic sugar mills as direct production infrastructure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plantation_economy",
+      "prerequisite": "slavery_chattel",
+      "expected": "enabling",
+      "reason": "The inspected São Tomé sources define the plantation economy as based on sugar monoculture and enslaved labour."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plantation_economy",
+      "prerequisite": "mercantilism_economic_theory",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Mercantilism supplies the colonial raw-material and export-market commercial frame, not a direct sugar-production mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "plantation_economy",
+      "prerequisite": "agriculture_advances_medieval",
+      "reason": "The São Tomé evidence supports hydraulic sugar mills and coerced Atlantic plantation labor, not a direct dependency on Europe's heavy-plow, horse-collar, and three-field-system bundle."
+    }
+  ]
+}

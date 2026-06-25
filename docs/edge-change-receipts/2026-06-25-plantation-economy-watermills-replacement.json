@@ -1,0 +1,49 @@
+{
+  "id": "2026-06-25-plantation-economy-watermills-replacement",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "plantation_economy",
+    "prerequisite": "watermills"
+  },
+  "replaced_edge": {
+    "dependent": "plantation_economy",
+    "prerequisite": "agriculture_advances_medieval"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Medieval Agricultural Advances provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "São Tomé sugar estates used hydraulic sugar mills, with two mills operating by 1517 and more planned, making water-powered milling a direct production enabler for the scoped plantation economy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/bitter-legacy-archaeology-of-early-sugar-plantation-and-slavery-in-sao-tome/D924CD6992FEF2504FD543330CB2A23D",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The article describes Praia Melão as a sugar mill and estate with a building that housed a hydraulic mill; its historical note says two sugar mills were operating by 1517, with plans for ten more.",
+    "source_claim_summary": "Early São Tomé sugar plantations relied on hydraulic sugar-mill infrastructure, with documented mills operating by 1517.",
+    "source_support_rationale": "This directly supports water-powered milling as the production capability in the node scope, while the broader medieval-agriculture bundle would add unsupported European plow, harness, and crop-rotation claims."
+  },
+  "ontology_before": "Plantation Economy depended on Medieval Agricultural Advances, implying the São Tomé sugar-plantation scope required a broad European yield-surplus bundle.",
+  "ontology_after": "Plantation Economy now depends on Watermills for the specific hydraulic sugar-mill infrastructure documented in the São Tomé source.",
+  "invariant_preserved_or_changed": "Changed: the direct agriculture_advances_medieval edge is removed and replaced with watermills. Preserved: the node remains anchored to the São Tomé sugar-plantation economy beginning in 1517.",
+  "would_reject_if": [
+    "A source shows São Tomé's early plantation economy directly required the European heavy-plow, horse-collar, and three-field-system bundle rather than sugar-mill infrastructure.",
+    "A more precise sugar_mills or sugar_processing node is introduced and should replace watermills as the direct production dependency."
+  ],
+  "short_reason": "Hydraulic sugar mills are the source-backed production dependency for São Tomé plantations.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/plantation_economy.before.json /tmp/plantation_economy.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

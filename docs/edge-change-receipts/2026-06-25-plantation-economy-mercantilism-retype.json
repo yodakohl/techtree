@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-25-plantation-economy-mercantilism-retype",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "plantation_economy",
+    "prerequisite": "mercantilism_economic_theory"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mercantilism Economic Theory provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Mercantilist colonial policy treated colonies as raw-material suppliers and export markets, commercially supporting tropical sugar plantations without being a technical production prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/money/mercantilism",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica describes mercantilism as a sixteenth- to eighteenth-century European system and says colonies in Africa and the Americas supplied raw materials to mother countries while buying finished goods from them.",
+    "source_claim_summary": "Mercantilist colonial economies used colonies as raw-material suppliers and controlled markets for European mother countries.",
+    "source_support_rationale": "This supports the commercial-export context of plantation economies without making mercantilist theory a direct technical enabler of sugar cultivation, milling, or coerced labor organization."
+  },
+  "ontology_before": "The edge labeled mercantilism as an enabling capability for Plantation Economy, overstating an economic-policy context as a direct production enabler.",
+  "ontology_after": "The edge now models mercantilism as commercial and scaling context for export plantations within colonial raw-material systems.",
+  "invariant_preserved_or_changed": "Changed: mercantilism_economic_theory is now commercial_or_scaling_dependency. Preserved: the edge remains because the plantation node is explicitly scoped to colonial export agriculture.",
+  "would_reject_if": [
+    "A source shows early São Tomé sugar estates emerged outside colonial export-market economics.",
+    "The plantation_economy node is later rescoped to only the physical sugar mill rather than the broader economic system."
+  ],
+  "short_reason": "Mercantilism commercially frames colonial export plantations but does not technically enable them.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
