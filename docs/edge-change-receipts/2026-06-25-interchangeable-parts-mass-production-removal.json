@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-interchangeable-parts-mass-production-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "interchangeable_parts",
+    "prerequisite": "mass_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mass Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from mass_production to interchangeable_parts because the source frames mass production as downstream of machine-tool-enabled interchangeable manufacture, not as its prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/interchangeable-parts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says mass production came about through development of the machine-tool industry and precision equipment that produced large numbers of identical parts.",
+    "source_claim_summary": "The source places mass production after the machine-tool and interchangeable-parts capability, not before it.",
+    "source_support_rationale": "Keeping mass_production as a prerequisite inverted the relationship and made a scaling outcome appear to be the causal substrate for interchangeable parts."
+  },
+  "ontology_before": "Interchangeable Parts depended on Mass Production, implying large-scale production was needed before interchangeable components.",
+  "ontology_after": "Interchangeable Parts depends on precision machine tools; mass production remains a broader manufacturing outcome and downstream context.",
+  "invariant_preserved_or_changed": "Changed: the backwards mass_production prerequisite was removed.",
+  "would_reject_if": [
+    "A source showed a specifically scoped mass-production method was required before industrial interchangeable parts could be produced.",
+    "The mass_production node were narrowed to pre-existing batch production machinery that directly produced interchangeable parts.",
+    "The interchangeable_parts node were rescoped from the manufacturing method to a later mass-production deployment practice."
+  ],
+  "short_reason": "Mass production is downstream context here, not the prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/interchangeable_parts.before.json /tmp/interchangeable_parts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

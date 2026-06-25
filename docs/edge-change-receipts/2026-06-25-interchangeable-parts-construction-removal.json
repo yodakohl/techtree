@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-interchangeable-parts-construction-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "interchangeable_parts",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from construction to interchangeable_parts because the scoped industrial method is supported by precision machinery and armory manufacturing practice, not generic monumental construction.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS describes Hall's tooling of workshops, precision machinery, drilling machines, and a straight-cutting machine for rifles with interchangeable parts.",
+    "source_claim_summary": "The source identifies specialized precision machinery and armory workshop practice as the relevant substrate.",
+    "source_support_rationale": "Generic construction could not distinguish the industrial interchangeable-parts mechanism from unrelated building or infrastructure traditions."
+  },
+  "ontology_before": "Interchangeable Parts inherited a broad Classical construction prerequisite unrelated to the scoped manufacturing mechanism.",
+  "ontology_after": "Interchangeable Parts is anchored to precision machinery rather than generic building capability.",
+  "invariant_preserved_or_changed": "Changed: the broad construction edge was removed.",
+  "would_reject_if": [
+    "The node were rescoped to preindustrial modular construction rather than industrial component manufacture.",
+    "A source showed monumental construction directly supplied the tolerances, gauges, or machine tools used in armory interchangeable manufacture.",
+    "A separate construction-component standardization node were introduced and made this broad edge precise."
+  ],
+  "short_reason": "Construction was a generic inherited edge and did not support the industrial manufacturing scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/interchangeable_parts.before.json /tmp/interchangeable_parts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

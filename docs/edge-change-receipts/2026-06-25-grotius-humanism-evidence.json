@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-grotius-humanism-evidence",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "international_law_early_grotius",
+    "prerequisite": "humanism"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Humanism is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.7,
+    "evidence_level": "textbook",
+    "note": "Grotius was a Dutch humanist and jurist whose work was influenced by the contemporary humanist tradition, so humanism is the relevant intellectual context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://iep.utm.edu/grotius/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Opening summary identifies Grotius as a Dutch humanist and jurist and says he was influenced by the contemporary humanist tradition.",
+    "source_claim_summary": "The source connects Grotius directly to humanism and the humanist tradition.",
+    "source_support_rationale": "Humanism therefore remains intellectual context for the node, with improved evidence but without being promoted to a strict enabling dependency."
+  },
+  "ontology_before": "The humanism edge was a weak generic common dependency with no edge-level source.",
+  "ontology_after": "The humanism edge is source-backed to Grotius's identity and intellectual tradition.",
+  "invariant_preserved_or_changed": "Preserved: humanism remains a common_dependency of international_law_early_grotius.",
+  "would_reject_if": [
+    "The Grotius node is narrowed to a purely institutional legal-document claim.",
+    "The source is superseded by evidence that humanist context is irrelevant to Grotius's legal theory.",
+    "The edge is promoted to required without a source showing direct dependency."
+  ],
+  "short_reason": "Grotius's humanist context is directly sourced and remains contextual.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

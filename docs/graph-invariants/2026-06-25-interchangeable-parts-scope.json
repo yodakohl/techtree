@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-25-interchangeable-parts-scope",
+  "description": "Lock Interchangeable Parts to precision machine-tool-enabled industrial component interchangeability rather than broad construction, backwards mass-production, or rifling-specific scope.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "interchangeable_parts",
+      "prerequisite": "precision_machine_tools",
+      "expected": "enabling",
+      "reason": "Precision machine tools and gauges are the direct source-backed manufacturing substrate for industrial interchangeable components."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interchangeable_parts",
+      "prerequisite": "mass_production",
+      "reason": "Mass production is downstream manufacturing scale, not the prerequisite for interchangeable parts."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interchangeable_parts",
+      "prerequisite": "construction",
+      "reason": "Generic construction does not supply the tolerances, gauges, or machine tools for the scoped industrial manufacturing method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "interchangeable_parts",
+      "prerequisite": "rifling_firearms",
+      "reason": "Rifles were an application context, but rifling grooves are not the manufacturing substrate for interchangeable parts."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "breech_loading_firearms",
+      "prerequisite": "interchangeable_parts",
+      "reason": "The current 1775 breech-loading scope predates source-pinned 19th-century interchangeable armory-manufacturing practice."
+    }
+  ]
+}

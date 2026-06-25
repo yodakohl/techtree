@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-grotius-codified-law-evidence",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "international_law_early_grotius",
+    "prerequisite": "codified_law"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Codified Law is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.68,
+    "evidence_level": "textbook",
+    "note": "The node is anchored to written legal treatises that codified principles of international law, making written legal-code traditions contextual infrastructure."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/Mare-Liberum",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Western philosophy excerpt describes Mare Liberum and On the Law of War and Peace as the first significant codifications of international law.",
+    "source_claim_summary": "The source frames Grotius's two works as codifications of international law.",
+    "source_support_rationale": "Codified law remains a broad legal-writing context, and the source supports an evidence upgrade without turning it into a hard prerequisite."
+  },
+  "ontology_before": "The codified-law edge cited an ancient law-code source that did not support the Grotius-specific international-law claim.",
+  "ontology_after": "The codified-law edge is backed by a source describing Grotius's works as codifications of international law.",
+  "invariant_preserved_or_changed": "Preserved: codified_law remains a common_dependency of international_law_early_grotius.",
+  "would_reject_if": [
+    "The node is scoped away from written legal treatises.",
+    "A source shows Grotius's work should not be treated as codified legal doctrine.",
+    "A narrower legal prerequisite replaces codified_law in the ontology."
+  ],
+  "short_reason": "The edge now cites a source about Grotius's codification of international law rather than an unrelated ancient code.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

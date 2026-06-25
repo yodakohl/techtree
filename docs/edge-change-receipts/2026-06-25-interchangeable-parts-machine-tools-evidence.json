@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-interchangeable-parts-machine-tools-evidence",
+  "decision_date": "2026-06-25",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "interchangeable_parts",
+    "prerequisite": "precision_machine_tools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Precision Machine Tools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "Precision machine tools and gauges enabled repeatable components to be made to tolerances that fit across assemblies."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/interchangeable-parts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Britannica defines interchangeable parts as identical components and says mass production came through development of the machine-tool industry, with precision equipment producing large numbers of identical parts.",
+    "source_claim_summary": "The source ties industrial interchangeable-part production to precision equipment and the machine-tool industry.",
+    "source_support_rationale": "The precision_machine_tools node is scoped to lathes, milling machines, boring machines, gauges, and related tools, matching the source's machinery and precision-equipment substrate."
+  },
+  "invariant_preserved_or_changed": "Changed: the precision_machine_tools edge remains enabling but now has direct textbook evidence and a higher confidence.",
+  "would_reject_if": [
+    "A stronger source showed industrial interchangeable parts were achieved without repeatable precision equipment or gauges.",
+    "The precision_machine_tools node were narrowed away from lathes, milling machines, gauges, and repeatable part production.",
+    "The interchangeable_parts node were rescoped to a preindustrial example that does not involve industrial machine tools."
+  ],
+  "short_reason": "Britannica directly ties interchangeable parts to precision equipment and machine-tool development.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/interchangeable_parts.before.json /tmp/interchangeable_parts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

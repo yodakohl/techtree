@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-25-grotius-joint-stock-replaces-mercantilism",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "international_law_early_grotius",
+    "prerequisite": "joint_stock_companies"
+  },
+  "replaced_edge": {
+    "dependent": "international_law_early_grotius",
+    "prerequisite": "mercantilism_economic_theory"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Mercantilism Economic Theory is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Grotius's early sea-law work was commissioned around the VOC's seizure of a Portuguese merchant ship, making joint-stock overseas companies a concrete commercial context for the legal argument."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://plato.stanford.edu/entries/grotius/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Life and works section says De iure praedae was apparently commissioned by the V.O.C. around 1603 to defend the capture of a Portuguese merchant ship by a V.O.C. fleet near Singapore.",
+    "source_claim_summary": "The source ties Grotius's early sea-law argument to a concrete VOC commission over a captured Portuguese merchant ship.",
+    "source_support_rationale": "Joint-stock overseas companies capture the documented institutional context better than mercantilism, which is a broad economic theory not directly named by the source."
+  },
+  "ontology_before": "The Grotius node depended on broad mercantilist economic theory, laundering a general economic ideology into a specific legal-history claim.",
+  "ontology_after": "The Grotius node depends on joint_stock_companies as the concrete VOC-style commercial institution behind the early sea-law controversy.",
+  "invariant_preserved_or_changed": "Changed: international_law_early_grotius now depends on joint_stock_companies and no longer directly depends on mercantilism_economic_theory.",
+  "would_reject_if": [
+    "The node is narrowed to De Jure Belli ac Pacis only and excludes Mare Liberum or De iure praedae context.",
+    "A source shows mercantilist theory was the direct intellectual prerequisite rather than VOC commercial litigation and sea-law controversy.",
+    "The joint_stock_companies node is narrowed away from chartered overseas trading companies."
+  ],
+  "short_reason": "The VOC/joint-stock company context is sourced directly; mercantilism was too broad for the corrected scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/international_law_early_grotius.before.json /tmp/international_law_early_grotius.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

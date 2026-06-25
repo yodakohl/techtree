@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-breech-loading-interchangeable-parts-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "breech_loading_firearms",
+    "prerequisite": "interchangeable_parts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Interchangeable Parts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from interchangeable_parts to breech_loading_firearms because the current breech-loading node is dated to 1775, earlier than the source-pinned 19th-century interchangeable armory-manufacturing practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS anchors Hall's interchangeable rifle-parts work to an 1819 War Department contract and 1820-1840 uniformity-principle development at Harpers Ferry.",
+    "source_claim_summary": "The source places source-backed interchangeable firearms manufacturing in the 19th-century Harpers Ferry armory context.",
+    "source_support_rationale": "The existing breech_loading_firearms node remains scoped to an earlier 1775 breech-loading mechanism, so a later armory-manufacturing method should not be its direct prerequisite."
+  },
+  "ontology_before": "Breech-loading Firearms depended on Interchangeable Parts even though the breech-loading node predates source-pinned interchangeable armory practice.",
+  "ontology_after": "Breech-loading Firearms no longer depends on Interchangeable Parts under its current 1775 early-mechanism scope.",
+  "invariant_preserved_or_changed": "Changed: the anachronistic breech-loading dependency was removed.",
+  "would_reject_if": [
+    "The Breech-loading Firearms node were rescoped and redated to Hall-style 19th-century interchangeable manufactured rifles.",
+    "A source showed the current 1775 breech-loading mechanism required interchangeable industrial parts.",
+    "A separate later breech-loading rifle node were introduced and should depend on interchangeable parts."
+  ],
+  "short_reason": "The current breech-loading node predates the source-backed interchangeable-parts scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/breech_loading_firearms.before.json /tmp/breech_loading_firearms.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

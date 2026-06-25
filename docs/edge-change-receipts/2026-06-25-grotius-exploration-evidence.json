@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-grotius-exploration-evidence",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "international_law_early_grotius",
+    "prerequisite": "exploration_global"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Global Exploration is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Grotius's free-seas and international-law arguments arose in an era of European oceanic exploration, colonization, and disputes over high-seas access."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/On-the-Law-of-War-and-Peace",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "International law excerpt says Grotius emphasized freedom of the high seas, which was accepted among northern European powers embarking on exploration and colonization.",
+    "source_claim_summary": "The source places Grotius's high-seas argument in the context of European exploration and colonization.",
+    "source_support_rationale": "Exploration remains a contextual prerequisite because it supplied the maritime disputes that made the free-seas doctrine salient."
+  },
+  "ontology_before": "The exploration edge was a weak generic common dependency with no edge-level source.",
+  "ontology_after": "The exploration edge is tied to a source that explicitly connects Grotius's high-seas concept with exploration and colonization.",
+  "invariant_preserved_or_changed": "Preserved: exploration_global remains a common_dependency of international_law_early_grotius.",
+  "would_reject_if": [
+    "The node is narrowed to inland natural-law theory only.",
+    "A source shows high-seas or oceanic expansion context should be excluded from the Grotian scope.",
+    "The edge is treated as a strict engineering dependency rather than legal-historical context."
+  ],
+  "short_reason": "Grotius's free-seas doctrine is directly linked to oceanic exploration context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

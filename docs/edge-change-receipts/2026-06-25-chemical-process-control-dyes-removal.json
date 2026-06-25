@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-chemical-process-control-dyes-removal",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "chemical_process_control",
+    "prerequisite": "chemical_dyes_synthetic"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Synthetic Chemical Dyes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct chemical_process_control to chemical_dyes_synthetic dependency remains because process control applies across chemical and petrochemical plants generally, not only synthetic dye manufacture.",
+  "source_supports_edge": "no",
+  "source_url": "https://sites.me.ucsb.edu/~ceweb/faculty/seborg/pdfs/EOLSS_rev%202_5_03.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction and industry overview describe chemical and petrochemical plants broadly, including batch and continuous processes across many products, while the control overview identifies instrumentation, measurements, valves, sampling, and feedback loops as the relevant substrate.",
+    "source_claim_summary": "The source scopes chemical process control to broad chemical and petrochemical plant operation rather than to synthetic dye production.",
+    "source_support_rationale": "Synthetic dyes are one historical chemical industry application, but the source-backed mechanism is generic process-control instrumentation across many chemical products."
+  },
+  "ontology_before": "Chemical Process Control depended directly on Synthetic Chemical Dyes, overfitting broad process-control practice to one chemical-manufacturing sector.",
+  "ontology_after": "Chemical Process Control is scoped through process-control instrumentation and no longer depends on a specific synthetic-dye industry node.",
+  "invariant_preserved_or_changed": "Changed: the direct chemical_dyes_synthetic dependency is removed from chemical_process_control.",
+  "would_reject_if": [
+    "The chemical_process_control node is narrowed to dye-plant process control only.",
+    "A source shows synthetic dye production was required for the first scoped process-control systems.",
+    "Removing the edge leaves the node without a chemical-plant or process-control substrate."
+  ],
+  "short_reason": "Synthetic dyes are an application sector, not the direct prerequisite for broad chemical process control.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/chemical_process_control.before.json /tmp/chemical_process_control.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

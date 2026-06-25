@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-grotius-sovereignty-evidence",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "international_law_early_grotius",
+    "prerequisite": "sovereignty_theory_bodin"
+  },
+  "change_class": "evidence_upgrade",
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Sovereignty Theory (Bodin) is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.66,
+    "evidence_level": "textbook",
+    "note": "Grotius's law-of-war-and-peace framework treats national sovereignty and just or unjust war between nations, so sovereignty theory is contextual legal-political infrastructure rather than a strict method dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://constitutioncenter.org/the-constitution/historic-document-library/detail/hugo-grotiusde-jure-belli-ac-pacis-on-the-law-of-war-and-peace-1625",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Introductory note says Grotius treats national sovereignty and distinguishes between unjust and just wars between nations.",
+    "source_claim_summary": "The source identifies sovereignty and inter-nation war as core issues in Grotius's law-of-war-and-peace text.",
+    "source_support_rationale": "That makes sovereignty theory a defensible contextual prerequisite while preserving it as common_dependency rather than a strict technical requirement."
+  },
+  "ontology_before": "The sovereignty edge was a weak generic common dependency with no edge-level source.",
+  "ontology_after": "The sovereignty edge remains contextual but is tied to a source that explicitly names national sovereignty in Grotius's work.",
+  "invariant_preserved_or_changed": "Preserved: sovereignty_theory_bodin remains a common_dependency of international_law_early_grotius.",
+  "would_reject_if": [
+    "The Grotius node is rescoped away from sovereign-state relations.",
+    "A better source shows sovereignty theory is irrelevant to Grotius's international-law framework.",
+    "The edge is promoted to required without a source showing direct methodological dependence."
+  ],
+  "short_reason": "The sovereignty edge is now source-backed and remains deliberately contextual.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

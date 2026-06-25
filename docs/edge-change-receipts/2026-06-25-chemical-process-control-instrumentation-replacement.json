@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-chemical-process-control-instrumentation-replacement",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "chemical_process_control",
+    "prerequisite": "process_control_instrumentation"
+  },
+  "replaced_edge": {
+    "dependent": "chemical_process_control",
+    "prerequisite": "electric_power_meters"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Electric Power Meters provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "textbook",
+    "note": "Chemical process control is an application of process-control instrumentation: measurements, controllers, recorders, control valves, feedback loops, and sampling practices are the control substrate."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://sites.me.ucsb.edu/~ceweb/faculty/seborg/pdfs/EOLSS_rev%202_5_03.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Historical Perspective and Overview sections describe 1920s-1930s automatic feedback control for process variables, pneumatic instruments/controllers/recorders, central control rooms, instrumentation, control valves, sampling, and feedback loops in chemical and petrochemical plants.",
+    "source_claim_summary": "The source describes the instrumentation and feedback-control architecture used in chemical and petrochemical process control.",
+    "source_support_rationale": "Process_control_instrumentation is the direct substrate for the node, while electric power meters are only a neighboring measurement technology and not the chemical-process-control mechanism."
+  },
+  "ontology_before": "Chemical Process Control depended on electric_power_meters, implying utility metering was the enabling measurement substrate.",
+  "ontology_after": "Chemical Process Control depends on process_control_instrumentation as the direct instrumentation, control-valve, recorder, and feedback-loop substrate.",
+  "invariant_preserved_or_changed": "Changed: chemical_process_control now requires process_control_instrumentation and no longer directly depends on electric_power_meters.",
+  "would_reject_if": [
+    "The chemical_process_control node is narrowed to electric-utility metering rather than chemical and petrochemical plant control.",
+    "A source shows electric power meters are required for the scoped chemical-process control practice.",
+    "The process_control_instrumentation node is narrowed away from gauges, valves, controllers, recorders, and feedback practices."
+  ],
+  "short_reason": "Process-control instrumentation is the direct sourced prerequisite; electric power meters were too indirect.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/chemical_process_control.before.json /tmp/chemical_process_control.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

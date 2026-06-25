@@ -1,0 +1,25 @@
+{
+  "id": "2026-06-25-chemical-process-control-scope",
+  "description": "Lock Chemical Process Control to process-control instrumentation rather than indirect synthetic-dye or electric-meter prerequisites.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "chemical_process_control",
+      "prerequisite": "process_control_instrumentation",
+      "expected": "required",
+      "reason": "Chemical process control requires instrumentation, measurements, controllers, valves, recorders, and feedback-loop practice."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_process_control",
+      "prerequisite": "electric_power_meters",
+      "reason": "Electric power meters are not the direct process-control instrumentation substrate."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_process_control",
+      "prerequisite": "chemical_dyes_synthetic",
+      "reason": "Synthetic dyes are an application sector, not a broad process-control prerequisite."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-interchangeable-parts-rifling-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "interchangeable_parts",
+    "prerequisite": "rifling_firearms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Rifling in Firearms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from rifling_firearms to interchangeable_parts because rifles were an important application context, while rifling itself was not the source-backed manufacturing prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS says Hall perfected precision machinery for producing rifles with interchangeable parts and identifies drilling, straight-cutting, and other special machines.",
+    "source_claim_summary": "The source supports armory precision machinery as the enabling mechanism for interchangeable rifle parts.",
+    "source_support_rationale": "Rifling describes helical barrel grooves, while the cited interchangeable-parts mechanism is about machine tools and uniform component fabrication."
+  },
+  "ontology_before": "Interchangeable Parts depended on Rifling in Firearms, making a firearms feature appear to cause a broad manufacturing method.",
+  "ontology_after": "Interchangeable Parts depends on precision machine tools; firearms remain historical application context without a direct rifling prerequisite.",
+  "invariant_preserved_or_changed": "Changed: the rifle-feature edge was removed from the broader manufacturing node.",
+  "would_reject_if": [
+    "The interchangeable_parts node were narrowed specifically to interchangeable rifled barrels.",
+    "A source showed rifling grooves were required before interchangeable locks, stocks, or other standardized parts could be manufactured.",
+    "The rifling_firearms node were expanded to represent armory manufacturing practice rather than barrel-groove machining."
+  ],
+  "short_reason": "Rifling is an application-domain feature, not the manufacturing substrate.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/interchangeable_parts.before.json /tmp/interchangeable_parts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

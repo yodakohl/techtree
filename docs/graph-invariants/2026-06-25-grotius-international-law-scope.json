@@ -1,0 +1,54 @@
+{
+  "id": "2026-06-25-grotius-international-law-scope",
+  "description": "Lock the 2026-06-25 source-check of Early International Law (Grotius) to the 1609 Mare Liberum and 1625 De Jure Belli ac Pacis scope.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "international_law_early_grotius",
+      "operator": "eq",
+      "value": 1609,
+      "reason": "Mare Liberum is the earliest Grotius-specific international-law publication included in the corrected scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "international_law_early_grotius",
+      "prerequisite": "sovereignty_theory_bodin",
+      "expected": "common_dependency",
+      "reason": "Sovereignty theory is contextual infrastructure for sovereign-state legal relations, not a strict method dependency."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "international_law_early_grotius",
+      "prerequisite": "codified_law",
+      "expected": "common_dependency",
+      "reason": "Written legal codification is contextual infrastructure for Grotius's treatises."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "international_law_early_grotius",
+      "prerequisite": "humanism",
+      "expected": "common_dependency",
+      "reason": "Humanism is Grotius's intellectual context, not a strict required component."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "international_law_early_grotius",
+      "prerequisite": "exploration_global",
+      "expected": "common_dependency",
+      "reason": "Oceanic exploration supplies historical context for the free-seas doctrine."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "international_law_early_grotius",
+      "prerequisite": "joint_stock_companies",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "VOC-style joint-stock commerce is the concrete institutional context for Grotius's early sea-law argument."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "international_law_early_grotius",
+      "prerequisite": "mercantilism_economic_theory",
+      "reason": "Mercantilism is too broad and indirect for the corrected Grotius-specific scope."
+    }
+  ]
+}
