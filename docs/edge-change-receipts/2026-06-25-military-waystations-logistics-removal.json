@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-military-waystations-logistics-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "military_waystations",
+    "prerequisite": "logistics_supply_lines"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "The stations served state communication and military-administrative control; this is logistical enabling infrastructure rather than a generic field army depot."
+  },
+  "new_claim_absent": "No direct dependency remains: the source-backed Persian station scope is carried by roads and postal relay systems, while the broad logistics_supply_lines node is later and too general to constrain the earliest Achaemenid waystation date.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.iranicaonline.org/articles/capar-or-capar-turk/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pre-Islamic Persia section says the Achaemenid postal service had men and horses along the road and way stations where couriers could rest and fresh horses could be obtained.",
+    "source_claim_summary": "The source describes Achaemenid postal waystations as courier rest and horse-change points along roads.",
+    "source_support_rationale": "The mechanism is fully represented by roads plus postal relay systems. Treating a later, broad logistics-supply-line node as an additional prerequisite would create a false temporal constraint and overstate the source."
+  },
+  "ontology_before": "Military Waystations depended directly on logistics_supply_lines, implying the broad logistics node was needed before Persian royal-road stations could exist.",
+  "ontology_after": "Military Waystations is scoped to Achaemenid road/postal waystations; logistics remains descriptive context, not a direct graph prerequisite.",
+  "invariant_preserved_or_changed": "Changed: logistics_supply_lines->military_waystations is removed. Preserved: roads and postal_relay_systems still carry the route and relay mechanisms.",
+  "would_reject_if": [
+    "A source showed Achaemenid Royal Road stations emerged only after a separately organized supply-line system rather than from road and postal relay infrastructure.",
+    "The military_waystations node were broadened back into generic army depots and supply dumps instead of scoped Persian waystations.",
+    "The logistics_supply_lines node were redated and rescoped specifically to Achaemenid imperial station logistics."
+  ],
+  "short_reason": "Persian waystations need roads and relays, not a later broad logistics prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/military_waystations.before.json /tmp/military_waystations.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

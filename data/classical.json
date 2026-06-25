@@ -11013,68 +11013,100 @@
     "id": "military_waystations",
     "name": "Military Waystations",
     "era": "Classical",
-    "description": "Roadside posts, depots, stables, and supply points that supported couriers, troops, and state logistics.",
+    "description": "Achaemenid-era roadside royal stations, guard posts, resting places, and horse-changing waystations that supported official couriers and state military-administrative logistics.",
     "prerequisites": [
       "roads",
-      "logistics_supply_lines",
       "postal_relay_systems"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -550,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Achaemenid Persian Empire and Royal Road network",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The waystations were defined along the Royal Road and related imperial routes; the route supplied the staged places, resting points, and guard posts.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Road",
-            "url": "https://www.britannica.com/technology/road",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "Royal Road",
+            "url": "https://www.livius.org/articles/concept/royal-road/",
+            "publisher": "Livius",
+            "year": 2019,
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Royal Road article quotes Herodotus on royal stations, resting places, stages, and guard-posts between Sardes and Susa."
           }
         ]
       },
       {
-        "prerequisite": "logistics_supply_lines",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Logistics & Supply Lines provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
         "prerequisite": "postal_relay_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Postal Relay Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "Persian posthouses and horse-changing stations supplied the relay function that made official courier waystations useful.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "CAPAR",
+            "url": "https://www.iranicaonline.org/articles/capar-or-capar-turk/",
+            "publisher": "Encyclopaedia Iranica",
+            "year": 1990,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Pre-Islamic Persia section says the Achaemenid postal service had men and horses along the road and way stations for courier rest and fresh horses."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Road",
-        "url": "https://www.britannica.com/technology/road",
+        "title": "Royal Road",
+        "url": "https://www.livius.org/articles/concept/royal-road/",
+        "publisher": "Livius",
+        "year": 2019,
+        "source_type": "review",
+        "supports": [
+          "edge",
+          "node"
+        ],
+        "source_locator": "Royal Road article identifies the Persian Royal Road and quotes Herodotus on royal stations, resting places, stages, and guard-posts."
+      },
+      {
+        "title": "CAPAR",
+        "url": "https://www.iranicaonline.org/articles/capar-or-capar-turk/",
+        "publisher": "Encyclopaedia Iranica",
+        "year": 1990,
+        "source_type": "textbook",
+        "supports": [
+          "edge",
+          "node"
+        ],
+        "source_locator": "Pre-Islamic Persia section says the Achaemenid postal service had way stations where couriers could rest and fresh horses could be obtained."
+      },
+      {
+        "title": "Postal system: History",
+        "url": "https://www.britannica.com/topic/postal-system/History",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
         "supports": [
           "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Message-relay systems section dates Persian relays of mounted messengers served by posthouses to the Persian Empire of Cyrus in the 6th century BCE."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -550 century anchor follows source-backed Achaemenid Persian posthouses and Royal Road stations; the exact first installation date of individual waystations is not preserved here.",
+    "scopeNote": "Covers Achaemenid/Persian royal-road stations and guard/resting/horse-change points used by official couriers and state logistics. Later Roman cursus-publicus relay stages are kept separate in military_road_waystations."
   },
   {
     "id": "glass_blowing_workshops",
@@ -15357,61 +15389,78 @@
   },
   {
     "id": "military_road_waystations",
-    "name": "Military Road Waystations",
+    "name": "Roman Military Road Waystations",
     "era": "Classical",
-    "description": "Fortified stopping points, relay stables, and supply posts supporting armies and state couriers.",
+    "description": "Relay stages and official stopping points along Roman imperial roads that supported the cursus publicus and military-administrative communications.",
     "prerequisites": [
       "roads",
       "postal_relay_systems"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": 1,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman Empire",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Roman relay stages were established at intervals along the empire's great roads, making road infrastructure the enabling substrate for these waystations.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Road",
-            "url": "https://www.britannica.com/technology/road",
+            "title": "Postal system: History",
+            "url": "https://www.britannica.com/topic/postal-system/History",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Message-relay systems section says relay stages of the cursus publicus were established at intervals along the great roads of the Roman Empire."
           }
         ]
       },
       {
         "prerequisite": "postal_relay_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Postal Relay Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "The cursus publicus was an official relay communication system; road waystations are scoped to its staged messenger infrastructure.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Postal system: History",
+            "url": "https://www.britannica.com/topic/postal-system/History",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Message-relay systems section describes the cursus publicus as Rome's reliable and speedy communications system, with relay stages integral to the military and administrative system."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Road",
-        "url": "https://www.britannica.com/technology/road",
+        "title": "Postal system: History",
+        "url": "https://www.britannica.com/topic/postal-system/History",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
         "supports": [
           "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Message-relay systems section says the cursus publicus used relay stages at convenient intervals along Roman roads and that these stages were integral to its military and administrative system."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1st-century-CE anchor reflects the Roman imperial cursus publicus scope; the cited source supports the imperial relay-stage system but does not pin an exact founding year.",
+    "scopeNote": "Covers Roman cursus-publicus relay stages and official road stopping points. Achaemenid Persian Royal Road waystations are represented separately by military_waystations."
   },
   {
     "id": "urban_sewer_inspection",

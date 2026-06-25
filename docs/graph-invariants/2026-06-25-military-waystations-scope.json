@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-25-military-waystations-scope",
+  "description": "Lock Military Waystations to Achaemenid road/postal waystations and Roman Military Road Waystations to the later cursus-publicus relay-stage scope.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "military_waystations",
+      "operator": "eq",
+      "value": -550,
+      "reason": "The canonical node is anchored to source-backed Achaemenid Persian posthouses and Royal Road stations in the 6th century BCE."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_waystations",
+      "prerequisite": "logistics_supply_lines",
+      "reason": "The corrected Persian waystation scope is carried by roads and postal relays; the broad logistics node is later and too general as a direct prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_waystations",
+      "prerequisite": "roads",
+      "expected": "enabling",
+      "reason": "Royal-road stations are defined along imperial routes, but roads remain enabling rather than a universal hard requirement for every future waystation variant."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_waystations",
+      "prerequisite": "postal_relay_systems",
+      "expected": "enabling",
+      "reason": "Postal relays carry the horse-change and courier mechanism for the source-backed Persian scope."
+    },
+    {
+      "type": "first_known_date",
+      "node": "military_road_waystations",
+      "operator": "eq",
+      "value": 1,
+      "reason": "The neighboring node is now scoped to Roman cursus-publicus relay stages rather than the earlier Achaemenid Royal Road station concept."
+    }
+  ]
+}
