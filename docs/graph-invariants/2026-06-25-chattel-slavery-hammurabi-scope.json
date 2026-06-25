@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-25-chattel-slavery-hammurabi-scope",
+  "description": "Lock the 2026-06-25 correction of slavery_chattel to Ancient legal chattel slavery anchored to Hammurabi-era written slave law.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "slavery_chattel",
+      "operator": "eq",
+      "value": -1750,
+      "reason": "The corrected node is anchored to the Code of Hammurabi tradition, not the old -500 Classical placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "slavery_chattel",
+      "prerequisite": "codified_law",
+      "expected": "required",
+      "reason": "The node is scoped to law-enforced property status documented in written slave rules."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "slavery_chattel",
+      "prerequisite": "agriculture",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Agricultural surplus and productive economic contexts support scaling rather than the legal mechanism."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "slavery_chattel",
+      "prerequisite": "social_stratification",
+      "expected": "enabling",
+      "reason": "Social differentiation or stratification is the source-backed social condition for slavery to flourish."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "slavery_chattel",
+      "prerequisite": "tribalism",
+      "reason": "Kin-based band organization is excluded from the corrected legal chattel-slavery scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "slavery_chattel",
+      "prerequisite": "organized_military_formations",
+      "reason": "The organized-formation node is later than the Hammurabi anchor and is not the legal-property mechanism."
+    }
+  ]
+}

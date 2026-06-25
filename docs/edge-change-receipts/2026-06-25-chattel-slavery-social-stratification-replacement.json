@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-chattel-slavery-social-stratification-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "slavery_chattel",
+    "prerequisite": "social_stratification"
+  },
+  "replaced_edge": {
+    "dependent": "slavery_chattel",
+    "prerequisite": "tribalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Tribalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Social differentiation or stratification is identified as an essential condition for slavery to flourish."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/slavery-sociology",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica says slavery was rare among hunter-gatherer societies because social differentiation or stratification was essential for slavery to flourish.",
+    "source_claim_summary": "The source identifies social stratification as an essential condition and explicitly contrasts it with hunter-gatherer societies.",
+    "source_support_rationale": "The replacement points the graph at the source-named social condition for slavery, while the old kin-based band edge pointed at the type of society the source says was usually unfavorable to slavery."
+  },
+  "ontology_before": "Chattel Slavery depended on Kin-Based Band Organization, implying small gatherer-hunter kin organization enabled legal chattel slavery.",
+  "ontology_after": "Chattel Slavery depends on Social Stratification as the source-backed social hierarchy condition for slavery to flourish.",
+  "invariant_preserved_or_changed": "Changed: slavery_chattel now depends on social_stratification and no longer directly depends on tribalism.",
+  "would_reject_if": [
+    "The node were later rescoped to small-scale captive adoption inside kin-band societies rather than legal chattel slavery.",
+    "A stronger source showed kin-based band organization directly enabled the Old Babylonian legal-property slavery scope.",
+    "The social_stratification node were rescoped away from hierarchy, wealth, power, and labor-status differentiation."
+  ],
+  "short_reason": "The source supports stratification, not kin-band organization, as the relevant social condition.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/slavery_chattel.before.json /tmp/slavery_chattel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-chattel-slavery-military-formations-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "slavery_chattel",
+    "prerequisite": "organized_military_formations"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Organized Military Formations provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the corrected scope is Old Babylonian legal chattel slavery, and the organized_military_formations node is a later Classical tactical-formation node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/slavery-sociology",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica lists capture in war as one way people became enslaved, but the corrected Old Babylonian legal-property scope is grounded in law, surplus, and stratification rather than Classical disciplined formations.",
+    "source_claim_summary": "The source discusses many sources of enslavement and the social/legal conditions for slavery, without requiring Classical organized military formations.",
+    "source_support_rationale": "War capture is a possible source of enslaved people, but this specific prerequisite node is later than Hammurabi and represents formation tactics, not the legal-property institution being source-checked."
+  },
+  "ontology_before": "Chattel Slavery depended on Organized Military Formations, implying Classical tactical organization enabled the institution.",
+  "ontology_after": "Old Babylonian legal chattel slavery excludes the later formation-tactics node as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: slavery_chattel no longer directly depends on organized_military_formations.",
+  "would_reject_if": [
+    "The node were later rescoped to Classical war-captive slave supply rather than legal chattel slavery in written law.",
+    "The organized_military_formations node were split to an earlier Mesopotamian war-captivity institution with source-backed chronology before Hammurabi.",
+    "A source showed legal chattel slavery in the Code of Hammurabi required disciplined phalanx-like or legion-like formations."
+  ],
+  "short_reason": "The old edge was later-dated and scoped to tactics, not legal chattel slavery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/slavery_chattel.before.json /tmp/slavery_chattel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

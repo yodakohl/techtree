@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-chattel-slavery-agriculture-scaling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "slavery_chattel",
+    "prerequisite": "agriculture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Agriculture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.7,
+    "evidence_level": "textbook",
+    "note": "Agricultural surplus and productive economic contexts supported slave systems where owners expected economic gain from enslaved labor."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/slavery-sociology",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica says economic surplus was essential for slavery to flourish and discusses productive slavery in commodity-producing mines or plantations.",
+    "source_claim_summary": "The source frames surplus and commodity production as conditions that make slave systems economically useful.",
+    "source_support_rationale": "Agriculture is retained as an economic scaling context for surplus and plantation-like production, not as a direct legal or technical enabler of slave property status."
+  },
+  "ontology_before": "Agriculture was a generic enabling edge for chattel slavery without specifying whether it was legal, economic, or chronological support.",
+  "ontology_after": "Agriculture is a commercial/scaling context for surplus and productive labor extraction, while codified law carries the legal mechanism.",
+  "invariant_preserved_or_changed": "Changed: slavery_chattel->agriculture is now commercial_or_scaling_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to nonproductive domestic slavery where agriculture and surplus were intentionally irrelevant.",
+    "A stronger source showed Old Babylonian legal chattel slavery did not rely on agricultural or surplus-producing economic context.",
+    "A separate surplus-production node replaced agriculture as the direct economic context."
+  ],
+  "short_reason": "Agriculture supports the economic scaling context, not the legal mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/slavery_chattel.before.json /tmp/slavery_chattel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

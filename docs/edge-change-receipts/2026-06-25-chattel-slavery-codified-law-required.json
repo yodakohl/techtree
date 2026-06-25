@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-chattel-slavery-codified-law-required",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "slavery_chattel",
+    "prerequisite": "codified_law"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Codified Law provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "The corrected scope is legal chattel slavery: the Code of Hammurabi source records slave ownership, sale, fugitive-return, and status rules in a written law code."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://oll.libertyfund.org/pages/1750-the-code-of-hammurabi-johns-translation",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The translation includes legal rules for buying male or female slaves, fugitive slaves, and returning runaway slaves to owners.",
+    "source_claim_summary": "The source directly records the legal rules that define the corrected legal chattel-slavery scope.",
+    "source_support_rationale": "Because the node is now explicitly about law-enforced property status, the written law-code prerequisite carries the core mechanism rather than broad background context."
+  },
+  "ontology_before": "Codified Law was a generic enabling background edge for an unsourced Classical chattel-slavery node.",
+  "ontology_after": "Codified Law is required for the corrected legal-property scope anchored to Hammurabi-era written slave rules.",
+  "invariant_preserved_or_changed": "Changed: slavery_chattel->codified_law is now a required edge.",
+  "would_reject_if": [
+    "The node were rescoped away from legal chattel status into all forms of captivity or coerced labor.",
+    "The cited Hammurabi source no longer documented slave sale, fugitive return, or slave-status law.",
+    "A separate pre-legal slavery node were added and this id were intentionally reassigned to that broader institution."
+  ],
+  "short_reason": "The corrected scope is a law-enforced property status, so codified law is the core mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/slavery_chattel.before.json /tmp/slavery_chattel.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
