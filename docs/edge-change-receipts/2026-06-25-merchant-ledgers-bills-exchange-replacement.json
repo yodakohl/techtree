@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-25-merchant-ledgers-bills-exchange-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "merchant_accounting_ledgers",
+    "prerequisite": "bills_of_exchange_early_finance"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_accounting_ledgers",
+    "prerequisite": "insurance_brokerage_offices"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Insurance Brokerage Offices provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.62,
+    "evidence_level": "review",
+    "note": "Bills of exchange and related credit instruments were part of the long-distance finance environment recorded in merchant ledgers, but were not physical ledger components."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://journals.sagepub.com/doi/10.1177/10323732241301777",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Merchant-account-book section: Barbarigo used bills of exchange to move funds, relied on bankers for loans and overdrafts, and recorded all business activities in his ledger and journal.",
+    "source_claim_summary": "The source places bills of exchange inside the merchant finance transactions recorded by the 1430 Venetian ledger/journal system.",
+    "source_support_rationale": "This supports a common-dependency edge because bills of exchange explain the long-distance credit activity captured in the ledger, whereas Lloyd's insurance brokerage offices are later and outside the corrected Venetian merchant-ledger scope."
+  },
+  "ontology_before": "Merchant Accounting Ledgers were anchored to London insurance brokerage offices around Lloyd's, narrowing a broad merchant-ledger node to a late insurance-office context.",
+  "ontology_after": "Merchant Accounting Ledgers are anchored to Renaissance Venetian multi-book merchant accounting, with bills of exchange as the relevant long-distance finance context.",
+  "invariant_preserved_or_changed": "Changed: merchant_accounting_ledgers no longer directly depends on insurance_brokerage_offices and now keeps bills_of_exchange_early_finance as a common dependency.",
+  "would_reject_if": [
+    "The node is later narrowed to Lloyd's-specific insurance-broker office ledgers.",
+    "A separate insurance_office_ledger_books node is introduced and should depend directly on insurance_brokerage_offices.",
+    "A stronger source shows that Renaissance merchant ledgers required insurance brokerage offices rather than broader credit and exchange practices."
+  ],
+  "short_reason": "Bills of exchange match the source-backed long-distance merchant-ledger context; insurance brokerage offices are a later Lloyd's-specific context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_accounting_ledgers.before.json /tmp/merchant_accounting_ledgers.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

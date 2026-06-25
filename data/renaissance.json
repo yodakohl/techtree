@@ -12362,35 +12362,108 @@
     "id": "merchant_accounting_ledgers",
     "name": "Merchant Accounting Ledgers",
     "era": "Renaissance",
-    "description": "Bound multi-account books that tracked credit, cargo, inventory, partnerships, and long-distance exchange.",
+    "description": "Bound multi-account merchant books, especially journals and ledgers, used to track credit, voyages, inventory, partnerships, and long-distance exchange.",
     "prerequisites": [
       "double_entry_diffusion",
-      "insurance_brokerage_offices"
+      "bills_of_exchange_early_finance"
     ],
-    "firstKnownDate": 1688,
-    "datePrecision": "exact",
-    "region": "London insurance and mercantile-office bookkeeping contexts around Lloyd's Coffee House",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1430,
+    "datePrecision": "year",
+    "region": "Venice and northern Italian merchant bookkeeping",
+    "scopeNote": "Anchored to Andrea Barbarigo's 1430 Venetian journal and ledger as a Renaissance multi-book merchant accounting system; earlier medieval account-book fragments and moneychanger ledgers remain represented by double-entry diffusion.",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "double_entry_diffusion",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Double-Entry Bookkeeping Diffusion provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Renaissance merchant ledgers used the diffused Italian double-entry method to coordinate debits, credits, journals, ledgers, balances, and cross-indexed accounts.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Digitalising medieval accounting research: Andrea Barbarigo's Venetian Cash Account 1430-1434",
+            "url": "https://journals.sagepub.com/doi/10.1177/10323732241301777",
+            "publisher": "Accounting History / SAGE Journals",
+            "year": 2025,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introduction and merchant-account-book sections: Venetian double entry originated the two main account books used later, and Barbarigo opened a 640-page bilateral ledger in late 1430."
+          },
+          {
+            "title": "Accounting and Bookkeeping",
+            "url": "https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/accounting-and-bookkeeping",
+            "publisher": "Encyclopedia.com / Europe, 1450 to 1789",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Accounting and Bookkeeping section: double-entry debits and credits were cross-indexed in a ledger, and Venetian bilateral account books such as Andrea Barbarigo's formed a coordinated multi-book system."
+          }
+        ]
       },
       {
-        "prerequisite": "insurance_brokerage_offices",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Insurance Brokerage Offices provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "bills_of_exchange_early_finance",
+        "type": "common_dependency",
+        "confidence": 0.62,
+        "evidence_level": "review",
+        "note": "Bills of exchange and related credit instruments were part of the long-distance finance environment recorded in merchant ledgers, but were not physical ledger components.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Digitalising medieval accounting research: Andrea Barbarigo's Venetian Cash Account 1430-1434",
+            "url": "https://journals.sagepub.com/doi/10.1177/10323732241301777",
+            "publisher": "Accounting History / SAGE Journals",
+            "year": 2025,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Merchant-account-book section: Barbarigo used bills of exchange to move funds, relied on bankers for loans and overdrafts, and recorded all business activities in his ledger and journal."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Digitalising medieval accounting research: Andrea Barbarigo's Venetian Cash Account 1430-1434",
+        "url": "https://journals.sagepub.com/doi/10.1177/10323732241301777",
+        "publisher": "Accounting History / SAGE Journals",
+        "year": 2025,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Abstract, introduction, and merchant-account-book section: the article studies a Venetian merchant's journal and ledger, describes late-1430 transfer into a 640-page ledger, and states that all business activities were recorded in the ledger and journal."
+      },
+      {
+        "title": "Accounting and Bookkeeping",
+        "url": "https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/accounting-and-bookkeeping",
+        "publisher": "Encyclopedia.com / Europe, 1450 to 1789",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Accounting and Bookkeeping section: Venetian merchants used bilateral account books with debits and credits on facing pages, and Barbarigo's extant books are cited as a typical coordinated multi-book system."
+      },
+      {
+        "title": "The emergence of double entry bookkeeping",
+        "url": "https://ehs.org.uk/article/the-emergence-of-double-entry-bookkeeping/",
+        "publisher": "Economic History Society",
+        "year": 2024,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Abstract: double-entry account books of medieval Italian merchants and bankers are used as sources for business, trade, commodities, markets, exchange rates, rents, agents, networks, and related topics."
       }
     ],
     "dateUncertainty": true,
-    "dateUncertaintyNote": "Date kept aligned with the Lloyd's insurance-brokerage office anchor because this node currently depends on that office context; older merchant ledgers are represented by double-entry bookkeeping nodes."
+    "dateUncertaintyNote": "The 1430 anchor follows the source-inspected Barbarigo journal/ledger case; earlier medieval account-book fragments and moneychanger-bank ledgers are kept outside this Renaissance multi-book merchant-ledger scope."
   },
   {
     "id": "patent_specification_drawings",

@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-merchant-accounting-ledgers-scope",
+  "description": "Lock Merchant Accounting Ledgers to source-backed Renaissance Venetian multi-book merchant accounting rather than Lloyd's insurance-office bookkeeping.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "merchant_accounting_ledgers",
+      "operator": "eq",
+      "value": 1430,
+      "reason": "The corrected node is anchored to Andrea Barbarigo's 1430 Venetian journal and ledger case."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_accounting_ledgers",
+      "prerequisite": "double_entry_diffusion",
+      "expected": "enabling",
+      "reason": "The scoped ledger system relies on diffused Italian double-entry methods and coordinated journal/ledger accounts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_accounting_ledgers",
+      "prerequisite": "bills_of_exchange_early_finance",
+      "expected": "common_dependency",
+      "reason": "Bills of exchange supplied long-distance credit activity recorded by merchant ledgers but were not physical ledger components."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_accounting_ledgers",
+      "prerequisite": "insurance_brokerage_offices",
+      "reason": "Lloyd's insurance-office brokerage is later and outside the corrected Venetian merchant-ledger scope."
+    }
+  ]
+}
