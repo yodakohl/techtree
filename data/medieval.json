@@ -12941,31 +12941,94 @@
     "id": "municipal_fire_watch",
     "name": "Municipal Fire Watch",
     "era": "Medieval",
-    "description": "Night watches, bells, patrols, water access, hooks, ladders, and fines for reducing urban fire damage.",
+    "description": "Ward watches, curfew and night patrol duties, fire-prevention rules, firefighting equipment stores, and penalties used by medieval municipal authorities to reduce urban fire damage.",
     "prerequisites": [
       "urban_firefighting_ordinances",
       "municipal_charters"
     ],
     "firstKnownDate": 1200,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "dateUncertainty": true,
+    "region": "Medieval London and comparable English municipalities",
+    "scopeNote": "Date is anchored to London ward watches and early-13th-century fire-prevention ordinances after the 1212 fire; routine ward equipment stores and all-season nightly watch duties developed later, so the node should not be read as a fully mature fire brigade by 1200.",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "urban_firefighting_ordinances",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Urban Firefighting Ordinances provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "London's municipal fire watch relied on ordinances that regulated risky night work, roofing, removable wooden structures, wardmote presentments, firefighting equipment, and watch duties.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Political Culture and Urban Space in Early Tudor London",
+            "url": "https://ora.ox.ac.uk/objects/uuid%3A772f1413-c1e7-4871-8277-3b44913e129c/files/m6d7b3e90fbf00a3f3c02c17eaf08e042",
+            "publisher": "University of Oxford",
+            "year": 2013,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "pp. 196-197: after the 1212 London fire, new building-code articles mitigated outbreak risks; ward officers made presentments against fire-regulation violations, and later civic government oversaw ward firefighting equipment."
+          },
+          {
+            "title": "Introduction to London Assize of Nuisance, 1301-1431: A Calendar",
+            "url": "https://www.british-history.ac.uk/london-record-soc/vol10/ix-xxxiv",
+            "publisher": "British History Online / London Record Society",
+            "year": 1973,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "The Assize of Buildings section says regulations drawn up after the July 1212 fire were directly concerned with fire-prevention and rebuilding, including roofing materials and removal of hazardous wooden buildings."
+          }
+        ]
       },
       {
         "prerequisite": "municipal_charters",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Municipal Charters provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Municipal legal authority and ward governance enabled household watch obligations, wardmote enforcement, and civic oversight of fire-risk controls.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Political Culture and Urban Space in Early Tudor London",
+            "url": "https://ora.ox.ac.uk/objects/uuid%3A772f1413-c1e7-4871-8277-3b44913e129c/files/m6d7b3e90fbf00a3f3c02c17eaf08e042",
+            "publisher": "University of Oxford",
+            "year": 2013,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "pp. 194-197: London householders held ward watches in the 1100s, night watch duties rotated among householders, and civic authorities regulated streets, houses, fire risks, and ward enforcement."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Political Culture and Urban Space in Early Tudor London",
+        "url": "https://ora.ox.ac.uk/objects/uuid%3A772f1413-c1e7-4871-8277-3b44913e129c/files/m6d7b3e90fbf00a3f3c02c17eaf08e042",
+        "publisher": "University of Oxford",
+        "year": 2013,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "pp. 194-197: describes London ward watches in the 1100s, regular summer ward watches from the 1340s, post-1212 fire-prevention articles, ward fire-regulation presentments, and civic provision of buckets, ladders, hooks, and other firefighting equipment."
+      },
+      {
+        "title": "Introduction to London Assize of Nuisance, 1301-1431: A Calendar",
+        "url": "https://www.british-history.ac.uk/london-record-soc/vol10/ix-xxxiv",
+        "publisher": "British History Online / London Record Society",
+        "year": 1973,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "locator": "The Assize of Buildings section ties London's July 1212 fire to regulations directly concerned with fire-prevention and rebuilding, later incorporated into wardmote articles and enforced through presentments."
       }
     ]
   },
