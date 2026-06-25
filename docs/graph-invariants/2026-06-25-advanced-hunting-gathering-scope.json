@@ -1,0 +1,34 @@
+{
+  "id": "2026-06-25-advanced-hunting-gathering-scope",
+  "description": "Lock Advanced Hunting & Gathering to a source-backed broad forager-lifeway synthesis with explicit date uncertainty, not a generic unsourced placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "advanced_hunting_gathering",
+      "operator": "eq",
+      "value": -10000,
+      "reason": "The broad synthesis node uses a conservative early-Holocene anchor while documenting older source-backed component technologies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_hunting_gathering",
+      "prerequisite": "composite_tools",
+      "expected": "enabling",
+      "reason": "Composite hunting tools supply the material toolkit basis for this advanced forager package."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_hunting_gathering",
+      "prerequisite": "animal_tracking_signs",
+      "expected": "enabling",
+      "reason": "Animal tracking and movement interpretation are part of source-backed hunter-gatherer hunting practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_hunting_gathering",
+      "prerequisite": "atlatl",
+      "expected": "enabling",
+      "reason": "Spearthrowers represent source-backed long-distance hunting technology in advanced forager toolkits."
+    }
+  ]
+}
