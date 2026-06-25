@@ -1,0 +1,34 @@
+{
+  "id": "2026-06-25-early-medicine-scope",
+  "description": "Lock early_medicine to broad medieval learned and practical medicine, not a narrow surgery or herbal-preparation node.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "early_medicine",
+      "operator": "eq",
+      "value": 600,
+      "reason": "The node remains a century-level medieval scope, with explicit date uncertainty for inherited classical texts, monastic transmission, and practical treatment traditions."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_medicine",
+      "prerequisite": "herbalism",
+      "expected": "enabling",
+      "reason": "Herbal remedies are a treatment component in medieval medicine but do not define the whole learned-medical tradition."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_medicine",
+      "prerequisite": "monasticism_and_scriptoria",
+      "expected": "enabling",
+      "reason": "Monastic manuscript preservation enabled learned medical transmission while medicine also existed in lay and Arabic scholarly contexts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_medicine",
+      "prerequisite": "primitive_surgery_trepanation",
+      "expected": "historical_predecessor",
+      "reason": "Ancient surgery is procedural lineage for limited medieval surgery, not a direct enabling requirement for all early medicine."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-25-early-medicine-surgery-lineage",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "early_medicine",
+    "prerequisite": "primitive_surgery_trepanation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Primitive Surgery (e.g., Trepanation) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Ancient surgical practice is an earlier procedural lineage for the limited surgery present in medieval medicine, not a direct enabling requirement for all medical practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/science/history-of-medicine/Hellenistic-and-Roman-medicine",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Britannica's history of medicine article describes Celsus's classical surgical account and later Albucasis's influential medieval surgical text.",
+    "source_claim_summary": "The source shows surgery as an older medical practice and textual tradition that continued into medieval medicine.",
+    "source_support_rationale": "The source supports surgery as lineage within medicine but does not make ancient trepanation or primitive surgery a necessary enabling component for all medieval medicine."
+  },
+  "ontology_before": "The graph treated primitive surgery as a generic enabling capability for early medieval medicine.",
+  "ontology_after": "The graph treats ancient surgery as a historical predecessor to the limited surgical component of early medieval medicine.",
+  "invariant_preserved_or_changed": "Graph invariant 2026-06-25-early-medicine-scope keeps primitive_surgery_trepanation as a historical_predecessor edge.",
+  "would_reject_if": [
+    "The node were rescoped to medieval surgery specifically rather than broad early medicine.",
+    "A source showed primitive trepanation was a direct operational prerequisite for medieval learned medicine.",
+    "A later split introduced a dedicated medieval_surgery node that should carry the surgical lineage instead."
+  ],
+  "short_reason": "Primitive surgery is predecessor lineage, not a broad enabling requirement.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/early_medicine.before.json /tmp/early_medicine.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}
