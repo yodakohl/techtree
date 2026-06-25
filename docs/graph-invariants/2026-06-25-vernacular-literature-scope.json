@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-25-vernacular-literature-scope",
+  "description": "Lock vernacular_literature_prose_poetry to Renaissance vernacular literary prestige from Dante onward, not generic writing or the earlier medieval troubadour node.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "vernacular_literature_prose_poetry",
+      "operator": "eq",
+      "value": 1308,
+      "reason": "The source-backed scope is anchored to Dante's Divine Comedy, dated c. 1308-21 and written in Italian rather than Latin."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "vernacular_literature_prose_poetry",
+      "prerequisite": "vernacular_literature_troubadours",
+      "expected": "historical_predecessor",
+      "reason": "Earlier French, Provençal, Sicilian, and Tuscan vernacular traditions are lineage for Dante's and later Renaissance vernacular literature."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "vernacular_literature_prose_poetry",
+      "prerequisite": "humanism",
+      "expected": "enabling",
+      "reason": "Petrarch and Boccaccio connect Renaissance humanism to elevated vernacular literary status without making humanism the only source of vernacular writing."
+    }
+  ]
+}

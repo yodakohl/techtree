@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-25-vernacular-literature-humanism-evidence",
+  "decision_date": "2026-06-25",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "vernacular_literature_prose_poetry",
+    "prerequisite": "humanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Humanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Petrarch and Boccaccio tied early Renaissance humanism to vernacular literary prestige, raising vernacular literature toward the status of classical antiquity."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/biography/Giovanni-Boccaccio",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Introduction: Britannica says Boccaccio and Petrarch laid foundations for Renaissance humanism and raised vernacular literature to the level and status of the classics of antiquity.",
+    "source_claim_summary": "The source directly connects Petrarch and Boccaccio's humanism with elevated vernacular literary status.",
+    "source_support_rationale": "This supports retaining humanism as an enabling intellectual context for the Renaissance vernacular literature node while keeping earlier vernacular traditions as separate historical lineage."
+  },
+  "ontology_before": "The humanism edge was an unsourced generic enabling dependency.",
+  "ontology_after": "The humanism edge is source-backed to Petrarch and Boccaccio's role in joining Renaissance humanism with vernacular literary prestige.",
+  "invariant_preserved_or_changed": "Preserved: humanism remains an enabling prerequisite of vernacular_literature_prose_poetry.",
+  "would_reject_if": [
+    "The node were rescoped to medieval troubadour or Sicilian-school vernacular literature before Renaissance humanism.",
+    "A stronger source showed Petrarch and Boccaccio's humanism was unrelated to vernacular literary status.",
+    "The humanism edge were promoted to a required dependency rather than a contextual enabling edge."
+  ],
+  "short_reason": "Petrarch and Boccaccio connect Renaissance humanism to vernacular literary prestige.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/vernacular_literature_prose_poetry.before.json /tmp/vernacular_literature_prose_poetry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -6653,26 +6653,62 @@
   },
   {
     "id": "vernacular_literature_prose_poetry",
-    "name": "Vernacular Literature (Prose & Poetry)",
+    "name": "Renaissance Vernacular Literature",
     "era": "Renaissance",
-    "description": "A flourishing of literature written in the common languages of the people (like Italian, French, English) rather than Latin. This made works by authors like Dante, Petrarch, and Shakespeare accessible to a wider audience.",
+    "description": "Renaissance-era elevation of vernacular prose and poetry into major literary languages, anchored by Dante's Italian Divine Comedy and extended through Petrarch, Boccaccio, and later European vernacular writers.",
     "prerequisites": [
+      "vernacular_literature_troubadours",
       "humanism",
       "writing",
       "paper_making"
     ],
-    "firstKnownDate": 1400,
-    "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1308,
+    "datePrecision": "decade",
+    "region": "Italy, then wider European vernacular literary cultures",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers the Renaissance and early-humanist elevation of vernacular literary languages, especially Italian prose and poetry from Dante, Petrarch, and Boccaccio onward; excludes the earlier medieval troubadour/courtly-love origin node and later mass-market newspaper prose.",
     "dependencyEdges": [
+      {
+        "prerequisite": "vernacular_literature_troubadours",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Renaissance vernacular literature grew from earlier French, Provençal, Sicilian, and Tuscan vernacular poetry and prose traditions before Dante's canonical Italian turn.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Italian literature",
+            "url": "https://www.britannica.com/art/Italian-literature",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Early vernacular literature sections: Britannica describes French and Provençal influence, troubadour poetry, the Sicilian school, Tuscan poets, and Dante's inheritance of these traditions."
+          }
+        ]
+      },
       {
         "prerequisite": "humanism",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Humanism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Petrarch and Boccaccio tied early Renaissance humanism to vernacular literary prestige, raising vernacular literature toward the status of classical antiquity.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Giovanni Boccaccio",
+            "url": "https://www.britannica.com/biography/Giovanni-Boccaccio",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introduction: Britannica says Boccaccio and Petrarch laid foundations for Renaissance humanism and raised vernacular literature to the level and status of the classics of antiquity."
+          }
+        ]
       },
       {
         "prerequisite": "writing",
@@ -6717,17 +6753,65 @@
     ],
     "sources": [
       {
-        "title": "How to write cuneiform",
-        "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-        "publisher": "British Museum",
-        "year": 2020,
-        "source_type": "museum",
+        "title": "The Divine Comedy",
+        "url": "https://www.britannica.com/topic/The-Divine-Comedy",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica dates The Divine Comedy to c. 1308-21, identifies it as an Italian long narrative poem, and says Dante wrote in Italian rather than Latin to reach a wider audience."
+      },
+      {
+        "title": "Dante Alighieri",
+        "url": "https://www.britannica.com/biography/Dante-Alighieri",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica says Dante's choice to write in the Italian vernacular rather than Latin decisively influenced literary development and helped Italian become a literary language in western Europe."
+      },
+      {
+        "title": "Giovanni Boccaccio",
+        "url": "https://www.britannica.com/biography/Giovanni-Boccaccio",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
           "edge"
-        ]
+        ],
+        "source_locator": "Britannica says Boccaccio and Petrarch laid foundations for Renaissance humanism and raised vernacular literature to the status of the classics of antiquity."
+      },
+      {
+        "title": "Petrarch",
+        "url": "https://www.britannica.com/biography/Petrarch",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica identifies Petrarch as foundational for Renaissance humanism and describes his Canzoniere as a collection of vernacular poems."
+      },
+      {
+        "title": "Italian literature",
+        "url": "https://www.britannica.com/art/Italian-literature",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Britannica describes Italian literature beginning in the 13th century, early vernacular traditions, Dante, Petrarch, Boccaccio, and the Renaissance rise of vernacular literature."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Renaissance source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1308 decade anchor follows the c. 1308-21 date for Dante's Divine Comedy; the broader vernacular prose-and-poetry tradition begins earlier in medieval troubadour and Italian lyric contexts and continues through Petrarch, Boccaccio, and later Renaissance writers."
   },
   {
     "id": "biology",
