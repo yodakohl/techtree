@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-art-conservation-workshops-scope",
+  "description": "Lock Art Conservation Workshops to source-backed painting/material conservation practice rather than publication-law lineage.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "art_conservation_workshops",
+      "operator": "eq",
+      "value": 1450,
+      "reason": "The corrected node uses a fifteenth-century anchor for painting-restoration practice and technical-material documentation, with explicit date uncertainty."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "art_conservation_workshops",
+      "prerequisite": "oil_painting",
+      "expected": "enabling",
+      "reason": "Oil painting is a major class of objects and material techniques treated by the scoped conservation workshop practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "art_conservation_workshops",
+      "prerequisite": "pigment_creation",
+      "expected": "enabling",
+      "reason": "Pigment and binder preparation knowledge is part of the source-backed material basis for examining, repairing, and repainting painted surfaces."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "art_conservation_workshops",
+      "prerequisite": "early_copyright_printing_privileges",
+      "reason": "Printing-privilege law is outside the corrected object-treatment and material-conservation scope."
+    }
+  ]
+}

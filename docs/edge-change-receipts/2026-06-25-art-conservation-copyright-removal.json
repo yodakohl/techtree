@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-25-art-conservation-copyright-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "art_conservation_workshops",
+    "prerequisite": "early_copyright_printing_privileges"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Copyright & Printing Privileges is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped conservation practices are grounded in painting materials, workshop techniques, examination, cleaning, repair, repainting, and reframing, not in legal privileges for printing and publication.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.getty.edu/conservation/publications_resources/books/issues_conservation_paintings.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Getty's Issues in the Conservation of Paintings page frames the field around fifteenth-century-to-present conservation readings, history of the profession, artists' materials and techniques, structural interventions, and cleaning/restoration.",
+    "source_claim_summary": "The source-backed scope for the node is painting conservation history and treatment practice, especially materials, techniques, structural interventions, and cleaning or restoration.",
+    "source_support_rationale": "This supports removing a legal-printing privilege edge because copyright and printing licenses do not supply the material, craft, or treatment mechanism described for art conservation workshops."
+  },
+  "ontology_before": "Art Conservation Workshops depended on Early Copyright & Printing Privileges, implying legal print monopolies were a historical foundation for restoration and conservation practice.",
+  "ontology_after": "Art Conservation Workshops are routed through painting and pigment-material practice, keeping the node scoped to object treatment and material examination rather than publication law.",
+  "invariant_preserved_or_changed": "Changed: art_conservation_workshops no longer directly depends on early_copyright_printing_privileges and now preserves a direct materials-practice dependency.",
+  "would_reject_if": [
+    "The node is later rescoped to copyright administration for art manuals, prints, or publications rather than object conservation and restoration.",
+    "A stronger source shows early copyright or printing privileges were a direct prerequisite for the first conservation workshops rather than only a distant legal context."
+  ],
+  "short_reason": "Painting conservation practice is source-backed through materials and treatment traditions, not through printing-privilege law.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/art_conservation_workshops.before.json /tmp/art_conservation_workshops.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
