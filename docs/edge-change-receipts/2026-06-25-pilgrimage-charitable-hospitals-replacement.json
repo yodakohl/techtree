@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-pilgrimage-charitable-hospitals-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pilgrimage_route_services",
+    "prerequisite": "charitable_hospital_networks"
+  },
+  "replaced_edge": {
+    "dependent": "pilgrimage_route_services",
+    "prerequisite": "hospital_patient_wards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Hospital Patient Wards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Pilgrimage route services depended on hospitality and care institutions for travelers; medieval route evidence specifically names hospitals, hospices, food, and lodging for pilgrims."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://whc.unesco.org/en/list/868/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Outstanding Universal Value identifies hospitals and old pilgrim hospitals as specialized edifices meeting the spiritual and physical well-being of medieval pilgrims.",
+    "source_claim_summary": "UNESCO identifies hospitals and old pilgrim hospitals as part of medieval Santiago-route infrastructure.",
+    "source_support_rationale": "This supports charitable hospital and hospice networks as an institutional substrate for route services. It is narrower and more relevant than generic patient-ward organization."
+  },
+  "ontology_before": "Pilgrimage Route Services depended on Hospital Patient Wards, implying ward organization was the direct prerequisite for pilgrim route hospitality.",
+  "ontology_after": "Pilgrimage Route Services depends on Charitable Hospital Networks, which explicitly covers shelter and organized care for travelers, poor people, and the sick.",
+  "invariant_preserved_or_changed": "Changed: pilgrimage_route_services now depends on charitable_hospital_networks and no longer directly depends on hospital_patient_wards.",
+  "would_reject_if": [
+    "The node were narrowed to medical ward management for sick pilgrims rather than pilgrimage route support.",
+    "A source showed hospital ward layout was the direct enabling technology for pilgrimage route services.",
+    "The charitable_hospital_networks node were narrowed so it no longer covered shelter and organized care for travelers."
+  ],
+  "short_reason": "Pilgrimage hospitality is better represented by charitable hospital networks than by generic patient wards.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pilgrimage_route_services.before.json /tmp/pilgrimage_route_services.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

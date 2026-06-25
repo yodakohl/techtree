@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-25-pilgrimage-route-services-scope",
+  "description": "Lock Pilgrimage Route Services to medieval pilgrimage-route support infrastructure rather than merchant couriers or generic hospital wards.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pilgrimage_route_services",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "UNESCO anchors the Santiago route evidence between the 11th and 15th centuries, so the node uses a conservative century-level medieval route-services date."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pilgrimage_route_services",
+      "prerequisite": "roads",
+      "expected": "enabling",
+      "reason": "Road and route corridors are the physical substrate for pilgrimage route services."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pilgrimage_route_services",
+      "prerequisite": "charitable_hospital_networks",
+      "expected": "enabling",
+      "reason": "Charitable hospitals and hospices are the institutional substrate for pilgrim shelter and care."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pilgrimage_route_services",
+      "prerequisite": "merchant_courier_networks",
+      "reason": "Merchant courier systems are commercial messaging infrastructure, not a direct prerequisite for pilgrim route services."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pilgrimage_route_services",
+      "prerequisite": "hospital_patient_wards",
+      "reason": "Generic patient wards are narrower medical organization than the charitable hospital and hospice network that supported pilgrims."
+    }
+  ]
+}

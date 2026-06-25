@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-pilgrimage-road-infrastructure-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pilgrimage_route_services",
+    "prerequisite": "roads"
+  },
+  "replaced_edge": {
+    "dependent": "pilgrimage_route_services",
+    "prerequisite": "merchant_courier_networks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Merchant Courier Networks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Pilgrimage services operate along physical route corridors; the Santiago evidence identifies routes, bridges, roadside crosses, and route sections as part of the pilgrimage infrastructure."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://whc.unesco.org/en/list/868/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Outstanding Universal Value says medieval pilgrims followed four routes through France; churches, hospitals, bridges, roadside crosses, and route sections illustrate pilgrimage conditions.",
+    "source_claim_summary": "UNESCO frames the Santiago property as medieval pilgrimage routes marked by route sections, bridges, hospitals, churches, and roadside crosses.",
+    "source_support_rationale": "This supports roads and route corridors as the physical substrate for pilgrimage route services. It does not support making merchant courier systems a prerequisite for pilgrimage services."
+  },
+  "ontology_before": "Pilgrimage Route Services depended on Merchant Courier Networks, implying pilgrim services emerged from private merchant communications infrastructure.",
+  "ontology_after": "Pilgrimage Route Services depends on roads, preserving the physical route-corridor substrate while keeping merchant couriers scoped to commercial messaging.",
+  "invariant_preserved_or_changed": "Changed: pilgrimage_route_services now depends on roads and no longer directly depends on merchant_courier_networks.",
+  "would_reject_if": [
+    "The node were narrowed to merchant messenger logistics for pilgrimage businesses rather than pilgrim route services.",
+    "A source showed medieval pilgrimage services directly required private merchant courier networks.",
+    "The roads node were narrowed so it no longer covered constructed paths and road systems for moving people."
+  ],
+  "short_reason": "Pilgrimage route services require route infrastructure, not merchant courier systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pilgrimage_route_services.before.json /tmp/pilgrimage_route_services.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

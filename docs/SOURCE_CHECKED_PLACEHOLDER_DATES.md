@@ -6,8 +6,8 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 
 A pre-Future `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
 
-Source-checked nodes: 1326
-Source-checked nodes using era-default placeholder dates: 0 / 1326 (0.0%)
+Source-checked nodes: 1327
+Source-checked nodes using era-default placeholder dates: 0 / 1327 (0.0%)
 Listed exceptions without explicit uncertainty metadata: 0
 
 ## Summary By Era
