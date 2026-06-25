@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-25-eyeglass-fitting-scope",
+  "description": "Lock eyeglass_prescription_practices to Renaissance spectacle fitting and ordering practices, not an unsourced medieval or modern clinical prescription claim.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "eyeglass_prescription_practices",
+      "operator": "eq",
+      "value": 1466,
+      "reason": "The node is anchored to the 13 June 1466 Milan order for Florence-made spectacles in age- and power-graded categories."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "eyeglass_prescription_practices",
+      "prerequisite": "spectacles_eyeglasses",
+      "expected": "required",
+      "reason": "Spectacles are the object being fitted and ordered, not merely context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "eyeglass_prescription_practices",
+      "prerequisite": "lens_grinding_workshops",
+      "expected": "enabling",
+      "reason": "Graded fitting practices depend on a trade capable of supplying lenses in varied powers."
+    }
+  ]
+}
