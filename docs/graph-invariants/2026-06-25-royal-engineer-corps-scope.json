@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-royal-engineer-corps-scope",
+  "description": "Lock military_engineer_corps to Vauban-era French royal engineer-corps scope, not generic ancient field engineers or later national engineer corps.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "military_engineer_corps",
+      "operator": "eq",
+      "value": 1690,
+      "reason": "The source-backed scope is Vauban's corps de Genie, dated to 1690 in the cited Britannica history."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_engineer_corps",
+      "prerequisite": "artillery_fortification_schools",
+      "expected": "enabling",
+      "reason": "The scoped corps is a fortification-and-siegecraft engineer corps, so artillery and fortification instruction is the direct military-technical knowledge base."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_engineer_corps",
+      "prerequisite": "technical_drawing_standards",
+      "expected": "enabling",
+      "reason": "Royal engineer work depended on plans, drawings, maps, offices, libraries, and archives for fortification and works coordination."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_engineer_corps",
+      "prerequisite": "military_map_rooms",
+      "reason": "The Depot de la Guerre is a related military map/archive bureau, not a documented prerequisite for forming Vauban's engineer corps."
+    }
+  ]
+}
