@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-25-musical-notation-fine-arts-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "musical_notation_polyphony",
+    "prerequisite": "fine_arts_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fine Arts (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because musical notation and early organum are a writing, mathematics, chant, and scriptorium tradition; the corrected fine_arts_medieval node is a later visual-art scope.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/essays/romanesque-art",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Met anchors Romanesque art to the eleventh and twelfth centuries and describes visual-art media such as sculpture, frescoes, precious objects, and illuminated books.",
+    "source_claim_summary": "The source-backed fine_arts_medieval scope is a later visual-art complex, not a prerequisite for ninth-century music notation and polyphony.",
+    "source_support_rationale": "This refutes the direct edge because the music node is already grounded in writing, mathematics, and scriptoria, while Romanesque/Gothic visual art begins later than its first-known date."
+  },
+  "ontology_before": "Musical Notation & Polyphony depended on broad Fine Arts (Medieval), conflating visual fine arts with music notation and creating a chronology conflict after rescoping.",
+  "ontology_after": "Musical Notation & Polyphony depends on writing, mathematics, and scriptoria, without a direct Romanesque/Gothic visual-art prerequisite.",
+  "invariant_preserved_or_changed": "Changed: musical_notation_polyphony no longer directly depends on fine_arts_medieval.",
+  "would_reject_if": [
+    "fine_arts_medieval were broadened back to all medieval arts including music.",
+    "musical_notation_polyphony were rescoped to illustrated music manuscripts after 1000 rather than notation and early polyphony.",
+    "A source showed early organum or staff notation depended on Romanesque/Gothic visual art."
+  ],
+  "short_reason": "Notation and early polyphony are not dependent on later Romanesque/Gothic visual art.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

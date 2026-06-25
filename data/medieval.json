@@ -5199,9 +5199,9 @@
   },
   {
     "id": "fine_arts_medieval",
-    "name": "Fine Arts (Medieval)",
+    "name": "Romanesque and Gothic Fine Arts",
     "era": "Medieval",
-    "description": "Development of artistic styles in painting (frescoes, panel painting), sculpture, and manuscript illumination characteristic of the Romanesque and Gothic periods.",
+    "description": "Western medieval Romanesque and Gothic painting, sculpture, frescoes, stained glass, metalwork, and manuscript illumination produced around churches, monasteries, and later urban cathedral workshops.",
     "prerequisites": [
       "classical_sculpture",
       "pigment_creation",
@@ -5209,18 +5209,32 @@
       "writing",
       "alchemy"
     ],
-    "firstKnownDate": 500,
+    "firstKnownDate": 1000,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Western and Central Europe / Romanesque and Gothic art",
+    "reviewStatus": "source_checked",
+    "scopeNote": "Covers the Romanesque and Gothic fine-art complex in western and central Europe, especially sculpture, fresco and panel painting, stained glass, metalwork, and illuminated manuscripts from the eleventh century onward; excludes generic early medieval art, Byzantine icon traditions, and later Renaissance classicism.",
     "dependencyEdges": [
       {
         "prerequisite": "classical_sculpture",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Classical Sculpture provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "historical_predecessor",
+        "confidence": 0.62,
+        "evidence_level": "textbook",
+        "note": "Romanesque sculpture revived monumental sculpture after a long post-Roman dormancy and positioned itself against the classical figural tradition, making classical sculpture historical lineage rather than an enabling technique.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Romanesque art",
+            "url": "https://www.britannica.com/art/Romanesque-art",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica says monumental sculpture was revived in western Europe during the Romanesque period after almost 600 years of dormancy, and describes relative stylistic freedom from the classical figural tradition."
+          }
+        ]
       },
       {
         "prerequisite": "pigment_creation",
@@ -5305,17 +5319,42 @@
     ],
     "sources": [
       {
-        "title": "A 100,000-Year-Old Ochre-Processing Workshop at Blombos Cave, South Africa",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
-        "publisher": "Science / PubMed",
-        "year": 2011,
-        "source_type": "primary_paper",
+        "title": "Romanesque Art",
+        "url": "https://www.metmuseum.org/essays/romanesque-art",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2002,
+        "source_type": "museum",
         "supports": [
+          "node"
+        ],
+        "source_locator": "The Met anchors Romanesque art to unprecedented artistic and cultural activity in the eleventh and twelfth centuries, including monumental sculpture, frescoes, precious objects, and illuminated books."
+      },
+      {
+        "title": "Romanesque art",
+        "url": "https://www.britannica.com/art/Romanesque-art",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
           "edge"
-        ]
+        ],
+        "source_locator": "Britannica covers Romanesque monumental sculpture, church mural painting, manuscript illumination, and Gothic art beginning to supplant Romanesque in the mid-12th century."
+      },
+      {
+        "title": "Gothic art",
+        "url": "https://www.britannica.com/art/Gothic-art",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica defines Gothic art as the painting, sculpture, and architecture of the second major medieval western and central European art era, evolving from Romanesque from the mid-12th century."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Medieval source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1000 century anchor follows Romanesque art's eleventh- and twelfth-century scope; individual media and regional schools begin unevenly, and Gothic art starts later in the mid-12th century."
   },
   {
     "id": "illuminated_manuscripts_scribal_art",
@@ -5327,7 +5366,6 @@
       "pigment_creation",
       "writing",
       "alchemy",
-      "fine_arts_medieval",
       "monasticism_and_scriptoria"
     ],
     "firstKnownDate": 700,
@@ -5402,14 +5440,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "fine_arts_medieval",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Fine Arts (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "monasticism_and_scriptoria",
@@ -7107,8 +7137,7 @@
     "prerequisites": [
       "writing",
       "mathematics",
-      "monasticism_and_scriptoria",
-      "fine_arts_medieval"
+      "monasticism_and_scriptoria"
     ],
     "firstKnownDate": 900,
     "datePrecision": "century",
@@ -7161,14 +7190,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Monasticism and Scriptoriums provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "fine_arts_medieval",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Fine Arts (Medieval) provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       }
     ],

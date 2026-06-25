@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-25-illuminated-manuscripts-fine-arts-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "illuminated_manuscripts_scribal_art",
+    "prerequisite": "fine_arts_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fine Arts (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the illuminated-manuscript node is anchored to early Insular and monastic manuscript production around 650-700, while fine_arts_medieval is now scoped to later Romanesque and Gothic fine arts from about 1000 onward.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/essays/romanesque-art",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Met anchors Romanesque art to artistic activity in the eleventh and twelfth centuries, including monumental sculpture, frescoes, precious objects, and illuminated books.",
+    "source_claim_summary": "The source-backed fine_arts_medieval scope is later Romanesque and Gothic art, not early Insular manuscript illumination around 700.",
+    "source_support_rationale": "This refutes the direct edge because a later Romanesque/Gothic art complex cannot be a prerequisite for a node anchored to earlier codex and monastic manuscript production."
+  },
+  "ontology_before": "Illuminated Manuscripts & Scribal Art depended directly on broad Fine Arts (Medieval), which hid a chronology conflict after the fine-arts node was narrowed.",
+  "ontology_after": "Illuminated Manuscripts & Scribal Art depends on codex production, pigments, writing, alchemy, and scriptoria without a direct Romanesque/Gothic fine-arts prerequisite.",
+  "invariant_preserved_or_changed": "Changed: illuminated_manuscripts_scribal_art no longer directly depends on fine_arts_medieval.",
+  "would_reject_if": [
+    "fine_arts_medieval were broadened back to all early medieval visual art.",
+    "illuminated_manuscripts_scribal_art were rescoped to Romanesque and Gothic illuminated manuscripts after 1000.",
+    "A source showed the Book of Durrow or comparable early Insular manuscripts depended on later Romanesque/Gothic workshop practices."
+  ],
+  "short_reason": "Early illuminated manuscripts predate the corrected Romanesque/Gothic fine-arts node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

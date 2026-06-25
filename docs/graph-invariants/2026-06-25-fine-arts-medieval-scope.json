@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-25-fine-arts-medieval-scope",
+  "description": "Lock fine_arts_medieval to Romanesque and Gothic fine arts from the eleventh century onward, not generic early medieval art since 500 CE.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "fine_arts_medieval",
+      "operator": "eq",
+      "value": 1000,
+      "reason": "The source-backed scope is Romanesque art of the eleventh and twelfth centuries, with later Gothic art evolving from it."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "fine_arts_medieval",
+      "prerequisite": "classical_sculpture",
+      "expected": "historical_predecessor",
+      "reason": "Classical sculpture is earlier lineage and contrast for Romanesque sculpture, not a direct enabling technique."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "illuminated_manuscripts_scribal_art",
+      "prerequisite": "fine_arts_medieval",
+      "reason": "Early Insular illuminated manuscripts are anchored before the corrected Romanesque/Gothic fine-arts scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "musical_notation_polyphony",
+      "prerequisite": "fine_arts_medieval",
+      "reason": "Music notation and early polyphony are not direct dependents of the corrected Romanesque/Gothic visual fine-arts scope."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-fine-arts-classical-sculpture-retype",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "fine_arts_medieval",
+    "prerequisite": "classical_sculpture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Classical Sculpture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.62,
+    "evidence_level": "textbook",
+    "note": "Romanesque sculpture revived monumental sculpture after a long post-Roman dormancy and positioned itself against the classical figural tradition, making classical sculpture historical lineage rather than an enabling technique."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/art/Romanesque-art",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Romanesque art sculpture section: Britannica says monumental sculpture was revived in western Europe after almost 600 years of dormancy and describes stylistic freedom from the classical figural tradition.",
+    "source_claim_summary": "The source places Romanesque sculpture after a long post-Roman gap and frames classical sculpture as an earlier tradition rather than a direct technique requirement.",
+    "source_support_rationale": "This supports a historical_predecessor edge because the relationship is chronological and stylistic lineage; Romanesque/Gothic art did not require classical sculpture as an operational prerequisite."
+  },
+  "ontology_before": "Fine Arts (Medieval) treated Classical Sculpture as a generic enabling prerequisite, implying a direct technique dependency.",
+  "ontology_after": "Romanesque and Gothic Fine Arts retain Classical Sculpture only as historical and stylistic predecessor context.",
+  "invariant_preserved_or_changed": "Changed: fine_arts_medieval -> classical_sculpture is now historical_predecessor.",
+  "would_reject_if": [
+    "The node were broadened back to all medieval art traditions rather than Romanesque and Gothic fine arts.",
+    "A source showed Romanesque or Gothic workshops required direct continuity of classical sculptural technique.",
+    "The edge were replaced by a more specific Roman imperial sculpture or early Christian sculpture predecessor node."
+  ],
+  "short_reason": "Classical sculpture is lineage context for Romanesque/Gothic art, not an enabling method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/fine_arts_medieval.before.json /tmp/fine_arts_medieval.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
