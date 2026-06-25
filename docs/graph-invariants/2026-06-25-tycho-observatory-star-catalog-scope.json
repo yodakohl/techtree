@@ -1,0 +1,73 @@
+{
+  "id": "2026-06-25-tycho-observatory-star-catalog-scope",
+  "description": "Lock the Uraniborg instrument-program and Tycho star-catalog path to pre-telescopic calibrated naked-eye observations and 1602 print publication.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "instrument_calibration_standards",
+      "operator": "eq",
+      "value": 1582,
+      "reason": "The corrected calibration scope is anchored to Tycho's 1582 large mural quadrant and associated Uraniborg measurement methods."
+    },
+    {
+      "type": "first_known_date",
+      "node": "observatory_instrument_programs",
+      "operator": "eq",
+      "value": 1582,
+      "reason": "The corrected observatory-program scope is anchored to Tycho's 1582 Uraniborg instrument program rather than later telescope observing."
+    },
+    {
+      "type": "first_known_date",
+      "node": "observatory_star_catalogs",
+      "operator": "eq",
+      "value": 1602,
+      "reason": "The scoped Tycho 777-star catalog was printed in 1602."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "observatory_instrument_programs",
+      "prerequisite": "early_astronomy_observation",
+      "expected": "historical_predecessor",
+      "reason": "Tycho's program extended earlier naked-eye astronomical observation traditions."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "observatory_instrument_programs",
+      "prerequisite": "instrument_calibration_standards",
+      "expected": "enabling",
+      "reason": "The Uraniborg observatory program depended on calibrated, stable, repeatable instruments and measurement methods."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "observatory_star_catalogs",
+      "prerequisite": "observatory_instrument_programs",
+      "expected": "enabling",
+      "reason": "Tycho's star catalog was produced from the Uraniborg observatory measurement program."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "observatory_star_catalogs",
+      "prerequisite": "printing_press",
+      "expected": "enabling",
+      "reason": "The scoped catalog is anchored to printed publication in 1602."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "observatory_instrument_programs",
+      "prerequisite": "telescope",
+      "reason": "The corrected Uraniborg observatory program predates the telescope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "observatory_instrument_programs",
+      "prerequisite": "scientific_societies",
+      "reason": "The corrected Uraniborg observatory program is not a Lincei/Galileo scientific-society publication network."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "observatory_star_catalogs",
+      "prerequisite": "telescope",
+      "reason": "Tycho's 1602 star catalog was based on pre-telescopic observatory measurements."
+    }
+  ]
+}

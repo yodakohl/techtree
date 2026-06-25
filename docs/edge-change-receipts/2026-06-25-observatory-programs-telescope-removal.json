@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-observatory-programs-telescope-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "observatory_instrument_programs",
+    "prerequisite": "telescope"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "The telescope enabled recorded celestial observation programs such as Galileo's observations of the Moon, Jupiter, Venus, sunspots, and the Milky Way."
+  },
+  "new_claim_absent": "No direct telescope edge remains because observatory_instrument_programs is now scoped to Tycho Brahe's pre-telescopic Uraniborg/Stjerneborg instrument program rather than Galileo's later telescopic observations.",
+  "source_supports_edge": "no",
+  "source_url": "https://web.astronomicalheritage.net/show-entity?identity=100&idsubentity=1",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History section: the portal identifies Tycho as the most important observational astronomer until the telescope's invention in 1608 and describes his pre-telescopic quadrants, sextants, armillary spheres, mountings, diopters, and measurement methods.",
+    "source_claim_summary": "Tycho's Uraniborg/Stjerneborg instrument program predates the telescope and used improved naked-eye instruments and measurement methods.",
+    "source_support_rationale": "A telescope can enable later Galileo-style observing, but it cannot be a direct prerequisite for the corrected Uraniborg instrument-program scope."
+  },
+  "ontology_before": "Observatory Instrument Programs blended Tycho's pre-telescopic observatory program with Galileo's telescope-based observation program.",
+  "ontology_after": "Uraniborg Observatory Instrument Programs is scoped to Tycho's pre-telescopic, calibrated naked-eye observatory program, with telescope-based observation represented elsewhere.",
+  "invariant_preserved_or_changed": "Changed: observatory_instrument_programs no longer depends directly on telescope.",
+  "would_reject_if": [
+    "The node were broadened back to include Galileo's telescope-based observations as the same scoped technology.",
+    "A separate telescope-observatory program node were added and should keep a telescope edge.",
+    "A source showed Uraniborg's 1582 instrument program used telescopes before 1608."
+  ],
+  "short_reason": "Tycho's Uraniborg program was pre-telescopic, so telescope is outside the corrected scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/observatory_instrument_programs.before.json /tmp/observatory_instrument_programs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

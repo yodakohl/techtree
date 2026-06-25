@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-star-catalogs-telescope-printing-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "observatory_star_catalogs",
+    "prerequisite": "printing_press"
+  },
+  "replaced_edge": {
+    "dependent": "observatory_star_catalogs",
+    "prerequisite": "telescope"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Telescope provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "The scoped catalog is anchored to printed publication of Tycho's shorter 777-star catalog in 1602, so print publication is an enabling distribution mechanism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://arxiv.org/abs/1003.3836",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Abstract: Tycho completed a 1004-star catalog in 1598, circulated it in manuscript, edited a 777-star version printed in 1602, and Kepler edited the full version in 1627.",
+    "source_claim_summary": "The source anchors the scoped star-catalog node to printed publication of Tycho's 777-star catalog in 1602.",
+    "source_support_rationale": "Because the node is a published observatory star catalog rather than a telescope observation program, print publication is the relevant distribution dependency and telescope is outside the causal chain."
+  },
+  "ontology_before": "Observatory Star Catalogs directly depended on telescope, implying a telescopic star-catalog origin.",
+  "ontology_after": "Tycho Brahe Observatory Star Catalogs depend on the Uraniborg measurement program and print publication, without a direct telescope prerequisite.",
+  "invariant_preserved_or_changed": "Changed: observatory_star_catalogs now depends on printing_press and no longer directly depends on telescope.",
+  "would_reject_if": [
+    "The node were broadened to later telescope-based star catalogs such as Flamsteed.",
+    "A source showed Tycho's 1602 star catalog depended on telescopic observations.",
+    "The node were narrowed to manuscript-only catalog circulation rather than printed publication."
+  ],
+  "short_reason": "Tycho's 1602 star catalog was printed from pre-telescopic observatory data.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/observatory_star_catalogs.before.json /tmp/observatory_star_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

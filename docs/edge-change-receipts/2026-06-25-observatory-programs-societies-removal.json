@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-observatory-programs-societies-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "observatory_instrument_programs",
+    "prerequisite": "scientific_societies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific societies helped coordinate, promote, and publish early telescope-based astronomical work rather than merely providing a generic cultural backdrop."
+  },
+  "new_claim_absent": "No direct scientific-societies edge remains because the node is no longer scoped to Galileo/Lincei telescope publication; it is scoped to Tycho's royal-sponsored Uraniborg observatory instrument program.",
+  "source_supports_edge": "no",
+  "source_url": "https://web.astronomicalheritage.net/show-entity?identity=100&idsubentity=1",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Description and history sections: the portal describes Uraniborg under Danish royal sponsorship, purpose-built observatory structures, instruments, paper/printing facilities, and improved observing methods, without making scientific societies the institutional prerequisite.",
+    "source_claim_summary": "The corrected observatory-program scope is a royal-sponsored purpose-built observatory and instrument program, not a scientific-society publication network.",
+    "source_support_rationale": "Scientific societies may support later dissemination of telescope astronomy, but the Uraniborg program's source-backed institutional context is royal patronage, observatory infrastructure, instruments, and measurement practice."
+  },
+  "ontology_before": "Observatory Instrument Programs treated scientific societies as a direct prerequisite through a Galileo/Lincei publication framing.",
+  "ontology_after": "Uraniborg Observatory Instrument Programs no longer depends on scientific societies; the scientific-society publication relationship is left to later telescope and academy nodes.",
+  "invariant_preserved_or_changed": "Changed: observatory_instrument_programs no longer depends directly on scientific_societies.",
+  "would_reject_if": [
+    "The node were broadened back to cover Lincei/Galileo telescope publication as the same technology.",
+    "A source showed Tycho's Uraniborg measurement program depended on a formal scientific society.",
+    "A new scientific-society observatory-publication node were added and should keep this edge."
+  ],
+  "short_reason": "The corrected Uraniborg scope is not a scientific-society publication network.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/observatory_instrument_programs.before.json /tmp/observatory_instrument_programs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
