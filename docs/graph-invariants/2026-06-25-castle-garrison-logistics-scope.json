@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-25-castle-garrison-logistics-scope",
+  "description": "Lock Castle Garrison Logistics to medieval castle defensive operation rather than concentric-castle design or Roman medical stores.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "castle_garrison_logistics",
+      "operator": "eq",
+      "value": 1150,
+      "reason": "The node remains anchored to a conservative High Medieval castle-garrison logistics scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "castle_garrison_logistics",
+      "prerequisite": "early_fortifications",
+      "expected": "enabling",
+      "reason": "Fortification is the defensive enclosure substrate for garrison operations."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "castle_garrison_logistics",
+      "prerequisite": "concentric_castles",
+      "reason": "Concentric castles are a specialized castle design, not a prerequisite for castle garrison logistics generally."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "castle_garrison_logistics",
+      "prerequisite": "state_medical_supply_stores",
+      "reason": "Roman military medical supply stores are outside the sourced medieval castle provisioning scope."
+    }
+  ]
+}

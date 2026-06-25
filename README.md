@@ -41,13 +41,13 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | --- | --- |
 | Technologies | 1,658 |
 | Launch-quality scope (non-Future nodes) | 1,420 / 1,658 (85.6%; 238 Future excluded) |
-| Source-checked nodes | 1,325 / 1,420 (93.3%) |
-| Source-checked nodes with non-placeholder dates | 1,325 / 1,325 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,325 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,161 / 1,325 (87.6%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,325 (0.0%) |
-| Nodes with node-level sources | 1,406 / 1,420 (99.0%) |
-| Dependency edges with edge-level sources | 3,616 / 4,377 (82.6%) |
+| Source-checked nodes | 1,326 / 1,420 (93.4%) |
+| Source-checked nodes with non-placeholder dates | 1,326 / 1,326 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,326 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,162 / 1,326 (87.6%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,326 (0.0%) |
+| Nodes with node-level sources | 1,407 / 1,420 (99.1%) |
+| Dependency edges with edge-level sources | 3,617 / 4,376 (82.7%) |
 | Era-default placeholder dates | 44 / 1,420 (3.1%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.

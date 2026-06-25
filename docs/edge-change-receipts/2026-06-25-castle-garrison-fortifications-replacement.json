@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-castle-garrison-fortifications-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "castle_garrison_logistics",
+    "prerequisite": "early_fortifications"
+  },
+  "replaced_edge": {
+    "dependent": "castle_garrison_logistics",
+    "prerequisite": "concentric_castles"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Concentric Castles provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Garrison logistics is an operating layer for defended castles and forts; fortification supplies the physical enclosure, walls, gates, and protected positions that the garrison supports."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.english-heritage.org.uk/siteassets/home/visit/places-to-visit/peveril-castle/school-visits/learning-resources/peveril-castle-teachers-activity-ideas.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Defend to the End activity says castles were defensive fortresses and lists curtain walls, gates, keeps, turrets, watchmen, wall-walk patrols, food supplies, water access, and garrison protection.",
+    "source_claim_summary": "English Heritage presents castle garrison operation as a defensive-fortress setting involving walls, guarded gates, patrol positions, supplies, and protected access to water.",
+    "source_support_rationale": "This supports fortification as the physical operating substrate for garrison logistics. It does not support making the narrower concentric-castle design a prerequisite for all castle garrison support."
+  },
+  "ontology_before": "Castle Garrison Logistics depended on Concentric Castles, implying garrison support required the specialized concentric castle form.",
+  "ontology_after": "Castle Garrison Logistics depends on broad early fortification infrastructure while leaving concentric castles as a specific later castle design, not a required logistics substrate.",
+  "invariant_preserved_or_changed": "Changed: castle_garrison_logistics now depends on early_fortifications and no longer directly depends on concentric_castles.",
+  "would_reject_if": [
+    "The node were narrowed specifically to logistics inside concentric castles rather than castle garrison support generally.",
+    "A source showed food, arms, water, and watch logistics were uniquely dependent on concentric castle design.",
+    "The early_fortifications node were narrowed so it no longer covered defensive walls, protected enclosures, or fortified strongholds."
+  ],
+  "short_reason": "Castle garrison logistics needs fortifications, not the concentric-castle subtype.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/castle_garrison_logistics.before.json /tmp/castle_garrison_logistics.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

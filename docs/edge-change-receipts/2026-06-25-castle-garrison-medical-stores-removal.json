@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-castle-garrison-medical-stores-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "castle_garrison_logistics",
+    "prerequisite": "state_medical_supply_stores"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "State Medical Supply Stores supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct dependency remains: medieval castle garrison logistics is sourced to castles, garrisons, food, arms, water access, and siege endurance, not to Roman military medical supply stores.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.english-heritage.org.uk/castles/life-in-a-castle/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Soldiers section describes castle garrisons, constables or castellans, soldiers, weapons, and siege starvation without deriving castle operation from medical supply stores.",
+    "source_claim_summary": "English Heritage describes medieval castle garrison operation through soldiers, command, arms, and siege food pressure.",
+    "source_support_rationale": "The source identifies the relevant operating system as castle defense and provisioning. Roman hospital supply stores are a different classical medical-logistics node and would overstate an unrelated lineage."
+  },
+  "ontology_before": "Castle Garrison Logistics depended on Roman Military Medical Supply Stores, implying hospital provisioning scaled medieval castle food, arms, watch, and repair logistics.",
+  "ontology_after": "Castle Garrison Logistics is sourced to castle defensive operation and provisioning; Roman medical stores remain confined to military medical supply contexts.",
+  "invariant_preserved_or_changed": "Changed: state_medical_supply_stores->castle_garrison_logistics is removed. Preserved: fortification remains the physical substrate for castle garrison operation.",
+  "would_reject_if": [
+    "The node were narrowed to castle infirmary or medical-supply management rather than full garrison logistics.",
+    "A source showed medieval castle provisioning directly derived from Roman military hospital supply stores.",
+    "The state_medical_supply_stores node were broadened into all ancient and medieval military stores."
+  ],
+  "short_reason": "Roman medical supply stores are unrelated to castle garrison provisioning.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/castle_garrison_logistics.before.json /tmp/castle_garrison_logistics.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
