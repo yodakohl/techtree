@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-25-sailing-textiles-replaces-loom",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "sailing",
+    "prerequisite": "textiles_weaving"
+  },
+  "replaced_edge": {
+    "dependent": "sailing",
+    "prerequisite": "loom"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Loom provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "The source-backed sail form is a square canvas or textile surface; textile production enables sail material without requiring the specific loom node as a direct prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/ship/Sailing-ships",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Sailing ships / Types of sails: describes early sailing ships using a large square canvas suspended from a yard, and says the spread of canvas in sails determined speed.",
+    "source_claim_summary": "The source describes sail propulsion through square canvas surfaces suspended from yards and carried on masts.",
+    "source_support_rationale": "This supports textile production as the relevant material capability while rejecting loom as an over-specific direct prerequisite for the corrected early-sailing scope."
+  },
+  "ontology_before": "Sailing depended directly on loom, implying that a specific loom technology was required for all source-backed early sailing.",
+  "ontology_after": "Sailing depends on textiles_weaving as the broader sail-material capability, while loom remains a separate textile-production technology.",
+  "invariant_preserved_or_changed": "Changed: sailing now depends on textiles_weaving and no longer depends directly on loom.",
+  "would_reject_if": [
+    "The sailing node is rescoped to a specific loom-made sail tradition rather than early sail propulsion.",
+    "A source shows the Naqada II ship-under-sail evidence required loom technology rather than broader textile production.",
+    "The textiles_weaving node is narrowed away from cloth or canvas production."
+  ],
+  "short_reason": "Textile sail material is the supported prerequisite; loom was too specific for the corrected scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sailing.before.json /tmp/sailing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -4007,49 +4007,44 @@
     "id": "sailing",
     "name": "Sailing",
     "era": "Ancient",
-    "description": "Harnessing wind power with simple square sails made from hides or textiles for navigation.",
+    "description": "Harnessing wind power on boats with mast-supported sails, rigging, and hulls, anchored to late Predynastic Egyptian ship-under-sail evidence.",
     "prerequisites": [
       "early_boats",
       "basic_boat_propulsion",
-      "loom",
-      "leather_working",
+      "textiles_weaving",
       "basic_rope_making"
     ],
-    "firstKnownDate": -9500,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -3300,
+    "datePrecision": "century",
+    "region": "Naqada II Egypt / Nile Valley",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "early_boats",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Boats is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "basic_boat_propulsion",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Boat Propulsion (Paddles, Poles) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "loom",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Loom provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Sailing is wind propulsion mounted on watercraft; Egyptian and Naqada II sources document boat imagery and ships under sail, so earlier boat capability is the required platform context.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Loom",
-            "url": "https://www.britannica.com/technology/loom",
+            "title": "Ship - History of ships",
+            "url": "https://www.britannica.com/technology/ship/History-of-ships",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
+            "source_locator": "History of ships / Oars and sails: describes Egyptian boat evidence from the 4th millennium BCE and states that Egyptian boats commonly featured sails as well as oars.",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Jar EA35324",
+            "url": "https://www.britishmuseum.org/collection/object/Y_EA35324",
+            "publisher": "British Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "source_locator": "Object description: red ware pottery jar with a representation of a ship under sail; culture/period Naqada II.",
             "supports": [
               "edge"
             ]
@@ -4057,27 +4052,62 @@
         ]
       },
       {
-        "prerequisite": "leather_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Leather Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "basic_rope_making",
+        "prerequisite": "basic_boat_propulsion",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Early Egyptian sailing vessels combined sails with oars; manual propulsion is a historical predecessor and operating companion, not a hard requirement for every later sailing craft.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
-            "publisher": "Scientific Reports",
-            "year": 2020,
-            "source_type": "primary_paper",
+            "title": "Ship - History of ships",
+            "url": "https://www.britannica.com/technology/ship/History-of-ships",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Oars and sails: says early Nile boats had a single square sail as well as one level of oarsmen, while rowing remained essential in the Nile channel.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "textiles_weaving",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "The source-backed sail form is a square canvas or textile surface; textile production enables sail material without requiring the specific loom node as a direct prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ship - Sailing ships",
+            "url": "https://www.britannica.com/technology/ship/Sailing-ships",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Sailing ships / Types of sails: describes early sailing ships using a large square canvas suspended from a yard, and says the spread of canvas in sails determined speed.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "basic_rope_making",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Sails require rigging lines, stays, sheets, and halyards to support masts and control sail angle; cordage enables that sail-control system.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Rigging",
+            "url": "https://www.britannica.com/technology/rigging",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Article defines rigging as the sails, masts, stays, and lines or cordage of a sailing vessel; running rigging uses ropes to trim, raise, lower, and control sails.",
             "supports": [
               "edge"
             ]
@@ -4087,17 +4117,56 @@
     ],
     "sources": [
       {
-        "title": "Loom",
-        "url": "https://www.britannica.com/technology/loom",
+        "title": "Jar EA35324",
+        "url": "https://www.britishmuseum.org/collection/object/Y_EA35324",
+        "publisher": "British Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Object description identifies the Naqada II jar as showing a ship under sail beneath a chequerboard pattern.",
+        "supports": [
+          "node",
+          "maturity"
+        ]
+      },
+      {
+        "title": "Ship - History of ships",
+        "url": "https://www.britannica.com/technology/ship/History-of-ships",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
+        "source_locator": "History of ships / Oars and sails: says Egyptian boats commonly featured sails as well as oars, and that most early Nile boats had a single square sail.",
         "supports": [
+          "node",
           "edge"
+        ]
+      },
+      {
+        "title": "Ship - Sailing ships",
+        "url": "https://www.britannica.com/technology/ship/Sailing-ships",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Sailing ships / Types of sails: describes early sailing ships using large square canvas suspended from a yard, with canvas spread determining speed.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
+      {
+        "title": "Jar EA35502",
+        "url": "https://www.britishmuseum.org/collection/object/Y_EA35502",
+        "publisher": "British Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Curator comments date comparable Naqada IIcd decorated ware to c. 3500-3200 BC and describe boat scenes on later Predynastic Egyptian pottery.",
+        "supports": [
+          "maturity"
         ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Ancient source-fit review: the existing loom source supports textile prerequisites, not the exact sailing node claim or first-known date."
+    "scopeNote": "Covers source-backed early sailing as wind-powered boat propulsion anchored to late Predynastic Egyptian ship-under-sail evidence. It excludes generic seafaring, paddled watercraft, lateen rigs, tacking into the wind, oceanic navigation, and specialized later ship types.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The corrected date uses a conservative late Naqada II century-level anchor from British Museum and Britannica evidence rather than the old unsupported -9500 placeholder."
   },
   {
     "id": "record_keeping",
@@ -4280,8 +4349,7 @@
     "description": "Establishment of regional land and sea networks for bartering, exchanging surplus goods and rare materials over long distances.",
     "prerequisites": [
       "barter",
-      "pastoralism",
-      "sailing"
+      "pastoralism"
     ],
     "firstKnownDate": -8000,
     "datePrecision": "millennium",
@@ -4314,14 +4382,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Pastoralism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "sailing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sailing provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       }
     ],
@@ -12987,41 +13047,55 @@
   },
   {
     "id": "sail_rigging_knots",
-    "name": "Sail Rigging Knots",
+    "name": "Early Sail Rigging",
     "era": "Ancient",
-    "description": "Standardized knots, lashings, lines, and repairs for safer sail handling and boat control.",
+    "description": "Masts, lines, stays, sheets, halyards, and simple rigging arrangements used to support and control early sails.",
     "prerequisites": [
       "sailing",
       "basic_rope_making",
       "textiles_weaving"
     ],
-    "firstKnownDate": -9500,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": -3300,
+    "datePrecision": "century",
+    "region": "Naqada II Egypt / Nile Valley",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "sailing",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sailing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Early sail rigging is the support-and-control arrangement for sails on sailing vessels, so it is downstream of the corrected sailing capability.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Rigging",
+            "url": "https://www.britannica.com/technology/rigging",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Article defines rigging as the sails, masts, booms, yards, stays, and lines of a sailing vessel, or its cordage only.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "basic_rope_making",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Cordage is the material basis for rigging lines, stays, halyards, and sheets, but Paleolithic rope making is broader than sail rigging.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
-            "publisher": "Scientific Reports",
-            "year": 2020,
-            "source_type": "primary_paper",
+            "title": "Rigging",
+            "url": "https://www.britannica.com/technology/rigging",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Article defines rigging as a sailing vessel's lines or cordage, and explains running rigging ropes used to raise, lower, trim, and shorten sails.",
             "supports": [
               "edge"
             ]
@@ -13031,17 +13105,18 @@
       {
         "prerequisite": "textiles_weaving",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Textiles & Weaving provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "Rigging controls sails, and the early sail form is a square canvas or textile surface supported by mast and yard.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Textile",
-            "url": "https://www.britannica.com/topic/textile",
+            "title": "Ship - Sailing ships",
+            "url": "https://www.britannica.com/technology/ship/Sailing-ships",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
+            "source_locator": "Sailing ships / Types of sails: describes a large square canvas suspended from a single yard as an early sail form.",
             "supports": [
               "edge"
             ]
@@ -13051,17 +13126,29 @@
     ],
     "sources": [
       {
-        "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
-        "publisher": "Scientific Reports",
-        "year": 2020,
-        "source_type": "primary_paper",
+        "title": "Rigging",
+        "url": "https://www.britannica.com/technology/rigging",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Article defines rigging as the sails, masts, booms, yards, stays, and lines of a sailing vessel, or its cordage only.",
         "supports": [
-          "edge",
           "node"
         ]
+      },
+      {
+        "title": "Jar EA35324",
+        "url": "https://www.britishmuseum.org/collection/object/Y_EA35324",
+        "publisher": "British Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Object description identifies a Naqada II representation of a ship under sail, providing the corrected early-sailing chronology that constrains early sail rigging.",
+        "supports": [
+          "maturity"
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Rescoped from generic knots and repairs to the support-and-control rigging needed for source-backed early sailing. It excludes all knot technologies, rope in general, later multi-mast rigging, and medieval or early-modern sailing directions."
   },
   {
     "id": "stone_paved_courtyards",

@@ -1,0 +1,66 @@
+{
+  "id": "2026-06-25-sailing-naqada-scope",
+  "description": "Lock the 2026-06-25 source-check of sailing to late Predynastic Egyptian ship-under-sail evidence rather than the old -9500 placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "sailing",
+      "operator": "eq",
+      "value": -3300,
+      "reason": "The corrected sailing node is anchored to Naqada II ship-under-sail evidence, not the old unsupported -9500 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sailing",
+      "prerequisite": "early_boats",
+      "expected": "historical_predecessor",
+      "reason": "Sailing is wind propulsion mounted on boat technology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sailing",
+      "prerequisite": "textiles_weaving",
+      "expected": "enabling",
+      "reason": "The corrected sail form uses square canvas or textile sail material."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sailing",
+      "prerequisite": "basic_rope_making",
+      "expected": "enabling",
+      "reason": "Cordage enables rigging lines, stays, sheets, and halyards for sail support and control."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sailing",
+      "prerequisite": "loom",
+      "reason": "The corrected scope depends on textile sail material, not the specific loom node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sailing",
+      "prerequisite": "leather_working",
+      "reason": "The corrected source-backed scope does not claim hide-sail production."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "trade_routes",
+      "prerequisite": "sailing",
+      "reason": "The broad -8000 trade-routes node predates the corrected source-backed sailing chronology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "sail_rigging_knots",
+      "operator": "eq",
+      "value": -3300,
+      "reason": "Early sail rigging must not predate the corrected sailing node it supports."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sail_rigging_knots",
+      "prerequisite": "sailing",
+      "expected": "enabling",
+      "reason": "Early sail rigging is scoped as support-and-control equipment for sailing vessels."
+    }
+  ]
+}

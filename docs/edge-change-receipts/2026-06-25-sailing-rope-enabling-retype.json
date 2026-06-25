@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-25-sailing-rope-enabling-retype",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "sailing",
+    "prerequisite": "basic_rope_making"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Sails require rigging lines, stays, sheets, and halyards to support masts and control sail angle; cordage enables that sail-control system."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/rigging",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Article defines rigging as a sailing vessel's lines or cordage and explains running rigging ropes used to raise, lower, trim, and shorten sails.",
+    "source_claim_summary": "The source identifies cordage and lines as functional rigging components used to support and control sails.",
+    "source_support_rationale": "This supports changing rope from a loose historical predecessor to an enabling capability for the mast, stay, halyard, and sheet system that makes sail control work."
+  },
+  "ontology_before": "The graph treated rope making as merely an earlier background technology for sailing.",
+  "ontology_after": "The graph treats rope making as an enabling component capability because rigging lines and cordage support and control sails.",
+  "invariant_preserved_or_changed": "Changed: the sailing to basic_rope_making edge is now enabling with textbook evidence.",
+  "would_reject_if": [
+    "The sailing node is narrowed to a sail depiction without any implied rigging or sail-control system.",
+    "A source shows early sailing could be modeled without any line, stay, sheet, or halyard capability.",
+    "The basic_rope_making node is narrowed away from usable cordage."
+  ],
+  "short_reason": "Cordage enables sail rigging rather than serving only as distant background.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sailing.before.json /tmp/sailing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

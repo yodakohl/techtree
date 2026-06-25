@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-25-trade-routes-sailing-removal",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "trade_routes",
+    "prerequisite": "sailing"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Sailing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct trade_routes to sailing dependency remains because the trade route node is anchored to broad early exchange networks around -8000, while corrected source-backed sailing is later Naqada II evidence around -3300.",
+  "source_supports_edge": "no",
+  "source_url": "https://moneymuseum.spin-cdn.com/media/learning/20190816_the_history_of_money.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The History of Money is used on trade_routes for barter and early exchange context; it does not make sail propulsion a prerequisite for early trade routes.",
+    "source_claim_summary": "The source supports early exchange and barter context without requiring sail-powered watercraft.",
+    "source_support_rationale": "Since source-backed sailing is now much later than the -8000 trade_routes node, retaining sailing as a prerequisite would create false chronology and overstate maritime technology."
+  },
+  "ontology_before": "Trade Routes depended directly on sailing, implying broad early exchange networks required sail propulsion despite a much earlier trade-route date.",
+  "ontology_after": "Trade Routes remains a broad land-and-water exchange node without a direct sailing prerequisite; later maritime commerce can depend on sailing separately.",
+  "invariant_preserved_or_changed": "Changed: trade_routes no longer depends directly on sailing.",
+  "would_reject_if": [
+    "The trade_routes node is rescoped to late Predynastic or later maritime trade routes only.",
+    "A source shows the -8000 trade-route evidence specifically required sail-powered boats.",
+    "The sailing node is moved back to a source-backed date earlier than trade_routes."
+  ],
+  "short_reason": "Early trade routes predate the corrected source-backed sailing node and should not depend on it.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/trade_routes.before.json /tmp/trade_routes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-25-sailing-leather-working-removal",
+  "decision_date": "2026-06-25",
+  "edge": {
+    "dependent": "sailing",
+    "prerequisite": "leather_working"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Leather Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct sailing to leather_working dependency remains because the corrected source-backed node is anchored to Naqada II ship-under-sail evidence and square textile/canvas sail architecture, not hide-sail production.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/ship/Sailing-ships",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Sailing ships / Types of sails: describes early sailing ships using a large square canvas suspended from a yard.",
+    "source_claim_summary": "The source grounds the sail-material architecture in canvas rather than leather or hide processing.",
+    "source_support_rationale": "Because the corrected node is pinned to ship-under-sail evidence and canvas sail architecture, leather_working is an unsupported material-specific prerequisite."
+  },
+  "ontology_before": "Sailing depended directly on leather_working, laundering a possible hide-sail material into the definition of early sailing.",
+  "ontology_after": "Sailing is scoped to source-backed sail propulsion and depends on boats, oars, textiles, and cordage without a direct leather-working edge.",
+  "invariant_preserved_or_changed": "Changed: the direct leather_working dependency is removed from sailing.",
+  "would_reject_if": [
+    "The sailing node is rescoped to a source-backed hide-sail tradition.",
+    "A source shows the Naqada II ship-under-sail evidence depended specifically on leather-working.",
+    "Removing the edge leaves sailing without any sail-material prerequisite."
+  ],
+  "short_reason": "Leather-working was a possible material path, not a sourced direct prerequisite for early sailing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sailing.before.json /tmp/sailing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
