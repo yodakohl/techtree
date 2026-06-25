@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-mining-assays-blast-furnace-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "experimental_mining_assays",
+    "prerequisite": "mining"
+  },
+  "replaced_edge": {
+    "dependent": "experimental_mining_assays",
+    "prerequisite": "blast_furnace"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Blast Furnace provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "The assay practice is commercially tied to mining valuation: it determines whether metal-bearing rock is ore worth mining and whether smelting will repay expense."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Introduction: the page says people define rock as ore by knowing metal content and recoverability, and that the assayer determines the amount of metal in the rock.",
+    "source_claim_summary": "Fire assaying is presented as a way to determine the metal content of rock so mining decisions can distinguish ore from uneconomic material.",
+    "source_support_rationale": "That application supports mining as the commercial context for the assay practice, while a blast furnace is a full-scale smelting technology outside this small-sample valuation scope."
+  },
+  "ontology_before": "Experimental Mining Assays implied that blast-furnace iron-production infrastructure directly enabled ore-assay valuation.",
+  "ontology_after": "Mine Valuation Fire Assays depend on fire-assay workshop practice and mining valuation context, without a direct blast-furnace dependency.",
+  "invariant_preserved_or_changed": "Changed: experimental_mining_assays now depends on mining and no longer directly depends on blast_furnace.",
+  "would_reject_if": [
+    "A source showed that the scoped practice required full-scale blast furnaces rather than assay furnaces or small crucible/muffle furnace tests.",
+    "The node were broadened back to generic smelting experiments rather than mine-valuation fire assays.",
+    "A separate blast-furnace trial node were added and should preserve the blast_furnace edge."
+  ],
+  "short_reason": "Mine-valuation assays are small-sample assay-furnace tests for mining decisions, not blast-furnace production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/experimental_mining_assays.before.json /tmp/experimental_mining_assays.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

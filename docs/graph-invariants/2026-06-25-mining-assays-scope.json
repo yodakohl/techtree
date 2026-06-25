@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-mining-assays-scope",
+  "description": "Lock experimental_mining_assays to Agricola-era mine-valuation fire assays, not generic blast-furnace smelting experiments.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "experimental_mining_assays",
+      "operator": "eq",
+      "value": 1556,
+      "reason": "The node is anchored to Agricola's 1556 De Re Metallica account of assaying ore before smelting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "experimental_mining_assays",
+      "prerequisite": "chemical_assay_laboratories",
+      "expected": "enabling",
+      "reason": "The scoped practice is enabled by metallurgical fire-assay workshop methods, but both nodes share the same 1556 Agricola chronology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "experimental_mining_assays",
+      "prerequisite": "mining",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "The source-backed application is determining whether rock is ore worth mining and smelting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "experimental_mining_assays",
+      "prerequisite": "blast_furnace",
+      "reason": "Assay-furnace ore testing is narrower than full-scale blast-furnace iron production."
+    }
+  ]
+}

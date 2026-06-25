@@ -12606,35 +12606,108 @@
   },
   {
     "id": "experimental_mining_assays",
-    "name": "Experimental Mining Assays",
+    "name": "Mine Valuation Fire Assays",
     "era": "Renaissance",
-    "description": "Systematic ore sampling and furnace trials that improved mine valuation and metal extraction.",
+    "description": "Small-sample fire assays and metallurgical trials used to estimate ore metal content, choose treatment, and decide whether mined rock justified smelting.",
     "prerequisites": [
       "chemical_assay_laboratories",
-      "blast_furnace"
+      "mining"
     ],
-    "firstKnownDate": 1614,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1556,
+    "datePrecision": "exact",
+    "region": "Central European mining districts / Agricola's De re metallica",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "chemical_assay_laboratories",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Chemical Assay Laboratories provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Mine-valuation fire assays are an application of metallurgical fire-assay workshop practice: sampled ore is mixed with fluxes, heated in assay furnaces, cupelled, parted, and weighed.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Science of the Comstock - Fire Assaying",
+            "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+            "publisher": "Nevada Bureau of Mines and Geology",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "History and Fire Assaying Today sections: the page describes Agricola's 1556 method using fluxes, an assay furnace, cupellation, weighing, and parting, and says modern fire assay still uses the same principles."
+          },
+          {
+            "title": "De Re Metallica",
+            "url": "https://www.gutenberg.org/files/38015/38015-h/38015-h.htm",
+            "publisher": "Project Gutenberg / Herbert and Lou Henry Hoover translation",
+            "year": 1912,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Book VII opening: Agricola says assaying tests ore before smelting, identifies metal content, guides separation methods, and uses assay furnaces, balances, cupels, and prepared ore."
+          }
+        ]
       },
       {
-        "prerequisite": "blast_furnace",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Blast Furnace provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "mining",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "The assay practice is commercially tied to mining valuation: it determines whether metal-bearing rock is ore worth mining and whether smelting will repay expense.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Science of the Comstock - Fire Assaying",
+            "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+            "publisher": "Nevada Bureau of Mines and Geology",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introduction: the page says people define rock as ore by knowing metal content and recoverability, and that the assayer determines the amount of metal in the rock."
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Science of the Comstock - Fire Assaying",
+        "url": "https://nbmg.unr.edu/scienceeducation/ScienceOfTheComstock/Chemistry-Fire.html",
+        "publisher": "Nevada Bureau of Mines and Geology",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Introduction, History, and Fire Assaying Today sections: assayers determine metal content in rock for mining decisions; Agricola described fire assay in 1556; modern practice mixes a known amount of carefully sampled powdered rock with fluxes and weighs/parts the bead."
+      },
+      {
+        "title": "De Re Metallica",
+        "url": "https://www.gutenberg.org/files/38015/38015-h/38015-h.htm",
+        "publisher": "Project Gutenberg / Herbert and Lou Henry Hoover translation",
+        "year": 1912,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Preface and Book VII opening: the preface identifies the seventh book as assaying ore; Book VII says tests determine whether ore contains metal, whether much or little, how to separate it, and whether smelting will compensate expenditure."
+      },
+      {
+        "title": "De Re Metallica, Translated from the First Latin Edition of 1556",
+        "url": "https://scholarsmine.mst.edu/rare-books/1/",
+        "publisher": "Missouri University of Science and Technology Scholars' Mine",
+        "year": 1912,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Catalog record: lists the Hoover translation of Agricola's 1556 De Re Metallica and includes Book VII plus comments identifying mining methods, metallurgical processes, geology, mineralogy, and mining law through the sixteenth century."
+      }
+    ],
+    "scopeNote": "Covers small-sample fire assays used for ore valuation and treatment decisions in mining. It excludes full-scale blast-furnace iron production, generic smelting capacity, and modern automated analytical laboratories."
   },
   {
     "id": "printed_music_notation",
