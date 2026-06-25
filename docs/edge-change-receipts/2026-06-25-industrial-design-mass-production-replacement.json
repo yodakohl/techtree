@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-industrial-design-mass-production-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "industrial_design_profession",
+    "prerequisite": "mass_production"
+  },
+  "replaced_edge": {
+    "dependent": "industrial_design_profession",
+    "prerequisite": "factory_system"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Factory System provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "textbook",
+    "note": "Industrial design is defined around the professional design of mass-produced consumer products and manufacturable goods."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/industrial-design",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Introduction defines industrial design as the design of mass-produced consumer products and says industrial designers help produce manufactured items.",
+    "source_claim_summary": "The source defines the field through mass-produced consumer products and manufactured items rather than through factory buildings alone.",
+    "source_support_rationale": "This supports replacing factory_system with mass_production because the professional design scope is about the products being manufactured at scale, not merely production under one roof."
+  },
+  "ontology_before": "Industrial Design Profession depended directly on Factory System, tying the profession to mill organization instead of the mass-produced product scope.",
+  "ontology_after": "Industrial Design Profession depends on Mass Production as the source-defined product and manufacturability context for industrial design.",
+  "invariant_preserved_or_changed": "Changed: industrial_design_profession now depends on mass_production and no longer directly depends on factory_system.",
+  "would_reject_if": [
+    "The node were rescoped to factory management or mill architecture rather than professional product design.",
+    "A source showed industrial design as a profession can be fully defined without mass-produced or manufactured products.",
+    "The mass_production node were narrowed away from standardized manufactured products."
+  ],
+  "short_reason": "Industrial design is defined around mass-produced manufactured products.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_design_profession.before.json /tmp/industrial_design_profession.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

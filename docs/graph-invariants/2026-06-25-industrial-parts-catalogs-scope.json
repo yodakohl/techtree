@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-25-industrial-parts-catalogs-scope",
+  "description": "Lock Industrial Parts Catalogs to printed industrial trade literature, not laboratory standards programs or a 1775 placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "industrial_parts_catalogs",
+      "operator": "eq",
+      "value": 1800,
+      "reason": "The node uses a sourced early-nineteenth-century trade-catalog anchor instead of the old 1775 placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_parts_catalogs",
+      "prerequisite": "printing_press",
+      "expected": "enabling",
+      "reason": "Printed trade catalogs require printing as the direct publication medium."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_parts_catalogs",
+      "prerequisite": "interchangeable_parts",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Interchangeability scales replacement-part cataloging but is not required for trade catalogs to exist."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_parts_catalogs",
+      "prerequisite": "industrial_laboratories_standard_testing",
+      "reason": "Testing laboratories are outside the direct printed-catalog scope."
+    }
+  ]
+}

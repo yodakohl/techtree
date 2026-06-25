@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-industrial-design-parts-catalogs-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_design_profession",
+    "prerequisite": "industrial_parts_catalogs"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Parts Catalogs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because early industrial designers produced catalogs and corporate graphics as design outputs, rather than depending on industrial parts catalogs as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/biography/Peter-Behrens",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica says Behrens was appointed artistic adviser for all AEG products in 1907 and that his contributions included AEG catalogs, office stationery, products, shops, and factories.",
+    "source_claim_summary": "The source treats catalogs as one of Behrens's design outputs for AEG, alongside products and corporate materials.",
+    "source_support_rationale": "That reverses the old edge direction: catalogs belong inside the industrial-design output set, while the prerequisite should be the mass-produced product context."
+  },
+  "ontology_before": "Industrial Design Profession depended on Industrial Parts Catalogs, implying parts-catalog practice enabled the profession.",
+  "ontology_after": "Industrial Design Profession is anchored to mass-produced product design; catalogs are treated as possible designed artifacts, not a prerequisite technology.",
+  "invariant_preserved_or_changed": "Changed: industrial_design_profession no longer directly depends on industrial_parts_catalogs.",
+  "would_reject_if": [
+    "The node were rescoped specifically to catalog-design offices rather than industrial design practice.",
+    "A source showed industrial parts catalogs directly preceded and enabled Behrens-style product design as a professional field.",
+    "The industrial_parts_catalogs node were broadened to represent all corporate product-design communication."
+  ],
+  "short_reason": "Catalogs were an industrial-design output here, not the prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_design_profession.before.json /tmp/industrial_design_profession.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

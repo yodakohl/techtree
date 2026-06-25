@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-25-industrial-parts-catalogs-interchangeability-scaling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "industrial_parts_catalogs",
+    "prerequisite": "interchangeable_parts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Interchangeable Parts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.66,
+    "evidence_level": "textbook",
+    "note": "Interchangeable parts scaled the replacement-part and specification use case for industrial catalogs, but trade catalogs could exist for non-interchangeable goods."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.britannica.com/technology/interchangeable-parts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica defines interchangeable parts as identical components that can be substituted for one another and ties mass production of identical parts to nineteenth-century machine-tool industry development.",
+    "source_claim_summary": "The source reviews interchangeable parts as substitutable manufactured components produced by precision equipment and nineteenth-century machine-tool development.",
+    "source_support_rationale": "This supports a scaling relationship for replacement-component catalogs because substitutable parts make cataloged specifications and ordered replacements useful, while the source does not make catalogs themselves technically dependent on interchangeability."
+  },
+  "ontology_before": "Industrial Parts Catalogs used a generic enabling edge from Interchangeable Parts, implying interchangeability was required for the existence of trade catalogs.",
+  "ontology_after": "Industrial Parts Catalogs keeps Interchangeable Parts only as a commercial scaling context for replacement-part and specification catalogs.",
+  "invariant_preserved_or_changed": "Changed: interchangeable_parts->industrial_parts_catalogs is now a commercial_or_scaling_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to catalogs only for interchangeable replacement parts, not broader industrial trade literature.",
+    "A source showed all industrial trade catalogs required interchangeable manufacturing before they could exist.",
+    "The interchangeable_parts node were broadened beyond substitutable components and precision manufacturing."
+  ],
+  "short_reason": "Interchangeability scales replacement-part cataloging but is not a hard prerequisite for trade catalogs.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_parts_catalogs.before.json /tmp/industrial_parts_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-industrial-design-museum-catalogs-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_design_profession",
+    "prerequisite": "public_museum_catalogs"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Museum Catalogs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the sourced industrial-design scope is mass-produced product and corporate design, not museum collection cataloging.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/industrial-design",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica defines industrial design as design of mass-produced consumer products and traces modern origins through Behrens, AEG products, packaging, advertising, and corporate identity.",
+    "source_claim_summary": "The source anchors industrial design in mass-produced product, branding, packaging, and corporate-client design rather than public museum cataloging.",
+    "source_support_rationale": "This removes a museum-catalog precedent that could launder collection documentation into a product-design profession whose source-backed lineage is industrial manufacture and corporate design."
+  },
+  "ontology_before": "Industrial Design Profession depended on Printed Cabinet Catalogs, mixing museum collection documentation into product-design professionalization.",
+  "ontology_after": "Industrial Design Profession keeps a product-design and mass-production scope without a public museum catalog dependency.",
+  "invariant_preserved_or_changed": "Changed: industrial_design_profession no longer directly depends on public_museum_catalogs.",
+  "would_reject_if": [
+    "The node were rescoped to museum exhibition design or collection-catalog production.",
+    "A source showed public museum cataloging was a direct prerequisite for the industrial design profession.",
+    "The public_museum_catalogs node were broadened away from printed cabinet and collection catalogs."
+  ],
+  "short_reason": "Museum collection catalogs are outside the product-design profession scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_design_profession.before.json /tmp/industrial_design_profession.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

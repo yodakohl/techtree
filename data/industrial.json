@@ -17055,33 +17055,97 @@
     "id": "industrial_parts_catalogs",
     "name": "Industrial Parts Catalogs",
     "era": "Industrial",
-    "description": "Standardized printed catalogs of machine parts, tools, fasteners, replacement components, ordering codes, and specifications.",
+    "description": "Printed trade catalogs and technical literature for machine tools, hardware, components, replacement parts, product specifications, prices, and ordering information.",
     "prerequisites": [
-      "interchangeable_parts",
-      "industrial_laboratories_standard_testing"
+      "printing_press",
+      "interchangeable_parts"
     ],
-    "firstKnownDate": 1775,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1800,
+    "datePrecision": "century",
+    "region": "United States and Europe industrial trade-literature collections",
+    "reviewStatus": "source_checked",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "Harvard Business School's Baker Library dates its hardware, machine-tool, railroad, automobile, and related trade-catalog holdings from the early nineteenth century, with strongest concentration from 1870 to 1900; the stored date is a century anchor for sourced industrial trade literature rather than a claim for a single first catalog.",
     "dependencyEdges": [
       {
-        "prerequisite": "interchangeable_parts",
+        "prerequisite": "printing_press",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Interchangeable Parts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "The scoped node is printed trade literature; printing is the production medium for catalogs issued by manufacturers to advertise and sell products.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Trade Literature Collection",
+            "url": "https://library.si.edu/trade-literature",
+            "publisher": "Smithsonian Libraries and Archives",
+            "year": 2026,
+            "source_type": "official_agency",
+            "source_locator": "Smithsonian defines trade literature as printed or handwritten lists of items for sale and says manufacturers issued trade catalogs to promote and sell products.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
-        "prerequisite": "industrial_laboratories_standard_testing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Standards & Testing Laboratories provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "interchangeable_parts",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.66,
+        "evidence_level": "textbook",
+        "note": "Interchangeable parts scaled the replacement-part and specification use case for industrial catalogs, but trade catalogs could exist for non-interchangeable goods.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Interchangeable parts",
+            "url": "https://www.britannica.com/technology/interchangeable-parts",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Britannica defines interchangeable parts as identical components that can be substituted for one another and ties mass production of identical parts to nineteenth-century machine-tool industry development.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "sources": [
+      {
+        "title": "Trade Literature Collection",
+        "url": "https://library.si.edu/trade-literature",
+        "publisher": "Smithsonian Libraries and Archives",
+        "year": 2026,
+        "source_type": "official_agency",
+        "source_locator": "Smithsonian defines trade literature as catalogs and publications once used for business merchandising, including printed or handwritten lists of items for sale, catalogs, technical manuals, price lists, and related materials from manufacturers.",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Trade Catalog Collection",
+        "url": "https://www.library.hbs.edu/special-collections-and-archives/collections/highlights/trade-catalogs",
+        "publisher": "Harvard Business School Baker Library",
+        "year": 2026,
+        "source_type": "review",
+        "source_locator": "Baker Library says its trade catalog collection covers hardware, machine tools, railroads, automobiles, and scientific instruments, dating from the early nineteenth century through the first half of the twentieth century.",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Trade Catalogs",
+        "url": "https://digitalcollections.winterthur.org/collections/trade-catalogs",
+        "publisher": "Winterthur Library",
+        "year": 2026,
+        "source_type": "museum",
+        "source_locator": "Winterthur describes trade catalogs as manufacturer-produced or published materials used to advertise and sell products, with collections dating from the eighteenth through twentieth centuries.",
+        "supports": [
+          "node"
+        ]
+      }
+    ],
+    "scopeNote": "Covers industrial trade catalogs and technical sales literature for manufactured goods and parts; excludes general retail mail-order catalogs, laboratory standards programs, and internal bill-of-material systems."
   },
   {
     "id": "amateur_radio_communities",
@@ -18397,65 +18461,71 @@
     "era": "Industrial",
     "description": "Professional design of manufactured goods for ergonomics, style, usability, branding, tooling, and mass production.",
     "prerequisites": [
-      "factory_system",
-      "industrial_parts_catalogs",
-      "public_museum_catalogs"
+      "mass_production"
     ],
-    "firstKnownDate": 1775,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1907,
+    "datePrecision": "exact",
+    "region": "Germany / AEG and later U.S. industrial design practice",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "factory_system",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Factory System provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "mass_production",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Industrial design is defined around the professional design of mass-produced consumer products and manufacturable goods.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Derwent Valley Mills",
-            "url": "https://whc.unesco.org/en/list/1030/",
-            "publisher": "UNESCO World Heritage Centre",
+            "title": "Industrial design",
+            "url": "https://www.britannica.com/topic/industrial-design",
+            "publisher": "Encyclopaedia Britannica",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "textbook",
+            "source_locator": "Introduction defines industrial design as the design of mass-produced consumer products, and says industrial designers help produce manufactured items.",
             "supports": [
               "edge"
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "industrial_parts_catalogs",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Parts Catalogs provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_museum_catalogs",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Museum Catalogs provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Derwent Valley Mills",
-        "url": "https://whc.unesco.org/en/list/1030/",
-        "publisher": "UNESCO World Heritage Centre",
+        "title": "Industrial design",
+        "url": "https://www.britannica.com/topic/industrial-design",
+        "publisher": "Encyclopaedia Britannica",
         "year": 2026,
-        "source_type": "official_agency",
+        "source_type": "textbook",
+        "source_locator": "Britannica defines industrial design as the design of mass-produced consumer products and identifies Peter Behrens as often considered the first industrial designer.",
         "supports": [
-          "edge",
+          "node"
+        ]
+      },
+      {
+        "title": "Peter Behrens",
+        "url": "https://www.britannica.com/biography/Peter-Behrens",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Britannica says Behrens was appointed artistic adviser for all AEG products in 1907 and contributed trademarks, catalogs, office stationery, products, shops, and factories.",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "What Is Industrial Design?",
+        "url": "https://www.idsa.org/about-idsa/advocacy/what-industrial-design/",
+        "publisher": "Industrial Designers Society of America",
+        "year": 2026,
+        "source_type": "review",
+        "source_locator": "IDSA defines industrial design as the professional practice of designing products, devices, objects, and services, with attention to appearance, functionality, manufacturability, value, and end-user experience.",
+        "supports": [
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers the professional practice of industrial design for mass-produced manufactured goods and corporate product systems; excludes general factory organization, museum cataloging, and trade catalogs as direct prerequisites."
   },
   {
     "id": "electric_arc_welding",

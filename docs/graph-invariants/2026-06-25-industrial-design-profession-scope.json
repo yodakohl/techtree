@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-25-industrial-design-profession-scope",
+  "description": "Lock Industrial Design Profession to source-backed mass-produced product design around Behrens/AEG rather than generic factory, trade-catalog, or museum-catalog prerequisites.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "industrial_design_profession",
+      "operator": "eq",
+      "value": 1907,
+      "reason": "Britannica anchors Behrens's AEG artistic-adviser role and industrial-design lineage to 1907."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_design_profession",
+      "prerequisite": "mass_production",
+      "expected": "required",
+      "reason": "Industrial design is defined around mass-produced consumer products and manufacturable goods."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_design_profession",
+      "prerequisite": "factory_system",
+      "reason": "Factory organization is too broad and indirect for the corrected professional product-design scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_design_profession",
+      "prerequisite": "industrial_parts_catalogs",
+      "reason": "Catalogs are possible industrial-design outputs, not a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_design_profession",
+      "prerequisite": "public_museum_catalogs",
+      "reason": "Museum collection catalogs are outside the direct industrial-design profession scope."
+    }
+  ]
+}

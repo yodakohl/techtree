@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-25-industrial-parts-catalogs-printing-replacement",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "industrial_parts_catalogs",
+    "prerequisite": "printing_press"
+  },
+  "replaced_edge": {
+    "dependent": "industrial_parts_catalogs",
+    "prerequisite": "industrial_laboratories_standard_testing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Standards & Testing Laboratories provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "The scoped node is printed trade literature; printing is the production medium for catalogs issued by manufacturers to advertise and sell products."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://library.si.edu/trade-literature",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Smithsonian defines trade literature as printed or handwritten lists of items offered for sale and says manufacturers issued trade catalogs to promote and sell products.",
+    "source_claim_summary": "Smithsonian defines trade literature as business merchandising catalogs and publications, including printed lists of items for sale and manufacturer-issued trade catalogs.",
+    "source_support_rationale": "Because this node is specifically scoped to printed catalogs, the printing substrate belongs on the direct edge; laboratory testing is a separate standards activity not named by the catalog source."
+  },
+  "ontology_before": "Industrial Parts Catalogs depended on Industrial Standards & Testing Laboratories, making product-testing institutions look like a direct prerequisite for printed sales literature.",
+  "ontology_after": "Industrial Parts Catalogs depends on Printing Press for the printed trade-literature medium, while laboratory testing is no longer a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: industrial_parts_catalogs now depends on printing_press and no longer depends on industrial_laboratories_standard_testing.",
+  "would_reject_if": [
+    "The node were rescoped to laboratory-issued product certification catalogues rather than manufacturer trade literature.",
+    "A source showed early industrial parts catalogs directly required testing laboratories before printed trade literature could exist.",
+    "The printing_press node were narrowed away from producing printed business literature."
+  ],
+  "short_reason": "Printed trade catalogs require printing; testing laboratories were the wrong prerequisite level.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_parts_catalogs.before.json /tmp/industrial_parts_catalogs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
