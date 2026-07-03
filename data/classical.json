@@ -13174,59 +13174,76 @@
     "id": "military_signal_flags",
     "name": "Military Signal Flags",
     "era": "Classical",
-    "description": "Standard visual signals using flags, banners, smoke, lamps, and formations to coordinate armies and fleets.",
+    "description": "Military standards, ensigns, vexilla, and flag-like visual signs used as rallying points and signals to regulate troop movement, unit placement, and battle coordination.",
     "prerequisites": [
       "organized_military_formations",
-      "roads"
+      "early_symbolic_communication"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -104,
+    "datePrecision": "exact",
+    "region": "Roman Republic and wider Greek/Roman military tradition",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "organized_military_formations",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Organized Military Formations provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "roads",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Military standards regulated the movements and placement of troop bodies and their subdivisions, so organized formations are the operational setting for standard-based signalling.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Road",
-            "url": "https://www.britannica.com/technology/road",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
+            "title": "Signa Militaria",
+            "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA%2A/Signa_Militaria.html",
+            "publisher": "William Smith, A Dictionary of Greek and Roman Antiquities / LacusCurtius",
+            "year": 1875,
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Article sections on Roman standards: says movements of bodies of troops and their portions were regulated by standards, and that centuries had ensigns so every soldier could take his place."
+          }
+        ]
+      },
+      {
+        "prerequisite": "early_symbolic_communication",
+        "type": "common_dependency",
+        "confidence": 0.62,
+        "evidence_level": "textbook",
+        "note": "Military standards are visual symbols or ensigns; early symbolic communication is broad representational context rather than a direct technical production dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Signa Militaria",
+            "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA%2A/Signa_Militaria.html",
+            "publisher": "William Smith, A Dictionary of Greek and Roman Antiquities / LacusCurtius",
+            "year": 1875,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Opening definition gives signa militaria as military ensigns or standards, and later sections describe scarlet flags and standards as visual signs used to signal battle movement."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Road",
-        "url": "https://www.britannica.com/technology/road",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
+        "title": "Signa Militaria",
+        "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA%2A/Signa_Militaria.html",
+        "publisher": "William Smith, A Dictionary of Greek and Roman Antiquities / LacusCurtius",
+        "year": 1875,
         "source_type": "textbook",
         "supports": [
           "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Article defines signa militaria as military ensigns or standards; dates Marius's retention of the eagle standard to 104 BCE; describes cohort, century, vexilla, and scarlet flag signalling; and says troop movements were regulated by standards."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "scopeNote": "Covers ancient military standards and flag-like visual signs used for battlefield coordination. It excludes road logistics, medieval beacon networks, state armory issue systems, and modern national/regimental colors.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -104 anchor follows Smith's Marius eagle-standard date for a source-backed Roman military standard; the same source describes older Roman standards and Greek scarlet flag signalling but does not provide equally precise first-use dates for the broader practice."
   },
   {
     "id": "public_theater_infrastructure",

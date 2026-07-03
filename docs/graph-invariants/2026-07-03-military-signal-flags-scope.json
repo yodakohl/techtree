@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-03-military-signal-flags-scope",
+  "description": "Lock Military Signal Flags to ancient military standards and flag-like visual signs, not roads, beacons, or armory issue systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "military_signal_flags",
+      "operator": "eq",
+      "value": -104,
+      "reason": "The corrected node is anchored to Smith's Marius eagle-standard date rather than the old Classical era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_signal_flags",
+      "prerequisite": "organized_military_formations",
+      "expected": "enabling",
+      "reason": "Military standards regulate movements and placement of organized troop bodies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_signal_flags",
+      "prerequisite": "early_symbolic_communication",
+      "expected": "common_dependency",
+      "reason": "Military standards are symbolic visual signs, but early symbolic communication is broad representational context rather than a hard production dependency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_signal_flags",
+      "prerequisite": "roads",
+      "reason": "Roads move armies but do not enable standard, vexillum, or flag signalling as a visual-symbol technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_signal_flags",
+      "prerequisite": "state_armories",
+      "reason": "State armories remain excluded because the corrected armory scope is later Qin arsenal logistics, not a prerequisite for military visual signs."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "castle_signal_beacons",
+      "prerequisite": "military_signal_flags",
+      "reason": "Medieval beacon warning networks are separate fire/smoke infrastructure, not downstream of classical flag or standard signalling."
+    }
+  ]
+}

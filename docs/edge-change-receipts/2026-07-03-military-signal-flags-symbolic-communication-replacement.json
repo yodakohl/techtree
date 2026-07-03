@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-military-signal-flags-symbolic-communication-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "military_signal_flags",
+    "prerequisite": "early_symbolic_communication"
+  },
+  "replaced_edge": {
+    "dependent": "military_signal_flags",
+    "prerequisite": "roads"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Roads provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.62,
+    "evidence_level": "textbook",
+    "note": "Military standards are visual symbols or ensigns; early symbolic communication is broad representational context rather than a direct technical production dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA%2A/Signa_Militaria.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Opening definition gives signa militaria as military ensigns or standards; later sections describe scarlet flags and standards as visual signs used to signal battle movement.",
+    "source_claim_summary": "The source supports military standards and scarlet flags as visual signs used in troop movement and battle signalling.",
+    "source_support_rationale": "A visual standard is a symbolic communication device; roads may move armies but do not enable the representational signal itself."
+  },
+  "ontology_before": "Military Signal Flags depended on roads, implying transport infrastructure enabled the visual signal system.",
+  "ontology_after": "Military Signal Flags depend on organized military formations plus symbolic communication; roads remain available for logistics and movement nodes.",
+  "invariant_preserved_or_changed": "Changed: military_signal_flags now depends on early_symbolic_communication and no longer directly depends on roads.",
+  "would_reject_if": [
+    "The node were broadened to courier, road-post, or logistics signaling rather than standards and visual signs.",
+    "A source showed the earliest scoped military standard signalling required roads rather than troop formations and visual symbols.",
+    "The node were split into Roman standards, Greek naval flags, and smoke/torch beacon systems with distinct prerequisites."
+  ],
+  "short_reason": "Military standards are visual symbols; roads are logistics context, not the signal mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/military_signal_flags.before.json /tmp/military_signal_flags.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
