@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-probability-theory-double-entry-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "probability_theory",
+    "prerequisite": "double_entry_diffusion"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Double-Entry Bookkeeping Diffusion provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the scoped node is the Pascal-Fermat mathematical formalization of games of chance, while double-entry bookkeeping is merchant-accounting infrastructure rather than a documented prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://old.maa.org/sites/default/files/images/upload_library/46/NCTM/The-Pascal-Fermat-Correspondence.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The MAA account anchors the 1654 formalization to Pascal and Fermat's problem-of-points correspondence, describes Pascal's algebraic recursion and combinations, and treats risk management and insurance as later implications.",
+    "source_claim_summary": "The source pins early probability theory to a mathematical gambling problem and algebraic-combinatorial reasoning, not to merchant bookkeeping diffusion.",
+    "source_support_rationale": "Keeping a double-entry prerequisite would launder broad commercial-accounting context into the narrower 1654 probability-theory scope, for which the inspected source documents mathematical methods instead."
+  },
+  "ontology_before": "Probability Theory depended directly on Double-Entry Bookkeeping Diffusion, implying merchant bookkeeping enabled the 1654 mathematical formalization.",
+  "ontology_after": "Probability Theory is scoped to the Pascal-Fermat problem-of-points formalization and keeps only the source-backed algebraic predecessor edge.",
+  "invariant_preserved_or_changed": "Changed: double_entry_diffusion is no longer a direct prerequisite for probability_theory.",
+  "would_reject_if": [
+    "A stronger source showed Pascal or Fermat depended directly on double-entry bookkeeping methods for the problem-of-points formalization.",
+    "The node were rescoped away from the 1654 mathematical formalization into merchant risk-accounting practice.",
+    "A narrower early-commercial-probability node were introduced where accounting ledgers were source-backed as a direct input."
+  ],
+  "short_reason": "Double-entry bookkeeping is commercial context, not a documented prerequisite for the 1654 probability-theory formalization.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/probability_theory.before.json /tmp/probability_theory.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

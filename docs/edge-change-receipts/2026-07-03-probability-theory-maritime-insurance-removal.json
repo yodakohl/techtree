@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-probability-theory-maritime-insurance-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "probability_theory",
+    "prerequisite": "maritime_insurance"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because maritime insurance supplied a preexisting risk-pricing application setting, while the scoped probability-theory node is the 1654 mathematical formalization from games of chance.",
+  "source_supports_edge": "no",
+  "source_url": "https://old.maa.org/sites/default/files/images/upload_library/46/NCTM/The-Pascal-Fermat-Correspondence.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The MAA account identifies the Pascal-Fermat correspondence as solving the problem of points in a game of chance and describes risk management, actuarial science, and insurance as later consequences of the mathematics.",
+    "source_claim_summary": "The source supports insurance as a later application and impact of formal probability, not as the prerequisite that produced the 1654 formalization.",
+    "source_support_rationale": "A maritime-insurance prerequisite would reverse the source-backed chronology by turning a later application domain into the causal input for the Pascal-Fermat gambling-problem mathematics."
+  },
+  "ontology_before": "Probability Theory depended directly on Maritime Insurance, implying marine insurance practice enabled the 1654 mathematical formalization.",
+  "ontology_after": "Probability Theory is scoped to games-of-chance formalization, with insurance retained only as a later application in the node description.",
+  "invariant_preserved_or_changed": "Changed: maritime_insurance is no longer a direct prerequisite for probability_theory.",
+  "would_reject_if": [
+    "A stronger source showed the Pascal-Fermat correspondence was directly caused by maritime-insurance pricing practice rather than games of chance.",
+    "The node were rescoped to early marine-insurance premium calculation rather than mathematical probability theory.",
+    "A separate actuarial-probability node were added where maritime insurance is source-backed as the application domain."
+  ],
+  "short_reason": "Maritime insurance is a later application/risk context, not a direct prerequisite for the 1654 probability formalization.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/probability_theory.before.json /tmp/probability_theory.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

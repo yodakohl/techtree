@@ -7886,11 +7886,9 @@
     "id": "probability_theory",
     "name": "Probability Theory",
     "era": "Renaissance",
-    "description": "Mathematical treatment of chance and uncertainty, first formalized around games, insurance, annuities, and risk.",
+    "description": "Mathematical treatment of chance and uncertainty, first formalized in 1654 around games of chance and later applied to insurance, annuities, and risk.",
     "prerequisites": [
-      "algebra_basic",
-      "double_entry_diffusion",
-      "maritime_insurance"
+      "algebra_basic"
     ],
     "firstKnownDate": 1654,
     "datePrecision": "exact",
@@ -7900,26 +7898,23 @@
       {
         "prerequisite": "algebra_basic",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Algebra is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "double_entry_diffusion",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Double-Entry Bookkeeping Diffusion provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "maritime_insurance",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Pascal's 1654 treatment of the problem of points used algebraic notation, recursion, and combinations, so basic algebraic methods are the historical mathematical predecessor rather than a hard component dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Pascal-Fermat Correspondence",
+            "url": "https://old.maa.org/sites/default/files/images/upload_library/46/NCTM/The-Pascal-Fermat-Correspondence.pdf",
+            "publisher": "Mathematical Association of America",
+            "year": 2015,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The MAA account describes Pascal's e(a,b) notation, recursive equations, and use of combinations/Pascal's triangle in the 1654 problem-of-points correspondence."
+          }
+        ]
       }
     ],
     "sources": [
@@ -7934,7 +7929,8 @@
         ],
         "source_locator": "The MAA account anchors formal probability theory to the 1654 Pascal-Fermat correspondence over the problem of points."
       }
-    ]
+    ],
+    "scopeNote": "Covers the 1654 Pascal-Fermat mathematical formalization of probability around games of chance and the problem of points. It does not make preexisting maritime insurance, bookkeeping, actuarial pricing, or later statistical inference direct prerequisites."
   },
   {
     "id": "logarithms",
