@@ -1,0 +1,41 @@
+{
+  "id": "2026-07-03-copper-wiring-production-scope",
+  "description": "Lock Copper Wiring Production to early electrical copper conductors anchored by Faraday-era electromagnetic apparatus, not ancient copper metallurgy or fully mature modern building-wire systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "copper_wiring_production",
+      "operator": "eq",
+      "value": 1831,
+      "reason": "The corrected node is anchored to Faraday's 1831 induction and generator work using wire/copper conductors rather than the old Industrial era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "copper_wiring_production",
+      "prerequisite": "copper_working",
+      "expected": "enabling",
+      "reason": "Electrical copper conductors require practical copper working while not claiming every conductor form follows the same production route."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "copper_wiring_production",
+      "prerequisite": "mining",
+      "expected": "enabling",
+      "reason": "Copper supply depends on mining and metal production as an enabling material base."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "copper_wiring_production",
+      "prerequisite": "mass_production",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Mass production belongs to later commercial scale-up of wire and cable markets, not to Faraday's first-known electrical-conductor evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "copper_wiring_production",
+      "prerequisite": "steam_engine",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Steam power could support industrial manufacturing scale, but the early electrical-conductor concept and Faraday apparatus were not steam-engine dependent."
+    }
+  ]
+}
