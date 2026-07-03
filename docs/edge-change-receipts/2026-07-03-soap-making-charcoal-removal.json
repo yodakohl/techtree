@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-soap-making-charcoal-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "soap_making_basic",
+    "prerequisite": "charcoal_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Charcoal Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the scoped soap-making node uses fats, water, ash, and alkaline lye; charcoal fuel production is a separate carbonization technology and is later than this node's current chronology.",
+  "source_supports_edge": "no",
+  "source_url": "https://edisontechcenter.org/WashingMachines.html",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History and operating sections describe washing with soap powders, lye, ashes, powdered soaps, and bars of soap, but do not make charcoal fuel production part of soap or laundry cleaning agents.",
+    "source_claim_summary": "The source identifies soap, lye, and ashes as the cleaning-agent lineage rather than charcoal production.",
+    "source_support_rationale": "Ash and alkaline lye can be related to burned plant material, but the charcoal-production node is scoped to controlled wood carbonization for fuel and reducing material, not ash extraction."
+  },
+  "ontology_before": "Basic Soap Making depended directly on Charcoal Production, implying intentional charcoal fuel production enabled ash-and-lye soap.",
+  "ontology_after": "Basic Soap Making keeps animal-husbandry and water-carrying prerequisites while charcoal production is removed as a separate, later fuel technology.",
+  "invariant_preserved_or_changed": "Changed: charcoal_production is no longer a direct prerequisite for soap_making_basic.",
+  "would_reject_if": [
+    "The soap_making_basic node were rescoped specifically to charcoal-derived alkali chemistry rather than broad ash-and-fat soap-like cleaning agents.",
+    "A stronger source showed early soap making required intentionally produced charcoal rather than ash, lye, or alkaline plant materials.",
+    "A wood_ash_lye node were added and should replace this removed charcoal_production edge."
+  ],
+  "short_reason": "Soap making uses ash or lye, not charcoal fuel production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/soap_making_basic.before.json /tmp/soap_making_basic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

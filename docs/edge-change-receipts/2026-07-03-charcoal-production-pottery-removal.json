@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-charcoal-production-pottery-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "charcoal_production",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because broad charcoal production is controlled wood carbonization under restricted air; pottery vessels and ceramic kilns are not required for earth-covered or closed-space carbonization.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.fao.org/4/x5328e/x5328e02.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Section 1.4.1 defines charcoal as wood carbonized under controlled conditions in a closed space or kiln by restricting air entry so wood forms charcoal rather than ash.",
+    "source_claim_summary": "The source defines charcoal production by controlled air restriction and pyrolysis, not by pottery vessels or ceramic firing.",
+    "source_support_rationale": "Pottery remains relevant to separate ceramic and smelting nodes, but the charcoal-production source supports earth/closed-space carbonization as the process boundary."
+  },
+  "ontology_before": "Charcoal Production depended directly on Pottery, implying fired-clay vessels or ceramic kiln practice enabled basic charcoal production.",
+  "ontology_after": "Charcoal Production depends on fire control and is scoped to controlled wood carbonization; pottery remains separate ceramic infrastructure and a direct smelting prerequisite where needed.",
+  "invariant_preserved_or_changed": "Changed: pottery is no longer a direct prerequisite for charcoal_production.",
+  "would_reject_if": [
+    "The node were narrowed to ceramic-retort charcoal production rather than broad wood carbonization.",
+    "A stronger source showed earliest intentional charcoal production required pottery vessels or ceramic kilns.",
+    "The pottery node were broadened to represent all closed-space pyrotechnology rather than fired clay vessels."
+  ],
+  "short_reason": "Basic charcoal production needs controlled carbonization, not pottery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/charcoal_production.before.json /tmp/charcoal_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

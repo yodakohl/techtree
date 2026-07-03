@@ -1,0 +1,37 @@
+{
+  "id": "2026-07-03-charcoal-production-scope",
+  "description": "Lock Charcoal Production to intentional wood carbonization under restricted oxygen, separate from pottery firing and later specialized pit/mound kiln systems.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "charcoal_production",
+      "prerequisite": "fire_control",
+      "reason": "Controlled fire is the broad predecessor for intentional carbonization."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "charcoal_production",
+      "prerequisite": "pottery",
+      "reason": "FAO defines charcoal production by restricted-air wood pyrolysis rather than fired-clay vessels or ceramic kilns."
+    },
+    {
+      "type": "first_known_date",
+      "node": "charcoal_production",
+      "operator": "eq",
+      "value": -5000,
+      "reason": "The date is a conservative source-backed anchor from early smelting contexts requiring a charcoal charge, with uncertainty noted."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "charcoal_pit_kilns",
+      "prerequisite": "charcoal_production",
+      "reason": "The later pit/mound kiln node remains the specialized scaling system downstream of basic charcoal production."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "soap_making_basic",
+      "prerequisite": "charcoal_production",
+      "reason": "Soap making needs ash or alkaline lye, not the separate fuel/reducing-material technology of charcoal production."
+    }
+  ]
+}

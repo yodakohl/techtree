@@ -6600,15 +6600,14 @@
     "id": "charcoal_production",
     "name": "Charcoal Production",
     "era": "Ancient",
-    "description": "Creating charcoal by slowly heating wood in a low-oxygen environment, producing a fuel that burns hotter than wood.",
+    "description": "Intentional carbonization of wood under restricted oxygen to produce charcoal fuel and reducing material.",
     "prerequisites": [
-      "fire_control",
-      "pottery"
+      "fire_control"
     ],
-    "firstKnownDate": -10000,
-    "datePrecision": "millennium",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -5000,
+    "datePrecision": "century",
+    "region": "Early Balkan pyrotechnology and metallurgical fuel context; broader wood-fuel societies",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "fire_control",
@@ -6626,44 +6625,61 @@
             "source_type": "primary_paper",
             "supports": [
               "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
+            ],
+            "source_locator": "The paper documents controlled in situ burning at Wonderwerk Cave, supplying the broader controlled-fire predecessor for later intentional carbonization."
+          },
           {
-            "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "primary_paper",
+            "title": "Simple technologies for charcoal making: Logistics of charcoal production",
+            "url": "https://www.fao.org/4/x5328e/x5328e02.htm",
+            "publisher": "Food and Agriculture Organization of the United Nations",
+            "year": 1983,
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Section 1.4.1 explains that charcoal production controls air entry during wood pyrolysis so wood forms charcoal instead of burning away to ash."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa",
-        "url": "https://www.pnas.org/doi/10.1073/pnas.1117620109",
-        "publisher": "Proceedings of the National Academy of Sciences",
-        "year": 2012,
-        "source_type": "primary_paper",
+        "title": "Simple technologies for charcoal making: Logistics of charcoal production",
+        "url": "https://www.fao.org/4/x5328e/x5328e02.htm",
+        "publisher": "Food and Agriculture Organization of the United Nations",
+        "year": 1983,
+        "source_type": "official_agency",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "Section 1.4.1 defines charcoal as wood carbonized or pyrolyzed under controlled conditions with restricted air entry, producing charcoal rather than ash."
+      },
+      {
+        "title": "Simple technologies for charcoal making: Earth pits for charcoal making",
+        "url": "https://www.fao.org/4/x5328e/x5328e06.htm",
+        "publisher": "Food and Agriculture Organization of the United Nations",
+        "year": 1983,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Chapter 5 states that earth shielding against oxygen and heat loss is the oldest carbonization system and describes pits and mounds that seal carbonizing wood behind an earth barrier."
+      },
+      {
+        "title": "Early Balkan Metallurgy: Origins, Evolution and Society, 6200-3700 BC",
+        "url": "https://link.springer.com/article/10.1007/s10963-021-09155-7",
+        "publisher": "Journal of World Prehistory / Springer",
+        "year": 2021,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The review dates Belovode copper smelting to about 5000 BCE and describes experimental reconstruction of the earliest process with a master smelter maintaining the fire or regular charcoal charge."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Ancient chronology/source-fit review: the retained source is useful prerequisite context but does not support the exact node claim or first-known date."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -5000 century anchor uses the earliest source-backed metallurgical context where a regular charcoal charge is documented in reconstruction of early smelting. Earlier intentional charcoal production is plausible, and FAO describes earth-shielded carbonization as going back to the dawn of history, but no single earlier first site is pinned here.",
+    "scopeNote": "Covers intentional wood carbonization for fuel and reducing material, not accidental hearth charcoal, sedimentary wildfire charcoal, pottery firing, or later specialized pit/mound charcoal-kiln systems."
   },
   {
     "id": "bellows",
@@ -6779,7 +6795,20 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Charcoal Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Early Balkan Metallurgy: Origins, Evolution and Society, 6200-3700 BC",
+            "url": "https://link.springer.com/article/10.1007/s10963-021-09155-7",
+            "publisher": "Journal of World Prehistory / Springer",
+            "year": 2021,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The review discusses earliest Balkan copper smelting around 5000 BCE and notes that experimental reconstruction required a master smelter maintaining the fire or regular charcoal charge."
+          }
+        ]
       }
     ],
     "sources": [
@@ -10490,7 +10519,6 @@
     "description": "Combining fats, oils, ash, and alkaline materials to make cleaning agents for textiles, bodies, tools, and ritual contexts.",
     "prerequisites": [
       "animal_husbandry",
-      "charcoal_production",
       "water_carrying_techniques"
     ],
     "firstKnownDate": -9500,
@@ -10517,14 +10545,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "charcoal_production",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Charcoal Production provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       },
       {
         "prerequisite": "water_carrying_techniques",
