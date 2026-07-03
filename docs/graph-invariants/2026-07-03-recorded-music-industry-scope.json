@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-03-recorded-music-industry-scope",
+  "description": "Lock Recorded Music Industry to commercial phonograph/cylinder recording and sale rather than newspaper publicity or generic mass media.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "recorded_music_industry",
+      "prerequisite": "phonograph",
+      "expected": "required",
+      "reason": "The Library of Congress sources tie the industry's first commercial products to phonograph machines and cylinder records."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "recorded_music_industry",
+      "prerequisite": "mass_media_newspapers",
+      "reason": "Newspapers may advertise records, but the inspected sources do not make newspaper circulation a prerequisite for the recorded-music industry."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "recorded_music_industry",
+      "prerequisite": "early_copyright_printing_privileges",
+      "expected": "historical_predecessor",
+      "reason": "Copyright and printing privileges are retained only as legal-rights ancestry for later recorded-music copyright management."
+    },
+    {
+      "type": "first_known_date",
+      "node": "recorded_music_industry",
+      "operator": "eq",
+      "value": 1889,
+      "reason": "The node remains anchored to the LOC date for commercial musical-entertainment cylinder production."
+    }
+  ]
+}

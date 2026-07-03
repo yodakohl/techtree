@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-recorded-music-industry-newspapers-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "recorded_music_industry",
+    "prerequisite": "mass_media_newspapers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mass Media (Newspapers) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the scoped industry is source-backed by phonograph recording, cylinder manufacture, commercial sale, and catalogs; newspapers may publicize records but are not a documented prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/klinger.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The LOC essay states that commercial production of cylinder records for musical entertainment began at the Edison Laboratory in May 1889 and then discusses cylinder-market output, companies, titles, and catalog survival.",
+    "source_claim_summary": "The source grounds the recorded-music industry in cylinder-record production and market output rather than newspaper infrastructure.",
+    "source_support_rationale": "Newspapers can be a publicity channel for many industries, but the inspected source explains the target node through recording media, firms, manufactured titles, sales, and catalogs."
+  },
+  "ontology_before": "Recorded Music Industry depended directly on Mass Media (Newspapers), implying newspaper circulation enabled the industry.",
+  "ontology_after": "Recorded Music Industry depends on the phonograph platform and copyright lineage; newspapers are not modeled as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: mass_media_newspapers is no longer a direct prerequisite for recorded_music_industry.",
+  "would_reject_if": [
+    "A stronger source showed newspaper circulation was necessary for the first commercial cylinder-record industry.",
+    "The node were rescoped to newspaper promotion of records rather than recorded-music production and distribution.",
+    "A separate record-advertising node were added where newspapers are the direct medium."
+  ],
+  "short_reason": "Newspapers are plausible publicity context, but not a source-backed prerequisite for recorded music production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/recorded_music_industry.before.json /tmp/recorded_music_industry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-recorded-music-industry-phonograph-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "recorded_music_industry",
+    "prerequisite": "phonograph"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Phonograph provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "review",
+    "note": "Commercial recorded-music production required phonograph recording/playback and cylinder-record manufacture; the Library of Congress traces the 1887-1888 commercial phonograph platform into 1889 entertainment cylinder production."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.loc.gov/collections/edison-company-motion-pictures-and-sound-recordings/articles-and-essays/history-of-edison-sound-recordings/history-of-the-cylinder-phonograph/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The LOC history describes the Edison Phonograph Company, the 1888 Improved and Perfected Phonographs, musical cylinders for coin-slot phonographs, and later commercial cylinder issue for home entertainment.",
+    "source_claim_summary": "The source shows commercial recorded-music products emerging through phonograph machines and cylinder recordings.",
+    "source_support_rationale": "Because the target node is commercial sound recording and playback, the phonograph is the direct recording/playback platform rather than merely adjacent enabling context."
+  },
+  "ontology_before": "Recorded Music Industry treated the phonograph as a generic enabling capability.",
+  "ontology_after": "Recorded Music Industry treats the phonograph as the required platform for early commercial sound recording and playback.",
+  "invariant_preserved_or_changed": "Changed edge type: phonograph is now required rather than a generic enabling edge.",
+  "would_reject_if": [
+    "The node were rescoped to music publishing, artist management, or copyright administration without recorded-sound media.",
+    "A stronger source showed the first recorded-music industry could operate without phonograph-style sound recording and playback.",
+    "The phonograph node were narrowed to exclude cylinder recording/playback machines."
+  ],
+  "short_reason": "The phonograph is the direct platform for early commercial recorded music.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/recorded_music_industry.before.json /tmp/recorded_music_industry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
