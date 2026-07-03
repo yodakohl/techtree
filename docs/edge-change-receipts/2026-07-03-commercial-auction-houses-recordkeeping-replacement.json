@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-commercial-auction-houses-recordkeeping-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "commercial_auction_houses",
+    "prerequisite": "record_keeping"
+  },
+  "replaced_edge": {
+    "dependent": "commercial_auction_houses",
+    "prerequisite": "printed_financial_price_lists"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Financial Price Lists provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.73,
+    "evidence_level": "review",
+    "note": "Auction houses depended on lot descriptions, appraisals, sale catalogues, and sale-result records rather than on printed financial price lists."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.investopedia.com/terms/a/auction-house.asp",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "secondary_source_url": "https://library.harvard.edu/collections/auction-sales-catalogs",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Investopedia's operations section says auctioneers appraise lot items, form an idea of worth, and open bidding with a suggested bid. Harvard Library says its auction-sales catalogue collection includes more than 40,000 catalogues from the 18th century to present, including rare and annotated catalogues used for provenance research and sale information.",
+    "source_claim_summary": "The sources document lot appraisal, catalogue records, and sale information as auction-house information infrastructure.",
+    "source_support_rationale": "Auction-house records concern lots, valuations, provenance, and sale results; printed financial price lists are market quotation artifacts and are too narrow for this node."
+  },
+  "ontology_before": "Commercial Auction Houses depended on printed financial price lists, implying market-quotation publication enabled auction-house operations.",
+  "ontology_after": "Commercial Auction Houses depend on record keeping because lot descriptions, appraisals, catalogues, and sale-result records are the relevant information substrate.",
+  "invariant_preserved_or_changed": "Changed: commercial_auction_houses now depends on record_keeping and no longer directly depends on printed_financial_price_lists.",
+  "would_reject_if": [
+    "The node is narrowed to printed auction-price current lists rather than auction-house operations.",
+    "A stronger source shows Stockholm's 1674 auction-house model directly depended on printed financial-price-list infrastructure.",
+    "A dedicated auction_sales_catalogs node is added and replaces record_keeping as the precise record substrate."
+  ],
+  "short_reason": "Auction houses need lot and sale records, not generic financial price lists.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/commercial_auction_houses.before.json /tmp/commercial_auction_houses.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

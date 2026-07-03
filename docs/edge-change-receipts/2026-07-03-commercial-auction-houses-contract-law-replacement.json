@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-commercial-auction-houses-contract-law-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "commercial_auction_houses",
+    "prerequisite": "contract_law"
+  },
+  "replaced_edge": {
+    "dependent": "commercial_auction_houses",
+    "prerequisite": "joint_stock_companies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Auction houses mediated transfers of assets and liquidation of debtor property, so sale, debt, and obligation law is the relevant legal substrate rather than joint-stock corporate form."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.investopedia.com/terms/a/auction-house.asp",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "secondary_source_url": "https://www.sfu.ca/~poitras/Equity-Capital_ch2.pdf",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Definition and historical overview sections: auction houses facilitate buying and selling assets; auctions historically sold disposers' assets and liquidated debtor assets. The Routledge/SFU textbook chapter ties ancient law codes to trade and commercial activity, with written contracts required for common commercial activities.",
+    "source_claim_summary": "The sources connect auction-house operations to asset sale, debt liquidation, and the broader contract-law substrate for commercial obligations.",
+    "source_support_rationale": "The legal transfer and debt-liquidation function is closer to contract law than to joint-stock companies, which are a corporate financing form rather than a necessary auction-house mechanism."
+  },
+  "ontology_before": "Commercial Auction Houses depended on joint-stock companies, implying corporate share ownership enabled the auction-house institution.",
+  "ontology_after": "Commercial Auction Houses depend on contract law as the sale, debt, and obligation framework for asset transfers and debtor liquidation.",
+  "invariant_preserved_or_changed": "Changed: commercial_auction_houses now depends on contract_law and no longer directly depends on joint_stock_companies.",
+  "would_reject_if": [
+    "The node is narrowed to a specific corporate auction firm whose founding source documents joint-stock capitalization as the key dependency.",
+    "A stronger source shows early auction houses depended directly on transferable joint-stock corporate shares.",
+    "The contract_law node is narrowed away from sale, debt, obligation, and commercial-transfer scope."
+  ],
+  "short_reason": "Auction-house asset transfers require sale and debt-obligation law, not joint-stock corporate form.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/commercial_auction_houses.before.json /tmp/commercial_auction_houses.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

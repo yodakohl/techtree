@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-commercial-auction-houses-market-squares-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "commercial_auction_houses",
+    "prerequisite": "town_market_squares"
+  },
+  "replaced_edge": {
+    "dependent": "commercial_auction_houses",
+    "prerequisite": "public_notice_boards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Notice Boards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Open public market spaces were the historical sale venue that enclosed seventeenth-century auction houses formalized."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.investopedia.com/terms/a/auction-house.asp",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Historical overview section: auctions used to sell assets and liquidate debtor assets in many facilities and open-air public spaces before enclosed showroom auction houses began in the 17th century, with Stockholms Auktionsverk founded in 1674.",
+    "source_claim_summary": "The source places enclosed auction houses after older public-space auction practice.",
+    "source_support_rationale": "The corrected edge points to public market/sale venues rather than notice boards, because the source-backed transition is from open public sale spaces to enclosed auction houses."
+  },
+  "ontology_before": "Commercial Auction Houses depended on public notice boards, implying the key predecessor was posted notice infrastructure.",
+  "ontology_after": "Commercial Auction Houses depend on town market squares as the older public sale venue that enclosed auction houses formalized.",
+  "invariant_preserved_or_changed": "Changed: commercial_auction_houses now depends on town_market_squares and no longer directly depends on public_notice_boards.",
+  "would_reject_if": [
+    "The node is narrowed to auction notices or advertising rather than auction-house venues and sale operations.",
+    "A stronger source shows Stockholm's 1674 auction-house system directly required posted public notice boards.",
+    "A dedicated auction-notice or auction-catalog node is added and becomes the more precise intermediary."
+  ],
+  "short_reason": "Auction houses formalized public sale venues; notice boards are adjacent publicity infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/commercial_auction_houses.before.json /tmp/commercial_auction_houses.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -11867,9 +11867,9 @@
     "era": "Renaissance",
     "description": "Organized auction venues and records for art, ships, cargo, books, estates, commodities, and financial claims.",
     "prerequisites": [
-      "printed_financial_price_lists",
-      "joint_stock_companies",
-      "public_notice_boards"
+      "town_market_squares",
+      "contract_law",
+      "record_keeping"
     ],
     "firstKnownDate": 1674,
     "datePrecision": "exact",
@@ -11877,28 +11877,89 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "printed_financial_price_lists",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printed Financial Price Lists provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "town_market_squares",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Open public market spaces were the historical sale venue that enclosed seventeenth-century auction houses formalized.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Understanding Auction Houses: History, Types, and How They Work",
+            "url": "https://www.investopedia.com/terms/a/auction-house.asp",
+            "publisher": "Investopedia",
+            "year": 2025,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Historical overview section: auctions used to sell assets and liquidate debtor assets in many facilities and open-air public spaces before enclosed showroom auction houses began in the 17th century, with Stockholms Auktionsverk founded in 1674."
+          }
+        ]
       },
       {
-        "prerequisite": "joint_stock_companies",
+        "prerequisite": "contract_law",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Auction houses mediated transfers of assets and liquidation of debtor property, so sale, debt, and obligation law is the relevant legal substrate rather than joint-stock corporate form.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Understanding Auction Houses: History, Types, and How They Work",
+            "url": "https://www.investopedia.com/terms/a/auction-house.asp",
+            "publisher": "Investopedia",
+            "year": 2025,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Definition and historical overview sections: auction houses facilitate buying and selling assets; auctions historically sold disposers' assets and liquidated debtor assets."
+          },
+          {
+            "title": "Equity Shares in Antiquity",
+            "url": "https://www.sfu.ca/~poitras/Equity-Capital_ch2.pdf",
+            "publisher": "Routledge / Simon Fraser University",
+            "year": 2016,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Bronze Age Law Codes section: surviving law codes are tied to trade and commercial activity, with written contracts required for common commercial activities including loans and other obligations."
+          }
+        ]
       },
       {
-        "prerequisite": "public_notice_boards",
+        "prerequisite": "record_keeping",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Notice Boards provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.73,
+        "evidence_level": "review",
+        "note": "Auction houses depended on lot descriptions, appraisals, sale catalogues, and sale-result records rather than on printed financial price lists.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Understanding Auction Houses: History, Types, and How They Work",
+            "url": "https://www.investopedia.com/terms/a/auction-house.asp",
+            "publisher": "Investopedia",
+            "year": 2025,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Historical operations section: auctioneers appraise the lot item, form an idea of its worth, and begin with a suggested opening bid before bids are submitted."
+          },
+          {
+            "title": "Auction Sales Catalogs",
+            "url": "https://library.harvard.edu/collections/auction-sales-catalogs",
+            "publisher": "Harvard Library",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Collection description: Harvard's Fine Arts Library holds more than 40,000 auction sales catalogues from the 18th century to present, including rare and annotated catalogues used for provenance research and sale information."
+          }
+        ]
       }
     ],
     "sources": [
@@ -11910,7 +11971,8 @@
         "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "This is us section: Stockholms Auktionsverk identifies itself as the world's oldest auction house, describes a 350-year auction-house history, and frames the firm as a marketplace for sellers and buyers."
       },
       {
         "title": "Stockholms Auktionsverk Acquires Uppsala Auktionskammare",
@@ -11920,7 +11982,8 @@
         "source_type": "generic_overview",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Press release and About us section: Stockholms Auktionsverk is described as the world's oldest auction house, founded in 1674, and as a central marketplace for Swedish and international cultural history."
       }
     ]
   },

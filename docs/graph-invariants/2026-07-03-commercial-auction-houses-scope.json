@@ -1,0 +1,52 @@
+{
+  "id": "2026-07-03-commercial-auction-houses-scope",
+  "description": "Lock the 2026-07-03 correction of commercial_auction_houses to enclosed seventeenth-century auction-house venues and sale records, anchored by Stockholms Auktionsverk in 1674.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "commercial_auction_houses",
+      "operator": "eq",
+      "value": 1674,
+      "reason": "The date remains anchored to Stockholms Auktionsverk's 1674 founding as the source-backed oldest auction-house example."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commercial_auction_houses",
+      "prerequisite": "town_market_squares",
+      "expected": "historical_predecessor",
+      "reason": "Open public market and sale spaces are the source-backed predecessor venue for enclosed auction houses."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commercial_auction_houses",
+      "prerequisite": "contract_law",
+      "expected": "enabling",
+      "reason": "Asset sale and debtor-liquidation auctions rely on sale, debt, and obligation law rather than corporate-share ownership."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commercial_auction_houses",
+      "prerequisite": "record_keeping",
+      "expected": "enabling",
+      "reason": "Lot descriptions, appraisals, catalogues, and sale-result records are the source-backed information substrate."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "commercial_auction_houses",
+      "prerequisite": "printed_financial_price_lists",
+      "reason": "Printed financial price lists are market-quotation artifacts, not source-backed as the relevant auction-house record mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "commercial_auction_houses",
+      "prerequisite": "joint_stock_companies",
+      "reason": "Joint-stock companies are a corporate financing form, not a source-backed direct prerequisite for the auction-house institution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "commercial_auction_houses",
+      "prerequisite": "public_notice_boards",
+      "reason": "Posted notices can publicize auctions, but the current node is scoped to auction-house venues and sale operations rather than notice posting."
+    }
+  ]
+}
