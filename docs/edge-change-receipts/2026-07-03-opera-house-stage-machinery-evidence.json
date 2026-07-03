@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-opera-house-stage-machinery-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "opera_house_infrastructure",
+    "prerequisite": "mechanical_theater_machinery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Theater Machinery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "San Cassiano opera-house infrastructure used stage machinery and scene sets for magical effects, rapid scene changes, flying bodies, clouds, vehicles, and spectacle."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The page describes L'Andromeda's 1637 libretto recounting special effects fashioned by stage machinery and scene sets, including flying bodies, moving clouds, changing scenes, vehicles, and magical Baroque effects.",
+    "source_claim_summary": "The source describes stage machinery and scene sets as part of the 1637 San Cassiano opera-house spectacle.",
+    "source_support_rationale": "Stage machinery is an enabling production subsystem of the opera house, but the venue can still be scoped more broadly than machinery alone."
+  },
+  "ontology_before": "Opera House Infrastructure depended on Mechanical Theater Machinery with an unsourced generic enabling claim.",
+  "ontology_after": "Opera House Infrastructure keeps Mechanical Theater Machinery as a source-backed production subsystem for effects and scenery.",
+  "invariant_preserved_or_changed": "Preserved: mechanical_theater_machinery remains a direct enabling prerequisite with review evidence.",
+  "would_reject_if": [
+    "The node were narrowed to box-office or patronage operations with no staged scenic production.",
+    "A stronger source showed early public opera houses lacked stage machinery or scene-set infrastructure.",
+    "Mechanical Theater Machinery were rescoped away from stage effects, scenery, or movable devices."
+  ],
+  "short_reason": "San Cassiano's public opera spectacle explicitly used stage machinery and scene sets.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/opera_house_infrastructure.before.json /tmp/opera_house_infrastructure.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

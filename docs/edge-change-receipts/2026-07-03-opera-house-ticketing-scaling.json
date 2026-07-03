@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-opera-house-ticketing-scaling",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "opera_house_infrastructure",
+    "prerequisite": "theater_ticketing_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Theater Ticketing Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "The first public opera house depended on paid-entry theater commerce: San Cassiano opened opera to a paying audience through entrance-ticket practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Our History states San Cassiano was the first public opera theatre in the sense of opening to a paying audience and says purchasing an entrance ticket by each spectator established public-opera commerce in 1637.",
+    "source_claim_summary": "The source documents entrance-ticket purchase and paying-audience operation as the commercial basis of public opera at San Cassiano.",
+    "source_support_rationale": "Ticketing made the venue public and commercial, so the edge is a scaling/business dependency rather than a generic technical enabler."
+  },
+  "ontology_before": "Opera House Infrastructure depended on Theater Ticketing Systems as an unsourced generic enabler.",
+  "ontology_after": "Opera House Infrastructure depends on Theater Ticketing Systems as the source-backed paid-entry commercial model for public opera.",
+  "invariant_preserved_or_changed": "Changed: theater_ticketing_systems remains direct but is typed commercial_or_scaling_dependency with review evidence.",
+  "would_reject_if": [
+    "The node were rescoped to private court opera houses only.",
+    "A stronger source showed the first public opera house did not use paid-entry audience commerce.",
+    "Theater Ticketing Systems were narrowed away from paid admission or seating-control practice."
+  ],
+  "short_reason": "San Cassiano's public-opera model depended on entrance-ticket commerce.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/opera_house_infrastructure.before.json /tmp/opera_house_infrastructure.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

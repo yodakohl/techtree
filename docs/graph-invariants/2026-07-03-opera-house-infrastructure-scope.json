@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-opera-house-infrastructure-scope",
+  "description": "Lock Opera House Infrastructure to public opera venue systems at Teatro San Cassiano, not madrigal repertoire.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "public_theater_infrastructure",
+      "reason": "The first public opera house inherited public/commercial theater venue infrastructure, boxes, and civic construction oversight."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "public_theater_infrastructure",
+      "expected": "historical_predecessor",
+      "reason": "Public theater infrastructure is the venue lineage, not the opera-house technology itself."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "mechanical_theater_machinery",
+      "reason": "San Cassiano opera staging used stage machinery and scene sets for spectacle."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "mechanical_theater_machinery",
+      "expected": "enabling",
+      "reason": "Stage machinery enables production effects without being the whole venue system."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "theater_ticketing_systems",
+      "reason": "San Cassiano's public-opera model depended on paid audience entry."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "theater_ticketing_systems",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Ticketing is the commercial public-access model, not a stage technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "opera_house_infrastructure",
+      "prerequisite": "madrigals_polyphonic_music",
+      "reason": "Madrigals and polyphony should not be restored unless the node is rescoped to musical genre lineage rather than opera-house infrastructure."
+    },
+    {
+      "type": "first_known_date",
+      "node": "opera_house_infrastructure",
+      "operator": "eq",
+      "value": 1637,
+      "reason": "The node remains anchored to Teatro San Cassiano's 1637 public opera-house opening."
+    }
+  ]
+}

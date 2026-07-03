@@ -11480,13 +11480,13 @@
     "era": "Renaissance",
     "description": "Specialized venues combining staged music, theater machinery, ticketing, patronage, seating, scenery, and acoustic design.",
     "prerequisites": [
-      "madrigals_polyphonic_music",
+      "public_theater_infrastructure",
       "mechanical_theater_machinery",
       "theater_ticketing_systems"
     ],
     "firstKnownDate": 1637,
     "datePrecision": "year",
-    "region": "Afro-Eurasia and other historical societies",
+    "region": "Venice, Republic of Venice / Teatro San Cassiano",
     "reviewStatus": "source_checked",
     "sources": [
       {
@@ -11495,7 +11495,18 @@
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
-        "locator": "Opera history identifies Teatro San Cassiano in Venice in 1637 as the first permanent public opera house, which marks the emergence of dedicated opera-house infrastructure.",
+        "source_locator": "Opera history identifies Teatro San Cassiano in Venice in 1637 as the first permanent public opera house, which marks the emergence of dedicated opera-house infrastructure.",
+        "supports": [
+          "node"
+        ]
+      },
+      {
+        "title": "Teatro San Cassiano",
+        "url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+        "publisher": "Teatro San Cassiano 1637",
+        "year": 2026,
+        "source_type": "review",
+        "source_locator": "Our History sections identify Teatro San Cassiano as the world's first public opera theatre, opened to a paying audience in 1637, with prior theater boxes, entrance-ticket commerce, and purpose-built theatre-for-music function.",
         "supports": [
           "node"
         ]
@@ -11503,28 +11514,67 @@
     ],
     "dependencyEdges": [
       {
-        "prerequisite": "madrigals_polyphonic_music",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Madrigals & Polyphonic Music provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "public_theater_infrastructure",
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Venetian public opera houses grew from earlier commercial theater infrastructure with purpose-built venues, boxes, seating, and civic safety oversight.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Teatro San Cassiano",
+            "url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+            "publisher": "Teatro San Cassiano 1637",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Our History: the San Cassiano site had a Tron family theater for comedies from 1581; the source describes theater boxes, purpose-built venues, structural-safety oversight, and the 1636 plan to open a theater for music before the 1637 public opera house."
+          }
+        ]
       },
       {
         "prerequisite": "mechanical_theater_machinery",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Theater Machinery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "San Cassiano opera-house infrastructure used stage machinery and scene sets for magical effects, rapid scene changes, flying bodies, clouds, vehicles, and spectacle.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Teatro San Cassiano",
+            "url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+            "publisher": "Teatro San Cassiano 1637",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The page describes L'Andromeda's 1637 libretto recounting special effects fashioned by stage machinery and scene sets, including flying bodies, moving clouds, changing scenes, vehicles, and magical Baroque effects."
+          }
+        ]
       },
       {
         "prerequisite": "theater_ticketing_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Theater Ticketing Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The first public opera house depended on paid-entry theater commerce: San Cassiano opened opera to a paying audience through entrance-ticket practice.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Teatro San Cassiano",
+            "url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+            "publisher": "Teatro San Cassiano 1637",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Our History states San Cassiano was the first public opera theatre in the sense of opening to a paying audience and says purchasing an entrance ticket by each spectator established public-opera commerce in 1637."
+          }
+        ]
       }
     ]
   },

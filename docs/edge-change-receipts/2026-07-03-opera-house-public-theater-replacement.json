@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-opera-house-public-theater-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "opera_house_infrastructure",
+    "prerequisite": "public_theater_infrastructure"
+  },
+  "replaced_edge": {
+    "dependent": "opera_house_infrastructure",
+    "prerequisite": "madrigals_polyphonic_music"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Madrigals & Polyphonic Music provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Venetian public opera houses grew from earlier commercial theater infrastructure with purpose-built venues, boxes, seating, and civic safety oversight."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Our History: the San Cassiano site had a Tron family theater for comedies from 1581; the source describes theater boxes, purpose-built venues, structural-safety oversight, and the 1636 plan to open a theater for music before the 1637 public opera house.",
+    "source_claim_summary": "The source traces San Cassiano from prior public/commercial theater infrastructure into the first public opera house.",
+    "source_support_rationale": "That lineage fits the venue-infrastructure node better than madrigals, which are musical repertoire rather than public opera-house architecture or operations."
+  },
+  "ontology_before": "Opera House Infrastructure depended on Madrigals & Polyphonic Music, conflating musical repertoire lineage with venue infrastructure.",
+  "ontology_after": "Opera House Infrastructure depends on Public Theater Infrastructure as the historical venue lineage for seating, boxes, safety oversight, and public operation.",
+  "invariant_preserved_or_changed": "Changed: opera_house_infrastructure now depends on public_theater_infrastructure and no longer directly depends on madrigals_polyphonic_music.",
+  "would_reject_if": [
+    "The node were rescoped from opera-house infrastructure to the musical origin of opera or madrigal style.",
+    "A stronger source showed madrigal/polyphonic repertoire was a direct infrastructure prerequisite for the first public opera house.",
+    "A dedicated Venetian public theater boxes node were introduced and should replace the broader public_theater_infrastructure edge."
+  ],
+  "short_reason": "Opera-house infrastructure inherits public theater venue systems, not madrigal repertoire.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/opera_house_infrastructure.before.json /tmp/opera_house_infrastructure.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
