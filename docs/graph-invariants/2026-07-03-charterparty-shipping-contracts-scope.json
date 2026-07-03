@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-03-charterparty-shipping-contracts-scope",
+  "description": "Lock the 2026-07-03 charterparty correction to ship-hire/affreightment contracts grounded in contract law and maritime law, not banking or navigation documents.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "contract_law",
+      "expected": "required",
+      "reason": "A charterparty is itself an enforceable contract between shipowner and charterer."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "maritime_law_codes",
+      "expected": "enabling",
+      "reason": "Maritime law supplies the ship, cargo, freight, loss, and dispute domain around charterparty contracts."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "banking_early_forms",
+      "reason": "Banking is adjacent trade finance context, not a direct prerequisite for ship-hire contract formation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "portolan_charts_maritime_navigation",
+      "reason": "A charterparty is a legal shipping contract and does not require portolan charts as a direct legal prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "charterparty_shipping_contracts",
+      "prerequisite": "notarial_records",
+      "reason": "The corrected node is not scoped to Genoese notarial-register technology."
+    }
+  ]
+}

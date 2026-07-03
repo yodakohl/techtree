@@ -10014,49 +10014,90 @@
     "id": "charterparty_shipping_contracts",
     "name": "Charterparty Shipping Contracts",
     "era": "Medieval",
-    "description": "Written contracts for hiring ships, allocating cargo space, assigning risk, scheduling voyages, and resolving maritime trade disputes.",
+    "description": "Written charter-party or affreightment contracts by which a shipowner let a ship or cargo capacity to a charterer, defining freight, voyage terms, risk, and dispute forums.",
     "prerequisites": [
-      "banking_early_forms"
+      "contract_law",
+      "maritime_law_codes"
     ],
-    "firstKnownDate": 500,
+    "firstKnownDate": 1100,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Medieval European maritime trade and law-merchant contexts",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "banking_early_forms",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Banking (Early Forms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "prerequisite": "contract_law",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "A charterparty is a contract between shipowner and charterer; contract law supplies the enforceable agreement structure.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Historical development of banks",
-            "url": "https://www.britannica.com/money/bank/Historical-development",
+            "title": "Charter party",
+            "url": "https://www.britannica.com/topic/charter-party",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
             "supports": [
+              "node",
               "edge"
-            ]
+            ],
+            "source_locator": "Britannica defines a charter party as a contract by which a shipowner lets a ship or principal part of it to another for carriage of goods on a voyage or for a specified time."
+          }
+        ]
+      },
+      {
+        "prerequisite": "maritime_law_codes",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Maritime law supplied the ship, cargo, freight, loss-allocation, and shipping-dispute legal context in which charterparty contracts operated.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Maritime law",
+            "url": "https://www.britannica.com/topic/maritime-law",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Britannica defines maritime law as law relating to ships and shipping, covering carriage of goods, loss allocation such as general average, and Roman borrowing from Rhodian maritime customs."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Historical development of banks",
-        "url": "https://www.britannica.com/money/bank/Historical-development",
+        "title": "Charter party",
+        "url": "https://www.britannica.com/topic/charter-party",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
         "supports": [
+          "node",
           "edge"
-        ]
+        ],
+        "source_locator": "Britannica defines charter party as a contract for letting a ship or principal part of it for goods carriage, voyage, or time use; this pins the node to ship-hire/affreightment contract practice rather than banking."
+      },
+      {
+        "title": "Maritime law",
+        "url": "https://www.britannica.com/topic/maritime-law",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Britannica frames maritime law as the law of ships and shipping, including carriage of goods and loss allocation, which supplies the legal domain for charterparty disputes."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Medieval source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1100 century anchor is a conservative medieval placement for charter-party/affreightment contract practice within law-merchant and maritime-law contexts; the exact earliest surviving ship-hire charterparty varies by documentary tradition.",
+    "scopeNote": "Covers written ship-hire and cargo-space charter contracts, not banking, portolan-chart navigation, maritime risk-pooling finance, or notarial-register technology as direct prerequisites."
   },
   {
     "id": "urban_firefighting_ordinances",

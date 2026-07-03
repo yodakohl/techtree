@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-charterparty-contract-law-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "charterparty_shipping_contracts",
+    "prerequisite": "contract_law"
+  },
+  "replaced_edge": {
+    "dependent": "charterparty_shipping_contracts",
+    "prerequisite": "banking_early_forms"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Banking (Early Forms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "A charterparty is a contract between shipowner and charterer; contract law supplies the enforceable agreement structure."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/charter-party",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Britannica defines a charter party as a contract by which a shipowner lets a ship or principal part of it to another for carriage of goods on a voyage or for a specified time.",
+    "source_claim_summary": "The source defines charterparty as a ship-hire or cargo-capacity contract between shipowner and charterer.",
+    "source_support_rationale": "This supports replacing banking because the direct mechanism is enforceable contract formation, while banking is only adjacent trade finance context."
+  },
+  "ontology_before": "Charterparty Shipping Contracts depended on Banking, implying early finance was the direct predecessor for ship-hire contracts.",
+  "ontology_after": "Charterparty Shipping Contracts depends on Contract Law for the agreement structure and Maritime Law Codes for the shipping legal domain.",
+  "invariant_preserved_or_changed": "Changed: charterparty_shipping_contracts now depends on contract_law and no longer directly depends on banking_early_forms.",
+  "would_reject_if": [
+    "The node were rescoped to maritime loans or bank-financed shipping ventures rather than charterparty ship-hire contracts.",
+    "A stronger source showed banking institutions were necessary before charterparty agreements could exist.",
+    "The contract_law node were narrowed away from enforceable commercial agreements."
+  ],
+  "short_reason": "A charterparty is a contract; banking is adjacent finance context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/charterparty_shipping_contracts.before.json /tmp/charterparty_shipping_contracts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
