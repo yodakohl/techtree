@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-clinical-blood-banking-laboratory-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "clinical_blood_banking",
+    "prerequisite": "laboratory_diagnostic_medicine"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Laboratory Diagnostic Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Fantus's Cook County blood bank was organized as a hospital laboratory for preserving and storing donor blood, matching the clinical-laboratory operating context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.aabb.org/blood-biotherapies/blood/transfusion-medicine/transfusion-medicine-resources/transfusion-medicine-history",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "AABB timeline, 1937 entry: Bernard Fantus created a hospital laboratory at Cook County Hospital that could preserve and store donor blood, originating the term blood bank.",
+    "source_claim_summary": "AABB describes the first United States hospital blood bank as a hospital laboratory for preserving and storing donor blood.",
+    "source_support_rationale": "This ties the node to clinical laboratory organization and procedures without making the broad laboratory-diagnostic-medicine node the only possible prerequisite."
+  },
+  "invariant_preserved_or_changed": "Preserved: clinical_blood_banking remains enabled by laboratory_diagnostic_medicine, now with official-source evidence.",
+  "would_reject_if": [
+    "The node is later rescoped to a non-hospital community collection service rather than a clinical hospital blood bank.",
+    "A stronger source shows Fantus's Cook County blood bank was not organized as a laboratory function.",
+    "The laboratory_diagnostic_medicine node is narrowed away from clinical laboratory testing and hospital laboratory practice."
+  ],
+  "short_reason": "AABB describes Fantus's 1937 blood bank as a hospital laboratory for donor blood.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clinical_blood_banking.before.json /tmp/clinical_blood_banking.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

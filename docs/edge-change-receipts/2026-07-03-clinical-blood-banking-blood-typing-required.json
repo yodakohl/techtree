@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-clinical-blood-banking-blood-typing-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "clinical_blood_banking",
+    "prerequisite": "blood_typing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Blood Typing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "review",
+    "note": "Clinical blood banking as scoped includes donor-recipient typing and matching, so ABO grouping and crossmatching are required safety methods."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.aabb.org/blood-biotherapies/blood/transfusion-medicine/transfusion-medicine-resources/transfusion-medicine-history",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "AABB timeline: 1900 Landsteiner discovers the first three human blood groups; 1907 Hektoen suggests crossmatching and Ottenberg performs transfusion using blood typing and crossmatching.",
+    "source_claim_summary": "AABB places ABO blood-group discovery and blood typing plus crossmatching before the institutional blood-bank entries.",
+    "source_support_rationale": "Because the node includes controlled transfusion, typing, and matching, the compatibility methods are part of the blood-bank workflow rather than optional background knowledge."
+  },
+  "ontology_before": "Clinical blood banking treated blood typing as a generic enabling capability.",
+  "ontology_after": "Clinical blood banking requires blood typing and crossmatching as the direct compatibility method for safe stored-blood transfusion.",
+  "invariant_preserved_or_changed": "Changed: clinical_blood_banking -> blood_typing is now a required edge.",
+  "would_reject_if": [
+    "The node is later narrowed to blood collection/storage only and excludes matching or transfusion safety.",
+    "A stronger source shows early hospital blood banks did not use blood typing or crossmatching.",
+    "The blood_typing node is rescoped away from ABO grouping and transfusion compatibility."
+  ],
+  "short_reason": "AABB identifies blood typing and crossmatching as transfusion safety methods before hospital blood banks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clinical_blood_banking.before.json /tmp/clinical_blood_banking.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

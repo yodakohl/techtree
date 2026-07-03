@@ -1,0 +1,34 @@
+{
+  "id": "2026-07-03-clinical-blood-banking-scope",
+  "description": "Lock clinical blood banking to Fantus's 1937 Cook County hospital blood bank and its direct compatibility, laboratory, and refrigerated-storage dependencies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "clinical_blood_banking",
+      "operator": "eq",
+      "value": 1937,
+      "reason": "The node remains anchored to Bernard Fantus establishing the first United States hospital blood bank at Cook County Hospital in 1937."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "clinical_blood_banking",
+      "prerequisite": "blood_typing",
+      "expected": "required",
+      "reason": "The scoped node includes typing, matching, and controlled transfusion, so blood-group compatibility is required."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "clinical_blood_banking",
+      "prerequisite": "laboratory_diagnostic_medicine",
+      "expected": "enabling",
+      "reason": "Fantus's blood bank operated as a hospital laboratory, but the broad laboratory-diagnostic node is retained as an enabling clinical-lab context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "clinical_blood_banking",
+      "prerequisite": "refrigeration",
+      "expected": "required",
+      "reason": "Stored donor blood depends on refrigerated preservation rather than direct donor-to-recipient transfusion alone."
+    }
+  ]
+}

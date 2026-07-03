@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-clinical-blood-banking-refrigeration-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "clinical_blood_banking",
+    "prerequisite": "refrigeration"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Refrigeration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "The blood-bank scope depends on preserving and storing donor blood, and the transfusion timeline identifies refrigerated storage as the storage method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.aabb.org/blood-biotherapies/blood/transfusion-medicine/transfusion-medicine-resources/transfusion-medicine-history",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "AABB timeline: Richard Weil demonstrated refrigerated storage of anticoagulated blood in 1915, and Fantus's 1937 hospital blood bank preserved and stored donor blood.",
+    "source_claim_summary": "AABB links stored blood to refrigerated storage before the first United States hospital blood bank and describes Fantus's bank as preserving and storing donor blood.",
+    "source_support_rationale": "For a node defined around stored donor blood, refrigeration is the direct preservation method that makes blood banking distinct from direct vein-to-vein transfusion."
+  },
+  "ontology_before": "Clinical blood banking treated mechanical refrigeration as a generic enabling capability.",
+  "ontology_after": "Clinical blood banking requires refrigerated storage because preserved donor blood is central to the blood-bank workflow.",
+  "invariant_preserved_or_changed": "Changed: clinical_blood_banking -> refrigeration is now a required edge.",
+  "would_reject_if": [
+    "The node is later rescoped to direct transfusion without stored donor blood.",
+    "A stronger source shows the scoped 1937 hospital blood bank did not depend on refrigerated storage.",
+    "The refrigeration node is narrowed away from artificial cooling used for medical storage."
+  ],
+  "short_reason": "AABB identifies refrigerated storage as the preservation method behind stored donor blood.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clinical_blood_banking.before.json /tmp/clinical_blood_banking.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
