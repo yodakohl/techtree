@@ -1,0 +1,25 @@
+{
+  "id": "2026-07-03-industrial-glass-production-scope",
+  "description": "Lock Industrial Glass Production to industrial-scale flat/window-glass manufacturing, with 1824 Chance works as the date anchor and float glass as a later refinement.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "industrial_glass_production_float_glass",
+      "prerequisite": "glassmaking",
+      "reason": "Industrial flat-glass production remains a manufacturing extension of glassmaking."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "industrial_glass_production_float_glass",
+      "prerequisite": "mass_production",
+      "reason": "The scoped node is industrial-scale production of flat/window glass, not craft glassmaking alone."
+    },
+    {
+      "type": "first_known_date",
+      "node": "industrial_glass_production_float_glass",
+      "operator": "eq",
+      "value": 1824,
+      "reason": "The source-backed chronology anchors the industrial works at Chance's 1824 Smethwick glassworks, with the 1832 cylinder process documented as a later milestone."
+    }
+  ]
+}
