@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-43853d.svg)](https://nodejs.org/)
-[![Dataset](https://img.shields.io/badge/technologies-1658-6f42c1.svg)](data/)
+[![Dataset](https://img.shields.io/badge/technologies-1660-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
 
@@ -26,7 +26,7 @@ Example entry points:
 | --- | --- |
 | **Try the demo** | Opens on CRISPR/Cas9 and traces the prerequisite stack needed to reach a target technology. |
 | **Inspect evidence** | Dependencies are typed and include confidence, evidence level, notes, and sources where available. |
-| **Use the data** | **1,658 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
+| **Use the data** | **1,660 validated technologies** across history, modern science, infrastructure, and future roadmap fields. |
 | **Check accuracy** | Corrective sample: **40/40 claims pass after correction**; latest risk-queue sample found civic/admin data needing fixes. See [accuracy audit](docs/ACCURACY_SAMPLE_2026-06-06.md) and [risk sample](docs/MANUAL_ACCURACY_SAMPLE_CIVIC_ADMIN_2026-06-10.md). |
 | **Improve one edge** | Small PRs can correct one dependency/source; validation catches missing IDs, cycles, duplicates, and time-travel edges. |
 
@@ -39,16 +39,16 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 
 | Metric | Current |
 | --- | --- |
-| Technologies | 1,658 |
-| Launch-quality scope (non-Future nodes) | 1,420 / 1,658 (85.6%; 238 Future excluded) |
-| Source-checked nodes | 1,380 / 1,420 (97.2%) |
-| Source-checked nodes with non-placeholder dates | 1,380 / 1,380 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,380 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,224 / 1,380 (88.7%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,380 (0.0%) |
-| Nodes with node-level sources | 1,420 / 1,420 (100.0%) |
-| Dependency edges with edge-level sources | 3,743 / 4,348 (86.1%) |
-| Era-default placeholder dates | 9 / 1,420 (0.6%) |
+| Technologies | 1,660 |
+| Launch-quality scope (non-Future nodes) | 1,422 / 1,660 (85.7%; 238 Future excluded) |
+| Source-checked nodes | 1,383 / 1,422 (97.3%) |
+| Source-checked nodes with non-placeholder dates | 1,383 / 1,383 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,383 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,227 / 1,383 (88.7%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,383 (0.0%) |
+| Nodes with node-level sources | 1,422 / 1,422 (100.0%) |
+| Dependency edges with edge-level sources | 3,748 / 4,352 (86.1%) |
+| Era-default placeholder dates | 9 / 1,422 (0.6%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
 

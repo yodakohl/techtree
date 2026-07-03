@@ -1,0 +1,57 @@
+{
+  "id": "2026-07-03-continuous-integration-scope",
+  "description": "Lock Continuous Integration to frequent shared-mainline integration verified by automated builds and tests, separate from open-source licensing and cloud hosting.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "continuous_integration",
+      "prerequisite": "software_engineering",
+      "reason": "CI remains a software-engineering practice, not an infrastructure product alone."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "continuous_integration",
+      "prerequisite": "version_control_systems",
+      "reason": "The scoped practice requires a shared version-controlled mainline or controlled source repository."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "continuous_integration",
+      "prerequisite": "version_control_systems",
+      "expected": "required",
+      "reason": "CI needs version control as the mainline/repository mechanism for frequent integration."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "continuous_integration",
+      "prerequisite": "build_automation_tools",
+      "reason": "The scoped practice requires automated build and test execution to verify each integration."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "continuous_integration",
+      "prerequisite": "build_automation_tools",
+      "expected": "required",
+      "reason": "Automated build/test verification is core CI method, not optional scaling context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "continuous_integration",
+      "prerequisite": "open_source_software",
+      "reason": "Open-source licensing and community workflow are not direct prerequisites for CI."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "continuous_integration",
+      "prerequisite": "cloud_computing_distributed_systems",
+      "reason": "Cloud service delivery can host CI later, but CI does not require cloud infrastructure as its core prerequisite."
+    },
+    {
+      "type": "first_known_date",
+      "node": "continuous_integration",
+      "operator": "eq",
+      "value": 1983,
+      "reason": "The node keeps its coarse 1980s antecedent anchor while documenting date uncertainty."
+    }
+  ]
+}

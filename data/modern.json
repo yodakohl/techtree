@@ -25370,82 +25370,307 @@
     ]
   },
   {
-    "id": "continuous_integration",
-    "name": "Continuous Integration",
+    "id": "version_control_systems",
+    "name": "Version Control Systems",
     "era": "Modern",
-    "description": "Automated builds, tests, and checks that integrate software changes frequently and catch regressions early.",
+    "description": "Software tools and repositories for tracking revisions of source files, histories, checkouts, branches, merges, and releases across development work.",
     "prerequisites": [
       "software_engineering",
-      "open_source_software",
-      "cloud_computing_distributed_systems"
+      "operating_systems_os_computer_management"
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1972,
+    "datePrecision": "year",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1972 anchor follows SCCS chronology from software-configuration-management overviews; strong RCS sources document the early-1980s revision-control lineage.",
+    "region": "Bell Labs, Purdue University, and global software-development environments",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "software_engineering",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Software Engineering provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Version-control tools formalize software-engineering configuration management by storing, retrieving, identifying, and merging revisions of source files.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Software Engineering Body of Knowledge (SWEBOK)",
-            "url": "https://www.computer.org/education/bodies-of-knowledge/software-engineering",
-            "publisher": "IEEE Computer Society",
+            "title": "GNU RCS",
+            "url": "https://www.gnu.org/software/rcs/",
+            "publisher": "GNU Project / Free Software Foundation",
             "year": 2025,
-            "source_type": "textbook",
+            "source_type": "review",
             "supports": [
+              "node",
               "edge"
-            ]
+            ],
+            "source_locator": "GNU RCS states that RCS manages multiple revisions of files and automates storing, retrieval, logging, identification, and merging for source code and other revised text."
           }
         ]
       },
       {
-        "prerequisite": "open_source_software",
+        "prerequisite": "operating_systems_os_computer_management",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Open Source Software provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "cloud_computing_distributed_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path.",
+        "note": "Early version-control systems ran as OS-hosted source-file management tools on OS/360 and Unix-style software environments.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The NIST Definition of Cloud Computing",
-            "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
-            "publisher": "NIST",
-            "year": 2011,
-            "source_type": "official_agency",
+            "title": "History of software configuration management",
+            "url": "https://en.wikipedia.org/wiki/History_of_software_configuration_management",
+            "publisher": "Wikipedia",
+            "year": 2026,
+            "source_type": "generic_overview",
             "supports": [
+              "node",
               "edge"
-            ]
+            ],
+            "source_locator": "The SCM history overview places SCCS at Bell Labs in 1972, originally for OS/360 and later rewritten in C for Unix."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Continuous integration",
-        "url": "https://en.wikipedia.org/wiki/Continuous_integration",
+        "title": "GNU RCS",
+        "url": "https://www.gnu.org/software/rcs/",
+        "publisher": "GNU Project / Free Software Foundation",
+        "year": 2025,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "GNU describes RCS as managing multiple revisions of files, automating storing, retrieval, logging, identification, and merging, and as an improvement from SCCS."
+      },
+      {
+        "title": "RCS: A System for Version Control",
+        "url": "https://docs.lib.purdue.edu/cstech/394/",
+        "publisher": "Purdue University Department of Computer Science Technical Reports",
+        "year": 1984,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Purdue lists Walter F. Tichy's technical report 84-474, dated March 13, 1984, under the title RCS: A System for Version Control."
+      },
+      {
+        "title": "History of software configuration management",
+        "url": "https://en.wikipedia.org/wiki/History_of_software_configuration_management",
         "publisher": "Wikipedia",
         "year": 2026,
         "source_type": "generic_overview",
         "supports": [
           "node"
+        ],
+        "source_locator": "The timeline anchors SCCS to 1972 at Bell Labs and describes first-generation VCS tools including SCCS and RCS."
+      }
+    ],
+    "scopeNote": "This node covers revision/source-control systems for source and text artifacts, not open-source licensing, package registries, or CI services."
+  },
+  {
+    "id": "build_automation_tools",
+    "name": "Build Automation Tools",
+    "era": "Modern",
+    "description": "Tools and scripts that compile, link, package, test, and regenerate software artifacts from source definitions using repeatable commands and dependency rules.",
+    "prerequisites": [
+      "software_engineering",
+      "operating_systems_os_computer_management"
+    ],
+    "firstKnownDate": 1978,
+    "datePrecision": "year",
+    "region": "Bell Labs Unix environments and global software-development practice",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "software_engineering",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Build automation mechanizes recurring software build, test, and maintenance steps for multi-file programming projects.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Make - A Program for Maintaining Computer Programs",
+            "url": "https://cgi.csc.liv.ac.uk/~coopes/comp319/2016/papers/feldman79make.pdf",
+            "publisher": "Bell Laboratories",
+            "year": 1978,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Feldman's paper describes Make as maintaining up-to-date program versions from commands and dependency lists, with programming cycles of edit, make, and test."
+          }
+        ]
+      },
+      {
+        "prerequisite": "operating_systems_os_computer_management",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Make-style build automation depends on OS file metadata and command execution to decide which targets require regeneration.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Make - A Program for Maintaining Computer Programs",
+            "url": "https://cgi.csc.liv.ac.uk/~coopes/comp319/2016/papers/feldman79make.pdf",
+            "publisher": "Bell Laboratories",
+            "year": 1978,
+            "source_type": "primary_paper",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Feldman says Make was designed for Unix and operates using the file system's last-modified times plus commands to recreate program targets."
+          }
         ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "sources": [
+      {
+        "title": "Make - A Program for Maintaining Computer Programs",
+        "url": "https://cgi.csc.liv.ac.uk/~coopes/comp319/2016/papers/feldman79make.pdf",
+        "publisher": "Bell Laboratories",
+        "year": 1978,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The paper defines Make as a mechanism that creates the proper files after source changes by following commands and dependency lists; the document is dated August 15, 1978."
+      },
+      {
+        "title": "GNU Make",
+        "url": "https://www.gnu.org/software/make/",
+        "publisher": "GNU Project / Free Software Foundation",
+        "year": 2023,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "GNU describes Make as controlling generation of executables and non-source files from source files using makefile rules, dependencies, and shell commands."
+      }
+    ],
+    "scopeNote": "This node covers repeatable software build automation and dependency-ordered build scripts, not CI services, deployment orchestration, or generic industrial automation."
+  },
+  {
+    "id": "continuous_integration",
+    "name": "Continuous Integration",
+    "era": "Modern",
+    "description": "Automated builds, tests, and checks that integrate software changes frequently and catch regressions early.",
+    "prerequisites": [
+      "software_engineering",
+      "version_control_systems",
+      "build_automation_tools"
+    ],
+    "firstKnownDate": 1983,
+    "datePrecision": "decade",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1983 decade anchor represents 1980s integration antecedents; named CI was published more clearly around 2000-2001 in Fowler's account.",
+    "region": "Global software-engineering teams",
+    "reviewStatus": "source_checked",
+    "dependencyEdges": [
+      {
+        "prerequisite": "software_engineering",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Continuous Integration is a software-development practice for frequent team integration, automated builds, tests, and feedback.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Continuous Integration",
+            "url": "https://martinfowler.com/articles/continuousIntegration.html",
+            "publisher": "MartinFowler.com",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Fowler defines Continuous Integration as a software-development practice where team members merge changes at least daily and each integration is verified by an automated build including tests."
+          }
+        ]
+      },
+      {
+        "prerequisite": "version_control_systems",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Continuous Integration requires a shared version-controlled mainline or controlled source repository so changes can be integrated, rebuilt, and traced.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Continuous Integration",
+            "url": "https://martinfowler.com/articles/continuousIntegration.html",
+            "publisher": "MartinFowler.com",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Fowler lists putting everything in a version-controlled mainline as a CI practice and states that CI relies on a clear mainline."
+          }
+        ]
+      },
+      {
+        "prerequisite": "build_automation_tools",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Continuous Integration depends on automated build and test execution so every integration can be verified quickly after changes reach the mainline.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Continuous Integration",
+            "url": "https://martinfowler.com/articles/continuousIntegration.html",
+            "publisher": "MartinFowler.com",
+            "year": 2024,
+            "source_type": "review",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Fowler defines CI integrations as verified by an automated build including tests and has a dedicated Automate the Build practice."
+          },
+          {
+            "title": "Make - A Program for Maintaining Computer Programs",
+            "url": "https://cgi.csc.liv.ac.uk/~coopes/comp319/2016/papers/feldman79make.pdf",
+            "publisher": "Bell Laboratories",
+            "year": 1978,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Feldman describes Make as creating proper program files from dependency lists and command sequences after source changes."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "Continuous Integration",
+        "url": "https://martinfowler.com/articles/continuousIntegration.html",
+        "publisher": "MartinFowler.com",
+        "year": 2024,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Fowler defines CI as frequent team integration into a codebase, verified by automated builds and tests, and identifies version-controlled mainline and build automation practices."
+      },
+      {
+        "title": "Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices",
+        "url": "https://arxiv.org/abs/1703.07019",
+        "publisher": "arXiv",
+        "year": 2017,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The systematic review frames continuous integration, delivery, and deployment as continuous software-development practices and surveys approaches, tools, challenges, and practices."
+      }
+    ],
+    "scopeNote": "This node covers frequent integration into a shared mainline verified by automated build and test checks. It does not require open-source licensing or cloud infrastructure, which are separate ecosystem and scaling concerns."
   },
   {
     "id": "microfluidics",

@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-continuous-integration-version-control-replacement",
+  "decision_date": "2026-07-03",
+  "edge": {
+    "dependent": "continuous_integration",
+    "prerequisite": "version_control_systems"
+  },
+  "replaced_edge": {
+    "dependent": "continuous_integration",
+    "prerequisite": "open_source_software"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Open Source Software provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Continuous Integration requires a shared version-controlled mainline or controlled source repository so changes can be integrated, rebuilt, and traced."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://martinfowler.com/articles/continuousIntegration.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Fowler lists putting everything in a version-controlled mainline as a CI practice and states that CI relies on a clear mainline.",
+    "source_claim_summary": "The source identifies a version-controlled mainline or controlled source repository as part of the CI method.",
+    "source_support_rationale": "This supports replacing the open-source edge because CI needs source revision control and a shared integration branch, not a public licensing or community-development model."
+  },
+  "ontology_before": "Continuous Integration depended on Open Source Software, conflating source availability/licensing and community workflow with the source-control mechanism CI actually uses.",
+  "ontology_after": "Continuous Integration depends on Version Control Systems for the shared mainline and repository needed to integrate, rebuild, and trace changes.",
+  "invariant_preserved_or_changed": "Changed: continuous_integration now depends on version_control_systems and no longer directly depends on open_source_software.",
+  "would_reject_if": [
+    "The Continuous Integration node were narrowed to open-source project hosting workflows only.",
+    "A stronger source showed CI requires open-source licensing or public community maintenance rather than version control.",
+    "The version_control_systems node were narrowed away from shared source-code repositories and mainlines."
+  ],
+  "short_reason": "CI requires version control, not open-source licensing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/continuous_integration.before.json /tmp/continuous_integration.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

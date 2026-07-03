@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-continuous-integration-build-automation-replacement",
+  "decision_date": "2026-07-03",
+  "edge": {
+    "dependent": "continuous_integration",
+    "prerequisite": "build_automation_tools"
+  },
+  "replaced_edge": {
+    "dependent": "continuous_integration",
+    "prerequisite": "cloud_computing_distributed_systems"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Continuous Integration depends on automated build and test execution so every integration can be verified quickly after changes reach the mainline."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://martinfowler.com/articles/continuousIntegration.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Fowler defines CI integrations as verified by an automated build including tests and has a dedicated Automate the Build practice.",
+    "source_claim_summary": "The source identifies automated build and test execution as the verification mechanism for CI integrations.",
+    "source_support_rationale": "This supports replacing the cloud edge because CI can run on local or central build infrastructure; the required mechanism is repeatable build/test automation, not cloud service delivery."
+  },
+  "ontology_before": "Continuous Integration depended on Cloud Computing & Distributed Systems, conflating later hosted CI services and scaling infrastructure with the core build-and-test practice.",
+  "ontology_after": "Continuous Integration depends on Build Automation Tools for repeatable build and test verification, while cloud remains optional hosting or scaling context.",
+  "invariant_preserved_or_changed": "Changed: continuous_integration now depends on build_automation_tools and no longer directly depends on cloud_computing_distributed_systems.",
+  "would_reject_if": [
+    "The Continuous Integration node were narrowed to cloud-hosted CI/CD platforms only.",
+    "A stronger source showed early CI required cloud computing as a service model.",
+    "The build_automation_tools node were narrowed away from automated software builds and tests."
+  ],
+  "short_reason": "CI requires build/test automation, not cloud infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/continuous_integration.before.json /tmp/continuous_integration.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
