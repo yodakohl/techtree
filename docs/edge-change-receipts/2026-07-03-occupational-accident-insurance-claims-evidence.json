@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-occupational-accident-insurance-claims-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "occupational_accident_insurance",
+    "prerequisite": "insurance_claims_adjustment"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Insurance Claims Adjustment provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "The 1884 system shifted occupational accident and disease claims from individual employer suits to statutory accident insurance institutions."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.dguv.de/en/about-us/brief-history/index.jsp",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Brief History: DGUV says employees previously had to claim compensation directly from employers and, after the 1884 change, could make claims to statutory occupational accident insurance institutions.",
+    "source_claim_summary": "DGUV describes a claims shift from employer fault claims to statutory accident-insurance institutions.",
+    "source_support_rationale": "This supports an insurance-claims edge because the scoped system's core change was institutional processing of occupational accident and disease compensation claims."
+  },
+  "invariant_preserved_or_changed": "Preserved: occupational_accident_insurance remains enabled by insurance_claims_adjustment, now with official-source evidence.",
+  "would_reject_if": [
+    "The node is later narrowed to prevention-only workplace safety institutions.",
+    "A stronger source shows the 1884 system did not process or assess occupational accident and disease claims.",
+    "The insurance_claims_adjustment node is narrowed so tightly to fire insurance that it can no longer serve as a general claims-assessment predecessor."
+  ],
+  "short_reason": "DGUV identifies institutional accident-insurance claims as the core statutory change.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/occupational_accident_insurance.before.json /tmp/occupational_accident_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

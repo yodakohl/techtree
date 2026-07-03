@@ -17908,7 +17908,7 @@
     "description": "Insurance and compensation systems for workplace injury, disability, death, premiums, reporting, and safety incentives.",
     "prerequisites": [
       "industrial_safety_regulation",
-      "labor_unions_collective_bargaining",
+      "legal_systems_common_civil",
       "insurance_claims_adjustment"
     ],
     "firstKnownDate": 1884,
@@ -17925,33 +17925,72 @@
         "supports": [
           "node"
         ],
-        "locator": "DGUV states that Germany's accident insurance code was adopted on 6 July 1884, was the first of its kind worldwide, and shifted occupational accident claims from employers to statutory accident insurance institutions."
+        "source_locator": "DGUV states that Germany's accident insurance code was adopted on 6 July 1884, was the first of its kind worldwide, shifted occupational accident claims from employers to statutory accident insurance institutions, and included accident prevention from the outset."
       }
     ],
     "dependencyEdges": [
       {
         "prerequisite": "industrial_safety_regulation",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "German statutory accident insurance combined compensation with accident-prevention duties from the outset, making industrial safety regulation part of the operating model.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Brief History",
+            "url": "https://www.dguv.de/en/about-us/brief-history/index.jsp",
+            "publisher": "German Social Accident Insurance (DGUV)",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Brief History: DGUV says prevention of accidents was an important function of statutory accident insurance institutions from the outset, enabling prevention and rehabilitation to be combined."
+          }
+        ]
       },
       {
-        "prerequisite": "labor_unions_collective_bargaining",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Labor Unions & Collective Bargaining provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "legal_systems_common_civil",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "The scoped system was created by a statutory accident insurance code, so formal legal-system machinery was required to establish institutions and claims rights.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Brief History",
+            "url": "https://www.dguv.de/en/about-us/brief-history/index.jsp",
+            "publisher": "German Social Accident Insurance (DGUV)",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Brief History: DGUV describes Bismarck ordering comprehensive social legislation and identifies the accident insurance code adopted on 6 July 1884 as the first of its kind worldwide."
+          }
+        ]
       },
       {
         "prerequisite": "insurance_claims_adjustment",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Insurance Claims Adjustment provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "The 1884 system shifted occupational accident and disease claims from individual employer suits to statutory accident insurance institutions.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Brief History",
+            "url": "https://www.dguv.de/en/about-us/brief-history/index.jsp",
+            "publisher": "German Social Accident Insurance (DGUV)",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Brief History: DGUV says employees previously had to claim compensation directly from employers and, after the 1884 change, could make claims to statutory occupational accident insurance institutions."
+          }
+        ]
       }
     ]
   },

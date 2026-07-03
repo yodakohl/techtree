@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-03-occupational-accident-insurance-scope",
+  "description": "Lock occupational accident insurance to Germany's 1884 statutory accident-insurance code, with legal-system, prevention, and claims-processing edge semantics.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "occupational_accident_insurance",
+      "operator": "eq",
+      "value": 1884,
+      "reason": "The node is anchored to Germany's accident insurance code adopted on 6 July 1884."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "occupational_accident_insurance",
+      "prerequisite": "industrial_safety_regulation",
+      "expected": "enabling",
+      "reason": "DGUV says accident prevention was an important function of statutory accident insurance institutions from the outset."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "occupational_accident_insurance",
+      "prerequisite": "legal_systems_common_civil",
+      "expected": "required",
+      "reason": "The scoped system was created by an adopted statutory accident insurance code."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "occupational_accident_insurance",
+      "prerequisite": "insurance_claims_adjustment",
+      "expected": "enabling",
+      "reason": "The 1884 change shifted compensation claims to statutory occupational accident insurance institutions."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "occupational_accident_insurance",
+      "prerequisite": "labor_unions_collective_bargaining",
+      "reason": "The source-backed direct substrate is statutory legal machinery; labor organization may be background politics but is not the direct dependency for the 1884 code."
+    }
+  ]
+}

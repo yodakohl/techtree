@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-occupational-accident-insurance-safety-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "occupational_accident_insurance",
+    "prerequisite": "industrial_safety_regulation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "German statutory accident insurance combined compensation with accident-prevention duties from the outset, making industrial safety regulation part of the operating model."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.dguv.de/en/about-us/brief-history/index.jsp",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Brief History: DGUV says prevention of accidents was an important function of statutory accident insurance institutions from the outset, enabling prevention and rehabilitation to be combined.",
+    "source_claim_summary": "DGUV identifies accident prevention as an original function of the statutory accident insurance institutions.",
+    "source_support_rationale": "This supports safety regulation as an enabling operating function because the scoped insurance system includes prevention duties, not just cash compensation after injuries."
+  },
+  "invariant_preserved_or_changed": "Preserved: occupational_accident_insurance remains enabled by industrial_safety_regulation, now with official-source evidence.",
+  "would_reject_if": [
+    "The node is later narrowed to cash benefits only, excluding prevention and safety incentives.",
+    "A stronger source shows prevention was added only much later and was not part of the 1884 statutory accident insurance function.",
+    "The industrial_safety_regulation node is narrowed away from accident prevention and occupational safety duties."
+  ],
+  "short_reason": "DGUV says accident prevention was an original statutory accident insurance function.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/occupational_accident_insurance.before.json /tmp/occupational_accident_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

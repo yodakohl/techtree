@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-occupational-accident-insurance-legal-systems-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "occupational_accident_insurance",
+    "prerequisite": "legal_systems_common_civil"
+  },
+  "replaced_edge": {
+    "dependent": "occupational_accident_insurance",
+    "prerequisite": "labor_unions_collective_bargaining"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Labor Unions & Collective Bargaining provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "The scoped system was created by a statutory accident insurance code, so formal legal-system machinery was required to establish institutions and claims rights."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.dguv.de/en/about-us/brief-history/index.jsp",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_approval_or_deployment",
+    "source_locator": "Brief History: DGUV describes Bismarck ordering comprehensive social legislation and identifies the accident insurance code adopted on 6 July 1884 as the first of its kind worldwide.",
+    "source_claim_summary": "DGUV anchors the occupational accident insurance system to social legislation and an adopted accident insurance code.",
+    "source_support_rationale": "A statutory insurance code requires formal legal-system machinery; the source does not identify labor unions or collective bargaining as the direct institutional substrate."
+  },
+  "ontology_before": "Occupational Accident Insurance depended directly on labor unions and collective bargaining, implying worker bargaining organization was the direct substrate for the 1884 statutory insurance system.",
+  "ontology_after": "Occupational Accident Insurance depends on formal legal systems as the required statutory substrate for the accident insurance code and its claims institutions.",
+  "invariant_preserved_or_changed": "Changed: occupational_accident_insurance now depends on legal_systems_common_civil and no longer directly depends on labor_unions_collective_bargaining.",
+  "would_reject_if": [
+    "The node is later narrowed to union-negotiated workplace benefit plans rather than statutory accident insurance.",
+    "A stronger source shows the 1884 German code was created by collective bargaining rather than state legislation.",
+    "A more precise modern_statutory_social_insurance_law node is added and replaces legal_systems_common_civil."
+  ],
+  "short_reason": "The source-backed substrate is statutory law, not labor-union bargaining.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/occupational_accident_insurance.before.json /tmp/occupational_accident_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
