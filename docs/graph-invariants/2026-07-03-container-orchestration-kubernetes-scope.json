@@ -1,0 +1,41 @@
+{
+  "id": "2026-07-03-container-orchestration-kubernetes-scope",
+  "description": "Lock Container Orchestration to public Kubernetes-era containerized workload orchestration, and keep MLOps temporally downstream of that orchestration layer.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "container_orchestration",
+      "operator": "eq",
+      "value": 2014,
+      "reason": "The corrected node is anchored to Kubernetes being open sourced in 2014, not the old Modern-era distributed-systems placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "container_orchestration",
+      "prerequisite": "virtualization_early_vm_tech",
+      "expected": "historical_predecessor",
+      "reason": "VM virtualization is an antecedent deployment model, not a direct container-orchestration implementation requirement."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "container_orchestration",
+      "prerequisite": "cloud_computing_distributed_systems",
+      "expected": "enabling",
+      "reason": "Container orchestration manages distributed workloads across multi-node infrastructure, including cloud clusters."
+    },
+    {
+      "type": "first_known_date",
+      "node": "mlops_model_serving",
+      "operator": "eq",
+      "value": 2017,
+      "reason": "MLOps & Model Serving is anchored to Google's KDD 2017 TFX publication and must remain downstream of the 2014 container-orchestration anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "containerized_microservices",
+      "prerequisite": "container_orchestration",
+      "expected": "enabling",
+      "reason": "Containerized microservice practice uses orchestration for scheduling, deployment, recovery, and autoscaling across nodes."
+    }
+  ]
+}

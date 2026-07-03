@@ -23116,31 +23116,44 @@
     "id": "container_orchestration",
     "name": "Container Orchestration",
     "era": "Modern",
-    "description": "Automated deployment, scheduling, scaling, and recovery of containerized software services across clusters of machines.",
+    "description": "Automated management of containerized workloads and services across clusters, including deployment, scheduling, scaling, failover, rollout, and recovery controls.",
     "prerequisites": [
       "virtualization_early_vm_tech",
       "cloud_computing_distributed_systems",
       "software_engineering"
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2014,
+    "datePrecision": "year",
+    "region": "Google / Kubernetes open-source project and global cloud-native infrastructure",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "virtualization_early_vm_tech",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Virtualization (Early VM Tech) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Virtual-machine deployment is a historical predecessor to container deployment: Kubernetes documentation places virtualization before containers as a way to isolate applications and present physical resources as disposable VM clusters, while containers later provided lighter OS-shared isolation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Overview",
+            "url": "https://kubernetes.io/docs/concepts/overview/",
+            "publisher": "Kubernetes / Linux Foundation",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Historical context section: Kubernetes documentation describes the virtualized deployment era as running multiple VMs on one physical server, then contrasts containers as VM-like but lighter units sharing the host OS."
+          }
+        ]
       },
       {
         "prerequisite": "cloud_computing_distributed_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cloud Computing & Distributed Systems provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Container orchestration manages distributed systems of containerized workloads across clusters and commonly spans public cloud, on-premises, and other infrastructure.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -23152,6 +23165,17 @@
             "supports": [
               "edge"
             ]
+          },
+          {
+            "title": "Overview",
+            "url": "https://kubernetes.io/docs/concepts/overview/",
+            "publisher": "Kubernetes / Linux Foundation",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Overview and historical context sections: Kubernetes is described as managing containerized workloads and services, running distributed systems resiliently, using clusters of nodes, and supporting portability across clouds and OS distributions."
           }
         ]
       },
@@ -23178,17 +23202,32 @@
     ],
     "sources": [
       {
-        "title": "Containerization (computing)",
-        "url": "https://en.wikipedia.org/wiki/Containerization_(computing)",
-        "publisher": "Wikipedia",
+        "title": "Overview",
+        "url": "https://kubernetes.io/docs/concepts/overview/",
+        "publisher": "Kubernetes / Linux Foundation",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Overview and capability sections: Kubernetes is an open-source platform for managing containerized workloads and services; Google open sourced the project in 2014; it handles distributed systems, scaling, failover, rollouts and rollbacks, automatic bin packing, self-healing, and horizontal scaling."
+      },
+      {
+        "title": "Release v0.2",
+        "url": "https://github.com/kubernetes/kubernetes/releases/tag/v0.2",
+        "publisher": "Kubernetes project / GitHub",
+        "year": 2014,
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "GitHub release page for kubernetes/kubernetes shows v0.2 tagged on September 9, 2014 with the release label 'Release Kubernetes v0.2'."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "scopeNote": "Anchored to publicly available Kubernetes-era container orchestration. Earlier Google Borg-style cluster management and Linux container primitives are related antecedents, but this node covers general containerized workload orchestration rather than VM-only cluster schedulers or single-host container runtimes.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "Kubernetes was open sourced in 2014, while the more mature Kubernetes 1.0/CNCF milestone followed in 2015; earlier internal Google Borg practice is treated as antecedent rather than this public container-orchestration anchor."
   },
   {
     "id": "edge_computing",
@@ -32761,10 +32800,23 @@
       {
         "prerequisite": "container_orchestration",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Container Orchestration provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Containerized microservice architectures use an orchestration layer to schedule and deploy services across nodes, recover failures, and autoscale independent services.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Microservices architecture style",
+            "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices",
+            "publisher": "Microsoft Learn / Azure Architecture Center",
+            "year": 2025,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Components section: Microsoft describes management or orchestration for microservices as scheduling and deploying services across nodes, detecting and recovering failures, enabling autoscaling, and says a container orchestration platform like Kubernetes typically provides this functionality."
+          }
+        ]
       },
       {
         "prerequisite": "api_economy",
@@ -39589,12 +39641,13 @@
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "Google Research publication page lists the paper at KDD 2017. The abstract describes TFX as a production-scale ML platform for reliably producing and deploying machine-learning models, orchestrating learners, validation, analysis, and serving infrastructure, and reducing time to production."
       }
     ],
-    "firstKnownDate": 1983,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 2017,
+    "datePrecision": "year",
+    "region": "Google / production-scale TensorFlow Extended ML platform",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -39663,7 +39716,10 @@
           }
         ]
       }
-    ]
+    ],
+    "scopeNote": "Anchored to production-scale ML platform tooling for model production and serving, represented by Google's TFX publication. It does not claim every earlier statistical model deployment or batch scoring workflow was modern MLOps.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 2017 date follows the cited KDD 2017 TFX publication; earlier ad hoc model deployment and serving systems existed, but the node is scoped to integrated MLOps/model-serving platform practice."
   },
   {
     "id": "prompt_engineering_system_prompts",
