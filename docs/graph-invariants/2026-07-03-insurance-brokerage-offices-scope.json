@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-insurance-brokerage-offices-scope",
+  "description": "Lock the 2026-07-03 correction of insurance_brokerage_offices to Lloyd's Coffee House as a marine-insurance brokerage and shipping-intelligence market anchored in 1688.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "insurance_brokerage_offices",
+      "operator": "eq",
+      "value": 1688,
+      "reason": "The date remains anchored to the first published reference to Lloyd's coffee house in 1688 and its late-1680s marine-insurance market context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "insurance_brokerage_offices",
+      "prerequisite": "maritime_insurance",
+      "expected": "required",
+      "reason": "The scoped node is specifically a marine-insurance brokerage market connecting shipowners, merchants, brokers, and underwriters."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "insurance_brokerage_offices",
+      "prerequisite": "newspaper_periodicals",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Lloyd's News and Lloyd's List scaled the coffee-house shipping-intelligence function into recurring published market information."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "insurance_brokerage_offices",
+      "prerequisite": "insurance_claims_adjustment",
+      "reason": "The current insurance_claims_adjustment node is scoped to London fire-insurance claims, not Lloyd's marine brokerage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "insurance_brokerage_offices",
+      "prerequisite": "joint_stock_insurance_pools",
+      "reason": "Lloyd's source-backed market centered on brokers and underwriters rather than a joint-stock insurance-pool institution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "insurance_brokerage_offices",
+      "prerequisite": "merchant_accounting_manuals",
+      "reason": "Merchant accounting manuals teach bookkeeping but are not source-backed as a direct Lloyd's brokerage mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "insurance_brokerage_offices",
+      "prerequisite": "commercial_auction_houses",
+      "reason": "Lloyd's maritime auctions helped attract shipping customers, but the current dependency scope is kept to marine insurance and published shipping intelligence."
+    }
+  ]
+}

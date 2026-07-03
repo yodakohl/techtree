@@ -13168,9 +13168,8 @@
     "era": "Renaissance",
     "description": "Broker offices matching shipowners, merchants, underwriters, claims, policies, premiums, and market information.",
     "prerequisites": [
-      "insurance_claims_adjustment",
-      "joint_stock_insurance_pools",
-      "merchant_accounting_manuals"
+      "maritime_insurance",
+      "newspaper_periodicals"
     ],
     "firstKnownDate": 1688,
     "datePrecision": "exact",
@@ -13178,28 +13177,57 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "insurance_claims_adjustment",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Insurance Claims Adjustment provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "maritime_insurance",
+        "type": "required",
+        "confidence": 0.88,
+        "evidence_level": "review",
+        "note": "The scoped Lloyd's coffee-house brokerage market was specifically a marine-insurance marketplace connecting shipowners, merchants, brokers, and underwriters.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Edward Lloyd and his Coffee House",
+            "url": "https://www.lr.org/en/about-us/who-we-are/our-history/edward-lloyd-coffee-house/",
+            "publisher": "Lloyd's Register",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "A maritime hub and A tale of two Lloyd's sections: Lloyd's coffee house became a meeting place for shipping intelligence, underwriters, brokers, shipowners, and merchants; later proprietors supplied information about shipping and the marine insurance market, and members eventually transacted business solely as underwriters."
+          },
+          {
+            "title": "History",
+            "url": "https://www.lloyds.com/about-lloyds/history",
+            "publisher": "Lloyd's",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Our history section: Lloyd's says Edward Lloyd's coffee shop by the Thames became the centre of marine intelligence and founded the modern insurance industry."
+          }
+        ]
       },
       {
-        "prerequisite": "joint_stock_insurance_pools",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Joint-Stock Insurance Pools provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "merchant_accounting_manuals",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Merchant Accounting Manuals provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "newspaper_periodicals",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Lloyd's News and Lloyd's List turned the coffee-house shipping-intelligence function into recurring published market information for merchants, underwriters, and brokers.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Edward Lloyd and his Coffee House",
+            "url": "https://www.lr.org/en/about-us/who-we-are/our-history/edward-lloyd-coffee-house/",
+            "publisher": "Lloyd's Register",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "A maritime hub and A tale of two Lloyd's sections: Lloyd published Lloyd's News three times a week in 1696, continued supplying gathered intelligence, and Thomas Jemson founded Lloyd's List in 1734 as a shipping-intelligence paper tied to growth of the underwriting business at Lloyd's."
+          }
+        ]
       }
     ],
     "sources": [
@@ -13211,7 +13239,8 @@
         "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Our history section: Lloyd's traces its beginnings to Edward Lloyd's coffee shop by the Thames in the 1680s, says the coffee shop became the centre of marine intelligence, and frames Lloyd's as the world's leading market for specialist insurance."
       },
       {
         "title": "Edward Lloyd and his Coffee House",
@@ -13221,7 +13250,8 @@
         "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "A maritime hub and A tale of two Lloyd's sections: Lloyd's coffee house was known for shipping intelligence and drew underwriters, brokers, shipowners, and merchants; later proprietors supplied marine-insurance market information, Lloyd's List appeared in 1734, and members moved to underwriter-only business at the Royal Exchange in 1774."
       }
     ]
   },

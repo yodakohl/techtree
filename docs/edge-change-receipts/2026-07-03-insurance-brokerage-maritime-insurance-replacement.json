@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-insurance-brokerage-maritime-insurance-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "insurance_brokerage_offices",
+    "prerequisite": "maritime_insurance"
+  },
+  "replaced_edge": {
+    "dependent": "insurance_brokerage_offices",
+    "prerequisite": "joint_stock_insurance_pools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Insurance Pools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "review",
+    "note": "The scoped Lloyd's coffee-house brokerage market was specifically a marine-insurance marketplace connecting shipowners, merchants, brokers, and underwriters."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.lr.org/en/about-us/who-we-are/our-history/edward-lloyd-coffee-house/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "A maritime hub and A tale of two Lloyd's sections: Lloyd's coffee house became a meeting place for shipping intelligence, underwriters, brokers, shipowners, and merchants; later proprietors supplied information about shipping and the marine insurance market, and members eventually transacted business solely as underwriters.",
+    "source_claim_summary": "The source identifies Lloyd's coffee house as a marine-insurance market linking brokers, underwriters, shipowners, and merchants.",
+    "source_support_rationale": "Because the node is scoped to Lloyd's marine-insurance brokerage, maritime insurance is the direct market being brokered; joint-stock insurance pools are a separate risk-pooling form and not the source-backed mechanism here."
+  },
+  "ontology_before": "Insurance Brokerage Offices depended on joint-stock insurance pools, implying pooled corporate insurance capital was the direct enabling substrate for Lloyd's brokerage.",
+  "ontology_after": "Insurance Brokerage Offices depend directly on maritime insurance, matching Lloyd's source-backed marine-underwriting and broker marketplace.",
+  "invariant_preserved_or_changed": "Changed: insurance_brokerage_offices now depends on maritime_insurance and no longer directly depends on joint_stock_insurance_pools.",
+  "would_reject_if": [
+    "The node is later narrowed to joint-stock fire-insurance offices rather than Lloyd's marine-insurance brokerage.",
+    "A stronger source shows Lloyd's 1680s brokerage market required joint-stock insurance pools rather than individual marine underwriters.",
+    "The maritime_insurance node is narrowed away from ship, cargo, policy, and underwriting scope."
+  ],
+  "short_reason": "Lloyd's brokerage was a marine-insurance market, not a joint-stock insurance-pool node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/insurance_brokerage_offices.before.json /tmp/insurance_brokerage_offices.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

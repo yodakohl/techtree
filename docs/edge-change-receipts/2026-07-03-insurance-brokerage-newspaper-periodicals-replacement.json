@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-insurance-brokerage-newspaper-periodicals-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "insurance_brokerage_offices",
+    "prerequisite": "newspaper_periodicals"
+  },
+  "replaced_edge": {
+    "dependent": "insurance_brokerage_offices",
+    "prerequisite": "merchant_accounting_manuals"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Merchant Accounting Manuals provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Lloyd's News and Lloyd's List turned the coffee-house shipping-intelligence function into recurring published market information for merchants, underwriters, and brokers."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.lr.org/en/about-us/who-we-are/our-history/edward-lloyd-coffee-house/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "A maritime hub and A tale of two Lloyd's sections: Lloyd published Lloyd's News three times a week in 1696, continued supplying gathered intelligence, and Thomas Jemson founded Lloyd's List in 1734 as a shipping-intelligence paper tied to growth of the underwriting business at Lloyd's.",
+    "source_claim_summary": "The source ties Lloyd's brokerage environment to recurring shipping-intelligence publications used by the underwriting market.",
+    "source_support_rationale": "Published shipping intelligence scales the broker-underwriter information market much more directly than printed accounting manuals, which teach bookkeeping but are not evidenced as the Lloyd's office mechanism."
+  },
+  "ontology_before": "Insurance Brokerage Offices depended on merchant accounting manuals, implying printed bookkeeping instruction enabled Lloyd's brokerage operations.",
+  "ontology_after": "Insurance Brokerage Offices depend on newspaper periodicals as the source-backed recurring publication channel for Lloyd's shipping and underwriting intelligence.",
+  "invariant_preserved_or_changed": "Changed: insurance_brokerage_offices now depends on newspaper_periodicals and no longer directly depends on merchant_accounting_manuals.",
+  "would_reject_if": [
+    "The node is later narrowed to bookkeeping pedagogy for insurance offices rather than Lloyd's brokerage and intelligence market.",
+    "A stronger source shows Pacioli-style merchant accounting manuals were a direct prerequisite for Lloyd's brokerage operations.",
+    "A dedicated Lloyds_shipping_intelligence_publications node is added and replaces newspaper_periodicals as the precise intermediary."
+  ],
+  "short_reason": "Lloyd's News and Lloyd's List match the source-backed information channel; accounting manuals do not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/insurance_brokerage_offices.before.json /tmp/insurance_brokerage_offices.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

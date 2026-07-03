@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-insurance-brokerage-claims-adjustment-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "insurance_brokerage_offices",
+    "prerequisite": "insurance_claims_adjustment"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Insurance Claims Adjustment provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the current claims-adjustment node is scoped to early London fire-insurance claim assessment, while the brokerage-office node is Lloyd's marine-insurance market.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.lr.org/en/about-us/who-we-are/our-history/edward-lloyd-coffee-house/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "A maritime hub and A tale of two Lloyd's sections: Lloyd's coffee house is tied to shipping intelligence, underwriters, brokers, shipowners, merchants, the marine insurance market, Lloyd's News, Lloyd's List, and underwriter business at the Royal Exchange; it does not ground the brokerage-office node in fire-insurance claims adjustment.",
+    "source_claim_summary": "The source grounds Lloyd's brokerage offices in marine insurance and shipping intelligence rather than fire-claims assessment.",
+    "source_support_rationale": "Claims adjustment remains a separate insurance-office function, but the inspected source supports marine underwriting and brokerage at Lloyd's, not a prerequisite path through the fire-claims node."
+  },
+  "ontology_before": "Insurance Brokerage Offices depended on Early Insurance Claims Assessment, implying Lloyd's marine brokerage was downstream of early fire-insurance claims settlement.",
+  "ontology_after": "Insurance Brokerage Offices keep marine insurance and shipping-intelligence dependencies; fire-insurance claims assessment is adjacent insurance infrastructure, not a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: insurance_brokerage_offices no longer directly depends on insurance_claims_adjustment.",
+  "would_reject_if": [
+    "The node is later narrowed to claims-settlement brokerage offices rather than Lloyd's marine brokerage and intelligence market.",
+    "A stronger source shows Lloyd's 1680s brokerage directly depended on prior fire-insurance claims assessment practices.",
+    "The insurance_claims_adjustment node is broadened and source-backed to include Lloyd's marine average or claims brokerage."
+  ],
+  "short_reason": "The Lloyd's brokerage source supports marine insurance and shipping intelligence, not fire-claims adjustment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/insurance_brokerage_offices.before.json /tmp/insurance_brokerage_offices.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
