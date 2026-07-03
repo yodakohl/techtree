@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-03-tally-marks-scope",
+  "description": "Lock Tally Marks to source-backed Paleolithic incised/notched artifacts rather than broad record keeping, proto-writing, or proven arithmetic.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "tally_marks",
+      "operator": "eq",
+      "value": -42000,
+      "reason": "The launch-quality date is anchored to the Border Cave early Later Stone Age notched/incised bone horizon rather than the old Ancient era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "tally_marks",
+      "prerequisite": "bone_tool_making",
+      "expected": "enabling",
+      "reason": "The dated source-backed anchor is a worked bone artifact, but tally-like devices can also be made on other durable media."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "tally_marks",
+      "prerequisite": "early_symbolic_communication",
+      "expected": "historical_predecessor",
+      "reason": "Tally-like quantity marks follow earlier durable graphic symbolism without being a hard dependency of every counted mark."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "tally_marks",
+      "prerequisite": "proto_writing",
+      "reason": "Paleolithic tally-like notches must not be reinterpreted as later Near Eastern proto-writing."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "tally_marks",
+      "prerequisite": "writing",
+      "reason": "The node covers pre-writing tally-like marks and should remain upstream of formal writing systems."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "tally_marks",
+      "prerequisite": "record_keeping",
+      "reason": "Mesopotamian-style economic record keeping is a downstream institutional use, not a prerequisite for Paleolithic tally-like artifacts."
+    }
+  ]
+}

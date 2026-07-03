@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-03-tally-marks-bone-tool-making-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "tally_marks",
+    "prerequisite": "bone_tool_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bone Tool Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "primary_source",
+    "note": "The launch-quality anchor is an incised or notched bone artifact, so bone-tool working provides the documented material path without making bone the only possible tally medium."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1073/pnas.1204213109",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Organic-artifact discussion and figure set: reports early Later Stone Age notched/incised bones from Border Cave, including an incised baboon fibula interpreted as a number-keeping device.",
+    "source_claim_summary": "The source describes the scoped early tally-like evidence as an incised or notched bone artifact from Border Cave.",
+    "source_support_rationale": "Because the corrected node is anchored to a worked bone object, bone-tool making is a documented material enabler, while wood or other tally media remain outside this first-known anchor."
+  },
+  "invariant_preserved_or_changed": "Preserved: bone_tool_making remains an enabling prerequisite, now tied to the source-backed notched-bone anchor.",
+  "would_reject_if": [
+    "The node were narrowed to wooden tally sticks rather than the Border Cave notched-bone evidence.",
+    "A stronger source showed the Border Cave incised bone was not worked as a bone artifact.",
+    "The bone_tool_making node were narrowed away from shaping or incising bone artifacts."
+  ],
+  "short_reason": "The launch-quality tally-like evidence is an incised or notched bone artifact.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/tally_marks.before.json /tmp/tally_marks.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}

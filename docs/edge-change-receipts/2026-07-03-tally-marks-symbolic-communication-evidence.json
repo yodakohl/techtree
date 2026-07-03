@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-03-tally-marks-symbolic-communication-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "tally_marks",
+    "prerequisite": "early_symbolic_communication"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Symbolic Communication is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Tally marks are a later formalized use of durable graphic marks for quantity or memory, following earlier abstract symbolic marks without implying a direct one-to-one invention chain."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1098/rstb.2016.0518",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Review of archaeological numerical markings: situates notched bones and other durable marks within the transition from nonsymbolic quantity sense to material number symbols.",
+    "source_claim_summary": "The review frames notched bones and durable quantity marks as part of the archaeological transition into material number symbols.",
+    "source_support_rationale": "This supports early symbolic communication as a predecessor context for tally-like marks, while the lower confidence avoids claiming a direct invention chain from Blombos-style abstract marks to Border Cave notches."
+  },
+  "invariant_preserved_or_changed": "Preserved: early_symbolic_communication remains a historical predecessor, now with a review-backed rationale and lower confidence.",
+  "would_reject_if": [
+    "The node were narrowed to purely utilitarian non-symbolic grip marks.",
+    "A review showed Paleolithic tally-like marks arose independently of symbolic graphic marking traditions.",
+    "The early_symbolic_communication node were narrowed so far that durable abstract marks no longer fit its scope."
+  ],
+  "short_reason": "Tally-like marks are a later durable quantity-marking use within the broader symbolic-mark tradition.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/tally_marks.before.json /tmp/tally_marks.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}
