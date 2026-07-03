@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-counter-reformation-scope",
+  "description": "Lock The Counter-Reformation to Catholic reform and doctrinal response anchored at Trent, not scientific-society organization.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "counter_reformation",
+      "prerequisite": "the_reformation",
+      "reason": "The Counter-Reformation is defined around Catholic response to the Protestant Reformation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "counter_reformation",
+      "prerequisite": "the_reformation",
+      "expected": "required",
+      "reason": "The Protestant Reformation is a defining antecedent, not just generic context."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "counter_reformation",
+      "prerequisite": "humanism",
+      "reason": "Humanist scholarship and rhetoric remain relevant to papal reform, apologetic writing, and Counter-Reformation censorship."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "counter_reformation",
+      "prerequisite": "humanism",
+      "expected": "enabling",
+      "reason": "Humanism supplies intellectual tools without defining the movement itself."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "counter_reformation",
+      "prerequisite": "scholasticism",
+      "reason": "Scholasticism is the better existing graph node for Tridentine dogmatic debate and clerical-theological education context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "counter_reformation",
+      "prerequisite": "scholasticism",
+      "expected": "common_dependency",
+      "reason": "Scholasticism is shared theological context, not the direct institution of the Council of Trent."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "counter_reformation",
+      "prerequisite": "scientific_societies",
+      "reason": "Scientific societies should not be restored unless the node is explicitly rescoped to early modern scientific organizations."
+    },
+    {
+      "type": "first_known_date",
+      "node": "counter_reformation",
+      "operator": "eq",
+      "value": 1545,
+      "reason": "The node remains anchored to the opening of the Council of Trent."
+    }
+  ]
+}

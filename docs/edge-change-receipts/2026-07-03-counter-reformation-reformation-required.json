@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-counter-reformation-reformation-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "counter_reformation",
+    "prerequisite": "the_reformation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "The Reformation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "textbook",
+    "note": "The Counter-Reformation is defined as Catholic reform and resurgence in response to the Protestant Reformation, so the Reformation is a defining antecedent rather than a generic influence."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/event/Counter-Reformation",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Britannica defines the Counter-Reformation as Catholic resurgence initiated in response to the Protestant Reformation and identifies the Council of Trent as its central institutional event.",
+    "source_claim_summary": "The source defines Counter-Reformation around Catholic response to the Protestant Reformation and the Council of Trent.",
+    "source_support_rationale": "Because the dependent concept is explicitly a response to the Protestant Reformation, the edge is required rather than merely contextual or enabling."
+  },
+  "ontology_before": "The Counter-Reformation depended on The Reformation as a generic enabling capability.",
+  "ontology_after": "The Counter-Reformation requires The Reformation as the defining antecedent for Catholic reform and resurgence.",
+  "invariant_preserved_or_changed": "Changed: the_reformation remains a direct prerequisite but is now typed required with textbook evidence.",
+  "would_reject_if": [
+    "The node were broadened to all Catholic reform before Protestantism rather than the Counter-Reformation anchored at Trent.",
+    "A source showed the node should represent Catholic renewal independent of Protestant Reformation conflict.",
+    "The Reformation node were narrowed to a non-Protestant or post-Tridentine movement."
+  ],
+  "short_reason": "The Counter-Reformation is definitionally a Catholic response to the Protestant Reformation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/counter_reformation.before.json /tmp/counter_reformation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

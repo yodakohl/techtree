@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-counter-reformation-scholasticism-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "counter_reformation",
+    "prerequisite": "scholasticism"
+  },
+  "replaced_edge": {
+    "dependent": "counter_reformation",
+    "prerequisite": "scientific_societies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Societies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.64,
+    "evidence_level": "review",
+    "note": "Scholasticism is the relevant shared theological-dialectical context for Tridentine dogmatic debate and clerical education; it is not a scientific-society institution."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.loc.gov/exhibits/vatican/humanism.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Scholarship Challenges Tradition contrasts humanist theology with scholastic professional theology, while later sections connect Counter-Reformation controversy to Protestant and humanist criticism; this supports scholasticism as shared theological context rather than scientific societies.",
+    "source_claim_summary": "The source reviews humanist, scholastic, Protestant, and Counter-Reformation controversy around theology and textual criticism.",
+    "source_support_rationale": "The evidence supports a theological method and institutional-learning context, so the edge is common_dependency and replaces the unrelated scientific-societies edge."
+  },
+  "ontology_before": "The Counter-Reformation depended on Scientific Societies, conflating Catholic doctrinal reform with later scientific inquiry organizations.",
+  "ontology_after": "The Counter-Reformation depends on Scholasticism as shared theological-dialectical context, while scientific societies are excluded from the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: counter_reformation now depends on scholasticism and no longer directly depends on scientific_societies.",
+  "would_reject_if": [
+    "A source showed scientific societies were an institutional driver of the Council of Trent or Catholic reform.",
+    "The Counter-Reformation node were rescoped to early modern learned societies rather than Catholic reform and doctrinal response.",
+    "A dedicated Council of Trent, Jesuit order, or Tridentine seminary node were introduced and should replace this broader scholasticism context."
+  ],
+  "short_reason": "Counter-Reformation theology fits scholastic context better than scientific-society institutions.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/counter_reformation.before.json /tmp/counter_reformation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-counter-reformation-humanism-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "counter_reformation",
+    "prerequisite": "humanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Humanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Renaissance humanism supplied textual scholarship, rhetoric, and papal-court intellectual tools used in Catholic reform, apologetic writing, and later Counter-Reformation censorship."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.loc.gov/exhibits/vatican/humanism.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Humanism overview and sections on scholarship and linguistic correctness say humanists convinced popes to use their skills, applied scholarship to church needs, defended the Church against Protestant attacks, and were later constrained by Counter-Reformation censorship.",
+    "source_claim_summary": "The source reviews Renaissance humanism inside the papal and Catholic reform context, including apologetics and censorship after Protestant challenge.",
+    "source_support_rationale": "Humanism supplied methods and personnel for textual, rhetorical, and apologetic work; it is therefore enabling context, not a strict institutional prerequisite."
+  },
+  "ontology_before": "The Counter-Reformation depended on Humanism with only a generic inferred enabling claim.",
+  "ontology_after": "The Counter-Reformation keeps Humanism as a source-backed enabling intellectual context for papal scholarship, apologetics, and censorship.",
+  "invariant_preserved_or_changed": "Preserved: humanism remains a direct enabling prerequisite with stronger source-backed notes.",
+  "would_reject_if": [
+    "The node were narrowed to anti-humanist censorship only, with no role for humanist scholarship or papal-court intellectual work.",
+    "A stronger source showed humanist scholarship had no material role in Catholic reform, apologetics, or censorship.",
+    "Humanism were split so that this edge should point to a more specific Christian or papal humanism node."
+  ],
+  "short_reason": "Humanism is retained as Catholic reform's textual and rhetorical intellectual context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/counter_reformation.before.json /tmp/counter_reformation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
