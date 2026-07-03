@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-03-darwin-natural-selection-scope",
+  "description": "Lock Darwin's natural-selection node to the 1859 Origin scope and its source-backed geology, comparative anatomy, and exploration evidence edges.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "theory_of_evolution_darwin",
+      "operator": "eq",
+      "value": 1859,
+      "reason": "The node is anchored to the 1859 first edition of Darwin's On the Origin of Species."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "theory_of_evolution_darwin",
+      "prerequisite": "geology",
+      "expected": "enabling",
+      "reason": "Origin uses geological relations, geological record limits, and geological succession as evidence for descent over time."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "theory_of_evolution_darwin",
+      "prerequisite": "comparative_anatomy_collections",
+      "expected": "enabling",
+      "reason": "Origin explicitly relies on mutual affinities, morphology, embryology, and rudimentary organs, matching comparative anatomy rather than generic human anatomy."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "theory_of_evolution_darwin",
+      "prerequisite": "exploration_global",
+      "expected": "enabling",
+      "reason": "Darwin ties the origin problem to H.M.S. Beagle observations and treats geographical distribution as a major evidentiary line."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "theory_of_evolution_darwin",
+      "prerequisite": "human_anatomy_physiology",
+      "reason": "The Darwin node should not depend directly on broad human anatomy when the source-backed evidence is comparative anatomy and morphology across organisms."
+    }
+  ]
+}

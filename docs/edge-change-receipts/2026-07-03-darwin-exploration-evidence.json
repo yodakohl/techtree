@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-darwin-exploration-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "theory_of_evolution_darwin",
+    "prerequisite": "exploration_global"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Global Exploration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "primary_source",
+    "note": "Darwin traced the problem to observations made as naturalist aboard H.M.S. Beagle and used geographical distribution as a core evidentiary line."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gutenberg.org/files/1228/1228-h/1228-h.htm",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "1859 first-edition text: Darwin says that, while naturalist aboard H.M.S. Beagle, facts about South American distribution and geological relations threw light on species origins; chapters 11-12 address geographical distribution.",
+    "source_claim_summary": "Darwin connects the origin problem to Beagle voyage observations and then treats geographical distribution as a major evidence line.",
+    "source_support_rationale": "This supports an enabling edge because oceanic exploration generated the field observations and biogeographic comparisons that fed the 1859 theory."
+  },
+  "invariant_preserved_or_changed": "Preserved: theory_of_evolution_darwin remains enabled by early modern/global exploration, now with primary-source evidence.",
+  "would_reject_if": [
+    "The Darwin node is later narrowed to only laboratory heredity or domestic-breeding analogies.",
+    "A stronger source shows Darwin's Beagle observations and geographical distribution evidence were incidental to the 1859 argument.",
+    "The exploration_global node is narrowed away from oceanic voyage-based natural-history observation."
+  ],
+  "short_reason": "Darwin's Beagle observations and geographical distribution chapters tie the theory to oceanic exploration evidence.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/theory_of_evolution_darwin.before.json /tmp/theory_of_evolution_darwin.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

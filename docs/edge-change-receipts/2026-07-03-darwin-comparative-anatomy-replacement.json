@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-darwin-comparative-anatomy-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "theory_of_evolution_darwin",
+    "prerequisite": "comparative_anatomy_collections"
+  },
+  "replaced_edge": {
+    "dependent": "theory_of_evolution_darwin",
+    "prerequisite": "human_anatomy_physiology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Human Anatomy & Physiology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "primary_source",
+    "note": "Darwin framed descent through mutual affinities, morphology, embryology, and rudimentary organs, making comparative anatomical evidence more specific than broad human anatomy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gutenberg.org/files/1228/1228-h/1228-h.htm",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "1859 first-edition text: the introduction names mutual affinities and embryological relations among the facts bearing on descent; chapter 13 covers mutual affinities, morphology, embryology, and rudimentary organs.",
+    "source_claim_summary": "Darwin identifies comparative anatomical and developmental evidence as central facts supporting descent.",
+    "source_support_rationale": "The comparative-anatomy node fits the morphology, affinities, embryology, and rudimentary-organ evidence; broad human anatomy is a less precise substrate."
+  },
+  "ontology_before": "Theory of Evolution (Darwin) depended directly on Human Anatomy & Physiology, implying human-body study was the relevant biological evidence substrate.",
+  "ontology_after": "Theory of Evolution (Darwin) depends on Comparative Anatomy Collections, preserving the human-animal anatomical comparison evidence Darwin used while avoiding an overly broad human-anatomy edge.",
+  "invariant_preserved_or_changed": "Changed: theory_of_evolution_darwin now depends on comparative_anatomy_collections and no longer directly depends on human_anatomy_physiology.",
+  "would_reject_if": [
+    "The Darwin node is later narrowed to a purely botanical variation argument.",
+    "A more precise morphology_embryology_comparative_evidence node is added and replaces comparative_anatomy_collections.",
+    "The comparative_anatomy_collections node is narrowed to museum custody only rather than human-animal anatomical comparison."
+  ],
+  "short_reason": "Darwin's morphology and affinities evidence is comparative anatomy, not broad human anatomy.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/theory_of_evolution_darwin.before.json /tmp/theory_of_evolution_darwin.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

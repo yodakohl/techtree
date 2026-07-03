@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-darwin-geology-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "theory_of_evolution_darwin",
+    "prerequisite": "geology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Geology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "primary_source",
+    "note": "Darwin's argument explicitly used geological relations, the geological record, and geological succession as evidence for descent with modification over time."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gutenberg.org/files/1228/1228-h/1228-h.htm",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "1859 first-edition text: the introduction cites Beagle observations on geological relations between present and past South American inhabitants; detailed contents include chapters on the imperfection of the geological record and geological succession of organic beings.",
+    "source_claim_summary": "Darwin directly uses geological relations, geological record problems, and geological succession as evidence in the natural-selection argument.",
+    "source_support_rationale": "This supports an enabling edge because geology supplied a time/deep-history evidence base for descent with modification rather than merely being contemporary scientific context."
+  },
+  "invariant_preserved_or_changed": "Preserved: theory_of_evolution_darwin remains enabled by geology, now with primary-source evidence.",
+  "would_reject_if": [
+    "The Darwin node is later narrowed to only the 1858 Wallace-Darwin communication rather than the 1859 Origin argument.",
+    "A stronger source shows Darwin's published argument did not rely on geological record or succession evidence.",
+    "The geology node is narrowed away from Earth history, stratigraphy, or fossil succession."
+  ],
+  "short_reason": "Origin explicitly uses geology as evidence for descent with modification.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/theory_of_evolution_darwin.before.json /tmp/theory_of_evolution_darwin.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
