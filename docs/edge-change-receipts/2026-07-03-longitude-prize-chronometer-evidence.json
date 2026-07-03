@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-longitude-prize-chronometer-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "longitude_prize_systems",
+    "prerequisite": "marine_chronometer_prototypes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Marine Chronometer Prototypes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Marine-clock proposals and Harrison's sea-clock trials were a central practical solution class that the Board evaluated, funded, tested, and rewarded."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://cudl.lib.cam.ac.uk/collections/rgo14/1",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Collection introduction: the Board knew a marine clock could establish longitude at sea, awarded John Harrison after a trial voyage of his sea clock to Lisbon, funded his work, and later trialed his fourth sea clock on West Indies voyages.",
+    "source_claim_summary": "The source documents marine clocks and Harrison's sea-clock trials as Board evaluation and reward targets.",
+    "source_support_rationale": "This supports an enabling edge because the prize system evaluated and funded practical marine-clock solutions rather than merely sharing a broad navigation context."
+  },
+  "invariant_preserved_or_changed": "Preserved: longitude_prize_systems remains enabled by marine_chronometer_prototypes, now with source-backed evidence.",
+  "would_reject_if": [
+    "The node is later narrowed to astronomical lunar-distance rewards only.",
+    "A stronger source shows Harrison's sea-clock trials were outside the Board's reward process.",
+    "The marine_chronometer_prototypes node is narrowed away from sea clocks designed to determine longitude."
+  ],
+  "short_reason": "Harrison's sea clocks were a central Board-funded and trialed solution class.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/longitude_prize_systems.before.json /tmp/longitude_prize_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

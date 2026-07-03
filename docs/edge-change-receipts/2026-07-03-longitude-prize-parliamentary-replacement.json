@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-longitude-prize-parliamentary-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "longitude_prize_systems",
+    "prerequisite": "parliaments_estates_general"
+  },
+  "replaced_edge": {
+    "dependent": "longitude_prize_systems",
+    "prerequisite": "joint_stock_companies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "The Board of Longitude was a public institution created under the 1714 Longitude Act, so parliamentary statute-making and commissioner appointment are the relevant governance substrate."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://cudl.lib.cam.ac.uk/collections/rgo14/1",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Collection introduction: the Board papers cover a public institution from 1714-1828; the 1714 Longitude Act nominated twenty-two Commissioners and assigned them official tasks to judge proposals, fund experiments, and reward successful schemes.",
+    "source_claim_summary": "The source identifies the Longitude Act and appointed Commissioners as the institutional basis for judging, funding, and rewarding longitude proposals.",
+    "source_support_rationale": "Parliamentary statute-making matches a public prize board created by an Act; joint-stock companies are private capital-pooling institutions and are not evidenced as the prize-system substrate."
+  },
+  "ontology_before": "Longitude Prize Systems depended on joint-stock companies, implying corporate share-capital organization enabled the public reward board.",
+  "ontology_after": "Longitude Prize Systems depend on parliaments and estates-general as the representative/statutory substrate for the 1714 Longitude Act and appointed Commissioners.",
+  "invariant_preserved_or_changed": "Changed: longitude_prize_systems now depends on parliaments_estates_general and no longer directly depends on joint_stock_companies.",
+  "would_reject_if": [
+    "The node is later narrowed to private subscription prizes rather than the Board created by the 1714 Longitude Act.",
+    "A stronger source shows joint-stock companies directly financed or governed the Board of Longitude.",
+    "A more precise parliamentary_statute_prize_systems node is added and replaces parliaments_estates_general as the governance intermediary."
+  ],
+  "short_reason": "The Longitude Act and Commissioners are public statutory machinery, not joint-stock company machinery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/longitude_prize_systems.before.json /tmp/longitude_prize_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-longitude-prize-logbooks-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "longitude_prize_systems",
+    "prerequisite": "naval_logbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "The Board tested longitude methods on voyages and preserved logs and voyage records as evaluation evidence."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://cudl.lib.cam.ac.uk/collections/rgo14/1",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Collection introduction: to test longitude methods and make measurements, the Board hired astronomers for Pacific voyages including Cook, Vancouver, and Flinders; the archive includes logbooks from Cook's voyages and logs kept by William Gooch.",
+    "source_claim_summary": "The source documents Board testing voyages and preserved voyage logs as part of longitude-method evaluation.",
+    "source_support_rationale": "This supports an enabling edge because voyage logs were evaluation records for trials and measurements, not just generic naval paperwork."
+  },
+  "invariant_preserved_or_changed": "Preserved: longitude_prize_systems remains enabled by naval_logbooks, now with source-backed evidence.",
+  "would_reject_if": [
+    "The node is later narrowed to statute drafting without voyage trials.",
+    "A stronger source shows Board testing did not rely on voyage logs or expedition records.",
+    "The naval_logbooks node is narrowed away from recorded observations during long voyages."
+  ],
+  "short_reason": "Board testing voyages and logs directly support evaluation of longitude methods.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/longitude_prize_systems.before.json /tmp/longitude_prize_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

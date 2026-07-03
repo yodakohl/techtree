@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-03-longitude-prize-systems-scope",
+  "description": "Lock the 2026-07-03 correction of longitude_prize_systems to the 1714 Longitude Act and Board of Longitude public reward, funding, testing, and evaluation system.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "longitude_prize_systems",
+      "operator": "eq",
+      "value": 1714,
+      "reason": "The date remains anchored to the 1714 Longitude Act establishing the Board and public reward process."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "longitude_prize_systems",
+      "prerequisite": "marine_chronometer_prototypes",
+      "expected": "enabling",
+      "reason": "Marine-clock proposals and Harrison's trials were source-backed practical solution classes evaluated and rewarded by the Board."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "longitude_prize_systems",
+      "prerequisite": "naval_logbooks",
+      "expected": "enabling",
+      "reason": "Voyage logs and expedition records supported the Board's testing and measurement evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "longitude_prize_systems",
+      "prerequisite": "parliaments_estates_general",
+      "expected": "enabling",
+      "reason": "The Board was created by the 1714 Longitude Act and appointed Commissioners to judge, fund, and reward proposals."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "longitude_prize_systems",
+      "prerequisite": "joint_stock_companies",
+      "reason": "Joint-stock companies are private share-capital organizations and are not source-backed as a direct prerequisite for the public statutory prize board."
+    }
+  ]
+}
