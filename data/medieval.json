@@ -13616,7 +13616,7 @@
     "description": "Commercial dispute bodies for contracts, quality, debt, insurance, shipping, and fair rules.",
     "prerequisites": [
       "merchant_courts",
-      "bills_of_exchange_clearing",
+      "contract_law",
       "guild_certification_seals"
     ],
     "firstKnownDate": 1250,
@@ -13627,26 +13627,87 @@
       {
         "prerequisite": "merchant_courts",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Merchant Courts provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Fair, piepowder, guild, and other merchant courts supplied the institutional forum in which commercial dispute boards and arbitral panels operated.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The 'Law Merchant' and the Fair Court of St. Ives, 1270-1324",
+            "url": "https://www.stevesachs.com/papers/paper_thesis.html",
+            "publisher": "Harvard University Department of History",
+            "year": 2002,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introduction and Chapter II: Sachs describes an annual fair at St. Ives with a special court to hear disputes, a 1293 debt/document case, and merchant courts or courts of piepowder as forums devoted to merchants' needs and disputes."
+          }
+        ]
       },
       {
-        "prerequisite": "bills_of_exchange_clearing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bills of Exchange Clearing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "contract_law",
+        "type": "common_dependency",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "The boards resolved debts, written confirmations, agreements, and other mercantile obligations, so contract-law concepts are the direct legal substrate; bills of exchange are only one possible dispute subject.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The 'Law Merchant' and the Fair Court of St. Ives, 1270-1324",
+            "url": "https://www.stevesachs.com/papers/paper_thesis.html",
+            "publisher": "Harvard University Department of History",
+            "year": 2002,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introduction: Sachs' 1293 St. Ives example is a debt dispute in a fair court involving a written confirmation and the legal effect of another party's deed; the chapter frames the court's business as commercial plaints arising out of the fair."
+          },
+          {
+            "title": "1911 Encyclopaedia Britannica/Law Merchant",
+            "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Law_Merchant",
+            "publisher": "Wikisource / Encyclopaedia Britannica 1911",
+            "year": 1911,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The article defines law merchant as rules for merchants and mercantile transactions, says commerce needed prompt effective jurisdiction, and notes special courts plus mercantile principles for partnership, negotiable instruments, and trade marks."
+          }
+        ]
       },
       {
         "prerequisite": "guild_certification_seals",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Guild Certification Seals provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Guild seals and certifications authenticated institutional identity, membership, and quality claims that guild-linked commercial boards could use when resolving regulated-trade disputes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Medieval Guilds",
+            "url": "https://eh.net/encyclopedia/medieval-guilds/",
+            "publisher": "EH.Net Encyclopedia",
+            "year": 2008,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Guild Activities and Guild Structure sections: EH.Net says merchant guilds enforced contracts among members and outsiders, officers kept records, searchers scrutinized merchandise for guild standards, and violations brought sanctions."
+          },
+          {
+            "title": "Medieval seals",
+            "url": "https://www.nationalarchives.gov.uk/education/resources/medieval-seals/",
+            "publisher": "The National Archives",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The National Archives explains that medieval seals authenticated documents from individuals and groups and showed institutional identity."
+          }
+        ]
       }
     ],
     "sources": [
@@ -13659,7 +13720,7 @@
         "supports": [
           "node"
         ],
-        "locator": "Britannica describes law merchant as rules developed for foreign merchants and commercial matters including contracts, partnerships, trademarks, buying, and selling."
+        "source_locator": "Britannica describes law merchant as rules developed for foreign merchants and commercial matters including contracts, partnerships, trademarks, buying, and selling."
       },
       {
         "title": "The Character of the Medieval Merchant Law",
@@ -13670,9 +13731,21 @@
         "supports": [
           "node"
         ],
-        "locator": "Article identifies sources of merchant adjudication as fair courts, guild courts, specialized commercial courts, and commercial arbitration, supporting the dispute-board scope."
+        "source_locator": "Article identifies sources of merchant adjudication as fair courts, guild courts, specialized commercial courts, and commercial arbitration, supporting the dispute-board scope."
+      },
+      {
+        "title": "The 'Law Merchant' and the Fair Court of St. Ives, 1270-1324",
+        "url": "https://www.stevesachs.com/papers/paper_thesis.html",
+        "publisher": "Harvard University Department of History",
+        "year": 2002,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Introduction and Chapter II: Sachs anchors the scope in a documented 1270-1324 fair court that heard merchant disputes, including a 1293 debt/document case, while warning against treating law merchant as a fully independent merchant-made system."
       }
-    ]
+    ],
+    "scopeNote": "Covers institutionalized medieval merchant, fair, guild, and commercial arbitration forums for resolving contracts, debts, quality claims, shipping or insurance disputes, and fair rules. It does not require bills-of-exchange clearing as a prerequisite, because bills of exchange are one possible dispute domain rather than the institutional or legal substrate of the boards."
   },
   {
     "id": "water_powered_oil_presses",

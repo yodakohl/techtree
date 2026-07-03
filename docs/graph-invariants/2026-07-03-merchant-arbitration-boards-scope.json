@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-merchant-arbitration-boards-scope",
+  "description": "Lock Merchant Arbitration Boards to medieval commercial adjudication forums grounded in merchant/fair courts, contract-law obligations, and guild authentication/enforcement records rather than bill-clearing infrastructure.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "merchant_courts",
+      "reason": "The scoped boards are institutional commercial dispute forums tied to merchant, fair, guild, staple, and piepowder courts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "merchant_courts",
+      "expected": "enabling",
+      "reason": "Merchant courts provide the institutional forum rather than a generic historical predecessor."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "contract_law",
+      "reason": "The boards adjudicated contracts, debts, documents, and mercantile obligations."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "contract_law",
+      "expected": "common_dependency",
+      "reason": "Contract law is the shared legal substrate for the disputes without being the board institution itself."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "guild_certification_seals",
+      "reason": "Guild authentication and quality records remain relevant to guild-linked commercial disputes."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "guild_certification_seals",
+      "expected": "enabling",
+      "reason": "Seals and certifications enable authenticated institutional and quality claims for dispute resolution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "merchant_arbitration_boards",
+      "prerequisite": "bills_of_exchange_clearing",
+      "reason": "Bills of exchange are a possible subject of merchant disputes, not a required institutional prerequisite for arbitration boards."
+    },
+    {
+      "type": "first_known_date",
+      "node": "merchant_arbitration_boards",
+      "operator": "eq",
+      "value": 1250,
+      "reason": "The node remains anchored to high-medieval merchant/fair court practice at decade precision."
+    }
+  ]
+}

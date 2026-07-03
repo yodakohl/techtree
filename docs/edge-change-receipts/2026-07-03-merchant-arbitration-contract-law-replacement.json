@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-merchant-arbitration-contract-law-replacement",
+  "decision_date": "2026-07-03",
+  "edge": {
+    "dependent": "merchant_arbitration_boards",
+    "prerequisite": "contract_law"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_arbitration_boards",
+    "prerequisite": "bills_of_exchange_clearing"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bills of Exchange Clearing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "The boards resolved debts, written confirmations, agreements, and other mercantile obligations, so contract-law concepts are the direct legal substrate; bills of exchange are only one possible dispute subject."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.stevesachs.com/papers/paper_thesis.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Introduction: Sachs describes a 1293 St. Ives fair-court debt dispute involving written confirmation and deed validity, and frames the court's business as commercial plaints arising out of the fair.",
+    "source_claim_summary": "The source documents fair-court adjudication of mercantile debt and document-validity disputes.",
+    "source_support_rationale": "This supports contract_law as the prerequisite because the board scope depends on adjudicating commercial obligations and remedies. Bills-of-exchange clearing is a transaction/payment practice and can be a dispute subject, but it is not required for merchant arbitration boards to exist."
+  },
+  "ontology_before": "Merchant Arbitration Boards depended on bills_of_exchange_clearing, laundering one financial instrument and clearing practice into the prerequisite boundary for broader commercial adjudication.",
+  "ontology_after": "Merchant Arbitration Boards depends on contract_law as the broader obligation/remedy substrate, while bills of exchange remain outside scope as a possible dispute domain.",
+  "invariant_preserved_or_changed": "Changed: merchant_arbitration_boards now depends on contract_law and no longer depends on bills_of_exchange_clearing.",
+  "would_reject_if": [
+    "The node is narrowed specifically to boards for bill-of-exchange clearing disputes.",
+    "A source shows medieval merchant arbitration boards required clearing systems rather than contract/debt obligations.",
+    "The contract_law node is narrowed away from commercial agreements, obligations, debt, sale, agency, partnership, or remedies."
+  ],
+  "short_reason": "Commercial adjudication needs contract obligations; bills clearing is only one possible subject matter.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/merchant_arbitration_boards.before.json /tmp/merchant_arbitration_boards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
