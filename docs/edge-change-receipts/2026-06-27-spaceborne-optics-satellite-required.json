@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-spaceborne-optics-satellite-required",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "advanced_optics_space_based",
+    "prerequisite": "satellite_technology"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Satellite Technology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Spaceborne optical instruments require a satellite or spacecraft platform; TIROS tested optical payloads, data handling, and spacecraft operations from orbit."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nasa.gov/history/launch-of-tiros-1-worlds-1st-weather-satellite-this-week-in-goddard-history-march-31-april-6/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "NASA describes TIROS-1 as a satellite designed to test whether Earth could be studied from space and says the TIROS program tested spacecraft instruments, data, and operational parameters.",
+    "source_claim_summary": "The first scoped spaceborne optical instrument was a satellite mission with spacecraft-mounted instruments and data-handling operations.",
+    "source_support_rationale": "Because the corrected node is specifically spaceborne, absence of a satellite or spacecraft platform breaks the claim even though later optical payloads vary."
+  },
+  "ontology_before": "Space-Based Advanced Optics treated satellite technology as a generic enabling capability.",
+  "ontology_after": "Spaceborne Optical Instruments requires satellite technology as the platform that carries and operates the optical payload from orbit.",
+  "invariant_preserved_or_changed": "Changed edge type: satellite_technology is now required rather than enabling.",
+  "would_reject_if": [
+    "The node is later broadened to include airborne or ground-based advanced optics.",
+    "A separate non-satellite high-altitude optical platform node replaces the current spaceborne scope.",
+    "The scope is narrowed to optical components independent of any spacecraft platform."
+  ],
+  "short_reason": "A spaceborne optical payload needs a spacecraft platform.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/advanced_optics_space_based.before.json /tmp/advanced_optics_space_based.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

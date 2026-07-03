@@ -1818,79 +1818,108 @@
     "id": "chain_mail_armor",
     "name": "Chain Mail Armor",
     "era": "Classical",
-    "description": "Flexible armor made of interlinked metal rings, offering superior protection against cutting weapons compared to leather or scale armor.",
+    "description": "Flexible body armor made from interlinked metal rings, used as mail shirts and related defenses in Celtic, Roman, and later military equipment.",
     "prerequisites": [
       "iron_working",
       "bronze_working",
-      "leather_working"
+      "basic_weaving_basketry"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -300,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Celtic Europe and Roman military adoption",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "iron_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Classical mail depended on interlinked iron rings, with Roman lorica hamata and Celtic mail treated as iron-ring armor traditions.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
-            "url": "https://discovery.ucl.ac.uk/1430496/",
-            "publisher": "Journal of Archaeological Science",
-            "year": 2013,
-            "source_type": "primary_paper",
+            "title": "Armour",
+            "url": "https://www.britannica.com/topic/armour-protective-clothing",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Personal > History > Early section: Britannica describes mail, or chainmail, as made of interlocking iron rings and says it is believed to have first appeared after 300 BC."
           }
         ]
       },
       {
         "prerequisite": "bronze_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.58,
+        "evidence_level": "weak_inference",
+        "note": "Bronze-working remains an adjacent metal-fitting background for hooks, fittings, and some ancient armor components, but it is not the main ring-material requirement for mail.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Materials",
-            "url": "https://www.nist.gov/materials",
-            "publisher": "NIST",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "The Function of Armor in Medieval and Renaissance Europe",
+            "url": "https://www.metmuseum.org/essays/the-function-of-armor-in-medieval-and-renaissance-europe",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2002,
+            "source_type": "museum",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The essay treats armor as a mixed-material system and notes that complete armor could combine different materials, while distinguishing mail from plate and fabric armor."
           }
         ]
       },
       {
-        "prerequisite": "leather_working",
+        "prerequisite": "basic_weaving_basketry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Leather Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Usable mail normally required a textile or quilted underlayer for comfort and impact cushioning; this is a soft-goods support, not a leather-work requirement.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Function of Armor in Medieval and Renaissance Europe",
+            "url": "https://www.metmuseum.org/essays/the-function-of-armor-in-medieval-and-renaissance-europe",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2002,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The essay states that mail armor needed an underlayer of quilted fabric for comfort and cushioning, and that mail was worn on top of quilted garments."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
-        "url": "https://discovery.ucl.ac.uk/1430496/",
-        "publisher": "Journal of Archaeological Science",
-        "year": 2013,
-        "source_type": "primary_paper",
+        "title": "Armour",
+        "url": "https://www.britannica.com/topic/armour-protective-clothing",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "Personal > History > Early section: Britannica describes mail, or chainmail, as made of interlocking iron rings, says it is believed to have first appeared sometime after 300 BC, credits the invention to the Celts, and says the Romans adopted the design."
+      },
+      {
+        "title": "The Function of Armor in Medieval and Renaissance Europe",
+        "url": "https://www.metmuseum.org/essays/the-function-of-armor-in-medieval-and-renaissance-europe",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2002,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The essay defines mail armor as a mesh of interlinking metal rings and explains its cutting protection, fabric underlayer, and long-lived use before plate armor."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "scopeNote": "Covers mail armor as interlinked metal-ring body protection in classical Celtic and Roman contexts. It does not cover generic ring jewelry, scale armor, lamellar armor, later medieval mail-smithing workshop organization, or full plate armor.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -300 century anchor follows Britannica's statement that mail is believed to have appeared sometime after 300 BC; the exact Celtic/Roman adoption sequence remains uncertain."
   },
   {
     "id": "circus_chariot_racing",
@@ -2896,10 +2925,13 @@
       "record_keeping",
       "calendars"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -700,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Archaic Greece and Greco-Roman Mediterranean agronomy",
+    "reviewStatus": "source_checked",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The date anchors broad Greek two-year fallow rotation to the archaic-period agricultural pattern; Varro later gives the clearest surviving agronomic explanation in late Republican Rome.",
+    "scopeNote": "Covers the simple biennial crop/fallow or lighter-crop rotation pattern. It does not represent later medieval three-field systems, modern scientific crop rotations, or universal practice across all classical farms.",
     "dependencyEdges": [
       {
         "prerequisite": "agriculture",
@@ -2917,7 +2949,8 @@
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Britannica's Neolithic overview explains the farming transition and cultivated grains, supporting agriculture as the broad prerequisite for crop rotation."
           }
         ]
       },
@@ -2937,7 +2970,8 @@
             "source_type": "museum",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The British Museum article describes cuneiform record-keeping for receipts, accounts, and lists, supporting record keeping as an earlier administrative predecessor for planned farm management."
           }
         ]
       },
@@ -2947,22 +2981,47 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Calendars provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Marcus Terentius Varro, On Agriculture, Book I",
+            "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Varro/de_Re_Rustica/1%2A.html",
+            "publisher": "LacusCurtius / Loeb Classical Library",
+            "year": 1934,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Book I sections 5 and 39 state that farm seasons are determined by the annual revolution of the sun and monthly revolution of the moon, and that planting requires care over the season suited to each seed."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Neolithic",
-        "url": "https://www.britannica.com/event/Neolithic",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "Archaic Greece",
+        "url": "https://en.wikipedia.org/wiki/Archaic_Greece",
+        "publisher": "Wikipedia",
         "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Economy / Agriculture section: describes archaic Greek farms as diversified and says crop rotation was practiced, with fields left fallow every other year."
+      },
+      {
+        "title": "Marcus Terentius Varro, On Agriculture, Book I",
+        "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Varro/de_Re_Rustica/1%2A.html",
+        "publisher": "LacusCurtius / Loeb Classical Library",
+        "year": 1934,
         "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Book I section 44 distinguishes land cultivated every year from land allowed to lie fallow between crops, says Olynthian land produced richer crops every other year, and recommends leaving land every other year with lighter crops."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    ]
   },
   {
     "id": "currency",
@@ -9794,96 +9853,6 @@
     "scopeNote": "Covers mechanized regulation and time-reporting subsystems in water clocks. It is not a claim that medieval weight-driven verge escapements existed in the Classical era."
   },
   {
-    "id": "contract_law",
-    "name": "Contract Law",
-    "era": "Classical",
-    "description": "Legal doctrines for agreements, obligations, debt, sale, hire, partnership, and remedies that made commerce more predictable.",
-    "prerequisites": [
-      "codified_law",
-      "currency",
-      "record_keeping"
-    ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
-    "dependencyEdges": [
-      {
-        "prerequisite": "codified_law",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Codified Law is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The Ur-Nammu Law Code",
-            "url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
-            "publisher": "The Schoyen Collection",
-            "year": 2011,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "currency",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Currency is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Lydia & the First Coins",
-            "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-            "publisher": "American Numismatic Association Money Museum",
-            "year": 2026,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "record_keeping",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Record Keeping is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      }
-    ],
-    "sources": [
-      {
-        "title": "The Ur-Nammu Law Code",
-        "url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
-        "publisher": "The Schoyen Collection",
-        "year": 2011,
-        "source_type": "museum",
-        "supports": [
-          "edge"
-        ]
-      }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
-  },
-  {
     "id": "standardized_coinage",
     "name": "Standardized Coinage",
     "era": "Classical",
@@ -13334,58 +13303,75 @@
     "id": "border_customs_posts",
     "name": "Border Customs Posts",
     "era": "Classical",
-    "description": "Administrative checkpoints for tariffs, transit papers, inspections, market rules, and border security along roads and ports.",
+    "description": "Customs checkpoints and offices where officials inspected merchandise and collected passage, import, export, octroi, and transit taxes.",
     "prerequisites": [
       "currency",
-      "public_archives"
+      "tax_accounting"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -200,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman Republic and Empire; Mediterranean, river, land, and customs-district boundaries",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "currency",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Currency provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Monetary valuation enabled ad valorem customs duties and tariff calculation, although customs could also be assessed on goods or specific rates.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Lydia & the First Coins",
-            "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-            "publisher": "American Numismatic Association Money Museum",
+            "title": "The Portorium in Ostia and Portus: Introduction",
+            "url": "https://www.ostia-antica.org/dict/topics/portorium/presentation/introduction.htm",
+            "publisher": "Ostia-antica.org",
             "year": 2026,
-            "source_type": "museum",
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The introduction says the central customs duties were calculated ad valorem as a fixed percentage of the value of commodities, while specific commodity rates could also apply."
           }
         ]
       },
       {
-        "prerequisite": "public_archives",
+        "prerequisite": "tax_accounting",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Customs checkpoints required tax calculation and collection practices; Roman stationes checked merchandise and collected portorium as a transport/customs tax.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Portorium in Ostia and Portus: Introduction",
+            "url": "https://www.ostia-antica.org/dict/topics/portorium/presentation/introduction.htm",
+            "publisher": "Ostia-antica.org",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The introduction defines portorium as a transport tax and says customs offices, called stationes, checked merchandise and collected the tax."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Lydia & the First Coins",
-        "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-        "publisher": "American Numismatic Association Money Museum",
+        "title": "The Portorium in Ostia and Portus: Introduction",
+        "url": "https://www.ostia-antica.org/dict/topics/portorium/presentation/introduction.htm",
+        "publisher": "Ostia-antica.org",
         "year": 2026,
-        "source_type": "museum",
+        "source_type": "review",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "The introduction defines portorium as a transport tax covering customs duties, import/export taxes, octroi, and tolls; says it was collected at imperial, customs-district, and interior borders across sea, river, and land transport; and identifies stationes as offices where merchandise was checked and tax collected."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "scopeNote": "Anchored to Roman portorium stationes as customs checkpoints and tax offices. It excludes generic road toll funding, written port-tax ledgers, and later purpose-built harbor customs houses unless those are represented by narrower nodes.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The source says portorium is mentioned for 508 BCE but treats that early notice cautiously and identifies the second century BCE as the first reliable information; the graph therefore uses a conservative -200 century anchor."
   },
   {
     "id": "coin_mint_assay_offices",
@@ -14179,45 +14165,74 @@
   },
   {
     "id": "glass_lamp_chimneys",
-    "name": "Early Glass Lamp Covers",
+    "name": "Early Glass Lamps",
     "era": "Classical",
-    "description": "Glass covers and vessels that protected flames, improved light, and supported indoor or workshop illumination.",
+    "description": "Blown glass oil-lamp vessels used in late Roman illumination, valued for holding oil cleanly and projecting light efficiently.",
     "prerequisites": [
-      "glass_blowing_workshops",
-      "wicked_oil_lamps",
-      "glass_window_panes"
+      "blown_glass",
+      "wicked_oil_lamps"
     ],
     "firstKnownDate": 300,
     "datePrecision": "century",
-    "region": "Roman Egypt and Syria",
-    "reviewStatus": "structurally_validated",
+    "region": "Late Roman Mediterranean",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "glass_blowing_workshops",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Glass-Blowing Workshops provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "blown_glass",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The scoped late Roman glass lamps were blown glass vessels, so blown-glass forming is the direct production method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Description and History of Oil Lamps",
+            "url": "https://www.mpm.edu/index.php/research-collections/anthropology/anthropology-collections-research/mediterranean-oil-lamps/description-and-history-oil-lamps",
+            "publisher": "Milwaukee Public Museum",
+            "year": 2014,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The glass-lamp section says Roman glass lamps appeared during the fourth century AD and that glass lamps were blown."
+          }
+        ]
       },
       {
         "prerequisite": "wicked_oil_lamps",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wicked Oil Lamps provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "glass_window_panes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Glass Window Panes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The glass vessel was a material variant of oil-lamp architecture, which still required a fuel reservoir, oil, air supply, and wick.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Description and History of Oil Lamps",
+            "url": "https://www.mpm.edu/index.php/research-collections/anthropology/anthropology-collections-research/mediterranean-oil-lamps/description-and-history-oil-lamps",
+            "publisher": "Milwaukee Public Museum",
+            "year": 2014,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The overview states that oil lamps need a wick, fuel, reservoir, and air supply; the glass-lamp section says glass lamps held oil without seepage and projected light more efficiently."
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "Description and History of Oil Lamps",
+        "url": "https://www.mpm.edu/index.php/research-collections/anthropology/anthropology-collections-research/mediterranean-oil-lamps/description-and-history-oil-lamps",
+        "publisher": "Milwaukee Public Museum",
+        "year": 2014,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "The museum history says Roman crafters enclosed lamp bodies, glass lamps appeared during the fourth century AD, and glass lamps were blown, could hold oil without seepage, and projected light more efficiently."
+      },
       {
         "title": "Glassware: The Roman Empire",
         "url": "https://www.britannica.com/art/glassware/The-Roman-Empire",
@@ -14230,7 +14245,7 @@
         "source_locator": "Roman Empire section notes plain dishes, cups, bowls, and lamps as characteristic glass tableware in Egypt in the later Roman period, with Syrian trailed and applied ornamentation."
       }
     ],
-    "sourceCheckedDowngradeNote": "Source added during Classical basics audit; kept structurally_validated because the source supports late Roman glass lamps more directly than specialized lamp covers/chimneys."
+    "scopeNote": "Rescoped from glass lamp covers or chimneys to early glass oil lamps because the source-backed late Roman evidence supports blown glass lamps rather than a separate chimney technology."
   },
   {
     "id": "cadastral_tax_maps",
@@ -14569,6 +14584,7 @@
     "description": "Salted fish and fish-sauce products produced, stored, distributed, and consumed through Roman Mediterranean markets.",
     "prerequisites": [
       "food_preservation_drying_salting",
+      "salt_harvesting",
       "trade_routes"
     ],
     "firstKnownDate": 1,
@@ -14591,6 +14607,38 @@
             "year": 2017,
             "source_type": "review",
             "source_locator": "Summary states that fish spoilage limited transport and could be prevented through processing, principally salting, with drying or curing also used.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "salt_harvesting",
+        "type": "enabling",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Roman salted-fish provisions required salt supply; the salted-fish source identifies salting as the principal processing route used to prevent spoilage.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The consumption of salted fish in the Roman Empire",
+            "url": "https://www.cambridge.org/core/books/sea-in-history-the-ancient-world/consumption-of-salted-fish-in-the-roman-empire/ED27D5114C4B38B68446AED84827E828",
+            "publisher": "Cambridge University Press / Boydell & Brewer",
+            "year": 2017,
+            "source_type": "review",
+            "source_locator": "Summary states that fish spoilage could be prevented through processing, principally salting, with drying or curing also used.",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Salt",
+            "url": "https://www.britannica.com/science/salt",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Britannica identifies salt as sodium chloride/halite and notes its food-processing use as a preservative or seasoning.",
             "supports": [
               "edge"
             ]
@@ -14898,37 +14946,77 @@
     "description": "Precision engraving of coin dies, official symbols, portraits, inscriptions, and anti-counterfeit marks.",
     "prerequisites": [
       "coin_mint_assay_offices",
-      "bronze_casting_molds",
+      "bronze_working",
       "portable_scales"
     ],
     "firstKnownDate": -650,
     "datePrecision": "century",
     "region": "Lydia and Ionia / western Anatolia early electrum coinage workshops",
     "reviewStatus": "source_checked",
+    "scopeNote": "Covers hand-engraved dies and punches used for struck coinage. It does not cover cast coin molds, cast coinage traditions, medieval/modern hubbing, milled-coin presses, or generic seal engraving.",
     "dependencyEdges": [
       {
         "prerequisite": "coin_mint_assay_offices",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Coin Mint Assay Offices provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Official mint and assay context supplies the regulated weight, authorization, and quality-control setting in which die marks and punches identified struck coins.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Money Gallery: Early electrum coins",
+            "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf",
+            "publisher": "British Museum",
+            "year": 2020,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Room 68 Case 1 says the first Lydian/eastern Mediterranean coins used regulated electrum, strict weight standards, likely royal authorization, and struck designs or punches."
+          }
+        ]
       },
       {
-        "prerequisite": "bronze_casting_molds",
+        "prerequisite": "bronze_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Casting Molds provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.6,
+        "evidence_level": "weak_inference",
+        "note": "Early struck-coin dies were carved into bronze or possibly iron blocks, so bronze working is the nearer material/tooling background than bronze casting molds.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ancient Greek coinage: Minting",
+            "url": "https://en.wikipedia.org/wiki/Ancient_Greek_coinage",
+            "publisher": "Wikipedia",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Minting section describes Greek coins as handmade and says obverse and reverse designs were carved into bronze or possibly iron blocks called dies."
+          }
+        ]
       },
       {
         "prerequisite": "portable_scales",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Portable Balance Scales provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Early electrum denominations depended on strict metal-weight standards, making weighing a direct quality-control context for struck coin production.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Money Gallery: Early electrum coins",
+            "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf",
+            "publisher": "British Museum",
+            "year": 2020,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Room 68 Case 1 says early electrum coins were made to strict weight standards and denominations were calculated by metal weight."
+          }
+        ]
       }
     ],
     "sources": [
@@ -14942,6 +15030,17 @@
           "node"
         ],
         "source_locator": "The British Museum guide describes early electrum coins around 650 BCE and notes that engraving a coin die by hand was a specialist task."
+      },
+      {
+        "title": "A simple numeric algorithm for ancient coin dies identification",
+        "url": "https://arxiv.org/abs/1604.04074",
+        "publisher": "arXiv",
+        "year": 2016,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The abstract and introduction identify pre-machine coins struck from hand-made dies; the introduction notes manually hammered flans between two dies and manually engraved dies."
       }
     ]
   },
@@ -15265,40 +15364,82 @@
     "id": "military_depot_records",
     "name": "Military Depot Records",
     "era": "Classical",
-    "description": "Written inventories of weapons, food, animals, tools, medical goods, transport, and replacement parts for armies.",
+    "description": "Written military reports, unit accounts, leave applications, supply lists, and transport or commodity records for fort and army administration.",
     "prerequisites": [
-      "state_armories",
-      "state_medical_supply_stores",
-      "military_waystations"
+      "writing",
+      "record_keeping",
+      "logistics_supply_lines"
     ],
     "firstKnownDate": 100,
     "datePrecision": "century",
     "region": "Roman Britain / Vindolanda frontier military administration",
     "reviewStatus": "source_checked",
+    "scopeNote": "Covers Roman frontier administrative writing such as Vindolanda military reports, accounts, lists, and leave applications. It does not represent physical depot warehouses, medical-supply stores, Achaemenid waystations, or modern quartermaster paperwork.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The AD 100 anchor is a representative date for the Vindolanda tablets; the corpus spans late first- and early second-century Roman frontier occupation.",
     "dependencyEdges": [
       {
-        "prerequisite": "state_armories",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "State Armories provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "writing",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "The scoped Vindolanda evidence is a corpus of written Latin documents on wooden tablets, so writing is intrinsic to the record technology.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Vindolanda Tablets - Home",
+            "url": "https://romaninscriptionsofbritain.org/tabvindol/",
+            "publisher": "Roman Inscriptions of Britain",
+            "year": 2025,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The home page describes nearly 780 texts written on thin sheets of wood from the late first and early second centuries at Vindolanda."
+          }
+        ]
       },
       {
-        "prerequisite": "state_medical_supply_stores",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "State Medical Supply Stores provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "record_keeping",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "The node is specifically about military reports, accounts, lists, and inventories, so earlier record-keeping practice is the direct administrative foundation.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Tabulae Vindolandenses II: The Texts",
+            "url": "https://romaninscriptionsofbritain.org/tabvindol/vol-II/texts",
+            "publisher": "Roman Inscriptions of Britain",
+            "year": 2025,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Accounts and lists introduction distinguishes military reports from accounts and lists, including accounts related to unit administration and inventories or lists."
+          }
+        ]
       },
       {
-        "prerequisite": "military_waystations",
+        "prerequisite": "logistics_supply_lines",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Military Waystations provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Vindolanda accounts record military-unit administration, supplies, food, clothing, stabling, wagon components, and travel expenses, making logistics the relevant operational context.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Tabulae Vindolandenses II: The Texts",
+            "url": "https://romaninscriptionsofbritain.org/tabvindol/vol-II/texts",
+            "publisher": "Roman Inscriptions of Britain",
+            "year": 2025,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Accounts and lists introduction notes records for food, drink, clothing, stabling, carriage axles, wagon components, beer, boot nails, salt, wheat, and meat."
+          }
+        ]
       }
     ],
     "sources": [
@@ -15312,6 +15453,28 @@
           "node"
         ],
         "source_locator": "The British Museum describes Vindolanda tablets as including unique military reports, requests for leave, and documents from a Roman frontier fort."
+      },
+      {
+        "title": "Vindolanda Tablets - Home",
+        "url": "https://romaninscriptionsofbritain.org/tabvindol/",
+        "publisher": "Roman Inscriptions of Britain",
+        "year": 2025,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The RIB edition describes the Vindolanda tablets as nearly 780 texts from a Roman fort, composed in the late first and early second centuries, and as a rich source of military and social history."
+      },
+      {
+        "title": "Tabulae Vindolandenses II: The Texts",
+        "url": "https://romaninscriptionsofbritain.org/tabvindol/vol-II/texts",
+        "publisher": "Roman Inscriptions of Britain",
+        "year": 2025,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The Texts page categorizes Vindolanda documents as military reports, applications for leave, accounts, and lists, including unit administration and supply records."
       }
     ]
   },

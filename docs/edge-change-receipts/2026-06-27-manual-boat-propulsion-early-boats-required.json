@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-manual-boat-propulsion-early-boats-required",
+  "decision_date": "2026-06-27",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "basic_boat_propulsion",
+    "prerequisite": "early_boats"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Boats is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "Manual propulsion is a boat-operating method and requires a watercraft platform; the Egyptian evidence describes boats with oars before and alongside sails."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/ship/History-of-ships",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Oars and sails section: describes Egyptian boat evidence from the fourth millennium BCE and early Nile boats using oars and sails.",
+    "source_claim_summary": "The source describes manually propelled Egyptian boats, tying oars to the operation of boats before and alongside sails.",
+    "source_support_rationale": "Because the scoped technology is manual propulsion of watercraft, a boat platform is not merely an earlier historical context; it is the object being propelled."
+  },
+  "ontology_before": "The graph treated Early Boats as a loose historical predecessor for Basic Boat Propulsion.",
+  "ontology_after": "Manual Boat Propulsion is scoped as an operating method on boats, so early_boats is the required platform context.",
+  "invariant_preserved_or_changed": "Changed: early_boats remains connected but is retyped from historical_predecessor to required.",
+  "would_reject_if": [
+    "The node were narrowed to standalone paddle manufacture rather than operating boats.",
+    "A source showed the scoped manual-propulsion practice did not require a watercraft platform.",
+    "The node were split so that oars, paddles, poles, and steering oars became separate technologies with different prerequisites."
+  ],
+  "short_reason": "Manual propulsion is a boat-operating method, so a boat platform is required.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/basic_boat_propulsion.before.json /tmp/basic_boat_propulsion.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

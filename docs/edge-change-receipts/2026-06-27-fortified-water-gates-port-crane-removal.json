@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-27-fortified-water-gates-port-crane-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "fortified_water_gates",
+    "prerequisite": "port_crane_harbor_works"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Port Cranes & Harbor Works provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because fortified water gates are wall and river-access defenses, while the corrected port_crane_harbor_works node is anchored to later stationary harbor-crane infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.durhamworldheritagesite.com/learn/architecture/castle/intro/peninsula",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Durham World Heritage Site describes masonry walls built around the peninsula between 1099 and 1128, strengthened with towers, and including gates leading to river fords such as Water Gate.",
+    "source_claim_summary": "The source supports fortified water gates as defensive wall and river-access features, not as a dependency of dockside harbor cranes.",
+    "source_support_rationale": "The water-gate source grounds the node in fortification infrastructure. Keeping a direct dependency on a 1244 harbor-crane node would create a later and unsupported prerequisite for an 1150 water-gate claim."
+  },
+  "ontology_before": "Fortified Water Gates depended on Port Cranes & Harbor Works, implying wall gates and river-access defenses required later stationary harbor-crane infrastructure.",
+  "ontology_after": "Fortified Water Gates depends directly on Early Fortifications, with the later harbor-crane infrastructure kept separate.",
+  "invariant_preserved_or_changed": "Changed: the direct port_crane_harbor_works dependency is removed from fortified_water_gates.",
+  "would_reject_if": [
+    "The node is later rescoped to fortified crane-gates specifically rather than water gates in defensive walls.",
+    "A source shows the 1150-era water-gate examples required stationary harbor cranes.",
+    "The port_crane_harbor_works node is redated and rescoped to earlier generic water-gate infrastructure rather than dockside cranes."
+  ],
+  "short_reason": "Fortified water gates are defensive wall access points, not downstream products of medieval port cranes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/fortified_water_gates.before.json /tmp/fortified_water_gates.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

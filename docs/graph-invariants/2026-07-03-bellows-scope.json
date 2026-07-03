@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-03-bellows-scope",
+  "description": "Lock Bellows to source-backed Iron Age pot-bellows evidence while keeping unsupported prehistoric leather-and-wood and basic-smelting claims out of the graph.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "bellows",
+      "operator": "eq",
+      "value": -1000,
+      "reason": "The launch-quality date is anchored to the Abel Beth Maacah Iron IB pot-bellows context rather than the old Ancient era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "bellows",
+      "prerequisite": "pottery",
+      "expected": "enabling",
+      "reason": "The first-known source-backed form is a ceramic pot-bellows assemblage, so pottery is the sourced material path without claiming every bellows form requires ceramics."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bellows",
+      "prerequisite": "woodworking_basic",
+      "reason": "The previous woodworking edge was sourced only to unrelated Pleistocene wooden artifacts, not bellows or metalworking forced draft."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bellows",
+      "prerequisite": "leather_working",
+      "reason": "The launch-quality source does not document a leather bag or hide membrane dependency for the first-known pot-bellows evidence."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "smelting_basic",
+      "prerequisite": "bellows",
+      "reason": "Earliest copper smelting evidence predates securely sourced bellows, so forced-draft bellows must not become a hard prerequisite for basic smelting."
+    }
+  ]
+}

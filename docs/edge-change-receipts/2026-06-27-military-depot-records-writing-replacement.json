@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-military-depot-records-writing-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "military_depot_records",
+    "prerequisite": "writing"
+  },
+  "replaced_edge": {
+    "dependent": "military_depot_records",
+    "prerequisite": "state_armories"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "State Armories provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "textbook",
+    "note": "The scoped Vindolanda evidence is a corpus of written Latin documents on wooden tablets, so writing is intrinsic to the record technology."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://romaninscriptionsofbritain.org/tabvindol/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The home page describes nearly 780 texts written on thin sheets of wood from the late first and early second centuries at Vindolanda.",
+    "source_claim_summary": "The target node is a corpus of written military and administrative documents, not the physical weapon-store institution itself.",
+    "source_support_rationale": "Replacing state_armories with writing moves the edge from a stored-goods domain to the actual representational medium required for military depot records."
+  },
+  "ontology_before": "Military Depot Records depended on state armories, implying the physical arsenal institution was a direct prerequisite for the records node.",
+  "ontology_after": "Military Depot Records is scoped to written frontier administrative documents; writing carries the medium requirement, while armories are only a possible recorded subject.",
+  "invariant_preserved_or_changed": "Changed: military_depot_records now depends on writing and no longer directly depends on state_armories.",
+  "would_reject_if": [
+    "The node is later narrowed to physical arsenal/depot institutions rather than written records.",
+    "A separate Roman arsenal-inventory node is added and should carry the state_armories dependency.",
+    "A source shows the scoped Vindolanda record corpus was not written or not documentary."
+  ],
+  "short_reason": "Written records require writing; state armories were an over-specific recorded-goods domain.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_depot_records.before.json /tmp/military_depot_records.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

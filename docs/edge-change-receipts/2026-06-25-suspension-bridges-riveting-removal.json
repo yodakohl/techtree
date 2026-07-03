@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-suspension-bridges-riveting-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "suspension_bridges",
+    "prerequisite": "riveting_technology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Riveting Technology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct riveting_technology dependency remains because the suspension_bridges node is dated to early suspension-bridge construction, while the corrected riveting node is anchored to 1860s hydraulic industrial riveting.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/suspension-bridge",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Construction and history sections describe suspension bridges through towers, caissons, anchorages, eyebars, spun wire cables, and late-18th/early-19th-century development, without making riveting a direct enabling feature.",
+    "source_claim_summary": "Britannica grounds suspension-bridge construction in cable, tower, anchorage, and deck mechanics rather than in industrial riveting.",
+    "source_support_rationale": "Because the corrected riveting node is 1860s hydraulic platework, keeping it as a direct prerequisite for an 1826 suspension-bridge node would introduce an unsupported and chronologically later dependency."
+  },
+  "ontology_before": "Steel-Cable Suspension Bridges depended directly on Riveting Technology, laundering a later industrial plate-joining technology into the early suspension-bridge scope.",
+  "ontology_after": "Steel-Cable Suspension Bridges keep cable, construction, mathematics, steel, and production context without depending directly on the later hydraulic riveting node.",
+  "invariant_preserved_or_changed": "Changed: the direct riveting_technology dependency is removed from suspension_bridges.",
+  "would_reject_if": [
+    "The suspension_bridges node is later narrowed to a post-1860 riveted-plate bridge form.",
+    "A source shows the 1826 suspension-bridge claim directly required industrial riveting technology.",
+    "The graph adds a separate bridge-deck-fabrication node that should explicitly require riveting."
+  ],
+  "short_reason": "The corrected riveting node is later hydraulic platework, not a direct prerequisite for the current suspension-bridge scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/suspension_bridges.before.json /tmp/suspension_bridges.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

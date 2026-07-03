@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-mechanized-laundry-electric-motor-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "mechanized_laundry",
+    "prerequisite": "electric_motor"
+  },
+  "replaced_edge": {
+    "dependent": "mechanized_laundry",
+    "prerequisite": "electrical_appliances_early"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Electrical Appliances is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "primary_source",
+    "note": "The scoped electric washer required a small electric motor to drive the drum and reversing mechanism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patents.google.com/patent/US966677A/en",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Patent specification describes a motor-operated drive mechanism for washing machines, the cylinder operating in a wash-water tub, reversible gearing, and pulley drive from a small electric motor.",
+    "source_claim_summary": "The Fisher/Hurley patent makes the electric motor a direct component in the early electric washer's drum and reversing drive.",
+    "source_support_rationale": "The old edge pointed to the broad class of early appliances, but the patent identifies the specific mechanism needed for the scoped node: a motor driving the washer cylinder through belts and reversing gears."
+  },
+  "ontology_before": "Mechanized Laundry depended on Early Electrical Appliances as a broad historical predecessor, implying a category-to-category lineage rather than a direct mechanism.",
+  "ontology_after": "Mechanized Laundry is scoped to early electric washers and depends directly on electric_motor as the component that powers the drum and reversing drive.",
+  "invariant_preserved_or_changed": "Changed: mechanized_laundry now depends directly on electric_motor and no longer directly depends on electrical_appliances_early.",
+  "would_reject_if": [
+    "The node is later broadened back to hand-cranked, steam, or institutional laundry systems that do not require electric motors.",
+    "A stronger source shows the 1907 Thor-style washer did not use an electric motor for its washing mechanism.",
+    "A more specific electric_washing_machine node is added and this broad node is moved to general laundry mechanization."
+  ],
+  "short_reason": "The source-backed direct mechanism is the electric motor, not the broad early-appliance category.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mechanized_laundry.before.json /tmp/mechanized_laundry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

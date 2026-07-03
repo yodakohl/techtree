@@ -1,0 +1,18 @@
+{
+  "id": "2026-06-25-riveting-scope",
+  "description": "Lock the 2026-06-25 riveting correction that scopes the industrial node to Tweddell-era hydraulic riveting rather than pneumatic tools or early suspension-bridge dependency laundering.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "riveting_technology",
+      "prerequisite": "pneumatic_tools_compressed_air_power",
+      "reason": "Grace's Guide anchors the corrected node to hydraulic riveting with pumps and accumulators, not compressed-air pneumatic tools."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "suspension_bridges",
+      "prerequisite": "riveting_technology",
+      "reason": "The current suspension-bridge scope and date should not depend directly on the later 1860s hydraulic riveting node."
+    }
+  ]
+}

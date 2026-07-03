@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-spaceborne-optics-dsp-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "advanced_optics_space_based",
+    "prerequisite": "digital_signal_processing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the 1960 orbital optical-imaging anchor used television cameras, video recorders, ground readout, and film prints rather than digital signal processing as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nesdis.noaa.gov/news/celebrating-65-years-of-the-worlds-first-weather-satellite",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NOAA says TIROS-1 carried television cameras and video recorders; when data was read out, images were recorded on 35-mm film for prints.",
+    "source_claim_summary": "The first scoped spaceborne optical instrument used analog television imaging and film workflows, not digital signal processing.",
+    "source_support_rationale": "Digital processing is important for later remote sensing and astronomical analysis, but the source-backed 1960 orbital-imaging claim predates and does not require a DSP edge."
+  },
+  "ontology_before": "Space-Based Advanced Optics depended directly on Digital Signal Processing, pulling later digital analysis into the first spaceborne optical payload.",
+  "ontology_after": "Spaceborne Optical Instruments is anchored to early spacecraft optical payloads; DSP remains available on downstream analysis-heavy nodes such as exoplanet detection.",
+  "invariant_preserved_or_changed": "Changed: advanced_optics_space_based no longer directly depends on digital_signal_processing.",
+  "would_reject_if": [
+    "The node is later narrowed to modern digital image reconstruction, interferometric processing, or exoplanet signal extraction.",
+    "A stronger source shows the 1960 anchor required onboard or ground digital signal processing.",
+    "A separate spaceborne_optical_data_processing node is added and should carry the DSP dependency."
+  ],
+  "short_reason": "DSP is downstream analysis/scaling context, not a direct prerequisite for the 1960 TIROS optical payload.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/advanced_optics_space_based.before.json /tmp/advanced_optics_space_based.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

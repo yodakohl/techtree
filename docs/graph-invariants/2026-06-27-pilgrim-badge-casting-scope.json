@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-pilgrim-badge-casting-scope",
+  "description": "Lock the 2026-06-27 pilgrim_badge_casting correction to late-medieval tin-lead or lead-alloy cast pilgrimage souvenirs, not guild certification seals, bronze-specific casting, precious-metal badges, or generic livery badges.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pilgrim_badge_casting",
+      "operator": "eq",
+      "value": 1250,
+      "reason": "The node remains anchored to a thirteenth-century graph date within the late twelfth- through sixteenth-century source window."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pilgrim_badge_casting",
+      "prerequisite": "pilgrimage_route_services",
+      "expected": "enabling",
+      "reason": "Pilgrimage shrines and route economies supplied the devotional souvenir market for badges and ampullae."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pilgrim_badge_casting",
+      "prerequisite": "lead_working",
+      "expected": "enabling",
+      "reason": "The corrected material scope is cheap tin-lead or lead-alloy casting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pilgrim_badge_casting",
+      "prerequisite": "metal_casting_molds",
+      "expected": "enabling",
+      "reason": "Series production of badges and ampullae depended on cast metal objects and molds, not bronze-only mold technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pilgrim_badge_casting",
+      "prerequisite": "guild_certification_seals",
+      "reason": "Guild certification seals are a regulated-authentication practice and should not be restored for shrine souvenir badge casting without a new seal-specific scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pilgrim_badge_casting",
+      "prerequisite": "bronze_casting_molds",
+      "reason": "Bronze casting molds are too material-specific for the corrected tin-lead or lead-alloy pilgrim badge scope."
+    }
+  ]
+}

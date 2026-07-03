@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-plate-armor-trip-hammers-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "plate_armor",
+    "prerequisite": "water_powered_trip_hammers_forges"
+  },
+  "replaced_edge": {
+    "dependent": "plate_armor",
+    "prerequisite": "blast_furnace"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Blast Furnace provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Plate armor's spread depended on faster, cheaper plate forming; Britannica specifically links medieval plate armor to water-powered trip hammers."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/armour-protective-clothing",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "History section: Britannica says plate armour became widespread in medieval Europe when water-powered trip hammers made forming plates faster and cheaper.",
+    "source_claim_summary": "Plate armor depended directly on forming large articulated plates, and Britannica singles out water-powered trip hammers for that process.",
+    "source_support_rationale": "Blast furnaces supplied broader iron-production capacity, but the source-pinned plate-armor mechanism is plate forming by powered hammers, which better matches the target node."
+  },
+  "ontology_before": "Plate Armor depended directly on blast_furnace, implying blast-furnace iron production was the direct technological gate for full articulated plate harness.",
+  "ontology_after": "Plate Armor depends on water-powered trip hammers for plate forming, advanced medieval metallurgy for iron/steel treatment, and mail smithing for flexible joint protection; blast furnaces remain upstream or scaling context.",
+  "invariant_preserved_or_changed": "Changed: plate_armor now depends on water_powered_trip_hammers_forges and no longer directly depends on blast_furnace.",
+  "would_reject_if": [
+    "The node is later narrowed to blast-furnace-origin steel supply rather than full plate-harness fabrication.",
+    "A stronger source directly shows blast_furnace was required for the first full articulated plate harnesses.",
+    "A dedicated armor_plate_rolling or armorer_plate_forming node is added and should replace water_powered_trip_hammers_forges."
+  ],
+  "short_reason": "Powered plate-forming is the source-backed direct edge; blast furnace was too broad and upstream.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/plate_armor.before.json /tmp/plate_armor.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

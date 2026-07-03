@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-27-guilds-scope",
+  "description": "Lock the 2026-06-27 guilds correction that scopes the node to broad guild-like associations and formal medieval guild systems, with urbanization rather than orthogonal grid planning as the urban-context prerequisite.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "guilds",
+      "operator": "eq",
+      "value": 500,
+      "reason": "The node preserves a broad guild-like association anchor with explicit date uncertainty; formal merchant and craft guilds mature later."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "guilds",
+      "prerequisite": "urbanization",
+      "expected": "enabling",
+      "reason": "The source-backed prerequisite is dense town/city and commercial-settlement context, not a specific street-grid technique."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "guilds",
+      "prerequisite": "urban_planning_grid_system",
+      "reason": "Orthogonal grid planning is a narrower built-form technology and should not be restored as a direct guild prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "guilds",
+      "prerequisite": "writing",
+      "expected": "historical_predecessor",
+      "reason": "The documented formal guild tradition depends on written records, charters, statutes, court records, and contracts, while earlier guild-like associations may be less documented."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "guilds",
+      "prerequisite": "codified_law",
+      "expected": "enabling",
+      "reason": "Legal privileges, charters, property rights, courts, contracts, and Byzantine commerce/craft law are source-backed formal guild enablers."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "guilds",
+      "prerequisite": "metal_coinage",
+      "expected": "enabling",
+      "reason": "Money contributions, admittance payments, debts, fines, wages, merchandise, and commerce support a monetary-enabling edge without making coinage a strict requirement."
+    }
+  ]
+}

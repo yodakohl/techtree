@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-25-humanism-scholasticism-lineage",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "humanism",
+    "prerequisite": "scholasticism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scholasticism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Renaissance humanism formed against the medieval Scholastic program: Petrarch emphasized classical authors over Scholastic thinkers and rejected scholastic dialectical subtlety, so the edge records inherited intellectual context rather than a direct enabling capability."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/biography/Petrarch",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Top Questions and Classical studies sections: Britannica says Petrarch emphasized classical authors over Scholastic thinkers, then rejected scholastic dialectical subtleties and turned to the moral weight of the Classical world.",
+    "source_claim_summary": "Petrarch's humanism is framed as a turn from medieval Scholasticism toward classical authors and classical moral examples.",
+    "source_support_rationale": "The source supports Scholasticism as the inherited medieval intellectual context humanism reacted against, not as a direct technical enabler."
+  },
+  "ontology_before": "The old edge treated Scholasticism as a generic enabling capability for humanism.",
+  "ontology_after": "The corrected edge models Scholasticism as the medieval intellectual predecessor and foil against which Petrarchan humanism defined itself.",
+  "invariant_preserved_or_changed": "Changed edge type: scholasticism is now historical_predecessor rather than enabling.",
+  "would_reject_if": [
+    "The node is later rescoped to scholastic humanism rather than Petrarchan and Renaissance humanism.",
+    "A stronger source shows Scholasticism directly supplied the core method of Renaissance humanism.",
+    "The graph later adds a separate reaction-against edge type, making historical_predecessor too broad."
+  ],
+  "short_reason": "Scholasticism is the inherited intellectual context and foil, not a generic enabling capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/humanism.before.json /tmp/humanism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

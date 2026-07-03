@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-triangular-trade-mercantilism-scaling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "triangular_trade",
+    "prerequisite": "mercantilism_economic_theory"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mercantilism Economic Theory provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Mercantilist colonial policy commercially structured triangular trade by treating colonies as raw-material suppliers and captive markets for European manufactured goods."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/money/mercantilism",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Mercantilism article: Britannica says colonies supplied raw materials to mother countries and bought finished goods from them, while the triangular-trade article describes European manufactured goods, enslaved Africans, and colonial raw materials circulating under European colonial powers.",
+    "source_claim_summary": "Mercantilism structured colonial raw-material and manufactured-goods exchange, which matches the commercial organization of triangular trade.",
+    "source_support_rationale": "The source supports mercantilism as a commercial and policy framework for the trade system, not as a material or ship-design enabler."
+  },
+  "ontology_before": "The old edge treated mercantilist theory as a generic enabling capability for triangular trade.",
+  "ontology_after": "The corrected edge models mercantilism as the colonial commercial framework that scaled and structured the triangular-trade exchange pattern.",
+  "invariant_preserved_or_changed": "Changed edge type: mercantilism_economic_theory is now a commercial_or_scaling_dependency rather than a direct enabling prerequisite.",
+  "would_reject_if": [
+    "The triangular_trade node is later narrowed to individual voyages independent of colonial commercial policy.",
+    "A stronger source shows mercantilism was technically necessary for each leg of triangular trade.",
+    "The graph adds a more specific colonial-trade-regulation node that should replace mercantilism on this edge."
+  ],
+  "short_reason": "Mercantilism structured colonial trade commercially rather than supplying a direct technical capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/triangular_trade.before.json /tmp/triangular_trade.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}

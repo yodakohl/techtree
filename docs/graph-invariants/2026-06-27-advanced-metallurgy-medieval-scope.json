@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-27-advanced-metallurgy-medieval-scope",
+  "description": "Lock the 2026-06-27 advanced_metallurgy_medieval correction that scopes the node to broad medieval ferrous process improvement rather than modern scientific metallurgy or a bronze-working dependency.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "advanced_metallurgy_medieval",
+      "operator": "eq",
+      "value": 500,
+      "reason": "The node remains a broad early-medieval ferrous-smithing umbrella with explicit date uncertainty; later blast-furnace and armor-plate maturity appears downstream and in source locators."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_metallurgy_medieval",
+      "prerequisite": "iron_working",
+      "expected": "enabling",
+      "reason": "Iron working is the direct process base for bloomery consolidation, forge welding, carburized steel, and medieval ferrous heat treatment."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_metallurgy_medieval",
+      "prerequisite": "mining",
+      "expected": "enabling",
+      "reason": "Ore supply and preparation remain enabling inputs for medieval iron and steel production."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_metallurgy_medieval",
+      "prerequisite": "bronze_working",
+      "expected": "historical_predecessor",
+      "reason": "Bronze working is retained only as earlier metallurgical craft lineage, not as a direct ferrous process dependency."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_metallurgy_medieval",
+      "prerequisite": "basic_chemistry",
+      "expected": "historical_predecessor",
+      "reason": "Empirical carbon, oxidation/reduction, slag, and heat control are historical craft chemistry context rather than modern chemical theory."
+    }
+  ]
+}

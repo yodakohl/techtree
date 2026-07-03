@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-27-immunology-advanced-scope",
+  "description": "Lock immunology_advanced to postwar immune-tolerance, graft-rejection, and cellular/molecular immunology rather than generic infection treatment or vaccine administration.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "immunology_advanced",
+      "operator": "eq",
+      "value": 1953,
+      "reason": "The corrected scope is anchored to the 1953 Nature acquired-tolerance paper."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "immunology_advanced",
+      "prerequisite": "vaccination",
+      "expected": "historical_predecessor",
+      "reason": "Vaccination is immune-protection lineage, not a direct experimental method required by the 1953 tolerance anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "immunology_advanced",
+      "prerequisite": "medicine_clinical",
+      "expected": "enabling",
+      "reason": "Clinical medicine provides disease, graft, and treatment context but is not a single component of immunological-tolerance theory."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "immunology_advanced",
+      "prerequisite": "biochemistry",
+      "expected": "enabling",
+      "reason": "Biochemical life-science methods support molecular immune mechanisms without replacing the immunology-specific discovery scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "immunology_advanced",
+      "prerequisite": "antibiotics",
+      "reason": "Antibiotics are antibacterial treatment, not a direct prerequisite for acquired immune tolerance or graft-rejection immunology."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-immunology-advanced-vaccination-lineage",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "immunology_advanced",
+    "prerequisite": "vaccination"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Vaccination provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.7,
+    "evidence_level": "expert_inference",
+    "note": "Vaccination is historical immune-protection lineage for later immunology, not a direct method required by postwar tolerance and graft-rejection research."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://jennermuseum.com/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The museum describes Edward Jenner's enduring legacy of vaccination and identifies his Temple of Vaccinia as the world's first vaccination clinic.",
+    "source_claim_summary": "Vaccination is an earlier immune-protection practice with an enduring lineage into immunology.",
+    "source_support_rationale": "The source supports lineage, while the Nobel and Nature tolerance sources show the scoped 1953 node is postwar immune-tolerance and graft-rejection research rather than vaccine administration itself."
+  },
+  "ontology_before": "Advanced Immunology depended on vaccination as a generic enabling capability, implying vaccination directly enabled the postwar tolerance and graft-rejection research scope.",
+  "ontology_after": "Advanced Immunology keeps vaccination as earlier immune-protection lineage while clinical medicine, biochemistry, and molecular biology carry the active research context.",
+  "invariant_preserved_or_changed": "Changed edge type: vaccination is now historical_predecessor rather than enabling.",
+  "would_reject_if": [
+    "The node is later narrowed specifically to modern vaccine development rather than postwar immunology.",
+    "A stronger source shows vaccine administration was a direct method required for the 1953 acquired-tolerance experiments.",
+    "A separate vaccinology lineage node is added and should absorb this historical predecessor edge."
+  ],
+  "short_reason": "Vaccination belongs as lineage, not as the direct postwar immunology mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/immunology_advanced.before.json /tmp/immunology_advanced.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

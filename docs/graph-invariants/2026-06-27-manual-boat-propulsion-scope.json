@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-27-manual-boat-propulsion-scope",
+  "description": "Lock Manual Boat Propulsion to source-backed Egyptian oar/manual boat propulsion evidence, not an unsupported generic prehistoric paddle date or sail propulsion.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "basic_boat_propulsion",
+      "operator": "eq",
+      "value": -3300,
+      "reason": "The launch-quality date is anchored to source-backed Naqada II / fourth-millennium BCE Egyptian oar-and-boat evidence rather than the old Ancient default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "basic_boat_propulsion",
+      "prerequisite": "early_boats",
+      "expected": "required",
+      "reason": "Manual propulsion is an operating method for a watercraft platform, not merely a loose historical predecessor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "basic_boat_propulsion",
+      "prerequisite": "woodworking_basic",
+      "expected": "historical_predecessor",
+      "reason": "Woodworking underlies shaped wooden oars, paddles, and poles but is not a one-to-one hard requirement for every manual-propulsion implement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_boat_propulsion",
+      "prerequisite": "dugout_paddles",
+      "reason": "The broad manual-propulsion node must not depend on the narrower Mesolithic dugout-paddle artifact node."
+    }
+  ]
+}

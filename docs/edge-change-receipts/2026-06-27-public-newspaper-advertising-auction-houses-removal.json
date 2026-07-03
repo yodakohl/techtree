@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-public-newspaper-advertising-auction-houses-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "public_newspaper_advertising",
+    "prerequisite": "commercial_auction_houses"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Commercial Auction Houses provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because auction houses are one possible advertiser category, not the newspaper publication mechanism for paid public notices.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "MHS says the first paid advertisements in issue number three concerned stolen goods, lost anvils, and Long Island real estate, while the first issue had already solicited paid notices at a reasonable rate.",
+    "source_claim_summary": "The source grounds the first paid newspaper advertisements in newspaper solicitation and miscellaneous notices, not in auction-house infrastructure.",
+    "source_support_rationale": "Auction services may later advertise in newspapers, but the source-backed mechanism for the scoped node is insertion of paid notices into a recurring newspaper."
+  },
+  "ontology_before": "Public Newspaper Advertising depended directly on Commercial Auction Houses, implying auction-house institutions enabled the newspaper advertising format.",
+  "ontology_after": "Public Newspaper Advertising depends directly on newspaper periodicals; auction houses are treated as possible later advertisers or content categories rather than prerequisites.",
+  "invariant_preserved_or_changed": "Changed: public_newspaper_advertising no longer directly depends on commercial_auction_houses.",
+  "would_reject_if": [
+    "The node is later narrowed specifically to auction advertisements in newspapers.",
+    "A stronger source shows early paid newspaper advertising was created to serve organized auction-house notices.",
+    "The graph adds a separate auction-newspaper-notice node where commercial_auction_houses is the scoped advertiser infrastructure."
+  ],
+  "short_reason": "Auction houses were a possible ad customer category, not the enabling publication mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/public_newspaper_advertising.before.json /tmp/public_newspaper_advertising.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

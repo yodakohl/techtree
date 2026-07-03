@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-27-surveying-theodolite-scope",
+  "description": "Lock the 2026-06-27 correction that scopes surveying_theodolite_early_precision to telescope-equipped early modern precision theodolites rather than generic pre-telescope angle instruments.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "surveying_theodolite_early_precision",
+      "operator": "eq",
+      "value": 1725,
+      "reason": "The scoped node now anchors to Jonathan Sisson's 1725 telescope-equipped theodolite rather than a generic Renaissance placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surveying_theodolite_early_precision",
+      "prerequisite": "telescope",
+      "expected": "enabling",
+      "reason": "The scoped instrument explicitly includes a sighting telescope, so telescope remains an enabling optical dependency."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surveying_theodolite_early_precision",
+      "prerequisite": "early_optics",
+      "expected": "historical_predecessor",
+      "reason": "Earlier optical knowledge is retained as lineage while the telescope edge carries the direct optical instrument dependency."
+    }
+  ]
+}

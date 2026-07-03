@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-humanism-classical-historiography-evidence",
+  "decision_date": "2026-06-25",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "humanism",
+    "prerequisite": "classical_historiography_herodotus_thucydides"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Classical Historiography (Herodotus, Thucydides) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Humanist education included history in the classical studia humanitatis, and classical historical models shaped civic humanist historiography, so classical historiography is an enabling intellectual model rather than a hard requirement."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/humanism",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The ideal of humanitas section says the studia humanitatis included history and that classical philosophy, rhetoric, and history were humanist models of proper method.",
+    "source_claim_summary": "Classical history was part of humanist study and classical history supplied humanists with methodological models.",
+    "source_support_rationale": "The edge stays enabling because the source supports classical historiography as an intellectual model, not a physical or exclusive prerequisite."
+  },
+  "invariant_preserved_or_changed": "Preserved: humanism still has classical historiography as an enabling prerequisite, now with textbook evidence and a scoped note.",
+  "would_reject_if": [
+    "The humanism node is later narrowed to non-historical moral philosophy only.",
+    "A stronger source shows history was not part of the early studia humanitatis.",
+    "The edge is strengthened to required without evidence that humanism could not form without classical historical writing."
+  ],
+  "short_reason": "Classical history belonged to humanist study and supplied methodological models.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/humanism.before.json /tmp/humanism.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}

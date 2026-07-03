@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-27-telescope-lens-grinding-replacement",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "telescope",
+    "prerequisite": "lens_grinding_workshops"
+  },
+  "replaced_edge": {
+    "dependent": "telescope",
+    "prerequisite": "scientific_instrument_making_guilds"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Instrument Making Guilds provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.84,
+    "evidence_level": "textbook",
+    "note": "Early refracting telescopes required selected, ground, and polished lenses mounted at controlled distances in tubes, making lens-grinding workshop capability a direct craft enabler."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Chapter Four, p. 144, and Chapter Six, pp. 217-219: Ilardi identifies Low Countries glass and mirror makers capable of grinding and polishing lenses for telescopes, describes selection of lenses, tube length, apertures, and Galileo's improved grinding and polishing methods.",
+    "source_claim_summary": "The source connects early telescopes to lens-grinding and polishing capacity, lens selection, apertures, tube construction, and Galileo's improved optical workmanship.",
+    "source_support_rationale": "Lens-grinding workshops capture the cited craft capability directly. The older scientific-instrument guild edge was broader than the source evidence and implied a formal instrument-guild dependency that is not needed for the Dutch spyglass or Galileo's early telescope."
+  },
+  "ontology_before": "Telescope depended on Scientific Instrument Making Guilds, implying a broad formal instrument-making institution enabled the early refracting telescope.",
+  "ontology_after": "Telescope depends on Lens Grinding Workshops, preserving the direct optical craft dependency supported by the source while leaving broader instrument-making guilds for later precision-instrument nodes.",
+  "invariant_preserved_or_changed": "Changed: scientific_instrument_making_guilds is removed from telescope and replaced with lens_grinding_workshops. Preserved: the edge remains enabling rather than required because early telescopes could arise through multiple spectacle and lens-making shop contexts.",
+  "would_reject_if": [
+    "A stronger source shows the early Dutch or Galilean telescope required a formal scientific instrument guild rather than spectacle and lens-grinding craft.",
+    "The telescope node is broadened to include later precision astronomical observatories where instrument-making guilds or workshops are the primary dependency.",
+    "A future node separates Dutch spyglass construction from Galileo's astronomical telescope and assigns lens grinding only to one of those narrower nodes."
+  ],
+  "short_reason": "The source supports lens-grinding craft as the direct enabling capability, not broad scientific-instrument guild organization.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/telescope.before.json /tmp/telescope.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

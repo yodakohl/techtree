@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-27-mechanized-laundry-scope",
+  "description": "Lock the 2026-06-27 correction of mechanized_laundry to early commercial electric washing machines, not all steam laundries, dry cleaning, later automatic washers, or regulated laundry workplaces.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mechanized_laundry",
+      "operator": "eq",
+      "value": 1907,
+      "reason": "The date stays anchored to the Thor/Hurley electric washer context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mechanized_laundry",
+      "prerequisite": "electric_motor",
+      "expected": "required",
+      "reason": "The source-backed scoped mechanism uses a small electric motor to drive the washing cylinder and reversing gear."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mechanized_laundry",
+      "prerequisite": "soap_making_basic",
+      "expected": "historical_predecessor",
+      "reason": "Soap and alkaline washing agents are a laundry-process lineage, not a direct mechanical component."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanized_laundry",
+      "prerequisite": "electrical_appliances_early",
+      "reason": "The broad early-appliance category should not replace the more direct electric_motor component edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanized_laundry",
+      "prerequisite": "industrial_safety_regulation",
+      "reason": "Industrial safety regulation is later workplace/deployment context, not a prerequisite for the first electric washer mechanism."
+    }
+  ]
+}

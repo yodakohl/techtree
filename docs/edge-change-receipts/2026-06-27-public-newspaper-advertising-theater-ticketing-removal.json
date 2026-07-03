@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-public-newspaper-advertising-theater-ticketing-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "public_newspaper_advertising",
+    "prerequisite": "theater_ticketing_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Theater Ticketing Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because theater ticketing is an advertised event-commerce category, not a prerequisite for paid notices in newspapers.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "MHS anchors the first paid newspaper advertisements to Boston News-Letter issue number three dated 1-8 May 1704 and lists stolen goods, lost anvils, and real estate as the early notices.",
+    "source_claim_summary": "The source identifies paid newspaper notices before any theater-ticketing relationship, so performance ticketing is not the source-backed dependency.",
+    "source_support_rationale": "Theater performances can be advertised in newspapers, but the target technology is the paid newspaper-notice channel itself, which does not require theater admission systems."
+  },
+  "ontology_before": "Public Newspaper Advertising depended directly on Theater Ticketing Systems, implying performance admission systems enabled newspaper advertising.",
+  "ontology_after": "Public Newspaper Advertising is scoped to the newspaper paid-notice channel, with performance ads treated as later content rather than prerequisite infrastructure.",
+  "invariant_preserved_or_changed": "Changed: public_newspaper_advertising no longer directly depends on theater_ticketing_systems.",
+  "would_reject_if": [
+    "The node is later narrowed specifically to theater-performance advertisements in newspapers.",
+    "A stronger source shows theater ticketing systems were necessary for the first paid newspaper-advertising model.",
+    "A separate theater-advertising node is added where theater_ticketing_systems is the relevant scoped prerequisite."
+  ],
+  "short_reason": "Theater ticketing is a content/use-case category, not the enabling paid-newspaper-notice mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/public_newspaper_advertising.before.json /tmp/public_newspaper_advertising.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

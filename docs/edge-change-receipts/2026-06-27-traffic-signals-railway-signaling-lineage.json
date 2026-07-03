@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-traffic-signals-railway-signaling-lineage",
+  "decision_date": "2026-06-27",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "traffic_signal_systems",
+    "prerequisite": "electric_railway_signaling"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Electric Railway Signaling provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "primary_source",
+    "note": "Hoge's municipal traffic-control patent explicitly treats electrically controlled railway-signal types as a design precedent for street traffic signals."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patents.google.com/patent/US1251666A/en",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Patent specification says the street signal may use well-known electrically controlled signals used in railway signaling systems.",
+    "source_claim_summary": "The source identifies railway signaling as a predecessor design repertoire for municipal street traffic signals.",
+    "source_support_rationale": "Railway signaling informed the signal form, but the patent scopes the new system to municipal street and road traffic control, so lineage is more accurate than direct enabling."
+  },
+  "ontology_before": "Traffic Signal Systems treated Electric Railway Signaling as a generic enabling prerequisite for street signals.",
+  "ontology_after": "Traffic Signal Systems now treats railway signaling as a source-backed historical design predecessor while direct electrical and road-intersection dependencies carry the mechanism.",
+  "invariant_preserved_or_changed": "Changed edge type: electric_railway_signaling is now historical_predecessor rather than enabling.",
+  "would_reject_if": [
+    "The node is later narrowed to railway crossing signals rather than municipal road-intersection traffic signals.",
+    "A stronger source shows the Cleveland/Hoge signal was a direct railway signaling installation rather than a street-traffic adaptation.",
+    "The graph adds a separate semaphore_traffic_signals node that better captures the railway-signaling lineage."
+  ],
+  "short_reason": "Railway signaling was a design precedent, not the direct operating substrate.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/traffic_signal_systems.before.json /tmp/traffic_signal_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

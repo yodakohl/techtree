@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-27-coin-die-engraving-scope",
+  "description": "Lock the 2026-06-27 coin_die_engraving correction to hand-engraved dies and punches for struck coinage, not coin-blank casting, cast coinage traditions, or later milled/hubbed coin manufacture.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "coin_die_engraving",
+      "operator": "eq",
+      "value": -650,
+      "reason": "The node remains anchored to early Lydian/Ionian electrum coinage around 650 BCE."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "coin_die_engraving",
+      "prerequisite": "coin_mint_assay_offices",
+      "expected": "enabling",
+      "reason": "Official mint and assay context supplies authorization, regulated weights, and quality-control context for marks struck from dies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "coin_die_engraving",
+      "prerequisite": "bronze_working",
+      "expected": "enabling",
+      "reason": "The corrected material/tooling edge represents carved metal dies rather than molds for casting coin blanks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "coin_die_engraving",
+      "prerequisite": "portable_scales",
+      "expected": "enabling",
+      "reason": "Strict weight-standard coinage makes weighing a direct quality-control context for struck coin production."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "coin_die_engraving",
+      "prerequisite": "bronze_casting_molds",
+      "reason": "Bronze casting molds are broader blank-casting or cast-object technology and should not be restored to this struck-die engraving node."
+    }
+  ]
+}

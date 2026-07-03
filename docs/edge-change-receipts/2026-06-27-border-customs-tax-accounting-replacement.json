@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-border-customs-tax-accounting-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "border_customs_posts",
+    "prerequisite": "tax_accounting"
+  },
+  "replaced_edge": {
+    "dependent": "border_customs_posts",
+    "prerequisite": "public_archives"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Archives provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Customs checkpoints required tax calculation and collection practices; Roman stationes checked merchandise and collected portorium as a transport/customs tax."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ostia-antica.org/dict/topics/portorium/presentation/introduction.htm",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The introduction defines portorium as a transport tax and says customs offices, called stationes, checked merchandise and collected the tax.",
+    "source_claim_summary": "Roman customs posts were tax-collection offices where merchandise was checked and portorium was collected.",
+    "source_support_rationale": "The old public-archives edge described a broad administrative backdrop; the source-backed mechanism is fiscal assessment and collection, which is represented more directly by tax_accounting."
+  },
+  "ontology_before": "Border Customs Posts depended on Currency and Public Archives, implying public record repositories were the direct administrative mechanism for customs checkpoints.",
+  "ontology_after": "Border Customs Posts is scoped to customs checkpoints and stationes; currency supports valuation, while tax_accounting carries tariff calculation and collection.",
+  "invariant_preserved_or_changed": "Changed: border_customs_posts now depends on tax_accounting and no longer directly depends on public_archives.",
+  "would_reject_if": [
+    "The node is later narrowed to archived customs-law tablets rather than checkpoint/tax-office operation.",
+    "A source shows the earliest scoped customs checkpoints functioned only as document archives without tariff calculation or collection.",
+    "A future customs_law_archives node is added and should take the public_archives dependency."
+  ],
+  "short_reason": "Customs posts are tax-assessment and collection offices; public archives were broader than the direct mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/border_customs_posts.before.json /tmp/border_customs_posts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

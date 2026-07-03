@@ -1,0 +1,34 @@
+{
+  "id": "2026-06-27-trapping-scope",
+  "description": "Lock the 2026-06-27 trapping correction to constructed animal traps anchored by early-Holocene desert-kite evidence rather than a generic Ancient placeholder or unrelated fish-trap scope.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "trapping",
+      "operator": "eq",
+      "value": -8000,
+      "reason": "The node now uses the approximate 10 ka Jordanian desert-kite dating anchor converted to a BCE millennium-level graph date."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "trapping",
+      "prerequisite": "animal_tracking_signs",
+      "expected": "enabling",
+      "reason": "Animal movement and sign knowledge helps place and use traps, but it is not a universal material dependency for every trap form."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "trapping",
+      "prerequisite": "woodworking_basic",
+      "expected": "historical_predecessor",
+      "reason": "Woodworking is retained as broad antecedent craft context for deadfalls and other wooden traps, not as the direct desert-kite construction requirement."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "trapping",
+      "prerequisite": "basic_rope_making",
+      "expected": "historical_predecessor",
+      "reason": "Cordage is retained as broad antecedent craft context for snares, not as the direct desert-kite construction requirement."
+    }
+  ]
+}

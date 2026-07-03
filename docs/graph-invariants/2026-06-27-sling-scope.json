@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-27-sling-scope",
+  "description": "Lock the 2026-06-27 sling correction to a flexible hand sling inferred from Wadi Rabah slingstone evidence rather than a generic Ancient projectile placeholder.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "sling",
+      "operator": "eq",
+      "value": -6000,
+      "reason": "The node now anchors to the 6th-millennium BC Wadi Rabah slingstone horizon, with uncertainty about preserved organic sling survival."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sling",
+      "prerequisite": "basic_rope_making",
+      "expected": "historical_predecessor",
+      "reason": "Earlier cordage technology is retained as the broad foundation for sling cords rather than a specific preserved sling-manufacturing requirement."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sling",
+      "prerequisite": "leather_working",
+      "expected": "enabling",
+      "reason": "Leather remains only an alternate pouch material for some sling variants, not a universal requirement."
+    }
+  ]
+}

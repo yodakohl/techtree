@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-27-prospecting-scope",
+  "description": "Lock Prospecting to low-tech recognition and testing of exposed mineral sources anchored to Ngwenya/Lion Cavern, not a generic Ancient placeholder or modern geological exploration.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "prospecting",
+      "operator": "eq",
+      "value": -43000,
+      "reason": "The corrected node uses UNESCO's 43,000 BCE Ngwenya mineral-extraction evidence as a conservative by-date for source recognition and testing."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "prospecting",
+      "prerequisite": "stone_tool_making",
+      "expected": "enabling",
+      "reason": "The Ngwenya anchor documents stone choppers, picks, and hammers as the practical tool background for testing and working mineral sources."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "prospecting",
+      "prerequisite": "advanced_stone_tools",
+      "reason": "The corrected source-backed edge needs basic stone-tool capability, not the full advanced-stone-tool/Acheulean abstraction."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "prospecting",
+      "prerequisite": "oral_tradition_storytelling",
+      "reason": "Oral transmission may preserve place knowledge but is not a direct technical prerequisite for physical mineral-source recognition."
+    }
+  ]
+}

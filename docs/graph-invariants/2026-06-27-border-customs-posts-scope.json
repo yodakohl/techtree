@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-27-border-customs-posts-scope",
+  "description": "Lock the 2026-06-27 border_customs_posts correction to Roman portorium stationes as customs checkpoints and tax offices, not generic road toll funding or archived customs records.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "border_customs_posts",
+      "operator": "eq",
+      "value": -200,
+      "reason": "The source-backed reliable chronology is the second century BCE for Roman portorium evidence, not the old Classical era placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "border_customs_posts",
+      "prerequisite": "currency",
+      "expected": "enabling",
+      "reason": "Monetary valuation enables ad valorem customs duties without making coinage the only possible tariff pathway."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "border_customs_posts",
+      "prerequisite": "tax_accounting",
+      "expected": "enabling",
+      "reason": "Stationes checked merchandise and collected transport/customs taxes, so tax calculation and collection are the direct administrative capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "border_customs_posts",
+      "prerequisite": "public_archives",
+      "reason": "Public archives are broader than the scoped checkpoint and tax-office mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "border_customs_posts",
+      "prerequisite": "toll_roads_and_bridges",
+      "reason": "The node remains customs/tariff administration, not Roman road-maintenance toll funding."
+    }
+  ]
+}

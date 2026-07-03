@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-27-plate-armor-scope",
+  "description": "Lock the 2026-06-27 plate_armor correction to European full articulated steel plate harness around 1420, not earlier coats of plates, isolated plate pieces, blast-furnace iron supply, or early modern half-armor.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "plate_armor",
+      "operator": "eq",
+      "value": 1420,
+      "reason": "The date stays anchored to the Met's about-1420 full-plate-harness chronology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plate_armor",
+      "prerequisite": "water_powered_trip_hammers_forges",
+      "expected": "enabling",
+      "reason": "Powered hammering is the source-backed plate-forming method that made plate armor faster and cheaper to produce."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plate_armor",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "expected": "enabling",
+      "reason": "Full plate harness used iron or steel plates with carburizing, case hardening, and related ferrous metallurgy."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plate_armor",
+      "prerequisite": "chainmail_armor_smithing",
+      "expected": "enabling",
+      "reason": "Mail remained necessary at joints and gaps that articulated plates could not adequately cover."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "plate_armor",
+      "prerequisite": "blast_furnace",
+      "reason": "Blast furnaces are broader upstream/scaling iron-production context and should not be restored as the direct plate-armor edge without a source narrowing the claim."
+    }
+  ]
+}

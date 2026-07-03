@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-pilgrim-badge-metal-casting-molds-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "pilgrim_badge_casting",
+    "prerequisite": "metal_casting_molds"
+  },
+  "replaced_edge": {
+    "dependent": "pilgrim_badge_casting",
+    "prerequisite": "bronze_casting_molds"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bronze Casting Molds provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Series production of cheap cast badges depended on metal casting and molds; the broader metal-casting-mold node fits better than bronze-specific molds."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://kunera.nl/over-kunera/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Kunera overview says cheap castwork was crucial for spreading late-medieval badge imagery and notes that examples from the same casting mold are rarely recovered despite series production.",
+    "source_claim_summary": "Pilgrim badges and ampullae were produced as cheap cast metal series, not as bronze objects requiring a bronze-specific mold technology.",
+    "source_support_rationale": "The edge should point to general metal casting molds because the evidence stresses cast production and molds while the object material is tin-lead or lead alloy, not bronze."
+  },
+  "ontology_before": "Pilgrim Badge Casting depended on bronze casting molds, implying a bronze-specific object or mold technology for badges normally made as cheap tin-lead or lead-alloy castings.",
+  "ontology_after": "Pilgrim Badge Casting depends on metal_casting_molds for the cast-series production mechanism, while bronze-specific mold technology remains outside the scoped node.",
+  "invariant_preserved_or_changed": "Changed: pilgrim_badge_casting now depends on metal_casting_molds and no longer directly depends on bronze_casting_molds.",
+  "would_reject_if": [
+    "The node is later narrowed to bronze badge molds rather than tin-lead or lead-alloy cast badges.",
+    "A source shows the scoped mass-produced pilgrim badges were normally die-stamped rather than cast.",
+    "A dedicated badge_mold_making node is added and should replace broad metal_casting_molds."
+  ],
+  "short_reason": "Metal casting molds match cast lead-alloy badge production better than bronze-specific molds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/pilgrim_badge_casting.before.json /tmp/pilgrim_badge_casting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

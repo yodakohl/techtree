@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-mechanized-laundry-safety-regulation-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "mechanized_laundry",
+    "prerequisite": "industrial_safety_regulation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the scoped early electric washer is an appliance drive mechanism and laundry process, while industrial safety regulation is later deployment context.",
+  "source_supports_edge": "no",
+  "source_url": "https://patents.google.com/patent/US966677A/en",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Patent specification describes the washer's motor-operated drive, reversible gearing, cylinder, tub, wringer, clutching, and machine-level guard arrangements without making factory or industrial safety regulation part of the enabling mechanism.",
+    "source_claim_summary": "The source grounds the technology in appliance mechanics rather than regulatory infrastructure.",
+    "source_support_rationale": "Safety rules can influence later laundry workplaces and product design, but the patent-backed early washer mechanism does not depend on an industrial-safety regulatory regime."
+  },
+  "ontology_before": "Mechanized Laundry depended directly on Industrial Safety Regulation, implying workplace safety law enabled the first electric washing-machine technology.",
+  "ontology_after": "Mechanized Laundry is scoped to early electric washer mechanics and laundry process; safety regulation is excluded as non-causal deployment context.",
+  "invariant_preserved_or_changed": "Changed: mechanized_laundry no longer directly depends on industrial_safety_regulation.",
+  "would_reject_if": [
+    "The node is later rescoped to regulated commercial laundry plants rather than early electric washers.",
+    "A stronger source shows industrial safety regulation was required for the first electric washer's design or market introduction.",
+    "A separate mechanized_laundry_factories node is added where workplace safety regulation is a direct deployment dependency."
+  ],
+  "short_reason": "Safety regulation was too broad and downstream for the early electric washer scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mechanized_laundry.before.json /tmp/mechanized_laundry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

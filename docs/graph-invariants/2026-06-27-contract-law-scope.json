@@ -1,0 +1,33 @@
+{
+  "id": "2026-06-27-contract-law-scope",
+  "description": "Lock Contract Law to Bronze Age Mesopotamian written-contract law, not a Classical placeholder or coined-currency-dependent doctrine.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "contract_law",
+      "operator": "eq",
+      "value": -1900,
+      "reason": "The scoped claim is anchored to Sumerian/Old Babylonian law-code and written-contract practice rather than the old Classical default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "contract_law",
+      "prerequisite": "codified_law",
+      "expected": "common_dependency",
+      "reason": "Ancient written law-code traditions supply shared legal categories, but contract practice was also documented in records and custom rather than derived from one code alone."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "contract_law",
+      "prerequisite": "record_keeping",
+      "expected": "common_dependency",
+      "reason": "Cuneiform contracts, receipts, sealed documents, and accounts operationalized obligations, but the legal doctrine should not be reduced to recordkeeping."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "contract_law",
+      "prerequisite": "currency",
+      "reason": "Bronze Age contract-law evidence predates standardized coinage and used written accounts plus silver or commodity valuation."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-chain-mail-textile-support-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "chain_mail_armor",
+    "prerequisite": "basic_weaving_basketry"
+  },
+  "replaced_edge": {
+    "dependent": "chain_mail_armor",
+    "prerequisite": "leather_working"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Leather Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Usable mail normally required a textile or quilted underlayer for comfort and impact cushioning; this is a soft-goods support, not a leather-work requirement."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/essays/the-function-of-armor-in-medieval-and-renaissance-europe",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The essay states that mail armor needed an underlayer of quilted fabric for comfort and cushioning, and that mail was worn on top of quilted garments.",
+    "source_claim_summary": "Mail was interlinked metal-ring armor worn with textile padding rather than a leather construction technology.",
+    "source_support_rationale": "The old leather edge conflated mail armor with leather armor or leather fittings; the source-backed soft support for wearable mail is quilted fabric."
+  },
+  "ontology_before": "Chain Mail Armor depended on iron working, bronze working, and leather working, implying leather craft was a direct support for the mail armor node.",
+  "ontology_after": "Chain Mail Armor is scoped to metal-ring body armor; iron working carries the main ring-material dependency, bronze working remains a weaker adjacent fittings context, and basic weaving/basketry carries the textile underlayer support.",
+  "invariant_preserved_or_changed": "Changed: chain_mail_armor now depends on basic_weaving_basketry and no longer directly depends on leather_working.",
+  "would_reject_if": [
+    "The node is later narrowed to a specific leather-backed mail-and-leather composite.",
+    "A source shows the earliest scoped mail armor required leather construction rather than textile padding.",
+    "A new padded_gambeson or arming_garment node is added and should replace the broader basic_weaving_basketry dependency."
+  ],
+  "short_reason": "Wearable mail is metal ring armor with textile padding support; leather working was an overbroad edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/chain_mail_armor.before.json /tmp/chain_mail_armor.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

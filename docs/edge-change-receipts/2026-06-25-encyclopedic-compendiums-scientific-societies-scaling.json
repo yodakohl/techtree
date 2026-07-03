@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-encyclopedic-compendiums-scientific-societies-scaling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "encyclopedic_compendiums_knowledge_organization",
+    "prerequisite": "scientific_societies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Societies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.62,
+    "evidence_level": "textbook",
+    "note": "Learned and scientific societies did not enable the earliest printed compendia, but their journals, proceedings, and specialist contributor networks later scaled arts-and-sciences reference works."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.lib.uchicago.edu/collex/exhibits/extbc/academies-and-learned-societies/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Academies and Learned Societies exhibit: University of Chicago Library describes learned societies as a major force in disseminating scientific methods and documents academies publishing proceedings or transactions.",
+    "source_claim_summary": "Learned societies disseminated scientific knowledge through institutional publication, while Britannica connects later encyclopaedias with specialist contributors and academy-linked arts-and-sciences works.",
+    "source_support_rationale": "The sources support scientific societies as later scaling and contributor infrastructure for encyclopedic reference works, but not as a direct prerequisite for early printed compendia around 1500."
+  },
+  "ontology_before": "The old edge treated scientific societies as a generic enabling prerequisite for early printed encyclopedic compendia.",
+  "ontology_after": "The corrected edge keeps the relationship but limits it to later scaling, publication, and specialist-contributor infrastructure for arts-and-sciences encyclopedias.",
+  "invariant_preserved_or_changed": "Changed edge type: scientific_societies is now a commercial_or_scaling_dependency rather than a direct enabling prerequisite.",
+  "would_reject_if": [
+    "The node is later narrowed strictly to c.1500 printed compendia with no later arts-and-sciences encyclopedia scope.",
+    "A stronger source shows scientific societies directly enabled the first printed encyclopedic compendia.",
+    "The graph adds a narrower later encyclopedia node where the scientific-societies edge belongs instead."
+  ],
+  "short_reason": "Scientific societies scale later arts-and-sciences encyclopedias but do not enable the earliest printed compendia.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/encyclopedic_compendiums_knowledge_organization.before.json /tmp/encyclopedic_compendiums_knowledge_organization.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}

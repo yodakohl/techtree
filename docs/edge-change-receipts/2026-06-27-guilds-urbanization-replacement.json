@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-27-guilds-urbanization-replacement",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "guilds",
+    "prerequisite": "urbanization"
+  },
+  "replaced_edge": {
+    "dependent": "guilds",
+    "prerequisite": "urban_planning_grid_system"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Urban Planning (Grid System) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Dense town and city settings supported merchant and craft guilds, and urban expansion coincided with their commercial rise; rural guilds also existed, so urbanization is enabling rather than universal."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://eh.net/encyclopedia/medieval-guilds/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Guild Activities and Taxonomy says typical occupational guilds were urban merchant and craft guilds. Guild Chronology and Impact says late Roman collegia existed in most towns and cities and that the revival of long-distance trade coincided with urban expansion as merchant guilds formed an institutional foundation.",
+    "source_claim_summary": "The source supports guilds as town/city commercial and occupational institutions, with some rural guilds also present.",
+    "source_support_rationale": "Urbanization is the appropriate broad enabling context for guild formation and growth. Orthogonal grid planning is a narrower built-form technique and is not required by the source for guild organization."
+  },
+  "ontology_before": "Guilds depended on Orthogonal Grid Urban Planning, implying that a specific city-layout technique enabled guild organization.",
+  "ontology_after": "Guilds depend on Urbanization, preserving the source-backed town/city and commercial-density context without requiring grid-planned streets.",
+  "invariant_preserved_or_changed": "Changed: urban_planning_grid_system is removed and replaced with urbanization. Preserved: the node remains a broad guild-like and formal medieval guild institution, not a city-planning technique.",
+  "would_reject_if": [
+    "The node is narrowed to guild halls or planned urban districts rather than guild associations.",
+    "A source shows orthogonal grid street planning was a direct prerequisite for medieval guild organization.",
+    "A narrower craft_guilds_only node is introduced and this broad node is reserved for social or religious guilds only."
+  ],
+  "short_reason": "The reviewed source supports urban settlement context, not orthogonal grid planning, as the relevant enabling prerequisite for guilds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/guilds.before.json /tmp/guilds.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

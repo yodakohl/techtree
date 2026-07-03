@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-animal-tracking-oral-transmission-context",
+  "decision_date": "2026-06-27",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "animal_tracking_signs",
+    "prerequisite": "oral_tradition_storytelling"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Oral Tradition & Storytelling provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.52,
+    "evidence_level": "review",
+    "note": "Spoken teaching and social learning help transmit hunting and tracking knowledge, but the cited evidence supports general hunter-gatherer skill transmission rather than storytelling as a hard prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://hraf.yale.edu/ehc/summaries/hunter-gatherers",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Hunter-Gatherer Childhoods section: teaching by parents and older generations is described as a main form of subsistence learning, and hunting is described as one of the most difficult skills requiring more direct instruction.",
+    "source_claim_summary": "Hunter-gatherer subsistence skills are transmitted through teaching and direct instruction.",
+    "source_support_rationale": "The source supports oral/social transmission as contextual support for learning hunting skills, but not as a hard prerequisite or a story-specific dependency."
+  },
+  "ontology_before": "The graph implied oral tradition and storytelling enabled animal tracking directly.",
+  "ontology_after": "The edge is retained as a weaker common-dependency claim for social and spoken transmission of difficult hunting knowledge.",
+  "invariant_preserved_or_changed": "Changed: oral_tradition_storytelling remains connected but is retyped from enabling to common_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to individual non-social observation of tracks.",
+    "A direct source showed storytelling traditions are required for animal tracking rather than only useful for transmission.",
+    "The oral_tradition_storytelling node were narrowed away from spoken knowledge transmission."
+  ],
+  "short_reason": "Teaching and spoken transmission support tracking knowledge, but storytelling is not a hard enabling technology for the skill.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_tracking_signs.before.json /tmp/animal_tracking_signs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

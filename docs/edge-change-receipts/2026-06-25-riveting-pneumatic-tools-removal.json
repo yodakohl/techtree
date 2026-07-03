@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-riveting-pneumatic-tools-removal",
+  "decision_date": "2026-06-25",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "riveting_technology",
+    "prerequisite": "pneumatic_tools_compressed_air_power"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pneumatic Tools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct pneumatic_tools_compressed_air_power dependency remains because the source-backed node is scoped to Tweddell-era hydraulic riveting for industrial boilers, bridges, and shipyards, not later pneumatic rivet-gun practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.gracesguide.co.uk/Ralph_Hart_Tweddell",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The reproduced obituaries describe Tweddell's 1865 stationary hydraulic riveting machine, 1871 portable riveter, pumps, accumulators, and hydraulic pressure applications to boilers, bridges, and ships.",
+    "source_claim_summary": "The source grounds the corrected industrial riveting node in hydraulic riveting machines rather than compressed-air pneumatic tools.",
+    "source_support_rationale": "Pneumatic tools may support later rivet-gun practice, but the corrected node's chronology and mechanism are hydraulic, so compressed-air tools are not a direct prerequisite."
+  },
+  "ontology_before": "Riveting Technology depended directly on Pneumatic Tools, implying compressed-air tools enabled the industrial riveting node.",
+  "ontology_after": "Riveting Technology is scoped to hydraulic/mechanized industrial riveting and depends on metal platework, steel production, and steam-boiler pressure context without a pneumatic-tools prerequisite.",
+  "invariant_preserved_or_changed": "Changed: the direct pneumatic_tools_compressed_air_power dependency is removed from riveting_technology.",
+  "would_reject_if": [
+    "The node is later rescoped to twentieth-century pneumatic rivet guns rather than Tweddell-era hydraulic riveting.",
+    "A source shows compressed-air pneumatic riveters enabled the 1860s hydraulic riveting system.",
+    "The graph adds a narrower pneumatic-rivet-gun node that should replace the broad riveting_technology node."
+  ],
+  "short_reason": "The source-backed industrial riveting system used hydraulic pressure, not compressed-air pneumatic tools.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/riveting_technology.before.json /tmp/riveting_technology.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

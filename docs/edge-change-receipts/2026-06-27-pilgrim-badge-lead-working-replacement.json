@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-pilgrim-badge-lead-working-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "pilgrim_badge_casting",
+    "prerequisite": "lead_working"
+  },
+  "replaced_edge": {
+    "dependent": "pilgrim_badge_casting",
+    "prerequisite": "guild_certification_seals"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Guild Certification Seals provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Most late-medieval badges and ampullae used cheap tin-lead or lead alloy, so low-melting lead-alloy working is the material capability behind the cast souvenir form."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://kunera.nl/over-kunera/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Kunera overview says late-medieval badges and ampullae were often made from cheap tin-lead alloy.",
+    "source_claim_summary": "Pilgrim-badge casting depended on cheap tin-lead or lead-alloy material rather than guild certification seal practice.",
+    "source_support_rationale": "The replacement moves the edge from a documentary/authentication institution to the material capability used to make the cast badges themselves."
+  },
+  "ontology_before": "Pilgrim Badge Casting depended on guild certification seals, implying badge manufacture grew out of guild authentication and regulated seal practice.",
+  "ontology_after": "Pilgrim Badge Casting is scoped to low-cost tin-lead or lead-alloy cast devotional souvenirs, with lead_working carrying the material-production capability.",
+  "invariant_preserved_or_changed": "Changed: pilgrim_badge_casting now depends on lead_working and no longer directly depends on guild_certification_seals.",
+  "would_reject_if": [
+    "The node is later narrowed to guild-certified trade seals rather than pilgrim badges and ampullae.",
+    "A dedicated pewter_casting or lead_tin_alloy_badges node is added and should replace the broader lead_working prerequisite.",
+    "A source shows the scoped mass-produced pilgrim badges were not normally made from lead or tin-lead alloy."
+  ],
+  "short_reason": "Lead-alloy working is the material basis; guild certification seals were a mismatched institutional edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/pilgrim_badge_casting.before.json /tmp/pilgrim_badge_casting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

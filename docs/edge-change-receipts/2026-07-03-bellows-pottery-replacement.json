@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-bellows-pottery-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "bellows",
+    "prerequisite": "pottery"
+  },
+  "replaced_edge": {
+    "dependent": "bellows",
+    "prerequisite": "woodworking_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "primary_source",
+    "note": "The securely sourced early bellows evidence is a ceramic pot-bellows and tuyere-nozzle metalworking assemblage, so pottery provides the material path for this first-known bellows form."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=26248&mag_id=134",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Area A Stratum A2 table and Iron Age I remains narrative identify pot-bellows and tuyere nozzles among the metal-working remains.",
+    "source_claim_summary": "The excavation report anchors the bellows evidence to an Iron IB metalworking context where the preserved bellows form is ceramic pot bellows with tuyere nozzles.",
+    "source_support_rationale": "Because the corrected node is dated from the preserved pot-bellows assemblage, pottery is the source-backed material path, while the previous woodworking edge only cited unrelated Pleistocene wooden artifacts."
+  },
+  "ontology_before": "Bellows depended on woodworking_basic through a source that documented ancient wooden artifacts but did not document bellows or metalworking forced draft.",
+  "ontology_after": "Bellows is anchored to an Iron Age metalworking pot-bellows assemblage, with pottery as the sourced enabling material path for the first-known evidence.",
+  "invariant_preserved_or_changed": "Changed: bellows no longer directly depends on woodworking_basic and now depends on pottery as an enabling edge.",
+  "would_reject_if": [
+    "A source-backed earlier non-ceramic bellows assemblage is added and the node is split away from the pot-bellows chronology.",
+    "The node is narrowed to carved wooden bellows rather than the current forced-draft metalworking scope.",
+    "A primary source shows the Abel Beth Maacah pot-bellows interpretation is incorrect or not connected to bellows use."
+  ],
+  "short_reason": "The source-backed first-known bellows evidence is a pot-bellows metalworking assemblage, not unrelated woodworking.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/bellows.before.json /tmp/bellows.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

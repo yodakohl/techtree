@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-immunology-advanced-antibiotics-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "immunology_advanced",
+    "prerequisite": "antibiotics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Antibiotics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because antibiotics are infection-treatment technology, not a prerequisite for postwar immune-tolerance, graft-rejection, antibody, or cellular-immunology research.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nobelprize.org/prizes/medicine/1960/speedread/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nobel explains the 1960 prize as Burnet's prediction and Medawar's experimental proof of immune self-discrimination, graft rejection, and acquired tolerance with tissue and organ transplant implications.",
+    "source_claim_summary": "The source-backed postwar immunology scope centers on self/non-self discrimination, immune tolerance, and transplantation biology rather than antibiotic therapy.",
+    "source_support_rationale": "The old edge cited the 1945 penicillin Nobel summary, but that source supports antibiotics as antibacterial treatment and does not license antibiotics as an upstream mechanism for acquired tolerance or graft-rejection immunology."
+  },
+  "ontology_before": "Advanced Immunology depended directly on Antibiotics, conflating antibacterial therapy with immune-system research.",
+  "ontology_after": "Advanced Immunology is scoped to postwar immune-tolerance and cellular/molecular immunology without an antibiotic-treatment prerequisite.",
+  "invariant_preserved_or_changed": "Changed: immunology_advanced no longer directly depends on antibiotics.",
+  "would_reject_if": [
+    "The node is later narrowed to transplant clinical management where perioperative antibiotic control is directly required.",
+    "A stronger source shows antibiotic treatment was a necessary method in the foundational postwar immunology experiments.",
+    "A separate immunosuppressed_transplant_protocols node is added where antibiotics are a source-backed direct prerequisite."
+  ],
+  "short_reason": "Antibiotic therapy is adjacent clinical infrastructure, not a direct prerequisite for the scoped immunology claim.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/immunology_advanced.before.json /tmp/immunology_advanced.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

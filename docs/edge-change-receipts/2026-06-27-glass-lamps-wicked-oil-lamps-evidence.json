@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-glass-lamps-wicked-oil-lamps-evidence",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "glass_lamp_chimneys",
+    "prerequisite": "wicked_oil_lamps"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Wicked Oil Lamps provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The glass vessel was a material variant of oil-lamp architecture, which still required a fuel reservoir, oil, air supply, and wick."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.mpm.edu/index.php/research-collections/anthropology/anthropology-collections-research/mediterranean-oil-lamps/description-and-history-oil-lamps",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The overview states that oil lamps need a wick, fuel, reservoir, and air supply; the glass-lamp section says glass lamps held oil without seepage and projected light more efficiently.",
+    "source_claim_summary": "The glass lamp is still an oil lamp whose operation depends on the wick, fuel reservoir, and air supply architecture.",
+    "source_support_rationale": "Without the wicked oil-lamp mechanism, the blown glass vessel would not be the scoped illumination technology."
+  },
+  "ontology_before": "The oil-lamp prerequisite was a generic enabling edge with no source-backed absence-breaks rationale.",
+  "ontology_after": "The edge now models wicked oil-lamp architecture as required for the glass oil-lamp vessel to function as a lamp.",
+  "invariant_preserved_or_changed": "Changed edge type: wicked_oil_lamps is now required rather than a generic enabling edge.",
+  "would_reject_if": [
+    "The node is later narrowed to non-burning decorative glass covers rather than operating oil lamps.",
+    "A stronger source shows the fourth-century glass examples were not oil lamps and did not use wick-and-reservoir architecture.",
+    "A more specific oil_lamp_components node is added and replaces the broader wicked_oil_lamps prerequisite."
+  ],
+  "short_reason": "The glass vessel does not function as an oil lamp without the wick, fuel, reservoir, and air-supply architecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/glass_lamp_chimneys.before.json /tmp/glass_lamp_chimneys.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

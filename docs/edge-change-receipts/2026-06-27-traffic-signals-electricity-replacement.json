@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-traffic-signals-electricity-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "traffic_signal_systems",
+    "prerequisite": "electricity"
+  },
+  "replaced_edge": {
+    "dependent": "traffic_signal_systems",
+    "prerequisite": "automobile_mass_production"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mass-Produced Automobile provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "primary_source",
+    "note": "The scoped signal system used electric lights, switches, circuits, and a source of current to operate stop/move signals at intersections."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patents.google.com/patent/US1251666A/en",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Patent specification describes electric signals, lights of different colors, circuit connections, a source of current, power mains, and electric control boxes for street traffic signals.",
+    "source_claim_summary": "The source makes electrical current, circuits, and lights core components of the municipal traffic-control system.",
+    "source_support_rationale": "Automobile mass production explains traffic demand, but the source-backed mechanism of the scoped technology is electrical signal control at an intersection."
+  },
+  "ontology_before": "Traffic Signal Systems depended directly on automobile_mass_production, implying mass automobile manufacture enabled the signal mechanism.",
+  "ontology_after": "Traffic Signal Systems depends directly on electricity for the electric lamps, circuits, power mains, and controls described in the patent.",
+  "invariant_preserved_or_changed": "Changed: traffic_signal_systems now depends on electricity and no longer directly depends on automobile_mass_production.",
+  "would_reject_if": [
+    "The node is later rescoped to automobile-era traffic-management demand rather than electric signal technology.",
+    "A stronger source shows the first traffic signal system was not electrically powered.",
+    "A separate electric_traffic_signals node is added and this node is broadened to non-electric traffic-control regimes."
+  ],
+  "short_reason": "Electricity is the direct operating mechanism; mass automobile production is demand context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/traffic_signal_systems.before.json /tmp/traffic_signal_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-traffic-signal-systems-scope",
+  "description": "Lock the 2026-06-27 correction of traffic_signal_systems to early municipal electric road-intersection stop/move signals, not railway-only signaling, automobile mass production, streetcar network management, or later automated three-color systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "traffic_signal_systems",
+      "operator": "eq",
+      "value": 1914,
+      "reason": "The chronology stays anchored to Cleveland's 1914 early electric traffic-signal installation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "traffic_signal_systems",
+      "prerequisite": "electricity",
+      "expected": "required",
+      "reason": "The scoped signal system uses electric lamps, circuits, controls, and current."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "traffic_signal_systems",
+      "prerequisite": "roads",
+      "expected": "required",
+      "reason": "Road and street intersections are the physical substrate controlled by the signals."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "traffic_signal_systems",
+      "prerequisite": "electric_railway_signaling",
+      "expected": "historical_predecessor",
+      "reason": "Railway signaling is source-backed design lineage, not the direct road-intersection substrate."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "traffic_signal_systems",
+      "prerequisite": "automobile_mass_production",
+      "reason": "Mass automobile production is demand context and should not be restored as the direct mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "traffic_signal_systems",
+      "prerequisite": "urban_mass_transit_networks",
+      "reason": "Urban mass transit networks are city-traffic context, not the direct physical substrate of the road signal."
+    }
+  ]
+}

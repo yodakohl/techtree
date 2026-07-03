@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-27-port-crane-harbor-works-scope",
+  "description": "Lock the 2026-06-27 port crane correction that scopes the node to physical dockside lifting and crane-gate infrastructure rather than shipping-contract administration.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "port_crane_harbor_works",
+      "operator": "eq",
+      "value": 1244,
+      "reason": "The corrected node uses the earliest documented stationary harbor-crane chronology while keeping explicit date uncertainty."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "port_crane_harbor_works",
+      "prerequisite": "construction",
+      "expected": "enabling",
+      "reason": "The node is physical harbor crane and crane-gate infrastructure, so construction is the direct enabling capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "port_crane_harbor_works",
+      "prerequisite": "charterparty_shipping_contracts",
+      "reason": "Charterparty contracts are ship-hire documents and should not be a direct prerequisite for physical dockside crane works."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "port_crane_harbor_works",
+      "prerequisite": "maritime_pilot_books",
+      "reason": "The node remains physical harbor infrastructure and should not reacquire a navigation-document prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "fortified_water_gates",
+      "prerequisite": "port_crane_harbor_works",
+      "reason": "Fortified water gates are defensive wall and river-access infrastructure; they should not depend directly on the later stationary harbor-crane node."
+    }
+  ]
+}

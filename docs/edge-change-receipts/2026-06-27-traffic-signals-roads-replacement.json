@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-traffic-signals-roads-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "traffic_signal_systems",
+    "prerequisite": "roads"
+  },
+  "replaced_edge": {
+    "dependent": "traffic_signal_systems",
+    "prerequisite": "urban_mass_transit_networks"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Urban Mass Transit Networks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "primary_source",
+    "note": "The scoped signal system is installed at public street and road intersections, so roadways are the direct physical substrate being controlled."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patents.google.com/patent/US1251666A/en",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Patent specification describes traffic through public streets and roads, signals at street intersections, and start/stop signals for intersecting roadways.",
+    "source_claim_summary": "The source locates the traffic-control system at street and road intersections, making roadways the controlled substrate.",
+    "source_support_rationale": "Urban mass transit networks are one user/context of city streets, but the patented signal system controls road traffic at intersections, independent of a streetcar or transit network."
+  },
+  "ontology_before": "Traffic Signal Systems depended directly on urban_mass_transit_networks, implying transit networks were the direct substrate for the signal system.",
+  "ontology_after": "Traffic Signal Systems depends on roads as the physical intersection substrate; transit networks remain contextual city traffic rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: traffic_signal_systems now depends on roads and no longer directly depends on urban_mass_transit_networks.",
+  "would_reject_if": [
+    "The node is later narrowed to streetcar or rail-transit traffic signaling rather than road-intersection signals.",
+    "A stronger source shows the first Cleveland signal was designed primarily as a mass-transit network controller.",
+    "The graph adds a dedicated urban_street_intersections node that should replace the broad roads edge."
+  ],
+  "short_reason": "Road intersections are the direct substrate; mass transit networks were too narrow and contextual.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/traffic_signal_systems.before.json /tmp/traffic_signal_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

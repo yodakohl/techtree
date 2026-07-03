@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-27-early-symbolic-oral-tradition-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_symbolic_communication",
+    "prerequisite": "oral_tradition_storytelling"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Oral Tradition & Storytelling provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the corrected node covers archaeological abstract graphic signs rather than spoken narrative transmission.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/s41586-018-0514-3",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports an intentionally applied cross-hatched ochre drawing and says it demonstrates graphic-design ability; it does not claim oral storytelling as an enabling prerequisite.",
+    "source_claim_summary": "The source supports visual graphic marking without requiring oral tradition or narrative transmission.",
+    "source_support_rationale": "The old edge conflated visual-symbol evidence with spoken transmission; oral tradition can remain contextual for later myths or storytelling nodes."
+  },
+  "ontology_before": "Early Symbolic Communication depended directly on Oral Tradition & Storytelling through a generic enabling edge.",
+  "ontology_after": "Early Symbolic Communication is scoped to source-backed visual marks; oral tradition remains a separate communication lineage rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: oral_tradition_storytelling is no longer a direct prerequisite for early_symbolic_communication.",
+  "would_reject_if": [
+    "The node were rescoped to spoken symbolic communication rather than graphic signs.",
+    "A source showed the Blombos drawing or comparable early graphic signs depended on oral narrative transmission.",
+    "A downstream node required an oral-tradition path specifically through early_symbolic_communication."
+  ],
+  "short_reason": "The source-backed scope is visual graphic signs, not oral storytelling.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_symbolic_communication.before.json /tmp/early_symbolic_communication.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

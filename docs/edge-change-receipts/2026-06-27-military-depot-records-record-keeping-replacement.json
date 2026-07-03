@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-military-depot-records-record-keeping-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "military_depot_records",
+    "prerequisite": "record_keeping"
+  },
+  "replaced_edge": {
+    "dependent": "military_depot_records",
+    "prerequisite": "state_medical_supply_stores"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "State Medical Supply Stores provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "textbook",
+    "note": "The node is specifically about military reports, accounts, lists, and inventories, so earlier record-keeping practice is the direct administrative foundation."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://romaninscriptionsofbritain.org/tabvindol/vol-II/texts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Accounts and lists introduction distinguishes military reports from accounts and lists, including accounts related to unit administration and inventories or lists.",
+    "source_claim_summary": "Vindolanda military depot records are report, account, and list documents rather than a medical supply-store technology.",
+    "source_support_rationale": "The source pins the target mechanism to record production and classification; medical supply stores were a narrow possible subject not required for the record form."
+  },
+  "ontology_before": "Military Depot Records depended on Roman military medical supply stores, making one supply category look like a prerequisite for all depot records.",
+  "ontology_after": "Military Depot Records depends directly on record_keeping as the administrative practice behind military reports, accounts, lists, and inventories.",
+  "invariant_preserved_or_changed": "Changed: military_depot_records now depends on record_keeping and no longer directly depends on state_medical_supply_stores.",
+  "would_reject_if": [
+    "The node is later narrowed to records specifically for military hospitals or medical supply depots.",
+    "A new Roman medical inventory records node is created and should depend on state_medical_supply_stores.",
+    "A stronger source shows the scoped records are not accounts, reports, lists, or inventories."
+  ],
+  "short_reason": "The direct capability is record keeping; medical stores were an unsupported narrow subject edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_depot_records.before.json /tmp/military_depot_records.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

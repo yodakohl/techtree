@@ -1,0 +1,47 @@
+{
+  "id": "2026-06-27-advanced-metallurgy-bronze-lineage",
+  "decision_date": "2026-06-27",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "advanced_metallurgy_medieval",
+    "prerequisite": "bronze_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bronze Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.58,
+    "evidence_level": "expert_inference",
+    "note": "Earlier copper and bronze furnace/casting traditions form metallurgical craft lineage, but they are not a direct ferrous prerequisite for medieval iron and steel smithing."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://en.wikipedia.org/wiki/Bloomery",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "History section frames bloomery iron smelting after Bronze Age and copper-smelting contexts, and notes that some early iron may have come from accidental iron-ore introduction in copper-smelting operations.",
+    "source_claim_summary": "The source supports bronze/copper metallurgy as historical context for later iron smelting, not as a direct material requirement for medieval ferrous metallurgy.",
+    "source_support_rationale": "The retained edge is downgraded to lineage because the advanced_metallurgy_medieval node is scoped to iron and steel process improvement, while the source only links earlier copper/bronze practice to the broader emergence of ferrous smelting."
+  },
+  "ontology_before": "The graph treated Bronze Working as an enabling capability for medieval advanced ferrous metallurgy.",
+  "ontology_after": "The graph treats Bronze Working as earlier metallurgical craft lineage while preserving Iron Working and Mining as direct ferrous enablers.",
+  "invariant_preserved_or_changed": "Changed edge type: bronze_working is now historical_predecessor rather than an enabling prerequisite.",
+  "would_reject_if": [
+    "The node is broadened to medieval non-ferrous metallurgy where bronze casting is itself part of the scoped process.",
+    "A stronger source shows bronze-working shops directly enabled the medieval iron and steel processes represented by this node.",
+    "The graph adds a more specific early_metallurgical_furnaces node that should replace bronze_working on this lineage edge."
+  ],
+  "short_reason": "Bronze working is metallurgical ancestry, not a direct ferrous process enabler.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_metallurgy_medieval.before.json /tmp/advanced_metallurgy_medieval.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

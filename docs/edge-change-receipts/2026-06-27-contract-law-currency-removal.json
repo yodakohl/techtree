@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-contract-law-currency-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "contract_law",
+    "prerequisite": "currency"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Currency is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct edge remains from contract_law to currency. Bronze Age Mesopotamian contract law and written commercial obligations predate coined currency and used cuneiform records, silver/barley valuation, receipts, and sealed documents instead.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sfu.ca/~poitras/Equity-Capital_ch2.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Bronze Age Law Codes in Sumer and Babylon section says cuneiform documents often originated as commercial contracts and that laws of the era required written contracts for common commercial activities; the chapter discusses commodity money and silver/barley valuation before coined currency.",
+    "source_claim_summary": "Bronze Age Mesopotamian contract practice relied on written cuneiform documents and commodity valuation, not coined currency.",
+    "source_support_rationale": "Because the source places contract-law practice in Bronze Age Mesopotamia before standardized coinage, coined currency should not remain a direct prerequisite for the scoped node."
+  },
+  "ontology_before": "The graph treated Contract Law as a Classical-era node with currency as direct shared infrastructure.",
+  "ontology_after": "Contract Law is scoped to Bronze Age Mesopotamian written-contract law, with codified law and recordkeeping as context but no coined-currency dependency.",
+  "invariant_preserved_or_changed": "Changed: currency is absent as a direct prerequisite for contract_law.",
+  "would_reject_if": [
+    "The node were narrowed back to a specifically Classical Greek or Roman monetary contract-law system.",
+    "A source showed that the scoped Bronze Age written-contract rules required coined currency rather than silver/barley valuation and written accounts.",
+    "The graph split Bronze Age contract law from a later Roman/common-law contract doctrine node and reintroduced currency only to the later node."
+  ],
+  "short_reason": "Contract-law evidence predates coined currency, so currency is not a direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/contract_law.before.json /tmp/contract_law.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

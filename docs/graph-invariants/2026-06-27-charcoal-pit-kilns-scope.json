@@ -1,0 +1,34 @@
+{
+  "id": "2026-06-27-charcoal-pit-kilns-scope",
+  "description": "Lock the 2026-06-27 charcoal_pit_kilns correction to traditional earth-covered pit and mound charcoal carbonization rather than generic hearth charcoal or modern retorts.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "charcoal_pit_kilns",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "The node now uses a conservative ancient-history anchor with explicit uncertainty instead of the Ancient era default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "charcoal_pit_kilns",
+      "prerequisite": "charcoal_production",
+      "expected": "enabling",
+      "reason": "Earth pits and mounds are specific systems for producing charcoal, so charcoal production remains the direct process capability."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "charcoal_pit_kilns",
+      "prerequisite": "fire_control",
+      "expected": "historical_predecessor",
+      "reason": "General fire control predates and contextualizes controlled carbonization but is not by itself the pit-kiln process."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "charcoal_pit_kilns",
+      "prerequisite": "woodworking_basic",
+      "expected": "historical_predecessor",
+      "reason": "Basic wood cutting and stacking is prerequisite craft background rather than the distinctive carbonization method."
+    }
+  ]
+}

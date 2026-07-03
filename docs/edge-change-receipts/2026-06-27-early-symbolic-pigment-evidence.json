@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-27-early-symbolic-pigment-evidence",
+  "decision_date": "2026-06-27",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "early_symbolic_communication",
+    "prerequisite": "pigment_creation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pigment Creation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "primary_source",
+    "note": "The Blombos drawing was made with red ochre pigment intentionally applied by an ochre crayon, making pigment creation and use the documented material enabler for this scoped graphic-symbol node."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nature.com/articles/s41586-018-0514-3",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract: reports a cross-hatched pattern drawn with an ochre crayon on a ground silcrete flake from approximately 73,000-year-old Blombos Cave levels and says red ochre pigment was intentionally applied.",
+    "source_claim_summary": "The source ties the scoped early graphic sign to intentional application of red ochre pigment.",
+    "source_support_rationale": "Pigment creation is enabling rather than universal because some symbolic signs are engraved, but the dated anchor for this node uses ochre pigment directly."
+  },
+  "invariant_preserved_or_changed": "Preserved: pigment_creation remains an enabling prerequisite, now with a primary-source rationale.",
+  "would_reject_if": [
+    "The node were narrowed to non-pigment engravings only.",
+    "The pigment_creation node were narrowed away from ochre pigment production and use.",
+    "A stronger source showed the Blombos cross-hatched pattern was not intentionally applied pigment."
+  ],
+  "short_reason": "The Blombos drawing uses intentionally applied red ochre pigment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_symbolic_communication.before.json /tmp/early_symbolic_communication.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

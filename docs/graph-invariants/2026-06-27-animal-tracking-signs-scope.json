@@ -1,0 +1,27 @@
+{
+  "id": "2026-06-27-animal-tracking-signs-scope",
+  "description": "Lock Animal Tracking & Signs to track-reading within hunter-gatherer ecology with an explicitly uncertain Homo sapiens by-date, not a direct first preserved tracking event or modern electronic tracking.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "animal_tracking_signs",
+      "operator": "eq",
+      "value": -250000,
+      "reason": "The node uses a conservative by-date aligned with source-checked Homo sapiens hunting-and-gathering context while documenting that direct archaeological evidence is later and indirect."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "animal_tracking_signs",
+      "prerequisite": "hunting_gathering_basic",
+      "expected": "common_dependency",
+      "reason": "Basic hunting and gathering is the contextual forager ecology for track reading, not a separate staged predecessor invention."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "animal_tracking_signs",
+      "prerequisite": "oral_tradition_storytelling",
+      "expected": "common_dependency",
+      "reason": "Spoken teaching and social learning transmit difficult hunting skills, but storytelling is not a hard enabling prerequisite for reading tracks."
+    }
+  ]
+}

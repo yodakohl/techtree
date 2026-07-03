@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-27-public-newspaper-advertising-scope",
+  "description": "Lock the 2026-06-27 correction of public_newspaper_advertising to paid notices inserted into recurring newspapers, anchored by the Boston News-Letter in 1704.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "public_newspaper_advertising",
+      "operator": "eq",
+      "value": 1704,
+      "reason": "The date remains anchored to the Boston News-Letter's 1704 solicitation and first paid notices."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_newspaper_advertising",
+      "prerequisite": "newspaper_periodicals",
+      "expected": "enabling",
+      "reason": "A recurring newspaper periodical is the source-backed publication channel for paid newspaper notices."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_newspaper_advertising",
+      "prerequisite": "commercial_auction_houses",
+      "reason": "Auction houses are possible advertisers or notice subjects, not the direct enabling infrastructure for paid newspaper notices."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_newspaper_advertising",
+      "prerequisite": "theater_ticketing_systems",
+      "reason": "Theater ticketing systems are possible event-commerce content, not a prerequisite for the newspaper advertising channel."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "2026-06-27-shamanism-animism-scope",
+  "description": "Lock Shamanism & Animism to archaeologically inferred Natufian ritual-specialist practice, not a universal first religion or a formal 19th-century animism theory.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "shamanism_animism",
+      "operator": "eq",
+      "value": -10050,
+      "reason": "The scoped claim is anchored to the Hilazon Tachtit shaman-burial evidence dated to about 12,000 cal BP, converted to an approximate BCE by-date."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "shamanism_animism",
+      "prerequisite": "oral_tradition_storytelling",
+      "expected": "enabling",
+      "reason": "Oral transmission supports ritual knowledge, songs, stories, and roles across generations without narrowing the node to written doctrine."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "shamanism_animism",
+      "prerequisite": "tribalism",
+      "reason": "Kin-based band organization is only broad social context for the Hilazon Tachtit evidence, and the local tribalism node is not a direct chronological prerequisite."
+    }
+  ]
+}

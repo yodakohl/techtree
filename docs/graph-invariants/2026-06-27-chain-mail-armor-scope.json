@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-27-chain-mail-armor-scope",
+  "description": "Lock the 2026-06-27 chain_mail_armor correction to classical interlinked metal-ring mail armor, not leather armor, scale armor, or later medieval workshop production.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "chain_mail_armor",
+      "operator": "eq",
+      "value": -300,
+      "reason": "The node now anchors to the post-300 BC Celtic/Roman mail chronology rather than the old Classical era placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chain_mail_armor",
+      "prerequisite": "iron_working",
+      "expected": "enabling",
+      "reason": "Mail is scoped as interlinked iron-ring armor, so iron working remains the main material capability."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chain_mail_armor",
+      "prerequisite": "basic_weaving_basketry",
+      "expected": "enabling",
+      "reason": "The wearable armor system used quilted textile underlayers for comfort and cushioning, but this is support rather than the ring-material technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chain_mail_armor",
+      "prerequisite": "leather_working",
+      "reason": "Leather working is broader than the corrected mail-armor mechanism and should not be restored without a leather-specific scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chain_mail_armor",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "reason": "Medieval mail-smithing workshop production is represented by chainmail_armor_smithing, not this classical armor-existence node."
+    }
+  ]
+}

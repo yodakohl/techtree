@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-animal-tracking-hunting-context",
+  "decision_date": "2026-06-27",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "animal_tracking_signs",
+    "prerequisite": "hunting_gathering_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Hunting & Gathering is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.66,
+    "evidence_level": "review",
+    "note": "Basic Hunting & Gathering supplies the forager subsistence context in which reading animal tracks, trails, and movements is useful, but it is not a staged predecessor invention."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.anthroencyclopedia.com/entry/hunting-and-gathering",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract and ecology sections describe hunting and gathering as the oldest human mode of making a living; the gender/comparisons section says many hunts would not be successful without keen observations of animal tracks and movements.",
+    "source_claim_summary": "Hunter-gatherer hunting practice includes keen observations of animal tracks and movements.",
+    "source_support_rationale": "The source supports animal tracking as part of forager hunting ecology, which is contextual infrastructure rather than a separate historical stage."
+  },
+  "ontology_before": "The graph treated basic hunting and gathering as a predecessor stage leading to animal tracking.",
+  "ontology_after": "Animal tracking is scoped as an interpretive skill within forager hunting ecology, with broad hunting and gathering modeled as contextual common dependency.",
+  "invariant_preserved_or_changed": "Changed: hunting_gathering_basic remains connected but is retyped from historical_predecessor to common_dependency.",
+  "would_reject_if": [
+    "The node were narrowed to a later rock-art-only representation of tracks.",
+    "A source showed animal tracking should be modeled as a separate later invention after basic hunting and gathering.",
+    "The hunting_gathering_basic node were narrowed away from broad forager subsistence."
+  ],
+  "short_reason": "Tracking is part of hunter-gatherer hunting ecology, not a staged successor to it.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/animal_tracking_signs.before.json /tmp/animal_tracking_signs.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

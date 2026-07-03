@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-spaceborne-optics-photography-replaces-lasers",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "advanced_optics_space_based",
+    "prerequisite": "photography"
+  },
+  "replaced_edge": {
+    "dependent": "advanced_optics_space_based",
+    "prerequisite": "lasers"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "expert_inference",
+    "note": "Lasers is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "The 1960 anchor used television cloud-cover pictures and image recording from orbit, making photographic imaging lineage an enabling predecessor."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nesdis.noaa.gov/news/celebrating-65-years-of-the-worlds-first-weather-satellite",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "NOAA says TIROS-1 carried two television cameras and two video recorders, provided forecasters their first view of cloud formations from orbit, and returned more than 19,000 usable pictures.",
+    "source_claim_summary": "The source-backed 1960 anchor is orbital imaging with television cameras and recorded pictures, not laser optics.",
+    "source_support_rationale": "Photography is a defensible image-capture predecessor for TIROS-style orbital imaging, while lasers were invented in 1960 and are not required by this early spacecraft payload."
+  },
+  "ontology_before": "Space-Based Advanced Optics depended directly on lasers, implying laser components were necessary for the first spaceborne optical systems.",
+  "ontology_after": "Spaceborne Optical Instruments depends on photographic/television imaging lineage and leaves lasers for later ranging, communication, adaptive-optics, or specialized payload nodes.",
+  "invariant_preserved_or_changed": "Changed: advanced_optics_space_based now depends on photography and no longer directly depends on lasers.",
+  "would_reject_if": [
+    "The node is later narrowed specifically to laser altimetry, lidar, laser communications, or laser guide-star adaptive optics.",
+    "A stronger source shows the 1960 spaceborne optical anchor required an onboard laser.",
+    "A separate spaceborne_laser_optics node is added and should carry the laser dependency."
+  ],
+  "short_reason": "The 1960 anchor used television imaging, not lasers.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/advanced_optics_space_based.before.json /tmp/advanced_optics_space_based.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

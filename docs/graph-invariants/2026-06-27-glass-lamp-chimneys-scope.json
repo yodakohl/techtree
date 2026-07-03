@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-27-glass-lamp-chimneys-scope",
+  "description": "Lock glass_lamp_chimneys to early late Roman blown glass oil lamps rather than separate chimney/cove pieces or architectural glass.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "glass_lamp_chimneys",
+      "operator": "eq",
+      "value": 300,
+      "reason": "The corrected node remains anchored to fourth-century AD Roman glass lamps."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "glass_lamp_chimneys",
+      "prerequisite": "blown_glass",
+      "expected": "required",
+      "reason": "The source says the glass lamps were blown, making blown-glass forming the direct production method."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "glass_lamp_chimneys",
+      "prerequisite": "wicked_oil_lamps",
+      "expected": "required",
+      "reason": "The scoped object is an operating oil lamp and still requires wick, fuel reservoir, and air-supply architecture."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "glass_lamp_chimneys",
+      "prerequisite": "glass_window_panes",
+      "reason": "Architectural flat-glass panes are adjacent material use, not a direct prerequisite for blown glass oil lamps."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "glass_lamp_chimneys",
+      "prerequisite": "glass_blowing_workshops",
+      "reason": "The graph should preserve the direct blown_glass production-method edge rather than broad workshop infrastructure."
+    }
+  ]
+}

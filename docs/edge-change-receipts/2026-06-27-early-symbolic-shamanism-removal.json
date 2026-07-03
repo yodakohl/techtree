@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-27-early-symbolic-shamanism-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_symbolic_communication",
+    "prerequisite": "shamanism_animism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Shamanism & Animism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the corrected node is anchored to a Blombos abstract ochre drawing and graphic-symbol tradition, not to a documented shamanic mediator or generic animistic belief system.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nature.com/articles/s41586-018-0514-3",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: reports a cross-hatched ochre drawing from approximately 73,000-year-old Blombos Cave levels and discusses graphic designs and modern cognition without identifying shamanism, animism, or ritual mediation as a prerequisite.",
+    "source_claim_summary": "The source supports early abstract graphic marking but not a shamanism or animism dependency.",
+    "source_support_rationale": "Keeping the edge would launder a broad ritual-belief interpretation into an archaeological graphic-marking claim."
+  },
+  "ontology_before": "Early Symbolic Communication depended directly on Shamanism & Animism through a generic expert-inference edge.",
+  "ontology_after": "Early Symbolic Communication is scoped to source-backed abstract graphic marks; shamanism and animism remain separate belief-system nodes for cases with direct ritual or spirit-mediation evidence.",
+  "invariant_preserved_or_changed": "Changed: shamanism_animism is no longer a direct prerequisite for early_symbolic_communication.",
+  "would_reject_if": [
+    "A Blombos source directly identified shamanic mediation as required for the abstract drawing or engraved ochre tradition.",
+    "The node were intentionally broadened to ritual-symbolic systems rather than graphic signs.",
+    "Downstream nodes required a shamanism path through early_symbolic_communication."
+  ],
+  "short_reason": "The reviewed Blombos evidence documents abstract graphic marking, not a shamanic or animistic prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_symbolic_communication.before.json /tmp/early_symbolic_communication.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

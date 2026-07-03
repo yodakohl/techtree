@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-27-port-crane-harbor-works-construction-replacement",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "port_crane_harbor_works",
+    "prerequisite": "construction"
+  },
+  "replaced_edge": {
+    "dependent": "port_crane_harbor_works",
+    "prerequisite": "charterparty_shipping_contracts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Charterparty Shipping Contracts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Medieval port cranes and crane-gates were built structures with masonry, timber, and lifting mechanisms, so construction capability is the direct physical enabler."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://zabytek.pl/pl/obiekty/gdansk-zuraw",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "History section describes Gdańsk Żuraw as a medieval port crane-gate rebuilt in 1442-1444, with masonry construction, lifting drums, treadwheels, and workers operating the mechanism.",
+    "source_claim_summary": "The source supports port crane-gate infrastructure as a constructed harbor machine and building, not as a direct product of shipping-contract law.",
+    "source_support_rationale": "Construction is required for the scoped physical crane, quay, and crane-gate infrastructure. Charterparty shipping contracts may organize cargo carriage, but they do not physically enable the harbor crane works represented by this node."
+  },
+  "ontology_before": "Port Cranes & Harbor Works depended on Charterparty Shipping Contracts, implying physical harbor lifting infrastructure required written ship-hire contracts as a direct prerequisite.",
+  "ontology_after": "Port Cranes & Harbor Works depends on Construction and Guilds, preserving physical infrastructure and organized labor/trade context while removing the contract-law prerequisite.",
+  "invariant_preserved_or_changed": "Changed: charterparty_shipping_contracts is removed and replaced with construction. Preserved: the node remains physical medieval harbor infrastructure, not maritime documents or navigation practice.",
+  "would_reject_if": [
+    "The node is later rescoped to contractual port-administration systems rather than physical harbor crane works.",
+    "A source shows charterparty contracts were a direct prerequisite for constructing or operating medieval harbor cranes.",
+    "A narrower medieval_harbor_cranes node is introduced and this broad node is reserved for administrative port services."
+  ],
+  "short_reason": "Source-backed harbor cranes are physical constructed infrastructure, not a direct output of charterparty contracts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/port_crane_harbor_works.before.json /tmp/port_crane_harbor_works.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

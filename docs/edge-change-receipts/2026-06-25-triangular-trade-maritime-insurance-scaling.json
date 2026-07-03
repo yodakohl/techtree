@@ -1,0 +1,45 @@
+{
+  "id": "2026-06-25-triangular-trade-maritime-insurance-scaling",
+  "decision_date": "2026-06-25",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "triangular_trade",
+    "prerequisite": "maritime_insurance"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Marine insurance reduced financial risk in ship and cargo ventures, supporting investment and scaling in the long-distance shipping that triangular trade required."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/money/marine-insurance",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Marine insurance article: Britannica defines marine insurance as indemnifying ships or cargo against navigation risks and says understanding it is essential to understanding the shipping industry.",
+    "source_claim_summary": "Marine insurance supported investment and risk management for shipping, while triangular trade required repeated Atlantic shipping legs.",
+    "source_support_rationale": "The source supports maritime insurance as commercial risk infrastructure for scaling maritime trade, not as a technical prerequisite for the existence of triangular trade routes."
+  },
+  "ontology_before": "The old edge treated maritime insurance as a generic enabling capability for triangular trade.",
+  "ontology_after": "The corrected edge models maritime insurance as commercial risk-management infrastructure for scaling ship and cargo ventures in long-distance Atlantic trade.",
+  "invariant_preserved_or_changed": "Changed edge type: maritime_insurance is now a commercial_or_scaling_dependency rather than a direct enabling prerequisite.",
+  "would_reject_if": [
+    "The triangular_trade node is later narrowed to a single uninsured voyage pattern rather than a recurring trade system.",
+    "A stronger source shows marine insurance was a direct operational requirement for every triangular-trade voyage.",
+    "The graph adds a narrower maritime-risk-finance node that should replace maritime_insurance on this edge."
+  ],
+  "short_reason": "Maritime insurance scaled the shipping system by managing risk rather than enabling the route pattern itself.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/triangular_trade.before.json /tmp/triangular_trade.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}

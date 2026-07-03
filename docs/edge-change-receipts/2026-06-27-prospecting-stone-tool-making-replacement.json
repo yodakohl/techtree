@@ -1,0 +1,51 @@
+{
+  "id": "2026-06-27-prospecting-stone-tool-making-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "prospecting",
+    "prerequisite": "stone_tool_making"
+  },
+  "replaced_edge": {
+    "dependent": "prospecting",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "At the Ngwenya anchor, choppers, picks, and hammers made of dolerite were identified as mining tools, making stone-tool capability the practical tool background for testing and working exposed mineral sources."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://whc.unesco.org/en/tentativelists/5421/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Justification of Outstanding Universal Value: ancient mining tools at the site were choppers, picks, and hammers made of dolerite and were identified as mining tools.",
+    "source_claim_summary": "UNESCO identifies stone choppers, picks, and hammers as the tool assemblage for early Ngwenya mineral extraction.",
+    "source_support_rationale": "The replacement narrows the prerequisite from broad Acheulean advanced stone tools to the actual stone-tool capability documented at the mineral-source anchor."
+  },
+  "ontology_before": "Prospecting depended on Advanced Stone Tools, laundering a broad Acheulean bifacial tradition into mineral-source recognition.",
+  "ontology_after": "Prospecting is scoped to recognizing and testing exposed mineral sources; stone_tool_making supplies the documented tool background for the Ngwenya anchor.",
+  "invariant_preserved_or_changed": "Changed: prospecting now depends on stone_tool_making and no longer directly depends on advanced_stone_tools.",
+  "would_reject_if": [
+    "The node were narrowed to modern geological prospecting, where stone tools are irrelevant.",
+    "A source showed the first scoped mineral-source recognition required Acheulean bifaces specifically rather than basic stone tools.",
+    "The Ngwenya anchor were moved out to a separate mining-only node and prospecting were left as a purely observational skill."
+  ],
+  "short_reason": "The source-backed tool claim is basic stone mining tools, not the whole advanced-stone-tool tradition.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/prospecting.before.json /tmp/prospecting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

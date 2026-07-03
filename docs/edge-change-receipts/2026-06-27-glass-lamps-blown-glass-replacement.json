@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-glass-lamps-blown-glass-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "glass_lamp_chimneys",
+    "prerequisite": "blown_glass"
+  },
+  "replaced_edge": {
+    "dependent": "glass_lamp_chimneys",
+    "prerequisite": "glass_blowing_workshops"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Glass-Blowing Workshops provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "The scoped late Roman glass lamps were blown glass vessels, so blown-glass forming is the direct production method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.mpm.edu/index.php/research-collections/anthropology/anthropology-collections-research/mediterranean-oil-lamps/description-and-history-oil-lamps",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The glass-lamp section says Roman glass lamps appeared during the fourth century AD and that glass lamps were blown.",
+    "source_claim_summary": "Late Roman glass lamps are directly tied to blown-glass production, not merely to the broad existence of workshop organization.",
+    "source_support_rationale": "Because the node is now scoped to early glass oil-lamp vessels, a source saying those lamps were blown licenses a direct required edge to blown_glass."
+  },
+  "ontology_before": "Early Glass Lamp Covers depended on Glass-Blowing Workshops as broad production infrastructure, leaving the specific forming technique implicit.",
+  "ontology_after": "Early Glass Lamps depends directly on blown_glass as the production method for the source-backed late Roman glass lamp vessels.",
+  "invariant_preserved_or_changed": "Changed: glass_lamp_chimneys now depends directly on blown_glass and no longer directly depends on glass_blowing_workshops.",
+  "would_reject_if": [
+    "The node is later broadened back to non-blown glass lamp covers or protective chimneys.",
+    "A stronger source shows fourth-century Roman glass lamps were usually cast or assembled without blown-glass forming.",
+    "A narrower glass_lamp_chimney node is added where workshop organization, rather than blown-glass forming, becomes the direct dependency."
+  ],
+  "short_reason": "The source-backed production method is blown glass, not the broader workshop category.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/glass_lamp_chimneys.before.json /tmp/glass_lamp_chimneys.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

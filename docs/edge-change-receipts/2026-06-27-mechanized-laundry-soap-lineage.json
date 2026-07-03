@@ -1,0 +1,44 @@
+{
+  "id": "2026-06-27-mechanized-laundry-soap-lineage",
+  "decision_date": "2026-06-27",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "mechanized_laundry",
+    "prerequisite": "soap_making_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Soap Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Soap and alkaline washing agents are historical foundations of the laundry process that mechanized washers automated rather than replaced."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://edisontechcenter.org/WashingMachines.html",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "History and operating sections: Edison Tech Center describes 1800s laundry using heated water with soap powders, notes lye, ashes, powdered soaps, and bars of soap, and describes washing cycles as mixing water with soap while agitating clothes.",
+    "source_claim_summary": "The source shows mechanized washing inherited the older water-and-soap laundry process and mechanized agitation within it.",
+    "source_support_rationale": "Soap making is not a machine component, but it is the historical cleaning-material lineage for the laundry process that electric washers mechanized."
+  },
+  "invariant_preserved_or_changed": "Preserved: soap_making_basic remains a historical_predecessor rather than a required mechanical component.",
+  "would_reject_if": [
+    "The node is later narrowed to washer drive mechanisms only, excluding the laundry process being mechanized.",
+    "A stronger source shows early Thor-style electric washers were not used with soap, lye, or comparable washing agents.",
+    "The graph adds a separate laundry_detergent node that should replace the broad ancient soap-making lineage."
+  ],
+  "short_reason": "Soap remains a process lineage for laundry, not a direct machine prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mechanized_laundry.before.json /tmp/mechanized_laundry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

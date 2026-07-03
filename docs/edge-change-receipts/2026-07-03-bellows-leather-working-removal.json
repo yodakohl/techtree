@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-03-bellows-leather-working-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bellows",
+    "prerequisite": "leather_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Leather Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct leather_working edge remains because the source-backed launch-quality evidence is a ceramic pot-bellows and tuyere-nozzle assemblage, not a documented leather bag or hide membrane.",
+  "source_supports_edge": "no",
+  "source_url": "https://hadashot.iaa.org.il/report_detail_eng.aspx?id=26248&mag_id=134",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Area A Stratum A2 table and Iron Age I remains narrative list pot-bellows and tuyere nozzles with metal-working remains, without identifying leather working as a direct prerequisite.",
+    "source_claim_summary": "The excavation report supports the bellows node through ceramic pot-bellows evidence and does not document a leather-working dependency for that evidence.",
+    "source_support_rationale": "Keeping a leather_working edge would require a separate source for hide or leather bellows construction; the launch-quality source only pins preserved pot and tuyere components."
+  },
+  "ontology_before": "Bellows depended on leather_working through expert inference, but the edge had no source tied to the cited first-known bellows evidence.",
+  "ontology_after": "Bellows keeps only the sourced pottery path for the Iron Age pot-bellows assemblage and does not imply a direct leather-working prerequisite.",
+  "invariant_preserved_or_changed": "Changed: bellows no longer directly depends on leather_working.",
+  "would_reject_if": [
+    "A source for the same early bellows evidence explicitly identifies a preserved leather or hide bellows component.",
+    "The node is narrowed to leather bag bellows and no longer uses the Abel Beth Maacah pot-bellows chronology.",
+    "A separate leather_bag_bellows node is added and should carry a leather_working prerequisite."
+  ],
+  "short_reason": "The sourced first-known evidence documents pot bellows, not leather-working practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/bellows.before.json /tmp/bellows.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

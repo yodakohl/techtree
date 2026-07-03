@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-27-commedia-dell-arte-scope",
+  "description": "Lock the 2026-06-27 commedia_dell_arte correction to the professional improvised Italian troupe tradition anchored by the 1545 Padua company evidence.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "commedia_dell_arte",
+      "operator": "eq",
+      "value": 1545,
+      "reason": "The node now uses the earliest known professional commedia company at Padua in 1545 rather than the Renaissance era placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commedia_dell_arte",
+      "prerequisite": "theater",
+      "expected": "enabling",
+      "reason": "Commedia dell'arte is a theatrical performance form, so theater remains the broad performance foundation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commedia_dell_arte",
+      "prerequisite": "guilds",
+      "expected": "enabling",
+      "reason": "The professional acting-company structure is guild-like organization context, not a claim that craft guilds invented commedia."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "commedia_dell_arte",
+      "prerequisite": "vernacular_literature_prose_poetry",
+      "expected": "enabling",
+      "reason": "Vernacular and dialect performance language enables the improvised dialogue context without making fixed literary scripts required."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanical_theater_machinery",
+      "prerequisite": "commedia_dell_arte",
+      "reason": "Stage machinery remains a technical-theater lineage, not a direct product of commedia performance practice."
+    }
+  ]
+}

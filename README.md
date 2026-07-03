@@ -33,7 +33,7 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-06-25 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
+Generated 2026-07-03 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
 
 Future-era technologies are forecast/roadmap nodes. They are structurally validated, but they are excluded from launch-quality source-check, placeholder-date, edge-source, source-fit, and source-URL gates.
 
@@ -41,14 +41,14 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | --- | --- |
 | Technologies | 1,658 |
 | Launch-quality scope (non-Future nodes) | 1,420 / 1,658 (85.6%; 238 Future excluded) |
-| Source-checked nodes | 1,342 / 1,420 (94.5%) |
-| Source-checked nodes with non-placeholder dates | 1,342 / 1,342 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,342 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,178 / 1,342 (87.8%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,342 (0.0%) |
+| Source-checked nodes | 1,368 / 1,420 (96.3%) |
+| Source-checked nodes with non-placeholder dates | 1,368 / 1,368 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,368 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,212 / 1,368 (88.6%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,368 (0.0%) |
 | Nodes with node-level sources | 1,419 / 1,420 (99.9%) |
-| Dependency edges with edge-level sources | 3,656 / 4,374 (83.6%) |
-| Era-default placeholder dates | 40 / 1,420 (2.8%) |
+| Dependency edges with edge-level sources | 3,707 / 4,356 (85.1%) |
+| Era-default placeholder dates | 18 / 1,420 (1.3%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
 

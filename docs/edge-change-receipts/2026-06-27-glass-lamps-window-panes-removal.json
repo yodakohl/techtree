@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-glass-lamps-window-panes-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "glass_lamp_chimneys",
+    "prerequisite": "glass_window_panes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Glass Window Panes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because glass window panes are a separate architectural glass use, not a prerequisite for blown glass oil lamps.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.mpm.edu/index.php/research-collections/anthropology/anthropology-collections-research/mediterranean-oil-lamps/description-and-history-oil-lamps",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The glass-lamp section explains glass lamps through blown oil-lamp vessels that held oil without seepage and projected light efficiently; it does not require architectural window-pane technology.",
+    "source_claim_summary": "The source-backed dependencies are blown glass and oil-lamp architecture, not flat architectural glass panes.",
+    "source_support_rationale": "Window panes share material ancestry with glass lamps, but they do not supply a component, method, or lineage that absence would break for blown glass oil lamps."
+  },
+  "ontology_before": "Early Glass Lamp Covers depended on Glass Window Panes, implying architectural flat glass enabled the lamp technology.",
+  "ontology_after": "Early Glass Lamps is scoped to blown oil-lamp vessels and no longer routes through architectural window-pane technology.",
+  "invariant_preserved_or_changed": "Changed: glass_lamp_chimneys no longer directly depends on glass_window_panes.",
+  "would_reject_if": [
+    "The node is later narrowed to a technology that literally adapts window-pane glass into lamp covers.",
+    "A stronger source shows early glass lamp covers directly reused flat window-pane manufacturing.",
+    "A separate architectural_glass_lamp_cover node is added where glass_window_panes is a source-backed direct prerequisite."
+  ],
+  "short_reason": "Window panes are adjacent architectural glass, not a source-backed prerequisite for blown glass oil lamps.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/glass_lamp_chimneys.before.json /tmp/glass_lamp_chimneys.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

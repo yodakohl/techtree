@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-27-telescope-scope",
+  "description": "Lock the 2026-06-27 telescope correction to a 1608 Dutch refracting spyglass/telescope scope with lens-grinding craft as the direct optical workshop dependency.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "telescope",
+      "operator": "eq",
+      "value": 1608,
+      "reason": "The node now anchors to the earliest well-documented 1608 Dutch telescope record rather than a generic Renaissance placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "telescope",
+      "prerequisite": "lens_grinding_workshops",
+      "expected": "enabling",
+      "reason": "Grinding, polishing, selecting, and mounting lenses is the directly sourced optical craft capability for early refracting telescopes."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "telescope",
+      "prerequisite": "scientific_instrument_making_guilds",
+      "reason": "The early Dutch and Galilean telescope source evidence supports spectacle and lens-making craft, not a broad formal scientific-instrument guild dependency."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "telescope",
+      "prerequisite": "spectacles_eyeglasses",
+      "expected": "enabling",
+      "reason": "The source traces the early concave-plus-convex lens combination through spectacle makers and their shops."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "telescope",
+      "prerequisite": "early_optics",
+      "expected": "historical_predecessor",
+      "reason": "Earlier knowledge of convex and concave lenses is optical lineage rather than the immediate workshop capability."
+    }
+  ]
+}

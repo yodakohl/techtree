@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-25-humanism-libraries-evidence",
+  "decision_date": "2026-06-25",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "humanism",
+    "prerequisite": "libraries"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Libraries provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Petrarch's searches of monastic libraries for lost classical manuscripts helped supply early humanism with recoverable classical texts rather than acting as a single required path."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/biography/Petrarch",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Classical studies and career section: Britannica says Petrarch searched monastic libraries for lost Classical manuscripts and that these experiences focused his mission as founder of European humanism.",
+    "source_claim_summary": "Petrarch's humanist work depended on recovering classical manuscripts through monastic-library searches.",
+    "source_support_rationale": "The edge is enabling because libraries supplied textual access for early humanism without being the only possible route to every humanist work."
+  },
+  "invariant_preserved_or_changed": "Preserved: humanism still has libraries as an enabling prerequisite, now with textbook evidence and a scoped note.",
+  "would_reject_if": [
+    "The humanism node is later narrowed to a doctrine independent of classical manuscript recovery.",
+    "A stronger source shows Petrarch's library searches were unrelated to his humanist program.",
+    "The edge is strengthened to required without evidence that no humanism could emerge outside monastic-library access."
+  ],
+  "short_reason": "Monastic libraries supplied recoverable classical manuscripts for early humanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/humanism.before.json /tmp/humanism.after.json",
+    "npm test",
+    "npm run quality"
+  ]
+}

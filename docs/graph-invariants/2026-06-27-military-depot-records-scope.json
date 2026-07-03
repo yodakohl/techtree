@@ -1,0 +1,52 @@
+{
+  "id": "2026-06-27-military-depot-records-scope",
+  "description": "Lock the 2026-06-27 military_depot_records correction to Vindolanda-style written Roman frontier administrative records, not physical depots, medical-supply stores, arsenals, or Achaemenid road waystations.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "military_depot_records",
+      "operator": "eq",
+      "value": 100,
+      "reason": "The node remains anchored to the late first- and early second-century Vindolanda tablet corpus, represented by AD 100 with century precision."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_depot_records",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "The scoped technology is a corpus of written Latin documents on wooden tablets."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_depot_records",
+      "prerequisite": "record_keeping",
+      "expected": "required",
+      "reason": "Reports, accounts, lists, and inventories are record-keeping artifacts rather than merely stored supplies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_depot_records",
+      "prerequisite": "logistics_supply_lines",
+      "expected": "enabling",
+      "reason": "The accounts document military-unit administration, supplies, transport, food, clothing, and related logistics context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_depot_records",
+      "prerequisite": "state_armories",
+      "reason": "State armories are a possible recorded subject, but the corrected node is written records rather than physical arsenal institutions."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_depot_records",
+      "prerequisite": "state_medical_supply_stores",
+      "reason": "Roman medical stores are too narrow for the corrected Vindolanda reports, accounts, and supply lists."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_depot_records",
+      "prerequisite": "military_waystations",
+      "reason": "Achaemenid road waystations should not be restored as a direct prerequisite for Roman frontier written records."
+    }
+  ]
+}

@@ -9888,44 +9888,36 @@
     "id": "immunology_advanced",
     "name": "Advanced Immunology",
     "era": "Modern",
-    "description": "Deeper understanding of the immune system, leading to advanced vaccines, autoimmune disease treatments, and transplantation.",
+    "description": "Postwar cellular and molecular immunology centered on self/non-self discrimination, immune tolerance, graft rejection, and engineered immune interventions.",
     "prerequisites": [
       "vaccination",
-      "antibiotics",
       "medicine_clinical",
       "biochemistry",
       "dna_structure"
     ],
     "firstKnownDate": 1953,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "datePrecision": "year",
+    "region": "United Kingdom, Australia, United States, and global biomedical research",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "vaccination",
-        "type": "enabling",
-        "confidence": 0.68,
+        "type": "historical_predecessor",
+        "confidence": 0.7,
         "evidence_level": "expert_inference",
-        "note": "Vaccination provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "antibiotics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Antibiotics provides a capability that enables this technology without being the only possible path.",
+        "note": "Vaccination is historical immune-protection lineage for later immunology, not a direct method required by postwar tolerance and graft-rejection research.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Nobel Prize in Physiology or Medicine 1945",
-            "url": "https://www.nobelprize.org/prizes/medicine/1945/summary/",
-            "publisher": "Nobel Prize",
+            "title": "Dr Jenner's House",
+            "url": "https://jennermuseum.com/",
+            "publisher": "The Jenner Trust",
             "year": 2026,
             "source_type": "museum",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The museum describes Edward Jenner's enduring legacy of vaccination and identifies his Temple of Vaccinia as the world's first vaccination clinic."
           }
         ]
       },
@@ -9992,17 +9984,30 @@
     ],
     "sources": [
       {
-        "title": "Immunology",
-        "url": "https://en.wikipedia.org/wiki/Immunology",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "'Actively Acquired Tolerance' of Foreign Cells",
+        "url": "https://www.nature.com/articles/172603a0",
+        "publisher": "Nature",
+        "year": 1953,
+        "source_type": "primary_paper",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Nature records Billingham, Brent, and Medawar's article in volume 172, pages 603-606, with issue date 03 October 1953."
+      },
+      {
+        "title": "The Nobel Prize in Physiology or Medicine 1960 - Speed read: Raising self-awareness",
+        "url": "https://www.nobelprize.org/prizes/medicine/1960/speedread/",
+        "publisher": "Nobel Prize",
+        "year": 2010,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Nobel explains that Burnet predicted immunological tolerance, Medawar experimentally proved self-discrimination in graft rejection, and acquired tolerance suggested human tissue and organ transplant applications."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "scopeNote": "Anchored to postwar experimental immunology around acquired immune tolerance and graft rejection. It includes later cellular and molecular immunology used by vaccines, autoimmunity, transplantation, antibodies, and immuno-oncology, but it is not a claim that antibiotics were a direct prerequisite."
   },
   {
     "id": "monoclonal_antibodies",
@@ -17601,16 +17606,17 @@
     "name": "Mobile Operating Systems (Smartphone OS)",
     "era": "Modern",
     "description": "Operating systems specifically designed for mobile devices like smartphones and tablets.",
+    "scopeNote": "Covers operating systems for mobile handheld and tablet devices. The date anchor uses an early graphical tablet/communicator OS example; smartphone-centered ecosystems such as iOS and Android mature later.",
     "prerequisites": [
       "mobile_phones",
       "operating_systems_os_computer_management",
       "graphical_user_interface_gui",
       "software_engineering"
     ],
-    "firstKnownDate": 1973,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1994,
+    "datePrecision": "exact",
+    "region": "United States / early tablet OS; global smartphone and tablet OS ecosystems",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "mobile_phones",
@@ -17637,16 +17643,64 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Operating Systems (OS Computer Management) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Mobile operating systems inherit core OS resource-management services; this is an enabling software substrate rather than a single historical prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Operating System",
+            "url": "https://www.britannica.com/technology/operating-system",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica defines an operating system as managing computer resources and notes that operating systems have been developed for mobile devices such as smartphones and tablets."
+          },
+          {
+            "title": "AOSP Overview",
+            "url": "https://source.android.com/docs/setup/about",
+            "publisher": "Android Open Source Project / Google",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "AOSP states that Android is an operating system for a wide array of device form factors and provides source code for custom Android OS variants."
+          }
+        ]
       },
       {
         "prerequisite": "graphical_user_interface_gui",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Graphical User Interface (GUI) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Early mobile/tablet OS examples such as PenPoint were graphical tablet systems; GUI concepts enable smartphone and tablet OS interaction without being the only possible OS interface.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "EO Personal Communicator 440",
+            "url": "https://www.computerhistory.org/revolution/mobile-computing/18/intro/1717",
+            "publisher": "Computer History Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "CHM describes the EO as using GO Corporation's PenPoint operating system, one of the first created for graphical tablets."
+          },
+          {
+            "title": "Graphical User Interface",
+            "url": "https://www.britannica.com/technology/graphical-user-interface",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica defines GUI interaction through symbols, visual metaphors, and pointing devices, the interaction model used by graphical mobile/tablet OSes."
+          }
+        ]
       },
       {
         "prerequisite": "software_engineering",
@@ -17671,17 +17725,40 @@
     ],
     "sources": [
       {
-        "title": "Mobile operating systems",
-        "url": "https://en.wikipedia.org/wiki/List_of_mobile_operating_systems",
-        "publisher": "Wikipedia",
+        "title": "AOSP Overview",
+        "url": "https://source.android.com/docs/setup/about",
+        "publisher": "Android Open Source Project / Google",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "AOSP states that Android is an operating system for a wide array of device form factors and that AOSP provides source code for custom Android OS variants."
+      },
+      {
+        "title": "EO Personal Communicator 440",
+        "url": "https://www.computerhistory.org/revolution/mobile-computing/18/intro/1717",
+        "publisher": "Computer History Museum",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "CHM dates the EO Personal Communicator 440 to 1994 and says it used GO Corporation's PenPoint operating system, one of the first created for graphical tablets."
+      },
+      {
+        "title": "Operating System",
+        "url": "https://www.britannica.com/technology/operating-system",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Britannica notes that operating systems have been developed for mobile devices such as smartphones and tablets and identifies iOS and Android as prominent mobile operating systems."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    ]
   },
   {
     "id": "smartphones",
@@ -21915,103 +21992,120 @@
   },
   {
     "id": "advanced_optics_space_based",
-    "name": "Space-Based Advanced Optics",
+    "name": "Spaceborne Optical Instruments",
     "era": "Modern",
-    "description": "Precision telescopes, spectrometers, interferometers, and cooled detectors operating beyond atmospheric distortion.",
+    "description": "Optical cameras, telescopes, spectrometers, and radiometers mounted on spacecraft to image Earth, weather systems, and astronomical targets beyond the atmosphere.",
     "prerequisites": [
-      "telescope",
       "satellite_technology",
-      "lasers",
-      "digital_signal_processing"
+      "photography",
+      "telescope"
     ],
     "firstKnownDate": 1960,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "datePrecision": "exact",
+    "region": "United States / low Earth orbit",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "telescope",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Telescope provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
         "prerequisite": "satellite_technology",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Satellite Technology provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Spaceborne optical instruments require a satellite or spacecraft platform; TIROS tested optical payloads, data handling, and spacecraft operations from orbit.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Explorer 1",
-            "url": "https://www.nasa.gov/mission/explorer-1/",
+            "title": "Launch of TIROS 1, World's 1st Weather Satellite",
+            "url": "https://www.nasa.gov/history/launch-of-tiros-1-worlds-1st-weather-satellite-this-week-in-goddard-history-march-31-april-6/",
             "publisher": "NASA",
-            "year": 2026,
+            "year": 2019,
             "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "NASA describes TIROS-1 as a satellite designed to test whether Earth could be studied from space and says the TIROS program tested spacecraft instruments, data, and operational parameters."
           }
         ]
       },
       {
-        "prerequisite": "lasers",
-        "type": "required",
-        "confidence": 0.82,
-        "evidence_level": "expert_inference",
-        "note": "Lasers is modeled as a necessary component or method for this technology in the current graph.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Laser",
-            "url": "https://www.britannica.com/technology/laser",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "node",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "digital_signal_processing",
+        "prerequisite": "photography",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Digital Signal Processing (DSP) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "The 1960 anchor used television cloud-cover pictures and image recording from orbit, making photographic imaging lineage an enabling predecessor.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
+            "title": "Celebrating 65 Years of the World's First Weather Satellite",
+            "url": "https://www.nesdis.noaa.gov/news/celebrating-65-years-of-the-worlds-first-weather-satellite",
+            "publisher": "NOAA NESDIS",
+            "year": 2025,
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "NOAA says TIROS-1 carried two television cameras and two video recorders, provided forecasters their first view of cloud formations from orbit, and returned more than 19,000 usable pictures."
+          }
+        ]
+      },
+      {
+        "prerequisite": "telescope",
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Orbital observatories and later space telescopes extend telescope lineage, while the 1960 TIROS imaging anchor does not require a telescope for every optical payload.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A Brief History of the Hubble Space Telescope",
+            "url": "https://www.nasa.gov/history/hubble/",
+            "publisher": "NASA",
+            "year": 2007,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "NASA traces space-telescope concepts to Lyman Spitzer's 1946 argument for an extraterrestrial observatory and says a telescope in orbit escapes atmospheric blurring and distortion."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Adaptive optics",
-        "url": "https://en.wikipedia.org/wiki/Adaptive_optics",
-        "publisher": "Wikipedia",
+        "title": "Launch of TIROS 1, World's 1st Weather Satellite",
+        "url": "https://www.nasa.gov/history/launch-of-tiros-1-worlds-1st-weather-satellite-this-week-in-goddard-history-march-31-april-6/",
+        "publisher": "NASA",
+        "year": 2019,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "NASA says TIROS-1 launched on April 1, 1960, was designed to test obtaining and using TV cloud-cover pictures from satellites, and led to more sophisticated meteorological observation satellites."
+      },
+      {
+        "title": "TIROS Meteorological Satellite",
+        "url": "https://airandspace.si.edu/collection-objects/meteorological-satellite-tiros/nasm_A19650289000",
+        "publisher": "Smithsonian National Air and Space Museum",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "museum",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Smithsonian identifies TIROS I as the world's first weather satellite, launched in April 1960, and says it imaged large swaths of Earth's surface for forecasters and scientists."
+      },
+      {
+        "title": "A Brief History of the Hubble Space Telescope",
+        "url": "https://www.nasa.gov/history/hubble/",
+        "publisher": "NASA",
+        "year": 2007,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "NASA explains the advantage of telescopes in orbit beyond atmospheric distortion and describes Hubble's later optical assembly and science instruments as a mature space-telescope branch."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    "scopeNote": "Rescoped from generic advanced/adaptive optics to source-backed spaceborne optical instruments anchored to TIROS-1. Lasers and digital signal processing remain later or specialized support technologies, not direct prerequisites for the 1960 orbital imaging anchor."
   },
   {
     "id": "meteorology_advanced",

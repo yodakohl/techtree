@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-27-shamanism-tribalism-context",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "shamanism_animism",
+    "prerequisite": "tribalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Tribalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains from shamanism_animism to tribalism. The Hilazon Tachtit evidence places ritual-specialist practice in a Natufian social setting but does not support kin-based band organization as a direct prerequisite, and the local tribalism date would create a backwards dependency.",
+  "source_supports_edge": "no",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223370",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract, introduction, and context sections: Hilazon Tachtit is a Late Natufian ritual burial context dated to 12,000 cal BP; the grave was suggested to be a shaman burial and is discussed within Natufian ritual and social-organization contexts.",
+    "source_claim_summary": "The cited burial evidence places an inferred shamanic ritual specialist inside a small-scale Natufian social setting.",
+    "source_support_rationale": "The source supports social context for ritual-specialist status, not a discrete tribalism dependency, and does not override the graph's chronology constraint."
+  },
+  "ontology_before": "The graph treated kin-based band organization as directly enabling Shamanism & Animism.",
+  "ontology_after": "Shamanism & Animism is scoped to archaeologically inferred ritual-specialist practice without a direct tribalism prerequisite.",
+  "invariant_preserved_or_changed": "Changed: tribalism is absent as a direct prerequisite for shamanism_animism.",
+  "would_reject_if": [
+    "A source showed kin-based band organization was a necessary invented capability for shamanic ritual rather than a social setting.",
+    "The node were narrowed to a later institution that specifically requires tribal political organization.",
+    "The shamanism_animism node were split so that ritual-specialist practice no longer covered the Hilazon Tachtit evidence."
+  ],
+  "short_reason": "The evidence supports a Natufian social context for ritual-specialist status, not a direct tribalism prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/shamanism_animism.before.json /tmp/shamanism_animism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

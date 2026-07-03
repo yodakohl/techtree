@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-military-depot-records-logistics-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "military_depot_records",
+    "prerequisite": "logistics_supply_lines"
+  },
+  "replaced_edge": {
+    "dependent": "military_depot_records",
+    "prerequisite": "military_waystations"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Waystations provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Vindolanda accounts record military-unit administration, supplies, food, clothing, stabling, wagon components, and travel expenses, making logistics the relevant operational context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://romaninscriptionsofbritain.org/tabvindol/vol-II/texts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Accounts and lists introduction notes records for food, drink, clothing, stabling, carriage axles, wagon components, beer, boot nails, salt, wheat, and meat.",
+    "source_claim_summary": "The Vindolanda records track supply, transport, and commodity administration around an army fort.",
+    "source_support_rationale": "Logistics_supply_lines is the broader operational setting documented by the accounts; Achaemenid military_waystations were a different road-station institution and should not carry the Roman record scope."
+  },
+  "ontology_before": "Military Depot Records depended on Achaemenid military waystations, conflating Roman frontier administrative records with a separate Persian road-station node.",
+  "ontology_after": "Military Depot Records keeps a logistics context through logistics_supply_lines, while the Achaemenid waystation node remains scoped to royal-road stations and couriers.",
+  "invariant_preserved_or_changed": "Changed: military_depot_records now depends on logistics_supply_lines and no longer directly depends on military_waystations.",
+  "would_reject_if": [
+    "The node is later narrowed to records made at road waystations rather than fort administration.",
+    "A source shows the target records were unrelated to supply, transport, commodities, or unit logistics.",
+    "A narrower Roman quartermaster logistics node is added and should replace broad logistics_supply_lines."
+  ],
+  "short_reason": "Roman military records fit logistics administration, not the Achaemenid waystation node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_depot_records.before.json /tmp/military_depot_records.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

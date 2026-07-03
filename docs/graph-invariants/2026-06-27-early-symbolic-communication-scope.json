@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-27-early-symbolic-communication-scope",
+  "description": "Lock early_symbolic_communication to source-backed abstract graphic marks rather than generic ritual, oral tradition, or later notation systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "early_symbolic_communication",
+      "operator": "eq",
+      "value": -73000,
+      "reason": "The corrected node is anchored to the approximately 73,000-year-old Blombos abstract ochre drawing."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_symbolic_communication",
+      "prerequisite": "pigment_creation",
+      "expected": "enabling",
+      "reason": "The dated Blombos anchor used intentionally applied red ochre pigment, but pigment should remain enabling because not every later symbolic sign uses pigment."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_symbolic_communication",
+      "prerequisite": "shamanism_animism",
+      "reason": "The Blombos graphic-mark evidence should not imply shamanic mediation or generic animism as a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_symbolic_communication",
+      "prerequisite": "oral_tradition_storytelling",
+      "reason": "Visual abstract marks should not depend directly on spoken narrative transmission without source evidence."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_symbolic_communication",
+      "prerequisite": "proto_writing",
+      "reason": "Proto-writing is a later dependent notation system and must not become a prerequisite of early graphic signs."
+    }
+  ]
+}

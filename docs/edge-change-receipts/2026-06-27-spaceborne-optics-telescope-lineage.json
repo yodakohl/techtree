@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-27-spaceborne-optics-telescope-lineage",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "advanced_optics_space_based",
+    "prerequisite": "telescope"
+  },
+  "change_class": "semantic_retype",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Telescope provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Orbital observatories and later space telescopes extend telescope lineage, while the 1960 TIROS imaging anchor does not require a telescope for every optical payload."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nasa.gov/history/hubble/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "NASA traces space-telescope concepts to Lyman Spitzer's 1946 argument for an extraterrestrial observatory and says a telescope in orbit escapes atmospheric blurring and distortion.",
+    "source_claim_summary": "Space telescopes are a mature branch of spaceborne optical instruments, extending older telescope lineage above the atmosphere.",
+    "source_support_rationale": "The telescope source supports lineage for the observatory branch, but the corrected 1960 node also covers Earth-imaging optical cameras, so historical_predecessor is more precise than a hard enabling edge."
+  },
+  "ontology_before": "Space-Based Advanced Optics treated telescope as a generic enabling prerequisite for every spaceborne optical payload.",
+  "ontology_after": "Spaceborne Optical Instruments keeps telescope as lineage for orbital observatories while allowing camera and spectrometer payloads to remain inside the broader node.",
+  "invariant_preserved_or_changed": "Changed edge type: telescope is now historical_predecessor rather than enabling.",
+  "would_reject_if": [
+    "The node is later narrowed only to space telescopes and excludes cameras, radiometers, and spectrometers.",
+    "A stronger source shows the 1960 anchor was a telescope rather than television camera imaging.",
+    "Space_telescopes is split so telescope lineage belongs only on that narrower downstream node."
+  ],
+  "short_reason": "Telescope is lineage for one branch, not the component required by every scoped payload.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/advanced_optics_space_based.before.json /tmp/advanced_optics_space_based.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

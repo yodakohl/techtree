@@ -1,0 +1,50 @@
+{
+  "id": "2026-06-27-coin-die-bronze-working-replacement",
+  "decision_date": "2026-06-27",
+  "edge": {
+    "dependent": "coin_die_engraving",
+    "prerequisite": "bronze_working"
+  },
+  "replaced_edge": {
+    "dependent": "coin_die_engraving",
+    "prerequisite": "bronze_casting_molds"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bronze Casting Molds provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.6,
+    "evidence_level": "weak_inference",
+    "note": "Early struck-coin dies were carved into bronze or possibly iron blocks, so bronze working is the nearer material/tooling background than bronze casting molds."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Ancient_Greek_coinage",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Minting section describes handmade Greek coins and says obverse and reverse designs were carved into bronze or possibly iron blocks called dies.",
+    "source_claim_summary": "For struck Greek coinage, the die was a carved metal block, while a mold was only part of blank or flan preparation.",
+    "source_support_rationale": "The replacement narrows the prerequisite to the material-working skill for the die itself; it prevents the coin-die node from being treated as a cast-coin or blank-casting technology."
+  },
+  "ontology_before": "Coin Die Engraving depended on bronze casting molds, which blurred hand-engraved struck-coin dies with molds used for casting blanks or separate cast-coin traditions.",
+  "ontology_after": "Coin Die Engraving is scoped to hand-engraved dies and punches for struck coinage; bronze working carries the die-material/tooling context, while mold use stays outside the node scope.",
+  "invariant_preserved_or_changed": "Changed: coin_die_engraving now depends on bronze_working and no longer directly depends on bronze_casting_molds.",
+  "would_reject_if": [
+    "The node is later narrowed to cast coinage or flan casting rather than hand-engraved struck-coin dies.",
+    "A stronger ancient numismatic source shows the earliest scoped dies were not bronze or iron metal tooling.",
+    "A dedicated coin_die_metallurgy or die_sinking node is added and should replace the broader bronze_working prerequisite."
+  ],
+  "short_reason": "Coin dies are carved metal tooling; bronze casting molds were a misleading blank-casting edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/coin_die_engraving.before.json /tmp/coin_die_engraving.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

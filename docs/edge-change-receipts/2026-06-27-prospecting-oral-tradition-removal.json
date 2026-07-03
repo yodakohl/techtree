@@ -1,0 +1,43 @@
+{
+  "id": "2026-06-27-prospecting-oral-tradition-removal",
+  "decision_date": "2026-06-27",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "prospecting",
+    "prerequisite": "oral_tradition_storytelling"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Oral Tradition & Storytelling provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the corrected node covers physical recognition and testing of exposed mineral sources; oral transmission of known source locations can be cultural context but is not a technical prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/tentativelists/5421/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Description and justification sections document red haematite/specularite extraction and stone mining tools at Ngwenya, but do not make oral storytelling part of the mineral-source recognition method.",
+    "source_claim_summary": "The source pins prospecting to physical mineral-source recognition and tool-supported extraction, not narrative transmission.",
+    "source_support_rationale": "Keeping an oral-tradition prerequisite would confuse cultural memory of places with the technical ability to identify and test exposed mineral sources."
+  },
+  "ontology_before": "Prospecting inherited a generic oral-tradition enabling edge because knowledge transmission can support many ancient practices.",
+  "ontology_after": "Prospecting is a physical mineral-source recognition node; oral tradition is not modeled as a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: oral_tradition_storytelling is no longer a direct prerequisite for prospecting.",
+  "would_reject_if": [
+    "The node were rescoped to traditional mineral-place lore rather than physical prospecting.",
+    "A direct source showed the earliest scoped prospecting practice depended on oral storytelling.",
+    "A downstream node required an oral-tradition path specifically through prospecting."
+  ],
+  "short_reason": "Oral transmission can preserve source knowledge, but it is not a technical dependency for recognizing exposed minerals.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/prospecting.before.json /tmp/prospecting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1593,79 +1593,108 @@
     "id": "commedia_dell_arte",
     "name": "Commedia dell'arte",
     "era": "Renaissance",
-    "description": "A form of professional, improvisational theatre originating in Italy, featuring stock characters, masks, and traveling troupes. It heavily influenced later European drama.",
+    "description": "Italian professional improvisational theater built around stock characters, masks, scenarios, dialect, and itinerant troupes.",
     "prerequisites": [
       "theater",
       "guilds",
       "vernacular_literature_prose_poetry"
     ],
-    "firstKnownDate": 1400,
-    "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1545,
+    "datePrecision": "exact",
+    "region": "Padua and northern Italy; later European court and fair-theater circuits",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "theater",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Theater provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Commedia dell'arte is explicitly a theatrical form whose performances used scenarios, improvised dialogue, masks, stock characters, and open-air or court venues.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Theatre",
-            "url": "https://www.britannica.com/art/theatre-art",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "Commedia dell'arte",
+            "url": "https://www.metmuseum.org/essays/commedia-dellarte",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2007,
+            "source_type": "museum",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Essay opening and performance sections: the Met describes commedia dell'arte as a theatrical form with improvised dialogue, stock characters, masks, scenarios, and open-air itinerant performance."
           }
         ]
       },
       {
         "prerequisite": "guilds",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Guilds provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.66,
+        "evidence_level": "review",
+        "note": "The form depended on professional organization of itinerant acting companies, a guild-like association pattern rather than a craft-guild requirement.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Guild",
-            "url": "https://www.britannica.com/topic/guild-trade-association",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "Commedia dell'arte",
+            "url": "https://www.metmuseum.org/essays/commedia-dellarte",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2007,
+            "source_type": "museum",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The Met says commedia means comedy of professional artists, identifies the earliest known company formed in Padua in 1545, and describes troupes such as Gelosi, Confidenti, and Fedeli."
           }
         ]
       },
       {
         "prerequisite": "vernacular_literature_prose_poetry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Vernacular Literature (Prose & Poetry) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Commedia used improvised spoken dialogue, dialect, regional stereotypes, and scenario-based plots, making Renaissance vernacular dramatic language an enabling context rather than a script requirement.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Commedia dell'arte",
+            "url": "https://www.metmuseum.org/essays/commedia-dellarte",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2007,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The essay says performances were based on scenarios with improvised dialogue and emphasizes dialect and regional speech as part of character portrayal."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Theatre",
-        "url": "https://www.britannica.com/art/theatre-art",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
+        "title": "Commedia dell'arte",
+        "url": "https://www.metmuseum.org/essays/commedia-dellarte",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2007,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The Met defines commedia dell'arte as improvised dialogue with colorful stock characters, says it emerged in northern Italy, identifies the earliest known company as Padua in 1545, and describes its itinerant professional troupes and European popularity."
+      },
+      {
+        "title": "Commedia Dell'arte",
+        "url": "https://www.encyclopedia.com/literature-and-arts/performing-arts/theater/commedia-dellarte",
+        "publisher": "Europe, 1450 to 1789: Encyclopedia of the Early Modern World / Gale via Encyclopedia.com",
+        "year": 2018,
         "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "Gale entry lines 34-43 define commedia dell'arte as sixteenth-century professional actors' improvisation on scenarios, note dialect and stock roles, identify the first documented actors' troupe-for-hire at Padua in 1545, and describe European touring."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Renaissance source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "scopeNote": "Covers the professional improvised Italian commedia dell'arte troupe tradition. It excludes classical theater in general, scripted commedia erudita, later French pantomime, Punch and Judy puppetry, and Renaissance stage machinery.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The form emerged in fifteenth-century northern Italy, but the exact graph anchor uses the earliest known company formation in Padua in 1545."
   },
   {
     "id": "counter_reformation",
@@ -2138,6 +2167,7 @@
     "name": "Encyclopedic Compendiums & Knowledge Organization",
     "era": "Renaissance",
     "description": "The systematic collection, organization, and categorization of knowledge in comprehensive printed works, attempting to synthesize all current understanding.",
+    "scopeNote": "Covers early modern printed encyclopedic compendia and explicit knowledge-ordering schemes, not all ancient or medieval manuscript encyclopedias.",
     "prerequisites": [
       "printing_press",
       "humanism",
@@ -2147,7 +2177,7 @@
     ],
     "firstKnownDate": 1500,
     "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "region": "Western Europe and early modern print culture",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -2155,18 +2185,19 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Printing Press provides a capability that enables this technology without being the only possible path.",
+        "note": "Printing reduced production cost and widened readership for lengthy reference works, making printed encyclopedic compendia easier to reproduce and circulate.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Gutenberg Bible",
-            "url": "https://www.loc.gov/item/2021666734",
-            "publisher": "Library of Congress",
-            "year": 2021,
-            "source_type": "official_agency",
+            "title": "Encyclopaedia - The kinds of encyclopaedias",
+            "url": "https://www.britannica.com/topic/encyclopaedia/The-kinds-of-encyclopaedias",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Influence of printing section: Britannica says printing reduced production costs, stimulated readership, and increased the popularity of older encyclopaedias."
           }
         ]
       },
@@ -2175,47 +2206,158 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Humanism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Renaissance humanism supplied the classical-learning program and comprehensive cultural-reform agenda that shaped early modern compendia of ordered knowledge.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Humanism",
+            "url": "https://www.britannica.com/topic/humanism",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica describes Renaissance humanism as a system of education and inquiry centered on classical studies, history, rhetoric, and moral philosophy, with a comprehensive reform of culture."
+          },
+          {
+            "title": "Gregor Reisch",
+            "url": "https://www.britannica.com/biography/Gregor-Reisch",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica's encyclopaedia cross-reference says Reisch's Margarita philosophica covered the university course and that the arrival of humanism is reflected in it."
+          }
+        ]
       },
       {
         "prerequisite": "scientific_societies",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scientific Societies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.62,
+        "evidence_level": "textbook",
+        "note": "Learned and scientific societies did not enable the earliest printed compendia, but their journals, proceedings, and specialist contributor networks later scaled arts-and-sciences reference works.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Academies and Learned Societies",
+            "url": "https://www.lib.uchicago.edu/collex/exhibits/extbc/academies-and-learned-societies/",
+            "publisher": "University of Chicago Library",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The exhibit describes learned societies as a major force in disseminating scientific methods and documents academies issuing proceedings and transactions."
+          },
+          {
+            "title": "Encyclopaedia - The kinds of encyclopaedias",
+            "url": "https://www.britannica.com/topic/encyclopaedia/The-kinds-of-encyclopaedias",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Encyclopaedic dictionaries section: Britannica links later arts-and-sciences encyclopaedias with specialist contributors and notes Pivati, secretary of the Academy of Sciences at Venice."
+          }
+        ]
       },
       {
         "prerequisite": "libraries",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Libraries provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Libraries and accumulated written collections supplied the preserved texts and prior writings from which encyclopedic compilers selected, ordered, and synthesized knowledge.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Encyclopaedia - The kinds of encyclopaedias",
+            "url": "https://www.britannica.com/topic/encyclopaedia/The-kinds-of-encyclopaedias",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Three stages of development section: Britannica says early encyclopaedists selected material from what had already been written and acted like personal librarians by drawing attention to useful passages."
+          }
+        ]
       },
       {
         "prerequisite": "scholasticism",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Scholasticism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Scholastic organizing habits and the liberal-arts curriculum supplied inherited ordering structures that early printed compendia could preserve, adapt, or move beyond.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Scholasticism",
+            "url": "https://www.britannica.com/topic/Scholasticism",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica says Scholasticism made organizing, sorting, and classifying inherited materials important and progressed toward systematic discussion and comprehensive summae."
+          },
+          {
+            "title": "Encyclopaedia - The kinds of encyclopaedias",
+            "url": "https://www.britannica.com/topic/encyclopaedia/The-kinds-of-encyclopaedias",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica says the trivium and quadrivium were long treated as essential ingredients in encyclopaedias and as foundations for proceeding to science, philosophy, theology, law, and politics."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Gutenberg Bible",
-        "url": "https://www.loc.gov/item/2021666734",
-        "publisher": "Library of Congress",
-        "year": 2021,
-        "source_type": "official_agency",
+        "title": "Encyclopaedia",
+        "url": "https://www.britannica.com/topic/encyclopaedia",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Britannica defines encyclopaedias as reference works treating branches of knowledge comprehensively and discusses orderly arrangement, comprehensive summaries of scholarship, and knowledge classification."
+      },
+      {
+        "title": "Gregor Reisch",
+        "url": "https://www.britannica.com/biography/Gregor-Reisch",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Britannica's encyclopaedia cross-reference describes Reisch's Margarita philosophica as a late-15th-century compendium covering the whole university course, including the trivium and quadrivium, with humanism reflected in it."
+      },
+      {
+        "title": "Encyclopaedia - The kinds of encyclopaedias",
+        "url": "https://www.britannica.com/topic/encyclopaedia/The-kinds-of-encyclopaedias",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "The influence-of-printing and three-stages sections connect encyclopaedia production to printing, readership, classified or alphabetical arrangements, compilers, and arts-and-sciences reference works."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1500 placement approximates the late-15th-century and early-16th-century transition to printed encyclopedic compendia such as Reisch's Margarita philosophica."
   },
   {
     "id": "exploration_global",
@@ -2378,8 +2520,32 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Lateen Sail & Caravel provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Caravel-era Iberian oceanic sailing designs and mixed-rig seafaring capability were shipbuilding predecessors to broadside-capable sailing warships; this edge does not claim caravels themselves carried broadside batteries.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Caravel",
+            "url": "https://www.britannica.com/technology/caravel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The article describes the caravel as a 15th- to 17th-century Spanish and Portuguese ship for long voyages, developed for African coastal exploration, able to sail windward, and smaller than 16th-century Spanish galleons."
+          },
+          {
+            "title": "Galleon",
+            "url": "https://exploration.marinersmuseum.org/watercraft/galleon/",
+            "publisher": "The Mariners' Museum and Park",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The museum says the galleon developed in the early 16th century from ships such as caravels and carracks and could be fitted out as a warship."
+          }
+        ]
       },
       {
         "prerequisite": "cartography",
@@ -2761,26 +2927,76 @@
       {
         "prerequisite": "libraries",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Libraries provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Petrarch's searches of monastic libraries for lost classical manuscripts helped supply early humanism with recoverable classical texts rather than acting as a single required path.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Petrarch",
+            "url": "https://www.britannica.com/biography/Petrarch",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Classical studies and career section: Britannica says Petrarch searched monastic libraries for lost Classical manuscripts and that these experiences focused his mission as founder of European humanism."
+          }
+        ]
       },
       {
         "prerequisite": "classical_historiography_herodotus_thucydides",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Classical Historiography (Herodotus, Thucydides) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Humanist education included history in the classical studia humanitatis, and classical historical models shaped civic humanist historiography, so classical historiography is an enabling intellectual model rather than a hard requirement.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Humanism",
+            "url": "https://www.britannica.com/topic/humanism",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The ideal of humanitas section says the studia humanitatis included history and that classical philosophy, rhetoric, and history were humanist models of proper method."
+          },
+          {
+            "title": "Renaissance Humanism",
+            "url": "https://www.lib.uchicago.edu/collex/exhibits/extbc/renaissance-humanism/",
+            "publisher": "University of Chicago Library",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Leonardo Bruni entry: the exhibit says political history fostered Florentine humanists' consciousness of Italy's past and Bruni's Punic War manuscript was critical to civic humanism and modern historiography."
+          }
+        ]
       },
       {
         "prerequisite": "scholasticism",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scholasticism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "historical_predecessor",
+        "confidence": 0.74,
+        "evidence_level": "textbook",
+        "note": "Renaissance humanism formed against the medieval Scholastic program: Petrarch emphasized classical authors over Scholastic thinkers and rejected scholastic dialectical subtlety, so the edge records inherited intellectual context rather than a direct enabling capability.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Petrarch",
+            "url": "https://www.britannica.com/biography/Petrarch",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Top Questions and Classical studies sections: Britannica says Petrarch emphasized classical authors over Scholastic thinkers, then rejected scholastic dialectical subtleties and turned to the moral weight of the Classical world."
+          }
+        ]
       }
     ],
     "sources": [
@@ -4159,10 +4375,13 @@
       "construction",
       "gunpowder"
     ],
-    "firstKnownDate": 1400,
+    "firstKnownDate": 1500,
     "datePrecision": "century",
-    "region": "Europe and connected early modern exchange networks",
-    "reviewStatus": "structurally_validated",
+    "region": "Iberian Atlantic and northern European naval shipbuilding",
+    "reviewStatus": "source_checked",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The century date anchors early broadside-capable shipborne heavy guns and gunports to early-sixteenth-century evidence such as the Mary Rose, while mature line-of-battle doctrine developed later.",
+    "scopeNote": "Covers early broadside-capable batteries and gunports on sailing warships. It does not claim all medieval shipboard artillery, later ship-of-the-line tactics, or every galleon armament pattern.",
     "dependencyEdges": [
       {
         "prerequisite": "cannons",
@@ -4180,7 +4399,8 @@
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The gunpowder revolution section describes early European cannon, corned powder shortly after 1400, and forged/cast cannon construction in the period before 1650."
           }
         ]
       },
@@ -4189,8 +4409,32 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Lateen Sail & Caravel provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Caravel-era Iberian oceanic sailing designs and mixed-rig seafaring capability were shipbuilding predecessors to broadside-capable sailing warships; this edge does not claim caravels themselves carried broadside batteries.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Caravel",
+            "url": "https://www.britannica.com/technology/caravel",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The article describes the caravel as a 15th- to 17th-century Spanish and Portuguese ship for long voyages, developed for African coastal exploration, able to sail windward, and smaller than 16th-century Spanish galleons."
+          },
+          {
+            "title": "Galleon",
+            "url": "https://exploration.marinersmuseum.org/watercraft/galleon/",
+            "publisher": "The Mariners' Museum and Park",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The museum says the galleon developed in the early 16th century from ships such as caravels and carracks and could be fitted out as a warship."
+          }
+        ]
       },
       {
         "prerequisite": "iron_working",
@@ -4255,17 +4499,41 @@
     ],
     "sources": [
       {
-        "title": "Military technology - The gunpowder revolution, c. 1300-1650",
-        "url": "https://www.britannica.com/technology/military-technology/The-gunpowder-revolution-c-1300-1650",
+        "title": "History of the Mary Rose",
+        "url": "https://maryrose.org/discover/history/life-of-the-mary-rose/",
+        "publisher": "The Mary Rose Trust",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "The Mary Rose Trust says the ship was built in 1510-11, carried heavy anti-ship guns, was recorded firing guns in battle in 1512, received extra gunports in a 1536 refit, and in 1545 fired guns on one side before turning to fire the other."
+      },
+      {
+        "title": "Galleon",
+        "url": "https://www.britannica.com/technology/galleon",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Britannica describes the galleon as a 15th- and 16th-century sailing warship with one or two tiers of guns carried broadside."
+      },
+      {
+        "title": "Galleon",
+        "url": "https://exploration.marinersmuseum.org/watercraft/galleon/",
+        "publisher": "The Mariners' Museum and Park",
+        "year": 2026,
+        "source_type": "museum",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The museum says galleons developed in the early 16th century, could serve as merchant or war ships, and had hull and sail configurations suited to ocean-going warship roles."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded during Renaissance source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    ]
   },
   {
     "id": "oil_painting",
@@ -6206,7 +6474,7 @@
     "id": "surveying_theodolite_early_precision",
     "name": "Surveying Theodolite (Early Precision)",
     "era": "Renaissance",
-    "description": "Development of more precise surveying instruments incorporating telescopic sights, graduated circles, and vernier scales for accurate measurement of horizontal and vertical angles.",
+    "description": "Early modern precision theodolites that combined a sighting telescope, leveled altazimuth mounting, graduated circles, and vernier readings for measuring horizontal and vertical surveying angles.",
     "prerequisites": [
       "surveying",
       "early_optics",
@@ -6215,9 +6483,9 @@
       "mathematics",
       "telescope"
     ],
-    "firstKnownDate": 1500,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1725,
+    "datePrecision": "year",
+    "region": "London, England / early modern surveying instrument making",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -6243,10 +6511,23 @@
       {
         "prerequisite": "early_optics",
         "type": "historical_predecessor",
-        "confidence": 0.75,
+        "confidence": 0.72,
         "evidence_level": "expert_inference",
-        "note": "Early Optics is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "note": "Earlier optical practice is retained as lineage for telescopic sighting and alignment, while the telescope edge carries the direct optical-instrument dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Theodolite",
+            "url": "https://en.wikipedia.org/wiki/Theodolite",
+            "publisher": "Wikipedia",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Principles of operation and historical background sections: the article describes the theodolite as an optical surveying instrument with a movable telescope, focusing and parallax adjustments, and a 1725 Sisson instrument with a sighting telescope."
+          }
+        ]
       },
       {
         "prerequisite": "mechanical_clocks",
@@ -6311,13 +6592,60 @@
       {
         "prerequisite": "telescope",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.78,
         "evidence_level": "expert_inference",
-        "note": "Telescope provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "The early precision theodolite's sighting telescope made the post-1608 telescope a direct optical-enabling dependency for this scoped instrument.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Theodolite",
+            "url": "https://en.wikipedia.org/wiki/Theodolite",
+            "publisher": "Wikipedia",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Historical background section: the article says the first instrument combining the essential features of the modern theodolite was Jonathan Sisson's 1725 instrument, with an altazimuth mount and a sighting telescope."
+          },
+          {
+            "title": "Jonathan Sisson",
+            "url": "https://en.wikipedia.org/wiki/Jonathan_Sisson",
+            "publisher": "Wikipedia",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Surveying and navigation section: the article says Sisson's key innovation was introducing a telescopic sight to the theodolite and that his 1737 theodolite design became the basis for modern instruments."
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "Theodolite",
+        "url": "https://en.wikipedia.org/wiki/Theodolite",
+        "publisher": "Wikipedia",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Historical background section: identifies Sisson's 1725 theodolite as the first instrument combining essential modern features, including an altazimuth mount, sighting telescope, leveled base plate, compass, adjusting screws, and vernier-read circles."
+      },
+      {
+        "title": "Jonathan Sisson",
+        "url": "https://en.wikipedia.org/wiki/Jonathan_Sisson",
+        "publisher": "Wikipedia",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Surveying and navigation section: describes Sisson's telescope-sighted theodolites, leveled base with screws, compass, vernier scale accuracy, and the 1737 design as a basis for modern instruments."
+      },
       {
         "title": "Geometry",
         "url": "https://www.britannica.com/science/geometry",
@@ -6329,7 +6657,10 @@
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers early modern telescope-equipped precision theodolites, not 1571 plain-sight angle instruments, generic triangulation methods, Ramsden's later high-precision national-survey instruments, transit theodolites, or electronic total stations.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1725 date anchors Jonathan Sisson's first instrument combining the essential modern theodolite features; related Sisson designs continued into 1737, and later Ramsden instruments mark a separate high-precision survey maturity stage."
   },
   {
     "id": "eyeglass_prescription_practices",
@@ -6442,18 +6773,18 @@
     "id": "telescope",
     "name": "Telescope",
     "era": "Renaissance",
-    "description": "An optical instrument using lenses or mirrors to magnify distant objects. Its application to astronomy by Galileo revolutionized humanity's understanding of the cosmos, revealing mountains on the Moon and Jupiter's moons.",
+    "description": "A refracting optical instrument that combined lenses in a tube to make distant objects appear nearer, documented in the Dutch Republic in 1608 and rapidly adapted for astronomical observation in 1609-1610.",
     "prerequisites": [
       "glassmaking",
       "scientific_method",
       "early_astronomy_observation",
       "early_optics",
       "spectacles_eyeglasses",
-      "scientific_instrument_making_guilds"
+      "lens_grinding_workshops"
     ],
-    "firstKnownDate": 1500,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1608,
+    "datePrecision": "year",
+    "region": "Middelburg and The Hague, Dutch Republic; Padua and Florence for early astronomical use",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -6473,6 +6804,17 @@
             "supports": [
               "edge"
             ]
+          },
+          {
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter Four, pp. 144-145: Ilardi connects the ca. 1608 Middelburg telescope with Low Countries glass and mirror makers capable of grinding and polishing lenses for telescopes and microscopes, and states that both required better quality glass or crystal."
           }
         ]
       },
@@ -6519,41 +6861,96 @@
       {
         "prerequisite": "early_optics",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Optics is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Earlier practical optics around convex and concave lens behavior made the refracting spyglass intelligible, but this is optical lineage rather than a direct shop dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter Six, pp. 208-210: Ilardi describes earlier speculation and experiment with convex and concave lens combinations, noting that the known effects of convex and concave lenses made a distance-viewing instrument a natural development."
+          }
+        ]
       },
       {
         "prerequisite": "spectacles_eyeglasses",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Spectacles (Eyeglasses) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "The early telescope emerged from spectacle-lens practice: documented accounts place the concave and convex lens combination in the hands of spectacle makers and their shops.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter Six, pp. 209-218: Ilardi traces the concave-plus-convex lens combination to spectacle makers, discusses Lipperhey as a Middelburg spectacle maker, and notes that spyglasses were commonly available in spectacle makers' shops in 1609."
+          }
+        ]
       },
       {
-        "prerequisite": "scientific_instrument_making_guilds",
+        "prerequisite": "lens_grinding_workshops",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scientific Instrument Making Guilds provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Early refracting telescopes required selected, ground, and polished lenses mounted at controlled distances in tubes, making lens-grinding workshop capability a direct craft enabler.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter Four, p. 144, and Chapter Six, pp. 217-219: Ilardi identifies glass and mirror makers capable of grinding and polishing lenses for telescopes, describes selection of lenses, tube length, apertures, and Galileo's improved grinding and polishing methods."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Glass of the Ancient Mediterranean",
-        "url": "https://mcclungmuseum.utk.edu/wp-content/uploads/sites/78/2013/08/3980-AncientGlassBroch-3.0.pdf",
-        "publisher": "McClung Museum of Natural History and Culture",
-        "year": 2013,
-        "source_type": "museum",
+        "title": "Renaissance Vision from Spectacles to Telescopes",
+        "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+        "publisher": "American Philosophical Society / Internet Archive",
+        "year": 2007,
+        "source_type": "textbook",
         "supports": [
           "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Chapter Six, pp. 217-219: Ilardi treats Lipperhey's October 1608 Dutch record, contested earlier claims, 1609 availability in spectacle-maker shops, Harriot's and Galileo's lunar observations, and Galileo's transformation of the three-power spyglass into a twenty-plus-power scientific instrument."
+      },
+      {
+        "title": "Galileo's telescope",
+        "url": "https://catalogue.museogalileo.it/object/GalileosTelescope_n01.html",
+        "publisher": "Museo Galileo - Institute and Museum of the History of Science",
+        "year": 2015,
+        "source_type": "museum",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Catalog entry for inventory 2428 dates Galileo's original telescope to late 1609 - early 1610, describes the objective and eyepiece, and records a magnification of 21 with later accessories for astronomical measurement."
       }
-    ]
+    ],
+    "scopeNote": "Covers the early refracting spyglass/telescope and its astronomical adoption, not medieval sighting tubes, speculative pre-1608 claims, Keplerian or reflecting-telescope refinements, radio telescopes, or space telescopes.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1608 date anchors the earliest well-documented Dutch patent and government record; Ilardi notes reports of earlier spyglasses and multiple invention claims, while Galileo's surviving telescope is dated late 1609 to early 1610."
   },
   {
     "id": "theory_of_contagion_fracastoro",
@@ -6661,34 +7058,130 @@
       {
         "prerequisite": "plantation_economy",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Plantation Economy provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Plantation economies supplied both the coerced labor demand and the export crops, such as sugar, tobacco, cotton, rice, indigo, molasses, and rum, that formed the American leg of triangular trade.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Triangular trade",
+            "url": "https://www.britannica.com/topic/triangular-trade",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica states that enslaved Africans were taken to plantations and that plantation crops and products, including sugar, rice, indigo, tobacco, cotton, molasses, and rum, were shipped to Europe as the third leg of the triangular trade."
+          },
+          {
+            "title": "Plantation",
+            "url": "https://www.britannica.com/topic/plantation-agriculture",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica defines New World plantations as large estates where crops cultivated by enslaved labor became an economic mainstay during European colonization."
+          }
+        ]
       },
       {
         "prerequisite": "galleon_ship_design",
         "type": "enabling",
         "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Galleon Ship Design provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "evidence_level": "textbook",
+        "note": "Ocean-going cargo ships, including galleons and related Atlantic vessel designs, enabled the long-distance shipping legs of the trade; the edge is not claiming triangular trade used only galleons.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Triangular trade",
+            "url": "https://www.britannica.com/topic/triangular-trade",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica describes all three legs as Atlantic shipment by sea, including manufactured goods to West Africa, enslaved people across the Atlantic, and plantation products to Europe."
+          },
+          {
+            "title": "Galleon",
+            "url": "https://exploration.marinersmuseum.org/watercraft/galleon/",
+            "publisher": "The Mariners' Museum and Park",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Mariners' Museum says galleons were used as merchant or supply ships, carried New World treasure across the Atlantic, and could withstand ocean voyages."
+          }
+        ]
       },
       {
         "prerequisite": "mercantilism_economic_theory",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mercantilism Economic Theory provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Mercantilist colonial policy commercially structured triangular trade by treating colonies as raw-material suppliers and captive markets for European manufactured goods.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Mercantilism",
+            "url": "https://www.britannica.com/money/mercantilism",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica says mercantilist colonies supplied raw materials to mother countries and purchased finished goods from them under regulated colonial commerce."
+          },
+          {
+            "title": "Triangular trade",
+            "url": "https://www.britannica.com/topic/triangular-trade",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica describes triangular trade as organized by European colonial powers, exchanging European manufactured goods, enslaved Africans, and colonial plantation materials."
+          }
+        ]
       },
       {
         "prerequisite": "maritime_insurance",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Maritime Insurance provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Marine insurance reduced financial risk in ship and cargo ventures, supporting investment and scaling in the long-distance shipping that triangular trade required.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Marine insurance",
+            "url": "https://www.britannica.com/money/marine-insurance",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica defines marine insurance as indemnifying ships or cargo against navigation risks and says understanding marine insurance is essential to understanding the shipping industry."
+          },
+          {
+            "title": "Triangular trade",
+            "url": "https://www.britannica.com/topic/triangular-trade",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica's triangular-trade article details the repeated sea-shipping legs among Europe, West Africa, the Americas, and Europe."
+          }
+        ]
       }
     ],
     "dateUncertainty": true,
@@ -6702,7 +7195,8 @@
         "source_type": "textbook",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Britannica defines triangular trade as a three-legged Atlantic trade route from roughly the early 16th to mid-19th century linking Europe, western Africa, and the New World."
       },
       {
         "title": "Transatlantic slave trade",
@@ -6712,7 +7206,8 @@
         "source_type": "textbook",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Britannica identifies the transatlantic slave trade as the second stage of triangular trade and summarizes the Europe-Africa-Americas-Europe exchange pattern."
       }
     ]
   },
@@ -11530,11 +12025,9 @@
     "id": "public_newspaper_advertising",
     "name": "Public Newspaper Advertising",
     "era": "Renaissance",
-    "description": "Paid notices for books, auctions, medicines, ships, jobs, performances, lost goods, and commercial services.",
+    "description": "Paid notices inserted into regularly published newspapers for lost or stolen goods, real estate, subscriptions, services, goods, employment, events, and commercial offers.",
     "prerequisites": [
-      "newspaper_periodicals",
-      "commercial_auction_houses",
-      "theater_ticketing_systems"
+      "newspaper_periodicals"
     ],
     "firstKnownDate": 1704,
     "datePrecision": "exact",
@@ -11544,38 +12037,48 @@
       {
         "prerequisite": "newspaper_periodicals",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Newspaper Periodicals provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "commercial_auction_houses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Commercial Auction Houses provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "theater_ticketing_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Theater Ticketing Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The scoped practice is paid notices inserted into a recurring newspaper; the Boston News-Letter solicited advertisements in its first weekly issue and carried the first paid ads two issues later.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Advertising in America",
+            "url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
+            "publisher": "Massachusetts Historical Society",
+            "year": 2013,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "MHS says the Boston News-Letter began as the first regularly published newspaper in British North America, solicited small notices at a reasonable rate in its first issue, and carried the first three paid advertisements in issue number three dated 1-8 May 1704."
+          },
+          {
+            "title": "The Boston Newsletter, number 1",
+            "url": "https://www.masshist.org/database/186",
+            "publisher": "Massachusetts Historical Society",
+            "year": 2004,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Collections Online says number 1 was dated 17-24 April 1704, appeared weekly until 1776, and concluded with Campbell's notice that the News-Letter would continue weekly while soliciting advertisements and subscriptions."
+          }
+        ]
       }
     ],
+    "scopeNote": "Covers paid public notices inserted into recurring newspapers, anchored by Boston News-Letter advertisements in May 1704. It excludes the broader history of handbills, public notice boards, auction-house business models, theater admission systems, classified-ad categories, and later advertising agencies.",
     "sources": [
       {
         "title": "Advertising in America",
         "url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
         "publisher": "Massachusetts Historical Society",
         "year": 2013,
-        "source_type": "museum",
+        "source_type": "review",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "MHS says the first paid advertisement in an American newspaper appeared in Boston, after the Boston News-Letter began publication on 17 April 1704 and first carried paid advertisements in issue number three dated 1-8 May 1704."
       },
       {
         "title": "The Boston Newsletter, number 1",
@@ -11585,7 +12088,8 @@
         "source_type": "museum",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Collections Online identifies number 1 as 17-24 April 1704, describes the Boston News-Letter as the first continuously published newspaper in America, and says Campbell's final notice solicited advertisements and subscriptions."
       }
     ]
   },
