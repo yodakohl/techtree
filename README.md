@@ -47,7 +47,7 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | Source-checked nodes with primary/review/textbook/official sources | 1,221 / 1,377 (88.7%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,377 (0.0%) |
 | Nodes with node-level sources | 1,420 / 1,420 (100.0%) |
-| Dependency edges with edge-level sources | 3,718 / 4,355 (85.4%) |
+| Dependency edges with edge-level sources | 3,721 / 4,355 (85.4%) |
 | Era-default placeholder dates | 11 / 1,420 (0.8%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
