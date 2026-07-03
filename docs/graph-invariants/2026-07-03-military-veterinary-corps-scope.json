@@ -1,0 +1,64 @@
+{
+  "id": "2026-07-03-military-veterinary-corps-scope",
+  "description": "Lock Military Veterinary Corps to late Roman military animal-care specialization, not Achaemenid road stations or human-infirmary supply stores.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "early_veterinary_medicine",
+      "reason": "The node remains grounded in prior horse-care and veterinary medicine traditions."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "early_veterinary_medicine",
+      "expected": "historical_predecessor",
+      "reason": "Earlier veterinary practice is a historical foundation, not a one-to-one institutional requirement."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "military_road_waystations",
+      "reason": "Late Roman military animal transport belongs with Roman cursus-publicus road-station infrastructure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "military_road_waystations",
+      "expected": "enabling",
+      "reason": "Roman road waystations provide enabling infrastructure for movement and communications, not a strict veterinary-method requirement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "military_waystations",
+      "reason": "Achaemenid royal-road waystations must not carry the late Roman military-veterinary scope."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "military_field_medicine",
+      "reason": "A military veterinarian is an animal-care specialization inside a broader military medical context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "military_field_medicine",
+      "expected": "enabling",
+      "reason": "Military field medicine supplies the organized medical-specialty context without making human field medicine a one-to-one veterinary method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_veterinary_corps",
+      "prerequisite": "state_medical_supply_stores",
+      "reason": "Roman human-infirmary supply stores are too narrow to carry the direct veterinary-corps prerequisite."
+    },
+    {
+      "type": "first_known_date",
+      "node": "military_veterinary_corps",
+      "operator": "eq",
+      "value": 300,
+      "reason": "The node remains anchored to late Roman/Constantinian military veterinary evidence, not to a modern formal veterinary corps."
+    }
+  ]
+}

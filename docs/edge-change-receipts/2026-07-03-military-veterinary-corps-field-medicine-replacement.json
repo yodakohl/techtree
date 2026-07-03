@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-military-veterinary-corps-field-medicine-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "military_veterinary_corps",
+    "prerequisite": "military_field_medicine"
+  },
+  "replaced_edge": {
+    "dependent": "military_veterinary_corps",
+    "prerequisite": "state_medical_supply_stores"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "State Medical Supply Stores provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Military Field Medicine supplies the organized military medical-specialty context for a military veterinarian, while remaining broader than human-infirmary supply stores."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nlm.nih.gov/hmd/topics/horse/index.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The Hippiatria section identifies Apsyrtos as a military veterinarian in Constantine I's service; the paired JMVH review describes Roman military medical specialization, medici, and care on the march and at valetudinaria.",
+    "source_claim_summary": "The sources support a military medical-specialty context for military veterinary practice.",
+    "source_support_rationale": "Military field medicine is the broader military medical organization needed for a military veterinarian; state medical supply stores are narrower human-infirmary provisioning and should not carry the direct prerequisite claim."
+  },
+  "ontology_before": "Military Veterinary Corps depended directly on Roman Military Medical Supply Stores, conflating veterinary specialization with narrower human-hospital provisioning.",
+  "ontology_after": "Military Veterinary Corps depends on Military Field Medicine for the organized military medical-specialty context, while state_medical_supply_stores remains scoped to Roman military hospital and field-infirmary supplies.",
+  "invariant_preserved_or_changed": "Changed: military_veterinary_corps now depends on military_field_medicine and no longer directly depends on state_medical_supply_stores.",
+  "would_reject_if": [
+    "The military_veterinary_corps node were narrowed to inventories or stocked infirmary supplies rather than military animal-care specialization.",
+    "A stronger source showed late Roman military veterinarians specifically required Roman medical supply stores as the direct enabling institution.",
+    "The military_field_medicine node were narrowed away from organized military medics, field care, and military hospitals."
+  ],
+  "short_reason": "Military veterinary specialization belongs under military field medicine, not the narrower supply-store node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_veterinary_corps.before.json /tmp/military_veterinary_corps.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

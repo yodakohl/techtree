@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-military-veterinary-corps-roman-waystations-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "military_veterinary_corps",
+    "prerequisite": "military_road_waystations"
+  },
+  "replaced_edge": {
+    "dependent": "military_veterinary_corps",
+    "prerequisite": "military_waystations"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Waystations provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Roman Military Road Waystations provide the cursus-publicus relay-stage and official road-stopping context for military-administrative animal transport and communications."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/postal-system/History",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Message-relay systems section says the cursus publicus used relay stages at intervals along Roman roads and that these stages were integral to the military and administrative system.",
+    "source_claim_summary": "The source identifies Roman cursus-publicus relay stages as military-administrative road infrastructure.",
+    "source_support_rationale": "The veterinary node is scoped to late Roman cavalry, transport animals, and army supply systems; Roman road waystations fit that context, while Achaemenid Royal Road stations are a separate earlier node."
+  },
+  "ontology_before": "Military Veterinary Corps depended on Achaemenid military_waystations, conflating Persian royal-road stations with the late Roman military-administrative animal-care context.",
+  "ontology_after": "Military Veterinary Corps depends on Roman Military Road Waystations for the Roman cursus-publicus relay-stage context, while Achaemenid military_waystations remain a separate Persian road-station node.",
+  "invariant_preserved_or_changed": "Changed: military_veterinary_corps now depends on military_road_waystations and no longer directly depends on military_waystations.",
+  "would_reject_if": [
+    "The military_veterinary_corps node were rescoped to Achaemenid courier-horse care rather than late Roman horse medicine.",
+    "The military_road_waystations node were narrowed away from Roman cursus-publicus relay stages.",
+    "A stronger source showed Apsyrtos-era military veterinary practice specifically depended on Persian Royal Road institutions rather than Roman military-administrative road infrastructure."
+  ],
+  "short_reason": "Late Roman veterinary support needs the Roman road-waystation node, not the Achaemenid one.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/military_veterinary_corps.before.json /tmp/military_veterinary_corps.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
