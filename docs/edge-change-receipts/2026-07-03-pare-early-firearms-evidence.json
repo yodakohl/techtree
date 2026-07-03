@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-pare-early-firearms-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "surgical_advances_pare",
+    "prerequisite": "early_firearms"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Firearms is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.84,
+    "evidence_level": "textbook",
+    "note": "Paré's 1545 surgical breakthrough was explicitly framed around wounds made by arquebuses and other firearms, making early firearms the historical injury context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/biography/Ambroise-Pare",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Britannica describes Pare's gunshot-wound treatment reported in La Methode de traicter les playes faites par les arquebuses et aultres bastons a feu (1545).",
+    "source_claim_summary": "The source ties Pare's first major surgical publication and wound-treatment reform to arquebus and firearm injuries.",
+    "source_support_rationale": "Because the injuries were produced by early firearms, the edge records the injury lineage that made the surgical method historically salient."
+  },
+  "ontology_before": "Surgical Advances (Pare) depended on Early Firearms as a generic historical predecessor.",
+  "ontology_after": "Surgical Advances (Pare) keeps Early Firearms as the source-backed historical injury context for 1545 gunshot-wound treatment.",
+  "invariant_preserved_or_changed": "Preserved: early_firearms remains a direct historical_predecessor prerequisite with textbook evidence.",
+  "would_reject_if": [
+    "The node were narrowed to non-firearm surgery only.",
+    "A source showed the 1545 Pare method was unrelated to arquebus or firearm wounds.",
+    "The graph split firearm injuries into a more precise gunshot-wound-treatment precursor node."
+  ],
+  "short_reason": "Pare's 1545 method is explicitly about arquebus and firearm wounds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/surgical_advances_pare.before.json /tmp/surgical_advances_pare.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

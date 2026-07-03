@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-pare-field-medicine-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "surgical_advances_pare",
+    "prerequisite": "military_field_medicine"
+  },
+  "replaced_edge": {
+    "dependent": "surgical_advances_pare",
+    "prerequisite": "advanced_metallurgy_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Paré's innovations came from campaign surgery and battlefield wound care, so military field medicine is the relevant historical lineage rather than general medieval metallurgy."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.britannica.com/biography/Ambroise-Pare",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica places Pare's gunshot-wound method in Renaissance military surgery and describes his treatment of campaign firearm injuries and amputation practice.",
+    "source_claim_summary": "The source reviews Pare's surgical innovations as military and campaign wound-care practice, including firearm injuries and amputation.",
+    "source_support_rationale": "The evidence points to battlefield medical practice as the lineage; it does not support a broad metallurgy prerequisite, so the replacement is historical_predecessor and partly contextual."
+  },
+  "ontology_before": "Surgical Advances (Pare) depended on Advanced Metallurgy (Medieval), implying tool or prosthesis materials were the central causal substrate.",
+  "ontology_after": "Surgical Advances (Pare) depends on Military Field Medicine as the campaign-surgery lineage for gunshot-wound and amputation practice.",
+  "invariant_preserved_or_changed": "Changed: surgical_advances_pare now depends on military_field_medicine and no longer directly depends on advanced_metallurgy_medieval.",
+  "would_reject_if": [
+    "The node were narrowed to metal surgical instruments or prosthesis fabrication rather than Pare's wound treatment, ligature, amputation, and military surgery.",
+    "A stronger source showed medieval metallurgy directly enabled the specific Pare innovations more than battlefield medical practice did.",
+    "A dedicated Renaissance military surgery node were introduced and should replace the broader military_field_medicine prerequisite."
+  ],
+  "short_reason": "Pare's evidence is battlefield surgical practice, not broad medieval metallurgy.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/surgical_advances_pare.before.json /tmp/surgical_advances_pare.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

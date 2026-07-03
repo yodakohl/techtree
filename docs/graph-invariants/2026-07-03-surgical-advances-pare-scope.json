@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-surgical-advances-pare-scope",
+  "description": "Lock Surgical Advances (Pare) to Paré's gunshot-wound, ligature, amputation, and campaign-surgery innovations, not general metallurgy.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "human_anatomy_physiology",
+      "reason": "Ligature, amputation, wound treatment, and prosthetic work require practical anatomical knowledge."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "human_anatomy_physiology",
+      "expected": "enabling",
+      "reason": "Anatomy enables the surgery without being the whole Paré innovation."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "early_firearms",
+      "reason": "The 1545 treatment method is explicitly about arquebus and firearm wounds."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "early_firearms",
+      "expected": "historical_predecessor",
+      "reason": "Early firearms provide the historical injury context, not a surgical component."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "military_field_medicine",
+      "reason": "Paré's innovations came through campaign surgery and battlefield wound care."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "military_field_medicine",
+      "expected": "historical_predecessor",
+      "reason": "Military field medicine is the historical practice lineage for Paré's campaign surgery."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "surgical_advances_pare",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "reason": "General medieval metallurgy should not be restored unless the node is narrowed to metal instrument or prosthesis fabrication."
+    },
+    {
+      "type": "first_known_date",
+      "node": "surgical_advances_pare",
+      "operator": "eq",
+      "value": 1545,
+      "reason": "The node remains anchored to Paré's 1545 firearm-wound treatment publication."
+    }
+  ]
+}

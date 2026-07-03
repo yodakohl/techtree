@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-pare-human-anatomy-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "surgical_advances_pare",
+    "prerequisite": "human_anatomy_physiology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Human Anatomy & Physiology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Paré's ligatures, amputations, wound treatment, and prosthetic work depended on practical anatomical knowledge of vessels, limbs, and traumatic injuries."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/biography/Ambroise-Pare",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica identifies Pare as a major Renaissance surgeon and describes his treatment of gunshot wounds, replacement of boiling-oil treatment, and reintroduction of tying large arteries rather than cauterizing vessels during amputation.",
+    "source_claim_summary": "The source reviews Pare's practical surgical innovations around wounds, arteries, amputations, and Renaissance surgery.",
+    "source_support_rationale": "Those procedures require anatomical knowledge of vessels and limbs, so anatomy is retained as an enabling prerequisite without treating it as the whole innovation."
+  },
+  "ontology_before": "Surgical Advances (Pare) depended on Human Anatomy & Physiology with only a generic inferred enabling claim.",
+  "ontology_after": "Surgical Advances (Pare) keeps Human Anatomy & Physiology as the source-backed anatomical substrate for ligature, amputation, wound treatment, and prosthetic work.",
+  "invariant_preserved_or_changed": "Preserved: human_anatomy_physiology remains a direct enabling prerequisite with textbook evidence.",
+  "would_reject_if": [
+    "The node were narrowed only to pharmacy or wound-dressing recipes with no surgical manipulation of vessels, limbs, or injuries.",
+    "A stronger source showed Pare's ligature and amputation practice did not rely on practical anatomy.",
+    "A more specific Renaissance surgical anatomy node were introduced and should replace the broader human anatomy prerequisite."
+  ],
+  "short_reason": "Pare's arterial ligature and amputation practice make anatomy a sourced enabling context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/surgical_advances_pare.before.json /tmp/surgical_advances_pare.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
