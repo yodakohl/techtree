@@ -1,0 +1,32 @@
+{
+  "id": "2026-07-03-urban-night-watch-scope",
+  "description": "Lock Urban Night Watch to source-backed medieval nighttime civic watch duties under the Statute of Winchester and London ward-watch practice.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "urban_night_watch",
+      "operator": "eq",
+      "value": 1285,
+      "reason": "The corrected node is anchored to the 1285 Statute of Winchester rather than the old Medieval era-default century placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "urban_night_watch",
+      "prerequisite": "municipal_fire_watch",
+      "expected": "enabling",
+      "reason": "Municipal fire-watch practice shares the ward-watch, curfew, night patrol, and fire-risk enforcement machinery used by urban night watches."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urban_night_watch",
+      "prerequisite": "mechanical_clock_towers",
+      "reason": "Clock towers can broadcast time but are not a prerequisite for the Statute of Winchester night-watch duties."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urban_night_watch",
+      "prerequisite": "oil_wick_lamps",
+      "reason": "The node covers medieval watch and curfew enforcement, not lamp production or lighting hardware."
+    }
+  ]
+}
