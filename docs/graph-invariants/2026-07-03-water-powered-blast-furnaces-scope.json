@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-water-powered-blast-furnaces-scope",
+  "description": "Lock Water-Powered Blast Furnaces to blast-furnace installations powered by water-wheel-driven bellows, separate from water-powered trip-hammer forge machinery.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "water_powered_blast_furnaces",
+      "prerequisite": "blast_furnace",
+      "reason": "The Lapphyttan evidence is a blast-furnace installation, so the furnace architecture remains a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "water_powered_blast_furnaces",
+      "prerequisite": "watermills",
+      "reason": "The water-powered scope requires dam and water-wheel machinery to power the bellows."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "water_powered_blast_furnaces",
+      "prerequisite": "watermills",
+      "expected": "enabling",
+      "reason": "Water-wheel machinery enables the powered bellows without making generic watermills the whole furnace technology."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "water_powered_blast_furnaces",
+      "prerequisite": "bellows",
+      "reason": "The source-backed reconstruction uses leather bellows to keep the furnace hot and provide the forced-air blast."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "water_powered_blast_furnaces",
+      "prerequisite": "water_powered_trip_hammers_forges",
+      "reason": "Water-powered trip hammers are separate hammer/forge machinery rather than the mechanism that powers blast-furnace bellows."
+    },
+    {
+      "type": "first_known_date",
+      "node": "water_powered_blast_furnaces",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "The node remains anchored to late-twelfth-century Lapphyttan/Bergslagen evidence at century precision."
+    }
+  ]
+}

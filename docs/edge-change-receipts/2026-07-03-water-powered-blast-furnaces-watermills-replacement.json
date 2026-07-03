@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-water-powered-blast-furnaces-watermills-replacement",
+  "decision_date": "2026-07-03",
+  "edge": {
+    "dependent": "water_powered_blast_furnaces",
+    "prerequisite": "watermills"
+  },
+  "replaced_edge": {
+    "dependent": "water_powered_blast_furnaces",
+    "prerequisite": "water_powered_trip_hammers_forges"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Water-Powered Trip Hammers & Forges provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "A dam and wooden water wheel supplied the mechanical power for the Lapphyttan reconstruction's leather bellows, making watermill machinery the direct power prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.erih.net/i-want-to-go-there/site/new-lapphyttan",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "ERIH describes the reconstructed Lapphyttan furnace as having a dam to store water, a wooden water wheel, and leather bellows to keep the fire hot.",
+    "source_claim_summary": "The source documents water storage, a water wheel, and leather bellows as components of the water-powered blast-furnace reconstruction.",
+    "source_support_rationale": "This supports replacing the trip-hammer edge because water-wheel machinery, not hammer-forge machinery, is the component that directly powers the blast-furnace bellows."
+  },
+  "ontology_before": "Water-Powered Blast Furnaces depended on Water-Powered Trip Hammers & Forges, implying hammer/forge machinery was the prerequisite water-power lineage.",
+  "ontology_after": "Water-Powered Blast Furnaces depends directly on watermills for water-wheel power, while trip hammers remain a separate water-powered forge application.",
+  "invariant_preserved_or_changed": "Changed: water_powered_blast_furnaces now depends on watermills and no longer directly depends on water_powered_trip_hammers_forges.",
+  "would_reject_if": [
+    "The node were narrowed to integrated forge complexes where trip hammers were necessary to operate the furnace installation.",
+    "A stronger source showed medieval water-powered blast furnaces required trip hammers rather than only water-wheel-powered bellows.",
+    "The watermills node were narrowed away from water-wheel power machinery."
+  ],
+  "short_reason": "Water-wheel power runs the bellows; trip hammers are parallel forge machinery.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/water_powered_blast_furnaces.before.json /tmp/water_powered_blast_furnaces.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
