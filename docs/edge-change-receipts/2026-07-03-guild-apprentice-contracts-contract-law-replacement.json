@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-guild-apprentice-contracts-contract-law-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "guild_apprentice_contracts",
+    "prerequisite": "contract_law"
+  },
+  "replaced_edge": {
+    "dependent": "guild_apprentice_contracts",
+    "prerequisite": "guild_certification_seals"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Guild Certification Seals provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Contract Law supplies the agreement, obligation, pledge, breach, and enforceability framework for written apprentice contracts."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://sourcebooks.web.fordham.edu/source/1248apprentice-barber.asp",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Fordham reproduces the 1248 Marseilles apprentice agreement with mutual promises, a forfeitable pledge if the agreement is broken, sworn security, pledged goods, and legal renunciations.",
+    "source_claim_summary": "The source shows apprentice contracts as enforceable written agreements with obligations, breach penalties, and legal language.",
+    "source_support_rationale": "Contract law is the framework that makes the apprenticeship text a binding agreement; guild certification seals attest status or quality and are downstream or adjacent, not the direct prerequisite."
+  },
+  "ontology_before": "Guild Apprentice Contracts depended on Guild Certification Seals, conflating later attestations of training, membership, or quality with the legal agreement that created apprentice obligations.",
+  "ontology_after": "Guild Apprentice Contracts depend directly on Contract Law for the agreement and enforcement framework, while guild certification seals remain a separate attestation technology.",
+  "invariant_preserved_or_changed": "Changed: guild_apprentice_contracts now depends on contract_law and no longer directly depends on guild_certification_seals.",
+  "would_reject_if": [
+    "The node were narrowed to post-training guild certificates or seals rather than apprentice agreements.",
+    "A stronger source showed the 1248 Marseilles apprenticeship agreement required guild certification seals as the direct enabling technology.",
+    "The contract_law node were narrowed away from enforceable agreements, pledges, obligations, and breach consequences."
+  ],
+  "short_reason": "Apprentice contracts need contract law, not certification seals.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/guild_apprentice_contracts.before.json /tmp/guild_apprentice_contracts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

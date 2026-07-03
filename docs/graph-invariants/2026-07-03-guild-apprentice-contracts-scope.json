@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-guild-apprentice-contracts-scope",
+  "description": "Lock Guild Apprentice Contracts to enforceable written apprenticeship agreements, not post-training guild certification seals.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "guild_apprentice_contracts",
+      "prerequisite": "apprenticeship_systems",
+      "reason": "The node remains grounded in structured craft apprenticeship practice."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "guild_apprentice_contracts",
+      "prerequisite": "notarial_records",
+      "reason": "The scoped source is a written witnessed legal agreement preserved as a medieval document."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "guild_apprentice_contracts",
+      "prerequisite": "contract_law",
+      "reason": "The source-backed agreement uses promises, pledges, breach terms, and legal renunciations."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "guild_apprentice_contracts",
+      "prerequisite": "contract_law",
+      "expected": "enabling",
+      "reason": "Contract law enables the apprentice text as an enforceable agreement, but the specific craft training system remains separately represented."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "guild_apprentice_contracts",
+      "prerequisite": "guild_certification_seals",
+      "reason": "Guild seals attest certification, quality, or rights; they should not be restored as a direct prerequisite for creating apprentice contracts."
+    },
+    {
+      "type": "first_known_date",
+      "node": "guild_apprentice_contracts",
+      "operator": "eq",
+      "value": 1248,
+      "reason": "The node stays anchored to the dated Marseilles barber apprenticeship agreement."
+    }
+  ]
+}
