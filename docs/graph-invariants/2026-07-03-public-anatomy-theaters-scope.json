@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-public-anatomy-theaters-scope",
+  "description": "Lock Public Anatomy Theaters to university dissection-teaching venues, not printed scientific illustration media.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "anatomical_studies_vesalius_detailed",
+      "reason": "Vesalius-era detailed anatomy is the dissection-centered teaching content for public anatomy theaters."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "anatomical_studies_vesalius_detailed",
+      "expected": "common_dependency",
+      "reason": "Vesalian anatomy is teaching context, not the built venue itself."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "university_medical_faculties",
+      "reason": "The Padua exemplar is a university anatomy teaching structure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "university_medical_faculties",
+      "expected": "common_dependency",
+      "reason": "Medical faculties provide institutional teaching context, while the venue design is the direct built requirement."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "anatomical_theater_design",
+      "reason": "Anatomical theater design is the same-year built-form context for the public dissection venue."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "anatomical_theater_design",
+      "expected": "common_dependency",
+      "reason": "The built anatomy-theater design is a same-year sibling venue concept, not an earlier hard prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_anatomy_theaters",
+      "prerequisite": "scientific_illustration_printing",
+      "reason": "Scientific illustration printing should not be restored unless the node is narrowed to printed anatomical teaching media."
+    },
+    {
+      "type": "first_known_date",
+      "node": "public_anatomy_theaters",
+      "operator": "eq",
+      "value": 1594,
+      "reason": "The node remains anchored to the University of Padua anatomical theatre construction date."
+    }
+  ]
+}

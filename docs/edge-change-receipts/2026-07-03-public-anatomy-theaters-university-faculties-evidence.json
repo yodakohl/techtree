@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-public-anatomy-theaters-university-faculties-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "public_anatomy_theaters",
+    "prerequisite": "university_medical_faculties"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "University Medical Faculties is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "University medical faculties provided the institutional teaching setting for anatomy theaters such as Padua's medical anatomy venue."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://heritage.unipd.it/en/storia/il-teatro-anatomico/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The University of Padua heritage page states that the fixed anatomical theatre was built in 1594 and opened in 1595 as a permanent structure created to teach anatomy through dissection.",
+    "source_claim_summary": "The source locates the anatomy theater at the University of Padua and frames it as a permanent anatomy teaching structure.",
+    "source_support_rationale": "The university setting supports medical-faculty institutional context, but the edge remains common_dependency because the specific dependency is the public teaching institution rather than a faculty office alone."
+  },
+  "ontology_before": "Public Anatomy Theaters depended on University Medical Faculties through an unsourced weak contextual edge.",
+  "ontology_after": "Public Anatomy Theaters keep University Medical Faculties as the source-backed institutional teaching context for Padua-style anatomy theaters.",
+  "invariant_preserved_or_changed": "Preserved: university_medical_faculties remains a direct common_dependency prerequisite with official-source evidence.",
+  "would_reject_if": [
+    "The node were rescoped to non-university popular spectacles only.",
+    "A stronger source showed Padua's anatomical theatre was independent of university medical teaching.",
+    "A dedicated university anatomy chair node were introduced and should replace the broader medical-faculty prerequisite."
+  ],
+  "short_reason": "The source-backed exemplar is a University of Padua anatomy teaching structure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_anatomy_theaters.before.json /tmp/public_anatomy_theaters.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

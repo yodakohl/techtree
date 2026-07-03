@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-public-anatomy-theaters-vesalius-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "public_anatomy_theaters",
+    "prerequisite": "anatomical_studies_vesalius_detailed"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Anatomical Studies (Vesalius, Detailed) is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.66,
+    "evidence_level": "review",
+    "note": "Vesalius-era detailed anatomy supplied the dissection-centered teaching subject matter that public anatomy theaters staged for students and spectators."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.nlm.nih.gov/exhibition/historicalanatomies/vesalius_home.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "NLM presents Vesalius's De humani corporis fabrica as a 1543 dissection-based anatomical work with detailed woodcuts and dissection scenes, matching the anatomy curriculum later staged in public anatomy theaters.",
+    "source_claim_summary": "The source documents Vesalius-era detailed anatomy, dissection, and anatomical images as the scholarly subject matter for later anatomy teaching.",
+    "source_support_rationale": "This supports a contextual curriculum edge rather than a strict venue requirement, so the edge stays common_dependency with improved evidence."
+  },
+  "ontology_before": "Public Anatomy Theaters depended on Vesalius-style anatomical studies through an unsourced weak contextual edge.",
+  "ontology_after": "Public Anatomy Theaters keep Vesalius-style anatomical studies as source-backed dissection-centered teaching context.",
+  "invariant_preserved_or_changed": "Preserved: anatomical_studies_vesalius_detailed remains a direct common_dependency prerequisite with official-source evidence.",
+  "would_reject_if": [
+    "The node were narrowed to seating architecture only, with no anatomy teaching or dissection curriculum.",
+    "A stronger source showed public anatomy theaters had no dependence on Vesalius-era detailed anatomy or dissection teaching.",
+    "The graph merged anatomical_studies_vesalius_detailed into human_anatomy_physiology and moved this edge to the broader node."
+  ],
+  "short_reason": "Vesalius-era dissection anatomy is the teaching content staged by public anatomy theaters.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_anatomy_theaters.before.json /tmp/public_anatomy_theaters.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

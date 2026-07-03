@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-public-anatomy-theaters-design-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "public_anatomy_theaters",
+    "prerequisite": "anatomical_theater_design"
+  },
+  "replaced_edge": {
+    "dependent": "public_anatomy_theaters",
+    "prerequisite": "scientific_illustration_printing"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Scientific Illustration Printing is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Anatomical theater design is the same-year built-form context for public anatomy theaters, replacing printed scientific illustration as the direct venue concept."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://heritage.unipd.it/en/storia/il-teatro-anatomico/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The University of Padua heritage page dates the fixed anatomical theatre to 1594/1595 and describes it as a permanent structure created to teach anatomy through dissection.",
+    "source_claim_summary": "The source describes the built anatomical theater at Padua as a permanent dissection-teaching structure.",
+    "source_support_rationale": "That architecture is the same-year built-form context for the public venue; printed scientific illustration is related teaching media but not the direct venue concept."
+  },
+  "ontology_before": "Public Anatomy Theaters depended on Scientific Illustration Printing, conflating printed anatomical media with the public dissection venue.",
+  "ontology_after": "Public Anatomy Theaters depend on Anatomical Theater Design as same-year built-form context and no longer directly depend on scientific illustration printing.",
+  "invariant_preserved_or_changed": "Changed: public_anatomy_theaters now depends on anatomical_theater_design and no longer directly depends on scientific_illustration_printing.",
+  "would_reject_if": [
+    "The node were narrowed to printed anatomy teaching aids rather than public dissection venues.",
+    "A stronger source showed printed scientific illustration was structurally required for the first public anatomy theaters.",
+    "Anatomical Theater Design were removed or merged into Public Anatomy Theaters, requiring a different direct built-environment prerequisite."
+  ],
+  "short_reason": "Anatomy theaters need a dissection-theater venue; printed illustrations are related but not the direct built-form prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_anatomy_theaters.before.json /tmp/public_anatomy_theaters.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
