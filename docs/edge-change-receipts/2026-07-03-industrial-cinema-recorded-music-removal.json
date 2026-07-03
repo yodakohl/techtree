@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-industrial-cinema-recorded-music-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_cinema_distribution",
+    "prerequisite": "recorded_music_industry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Recorded Music Industry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the 1905 cinema distribution scope is about silent-era motion-picture prints, production, distribution, and exhibition networks, not commercial recorded-music distribution.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/art/history-of-film/Edison-and-the-Lumiere-brothers",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica describes early motion-picture production and distribution by film firms such as Pathé and Gaumont without making recorded-music commerce a prerequisite.",
+    "source_claim_summary": "The source grounds the target node in motion-picture production/distribution, not in commercial recorded-music catalogs or playback.",
+    "source_support_rationale": "Music accompaniment could be exhibition context, but the recorded-music industry is a separate phonograph/copyright market and is not evidenced as required for silent-era film-print distribution."
+  },
+  "ontology_before": "Industrial Cinema Distribution depended directly on Recorded Music Industry, implying phonograph-record commerce enabled early film distribution.",
+  "ontology_after": "Industrial Cinema Distribution is modeled through motion-picture film production/projection; recorded music remains a separate entertainment-distribution industry.",
+  "invariant_preserved_or_changed": "Changed: industrial_cinema_distribution no longer directly depends on recorded_music_industry.",
+  "would_reject_if": [
+    "The node is later rescoped to synchronized-sound cinema distribution after recorded sound systems became standard.",
+    "A stronger source shows early 1905 film distribution depended on commercial recorded-music catalogs or phonograph playback infrastructure.",
+    "A new synchronized_sound_cinema_distribution node is added where recorded sound or recorded music becomes a direct dependency."
+  ],
+  "short_reason": "Recorded music is not a sourced prerequisite for silent-era film distribution.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_cinema_distribution.before.json /tmp/industrial_cinema_distribution.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

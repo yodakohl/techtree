@@ -1,0 +1,32 @@
+{
+  "id": "2026-07-03-industrial-cinema-distribution-scope",
+  "description": "Lock industrial cinema distribution to early motion-picture production/distribution and remove unsupported newspaper and recorded-music prerequisites.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "industrial_cinema_distribution",
+      "operator": "eq",
+      "value": 1905,
+      "reason": "The node remains anchored to the decade around Pathé/Gaumont industrialization and early nickelodeon-era film distribution and exhibition."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_cinema_distribution",
+      "prerequisite": "cinematography_motion_pictures",
+      "expected": "required",
+      "reason": "A network for film prints, projection, and exhibition requires the motion-picture medium."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_cinema_distribution",
+      "prerequisite": "mass_media_newspapers",
+      "reason": "Newspaper publicity may advertise shows, but it is not source-backed as a direct prerequisite for film-print distribution or exhibition networks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_cinema_distribution",
+      "prerequisite": "recorded_music_industry",
+      "reason": "The 1905 silent-era distribution scope should not depend directly on the separate phonograph-based recorded-music industry."
+    }
+  ]
+}

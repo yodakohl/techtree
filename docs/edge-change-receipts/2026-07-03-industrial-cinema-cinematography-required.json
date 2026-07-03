@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-industrial-cinema-cinematography-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "industrial_cinema_distribution",
+    "prerequisite": "cinematography_motion_pictures"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cinematography & Motion Pictures provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "textbook",
+    "note": "Industrial cinema distribution is a network for film prints, projection, and exhibition, so motion-picture production and projection are the required underlying medium."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/art/history-of-film/Edison-and-the-Lumiere-brothers",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Britannica describes early motion-picture production and distribution by companies such as Pathé and Gaumont, including Pathé and Gaumont dominance of pre-World War I motion-picture production/distribution.",
+    "source_claim_summary": "The source grounds early cinema distribution in motion-picture production and distribution firms and their film-output networks.",
+    "source_support_rationale": "A distribution network for film prints and exhibitions cannot exist without motion-picture capture/projection and film output, so the edge is required rather than generic enabling."
+  },
+  "ontology_before": "Industrial Cinema Distribution treated motion pictures as a generic enabling context.",
+  "ontology_after": "Industrial Cinema Distribution requires cinematography and motion pictures as the underlying medium being printed, rented, projected, and exhibited.",
+  "invariant_preserved_or_changed": "Changed: industrial_cinema_distribution -> cinematography_motion_pictures is now a required edge.",
+  "would_reject_if": [
+    "The node is later rescoped to pre-film optical entertainments rather than motion-picture film distribution.",
+    "A stronger source shows the scoped distribution network did not distribute motion-picture film prints or exhibitions.",
+    "A more precise film_exchanges node is added and becomes the direct required substrate."
+  ],
+  "short_reason": "Cinema distribution requires the motion-picture medium it distributes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_cinema_distribution.before.json /tmp/industrial_cinema_distribution.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

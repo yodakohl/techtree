@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-industrial-cinema-newspapers-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_cinema_distribution",
+    "prerequisite": "mass_media_newspapers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mass Media (Newspapers) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the scoped node is source-backed by motion-picture film production, distribution, and exhibition firms; newspapers may publicize programs but are not evidenced as a prerequisite for distributing film prints or operating cinema networks.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/art/history-of-film/Edison-and-the-Lumiere-brothers",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica describes Pathé and Gaumont as early motion-picture production/distribution companies and does not ground cinema distribution in newspaper infrastructure.",
+    "source_claim_summary": "The source explains early cinema distribution through film companies and motion-picture output, not newspaper media.",
+    "source_support_rationale": "Newspapers are plausible advertising context, but the inspected scope is film-print and exhibition distribution; publicity channels should not be modeled as direct prerequisites without source support."
+  },
+  "ontology_before": "Industrial Cinema Distribution depended directly on mass media newspapers, implying newspaper circulation enabled the film distribution network.",
+  "ontology_after": "Industrial Cinema Distribution is grounded directly in motion-picture production/projection; newspaper publicity is left as optional advertising context.",
+  "invariant_preserved_or_changed": "Changed: industrial_cinema_distribution no longer directly depends on mass_media_newspapers.",
+  "would_reject_if": [
+    "The node is later narrowed to newspaper film listings or newspaper advertising for cinemas.",
+    "A stronger source shows early cinema distribution networks required newspaper circulation to operate.",
+    "A separate cinema_advertising node is added where newspaper advertising is a direct scoped prerequisite."
+  ],
+  "short_reason": "Newspapers are publicity context, not a sourced direct prerequisite for cinema distribution.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_cinema_distribution.before.json /tmp/industrial_cinema_distribution.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
