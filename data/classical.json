@@ -12200,16 +12200,15 @@
     "id": "itineraries_route_guides",
     "name": "Itineraries & Route Guides",
     "era": "Classical",
-    "description": "Written lists of roads, distances, inns, ports, hazards, towns, and junctions used by couriers, merchants, armies, and pilgrims.",
+    "description": "Written route guides and periploi listing roads or sea lanes, distances, ports, hazards, market towns, anchorages, and junctions for travelers and traders.",
     "prerequisites": [
       "roads",
-      "navigation",
-      "public_archives"
+      "navigation"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": 50,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "region": "Roman Egyptian Red Sea and Indian Ocean trade routes; later Roman road networks",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "roads",
@@ -12248,32 +12247,38 @@
             "supports": [
               "edge"
             ]
+          },
+          {
+            "title": "The Voyage around the Erythraean Sea",
+            "url": "https://depts.washington.edu/silkroad/texts/periplus/periplus.html",
+            "publisher": "University of Washington Silk Road Seattle",
+            "year": 2004,
+            "source_type": "textbook",
+            "source_locator": "Introduction and sections 1-43: identifies the Periplus as a mid-first-century CE Greek merchant text and gives sailing routes, distances, anchorages, hazards, market towns, and sailing seasons.",
+            "supports": [
+              "edge"
+            ]
           }
         ]
-      },
-      {
-        "prerequisite": "public_archives",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Road",
-        "url": "https://www.britannica.com/technology/road",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
+        "title": "The Voyage around the Erythraean Sea",
+        "url": "https://depts.washington.edu/silkroad/texts/periplus/periplus.html",
+        "publisher": "University of Washington Silk Road Seattle",
+        "year": 2004,
         "source_type": "textbook",
+        "source_locator": "Introduction: describes the Periplus Maris Erythraei as an anonymous mid-first-century CE Greek merchant work that records maritime trade routes, route lengths and conditions, emporiums, anchorage points, hazards, and sailing months.",
         "supports": [
-          "edge",
-          "node"
+          "node",
+          "edge"
         ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The date is a conservative first-century CE graph anchor for the source-backed Periplus Maris Erythraei; earlier Greek periploi and lost route guides existed, but this node uses a directly inspectable preserved route-guide source.",
+    "scopeNote": "Covers written route guides and itineraries, including maritime periploi and later road itineraria. It excludes formal surveyed maps, public archival repositories, and generic road construction."
   },
   {
     "id": "public_latrines",
@@ -12817,25 +12822,38 @@
   },
   {
     "id": "surveyed_road_maps",
-    "name": "Surveyed Road Maps",
+    "name": "Surveyed Road & Administrative Maps",
     "era": "Classical",
-    "description": "Measured route diagrams and administrative maps for roads, stations, towns, ports, distances, and military movement.",
+    "description": "Measured administrative maps and plans recording surveyed roads, land divisions, towns, public property, and registers for Roman state administration.",
     "prerequisites": [
-      "itineraries_route_guides",
+      "surveying",
       "geometry"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 70,
+    "datePrecision": "decade",
+    "region": "Roman Empire / early imperial survey mapping and Arausio (Orange) cadastral tradition",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "itineraries_route_guides",
+        "prerequisite": "surveying",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Itineraries & Route Guides provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Roman large-scale administrative maps were produced from land-surveying practice; surveyors divided land, drew maps, and compiled registers for local and central record offices.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman Large-Scale Mapping in the Early Empire",
+            "url": "https://press.uchicago.edu/books/hoc/HOC_V1/HOC_VOLUME1_chapter13.pdf",
+            "publisher": "University of Chicago Press / History of Cartography",
+            "year": 1987,
+            "source_type": "textbook",
+            "source_locator": "Pages 212-216: describes early imperial surveyors, groma-based survey methods, maps (formae), registers, bronze copies, and local plus central record-office preservation.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "geometry",
@@ -12860,18 +12878,20 @@
     ],
     "sources": [
       {
-        "title": "Geometry",
-        "url": "https://www.britannica.com/science/geometry",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
+        "title": "Roman Large-Scale Mapping in the Early Empire",
+        "url": "https://press.uchicago.edu/books/hoc/HOC_V1/HOC_VOLUME1_chapter13.pdf",
+        "publisher": "University of Chicago Press / History of Cartography",
+        "year": 1987,
         "source_type": "textbook",
+        "source_locator": "Chapter opening and survey-methods sections: identifies early imperial Roman large-scale mapping, Vespasian-era official survey maps at Orange, and surveyors' procedures for making maps and registers.",
         "supports": [
-          "edge",
           "node"
         ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The decade anchor follows the Vespasian-era Orange cadastral maps and broader early imperial survey-mapping practice rather than the old Classical era default placeholder.",
+    "scopeNote": "Covers Roman surveyed administrative and road-related mapping from land-surveying practice. It excludes text-only itineraries, unsurveyed schematic travel diagrams, modern road atlases, and later medieval route maps."
   },
   {
     "id": "toll_roads_and_bridges",
@@ -14267,8 +14287,21 @@
         "type": "common_dependency",
         "confidence": 0.55,
         "evidence_level": "weak_inference",
-        "note": "Surveyed Road Maps is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "note": "Surveyed Road & Administrative Maps are contextual cartographic infrastructure for fiscal land records, not a strict hard prerequisite for every cadastral tax map.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman Large-Scale Mapping in the Early Empire",
+            "url": "https://press.uchicago.edu/books/hoc/HOC_V1/HOC_VOLUME1_chapter13.pdf",
+            "publisher": "University of Chicago Press / History of Cartography",
+            "year": 1987,
+            "source_type": "textbook",
+            "source_locator": "Pages 212-216: describes Roman survey maps, land-allocation registers, bronze copies, and preservation in local and central record offices.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "tax_accounting",

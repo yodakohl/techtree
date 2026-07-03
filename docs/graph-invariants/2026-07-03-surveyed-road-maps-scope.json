@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-03-surveyed-road-maps-scope",
+  "description": "Lock Surveyed Road & Administrative Maps to Roman survey-based administrative mapping, not text-only route guides.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "surveyed_road_maps",
+      "operator": "eq",
+      "value": 70,
+      "reason": "The corrected node is anchored to Vespasian-era Orange cadastral and early imperial Roman survey-mapping evidence rather than the old Classical era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surveyed_road_maps",
+      "prerequisite": "surveying",
+      "expected": "enabling",
+      "reason": "Measured administrative maps are produced from land-surveying practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surveyed_road_maps",
+      "prerequisite": "geometry",
+      "expected": "enabling",
+      "reason": "Geometry remains an enabling mathematical context for measured survey mapping."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "surveyed_road_maps",
+      "prerequisite": "itineraries_route_guides",
+      "reason": "Text route guides and itineraries are not the production method for surveyed administrative maps."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "surveyed_road_maps",
+      "prerequisite": "public_archives",
+      "reason": "Record-office preservation is context for Roman maps and registers, not a direct prerequisite for survey mapping."
+    }
+  ]
+}

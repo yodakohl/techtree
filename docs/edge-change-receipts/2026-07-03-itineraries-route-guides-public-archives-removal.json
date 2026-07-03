@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-03-itineraries-route-guides-public-archives-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "itineraries_route_guides",
+    "prerequisite": "public_archives"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Archives provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct public_archives edge remains because preserved written route guides such as the Periplus are merchant or travel texts, not technologies that require a public archival repository.",
+  "source_supports_edge": "no",
+  "source_url": "https://depts.washington.edu/silkroad/texts/periplus/periplus.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction and sections 1-43: identifies the Periplus as a mid-first-century CE Greek merchant text and gives sailing routes, distances, anchorages, hazards, market towns, and sailing seasons.",
+    "source_claim_summary": "The source supports a route-guide text for merchants and navigators, not a route-guide technology dependent on public archive institutions.",
+    "source_support_rationale": "Because the corrected node is about written route guidance, the material source requirement is writing and route/navigation knowledge; public archives may preserve examples but do not enable their creation."
+  },
+  "ontology_before": "Itineraries & Route Guides depended directly on public_archives, implying that archival repositories enabled the route-guide form.",
+  "ontology_after": "Itineraries & Route Guides are scoped to written route and sailing guides; public archives are excluded as preservation context rather than a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: itineraries_route_guides no longer directly depends on public_archives.",
+  "would_reject_if": [
+    "The node were narrowed to official archival road registers rather than route guides used by travelers and traders.",
+    "A source showed the earliest scoped route guides were created as public archive instruments rather than as travel or merchant texts.",
+    "The public_archives node were broadened to include all written documentary media rather than institutional archives."
+  ],
+  "short_reason": "Route guides can be written and used without a public archive institution.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/itineraries_route_guides.before.json /tmp/itineraries_route_guides.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

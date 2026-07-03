@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-03-itineraries-route-guides-scope",
+  "description": "Lock Itineraries & Route Guides to source-backed written route and sailing guides, not public archival repositories or formal surveyed maps.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "itineraries_route_guides",
+      "operator": "eq",
+      "value": 50,
+      "reason": "The launch-quality date is anchored to the mid-first-century CE Periplus Maris Erythraei rather than the old Classical era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "itineraries_route_guides",
+      "prerequisite": "roads",
+      "expected": "enabling",
+      "reason": "Road networks enable written road itineraries, but the node also includes maritime periploi."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "itineraries_route_guides",
+      "prerequisite": "navigation",
+      "expected": "enabling",
+      "reason": "Maritime periploi list sailing routes, anchorages, hazards, and sailing seasons."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "itineraries_route_guides",
+      "prerequisite": "public_archives",
+      "reason": "Archives can preserve route-guide texts but are not a prerequisite for writing or using route guides."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "itineraries_route_guides",
+      "prerequisite": "surveyed_road_maps",
+      "reason": "Formal surveyed maps are a distinct cartographic technology and must not become a prerequisite for written route guides."
+    }
+  ]
+}
