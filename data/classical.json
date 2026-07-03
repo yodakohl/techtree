@@ -14556,15 +14556,15 @@
     "id": "amphora_shipping_standards",
     "name": "Amphora Shipping Standards",
     "era": "Classical",
-    "description": "Standard vessel shapes, stamps, capacities, seals, and stacking methods for wine, oil, grain, and preserved foods.",
+    "description": "Standardized Roman and Mediterranean transport-amphora type forms, capacities, origins, distributions, and cargo-container classifications for shipped wine, oil, fish sauce, fruit products, and other goods.",
     "prerequisites": [
       "pottery_wheel",
-      "maritime_law_codes"
+      "trade_routes"
     ],
-    "firstKnownDate": -500,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": -50,
+    "datePrecision": "decade",
+    "region": "Roman Mediterranean, including coastal Asia Minor and wider imperial trade networks",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "pottery_wheel",
@@ -14587,28 +14587,44 @@
         ]
       },
       {
-        "prerequisite": "maritime_law_codes",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Maritime Law Codes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "trade_routes",
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Transport-amphora standards scaled through Mediterranean trade: type catalogues record origin, distribution, contents, and capacity because the containers moved commodities across trade networks.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Roman Amphorae: a digital resource",
+            "url": "https://archaeologydataservice.ac.uk/archives/view/amphora_ahrb_2005/",
+            "publisher": "University of Southampton / Archaeology Data Service",
+            "year": 2014,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Catalogue introduction and Agora F65-66 details: the resource organizes Roman amphora types by distinctive features, date range, origin, distribution, contents, and capacity; the example type is distributed across Athens, Ephesus, the eastern Mediterranean, Ostia, and western provinces."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Wheel",
-        "url": "https://www.britannica.com/technology/wheel",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Roman Amphorae: a digital resource",
+        "url": "https://archaeologydataservice.ac.uk/archives/view/amphora_ahrb_2005/",
+        "publisher": "University of Southampton / Archaeology Data Service",
+        "year": 2014,
+        "source_type": "review",
         "supports": [
           "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Catalogue introduction and Agora F65-66 details: the Southampton/ADS resource is a Roman amphora type catalogue with preferred type terms; detail pages record distinctive features, date ranges, origins, distributions, contents, and capacity. Agora F65-66 is dated from the middle of the first century BCE to the fourth century CE and has a capacity around 6-12 litres."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough."
+    "scopeNote": "Covers source-backed classical/Roman transport-amphora type standards and catalogueable shipping-container forms. It does not claim the first invention of two-handled storage jars, which is covered by the older pottery_storage_amphorae node, and it does not require maritime law codes.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -50 anchor follows a specific source-backed Roman amphora type range beginning in the middle of the first century BCE; earlier Greek, Phoenician, and Bronze Age amphora traditions exist but are intentionally outside this narrower standards/catalogue scope."
   },
   {
     "id": "salted_trade_provisions",

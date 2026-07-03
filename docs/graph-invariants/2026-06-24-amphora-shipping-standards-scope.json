@@ -1,6 +1,6 @@
 {
   "id": "2026-06-24-amphora-shipping-standards-scope",
-  "description": "Keep amphora_shipping_standards separate from port tax account records.",
+  "description": "Keep amphora_shipping_standards separate from port tax account records and scoped to ceramic transport-container standards scaled through trade routes.",
   "checks": [
     {
       "type": "direct_edge_absent",
@@ -15,10 +15,11 @@
       "reason": "The retained mechanism remains ceramic vessel production."
     },
     {
-      "type": "direct_edge_present",
+      "type": "edge_type",
       "dependent": "amphora_shipping_standards",
-      "prerequisite": "maritime_law_codes",
-      "reason": "The retained context remains maritime commercial practice."
+      "prerequisite": "trade_routes",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "The retained commercial context is trade-route circulation, not maritime legal codes."
     }
   ]
 }

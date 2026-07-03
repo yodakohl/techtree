@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-03-amphora-shipping-standards-scope",
+  "description": "Lock Amphora Shipping Standards to source-backed Roman/Mediterranean transport-amphora type standards, not generic storage jars or maritime law.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "amphora_shipping_standards",
+      "operator": "eq",
+      "value": -50,
+      "reason": "The corrected node is anchored to a source-backed Roman transport-amphora type range beginning in the middle of the first century BCE rather than the old Classical era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "pottery_wheel",
+      "expected": "enabling",
+      "reason": "Transport amphorae are ceramic vessels, so ceramic forming technology remains enabling infrastructure."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "trade_routes",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Amphora type standards scale through trade routes carrying commodities across the Mediterranean."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "maritime_law_codes",
+      "reason": "Maritime legal customs regulate shipping disputes but do not enable amphora shapes, capacities, or cargo-container standards."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "amphora_shipping_standards",
+      "prerequisite": "pottery_storage_amphorae",
+      "reason": "The older generic storage-amphora node remains separate and should not be merged into this narrower classical/Roman standards node."
+    }
+  ]
+}

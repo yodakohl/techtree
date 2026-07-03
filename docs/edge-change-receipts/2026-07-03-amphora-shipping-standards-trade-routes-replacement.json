@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-amphora-shipping-standards-trade-routes-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "amphora_shipping_standards",
+    "prerequisite": "trade_routes"
+  },
+  "replaced_edge": {
+    "dependent": "amphora_shipping_standards",
+    "prerequisite": "maritime_law_codes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Law Codes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Transport-amphora standards scaled through Mediterranean trade: type catalogues record origin, distribution, contents, and capacity because the containers moved commodities across trade networks."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archaeologydataservice.ac.uk/archives/view/amphora_ahrb_2005/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Catalogue introduction and Agora F65-66 details: the resource organizes Roman amphora types by distinctive features, date range, origin, distribution, contents, and capacity; the example type is distributed across Athens, Ephesus, the eastern Mediterranean, Ostia, and western provinces.",
+    "source_claim_summary": "The source treats amphora types as trade containers characterized by production origin, distribution, contents, capacity, and date range.",
+    "source_support_rationale": "A shipping-container standard is commercially meaningful because containers circulate through trade networks; maritime law may regulate disputes but does not create the ceramic form or capacity standard."
+  },
+  "ontology_before": "Amphora Shipping Standards depended on Maritime Law Codes, implying legal codes enabled the container standard.",
+  "ontology_after": "Amphora Shipping Standards depend on pottery production plus trade-route scaling, while maritime law remains a separate legal technology.",
+  "invariant_preserved_or_changed": "Changed: amphora_shipping_standards now depends on trade_routes and no longer directly depends on maritime_law_codes.",
+  "would_reject_if": [
+    "The node were broadened back to every ancient amphora or storage jar rather than source-backed transport-amphora standards.",
+    "A source showed legal maritime codes directly specified the earliest amphora forms, capacities, or stamps.",
+    "The node were split into Greek stamped handles, Roman Dressel types, and storage amphorae with separate prerequisites."
+  ],
+  "short_reason": "Trade-route circulation scales transport amphora standards; maritime law does not enable the ceramic standard.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/amphora_shipping_standards.before.json /tmp/amphora_shipping_standards.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
