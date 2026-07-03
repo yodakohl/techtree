@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-03-galleon-broadside-artillery-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "galleon_ship_design",
+    "prerequisite": "naval_artillery_broadside_cannons"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Artillery (Broadside Cannons) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Broadside naval artillery shaped the galleon's lower, more stable warship design with gun ports and heavy cannon batteries, while the hull type also served merchant cargo roles."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.worldhistory.org/Galleon/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Evolution of Mediterranean Ship Design and The Galleon Design sections say the galleon was created for naval warfare after boarding was replaced by heavy cannon fire, had lower forecastles, gun ports along both sides, and heavy cannons below decks.",
+    "source_claim_summary": "The source links galleon hull and superstructure design to heavy cannon warfare, gun ports, and broadside-capable batteries.",
+    "source_support_rationale": "This supports an enabling edge because broadside artillery shaped the warship version of the galleon, while the same hull category also carried cargo and was not only a cannon platform."
+  },
+  "invariant_preserved_or_changed": "Preserved: galleon_ship_design remains enabled by naval_artillery_broadside_cannons, now with review-source evidence and a stable edge type.",
+  "would_reject_if": [
+    "The galleon node were narrowed to unarmed merchant cargo hulls only.",
+    "A stronger source showed broadside artillery had no causal relationship to lower forecastles, gun ports, or galleon warship design.",
+    "The naval_artillery_broadside_cannons node were narrowed away from early gun-port broadside ship batteries."
+  ],
+  "short_reason": "Broadside artillery shaped the galleon's warship design and gun-port architecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/galleon_ship_design.before.json /tmp/galleon_ship_design.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

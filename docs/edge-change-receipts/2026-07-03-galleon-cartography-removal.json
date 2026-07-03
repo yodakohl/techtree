@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-03-galleon-cartography-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "galleon_ship_design",
+    "prerequisite": "cartography"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cartography provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct cartography dependency remains because reviewed galleon sources ground the node in hull, rigging, caravel/carrack lineage, and gun-platform architecture rather than mapmaking.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.worldhistory.org/Galleon/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The source's design sections explain galleons through caravel and carrack lineage, lower forecastles, broadside gun ports, heavy cannons, masts, hull form, and seakeeping, without making cartography a design prerequisite.",
+    "source_claim_summary": "The source defines the galleon as a ship-design evolution from caravel and carrack forms with warship gun-platform architecture.",
+    "source_support_rationale": "Cartography helps navigation and oceanic deployment, but the cited design features are shipbuilding and artillery architecture rather than mapmaking capability."
+  },
+  "ontology_before": "Galleon Ship Design depended directly on Cartography, implying mapmaking enabled the hull, rig, and gun-platform design.",
+  "ontology_after": "Galleon Ship Design depends on caravel-era shipbuilding and broadside naval artillery; cartography remains navigation context outside the direct design prerequisites.",
+  "invariant_preserved_or_changed": "Changed: galleon_ship_design no longer directly depends on cartography.",
+  "would_reject_if": [
+    "The galleon node were rescoped to navigational use of galleons on mapped ocean routes rather than ship design.",
+    "A stronger source showed cartographic methods were necessary to design the galleon's hull, rig, or gun-deck architecture.",
+    "The cartography node were narrowed to ship draughting and hull-plan construction rather than mapmaking."
+  ],
+  "short_reason": "Cartography is navigation context, not a direct galleon design prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/galleon_ship_design.before.json /tmp/galleon_ship_design.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

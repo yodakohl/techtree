@@ -1,0 +1,25 @@
+{
+  "id": "2026-07-03-galleon-ship-design-scope",
+  "description": "Lock the 2026-07-03 galleon correction to hull, rig, caravel/carrack lineage, and broadside gun-platform design rather than generic navigation/cartography context.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "galleon_ship_design",
+      "prerequisite": "naval_artillery_broadside_cannons",
+      "expected": "enabling",
+      "reason": "Broadside artillery shaped the galleon's lower, gun-port warship architecture while the hull type also served cargo roles."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "galleon_ship_design",
+      "prerequisite": "lateen_sail_caravel",
+      "reason": "The Mariners' Museum and reviewed summaries trace galleons from caravel and carrack design traditions."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "galleon_ship_design",
+      "prerequisite": "cartography",
+      "reason": "Cartography supports navigation and deployment, not the direct hull, rig, and gun-platform design of galleons."
+    }
+  ]
+}
