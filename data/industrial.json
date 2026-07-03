@@ -6152,11 +6152,24 @@
       },
       {
         "prerequisite": "pneumatic_tools_compressed_air_power",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pneumatic Tools provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Whitehead's 1866 self-propelled torpedo used compressed-air propulsion, making compressed-air power a direct prerequisite for the first practical torpedo scope.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Torpedo History - Part 1 - Historical Background",
+            "url": "https://web.archive.org/web/20140915044815/http://www.history.navy.mil/museums/keyport/html/part1.htm",
+            "publisher": "Naval Undersea Museum",
+            "year": 2010,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Naval Undersea Museum's historical background traces Luppis and Whitehead's 1866 Minenschiff/automobile torpedo to an underwater device with a compressed-air engine and automatic depth and direction controls."
+          }
+        ]
       },
       {
         "prerequisite": "mechanical_clocks",
@@ -11738,93 +11751,98 @@
   },
   {
     "id": "pneumatic_tools_compressed_air_power",
-    "name": "Pneumatic Tools",
+    "name": "Compressed-Air Power and Pneumatic Tools",
     "era": "Industrial",
-    "description": "Tools and equipment powered by compressed air, including rock drills, riveters, and hammers, used heavily in mining, construction, and manufacturing.",
+    "description": "Compressed-air power systems for industrial machinery and transport, anchored to air compressors, pressure pipes, and pneumatic rock drills at the Mont Cenis tunnel, and later adapted to brakes, torpedoes, hammers, and riveters.",
     "prerequisites": [
-      "steam_engine",
-      "steel_production",
-      "construction"
+      "hydraulics",
+      "precision_machine_tools",
+      "steel_production"
     ],
-    "firstKnownDate": 1760,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1861,
+    "datePrecision": "year",
+    "region": "Mont Cenis / Frejus Tunnel works between Savoy and Piedmont",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "steam_engine",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Steam Engine supports manufacturing, deployment, commercialization, or operational scaling.",
+        "prerequisite": "hydraulics",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Mont Cenis compressed-air machinery used water power, hydraulic compressors, reservoirs, and pressure pipes to generate and distribute air for the drills.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "In Pursuit Of Power",
-            "url": "https://blog.sciencemuseum.org.uk/a-new-age/",
-            "publisher": "Science Museum Group",
-            "year": 2012,
-            "source_type": "museum",
+            "title": "A Treatise on Explosive Compounds, Machine Rock Drills and Blasting",
+            "url": "https://archive.org/stream/atreatiseonexpl00dringoog/atreatiseonexpl00dringoog_djvu.txt",
+            "publisher": "John Wiley & Sons",
+            "year": 1883,
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Drinker describes Colladon's proposal to apply compressed air as a motor using mountain streams for compression, then details the reservoirs, iron pipes, water-driven compressors, air tanks, and pressure pipes used around Mont Cenis."
+          }
+        ]
+      },
+      {
+        "prerequisite": "precision_machine_tools",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The first practical scope consists of machine rock drills, compressor machinery, drill carriages, chucks, bits, and pressure fittings, all requiring precision industrial machine-tool practice.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A Treatise on Explosive Compounds, Machine Rock Drills and Blasting",
+            "url": "https://archive.org/stream/atreatiseonexpl00dringoog/atreatiseonexpl00dringoog_djvu.txt",
+            "publisher": "John Wiley & Sons",
+            "year": 1883,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter V is organized around air-compressors and machine rock-drills, including compressor systems, machine-drill forms, drill carriages, chucks, drill bits, and operating instructions."
           }
         ]
       },
       {
         "prerequisite": "steel_production",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steel Production provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Steel production supported durable drill bits, cast-steel drill components, pressure hardware, and later forged compressed-air equipment, though the broader machinery also used iron.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Benjamin Huntsman",
-            "url": "https://www.britannica.com/biography/Benjamin-Huntsman",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "A Treatise on Explosive Compounds, Machine Rock Drills and Blasting",
+            "url": "https://archive.org/stream/atreatiseonexpl00dringoog/atreatiseonexpl00dringoog_djvu.txt",
+            "publisher": "John Wiley & Sons",
+            "year": 1883,
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "construction",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Architecture in Ancient Greece",
-            "url": "https://www.metmuseum.org/essays/architecture-in-ancient-greece",
-            "publisher": "The Metropolitan Museum of Art",
-            "year": 2003,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
+            ],
+            "source_locator": "The chronological table notes cast-steel drills by 1846, and the patent/device descriptions discuss cast-steel drill parts, drill bits, iron pipes, air tanks, and sheet-iron pressure pipes in compressed-air drilling systems."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "In Pursuit Of Power",
-        "url": "https://blog.sciencemuseum.org.uk/a-new-age/",
-        "publisher": "Science Museum Group",
-        "year": 2012,
-        "source_type": "museum",
+        "title": "A Treatise on Explosive Compounds, Machine Rock Drills and Blasting",
+        "url": "https://archive.org/stream/atreatiseonexpl00dringoog/atreatiseonexpl00dringoog_djvu.txt",
+        "publisher": "John Wiley & Sons",
+        "year": 1883,
+        "source_type": "review",
         "supports": [
+          "node",
           "edge"
-        ]
+        ],
+        "source_locator": "Drinker describes Sommeiller, Grandis, and Grattoni's compressed-air drilling system for the Mont Cenis tunnel, says machine drilling began on the Bardonneche side on January 12, 1861, and separately documents compressed air used for power transmission in mines, quarries, tunneling, industry, and transport."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Industrial source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "scopeNote": "Covers compressed-air generation, distribution, and practical pneumatic machinery as a shared industrial power capability. It is not a prerequisite for earlier hydraulic riveting, and it should not be narrowed to late handheld jackhammers alone."
   },
   {
     "id": "industrial_glass_production_float_glass",
@@ -19487,8 +19505,7 @@
     "description": "Compressed-air braking systems that improved train safety, speed, length, and coordination.",
     "prerequisites": [
       "railroads",
-      "pneumatic_tools_compressed_air_power",
-      "industrial_safety_regulation"
+      "pneumatic_tools_compressed_air_power"
     ],
     "firstKnownDate": 1869,
     "datePrecision": "year",
@@ -19517,19 +19534,25 @@
       },
       {
         "prerequisite": "pneumatic_tools_compressed_air_power",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pneumatic Tools provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "industrial_safety_regulation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Westinghouse's railway brake worked by compressed air, and the source traces the idea to European mining engineers' compressed-air drills.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Biography - George Westinghouse",
+            "url": "https://www.zf.com/mobile/en/company/strategy/heritage_zf/georgewestinghouse/georgewestinghouse2.html",
+            "publisher": "ZF Friedrichshafen AG",
+            "year": 2026,
+            "source_type": "generic_overview",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "ZF says Westinghouse patented the air brake on April 13, 1869, that his brake concept operated railway brakes with compressed air, and that the idea came from European mining engineers using compressed air for drills."
+          }
+        ]
       }
     ],
     "sources": [

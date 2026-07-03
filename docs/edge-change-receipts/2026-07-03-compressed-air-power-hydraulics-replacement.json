@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-compressed-air-power-hydraulics-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pneumatic_tools_compressed_air_power",
+    "prerequisite": "hydraulics"
+  },
+  "replaced_edge": {
+    "dependent": "pneumatic_tools_compressed_air_power",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Steam Engine supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "Mont Cenis compressed-air machinery used water power, hydraulic compressors, reservoirs, and pressure pipes to generate and distribute air for the drills."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archive.org/stream/atreatiseonexpl00dringoog/atreatiseonexpl00dringoog_djvu.txt",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Drinker describes Colladon's proposal to apply compressed air as a motor using mountain streams for compression, then details the reservoirs, iron pipes, water-driven compressors, air tanks, and pressure pipes used around Mont Cenis.",
+    "source_claim_summary": "The source grounds the Mont Cenis compressed-air system in water-powered air compression and pressure distribution infrastructure.",
+    "source_support_rationale": "This supports replacing the steam-engine edge because the first practical tunnel-drilling system used hydraulic water power to compress and distribute air, not steam power as its direct prerequisite."
+  },
+  "ontology_before": "The node depended on Steam Engine, implying steam power was the direct scaling foundation for early compressed-air tools.",
+  "ontology_after": "The node depends on Hydraulics because the source-backed Mont Cenis system used water-powered compressors, reservoirs, and pressure pipes.",
+  "invariant_preserved_or_changed": "Changed: pneumatic_tools_compressed_air_power now depends on hydraulics and no longer directly depends on steam_engine.",
+  "would_reject_if": [
+    "The node were rescoped to steam-driven workshop air compressors rather than the Mont Cenis compressed-air system.",
+    "A stronger source showed the first practical compressed-air drilling system required steam engines instead of hydraulic compressors.",
+    "The hydraulics node were narrowed away from fluid-power control and water-pressure machinery."
+  ],
+  "short_reason": "The first practical compressed-air scope used water-powered compression, not direct steam power.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pneumatic_tools_compressed_air_power.before.json /tmp/pneumatic_tools_compressed_air_power.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

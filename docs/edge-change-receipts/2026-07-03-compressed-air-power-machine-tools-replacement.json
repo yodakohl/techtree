@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-compressed-air-power-machine-tools-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pneumatic_tools_compressed_air_power",
+    "prerequisite": "precision_machine_tools"
+  },
+  "replaced_edge": {
+    "dependent": "pneumatic_tools_compressed_air_power",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The first practical scope consists of machine rock drills, compressor machinery, drill carriages, chucks, bits, and pressure fittings, all requiring precision industrial machine-tool practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archive.org/stream/atreatiseonexpl00dringoog/atreatiseonexpl00dringoog_djvu.txt",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Chapter V is organized around air-compressors and machine rock-drills, including compressor systems, machine-drill forms, drill carriages, chucks, drill bits, and operating instructions.",
+    "source_claim_summary": "The source treats the corrected node as compressor and machine-rock-drill machinery with drill carriages, chucks, bits, and pressure fittings.",
+    "source_support_rationale": "This supports replacing the construction edge because construction is only an application context, while machine-tool practice is the direct capability needed to build the machinery."
+  },
+  "ontology_before": "The node depended on Classical Monumental Construction, implying a broad building context directly enabled compressed-air power systems.",
+  "ontology_after": "The node depends on Precision Machine Tools for the compressor, rock-drill, carriage, chuck, bit, and pressure-fitting machinery in the first practical scope.",
+  "invariant_preserved_or_changed": "Changed: pneumatic_tools_compressed_air_power now depends on precision_machine_tools and no longer directly depends on construction.",
+  "would_reject_if": [
+    "The node were narrowed to construction management practices rather than compressed-air machinery.",
+    "A stronger source showed early pneumatic tools could emerge without precision industrial machinery.",
+    "The precision_machine_tools node were narrowed away from lathes, boring machines, gauges, and repeatable machine parts."
+  ],
+  "short_reason": "Compressed-air machinery needs machine-tool capability; construction is only a use context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pneumatic_tools_compressed_air_power.before.json /tmp/pneumatic_tools_compressed_air_power.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

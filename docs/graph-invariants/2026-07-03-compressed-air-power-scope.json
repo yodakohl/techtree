@@ -1,0 +1,64 @@
+{
+  "id": "2026-07-03-compressed-air-power-scope",
+  "description": "Lock the 2026-07-03 compressed-air correction that scopes the industrial node to Mont Cenis-era compressed-air power and pneumatic machinery rather than generic steam, construction, or regulation contexts.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "pneumatic_tools_compressed_air_power",
+      "prerequisite": "hydraulics",
+      "reason": "The corrected first practical scope used water-powered compression, reservoirs, and pressure pipes at Mont Cenis."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pneumatic_tools_compressed_air_power",
+      "prerequisite": "hydraulics",
+      "expected": "required",
+      "reason": "Hydraulic water-power compression is required for the source-backed Mont Cenis compressed-air system."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "pneumatic_tools_compressed_air_power",
+      "prerequisite": "precision_machine_tools",
+      "reason": "The corrected first practical scope is compressor and machine-rock-drill machinery, not a generic construction practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pneumatic_tools_compressed_air_power",
+      "prerequisite": "precision_machine_tools",
+      "expected": "required",
+      "reason": "Precision machine-tool practice is required for the source-backed compressor and rock-drill machinery."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pneumatic_tools_compressed_air_power",
+      "prerequisite": "steam_engine",
+      "reason": "Steam engines are not the direct source-backed prerequisite for the Mont Cenis compressed-air system."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pneumatic_tools_compressed_air_power",
+      "prerequisite": "construction",
+      "reason": "Construction is a use context for pneumatic tools, not the direct enabling machinery for the first practical compressed-air system."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "railway_air_brakes",
+      "prerequisite": "industrial_safety_regulation",
+      "reason": "The 1869 Westinghouse air-brake node is scoped to the compressed-air mechanism, while safety regulation is later adoption context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "railway_air_brakes",
+      "prerequisite": "pneumatic_tools_compressed_air_power",
+      "expected": "required",
+      "reason": "The Westinghouse air brake is a compressed-air braking mechanism."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "torpedoes_self_propelled_naval_weapon",
+      "prerequisite": "pneumatic_tools_compressed_air_power",
+      "expected": "required",
+      "reason": "The 1866 Whitehead torpedo used compressed-air propulsion in the first practical scope."
+    }
+  ]
+}

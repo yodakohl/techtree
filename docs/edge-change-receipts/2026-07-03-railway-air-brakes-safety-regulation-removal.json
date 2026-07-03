@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-03-railway-air-brakes-safety-regulation-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "railway_air_brakes",
+    "prerequisite": "industrial_safety_regulation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct industrial_safety_regulation dependency remains because the 1869 Westinghouse air-brake invention is source-backed as a compressed-air railroad mechanism, while regulation is a later adoption and mandate context.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/collections/films-of-westinghouse-works-1904/articles-and-essays/the-westinghouse-world/the-westinghouse-air-brake-co/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Library of Congress states the Westinghouse Air Brake Company was organized in 1869 to manufacture George Westinghouse's air brakes and describes the first air brake as a railroad-safety invention.",
+    "source_claim_summary": "The source grounds the node in Westinghouse's 1869 air-brake invention and manufacturing company rather than in an industrial safety regulation regime.",
+    "source_support_rationale": "The source explains the technology's safety benefit but does not make regulation a prerequisite for the 1869 mechanism; compressed-air operation and railroads cover the direct technical dependencies."
+  },
+  "ontology_before": "Railway Air Brakes depended on Industrial Safety Regulation, implying occupational safety law enabled the initial 1869 air-brake technology.",
+  "ontology_after": "Railway Air Brakes depends on railroads and compressed-air power; later safety mandates are deployment context rather than first-known invention prerequisites.",
+  "invariant_preserved_or_changed": "Changed: railway_air_brakes no longer directly depends on industrial_safety_regulation.",
+  "would_reject_if": [
+    "The node were rescoped to regulatory adoption of automatic train brakes rather than the 1869 Westinghouse compressed-air brake.",
+    "A stronger source showed Westinghouse's 1869 air-brake invention required industrial safety regulation to exist first.",
+    "The industrial_safety_regulation node were narrowed to a specific railroad air-brake mandate predating the invention."
+  ],
+  "short_reason": "Safety regulation explains later adoption pressure, not the 1869 air-brake mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/railway_air_brakes.before.json /tmp/railway_air_brakes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
