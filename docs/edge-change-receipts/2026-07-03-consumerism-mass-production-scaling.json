@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-consumerism-mass-production-scaling",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "consumerism",
+    "prerequisite": "mass_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mass Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Mass production scaled the supply of standardized consumer goods that postwar consumerism encouraged households to acquire."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://openstax.org/books/us-history/pages/28-3-the-american-dream",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Suburbanization and The Organization Man sections: OpenStax describes annual passenger-car production jumping from 2.2 million to 8 million between 1946 and 1955 and purchases of appliances, furniture, home decorations, cars, vacations, and other consumer goods spurring industries.",
+    "source_claim_summary": "OpenStax documents large postwar production and household purchases of cars, appliances, furnishings, vacations, and other consumer goods.",
+    "source_support_rationale": "This supports mass production as the supply-scaling side of consumerism, not a single required technical method for every consumer purchase."
+  },
+  "ontology_before": "Consumerism treated mass production as a generic enabling prerequisite.",
+  "ontology_after": "Consumerism treats mass production as the commercial scaling substrate that made abundant standardized consumer goods available.",
+  "invariant_preserved_or_changed": "Changed: consumerism -> mass_production is now a commercial_or_scaling_dependency edge.",
+  "would_reject_if": [
+    "The node is later narrowed to consumer-protection activism rather than high-consumption social order.",
+    "A stronger source shows postwar consumerism did not depend on abundant standardized goods.",
+    "The mass_production node is narrowed away from standardized high-volume consumer-goods production."
+  ],
+  "short_reason": "Mass production scales the consumer-goods supply that consumerism consumes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consumerism.before.json /tmp/consumerism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

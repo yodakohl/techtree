@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-consumerism-advertising-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "consumerism",
+    "prerequisite": "advertising_mass_media_early"
+  },
+  "replaced_edge": {
+    "dependent": "consumerism",
+    "prerequisite": "mass_media"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mass Media provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "textbook",
+    "note": "The postwar consumerism scope is driven by advertising-mediated demand creation, so mass advertising is the direct media prerequisite rather than generic mass media."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://openstax.org/books/us-history/pages/28-3-the-american-dream",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Organization Man section: OpenStax describes postwar purchases of appliances, home goods, second cars, vacations, and college education, and says Madison Avenue began appealing to teenage interests and advertising clothing, cosmetics, and teen magazines.",
+    "source_claim_summary": "OpenStax ties postwar consumer purchasing to Madison Avenue marketing and advertised youth-oriented goods.",
+    "source_support_rationale": "The source supports advertising as the demand-creation mechanism; generic mass media is too broad because it also includes news, entertainment, and public communication not directed at consumption."
+  },
+  "ontology_before": "Consumerism depended directly on broad mass media, blurring advertising-driven consumer demand with all large-audience media systems.",
+  "ontology_after": "Consumerism depends directly on mass advertising, the narrower existing node that creates and channels demand for mass-produced goods.",
+  "invariant_preserved_or_changed": "Changed: consumerism now depends on advertising_mass_media_early and no longer directly depends on mass_media.",
+  "would_reject_if": [
+    "The consumerism node is later rescoped to broad mass culture rather than consumption and advertising-driven demand.",
+    "A stronger source shows non-advertising mass media was the direct prerequisite and advertising was only incidental.",
+    "A more precise postwar_television_advertising node is added and replaces advertising_mass_media_early."
+  ],
+  "short_reason": "The direct media substrate is advertising, not generic mass media.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consumerism.before.json /tmp/consumerism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

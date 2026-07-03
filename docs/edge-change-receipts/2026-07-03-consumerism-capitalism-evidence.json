@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-consumerism-capitalism-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "consumerism",
+    "prerequisite": "capitalism_industrial"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Capitalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Consumerism is modeled as a market-oriented capitalist consumption order in which household spending, business sales, and production reinforce one another."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.investopedia.com/terms/c/consumerism.asp",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "What Is Consumerism and Delving Deeper sections: Investopedia relates consumerism to market-driven consumption, consumer spending as an economic driver, people living in capitalist economies, business sales/revenue/profit, and the mid-20th-century positive framing of capitalism's standard-of-living benefits.",
+    "source_claim_summary": "Investopedia frames consumerism around market-driven consumption, consumer spending, capitalist economies, business revenue, and mid-century capitalism claims.",
+    "source_support_rationale": "The source supports industrial capitalism as the market and business setting for consumerism while leaving room for other postwar institutions and policy drivers."
+  },
+  "invariant_preserved_or_changed": "Preserved: consumerism remains enabled by capitalism_industrial, now with review-level source evidence.",
+  "would_reject_if": [
+    "The node is later rescoped to anti-consumer activism rather than a market-oriented consumption order.",
+    "A stronger source shows the scoped phenomenon is independent of capitalist market production and business sales.",
+    "A more precise postwar_consumer_capitalism node is added and replaces capitalism_industrial."
+  ],
+  "short_reason": "Consumerism is modeled as a capitalist market-consumption order.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consumerism.before.json /tmp/consumerism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

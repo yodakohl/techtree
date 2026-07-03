@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-consumerism-psychology-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "consumerism",
+    "prerequisite": "psychology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Psychology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct consumerism to psychology edge remains because the scoped node is a postwar market-consumption order driven by mass-produced goods and advertising; psychology is contextual analysis, not a direct technology prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://openstax.org/books/us-history/pages/28-3-the-american-dream",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The American Dream section frames postwar consumer patterns through suburban prosperity, car production, household purchases, middle-class lifestyles, and Madison Avenue marketing to teenagers.",
+    "source_claim_summary": "OpenStax explains postwar consumer culture through production, prosperity, household goods, cars, suburbs, and advertising rather than psychological science.",
+    "source_support_rationale": "Psychology can study consumer behavior and advertising effects, but the source-backed node scope is implemented by market supply and advertising institutions."
+  },
+  "ontology_before": "Consumerism depended directly on broad Psychology, implying psychological science was a direct substrate for the postwar consumption order.",
+  "ontology_after": "Consumerism keeps direct market, production, and advertising prerequisites; Psychology remains contextual unless a narrower consumer-psychology node is introduced.",
+  "invariant_preserved_or_changed": "Changed: consumerism no longer has a direct psychology prerequisite.",
+  "would_reject_if": [
+    "The node is later rescoped to consumer psychology or behavioral marketing research.",
+    "A stronger source shows scientific psychology was a direct prerequisite for the consumerism system rather than a later analytic field.",
+    "A separate consumer_psychology_marketing node is added and intentionally depends on psychology."
+  ],
+  "short_reason": "Psychology is contextual analysis, not a direct prerequisite for the scoped consumerism node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/consumerism.before.json /tmp/consumerism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

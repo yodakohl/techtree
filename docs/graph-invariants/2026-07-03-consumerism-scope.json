@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-consumerism-scope",
+  "description": "Lock consumerism to a postwar market-consumption order driven by mass advertising, mass-produced consumer goods, and capitalist business incentives.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "consumerism",
+      "operator": "eq",
+      "value": 1950,
+      "reason": "The node remains anchored to mid-twentieth-century postwar mass consumption rather than older conspicuous-consumption concepts or later digital consumer targeting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "consumerism",
+      "prerequisite": "advertising_mass_media_early",
+      "expected": "enabling",
+      "reason": "Advertising is the direct mass-media demand-creation mechanism in the scoped consumerism claim."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "consumerism",
+      "prerequisite": "mass_production",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Mass production scales abundant standardized consumer goods, but it is not a single required method for every consumer practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "consumerism",
+      "prerequisite": "capitalism_industrial",
+      "expected": "enabling",
+      "reason": "Industrial capitalism supplies the market, business, and profit context for consumer-spending growth."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "consumerism",
+      "prerequisite": "mass_media",
+      "reason": "Generic mass media is broader than the advertising-driven demand mechanism in the node scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "consumerism",
+      "prerequisite": "psychology",
+      "reason": "Psychology is contextual consumer-behavior analysis, not a direct prerequisite for the postwar consumption order."
+    }
+  ]
+}
