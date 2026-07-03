@@ -1,0 +1,34 @@
+{
+  "id": "2026-07-03-legal-systems-common-civil-scope",
+  "description": "Lock Legal Systems (Common/Civil Law) to an earliest Justinianic civil-law anchor while preserving the later English common-law branch as a scoped subclaim.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "legal_systems_common_civil",
+      "operator": "eq",
+      "value": 529,
+      "reason": "The combined node's earliest branch is anchored to the first Codex Justinianus in 529 CE, not the old Medieval era-default placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "legal_systems_common_civil",
+      "prerequisite": "codified_law",
+      "expected": "common_dependency",
+      "reason": "Ancient written law codes are contextual legal infrastructure for later civil-law/common-law systems, not a strict direct prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "legal_systems_common_civil",
+      "prerequisite": "writing",
+      "expected": "common_dependency",
+      "reason": "Written records and law texts are contextual infrastructure for codified and precedential legal systems."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "legal_systems_common_civil",
+      "prerequisite": "philosophy",
+      "expected": "common_dependency",
+      "reason": "Philosophy is broad jurisprudential context and should not be treated as a hard production dependency."
+    }
+  ]
+}
