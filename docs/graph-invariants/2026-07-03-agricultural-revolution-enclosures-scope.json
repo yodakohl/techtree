@@ -1,0 +1,64 @@
+{
+  "id": "2026-07-03-agricultural-revolution-enclosures-scope",
+  "description": "Lock Agricultural Revolution & Enclosures to enclosure/land-tenure consolidation, crop-rotation intensification, and selective livestock breeding rather than mercantilist theory or ancient seed-saving background.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "crop_rotation_three_field",
+      "reason": "Improved rotations build from earlier rotation and fallow practice."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "crop_rotation_three_field",
+      "expected": "enabling",
+      "reason": "Crop-rotation practice remains an enabling agronomic base for the later revolution."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "selective_animal_breeding",
+      "reason": "The source-backed selective-breeding component is livestock breeding."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "selective_animal_breeding",
+      "expected": "enabling",
+      "reason": "Selective animal breeding enables the livestock-improvement component without covering enclosure as a whole."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "boundary_markers_land_tenure",
+      "reason": "Enclosure depends on boundary and tenure consolidation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "boundary_markers_land_tenure",
+      "expected": "enabling",
+      "reason": "Land-tenure boundary practice enables enclosure without being identical to the whole agricultural revolution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "selective_seed_saving",
+      "reason": "Ancient seed-saving is broader plant-domestication background, not the source-backed livestock-breeding component."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "agricultural_revolution_enclosures",
+      "prerequisite": "mercantilism_economic_theory",
+      "reason": "Mercantilism is a broad state trade theory and not a direct prerequisite for enclosure."
+    },
+    {
+      "type": "first_known_date",
+      "node": "agricultural_revolution_enclosures",
+      "operator": "eq",
+      "value": 1700,
+      "reason": "The node remains anchored to the 18th-century British transformation at century precision."
+    }
+  ]
+}

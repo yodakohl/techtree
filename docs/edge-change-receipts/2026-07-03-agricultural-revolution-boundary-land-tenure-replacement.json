@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-agricultural-revolution-boundary-land-tenure-replacement",
+  "decision_date": "2026-07-03",
+  "edge": {
+    "dependent": "agricultural_revolution_enclosures",
+    "prerequisite": "boundary_markers_land_tenure"
+  },
+  "replaced_edge": {
+    "dependent": "agricultural_revolution_enclosures",
+    "prerequisite": "mercantilism_economic_theory"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mercantilism Economic Theory provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "textbook",
+    "note": "Enclosure depended on consolidating strips and common land into bounded, individually owned or rented fields, making land-tenure and boundary practice the direct institutional substrate."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.parliament.uk/about/living-heritage/transformingsociety/towncountry/landscape/overview/enclosingland/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "UK Parliament says scattered open-field holdings were consolidated into individually owned or rented fields, parliamentary enclosure became the norm from the 1750s, and enclosure improved productivity from the late 18th century.",
+    "source_claim_summary": "The source documents enclosure as consolidation of landholdings and rights into bounded private fields that changed agricultural productivity.",
+    "source_support_rationale": "This supports boundary_markers_land_tenure because the enclosure component is about field boundaries, ownership or rental claims, and common-right removal; mercantilism is a broader trade-policy doctrine not required for land consolidation."
+  },
+  "ontology_before": "Agricultural Revolution & Enclosures depended on mercantilism_economic_theory, making broad state trade theory a prerequisite for a land-tenure and farm-productivity transition.",
+  "ontology_after": "Agricultural Revolution & Enclosures depends on boundary_markers_land_tenure for enclosure's field-boundary and tenure-change substrate.",
+  "invariant_preserved_or_changed": "Changed: agricultural_revolution_enclosures now depends on boundary_markers_land_tenure and no longer depends on mercantilism_economic_theory.",
+  "would_reject_if": [
+    "The node is rescoped to mercantilist colonial agricultural policy rather than British/northwestern European enclosure and productivity changes.",
+    "A source shows mercantilist export/import theory was a direct prerequisite for parliamentary enclosure.",
+    "The boundary_markers_land_tenure node is narrowed away from field boundaries, land claims, inheritance, taxation, or tenure records."
+  ],
+  "short_reason": "Enclosure is a land-boundary and tenure-change process, not a mercantilist-theory dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/agricultural_revolution_enclosures.before.json /tmp/agricultural_revolution_enclosures.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

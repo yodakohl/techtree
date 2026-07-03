@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-03-agricultural-revolution-selective-animal-breeding-replacement",
+  "decision_date": "2026-07-03",
+  "edge": {
+    "dependent": "agricultural_revolution_enclosures",
+    "prerequisite": "selective_animal_breeding"
+  },
+  "replaced_edge": {
+    "dependent": "agricultural_revolution_enclosures",
+    "prerequisite": "selective_seed_saving"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Selective Seed Saving provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "The selective-breeding component of the British Agricultural Revolution is livestock breeding, so the animal-breeding node is the direct prerequisite rather than ancient seed saving."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/agricultural-revolution",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica describes the Agricultural Revolution as including selective breeding as part of the 18th-century British transformation.",
+    "source_claim_summary": "The source ties the Agricultural Revolution node to selective breeding rather than to ancient crop seed-saving practice.",
+    "source_support_rationale": "The replacement prevents laundering a plant-domestication seed-saving node into a livestock-improvement claim; the existing selective_animal_breeding node matches the source-backed selective-breeding component."
+  },
+  "ontology_before": "Agricultural Revolution & Enclosures depended on selective_seed_saving, conflating ancient crop domestication practice with early-modern livestock improvement.",
+  "ontology_after": "Agricultural Revolution & Enclosures depends on selective_animal_breeding for the source-backed selective-breeding component.",
+  "invariant_preserved_or_changed": "Changed: agricultural_revolution_enclosures now depends on selective_animal_breeding and no longer depends on selective_seed_saving.",
+  "would_reject_if": [
+    "The node is narrowed to crop-variety selection rather than the British Agricultural Revolution mix of enclosure, rotation, and livestock breeding.",
+    "A source shows the intended selective-breeding edge is plant seed-saving rather than animal breeding.",
+    "The selective_animal_breeding node is narrowed away from choosing animals for meat, wool, milk, strength, speed, or other farm traits."
+  ],
+  "short_reason": "Selective livestock breeding is the source-backed Agricultural Revolution prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/agricultural_revolution_enclosures.before.json /tmp/agricultural_revolution_enclosures.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
