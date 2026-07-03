@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-putting-out-contract-law-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "putting_out_textile_system",
+    "prerequisite": "contract_law"
+  },
+  "replaced_edge": {
+    "dependent": "putting_out_textile_system",
+    "prerequisite": "market_price_bulletins"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Market Price Bulletins provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Contract Law supplies the obligation, payment, debt, and remedy framework for clothiers' relationships with dependent out-workers."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://books.fupress.com/chapter/the-origins-of-the-putting-out-or-domestic-system-of-industrial-production-in-england/13612",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract says the chapter examines the relationship between late-medieval clothiers and dependent out-workers, including growth in textile-related debt litigation in the Court of Common Pleas.",
+    "source_claim_summary": "The source frames putting-out through clothier/out-worker relationships and textile-related debt litigation.",
+    "source_support_rationale": "Contract law fits the obligations, debts, and remedies visible in the source; market price bulletins are not documented as the direct enabling mechanism."
+  },
+  "ontology_before": "Putting-Out Textile System depended on Market Price Bulletins, overfitting a price-publication mechanism not evidenced by the source.",
+  "ontology_after": "Putting-Out Textile System depends on Contract Law for the obligation and debt framework between clothiers and dependent out-workers.",
+  "invariant_preserved_or_changed": "Changed: putting_out_textile_system now depends on contract_law and no longer directly depends on market_price_bulletins.",
+  "would_reject_if": [
+    "The node were rescoped to printed market-price reporting rather than domestic textile out-work.",
+    "A stronger source showed market price bulletins were the documented mechanism behind the late-medieval putting-out system.",
+    "The contract_law node were narrowed away from debts, hiring, obligations, and remedies."
+  ],
+  "short_reason": "Putting-out obligations fit contract law, not market price bulletins.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/putting_out_textile_system.before.json /tmp/putting_out_textile_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

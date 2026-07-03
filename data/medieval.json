@@ -13554,9 +13554,9 @@
     "era": "Medieval",
     "description": "Distributed household spinning, weaving, finishing, merchant coordination, quality checks, and payment records.",
     "prerequisites": [
-      "textile_dye_guilds",
-      "market_price_bulletins",
-      "merchant_courier_networks"
+      "household_textile_production",
+      "contract_law",
+      "merchant_courts"
     ],
     "firstKnownDate": 1400,
     "datePrecision": "century",
@@ -13564,28 +13564,78 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "textile_dye_guilds",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Textile Dye Guilds provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "household_textile_production",
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "The putting-out system is a domestic-production system organized around household out-workers doing textile work for clothiers or merchants.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The origins of the putting-out or domestic system of industrial production in England",
+            "url": "https://books.fupress.com/chapter/the-origins-of-the-putting-out-or-domestic-system-of-industrial-production-in-england/13612",
+            "publisher": "Firenze University Press",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract says the putting-out or domestic system was a key feature of England's woollen cloth industry and examines late-medieval clothiers and their dependent out-workers."
+          }
+        ]
       },
       {
-        "prerequisite": "market_price_bulletins",
+        "prerequisite": "contract_law",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Market Price Bulletins provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Contract Law supplies the obligation, payment, debt, and remedy framework for clothiers' relationships with dependent out-workers.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The origins of the putting-out or domestic system of industrial production in England",
+            "url": "https://books.fupress.com/chapter/the-origins-of-the-putting-out-or-domestic-system-of-industrial-production-in-england/13612",
+            "publisher": "Firenze University Press",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract says the chapter examines the relationship between late-medieval clothiers and dependent out-workers, including growth in textile-related debt litigation in the Court of Common Pleas."
+          }
+        ]
       },
       {
-        "prerequisite": "merchant_courier_networks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Merchant Courier Networks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "merchant_courts",
+        "type": "common_dependency",
+        "confidence": 0.62,
+        "evidence_level": "review",
+        "note": "Merchant Courts are a related commercial dispute-enforcement context for clothier/out-worker debts and market obligations, not a strict production method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The origins of the putting-out or domestic system of industrial production in England",
+            "url": "https://books.fupress.com/chapter/the-origins-of-the-putting-out-or-domestic-system-of-industrial-production-in-england/13612",
+            "publisher": "Firenze University Press",
+            "year": 2023,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract highlights textile-related debt litigation in the Court of Common Pleas as evidence for the clothier and out-worker relationship."
+          },
+          {
+            "title": "Law merchant",
+            "url": "https://www.britannica.com/topic/law-merchant",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Britannica says law merchant developed rules for contracts, partnerships, trademarks, buying, and selling, and protected foreign merchants."
+          }
+        ]
       }
     ],
     "sources": [

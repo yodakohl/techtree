@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-putting-out-merchant-courts-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "putting_out_textile_system",
+    "prerequisite": "merchant_courts"
+  },
+  "replaced_edge": {
+    "dependent": "putting_out_textile_system",
+    "prerequisite": "merchant_courier_networks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Merchant Courier Networks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.62,
+    "evidence_level": "review",
+    "note": "Merchant Courts are a related commercial dispute-enforcement context for clothier/out-worker debts and market obligations, not a strict production method."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://books.fupress.com/chapter/the-origins-of-the-putting-out-or-domestic-system-of-industrial-production-in-england/13612",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Abstract highlights textile-related debt litigation in the Court of Common Pleas as evidence for the clothier and out-worker relationship; Britannica's law merchant entry supplies the broader commercial-dispute context.",
+    "source_claim_summary": "The sources connect putting-out evidence to commercial debt litigation and merchant-law rules around contracts and buying/selling.",
+    "source_support_rationale": "Commercial dispute enforcement is better supported than courier networks, but retained as a common dependency because the source is general legal context rather than a strict putting-out method."
+  },
+  "ontology_before": "Putting-Out Textile System depended on Merchant Courier Networks, implying a messaging/logistics mechanism that the source does not document.",
+  "ontology_after": "Putting-Out Textile System depends on Merchant Courts as a contextual commercial dispute-enforcement layer for debts and obligations between clothiers and out-workers.",
+  "invariant_preserved_or_changed": "Changed: putting_out_textile_system now depends on merchant_courts and no longer directly depends on merchant_courier_networks.",
+  "would_reject_if": [
+    "The node were narrowed to courier/message logistics rather than clothier/out-worker production relationships.",
+    "A stronger source showed courier networks were the documented core mechanism behind late-medieval putting-out textile production.",
+    "The merchant_courts node were narrowed away from contracts, debts, buying, selling, or commercial dispute enforcement."
+  ],
+  "short_reason": "Putting-out debt evidence fits commercial dispute enforcement better than courier networks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/putting_out_textile_system.before.json /tmp/putting_out_textile_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

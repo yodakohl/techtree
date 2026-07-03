@@ -1,0 +1,70 @@
+{
+  "id": "2026-07-03-putting-out-textile-system-scope",
+  "description": "Lock Putting-Out Textile System to domestic textile out-work coordinated by clothiers/merchants, not dye-guild regulation, price bulletins, or courier networks.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "household_textile_production",
+      "reason": "The source-backed system is domestic textile production by dependent out-workers."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "household_textile_production",
+      "expected": "required",
+      "reason": "Domestic household textile work is core to the putting-out production method."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "contract_law",
+      "reason": "The source-backed clothier/out-worker relationship includes payment obligations and debt litigation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "contract_law",
+      "expected": "enabling",
+      "reason": "Contract law enables obligations, payments, debts, and remedies without being the textile production method."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "merchant_courts",
+      "reason": "Commercial dispute enforcement is the contextual legal layer for textile-related debts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "merchant_courts",
+      "expected": "common_dependency",
+      "reason": "Merchant courts are related commercial enforcement context, not a strict production prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "textile_dye_guilds",
+      "reason": "Dye guilds should not be restored unless the node is narrowed to dyeing and finishing regulation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "market_price_bulletins",
+      "reason": "Market price bulletins are not the documented mechanism in the source-backed putting-out scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "putting_out_textile_system",
+      "prerequisite": "merchant_courier_networks",
+      "reason": "Courier networks should not carry the direct source-backed putting-out relationship."
+    },
+    {
+      "type": "first_known_date",
+      "node": "putting_out_textile_system",
+      "operator": "eq",
+      "value": 1400,
+      "reason": "The node remains anchored to late-medieval English and European textile putting-out evidence."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-putting-out-household-textiles-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "putting_out_textile_system",
+    "prerequisite": "household_textile_production"
+  },
+  "replaced_edge": {
+    "dependent": "putting_out_textile_system",
+    "prerequisite": "textile_dye_guilds"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Textile Dye Guilds provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "The putting-out system is a domestic-production system organized around household out-workers doing textile work for clothiers or merchants."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://books.fupress.com/chapter/the-origins-of-the-putting-out-or-domestic-system-of-industrial-production-in-england/13612",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract says the putting-out or domestic system was a key feature of England's woollen cloth industry and examines late-medieval clothiers and their dependent out-workers.",
+    "source_claim_summary": "The source defines the system through domestic textile production and dependent out-workers.",
+    "source_support_rationale": "Household textile production is the domestic production base of the putting-out system; textile dye guilds are a narrower finishing/regulation institution and not the core method."
+  },
+  "ontology_before": "Putting-Out Textile System depended on Textile Dye Guilds, conflating a distributed domestic production system with specialist dye-guild regulation.",
+  "ontology_after": "Putting-Out Textile System depends on Household Textile Production for the domestic out-worker production base.",
+  "invariant_preserved_or_changed": "Changed: putting_out_textile_system now depends on household_textile_production and no longer directly depends on textile_dye_guilds.",
+  "would_reject_if": [
+    "The node were narrowed to dyeing and finishing guild regulation rather than putting-out production.",
+    "A stronger source showed putting-out textile production could exist without household or domestic textile work.",
+    "The household_textile_production node were narrowed away from spinning, weaving, dyeing, or textile repair work."
+  ],
+  "short_reason": "Putting-out textile production is domestic household out-work, not dye-guild regulation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/putting_out_textile_system.before.json /tmp/putting_out_textile_system.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
