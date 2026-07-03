@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-town-wall-maintenance-taxation-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "town_wall_maintenance_taxes",
+    "prerequisite": "taxation_and_tribute"
+  },
+  "replaced_edge": {
+    "dependent": "town_wall_maintenance_taxes",
+    "prerequisite": "municipal_debt_bonds"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Municipal Debt Bonds is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.64,
+    "evidence_level": "textbook",
+    "note": "Taxation and Tribute is the general fiscal mechanism behind murage, tallage, and other local charges used for wall upkeep."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.york.gov.uk/york-city-centre/city-walls/6",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "City of York Council says murage taxes were levied for building and maintaining city defences, and that tallage was charged on royal tenements to provide upkeep income.",
+    "source_claim_summary": "The source describes tax-based wall upkeep finance, not debt-bond issuance.",
+    "source_support_rationale": "Murage and tallage are tax mechanisms; municipal debt bonds are a different public-finance instrument not documented in the York wall-maintenance source."
+  },
+  "ontology_before": "Town Wall Maintenance Taxes depended on Municipal Debt Bonds, conflating tax and leased-income maintenance funding with debt issuance.",
+  "ontology_after": "Town Wall Maintenance Taxes depends on Taxation and Tribute for the general tax mechanism behind murage, tallage, and local charges.",
+  "invariant_preserved_or_changed": "Changed: town_wall_maintenance_taxes now depends on taxation_and_tribute and no longer directly depends on municipal_debt_bonds.",
+  "would_reject_if": [
+    "The node were rescoped to Italian municipal bond finance rather than York wall-maintenance taxation.",
+    "A stronger source showed York wall upkeep was primarily funded by municipal bond issuance.",
+    "The taxation_and_tribute node were narrowed away from local duties, tolls, or charges."
+  ],
+  "short_reason": "York wall upkeep used taxes, not municipal debt bonds.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/town_wall_maintenance_taxes.before.json /tmp/town_wall_maintenance_taxes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

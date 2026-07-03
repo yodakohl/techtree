@@ -1,0 +1,57 @@
+{
+  "id": "2026-07-03-town-wall-maintenance-taxes-scope",
+  "description": "Lock Town Wall Maintenance Taxes to York-style murage/tallage, income rights, and wall-maintenance records rather than municipal debt bonds or castle-garrison logistics.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "fortified_town_planning",
+      "reason": "The node concerns taxes and duties for maintaining a fortified urban wall circuit."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "taxation_and_tribute",
+      "reason": "Murage, tallage, and related charges are tax mechanisms rather than debt instruments."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "taxation_and_tribute",
+      "expected": "common_dependency",
+      "reason": "Taxation is the shared fiscal context for this local wall-maintenance finance, not a single hard technical prerequisite."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "tax_accounting",
+      "reason": "The source-backed scope includes records, orders, income rights, and leased maintenance income."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "tax_accounting",
+      "expected": "common_dependency",
+      "reason": "Tax accounting is contextual administrative infrastructure for wall-maintenance finance."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "municipal_debt_bonds",
+      "reason": "Municipal debt bonds should not be restored unless the node is rescoped to bond-funded wall finance."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "town_wall_maintenance_taxes",
+      "prerequisite": "castle_garrison_logistics",
+      "reason": "Castle garrison logistics should not carry the municipal wall-maintenance tax scope."
+    },
+    {
+      "type": "first_known_date",
+      "node": "town_wall_maintenance_taxes",
+      "operator": "eq",
+      "value": 1300,
+      "reason": "The node remains anchored to 14th-century York records of wall maintenance finance."
+    }
+  ]
+}

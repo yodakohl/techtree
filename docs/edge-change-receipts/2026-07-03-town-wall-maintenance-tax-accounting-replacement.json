@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-town-wall-maintenance-tax-accounting-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "town_wall_maintenance_taxes",
+    "prerequisite": "tax_accounting"
+  },
+  "replaced_edge": {
+    "dependent": "town_wall_maintenance_taxes",
+    "prerequisite": "castle_garrison_logistics"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Castle Garrison Logistics is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.64,
+    "evidence_level": "textbook",
+    "note": "Tax Accounting is the general administrative-record context for tracking tax income, leases, rights, and maintenance obligations around wall upkeep."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.york.gov.uk/york-city-centre/city-walls/6",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "City of York Council says regular maintenance orders were issued and that 14th-century documents record grazing rights and leased income for the whole wall circuit.",
+    "source_claim_summary": "The source describes administrative orders, documents, rights, and leased income for maintaining the wall circuit.",
+    "source_support_rationale": "Tax accounting better matches recorded income rights and maintenance orders; castle-garrison logistics concerns defended castles and garrison supply, not municipal wall-maintenance finance."
+  },
+  "ontology_before": "Town Wall Maintenance Taxes depended on Castle Garrison Logistics, conflating municipal wall-maintenance finance with operational support for defended castles and garrisons.",
+  "ontology_after": "Town Wall Maintenance Taxes depends on Tax Accounting for the administrative record and income-tracking context documented by York's 14th-century wall records.",
+  "invariant_preserved_or_changed": "Changed: town_wall_maintenance_taxes now depends on tax_accounting and no longer directly depends on castle_garrison_logistics.",
+  "would_reject_if": [
+    "The node were narrowed to castle garrison supply arrangements rather than municipal wall taxes and records.",
+    "A stronger source showed York wall-maintenance finance depended on castle-garrison provisioning rather than tax and income accounting.",
+    "The tax_accounting node were narrowed away from tracking tax income, rights, obligations, and arrears."
+  ],
+  "short_reason": "York wall records fit tax accounting, not castle garrison logistics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/town_wall_maintenance_taxes.before.json /tmp/town_wall_maintenance_taxes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
