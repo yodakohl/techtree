@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-machine-gun-cartridge-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "machine_gun",
+    "prerequisite": "cartridge_ammunition"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cartridge Ammunition provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "The Maxim gun's automatic cycle depended on spent cartridges being ejected and fresh cartridges being drawn into the action."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.pbs.org/wgbh/theymadeamerica/whomade/maxim_hi.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Power of Recoil section: PBS says the recoil force ejected the used cartridge and drew in the next one, allowing the one-barrel gun to fire automatically.",
+    "source_claim_summary": "PBS describes Maxim's automatic operation in terms of ejecting one cartridge and drawing in the next cartridge.",
+    "source_support_rationale": "That firing cycle depends on self-contained cartridge ammunition because the machine action handles spent and fresh cartridges as discrete ammunition units."
+  },
+  "invariant_preserved_or_changed": "Preserved: machine_gun remains enabled by cartridge_ammunition, now with source-backed evidence.",
+  "would_reject_if": [
+    "The machine_gun node is later narrowed to non-cartridge automatic guns.",
+    "A stronger source shows Maxim's first effective gun did not use cartridge ammunition.",
+    "The cartridge_ammunition node is narrowed away from self-contained rounds handled by firearm actions."
+  ],
+  "short_reason": "Maxim's automatic cycle handled spent and fresh cartridges.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/machine_gun.before.json /tmp/machine_gun.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

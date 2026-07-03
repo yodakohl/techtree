@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-03-machine-gun-breech-loading-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "machine_gun",
+    "prerequisite": "breech_loading_firearms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Breech-loading Firearms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Maxim's recoil mechanism acted through the breech action by ejecting a spent cartridge and feeding the next round, making breech-loading firearm architecture the direct operating substrate."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.pbs.org/wgbh/theymadeamerica/whomade/maxim_hi.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Power of Recoil section: PBS describes Maxim's recoil mechanism as ejecting the used cartridge, drawing in the next one, and letting one barrel fire automatically.",
+    "source_claim_summary": "PBS describes the Maxim gun as an automatic one-barrel weapon whose recoil cycle ejects a spent cartridge and feeds the next cartridge.",
+    "source_support_rationale": "Ejection and feeding through the action are breech-loading firearm operations, so the source supports the breech architecture as an enabling substrate rather than a broad firearms context."
+  },
+  "invariant_preserved_or_changed": "Preserved: machine_gun remains enabled by breech_loading_firearms, now with source-backed evidence.",
+  "would_reject_if": [
+    "The machine_gun node is later narrowed to hand-cranked volley guns or Gatling guns.",
+    "A stronger source shows the 1884 Maxim mechanism did not use a breech action to eject and feed cartridges.",
+    "The breech_loading_firearms node is narrowed away from rear-loaded cartridge firearm actions."
+  ],
+  "short_reason": "Maxim's automatic cycle used breech-action ejection and feeding.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/machine_gun.before.json /tmp/machine_gun.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

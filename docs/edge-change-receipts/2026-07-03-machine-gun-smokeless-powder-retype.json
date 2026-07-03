@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-machine-gun-smokeless-powder-retype",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "machine_gun",
+    "prerequisite": "smokeless_powder"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Smokeless Powder provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "accelerates",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Smokeless powder improved Maxim-style machine-gun effectiveness and battlefield practicality, but it is better modeled as an accelerant than as the first recoil mechanism's enabling substrate."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.pbs.org/wgbh/theymadeamerica/whomade/maxim_hi.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Power of Recoil section: after describing automatic recoil operation, PBS states that Maxim also developed smokeless powder to maximize the gun's effectiveness.",
+    "source_claim_summary": "PBS ties smokeless powder to maximizing the effectiveness of Maxim's automatic machine gun after explaining the recoil mechanism.",
+    "source_support_rationale": "The wording supports an accelerant relationship because smokeless powder improves battlefield usefulness and performance rather than supplying the breech/recoil mechanism itself."
+  },
+  "ontology_before": "Machine Gun modeled smokeless_powder as a generic enabling prerequisite for the 1884 fully automatic Maxim mechanism.",
+  "ontology_after": "Machine Gun keeps smokeless_powder as an accelerant for effectiveness and practical deployment while the mechanism is grounded in breech loading and cartridge cycling.",
+  "invariant_preserved_or_changed": "Changed: machine_gun -> smokeless_powder is now an accelerates edge.",
+  "would_reject_if": [
+    "The machine_gun node is later narrowed to smokeless-powder-only battlefield adoption after the initial Maxim mechanism.",
+    "A stronger source shows the first effective Maxim recoil mechanism could not function without smokeless powder.",
+    "The smokeless_powder node is broadened to include all cartridge propellants rather than low-smoke propellant chemistry."
+  ],
+  "short_reason": "Smokeless powder increased effectiveness, not the core automatic recoil mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/machine_gun.before.json /tmp/machine_gun.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

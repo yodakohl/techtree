@@ -1,0 +1,34 @@
+{
+  "id": "2026-07-03-machine-gun-maxim-scope",
+  "description": "Lock the machine-gun node to Maxim's 1884 fully automatic recoil-operated scope and source-backed breech, cartridge, and smokeless-powder edge semantics.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "machine_gun",
+      "operator": "eq",
+      "value": 1884,
+      "reason": "The node is anchored to Maxim's first effective fully automatic machine gun, not earlier hand-cranked rapid-fire weapons."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "machine_gun",
+      "prerequisite": "breech_loading_firearms",
+      "expected": "enabling",
+      "reason": "The Maxim mechanism used breech-action ejection and feeding of cartridges."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "machine_gun",
+      "prerequisite": "cartridge_ammunition",
+      "expected": "enabling",
+      "reason": "The source-backed automatic firing cycle ejects a spent cartridge and draws in the next cartridge."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "machine_gun",
+      "prerequisite": "smokeless_powder",
+      "expected": "accelerates",
+      "reason": "Smokeless powder is sourced as maximizing effectiveness and practical battlefield use rather than enabling the first recoil mechanism."
+    }
+  ]
+}
