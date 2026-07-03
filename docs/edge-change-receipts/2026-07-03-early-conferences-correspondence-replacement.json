@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-early-conferences-correspondence-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "early_scientific_conferences",
+    "prerequisite": "scientific_correspondence_networks"
+  },
+  "replaced_edge": {
+    "dependent": "early_scientific_conferences",
+    "prerequisite": "scientific_peer_review_practices"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Peer Review Practices provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Royal Society meetings combined correspondence, observation, experiments, discussion, and publication, so correspondence networks are shared conference infrastructure."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The Royal Society history page says the Society gathered information by correspondence while Fellows observed, experimented, discussed outcomes, and eventually published results.",
+    "source_claim_summary": "The source reviews correspondence, observation, experimentation, discussion, and publication as linked Royal Society meeting practices.",
+    "source_support_rationale": "Correspondence networks match the meeting content and information flow; peer review is later publication governance and is not the direct conference prerequisite here."
+  },
+  "ontology_before": "Early Scientific Conferences depended on Scientific Peer Review Practices, overstating same-year publication governance as a direct meeting prerequisite.",
+  "ontology_after": "Early Scientific Conferences depend on Scientific Correspondence Networks as shared information infrastructure for Royal Society meetings.",
+  "invariant_preserved_or_changed": "Changed: early_scientific_conferences now depends on scientific_correspondence_networks and no longer directly depends on scientific_peer_review_practices.",
+  "would_reject_if": [
+    "The node were rescoped to journal refereeing sessions rather than meetings, demonstrations, correspondence reading, and debate.",
+    "A stronger source showed peer review was the direct organizing mechanism for early Royal Society meetings.",
+    "Scientific Correspondence Networks were narrowed away from letters, reports, diagrams, or society information exchange."
+  ],
+  "short_reason": "Royal Society meetings used correspondence networks; peer review is not the direct conference mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_scientific_conferences.before.json /tmp/early_scientific_conferences.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

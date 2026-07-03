@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-early-conferences-scientific-societies-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "early_scientific_conferences",
+    "prerequisite": "scientific_societies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Societies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "The scoped conference practice is Royal Society meeting culture, so a scientific society supplies the required institutional fellowship, meeting rules, officers, and venue."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Royal Society history page describes a first meeting on 28 November 1660, a new Fellowship, weekly meetings, appointment of a Secretary and Curator of Experiments, correspondence, demonstrations, discussion, and publication.",
+    "source_claim_summary": "The source describes the Royal Society as the institutional fellowship and meeting organization for early scientific exchange.",
+    "source_support_rationale": "Because the dependent is scoped to Royal Society meeting culture, the scientific society is the institutional container rather than merely generic enabling context."
+  },
+  "ontology_before": "Early Scientific Conferences depended on Scientific Societies as an unsourced generic enabler.",
+  "ontology_after": "Early Scientific Conferences require Scientific Societies as the institutional framework for Royal Society meetings, officers, correspondence, demonstrations, discussion, and publication.",
+  "invariant_preserved_or_changed": "Changed: scientific_societies remains direct but is now typed required with official-source evidence.",
+  "would_reject_if": [
+    "The node were rescoped to informal conversations outside learned societies.",
+    "A stronger source showed Royal Society meeting culture did not require society organization.",
+    "A dedicated Royal Society meetings node were introduced and should replace the broader scientific_societies prerequisite."
+  ],
+  "short_reason": "Royal Society meetings require the Royal Society institutional framework.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_scientific_conferences.before.json /tmp/early_scientific_conferences.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-early-conferences-gresham-lectures-lineage",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "early_scientific_conferences",
+    "prerequisite": "public_science_lectures"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Science Lectures provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Royal Society meeting culture began after a Gresham College astronomy lecture, making public science lectures the immediate lecture-setting predecessor."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The Royal Society history page says the first meeting on 28 November 1660 followed a lecture by Christopher Wren, Professor of Astronomy at Gresham College in London.",
+    "source_claim_summary": "The source directly places the first Royal Society meeting immediately after a Gresham College astronomy lecture.",
+    "source_support_rationale": "The lecture was the immediate setting that preceded the first meeting, so this is historical lineage rather than a generic operating enabler."
+  },
+  "ontology_before": "Early Scientific Conferences depended on Public Science Lectures as an unsourced generic enabler.",
+  "ontology_after": "Early Scientific Conferences depend on Public Science Lectures as the Gresham College lecture lineage for the first Royal Society meeting.",
+  "invariant_preserved_or_changed": "Changed: public_science_lectures remains direct but is now typed historical_predecessor with official-source evidence.",
+  "would_reject_if": [
+    "The node were rescoped away from Royal Society/Gresham College meeting origins.",
+    "A stronger source showed the first meeting was unrelated to a public scientific lecture setting.",
+    "Public Science Lectures were narrowed away from Gresham College-style public lecture programs."
+  ],
+  "short_reason": "The first Royal Society meeting followed a Gresham College astronomy lecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_scientific_conferences.before.json /tmp/early_scientific_conferences.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -12838,7 +12838,7 @@
     "prerequisites": [
       "scientific_societies",
       "public_science_lectures",
-      "scientific_peer_review_practices"
+      "scientific_correspondence_networks"
     ],
     "firstKnownDate": 1665,
     "datePrecision": "exact",
@@ -12847,31 +12847,70 @@
     "dependencyEdges": [
       {
         "prerequisite": "scientific_societies",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scientific Societies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "required",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "The scoped conference practice is Royal Society meeting culture, so a scientific society supplies the required institutional fellowship, meeting rules, officers, and venue.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "History of the Royal Society",
+            "url": "https://royalsociety.org/about-us/who-we-are/history/",
+            "publisher": "The Royal Society",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Royal Society history page describes a first meeting on 28 November 1660, a new Fellowship, weekly meetings, appointment of a Secretary and Curator of Experiments, correspondence, demonstrations, discussion, and publication."
+          }
+        ]
       },
       {
         "prerequisite": "public_science_lectures",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Science Lectures provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "historical_predecessor",
+        "confidence": 0.72,
+        "evidence_level": "review",
+        "note": "Royal Society meeting culture began after a Gresham College astronomy lecture, making public science lectures the immediate lecture-setting predecessor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "History of the Royal Society",
+            "url": "https://royalsociety.org/about-us/who-we-are/history/",
+            "publisher": "The Royal Society",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Royal Society history page says the first meeting on 28 November 1660 followed a lecture by Christopher Wren, Professor of Astronomy at Gresham College in London."
+          }
+        ]
       },
       {
-        "prerequisite": "scientific_peer_review_practices",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scientific Peer Review Practices provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "scientific_correspondence_networks",
+        "type": "common_dependency",
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Royal Society meetings combined correspondence, observation, experiments, discussion, and publication, so correspondence networks are shared conference infrastructure.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "History of the Royal Society",
+            "url": "https://royalsociety.org/about-us/who-we-are/history/",
+            "publisher": "The Royal Society",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Royal Society history page says the Society gathered information by correspondence while Fellows observed, experimented, discussed outcomes, and eventually published results."
+          }
+        ]
       }
     ],
     "dateUncertainty": true,
-    "dateUncertaintyNote": "The Royal Society began meeting in 1660; the stored 1665 anchor preserves the dependency on early peer-review/publication practice while keeping the node scoped to institutional scientific exchange rather than informal conversation.",
+    "dateUncertaintyNote": "The Royal Society began meeting in 1660; the stored 1665 anchor preserves the link to Philosophical Transactions and meeting-proceedings publication while keeping the node scoped to institutional scientific exchange rather than informal conversation.",
     "sources": [
       {
         "title": "History of the Royal Society",
@@ -12879,6 +12918,7 @@
         "publisher": "The Royal Society",
         "year": 2026,
         "source_type": "official_agency",
+        "source_locator": "The Royal Society history page says the Fellowship first met on 28 November 1660 after a Gresham College lecture, held weekly meetings, appointed a Secretary and Curator of Experiments, gathered correspondence, observed, conducted experiments, discussed outcomes, and published results.",
         "supports": [
           "node"
         ]
@@ -12889,6 +12929,7 @@
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
+        "source_locator": "Britannica identifies the Royal Society as a national scientific society and supports the Royal Society institutional context for early scientific meetings.",
         "supports": [
           "node"
         ]

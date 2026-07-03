@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-early-scientific-conferences-scope",
+  "description": "Lock Early Scientific Conferences to Royal Society meeting, lecture, correspondence, demonstration, discussion, and publication culture, not journal peer-review governance.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "scientific_societies",
+      "reason": "Royal Society meetings require the scientific-society institutional framework."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "scientific_societies",
+      "expected": "required",
+      "reason": "The node is scoped to society-based meeting culture."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "public_science_lectures",
+      "reason": "The first Royal Society meeting followed a Gresham College astronomy lecture."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "public_science_lectures",
+      "expected": "historical_predecessor",
+      "reason": "Public lecture culture is the immediate historical setting for the first meeting."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "scientific_correspondence_networks",
+      "reason": "Royal Society meetings gathered information through correspondence and discussed results."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "scientific_correspondence_networks",
+      "expected": "common_dependency",
+      "reason": "Correspondence networks are shared information infrastructure for meetings and publication."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_scientific_conferences",
+      "prerequisite": "scientific_peer_review_practices",
+      "reason": "Peer-review practices should not be restored unless the node is narrowed to journal refereeing governance."
+    },
+    {
+      "type": "first_known_date",
+      "node": "early_scientific_conferences",
+      "operator": "eq",
+      "value": 1665,
+      "reason": "The node remains anchored to Royal Society meeting publication/proceedings culture around Philosophical Transactions."
+    }
+  ]
+}
