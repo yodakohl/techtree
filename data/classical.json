@@ -13610,67 +13610,75 @@
     "id": "lighthouse_networks",
     "name": "Lighthouse Networks",
     "era": "Classical",
-    "description": "Coastal chains of towers, fires, mirrors, maintenance crews, and harbor signals for safer night and bad-weather navigation.",
+    "description": "Pharos-derived lighthouse systems and later ancient harbor beacon traditions using elevated towers and fires to mark harbor entrances and sea routes.",
     "prerequisites": [
-      "harbor_lighthouses",
-      "maritime_pilotage",
-      "glassmaking"
+      "harbor_lighthouses"
     ],
     "firstKnownDate": -280,
     "datePrecision": "decade",
-    "region": "Alexandria, Ptolemaic Egypt and later Mediterranean harbors",
-    "reviewStatus": "structurally_validated",
+    "region": "Alexandria, Ptolemaic Egypt and later Greco-Roman harbor routes",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "harbor_lighthouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Harbor Lighthouses provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "maritime_pilotage",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Maritime Pilotage provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "glassmaking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Glassmaking provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "A lighthouse system or lineage is composed of harbor lighthouse towers and beacon fires, with the Pharos serving as the archetype for later lighthouses.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Glass of the Ancient Mediterranean",
-            "url": "https://mcclungmuseum.utk.edu/wp-content/uploads/sites/78/2013/08/3980-AncientGlassBroch-3.0.pdf",
-            "publisher": "McClung Museum of Natural History and Culture",
-            "year": 2013,
-            "source_type": "museum",
+            "title": "Lighthouse of Alexandria",
+            "url": "https://www.britannica.com/topic/lighthouse-of-Alexandria",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Britannica identifies the Pharos as the most famous lighthouse in antiquity and archetype for later lighthouses; it stood on Pharos island in Alexandria harbor, was finished about 280 BCE, and had a fire burning at night."
+          },
+          {
+            "title": "Tower of Hercules",
+            "url": "https://whc.unesco.org/en/list/1312/",
+            "publisher": "UNESCO World Heritage Centre",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "UNESCO describes the Roman Tower of Hercules as a late-first-century AD lighthouse and landmark at La Coruna harbor and says it is testimony to the use of lighthouses in antiquity and to an elaborate ancient navigation system."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Glass of the Ancient Mediterranean",
-        "url": "https://mcclungmuseum.utk.edu/wp-content/uploads/sites/78/2013/08/3980-AncientGlassBroch-3.0.pdf",
-        "publisher": "McClung Museum of Natural History and Culture",
-        "year": 2013,
-        "source_type": "museum",
+        "title": "Lighthouse of Alexandria",
+        "url": "https://www.britannica.com/topic/lighthouse-of-Alexandria",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "Britannica identifies the Pharos as the most famous lighthouse in antiquity and archetype for later lighthouses; it stood on Pharos island in Alexandria harbor, was finished about 280 BCE, and had a fire burning at night."
+      },
+      {
+        "title": "Tower of Hercules",
+        "url": "https://whc.unesco.org/en/list/1312/",
+        "publisher": "UNESCO World Heritage Centre",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "UNESCO describes the Roman Tower of Hercules as a late-first-century AD lighthouse and landmark at La Coruna harbor, the only Greco-Roman antiquity lighthouse with structural integrity and functional continuity, and testimony to an elaborate ancient navigation system."
       }
     ],
-    "sourceCheckedDowngradeNote": "Chronology aligned during Classical basics audit: the network node is kept structurally_validated because the source-backed anchor is the Pharos archetype, not a fully documented multi-lighthouse network."
+    "scopeNote": "Covers the ancient lighthouse lineage and harbor-beacon system category beginning with the Pharos of Alexandria and later attested Greco-Roman lighthouse use. It excludes modern national lighthouse services, Fresnel-lens networks, lightships, glass optical systems, and military beacon-fire warning chains.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The date anchors the lineage to the Pharos around 280 BCE; a broader multi-site Greco-Roman lighthouse system is attested by later sources such as the Tower of Hercules."
   },
   {
     "id": "road_maintenance_crews",

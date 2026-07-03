@@ -1,0 +1,32 @@
+{
+  "id": "2026-07-03-lighthouse-networks-scope",
+  "description": "Lock lighthouse_networks to a Pharos-anchored ancient lighthouse lineage and remove pilotage and glass optics as direct prerequisites.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "lighthouse_networks",
+      "operator": "eq",
+      "value": -280,
+      "reason": "The lineage remains anchored to the Pharos of Alexandria around 280 BCE, while later Greco-Roman lighthouses expand the system evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "lighthouse_networks",
+      "prerequisite": "harbor_lighthouses",
+      "expected": "required",
+      "reason": "A lighthouse lineage/system is made from harbor lighthouse towers and beacon fires."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lighthouse_networks",
+      "prerequisite": "maritime_pilotage",
+      "reason": "Pilotage is a navigation practice served by lighthouse marks, not a construction or operating prerequisite for the lighthouse infrastructure."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lighthouse_networks",
+      "prerequisite": "glassmaking",
+      "reason": "The ancient Pharos-style lighthouse scope is based on elevated beacon fires, not later glass lens optics."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-lighthouse-networks-glassmaking-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "lighthouse_networks",
+    "prerequisite": "glassmaking"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Glassmaking provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct lighthouse_networks to glassmaking edge remains because the ancient Pharos-style scope is supported by tower-and-fire beacon evidence rather than glass optical systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/lighthouse-of-Alexandria",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica identifies the Pharos as a lighthouse on Pharos island in Alexandria harbor, finished about 280 BCE, with a fire burning at night and as the archetype for later lighthouses.",
+    "source_claim_summary": "Britannica supports an ancient tower-and-fire lighthouse scope, not a glass-lens or glassmaking dependency.",
+    "source_support_rationale": "Glassmaking becomes relevant to later optical systems, but the source-backed ancient lineage is pinned to elevated fires and harbor towers."
+  },
+  "ontology_before": "Lighthouse Networks depended directly on Glassmaking, implying ancient lighthouse systems required glass optical technology.",
+  "ontology_after": "Lighthouse Networks is scoped to ancient tower-and-fire lighthouse systems and excludes later glass optical systems.",
+  "invariant_preserved_or_changed": "Changed: lighthouse_networks no longer has a direct glassmaking prerequisite.",
+  "would_reject_if": [
+    "The node is later rescoped to lens-equipped modern lighthouse networks.",
+    "A source shows the Pharos or early Greco-Roman lighthouses required glassmaking as a direct optical component.",
+    "A separate early_lighthouse_lens_optics node is added and intentionally depends on glassmaking."
+  ],
+  "short_reason": "The ancient lighthouse scope is tower-and-fire based, not glass-optical.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/lighthouse_networks.before.json /tmp/lighthouse_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

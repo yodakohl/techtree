@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-03-lighthouse-networks-maritime-pilotage-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "lighthouse_networks",
+    "prerequisite": "maritime_pilotage"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Pilotage provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct lighthouse_networks to maritime_pilotage edge remains because pilotage is a navigation practice served by lighthouse beacons, not a construction or operating prerequisite for the lighthouse lineage itself.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/list/1312/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UNESCO describes the Tower of Hercules as a late-first-century AD lighthouse and landmark at La Coruna harbor, testimony to lighthouses in antiquity and an elaborate ancient navigation system.",
+    "source_claim_summary": "UNESCO frames the ancient lighthouse as a navigation aid and landmark, not as something built from maritime pilotage practice.",
+    "source_support_rationale": "Pilotage may use lighthouse marks, but the source-backed lighthouse system is defined by towers, light, and harbor landmarks rather than pilots' local route knowledge."
+  },
+  "ontology_before": "Lighthouse Networks depended directly on Maritime Pilotage, blurring the user/navigation practice with the beacon infrastructure.",
+  "ontology_after": "Lighthouse Networks depends directly on harbor lighthouses; pilotage remains a separate navigation practice that can use lighthouse aids.",
+  "invariant_preserved_or_changed": "Changed: lighthouse_networks no longer has a direct maritime_pilotage prerequisite.",
+  "would_reject_if": [
+    "The node is later rescoped to lighthouse-assisted pilotage offices rather than lighthouse infrastructure.",
+    "A source shows ancient lighthouse systems could not be built or operated without formal maritime pilotage institutions.",
+    "A separate pilotage_beacon_operations node is added and intentionally depends on maritime_pilotage."
+  ],
+  "short_reason": "Pilotage is the navigation use context, not the direct lighthouse-system substrate.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/lighthouse_networks.before.json /tmp/lighthouse_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

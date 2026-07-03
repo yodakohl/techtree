@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-03-lighthouse-networks-harbor-lighthouses-required",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "lighthouse_networks",
+    "prerequisite": "harbor_lighthouses"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Harbor Lighthouses provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "textbook",
+    "note": "A lighthouse system or lineage is composed of harbor lighthouse towers and beacon fires, with the Pharos serving as the archetype for later lighthouses."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/lighthouse-of-Alexandria",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Britannica identifies the Pharos as the most famous lighthouse in antiquity and archetype for later lighthouses; it stood on Pharos island in Alexandria harbor, was finished about 280 BCE, and had a fire burning at night.",
+    "source_claim_summary": "Britannica anchors the ancient lighthouse lineage in a harbor tower with an elevated nighttime fire at Alexandria.",
+    "source_support_rationale": "The node is now scoped as a lighthouse lineage/system, so actual harbor lighthouse towers and beacon fires are the constituent units rather than optional context."
+  },
+  "ontology_before": "Lighthouse Networks treated Harbor Lighthouses as a generic enabling context.",
+  "ontology_after": "Lighthouse Networks requires harbor lighthouse towers as the constituent technology in the ancient lighthouse lineage.",
+  "invariant_preserved_or_changed": "Changed: lighthouse_networks -> harbor_lighthouses is now a required edge.",
+  "would_reject_if": [
+    "The node is later rescoped to non-lighthouse signal-fire chains rather than lighthouse systems.",
+    "A stronger source shows the ancient network category did not depend on harbor lighthouse towers.",
+    "A more precise ancient_lighthouse_lineage node is created and replaces this node."
+  ],
+  "short_reason": "Lighthouse systems are composed of lighthouse towers and beacon fires.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/lighthouse_networks.before.json /tmp/lighthouse_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
