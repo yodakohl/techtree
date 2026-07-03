@@ -1,0 +1,49 @@
+{
+  "id": "2026-07-03-craft-quality-marks-scope",
+  "description": "Lock Craft Quality Marks to 13th-century institutional craft supervision and hallmarking, separate from earlier mill-production networks.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "craft_quality_marks",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "The node represents a 13th-century source window from London goldsmith craft supervision in 1238 to statutory hallmarking in 1300."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "craft_quality_marks",
+      "prerequisite": "guilds",
+      "reason": "The source assigns quality supervision and assay marking to organized guardians of the goldsmith craft."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "craft_quality_marks",
+      "prerequisite": "standardized_weights_and_measures",
+      "reason": "Hallmarking depends on legal fineness standards, assay testing, and component marks for measured purity and provenance."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sawmill_lumber_networks",
+      "prerequisite": "craft_quality_marks",
+      "reason": "The 1000-century sawmill network node is mechanical and logistical, not dependent on later institutional hallmark or craft-inspection marks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "water_powered_oil_presses",
+      "prerequisite": "craft_quality_marks",
+      "reason": "The 1000-century water-powered oil-press node depends on watermills and crop inputs, not later institutional craft marks."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "guild_certification_seals",
+      "prerequisite": "craft_quality_marks",
+      "reason": "Guild certification seals remain downstream of the institutional quality-mark and craft-supervision lineage."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "watermark_paper_authentication",
+      "prerequisite": "craft_quality_marks",
+      "reason": "Paper watermarks remain a later authentication-mark system that inherits the institutional marking concept."
+    }
+  ]
+}

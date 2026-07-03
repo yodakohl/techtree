@@ -10867,15 +10867,15 @@
     "id": "craft_quality_marks",
     "name": "Craft Quality Marks",
     "era": "Medieval",
-    "description": "Guild marks, hallmarks, seals, and inspections used to certify origin, purity, weight, and workmanship.",
+    "description": "Institutional craft-supervision marks, hallmarks, and inspections used to certify maker responsibility, legal fineness, origin, or workmanship quality.",
     "prerequisites": [
       "guilds",
       "standardized_weights_and_measures"
     ],
-    "firstKnownDate": 500,
+    "firstKnownDate": 1200,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
-    "reviewStatus": "structurally_validated",
+    "region": "London goldsmith craft supervision and later European hallmarking systems",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "guilds",
@@ -10886,14 +10886,15 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Guild",
-            "url": "https://www.britannica.com/topic/guild-trade-association",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "History of Hallmarking",
+            "url": "https://www.assayofficelondon.co.uk/about-us/history-of-hallmarking",
+            "publisher": "The Goldsmiths' Company Assay Office",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The history notes Henry III's 1238 order for London goldsmiths to superintend the craft, and Edward I's 1300 statute assigning Guardians of the craft to assay work and apply the leopard's head mark."
           }
         ]
       },
@@ -10906,31 +10907,57 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Hanging in the Balance: Precision Weighing in Antiquity",
-            "url": "https://en.wikipedia.org/wiki/Weights_and_measures",
-            "publisher": "Penn Museum",
-            "year": 2005,
-            "source_type": "museum",
+            "title": "What is a Hallmark?",
+            "url": "https://www.assayofficelondon.co.uk/hallmarking/what-is-a-hallmark",
+            "publisher": "The Goldsmiths' Company Assay Office",
+            "year": 2026,
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The page explains that hallmarks mean independent testing against legal purity/fineness standards and include fineness, assay-office, date, and sponsor or maker-responsibility marks."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Guild",
-        "url": "https://www.britannica.com/topic/guild-trade-association",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "History of Hallmarking",
+        "url": "https://www.assayofficelondon.co.uk/about-us/history-of-hallmarking",
+        "publisher": "The Goldsmiths' Company Assay Office",
         "year": 2026,
-        "source_type": "textbook",
+        "source_type": "official_agency",
         "supports": [
-          "edge"
-        ]
+          "node"
+        ],
+        "source_locator": "The timeline identifies a 1238 London goldsmith craft-supervision order and a 1300 statute requiring guardians to assay goldsmiths' work and mark compliant silver with the leopard's head."
+      },
+      {
+        "title": "What is a Hallmark?",
+        "url": "https://www.assayofficelondon.co.uk/hallmarking/what-is-a-hallmark",
+        "publisher": "The Goldsmiths' Company Assay Office",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The page defines hallmarks as component marks applied to precious-metal articles after independent testing, guaranteeing legal fineness and provenance."
+      },
+      {
+        "title": "About us",
+        "url": "https://www.gov.uk/government/organisations/british-hallmarking-council/about",
+        "publisher": "British Hallmarking Council / GOV.UK",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The British Hallmarking Council says UK assay offices test precious-metal purity to protect consumers and apply the appropriate hallmark when legal purity requirements are met."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Medieval source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology."
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 1200 century value represents the 13th-century source window: a 1238 London craft-supervision order precedes the 1300 hallmarking statute that required assayed goldsmiths' work to receive the leopard's head mark.",
+    "scopeNote": "Covers institutional craft or assay marks and inspections used to certify fineness, responsibility, provenance, or workmanship. It excludes informal maker signatures, ordinary workshop quality control, and unrelated 10th-century mill-production networks."
   },
   {
     "id": "hospital_pharmacies",
@@ -13312,8 +13339,7 @@
     "description": "Water-powered sawmills, timber rights, log transport, standardized boards, and building supply chains.",
     "prerequisites": [
       "saw_mill",
-      "watermills",
-      "craft_quality_marks"
+      "watermills"
     ],
     "firstKnownDate": 1000,
     "datePrecision": "century",
@@ -13347,14 +13373,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "craft_quality_marks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Craft Quality Marks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
@@ -13621,8 +13639,7 @@
     "description": "Mills and presses using water power to extract oil from olives, seeds, nuts, and industrial crops.",
     "prerequisites": [
       "watermills",
-      "crop_landrace_selection",
-      "craft_quality_marks"
+      "crop_landrace_selection"
     ],
     "firstKnownDate": 1000,
     "datePrecision": "century",
@@ -13655,14 +13672,6 @@
         "confidence": 0.68,
         "evidence_level": "expert_inference",
         "note": "Crop Landrace Selection provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "craft_quality_marks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Craft Quality Marks provides a capability that enables this technology without being the only possible path.",
         "reviewStatus": "source_checked"
       }
     ],

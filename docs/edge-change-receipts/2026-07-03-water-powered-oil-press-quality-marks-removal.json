@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-03-water-powered-oil-press-quality-marks-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "water_powered_oil_presses",
+    "prerequisite": "craft_quality_marks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Craft Quality Marks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the scoped water-powered oil-press node is about watermills, presses, and crop inputs; institutional craft or hallmark quality marks are a later certification practice and are not part of the node's 1000-century technology boundary.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.olivemuseum.com/olive-mills.php",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Eggares Olive Press Museum describes a Byzantine-era water-powered olive mill using water as the power source from around the tenth century, without making craft quality marks part of the press technology.",
+    "source_claim_summary": "The source supports water power and olive-milling machinery as the relevant oil-press lineage rather than institutional craft marking.",
+    "source_support_rationale": "Once craft_quality_marks is dated to the 13th-century hallmarking and craft-inspection scope, it cannot be a prerequisite for a 1000-century water-powered press whose evidence is mechanical and agricultural."
+  },
+  "ontology_before": "Water-Powered Oil Presses depended directly on Craft Quality Marks, implying institutional quality marks enabled water-driven oil extraction.",
+  "ontology_after": "Water-Powered Oil Presses depends on watermills and crop landrace selection; craft quality marks remain a separate institutional certification lineage.",
+  "invariant_preserved_or_changed": "Changed: craft_quality_marks is no longer a direct prerequisite for water_powered_oil_presses.",
+  "would_reject_if": [
+    "The water_powered_oil_presses node were narrowed to later guild-inspected or branded oil production.",
+    "A stronger source showed tenth-century water-powered oil presses required formal craft quality marks.",
+    "craft_quality_marks were broadened back to generic workshop practice rather than institutional certification marks and inspections."
+  ],
+  "short_reason": "Water-powered oil presses depend on mills and crops, not institutional craft marks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/craft_quality_marks.before.json /tmp/craft_quality_marks.after.json --require-behavior-change",
+    "npm run node-snapshot-diff -- /tmp/water_powered_oil_presses.before.json /tmp/water_powered_oil_presses.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

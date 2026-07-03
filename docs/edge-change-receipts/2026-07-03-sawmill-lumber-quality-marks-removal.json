@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-03-sawmill-lumber-quality-marks-removal",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "sawmill_lumber_networks",
+    "prerequisite": "craft_quality_marks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Craft Quality Marks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct edge remains because the sourced sawmill-network node is about water-powered saws, watermills, timber rights, log movement, boards, and supply chains; institutional hallmark or craft-inspection marks are a later quality-control system and not required for the 1000-century sawmill network chronology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/journal-of-roman-archaeology/article/relief-of-a-waterpowered-stone-saw-mill-on-a-sarcophagus-at-hierapolis-and-its-implications/2EDF8E5F36E8C6E855AA0DFED66E8D50",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Journal of Roman Archaeology article supports water-powered stone saw-mill technology as a saw and water-power lineage, not as a craft hallmark, inspection, or certification-mark dependency.",
+    "source_claim_summary": "The source anchors the sawmill-network technology to water-powered sawing and mechanical mill history rather than institutional craft quality marks.",
+    "source_support_rationale": "After craft_quality_marks is scoped to 13th-century hallmarking and craft-supervision marks, keeping it upstream of a 1000-century sawmill-network node would create a chronological and causal overreach not present in the sawmill evidence."
+  },
+  "ontology_before": "Sawmill Lumber Networks depended directly on Craft Quality Marks, implying institutional craft certification was an enabling prerequisite for medieval sawmill supply networks.",
+  "ontology_after": "Sawmill Lumber Networks depends on saw_mill and watermills; craft quality marks remain a separate downstream institutional-quality concept.",
+  "invariant_preserved_or_changed": "Changed: craft_quality_marks is no longer a direct prerequisite for sawmill_lumber_networks.",
+  "would_reject_if": [
+    "The sawmill_lumber_networks node were narrowed to later regulated lumber-grading or guild-stamped board markets.",
+    "A stronger source showed 1000-century sawmill networks required institutional craft quality marks.",
+    "craft_quality_marks were rescoped back to generic workshop quality control rather than institutional marks and inspections."
+  ],
+  "short_reason": "Water-powered sawmill networks do not require later institutional craft quality marks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/craft_quality_marks.before.json /tmp/craft_quality_marks.after.json --require-behavior-change",
+    "npm run node-snapshot-diff -- /tmp/sawmill_lumber_networks.before.json /tmp/sawmill_lumber_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
