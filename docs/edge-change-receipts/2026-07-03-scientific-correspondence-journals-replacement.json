@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-03-scientific-correspondence-journals-replacement",
+  "decision_date": "2026-07-03",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "scientific_correspondence_networks",
+    "prerequisite": "scientific_journals"
+  },
+  "replaced_edge": {
+    "dependent": "scientific_correspondence_networks",
+    "prerequisite": "printed_scientific_errata"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Scientific Errata provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.74,
+    "evidence_level": "review",
+    "note": "Scientific journals, especially Philosophical Transactions, provided the same network's printed communication platform for letters, claims, observations, and disputes."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://royalsociety.org/journals/publishing-activities/publishing350/history-philosophical-transactions/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Royal Society identifies Philosophical Transactions as the world's first scientific journal, launched by Oldenburg in March 1665, monthly printed, and connected to Royal Society meeting reports and paper selection.",
+    "source_claim_summary": "The source reviews Philosophical Transactions as a monthly printed scientific journal tied to Royal Society meetings and communication.",
+    "source_support_rationale": "The journal is the broader printed communication platform; errata are later corrections within print culture and are too narrow for the correspondence-network prerequisite."
+  },
+  "ontology_before": "Scientific Correspondence Networks depended on Printed Scientific Errata, over-narrowing the communication platform to correction notices.",
+  "ontology_after": "Scientific Correspondence Networks depend on Scientific Journals as the broader printed platform for letters, claims, observations, and disputes.",
+  "invariant_preserved_or_changed": "Changed: scientific_correspondence_networks now depends on scientific_journals and no longer directly depends on printed_scientific_errata.",
+  "would_reject_if": [
+    "The node were narrowed to published correction practices rather than communication networks.",
+    "A stronger source showed errata were the direct mechanism for Royal Society correspondence.",
+    "Scientific Journals were narrowed away from letters, observations, claims, or meeting reports."
+  ],
+  "short_reason": "Scientific journals are the source-backed communication platform; errata are too narrow.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/scientific_correspondence_networks.before.json /tmp/scientific_correspondence_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

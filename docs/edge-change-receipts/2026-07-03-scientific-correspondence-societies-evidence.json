@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-scientific-correspondence-societies-evidence",
+  "decision_date": "2026-07-03",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "scientific_correspondence_networks",
+    "prerequisite": "scientific_societies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Societies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Scientific societies such as the Royal Society provided the institutional network that gathered, managed, discussed, and published scholarly correspondence."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The Royal Society history page says the Society gathered information by correspondence, appointed Henry Oldenburg as Secretary by 1662 to manage correspondence, held weekly meetings, and eventually published results.",
+    "source_claim_summary": "The source reviews the Royal Society's institutional role in managing correspondence, meetings, discussion, and publication.",
+    "source_support_rationale": "The society supplies the organizational network for correspondence without being identical to the letters and printed communications themselves."
+  },
+  "ontology_before": "Scientific Correspondence Networks depended on Scientific Societies as an unsourced generic enabler.",
+  "ontology_after": "Scientific Correspondence Networks keep Scientific Societies as the source-backed institutional organizer of correspondence.",
+  "invariant_preserved_or_changed": "Preserved: scientific_societies remains a direct enabling prerequisite with official-source evidence.",
+  "would_reject_if": [
+    "The node were rescoped to private one-to-one correspondence independent of societies.",
+    "A stronger source showed the Royal Society did not manage correspondence or publish results.",
+    "A dedicated Royal Society correspondence secretary node were introduced and should replace the broader scientific_societies prerequisite."
+  ],
+  "short_reason": "The Royal Society institutionalized scientific correspondence through officers, meetings, and publication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/scientific_correspondence_networks.before.json /tmp/scientific_correspondence_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

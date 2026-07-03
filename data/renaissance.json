@@ -12377,21 +12377,32 @@
     "description": "Letters, diagrams, specimens, data tables, and priority claims exchanged among scholars and societies.",
     "prerequisites": [
       "scientific_societies",
-      "printed_scientific_errata",
+      "scientific_journals",
       "public_science_lectures"
     ],
     "firstKnownDate": 1665,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "datePrecision": "exact",
+    "region": "London / Royal Society correspondence and publication network",
     "reviewStatus": "source_checked",
     "sources": [
+      {
+        "title": "History of the Royal Society",
+        "url": "https://royalsociety.org/about-us/who-we-are/history/",
+        "publisher": "The Royal Society",
+        "year": 2026,
+        "source_type": "official_agency",
+        "source_locator": "The Royal Society history page says the Society gathered information by correspondence and that by 1662 it had appointed Henry Oldenburg as Secretary to manage correspondence.",
+        "supports": [
+          "node"
+        ]
+      },
       {
         "title": "Royal Society",
         "url": "https://www.britannica.com/topic/Royal-Society",
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
-        "locator": "Founding entry describes the Royal Society (1660) as a formal scientific society that coordinated correspondence, meetings, and publication of research letters.",
+        "source_locator": "Founding entry describes the Royal Society (1660) as a formal scientific society that coordinated correspondence, meetings, and publication of research letters.",
         "supports": [
           "node"
         ]
@@ -12402,7 +12413,7 @@
         "publisher": "Encyclopaedia Britannica",
         "year": 2026,
         "source_type": "textbook",
-        "locator": "Journal history records the founding of Philosophical Transactions in 1665 as a continuous platform for scholarly communication among the scientific community.",
+        "source_locator": "Journal history records the founding of Philosophical Transactions in 1665 as a continuous platform for scholarly communication among the scientific community.",
         "supports": [
           "node"
         ]
@@ -12412,28 +12423,69 @@
       {
         "prerequisite": "scientific_societies",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Scientific Societies provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "Scientific societies such as the Royal Society provided the institutional network that gathered, managed, discussed, and published scholarly correspondence.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "History of the Royal Society",
+            "url": "https://royalsociety.org/about-us/who-we-are/history/",
+            "publisher": "The Royal Society",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Royal Society history page says the Society gathered information by correspondence, appointed Henry Oldenburg as Secretary by 1662 to manage correspondence, held weekly meetings, and eventually published results."
+          }
+        ]
       },
       {
-        "prerequisite": "printed_scientific_errata",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Printed Scientific Errata provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "scientific_journals",
+        "type": "common_dependency",
+        "confidence": 0.74,
+        "evidence_level": "review",
+        "note": "Scientific journals, especially Philosophical Transactions, provided the same network's printed communication platform for letters, claims, observations, and disputes.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "History of Philosophical Transactions",
+            "url": "https://royalsociety.org/journals/publishing-activities/publishing350/history-philosophical-transactions/",
+            "publisher": "Royal Society",
+            "year": 2026,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Royal Society identifies Philosophical Transactions as the world's first scientific journal, launched by Oldenburg in March 1665, monthly printed, and connected to Royal Society meeting reports and paper selection."
+          }
+        ]
       },
       {
         "prerequisite": "public_science_lectures",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Science Lectures provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "historical_predecessor",
+        "confidence": 0.7,
+        "evidence_level": "review",
+        "note": "Public science lecture culture, especially Gresham College, supplied the lecture-setting lineage for the Royal Society correspondence and meeting network.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "History of the Royal Society",
+            "url": "https://royalsociety.org/about-us/who-we-are/history/",
+            "publisher": "The Royal Society",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Royal Society history page says the first Royal Society meeting followed a lecture by Christopher Wren, Professor of Astronomy at Gresham College in London."
+          }
+        ]
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "Royal Society correspondence management was in place by Oldenburg's 1662 secretaryship; the graph anchor remains 1665 because the scoped correspondence-and-publication network includes Philosophical Transactions as the printed platform."
   },
   {
     "id": "actuarial_annuity_tables",

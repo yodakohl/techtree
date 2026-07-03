@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-03-scientific-correspondence-gresham-lectures-lineage",
+  "decision_date": "2026-07-03",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "scientific_correspondence_networks",
+    "prerequisite": "public_science_lectures"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Science Lectures provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Public science lecture culture, especially Gresham College, supplied the lecture-setting lineage for the Royal Society correspondence and meeting network."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The Royal Society history page says the first Royal Society meeting followed a lecture by Christopher Wren, Professor of Astronomy at Gresham College in London.",
+    "source_claim_summary": "The source places the Royal Society's first meeting immediately after a Gresham College astronomy lecture.",
+    "source_support_rationale": "The lecture setting is historical lineage for the society's correspondence network, not a direct communication medium."
+  },
+  "ontology_before": "Scientific Correspondence Networks depended on Public Science Lectures as an unsourced generic enabler.",
+  "ontology_after": "Scientific Correspondence Networks depend on Public Science Lectures as the Gresham College lecture lineage for the Royal Society network.",
+  "invariant_preserved_or_changed": "Changed: public_science_lectures remains direct but is now typed historical_predecessor with official-source evidence.",
+  "would_reject_if": [
+    "The node were rescoped away from Royal Society/Gresham College origins.",
+    "A stronger source showed Gresham lectures were unrelated to the formation of the correspondence network.",
+    "Public Science Lectures were narrowed away from Gresham College public lecture culture."
+  ],
+  "short_reason": "Royal Society correspondence grew from a meeting culture launched after a Gresham lecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/scientific_correspondence_networks.before.json /tmp/scientific_correspondence_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

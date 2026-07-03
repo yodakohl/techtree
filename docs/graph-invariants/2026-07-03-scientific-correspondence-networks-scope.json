@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-03-scientific-correspondence-networks-scope",
+  "description": "Lock Scientific Correspondence Networks to Royal Society correspondence management and journal communication, not printed errata as the direct mechanism.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "scientific_societies",
+      "reason": "Scientific societies supplied the institutional organizer for correspondence, meetings, discussion, and publication."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "scientific_societies",
+      "expected": "enabling",
+      "reason": "Societies organize and enable the network without being identical to the communications."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "scientific_journals",
+      "reason": "Philosophical Transactions supplied the source-backed printed communication platform."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "scientific_journals",
+      "expected": "common_dependency",
+      "reason": "Scientific journals are the shared publication platform, not the whole correspondence network."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "public_science_lectures",
+      "reason": "The Royal Society's first meeting followed a Gresham College astronomy lecture."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "public_science_lectures",
+      "expected": "historical_predecessor",
+      "reason": "Public lecture culture is historical lineage for the Society's meeting/correspondence network."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "scientific_correspondence_networks",
+      "prerequisite": "printed_scientific_errata",
+      "reason": "Printed errata should not be restored unless the node is narrowed to correction publication rather than correspondence."
+    },
+    {
+      "type": "first_known_date",
+      "node": "scientific_correspondence_networks",
+      "operator": "eq",
+      "value": 1665,
+      "reason": "The node remains anchored to the 1665 Philosophical Transactions platform while noting earlier correspondence management."
+    }
+  ]
+}
