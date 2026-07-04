@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-flintlock-clockwork-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "muskets_flintlock",
+    "prerequisite": "clockwork_mechanisms"
+  },
+  "replaced_edge": {
+    "dependent": "muskets_flintlock",
+    "prerequisite": "mechanical_clocks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Clocks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Clockwork-style spring, sear, tumbler, cock, and frizzen lockwork supplies the mechanical subsystem that distinguishes true flintlock firearms from earlier matchlock or hand-cannon lineages."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://science.howstuffworks.com/flintlock2.htm",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Flintlock Mechanism section identifies the hammer/cock, mainspring, frizzen, pan, tumbler, sear, sear spring, and frizzen spring, then explains how trigger release drives the hammer and spark sequence.",
+    "source_claim_summary": "The source describes the flintlock as a spring-driven lock mechanism with sear/tumbler release and coordinated cock, frizzen, pan, and spring parts.",
+    "source_support_rationale": "This favors the clockwork_mechanisms prerequisite because that node covers precision spring-and-lock mechanical craft, while mechanical_clocks would imply timekeeping devices rather than the lock subsystem."
+  },
+  "ontology_before": "The node pointed at Mechanical Clocks, implying that timekeeping clocks directly enabled flintlock firearms.",
+  "ontology_after": "The node points at Clockwork Mechanisms, preserving the mechanical craft dependency while removing the overly broad timekeeping-clock claim.",
+  "invariant_preserved_or_changed": "Changed: muskets_flintlock now depends on clockwork_mechanisms and no longer directly depends on mechanical_clocks.",
+  "would_reject_if": [
+    "A stronger source showed the flintlock mechanism did not use spring-and-sear lockwork.",
+    "The clockwork_mechanisms node were narrowed only to clocks and excluded non-clock spring mechanisms.",
+    "A source showed mechanical clockmaking as a named direct prerequisite rather than a broader mechanical-craft analogy."
+  ],
+  "short_reason": "Flintlocks need lockwork mechanics, not clocks as timekeeping devices.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/muskets_flintlock.before.json /tmp/muskets_flintlock.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

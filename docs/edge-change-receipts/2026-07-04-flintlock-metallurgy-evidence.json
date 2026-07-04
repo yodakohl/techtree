@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-04-flintlock-metallurgy-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "muskets_flintlock",
+    "prerequisite": "advanced_metallurgy_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Hardened steel or iron striking surfaces, springs, barrels, and fitted lock components are enabling material capabilities for reliable flintlock ignition."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://science.howstuffworks.com/flintlock2.htm",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Flintlock Mechanism section explains the flint-and-steel spark process and identifies the frizzen as steel, with mainspring and frizzen spring components in the operating lock.",
+    "source_claim_summary": "The source describes the metal striking surface and spring components that make flintlock ignition work.",
+    "source_support_rationale": "That component evidence supports the metallurgy prerequisite because reliable frizzen, spring, barrel, and lock parts depend on ferrous material capability, not only firearm concept lineage."
+  },
+  "invariant_preserved_or_changed": "Preserved: advanced_metallurgy_medieval remains an enabling edge, now tied to specific steel and spring components.",
+  "would_reject_if": [
+    "A stronger source showed early true flintlocks used no steel or ferrous spring components.",
+    "The advanced_metallurgy_medieval node were narrowed away from ferrous steelworking and heat-treated components.",
+    "The edge were interpreted as a unique invention dependency rather than an enabling material capability."
+  ],
+  "short_reason": "Steel striking and spring components make metallurgy an enabling capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/muskets_flintlock.before.json /tmp/muskets_flintlock.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

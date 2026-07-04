@@ -1,0 +1,58 @@
+{
+  "id": "2026-07-04-flintlock-muskets-scope",
+  "description": "Lock Muskets (Flintlock) to true ca. 1620 French flintlock firearm lockwork, not generic early firearms, mechanical clocks, or later percussion/rifled-musket systems.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "muskets_flintlock",
+      "operator": "eq",
+      "value": 1620,
+      "reason": "The node is anchored to the Met's ca. 1620 French Louis XIII flintlock gun."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "early_firearms",
+      "reason": "Earlier hand firearms and harquebuses remain the historical firearm lineage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "early_firearms",
+      "expected": "historical_predecessor",
+      "reason": "Early firearms supply lineage rather than a direct engineering subsystem for true flintlock lockwork."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "clockwork_mechanisms",
+      "reason": "The flintlock depends on spring-and-sear lockwork rather than clocks as timekeeping devices."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "clockwork_mechanisms",
+      "expected": "enabling",
+      "reason": "Clockwork-style lock mechanisms supply an enabling mechanical craft capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "mechanical_clocks",
+      "reason": "Mechanical clocks should not be restored as a direct prerequisite unless the node is narrowed to clockmaking transfer evidence."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "reason": "Steel/iron striking surfaces, springs, barrels, and lock parts remain enabling material capabilities."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "muskets_flintlock",
+      "prerequisite": "advanced_metallurgy_medieval",
+      "expected": "enabling",
+      "reason": "Metallurgy enables reliable components but is not the sole invention path."
+    }
+  ]
+}

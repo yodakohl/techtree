@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-04-flintlock-early-firearms-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "muskets_flintlock",
+    "prerequisite": "early_firearms"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Firearms is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.8,
+    "evidence_level": "textbook",
+    "note": "Fourteenth-century hand cannons and harquebuses form the firearm lineage that true flintlock lockwork later improves, but they are not a one-to-one engineering dependency."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.britannica.com/topic/tactics/The-advent-of-firearms",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Britannica's advent-of-firearms section places firearms in Europe in the fourteenth century and harquebuses in the fifteenth century, before the ca. 1620 French flintlock evidence used for this node.",
+    "source_claim_summary": "The source anchors a pre-flintlock European firearm sequence from early firearms to harquebuses.",
+    "source_support_rationale": "This supports a historical-predecessor edge rather than a required-method edge because the predecessor source establishes earlier firearm lineage while the node-specific sources establish the later flintlock mechanism."
+  },
+  "invariant_preserved_or_changed": "Preserved: early_firearms remains the historical predecessor edge for muskets_flintlock, now with source-backed lineage evidence.",
+  "would_reject_if": [
+    "The early_firearms node were narrowed to a non-firearm technology outside the lineage of muskets.",
+    "A stronger source showed true flintlocks arose independently of earlier handheld firearm traditions.",
+    "The muskets_flintlock node were rescoped away from firearms and only represented a non-weapon ignition mechanism."
+  ],
+  "short_reason": "Early hand firearms are a sourced lineage predecessor to flintlock muskets.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/muskets_flintlock.before.json /tmp/muskets_flintlock.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

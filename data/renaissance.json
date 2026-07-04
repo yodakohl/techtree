@@ -4334,7 +4334,7 @@
     "description": "A significant advancement in firearm technology, the flintlock mechanism used a flint striking a steel frizzen to create a spark, improving reliability, weather resistance, and rate of fire over the matchlock.",
     "prerequisites": [
       "early_firearms",
-      "mechanical_clocks",
+      "clockwork_mechanisms",
       "advanced_metallurgy_medieval"
     ],
     "firstKnownDate": 1620,
@@ -4345,41 +4345,102 @@
       {
         "prerequisite": "early_firearms",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Firearms is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "mechanical_clocks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Clocks provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.8,
+        "evidence_level": "textbook",
+        "note": "Fourteenth-century hand cannons and harquebuses form the firearm lineage that true flintlock lockwork later improves, but they are not a one-to-one engineering dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Escapement",
-            "url": "https://www.britannica.com/technology/escapement",
+            "title": "Tactics - The advent of firearms",
+            "url": "https://www.britannica.com/topic/tactics/The-advent-of-firearms",
             "publisher": "Encyclopaedia Britannica",
             "year": 2026,
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The advent-of-firearms section places European firearms in the fourteenth century and harquebuses in the fifteenth century, anchoring the earlier firearm lineage."
+          },
+          {
+            "title": "Flintlock Gun of Louis XIII",
+            "url": "https://www.metmuseum.org/art/collection/search/24865",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Met record identifies a French ca. 1620 flintlock gun, separating this later lockwork from the earlier hand-cannon and harquebus lineage."
+          }
+        ]
+      },
+      {
+        "prerequisite": "clockwork_mechanisms",
+        "type": "enabling",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Clockwork-style spring, sear, tumbler, cock, and frizzen lockwork supplies the mechanical subsystem that distinguishes true flintlock firearms from earlier matchlock or hand-cannon lineages.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "How Flintlock Guns Work",
+            "url": "https://science.howstuffworks.com/flintlock2.htm",
+            "publisher": "HowStuffWorks",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Flintlock Mechanism section describes hammer/cock, mainspring, frizzen, pan, tumbler, sear, sear spring, and frizzen spring interactions in the trigger and spark sequence."
           }
         ]
       },
       {
         "prerequisite": "advanced_metallurgy_medieval",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Metallurgy (Medieval) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Hardened steel or iron striking surfaces, springs, barrels, and fitted lock components are enabling material capabilities for reliable flintlock ignition.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "How Flintlock Guns Work",
+            "url": "https://science.howstuffworks.com/flintlock2.htm",
+            "publisher": "HowStuffWorks",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Flintlock Mechanism section explains that flint strikes iron or steel, identifies the frizzen as steel, and lists the mainspring and frizzen spring among the operating parts."
+          },
+          {
+            "title": "Flintlock Gun of Louis XIII",
+            "url": "https://www.metmuseum.org/art/collection/search/24865",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Met object details list steel and brass among the materials of the ca. 1620 French flintlock gun."
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "How Flintlock Guns Work",
+        "url": "https://science.howstuffworks.com/flintlock2.htm",
+        "publisher": "HowStuffWorks",
+        "year": 2026,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "The Flintlock Mechanism section describes the flint-and-steel ignition goal plus the hammer/cock, mainspring, frizzen, pan, tumbler, sear, and springs that make the lock function."
+      },
       {
         "title": "Flintlock Gun of Louis XIII",
         "url": "https://www.metmuseum.org/art/collection/search/24865",
@@ -4387,11 +4448,13 @@
         "year": 2026,
         "source_type": "museum",
         "supports": [
-          "node"
+          "node",
+          "edge"
         ],
-        "source_locator": "The Met dates a flintlock gun of Louis XIII to about 1620 and notes its French flintlock context associated with Marin Le Bourgeois."
+        "source_locator": "The Met dates a French flintlock gun of Louis XIII to ca. 1620, associates it with the Marin Le Bourgeois workshop, and lists steel, brass, silver, gold, walnut, and mother-of-pearl materials."
       }
-    ]
+    ],
+    "scopeNote": "Covers true flintlock firearm lockwork anchored to ca. 1620 French Louis XIII/Marin Le Bourgeois evidence; excludes earlier hand cannons, matchlocks, wheel-locks, snaplocks, and later percussion-cap or rifled-musket systems."
   },
   {
     "id": "musketry_formations",
