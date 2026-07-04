@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-anatomy-herbalism-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "anatomy_early_studies",
+    "prerequisite": "herbalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct herbalism dependency remains because the node is scoped to Alexandrian anatomical observation and dissection rather than medicinal plant practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/anatomy",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gross anatomy section: Britannica anchors the first substantial factual basis of anatomy to Alexandrian dissection by Herophilus around 300 BCE.",
+    "source_claim_summary": "The source supports anatomical dissection and body-structure study, not herbal materia medica as a prerequisite.",
+    "source_support_rationale": "Herbalism belongs to medicine and pharmacology neighbors; retaining it here would conflate therapeutic plant knowledge with anatomical investigation."
+  },
+  "ontology_before": "Anatomy (Early Studies) depended on Herbalism as an unsourced enabling edge.",
+  "ontology_after": "Anatomy (Early Studies) keeps writing, philosophy, and bronze-working context while herbalism remains outside the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: herbalism is no longer a direct prerequisite for anatomy_early_studies.",
+  "would_reject_if": [
+    "The node were rescoped to early medical therapeutics rather than anatomical study.",
+    "A stronger source showed herbal materia medica directly enabled Alexandrian dissection.",
+    "A separate herbal_anatomy_theory node were added and intentionally bridged these scopes."
+  ],
+  "short_reason": "Herbalism is therapeutic context, not anatomical method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/anatomy_early_studies.before.json /tmp/anatomy_early_studies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

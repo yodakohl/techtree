@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-aseptic-surgery-field-medicine-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "aseptic_surgery",
+    "prerequisite": "military_field_medicine"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Field Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct military field medicine dependency remains because the node is scoped to Listerian antiseptic and sterile surgical practice, not battlefield evacuation or triage systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.kcl.ac.uk/lord-lister-father-of-antiseptic-surgery-2",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "King's College London states that Lister first successfully used his antiseptic method in 1865 and published the system in The Lancet in 1867.",
+    "source_claim_summary": "The source pins aseptic surgery to Listerian antiseptic practice rather than to military field-care organization.",
+    "source_support_rationale": "Field medicine remains a separate emergency-care lineage; keeping it direct here would turn a care setting into the mechanism of asepsis."
+  },
+  "ontology_before": "Aseptic Surgery depended on Military Field Medicine as an unsourced enabling edge.",
+  "ontology_after": "Aseptic Surgery depends on clinical medicine, anesthesia, and chemistry while military field systems remain outside its direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: military_field_medicine is no longer a direct prerequisite for aseptic_surgery.",
+  "would_reject_if": [
+    "The node were rescoped to battlefield antiseptic protocols rather than surgical asepsis generally.",
+    "A stronger source showed Listerian asepsis directly depended on military field-medicine institutions.",
+    "A separate military_aseptic_surgery node were added for wartime surgical practice."
+  ],
+  "short_reason": "Field medicine is care context, not asepsis mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/aseptic_surgery.before.json /tmp/aseptic_surgery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

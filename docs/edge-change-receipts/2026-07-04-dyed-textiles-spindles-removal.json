@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-dyed-textiles-spindles-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "dyed_textiles",
+    "prerequisite": "drop_spindles"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Drop Spindles provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct drop-spindle dependency remains because dyed textiles require a textile substrate, but not that the yarn was made by a specific spindle technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/textile",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's textile article supports the textile substrate and dyeing/coloring scope without making drop spindles the required production technology.",
+    "source_claim_summary": "The source supports textiles and dyeing broadly, not drop-spindle manufacture as a direct prerequisite.",
+    "source_support_rationale": "The retained textiles_weaving edge captures the substrate; a spindle-specific edge would overconstrain dyeing to one yarn-production method."
+  },
+  "ontology_before": "Dyed Textiles depended on Drop Spindles as an unsourced enabling edge.",
+  "ontology_after": "Dyed Textiles depends on Textiles & Weaving without requiring a specific spinning tool.",
+  "invariant_preserved_or_changed": "Changed: drop_spindles is no longer a direct prerequisite for dyed_textiles.",
+  "would_reject_if": [
+    "The node were narrowed to dyed spun yarn rather than dyed fibers and cloth.",
+    "A stronger source showed the first dyed textiles specifically required drop-spindle yarn production.",
+    "A separate dyed_spun_yarn node were added and scoped to spindle-made yarn."
+  ],
+  "short_reason": "The textile substrate matters; the spindle tool is over-specific.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dyed_textiles.before.json /tmp/dyed_textiles.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

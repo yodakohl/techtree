@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-concentric-castles-gothic-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "concentric_castles",
+    "prerequisite": "gothic_architecture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Gothic Architecture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct Gothic architecture dependency remains because concentric castles are scoped to layered fortification walls and overlapping defense, not ecclesiastical Gothic design.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.english-heritage.org.uk/castles/castles-through-time/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "English Heritage discusses castle development through defensive form and castle types; the cited scope does not make Gothic architecture a prerequisite.",
+    "source_claim_summary": "The source grounds the node in castle fortification development, not in Gothic architectural style.",
+    "source_support_rationale": "Gothic architecture can coexist chronologically with castles, but the direct dependency should stay on construction, masonry, siege, and feudal fortification context."
+  },
+  "ontology_before": "Concentric Castles depended on Gothic Architecture as an unsourced enabling edge.",
+  "ontology_after": "Concentric Castles keeps construction, siege engineering, masonry, and feudal context without importing Gothic style as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: gothic_architecture is no longer a direct prerequisite for concentric_castles.",
+  "would_reject_if": [
+    "The node were rescoped to Gothic castle ornament or ecclesiastical castle architecture.",
+    "A stronger source showed concentric castle design directly derived from Gothic architectural methods.",
+    "A separate gothic_castle_style node were added and intentionally linked to Gothic Architecture."
+  ],
+  "short_reason": "Gothic style is not the fortification mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/concentric_castles.before.json /tmp/concentric_castles.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

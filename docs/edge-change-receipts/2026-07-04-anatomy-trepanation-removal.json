@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-anatomy-trepanation-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "anatomy_early_studies",
+    "prerequisite": "primitive_surgery_trepanation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Primitive Surgery (e.g., Trepanation) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct trepanation dependency remains because prehistoric cranial surgery is a neighboring surgical practice, not the source-backed basis for Alexandrian anatomical study.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/anatomy",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gross anatomy section: Britannica describes Alexandrian human-cadaver dissection and Herophilus around 300 BCE as the first substantial factual basis for anatomy.",
+    "source_claim_summary": "The source grounds early anatomy in dissection and observation rather than in prehistoric trepanation practice.",
+    "source_support_rationale": "Trepanation can remain a surgery node, but making it direct here imports operative practice into a node about anatomical knowledge formation."
+  },
+  "ontology_before": "Anatomy (Early Studies) depended on Primitive Surgery (e.g., Trepanation) as an unsourced enabling edge.",
+  "ontology_after": "Anatomy (Early Studies) is limited to anatomical observation, dissection, recording, and philosophical inquiry.",
+  "invariant_preserved_or_changed": "Changed: primitive_surgery_trepanation is no longer a direct prerequisite for anatomy_early_studies.",
+  "would_reject_if": [
+    "The node were narrowed to surgical anatomy learned from operations.",
+    "A stronger source showed trepanation was a direct antecedent to Alexandrian dissection programs.",
+    "A separate surgery_based_anatomy node were introduced with trepanation as its scoped predecessor."
+  ],
+  "short_reason": "Trepanation is surgical context, not anatomical study infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/anatomy_early_studies.before.json /tmp/anatomy_early_studies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

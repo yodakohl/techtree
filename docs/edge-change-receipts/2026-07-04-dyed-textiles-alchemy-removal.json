@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-dyed-textiles-alchemy-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "dyed_textiles",
+    "prerequisite": "early_alchemy_material_science"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Alchemy & Material Science is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct early-alchemy dependency remains because the dyed-textile node is scoped to coloring fibers and cloth, which can be represented through textile production without a broad proto-chemistry ancestor.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/textile",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's textile article supports textiles and coloring/dyeing practice as textile production context, not as a dependency on alchemical material science.",
+    "source_claim_summary": "The source supports dyed textiles through textile practice rather than an early alchemy/material-science prerequisite.",
+    "source_support_rationale": "Alchemy is too broad and laterally related; keeping textiles_weaving direct preserves the material substrate without laundering chemistry history into dyeing."
+  },
+  "ontology_before": "Dyed Textiles depended on Early Alchemy & Material Science as an unsourced historical predecessor.",
+  "ontology_after": "Dyed Textiles depends directly on Textiles & Weaving; chemistry-specific dye developments can be represented on later synthetic-dye nodes.",
+  "invariant_preserved_or_changed": "Changed: early_alchemy_material_science is no longer a direct prerequisite for dyed_textiles.",
+  "would_reject_if": [
+    "The node were narrowed to mordant chemistry rather than dyed textile production broadly.",
+    "A stronger source showed early alchemical material science directly preceded the first dyed textiles.",
+    "A separate mordant_dye_chemistry node were added and needed early alchemy as a scoped predecessor."
+  ],
+  "short_reason": "Broad proto-chemistry is not required for dyed textiles.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dyed_textiles.before.json /tmp/dyed_textiles.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

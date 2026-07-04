@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-early-alchemy-fermentation-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_alchemy_material_science",
+    "prerequisite": "fermentation_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct fermentation dependency remains because the node's source-backed anchor is ochre processing and material transformation, not food or beverage fermentation.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the Science paper reports a 100,000-year-old ochre-processing workshop with grinding, scraping, mixing, and storage of pigment-rich compound.",
+    "source_claim_summary": "The source supports pigment and compound processing as material transformation, not fermentation as a direct predecessor.",
+    "source_support_rationale": "Fermentation is another transformation technology, but the retained pigment_creation edge is the direct source-backed material-processing lineage for this broad node."
+  },
+  "ontology_before": "Early Alchemy & Material Science depended on Basic Fermentation as an unsourced historical predecessor.",
+  "ontology_after": "Early Alchemy & Material Science keeps Pigment Creation as the direct source-backed material-transformation prerequisite.",
+  "invariant_preserved_or_changed": "Changed: fermentation_basic is no longer a direct prerequisite for early_alchemy_material_science.",
+  "would_reject_if": [
+    "The node were narrowed to biochemical fermentation chemistry.",
+    "A stronger source showed fermentation directly led to the material-processing practices represented here.",
+    "A separate early_biochemical_transformation node were added and intentionally tied to fermentation."
+  ],
+  "short_reason": "Fermentation is parallel transformation context, not the source-backed material anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_alchemy_material_science.before.json /tmp/early_alchemy_material_science.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

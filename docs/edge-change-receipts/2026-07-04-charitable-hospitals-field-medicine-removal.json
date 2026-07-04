@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-charitable-hospitals-field-medicine-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "charitable_hospital_networks",
+    "prerequisite": "military_field_medicine"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Field Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct military field medicine dependency remains because the node is scoped to religious and civic charitable hospitals, shelter, nursing, and organized care.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/hospital",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's hospital history describes religious foundations and medieval infirmaries attached to abbeys, monasteries, priories, and convents.",
+    "source_claim_summary": "The source supports charitable and monastic hospital institutions, not battlefield medical systems as a direct prerequisite.",
+    "source_support_rationale": "Military medicine is a parallel care lineage; keeping it direct would misread institutional charity as an extension of battlefield treatment."
+  },
+  "ontology_before": "Charitable Hospital Networks depended on Military Field Medicine as an unsourced enabling edge.",
+  "ontology_after": "Charitable Hospital Networks keeps monastic and religious institutional context as its direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: military_field_medicine is no longer a direct prerequisite for charitable_hospital_networks.",
+  "would_reject_if": [
+    "The node were narrowed to military hospitals rather than charitable civilian and religious hospitals.",
+    "A stronger source showed early charitable hospitals were founded from battlefield-care institutions.",
+    "A separate military_hospital_networks node were added and intentionally linked to field medicine."
+  ],
+  "short_reason": "Field medicine is parallel care context, not charitable hospital ancestry.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/charitable_hospital_networks.before.json /tmp/charitable_hospital_networks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

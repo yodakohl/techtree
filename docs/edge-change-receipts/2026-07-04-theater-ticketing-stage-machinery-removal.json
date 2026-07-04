@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-theater-ticketing-stage-machinery-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "theater_ticketing_systems",
+    "prerequisite": "mechanical_theater_machinery"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Mechanical Theater Machinery is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct stage-machinery dependency remains because theater ticketing is scoped to paid admission, seating control, and venue commerce rather than stage-effect mechanisms.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.teatrosancassiano.it/en/teatro-san-cassiano",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Our History describes San Cassiano as opening public opera to a paying audience through entrance-ticket purchase in 1637.",
+    "source_claim_summary": "The source supports ticketed public performance commerce, not mechanical stage machinery as a prerequisite.",
+    "source_support_rationale": "Stage machinery can be a venue technology, but ticketing depends on admission and audience commerce rather than theatrical mechanisms."
+  },
+  "ontology_before": "Theater Ticketing Systems depended on Mechanical Theater Machinery as a weak common-dependency edge.",
+  "ontology_after": "Theater Ticketing Systems keeps public theater infrastructure and printing context without requiring stage machinery.",
+  "invariant_preserved_or_changed": "Changed: mechanical_theater_machinery is no longer a direct prerequisite for theater_ticketing_systems.",
+  "would_reject_if": [
+    "The node were rescoped to machinery-ticketed spectacle venues rather than paid admission generally.",
+    "A stronger source showed ticketing systems directly required mechanical stage machinery.",
+    "A separate mechanical_spectacle_ticketing node were added for machinery-dependent events."
+  ],
+  "short_reason": "Stage machinery is venue technology, not ticketing infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/theater_ticketing_systems.before.json /tmp/theater_ticketing_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

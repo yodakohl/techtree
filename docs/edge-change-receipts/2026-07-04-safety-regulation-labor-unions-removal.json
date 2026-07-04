@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-safety-regulation-labor-unions-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_safety_regulation",
+    "prerequisite": "labor_unions_collective_bargaining"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Labor Unions & Collective Bargaining provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct labor-union dependency remains because the node is scoped to early statutory factory safety regulation and inspection, not collective bargaining institutions.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.parliament.uk/about/living-heritage/transformingsociety/livinglearning/19thcentury/overview/earlyfactorylegislation/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "UK Parliament's Early factory legislation page describes factory legislation and inspection as parliamentary responses to factory conditions.",
+    "source_claim_summary": "The source supports statutory factory regulation and inspection, not labor unions as a direct prerequisite.",
+    "source_support_rationale": "Labor unions are a later or parallel worker-organization pathway; retaining the edge would make collective bargaining a prerequisite for early legislation."
+  },
+  "ontology_before": "Industrial Safety Regulation depended on Labor Unions & Collective Bargaining as an unsourced enabling edge.",
+  "ontology_after": "Industrial Safety Regulation depends on the factory system and public-health statistics, keeping statutory safety regulation separate from labor organization.",
+  "invariant_preserved_or_changed": "Changed: labor_unions_collective_bargaining is no longer a direct prerequisite for industrial_safety_regulation.",
+  "would_reject_if": [
+    "The node were narrowed to collectively bargained safety agreements rather than statutory regulation.",
+    "A stronger source showed early factory safety legislation directly required labor unions.",
+    "A separate union_safety_bargaining node were added and scoped to collective bargaining."
+  ],
+  "short_reason": "Labor unions are worker-organization context, not statutory safety infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_safety_regulation.before.json /tmp/industrial_safety_regulation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

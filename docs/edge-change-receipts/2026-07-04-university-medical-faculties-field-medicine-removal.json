@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-university-medical-faculties-field-medicine-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "university_medical_faculties",
+    "prerequisite": "military_field_medicine"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Military Field Medicine is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct military field medicine dependency remains because the node is scoped to learned medical schools and faculties, not battlefield-care organization.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/15458581/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the review describes the Schola Medica Salernitana as a forerunner of modern university medical schools and discusses medical-school tradition.",
+    "source_claim_summary": "The source supports medieval medical-school lineage, not military field medicine as a direct prerequisite.",
+    "source_support_rationale": "Field medicine is a clinical-care setting; retaining it direct would confuse institutional learned medicine with battlefield logistics."
+  },
+  "ontology_before": "University Medical Faculties depended on Military Field Medicine as a weak common-dependency edge.",
+  "ontology_after": "University Medical Faculties keeps herbal medicine preparation as remaining context while military field medicine is outside the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: military_field_medicine is no longer a direct prerequisite for university_medical_faculties.",
+  "would_reject_if": [
+    "The node were rescoped to military medical education rather than university medical faculties.",
+    "A stronger source showed Salerno-style medical faculties directly required military field medicine.",
+    "A separate military_medical_training node were added and scoped to field medicine."
+  ],
+  "short_reason": "Field medicine is care context, not medical-faculty lineage.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/university_medical_faculties.before.json /tmp/university_medical_faculties.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

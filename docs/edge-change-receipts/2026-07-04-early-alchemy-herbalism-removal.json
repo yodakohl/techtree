@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-early-alchemy-herbalism-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "early_alchemy_material_science",
+    "prerequisite": "herbalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct herbalism dependency remains because the node's source-backed anchor is pigment compound processing, not medicinal plant selection or therapeutic practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: the Science paper reports a 100,000-year-old ochre-processing workshop involving pigment-rich compound production.",
+    "source_claim_summary": "The source supports early material processing through ochre compounds, not herbal medicine as a direct prerequisite.",
+    "source_support_rationale": "Herbalism remains a medical and botanical neighbor; retaining it direct would blend therapeutic practice into a material-processing node."
+  },
+  "ontology_before": "Early Alchemy & Material Science depended on Herbalism as an unsourced enabling edge.",
+  "ontology_after": "Early Alchemy & Material Science keeps Pigment Creation as the direct source-backed material transformation prerequisite.",
+  "invariant_preserved_or_changed": "Changed: herbalism is no longer a direct prerequisite for early_alchemy_material_science.",
+  "would_reject_if": [
+    "The node were rescoped to medicinal preparations rather than broad material transformation.",
+    "A stronger source showed herbalism directly enabled the source-backed ochre compound process.",
+    "A separate early_pharmacological_compounding node were added with herbalism as its direct scope."
+  ],
+  "short_reason": "Herbalism is medical context, not the material-processing anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/early_alchemy_material_science.before.json /tmp/early_alchemy_material_science.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
