@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-lens-grinding-glass-lenses-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "lens_grinding_workshops",
+    "prerequisite": "glass_lenses_early"
+  },
+  "replaced_edge": {
+    "dependent": "lens_grinding_workshops",
+    "prerequisite": "optical_workshops"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Optical Workshops provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Earlier glass and crystal lenses are the material/craft lineage for later spectacle-lens grinding, but not the broader workshop institution itself."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Ilardi, chapter six, pp. 224-226, links better lenses to clear glass or crystal properly ground and polished and discusses advances in hand tools for grinding and polishing lenses.",
+    "source_claim_summary": "The source ties spectacle-lens workmanship to glass/crystal lens material and grinding/polishing practice.",
+    "source_support_rationale": "The old optical_workshops edge treated the broader workshop category as a prerequisite of one of its own lens-grinding specializations; glass_lenses_early preserves the older material/craft lineage without making the parent workshop node a prerequisite."
+  },
+  "ontology_before": "Lens Grinding Workshops depended on Optical Workshops, a broader neighboring node that already includes grinding lenses and assembling optical instruments.",
+  "ontology_after": "Lens Grinding Workshops depends on earlier glass/crystal lens craft plus spectacles and guild/shop context; Optical Workshops is no longer a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: optical_workshops is removed and replaced with glass_lenses_early as a historical predecessor.",
+  "would_reject_if": [
+    "The optical_workshops node were narrowed to a strictly earlier institution that did not already include lens grinding.",
+    "A stronger source showed a separate broad optical-workshop institution necessarily preceded specialized lens-grinding shops.",
+    "The lens_grinding_workshops node were merged into optical_workshops as a duplicate rather than kept as a specific enabling craft node for telescope and fitting practices."
+  ],
+  "short_reason": "Glass/crystal lens craft is the direct predecessor; optical_workshops was the broader parent concept.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/lens_grinding_workshops.before.json /tmp/lens_grinding_workshops.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-04-lens-grinding-workshops-scope",
+  "description": "Lock Lens Grinding Workshops to spectacle-lens grinding and mounting craft, with early glass/crystal lenses as lineage and without making the broader optical_workshops node a prerequisite.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "lens_grinding_workshops",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "The broad medieval date remains tied to thirteenth-century northern Italian spectacle-lens craft while later shop documentation is captured in the uncertainty note."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "lens_grinding_workshops",
+      "prerequisite": "spectacles_eyeglasses",
+      "expected": "enabling",
+      "reason": "Spectacle demand and manufacture supplied the direct product context for specialized lens-grinding and mounting shops."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "lens_grinding_workshops",
+      "prerequisite": "glass_lenses_early",
+      "expected": "historical_predecessor",
+      "reason": "Earlier glass and crystal lens craft is the material and optical lineage for later spectacle-lens grinding."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "lens_grinding_workshops",
+      "prerequisite": "guilds",
+      "expected": "enabling",
+      "reason": "Guild and shop structures could host or regulate spectacle makers without being a universal dedicated spectacle-guild requirement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "lens_grinding_workshops",
+      "prerequisite": "optical_workshops",
+      "reason": "Optical Workshops is the broader workshop node and must not be used as a direct prerequisite for its lens-grinding specialization."
+    }
+  ]
+}

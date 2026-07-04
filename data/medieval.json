@@ -12103,10 +12103,10 @@
     "id": "lens_grinding_workshops",
     "name": "Lens Grinding Workshops",
     "era": "Medieval",
-    "description": "Specialized craft shops for grinding, polishing, measuring, and mounting lenses for spectacles and optical instruments.",
+    "description": "Specialized spectacle-making shops for grinding, polishing, measuring, and mounting lenses, later extending the same craft base to optical instruments.",
     "prerequisites": [
       "spectacles_eyeglasses",
-      "optical_workshops",
+      "glass_lenses_early",
       "guilds"
     ],
     "firstKnownDate": 1200,
@@ -12117,41 +12117,92 @@
       {
         "prerequisite": "spectacles_eyeglasses",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Spectacles (Eyeglasses) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Spectacle demand and manufacture supplied the direct product context for specialized lens-grinding and mounting shops.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
+            "supports": [
+              "node",
+              "edge"
+            ],
+            "source_locator": "Appendix I lists spectacle makers active in Florence from 1413-1562, frequently with shop locations; chapter six links spectacle wearing to later demand for better ground and polished lenses."
+          },
+          {
+            "title": "The history of spectacles",
+            "url": "https://www.college-optometrists.org/the-british-optical-association-museum/the-history-of-spectacles",
+            "publisher": "The College of Optometrists / British Optical Association Museum",
+            "year": 2026,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Thirteenth century section states that the earliest spectacles were mounted lenses and contained convex lenses for correcting presbyopic long-sightedness."
+          }
+        ]
       },
       {
-        "prerequisite": "optical_workshops",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Optical Workshops provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "glass_lenses_early",
+        "type": "historical_predecessor",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Earlier glass and crystal lenses are the material/craft lineage for later spectacle-lens grinding, but not the broader workshop institution itself.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Chapter Six, pp. 224-226: Ilardi notes that clear glass and crystal, properly ground and polished, made the best lenses and describes advances in hand tools for grinding and polishing lenses."
+          }
+        ]
       },
       {
         "prerequisite": "guilds",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Guilds provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.66,
+        "evidence_level": "textbook",
+        "note": "Guild and shop structures could govern or host spectacle makers, but the source also shows spectacle making was not always confined to a dedicated guild.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Guild",
-            "url": "https://www.britannica.com/topic/guild-trade-association",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "Renaissance Vision from Spectacles to Telescopes",
+            "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+            "publisher": "American Philosophical Society / Internet Archive",
+            "year": 2007,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Chapter five describes glass workers, spectacle makers, and goldsmiths as members of the Medici e Speziali guild in Florence, while also noting that specialized spectacle guilds were not universal."
           }
         ]
       }
     ],
     "sources": [
+      {
+        "title": "Renaissance Vision from Spectacles to Telescopes",
+        "url": "https://archive.org/stream/bub_gb_peIL7hVQUmwC/bub_gb_peIL7hVQUmwC_djvu.txt",
+        "publisher": "American Philosophical Society / Internet Archive",
+        "year": 2007,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Appendix I lists Florentine spectacle makers active from 1413-1562 with archival sources and shop locations; chapter six describes better hand tools for grinding and polishing lenses and later detailed preparation of spectacle lenses."
+      },
       {
         "title": "The history of spectacles",
         "url": "https://www.college-optometrists.org/the-british-optical-association-museum/the-history-of-spectacles",
@@ -12160,12 +12211,13 @@
         "source_type": "museum",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Thirteenth century section states that the earliest spectacles were invented in northern Italy and used mounted convex lenses for presbyopic long-sightedness."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Medieval source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology.",
-    "dateUncertaintyNote": "The date anchors lens-grinding workshops to thirteenth-century spectacle production; individual workshop records are later and unevenly preserved.",
-    "dateUncertainty": true
+    "dateUncertaintyNote": "The 1200 century anchor follows thirteenth-century northern Italian spectacle-lens craft; documented spectacle-maker shops and precision lens-grinding evidence are much better preserved from fifteenth-century Florence onward.",
+    "dateUncertainty": true,
+    "scopeNote": "Covers spectacle-lens grinding, polishing, measuring, mounting, and shop/trade capability. It excludes the broader optical_workshops node and later modern optician or precision optical-lab institutions."
   },
   {
     "id": "town_clock_curfew_bells",
