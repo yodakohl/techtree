@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-newspaper-advertising-ledgers-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "newspaper_advertising",
+    "prerequisite": "merchant_accounting_ledgers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Merchant Accounting Ledgers provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because merchant ledgers are advertiser back-office infrastructure, not the newspaper publication mechanism for paid public notices.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "MHS anchors the first paid newspaper advertisements to the Boston News-Letter's newspaper solicitation and issue number three notices for stolen goods, lost anvils, and Long Island real estate.",
+    "source_claim_summary": "The source explains early newspaper advertising through newspaper publication and miscellaneous paid notices rather than merchant ledger infrastructure.",
+    "source_support_rationale": "Merchant account books may support advertisers' businesses, but the source-backed mechanism for this node is paid insertion into a recurring newspaper."
+  },
+  "ontology_before": "Newspaper Advertising depended directly on Merchant Accounting Ledgers, implying commercial bookkeeping enabled the newspaper advertising format.",
+  "ontology_after": "Newspaper Advertising depends directly on newspaper periodicals; merchant ledgers are treated as possible advertiser back-office context, not a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: newspaper_advertising no longer directly depends on merchant_accounting_ledgers.",
+  "would_reject_if": [
+    "The node is narrowed to accounting-managed advertising campaigns rather than newspaper notices.",
+    "A stronger source shows early newspaper advertisements required merchant-ledger institutions as the publication mechanism.",
+    "A separate merchant_advertising_accounts node is added and explicitly scopes ledger-based ad buying."
+  ],
+  "short_reason": "Merchant ledgers were business context, not the enabling publication channel.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

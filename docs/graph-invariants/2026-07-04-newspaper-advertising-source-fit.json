@@ -1,0 +1,26 @@
+{
+  "id": "2026-07-04-newspaper-advertising-source-fit",
+  "description": "Lock newspaper_advertising to paid notices in recurring newspapers and remove the merchant-ledger prerequisite.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "newspaper_advertising",
+      "operator": "eq",
+      "value": 1704,
+      "reason": "The node remains anchored to the 1704 Boston News-Letter advertisement solicitation and first paid notices."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "newspaper_advertising",
+      "prerequisite": "newspaper_periodicals",
+      "expected": "enabling",
+      "reason": "A recurring newspaper periodical is the direct publication channel for paid newspaper notices."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "newspaper_advertising",
+      "prerequisite": "merchant_accounting_ledgers",
+      "reason": "Merchant ledgers are possible advertiser back-office infrastructure, not a prerequisite for the newspaper advertising channel."
+    }
+  ]
+}

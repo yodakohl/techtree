@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-newspaper-advertising-periodicals-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "newspaper_advertising",
+    "prerequisite": "newspaper_periodicals"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Newspaper Periodicals provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The scoped practice is paid notices inserted into a recurring newspaper; the Boston News-Letter solicited advertisements in its first weekly issue and carried the first paid ads two issues later."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "MHS says the Boston News-Letter began as the first regularly published newspaper in British North America, solicited small notices at a reasonable rate in its first issue, and carried the first three paid advertisements in issue number three dated 1-8 May 1704.",
+    "source_claim_summary": "The source ties paid newspaper advertisements to a recurring newspaper that first solicited notices and then printed paid notices in subsequent weekly issues.",
+    "source_support_rationale": "Because the node is scoped to advertising inside newspapers, the recurring newspaper periodical is the concrete publication mechanism rather than only a related media institution."
+  },
+  "invariant_preserved_or_changed": "Preserved: newspaper_advertising remains enabled by newspaper_periodicals, now with source-backed evidence and a narrower paid-newspaper-notice scope.",
+  "would_reject_if": [
+    "The node is broadened to all printed advertising rather than notices inserted into recurring newspapers.",
+    "A stronger source shows the 1704 Boston News-Letter notices were not paid newspaper advertisements.",
+    "The duplicate newspaper_advertising node is later consolidated into public_newspaper_advertising and removed from the graph."
+  ],
+  "short_reason": "The recurring newspaper is the source-backed delivery mechanism for paid notices.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
