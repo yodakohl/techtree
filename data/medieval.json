@@ -5239,9 +5239,9 @@
     "id": "book_binding_codex_production",
     "name": "Book Binding (Codex Production)",
     "era": "Medieval",
-    "description": "Techniques for assembling and binding paper or vellum pages between hard covers to create codices (books), replacing scrolls for most uses.",
+    "description": "Techniques for assembling and binding parchment, vellum, or later paper leaves between covers to create durable codices, replacing scrolls for most book uses.",
     "prerequisites": [
-      "paper_making",
+      "paper_making_papyrus_parchment",
       "leather_working",
       "writing",
       "codex_early_book_form",
@@ -5253,32 +5253,46 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "paper_making",
+        "prerequisite": "paper_making_papyrus_parchment",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Paper Making provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Early codex binding depended on portable writing surfaces such as parchment and vellum; later paper codices are downstream variants, so the broader writing-surface node is the correct material prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Papermaking",
-            "url": "https://www.britannica.com/technology/papermaking",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
+            "title": "Codex",
+            "url": "https://oxfordre.com/literature/view/10.1093/acrefore/9780190201098.001.0001/acrefore-9780190201098-e-1021",
+            "publisher": "Oxford Research Encyclopedia of Literature",
+            "year": 2020,
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Article defines the codex as a folded book form in pre-print manuscript culture and treats the transition from scroll technology, supporting portable papyrus/parchment writing surfaces as the material substrate for early codices."
           }
         ]
       },
       {
         "prerequisite": "leather_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Leather Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.84,
+        "evidence_level": "primary_source",
+        "note": "The St Cuthbert Gospel's original tooled red leather over wooden boards makes leatherworking a direct material and craft enabler for the early-medieval binding scope.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "St Cuthbert Gospel",
+            "url": "https://www.bl.uk/manuscripts/FullDisplay.aspx?ref=Add_MS_89000",
+            "publisher": "British Library",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "British Library manuscript record for Add MS 89000 documents vellum folios, wooden boards, and the tooled red leather binding of the St Cuthbert Gospel."
+          }
+        ]
       },
       {
         "prerequisite": "writing",
@@ -5303,10 +5317,23 @@
       {
         "prerequisite": "codex_early_book_form",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Codex (Early Book Form) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Medieval binding workshops elaborated the earlier codex book form rather than inventing bound leaves from scratch.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Codex",
+            "url": "https://oxfordre.com/literature/view/10.1093/acrefore/9780190201098.001.0001/acrefore-9780190201098-e-1021",
+            "publisher": "Oxford Research Encyclopedia of Literature",
+            "year": 2020,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Article describes the codex as the dominant pre-print book form and frames its ancient-to-medieval transition from scroll technology, supporting early codices as the historical predecessor to medieval book binding."
+          }
+        ]
       },
       {
         "prerequisite": "textiles_weaving",
@@ -5332,14 +5359,27 @@
     "sources": [
       {
         "title": "The St Cuthbert Gospel",
-        "url": "https://support.bl.uk/Page/The_St_Cuthbert_Gospel",
+        "url": "https://www.bl.uk/manuscripts/FullDisplay.aspx?ref=Add_MS_89000",
         "publisher": "British Library",
         "year": 2026,
-        "source_type": "museum",
+        "source_type": "official_agency",
         "supports": [
-          "node"
+          "node",
+          "edge"
         ],
-        "source_locator": "The British Library support page emphasizes the manuscript's red leather binding and importance as an early surviving complete book."
+        "source_locator": "British Library manuscript record for Add MS 89000 documents the St Cuthbert Gospel as a vellum codex with wooden boards and original tooled red leather binding."
+      },
+      {
+        "title": "Codex",
+        "url": "https://oxfordre.com/literature/view/10.1093/acrefore/9780190201098.001.0001/acrefore-9780190201098-e-1021",
+        "publisher": "Oxford Research Encyclopedia of Literature",
+        "year": 2020,
+        "source_type": "textbook",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Article defines the codex as a folded pre-print manuscript book form and discusses its displacement of scrolls, supporting the node's codex-production scope."
       }
     ],
     "dateUncertainty": true,

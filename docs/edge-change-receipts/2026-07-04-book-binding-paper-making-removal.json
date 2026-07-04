@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-book-binding-paper-making-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "book_binding_codex_production",
+    "prerequisite": "paper_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Paper Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct paper_making edge remains because the corrected early-medieval binding node is anchored to vellum/parchment codices such as the St Cuthbert Gospel; later paper codices are downstream variants.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.bl.uk/manuscripts/FullDisplay.aspx?ref=Add_MS_89000",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "British Library manuscript record for Add MS 89000 documents the St Cuthbert Gospel as a vellum codex with wooden boards and original tooled red leather binding, not a paper book.",
+    "source_claim_summary": "The source anchors the scoped early-medieval binding evidence in vellum, wooden boards, and leather binding rather than paper manufacture.",
+    "source_support_rationale": "Paper making remains relevant to later book production, but the first-known binding evidence used for this node is an early medieval vellum codex with leather-covered boards."
+  },
+  "ontology_before": "Book Binding (Codex Production) depended directly on Paper Making, implying paper was required for the early-medieval binding anchor.",
+  "ontology_after": "Book Binding (Codex Production) depends on papyrus/parchment writing surfaces plus leather and codex-form lineage; paper making is not a direct first-known prerequisite.",
+  "invariant_preserved_or_changed": "Changed: paper_making is no longer a direct prerequisite for book_binding_codex_production.",
+  "would_reject_if": [
+    "The node were narrowed specifically to paper codex binding after paper became common in book production.",
+    "A stronger source showed the early-medieval St Cuthbert-style binding scope required paper rather than vellum or parchment.",
+    "A separate paper-book-binding node were added where paper_making should be the direct material prerequisite."
+  ],
+  "short_reason": "Early codex binding evidence is vellum/parchment and leather, not paper making.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/book_binding_codex_production.before.json /tmp/book_binding_codex_production.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

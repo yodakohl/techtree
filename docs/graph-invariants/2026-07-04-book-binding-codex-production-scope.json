@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-04-book-binding-codex-production-scope",
+  "description": "Lock book_binding_codex_production to early-medieval codex binding grounded in parchment/vellum surfaces, leather-covered boards, and the older codex form.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "book_binding_codex_production",
+      "prerequisite": "paper_making_papyrus_parchment",
+      "expected": "enabling",
+      "reason": "The early binding anchor uses parchment/vellum leaves; the broader writing-surface node covers that material substrate better than later paper making."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "book_binding_codex_production",
+      "prerequisite": "leather_working",
+      "expected": "enabling",
+      "reason": "The St Cuthbert Gospel binding is tooled red leather over boards, making leatherworking a direct material/craft enabler."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "book_binding_codex_production",
+      "prerequisite": "codex_early_book_form",
+      "expected": "historical_predecessor",
+      "reason": "Medieval binding elaborates the earlier codex book form rather than inventing bound leaves independently."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "book_binding_codex_production",
+      "prerequisite": "paper_making",
+      "reason": "Paper making is a later or alternate material path and must not be treated as a direct prerequisite for the early-medieval vellum binding anchor."
+    }
+  ]
+}
