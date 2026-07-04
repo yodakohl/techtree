@@ -1,0 +1,26 @@
+{
+  "id": "2026-07-04-cadastral-states-source-fit",
+  "description": "Lock surveying_cadastral_states to cadastral property mapping for taxation and remove triangulation as a direct prerequisite.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "surveying_cadastral_states",
+      "operator": "eq",
+      "value": 1533,
+      "reason": "The date is pinned to the early modern northern Netherlands cadastral survey order cited in the source-backed scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "surveying_cadastral_states",
+      "prerequisite": "surveyed_cadastral_maps",
+      "expected": "required",
+      "reason": "The state cadastral-survey program is organized around cadastral property maps."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "surveying_cadastral_states",
+      "prerequisite": "triangulation_surveying",
+      "reason": "Triangulation is a surveying method, not a direct prerequisite for the scoped cadastral-state program."
+    }
+  ]
+}

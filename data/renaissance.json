@@ -9445,32 +9445,36 @@
     "id": "surveying_cadastral_states",
     "name": "State Cadastral Surveys",
     "era": "Renaissance",
-    "description": "Large-scale state surveys that linked maps, landholding, taxation, military planning, and administrative reform.",
+    "description": "State cadastral mapping programs that linked surveyed parcels, landholding, taxation, and administrative reform.",
     "prerequisites": [
-      "triangulation_surveying",
       "surveyed_cadastral_maps",
       "tax_accounting"
     ],
-    "firstKnownDate": 1569,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1533,
+    "datePrecision": "year",
+    "region": "Northern Netherlands / early modern cadastral property mapping for taxation",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "triangulation_surveying",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Triangulation Surveying provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
         "prerequisite": "surveyed_cadastral_maps",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Cadastral Maps provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "State cadastral surveys are administrative programs built around parcel/property maps, so surveyed cadastral mapping is the direct artifact prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Cadastral Map in the Service of the State: A History of Property Mapping",
+            "url": "https://books.google.com/books?isbn=9780226422619",
+            "publisher": "University of Chicago Press",
+            "year": 1992,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Kain and Baigent trace cadastral maps as state property-mapping instruments and describe early modern cadastral survey for taxation in the northern Netherlands from a 1533 order."
+          }
+        ]
       },
       {
         "prerequisite": "tax_accounting",
@@ -9495,17 +9499,18 @@
     ],
     "sources": [
       {
-        "title": "Taxes in the Ancient World",
-        "url": "https://almanac.upenn.edu/archive/v48/n28/AncientTaxes.html",
-        "publisher": "University of Pennsylvania Almanac / Penn Museum",
-        "year": 2002,
-        "source_type": "museum",
+        "title": "The Cadastral Map in the Service of the State: A History of Property Mapping",
+        "url": "https://books.google.com/books?isbn=9780226422619",
+        "publisher": "University of Chicago Press",
+        "year": 1992,
+        "source_type": "textbook",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Kain and Baigent frame cadastral mapping as property mapping in service of the state and document early modern cadastral survey linked to taxation in the northern Netherlands from 1533."
       }
-    ]
+    ],
+    "scopeNote": "Covers state cadastral survey and property-mapping programs for land administration and taxation. It excludes general triangulation or national topographic survey networks unless they are specifically tied to cadastral parcel administration."
   },
   {
     "id": "artillery_fortification_schools",

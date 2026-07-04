@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-cadastral-states-triangulation-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "surveying_cadastral_states",
+    "prerequisite": "triangulation_surveying"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Triangulation Surveying provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is scoped to cadastral parcel/property administration, while triangulation is a mapping method that may support later surveys without defining cadastral state programs.",
+  "source_supports_edge": "no",
+  "source_url": "https://books.google.com/books?isbn=9780226422619",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Kain and Baigent trace cadastral maps as state property-mapping instruments and describe early modern cadastral survey for taxation in the northern Netherlands from a 1533 order.",
+    "source_claim_summary": "The source supports cadastral property mapping for state taxation rather than triangulation as a required method.",
+    "source_support_rationale": "Triangulation belongs to surveying technique history; keeping it direct would make one mapping method a prerequisite for all cadastral-state survey programs."
+  },
+  "ontology_before": "State Cadastral Surveys depended on Triangulation Surveying, implying triangulation defined the state cadastral program.",
+  "ontology_after": "State Cadastral Surveys depends directly on cadastral maps and tax accounting; triangulation remains a neighboring surveying method.",
+  "invariant_preserved_or_changed": "Changed: triangulation_surveying is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is narrowed to a specific triangulated national cadastral survey.",
+    "A stronger source shows the 1533 cadastral-state anchor used triangulation as the defining method.",
+    "A separate triangulated_cadastre node is added and should carry the triangulation edge."
+  ],
+  "short_reason": "Triangulation is method context, not the cadastral-state definition.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/surveying_cadastral_states.before.json /tmp/surveying_cadastral_states.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

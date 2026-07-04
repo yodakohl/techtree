@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-04-cadastral-states-maps-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "surveying_cadastral_states",
+    "prerequisite": "surveyed_cadastral_maps"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cadastral Maps provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "State cadastral surveys are administrative programs built around parcel/property maps, so surveyed cadastral mapping is the direct artifact prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://books.google.com/books?isbn=9780226422619",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Kain and Baigent trace cadastral maps as state property-mapping instruments and describe early modern cadastral survey for taxation in the northern Netherlands from a 1533 order.",
+    "source_claim_summary": "The source treats cadastral maps as property-mapping instruments used by states for land and tax administration.",
+    "source_support_rationale": "The edge is required because this node is scoped to state cadastral survey programs, not to surveying theory in general."
+  },
+  "ontology_before": "State Cadastral Surveys treated Cadastral Maps as one enabling capability among several mapping and tax-administration prerequisites.",
+  "ontology_after": "State Cadastral Surveys treats surveyed cadastral maps as the required artifact class around which the state program is organized.",
+  "invariant_preserved_or_changed": "Changed: surveyed_cadastral_maps is tightened from enabling to required.",
+  "would_reject_if": [
+    "The node is broadened to non-map written land inventories only.",
+    "A stronger source shows the 1533 program used no cadastral maps or parcel/property survey.",
+    "surveyed_cadastral_maps is split into a narrower early_modern_cadastral_maps node that should replace this prerequisite."
+  ],
+  "short_reason": "Cadastral state surveys require cadastral maps.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/surveying_cadastral_states.before.json /tmp/surveying_cadastral_states.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
