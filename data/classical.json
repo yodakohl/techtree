@@ -13608,11 +13608,10 @@
     "id": "coin_mint_assay_offices",
     "name": "Coin Mint Assay Offices",
     "era": "Classical",
-    "description": "Institutions for testing metal purity, weight, dies, official marks, and coin quality across state mints.",
+    "description": "Minting controls for testing metal purity, weights, dies, official marks, and coin quality in state and civic coinage.",
     "prerequisites": [
       "metal_coinage",
-      "portable_scales",
-      "public_archives"
+      "portable_scales"
     ],
     "firstKnownDate": -650,
     "datePrecision": "century",
@@ -13641,22 +13640,38 @@
       },
       {
         "prerequisite": "portable_scales",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Portable Balance Scales provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_archives",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Archives provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "required",
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "Mint quality control depends on weighing coins and metal to standards; portable balances and weights are the direct measurement prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Hanging in the Balance: Precision Weighing in Antiquity",
+            "url": "https://www.penn.museum/sites/expedition/hanging-in-the-balance-2/",
+            "publisher": "Penn Museum",
+            "year": 2005,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Penn Museum essay describes ancient precision balances and standard weights used for commodities and metals, including small portable scales suitable for testing coin and bullion weights."
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "The Oxford Handbook of Greek and Roman Coinage",
+        "url": "https://books.google.com/books?isbn=9780195305746",
+        "publisher": "Oxford University Press",
+        "year": 2012,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The handbook's archaic and classical coinage chapters discuss Lydian/electrum coinage, civic minting, metal standards, denominations, dies, and coin production controls."
+      },
       {
         "title": "Money Gallery: Early electrum coins",
         "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf",
@@ -13680,8 +13695,9 @@
         "source_locator": "The ANA Money Museum places the first coins in Lydia in the late seventh century BCE, supporting the early minting context."
       }
     ],
+    "scopeNote": "Covers source-backed minting and assay controls around metal content, weight standards, dies, marks, and denominations. It does not require a separate public archive institution unless a narrower mint-records node is added.",
     "dateUncertainty": true,
-    "dateUncertaintyNote": "The date anchors institutionalized minting and weight-standard control to early electrum coinage; specialized assay-office organization is inferred from minting and denomination control rather than directly attested as a named office."
+    "dateUncertaintyNote": "The date anchors institutionalized minting and weight-standard control to early electrum coinage; specialized assay-office bureaucracy is inferred from minting and denomination control rather than directly attested as a named office."
   },
   {
     "id": "lighthouse_networks",

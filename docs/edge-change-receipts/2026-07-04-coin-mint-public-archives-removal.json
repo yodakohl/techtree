@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-coin-mint-public-archives-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "coin_mint_assay_offices",
+    "prerequisite": "public_archives"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Archives provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because early mint quality control is represented through coinage, weights, dies, marks, and assay standards rather than a separate public archive institution.",
+  "source_supports_edge": "no",
+  "source_url": "https://books.google.com/books?isbn=9780195305746",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The handbook's archaic and classical coinage chapters discuss Lydian/electrum coinage, civic minting, metal standards, denominations, dies, and coin production controls.",
+    "source_claim_summary": "The source supports minting and weight/metal control, not a dependency on public archival repositories.",
+    "source_support_rationale": "Public records may document later mint administration, but treating public_archives as a prerequisite launders broad bureaucratic context into an early coin-quality-control node."
+  },
+  "ontology_before": "Coin Mint Assay Offices depended on Public Archives, implying civic record repositories enabled early mint quality control.",
+  "ontology_after": "Coin Mint Assay Offices depends on metal coinage and portable weighing; public archives remain a neighboring administrative technology.",
+  "invariant_preserved_or_changed": "Changed: coin_mint_assay_offices no longer directly depends on public_archives.",
+  "would_reject_if": [
+    "The node is later narrowed to mint record offices rather than assay and quality control.",
+    "A stronger source shows the earliest mint assay offices are attested specifically as archival offices.",
+    "A mint_accounting_records node is added and should sit between public_archives and later mint administration."
+  ],
+  "short_reason": "Public archives are administrative context, not a direct early mint-control prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/coin_mint_assay_offices.before.json /tmp/coin_mint_assay_offices.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

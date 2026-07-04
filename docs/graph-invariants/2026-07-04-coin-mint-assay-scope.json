@@ -1,0 +1,26 @@
+{
+  "id": "2026-07-04-coin-mint-assay-scope",
+  "description": "Lock coin_mint_assay_offices to mint quality-control practice rather than broad civic recordkeeping.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "coin_mint_assay_offices",
+      "operator": "eq",
+      "value": -650,
+      "reason": "The date remains anchored to early Lydian/electrum coinage and weight-standard minting."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "coin_mint_assay_offices",
+      "prerequisite": "portable_scales",
+      "expected": "required",
+      "reason": "Testing coin weights and metal quantities requires balance-scale measurement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "coin_mint_assay_offices",
+      "prerequisite": "public_archives",
+      "reason": "Public archives are broader civic administration, not a direct prerequisite for early mint assay and quality control."
+    }
+  ]
+}

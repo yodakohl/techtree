@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-04-coin-mint-portable-scales-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "coin_mint_assay_offices",
+    "prerequisite": "portable_scales"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Portable Balance Scales provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Mint quality control depends on weighing coins and metal to standards; portable balances and weights are the direct measurement prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.penn.museum/sites/expedition/hanging-in-the-balance-2/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The Penn Museum essay describes ancient precision balances and standard weights used for commodities and metals, including small portable scales suitable for testing coin and bullion weights.",
+    "source_claim_summary": "Ancient precision balances and weights supplied the measurement capability needed for coin and bullion weight control.",
+    "source_support_rationale": "Because this node is scoped to mint assay and quality control, weighing is a direct method dependency rather than generic commercial context."
+  },
+  "ontology_before": "Coin Mint Assay Offices treated Portable Balance Scales as optional enabling context for mint quality control.",
+  "ontology_after": "Coin Mint Assay Offices treats Portable Balance Scales as the required measurement capability for checking coin and bullion weights.",
+  "invariant_preserved_or_changed": "Preserved: coin_mint_assay_offices keeps portable_scales but tightens it to a required measurement edge.",
+  "would_reject_if": [
+    "The node is narrowed to die engraving only, where balances would no longer be required.",
+    "A stronger source shows early mints used fixed workshop balances that should be represented by a narrower non-portable scale node.",
+    "The node is split into metal assaying and mint administration, requiring the scale edge only on the assaying branch."
+  ],
+  "short_reason": "Coin-quality control requires weighing against standards.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
