@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-gui-operating-systems-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "graphical_user_interface_gui",
+    "prerequisite": "operating_systems_os_computer_management"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Operating Systems (OS Computer Management) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Operating-system shell and window-management services supplied a common platform for WIMP-style GUIs; this is enabling platform context, not a requirement for every experimental GUI lineage."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.britannica.com/technology/graphical-user-interface",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Historical overview covers WIMP-style graphical interaction and its adoption through Xerox, Apple, and Microsoft operating environments.",
+    "source_claim_summary": "The source describes GUIs as computer interaction environments that were operationalized through workstation and personal-computer operating environments.",
+    "source_support_rationale": "This supports operating systems as the platform layer for mainstream GUIs while preserving the edge as enabling context because early research GUIs could also be built in narrower experimental environments."
+  },
+  "invariant_preserved_or_changed": "Preserved: graphical_user_interface_gui keeps operating_systems_os_computer_management as an enabling platform edge with a narrowed WIMP/window-manager rationale.",
+  "would_reject_if": [
+    "The GUI node were narrowed to pre-operating-system interactive graphics experiments only.",
+    "A source showed mainstream WIMP GUIs developed independently of operating-system shell or window-management services.",
+    "The operating_systems_os_computer_management node were narrowed to batch-only monitor software without interactive services."
+  ],
+  "short_reason": "Operating environments supplied the platform layer for mainstream WIMP GUIs.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

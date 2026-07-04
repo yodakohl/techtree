@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-gui-psychology-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "graphical_user_interface_gui",
+    "prerequisite": "psychology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Psychology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "primary_source",
+    "note": "Human-factors and cognitive-performance research informed GUI design choices such as icon size, grouping, and visual-search efficiency; psychology is enabling design evidence rather than a mandatory component."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://arxiv.org/abs/1211.6712",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract reports a 490-subject visual-search experiment on graphical object size/grouping and task efficiency, explicitly applying the results to graphical user-computer interface design and implementation.",
+    "source_claim_summary": "The source demonstrates that user performance with GUI objects can be experimentally measured and used during graphical-interface design and implementation.",
+    "source_support_rationale": "That empirical human-performance loop is the local reason psychology remains an enabling design science for GUIs, without implying that the whole psychology discipline is a hard technical component."
+  },
+  "invariant_preserved_or_changed": "Preserved: graphical_user_interface_gui keeps psychology as an enabling human-factors edge with a narrowed user-performance rationale.",
+  "would_reject_if": [
+    "The GUI node were narrowed to purely rendering-library internals with no user-interaction design scope.",
+    "A stronger source showed GUI design practice did not use human-performance, perception, or usability research.",
+    "A narrower human_factors_engineering node were added and should replace the broad psychology prerequisite."
+  ],
+  "short_reason": "GUI design uses empirical human-performance evidence.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

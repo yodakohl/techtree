@@ -5025,18 +5025,44 @@
       {
         "prerequisite": "operating_systems_os_computer_management",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Operating Systems (OS Computer Management) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Operating-system shell and window-management services supplied a common platform for WIMP-style GUIs; this is enabling platform context, not a requirement for every experimental GUI lineage.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Graphical User Interface",
+            "url": "https://www.britannica.com/technology/graphical-user-interface",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Historical overview covers WIMP-style graphical interaction and its adoption through Xerox, Apple, and Microsoft operating environments."
+          }
+        ]
       },
       {
         "prerequisite": "psychology",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Psychology provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.7,
+        "evidence_level": "primary_source",
+        "note": "Human-factors and cognitive-performance research informed GUI design choices such as icon size, grouping, and visual-search efficiency; psychology is enabling design evidence rather than a mandatory component.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The effects of graphical interface design characteristics on human-computer interaction task efficiency",
+            "url": "https://arxiv.org/abs/1211.6712",
+            "publisher": "arXiv",
+            "year": 2012,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract reports a 490-subject visual-search experiment on graphical object size/grouping and task efficiency, explicitly applying the results to graphical user-computer interface design and implementation."
+          }
+        ]
       },
       {
         "prerequisite": "software_engineering",
@@ -30367,26 +30393,52 @@
       "e_commerce_platforms",
       "api_economy"
     ],
-    "firstKnownDate": 1989,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2005,
+    "datePrecision": "exact",
+    "region": "United States / Right Media Exchange and later OpenRTB-standardized RTB markets",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "e_commerce_platforms",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "E-Commerce Platforms provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "commercial_or_scaling_dependency",
+        "confidence": 0.72,
+        "evidence_level": "primary_source",
+        "note": "Online-commerce marketplace practice supplies the transaction, auction, targeting, and settlement context for ad-impression markets; it is scaling and market infrastructure rather than a storefront prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "OpenRTB",
+            "url": "https://iabtechlab.com/standards/openrtb/",
+            "publisher": "IAB Tech Lab",
+            "year": 2024,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "About Open RTB defines real-time bidding as transacting media by putting an individual ad impression up for bid in a real-time programmatic auction, similar to financial markets."
+          }
+        ]
       },
       {
         "prerequisite": "api_economy",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "API Economy provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.8,
+        "evidence_level": "primary_source",
+        "note": "OpenRTB bid request/response APIs provide the interoperable protocol surface for exchanges, supply sources, and bidders to trade impressions programmatically.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "OpenRTB API Specification Version 2.5",
+            "url": "https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf",
+            "publisher": "IAB Tech Lab",
+            "year": 2016,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introduction describes OpenRTB as an API specification for an open protocol supporting automated trading of digital media; the table of contents and object model define bid request and bid response API payloads."
+          }
+        ]
       }
     ],
     "sources": [
@@ -30411,9 +30463,22 @@
           "node"
         ],
         "source_locator": "Specification describes RTB transactions initiated when an exchange or supply source sends bid requests to bidders."
+      },
+      {
+        "title": "Ad exchange",
+        "url": "https://en.wikipedia.org/wiki/Ad_exchange",
+        "publisher": "Wikipedia",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "History section identifies Right Media Exchange as the first ad exchange and says it officially launched in 2005."
       }
     ],
-    "sourceCheckedDowngradeNote": "Real source added during Modern placeholder-source review; kept structurally_validated because the source supports programmatic advertising exchange and RTB scope but does not fully pin the exact graph chronology and dependency topology."
+    "scopeNote": "Scoped to automated digital ad exchanges and RTB/programmatic marketplace infrastructure, not all online advertising, search-ad auctions, or generic e-commerce storefront software.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The 2005 anchor follows the first widely cited Right Media Exchange launch. OpenRTB standardization begins later in 2010, so protocol evidence is used for architecture while the 2005 source pins the exchange chronology."
   },
   {
     "id": "hospital_information_systems",

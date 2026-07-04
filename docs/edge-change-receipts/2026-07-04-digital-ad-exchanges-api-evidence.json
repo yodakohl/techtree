@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-digital-ad-exchanges-api-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "digital_advertising_exchanges",
+    "prerequisite": "api_economy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "API Economy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "primary_source",
+    "note": "OpenRTB bid request/response APIs provide the interoperable protocol surface for exchanges, supply sources, and bidders to trade impressions programmatically."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Introduction describes OpenRTB as an API specification for an open protocol supporting automated trading of digital media; the table of contents and object model define bid request and bid response API payloads.",
+    "source_claim_summary": "The specification documents API objects and protocol payloads used by exchanges, supply sources, and bidders in RTB transactions.",
+    "source_support_rationale": "Because the node is scoped to automated ad exchanges, the API specification directly supplies the interoperability mechanism for programmatic impression trading rather than merely broad internet context."
+  },
+  "invariant_preserved_or_changed": "Preserved: digital_advertising_exchanges keeps api_economy as the enabling protocol edge, now backed by OpenRTB API evidence.",
+  "would_reject_if": [
+    "The node were narrowed away from RTB/programmatic exchanges to manual insertion-order advertising only.",
+    "A stronger source showed digital ad exchanges operated without bid request/response APIs or comparable programmatic interfaces.",
+    "The api_economy node were narrowed to post-2015 public developer-platform monetization only."
+  ],
+  "short_reason": "OpenRTB documents the API mechanism for RTB exchanges.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

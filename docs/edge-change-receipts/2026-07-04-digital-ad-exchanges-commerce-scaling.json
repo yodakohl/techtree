@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-04-digital-ad-exchanges-commerce-scaling",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "digital_advertising_exchanges",
+    "prerequisite": "e_commerce_platforms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "E-Commerce Platforms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "primary_source",
+    "note": "Online-commerce marketplace practice supplies the transaction, auction, targeting, and settlement context for ad-impression markets; it is scaling and market infrastructure rather than a storefront prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://iabtechlab.com/standards/openrtb/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "About Open RTB defines real-time bidding as transacting media by putting an individual ad impression up for bid in a real-time programmatic auction, similar to financial markets.",
+    "source_claim_summary": "The source frames RTB exchanges as programmatic transaction markets for digital media impressions.",
+    "source_support_rationale": "That market framing supports a commercial/scaling relationship to digital commerce practice, while the retype prevents storefront/catalog software from being treated as a direct technical prerequisite."
+  },
+  "ontology_before": "Digital Advertising Exchanges treated e-commerce platforms as a generic enabling prerequisite, which overstated the role of storefront-style commerce software.",
+  "ontology_after": "Digital Advertising Exchanges use e_commerce_platforms only as commercial marketplace context while API-based RTB carries the concrete protocol mechanism.",
+  "invariant_preserved_or_changed": "Changed: e_commerce_platforms is now a commercial_or_scaling_dependency for digital_advertising_exchanges, not a generic enabling edge.",
+  "would_reject_if": [
+    "The digital_advertising_exchanges node were narrowed to retail-commerce storefront ad marketplaces only.",
+    "A source showed RTB exchange operation depended directly on online storefront, catalog, inventory, or logistics platform software.",
+    "A narrower digital_marketplace_auctions node were added and should replace e_commerce_platforms as the market-infrastructure prerequisite."
+  ],
+  "short_reason": "RTB exchanges are digital marketplaces, not storefront systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

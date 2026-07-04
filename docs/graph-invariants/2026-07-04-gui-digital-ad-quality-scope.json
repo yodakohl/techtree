@@ -1,0 +1,54 @@
+{
+  "id": "2026-07-04-gui-digital-ad-quality-scope",
+  "description": "Lock the July 4 GUI and digital-ad batch to WIMP/HCI evidence and RTB-scoped ad exchange chronology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "graphical_user_interface_gui",
+      "operator": "eq",
+      "value": 1958,
+      "reason": "This batch only adds edge evidence and does not re-anchor the GUI chronology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "graphical_user_interface_gui",
+      "prerequisite": "operating_systems_os_computer_management",
+      "expected": "enabling",
+      "reason": "Operating-system shells and window management remain enabling platform context, not a required component for every GUI experiment."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "graphical_user_interface_gui",
+      "prerequisite": "psychology",
+      "expected": "enabling",
+      "reason": "Psychology is retained only as human-factors and user-performance design evidence."
+    },
+    {
+      "type": "first_known_date",
+      "node": "digital_advertising_exchanges",
+      "operator": "eq",
+      "value": 2005,
+      "reason": "The node is anchored to the cited Right Media Exchange launch rather than the prior broad 1989 web-era placeholder."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "digital_advertising_exchanges",
+      "prerequisite": "e_commerce_platforms",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "E-commerce is market and transaction context for ad exchanges, not a storefront prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "digital_advertising_exchanges",
+      "prerequisite": "api_economy",
+      "expected": "enabling",
+      "reason": "OpenRTB-style bid request/response APIs remain the concrete interoperability mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_advertising_exchanges",
+      "prerequisite": "search_engines",
+      "reason": "Search engines remain adjacent advertising infrastructure, not a prerequisite for RTB ad exchanges."
+    }
+  ]
+}
