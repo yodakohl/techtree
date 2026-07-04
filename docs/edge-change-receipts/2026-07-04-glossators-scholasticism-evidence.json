@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-glossators-scholasticism-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "legal_commentary_glossators",
+    "prerequisite": "scholasticism"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Scholasticism is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.58,
+    "evidence_level": "expert_inference",
+    "note": "Scholastic dialectical methods supplied a shared commentary style for harmonizing authorities; this is methodological context rather than a strict prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://en.wikipedia.org/wiki/Glossator",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Opening section says glossators approached legal sources dialectically and identifies that method as characteristic of medieval scholasticism.",
+    "source_claim_summary": "The source connects glossator legal interpretation to dialectical harmonization of authorities and explicitly labels that approach characteristic of medieval scholasticism.",
+    "source_support_rationale": "This supports scholasticism as a shared method context for the glossator edge, but remains partial because the citation is a broad overview rather than a specialized legal-history monograph."
+  },
+  "invariant_preserved_or_changed": "Preserved: legal_commentary_glossators keeps scholasticism as common methodological context, not as a required institutional or technical component.",
+  "would_reject_if": [
+    "The node were narrowed to only pre-scholastic Roman legal commentary.",
+    "A dedicated dialectical_legal_method node were added and should replace the broader scholasticism prerequisite.",
+    "A stronger legal-history source showed the glossator method should not be characterized as scholastic."
+  ],
+  "short_reason": "Glossator harmonization uses a scholastic dialectical method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

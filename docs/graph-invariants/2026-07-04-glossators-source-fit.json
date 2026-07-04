@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-04-glossators-source-fit",
+  "description": "Lock the glossator quality batch to Roman-law commentary scope without changing the dependency topology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "legal_commentary_glossators",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "The batch preserves the century anchor for 11th- and 12th-century legal-school glossators."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "legal_commentary_glossators",
+      "prerequisite": "legal_systems_common_civil",
+      "expected": "common_dependency",
+      "reason": "Roman-law and civil-law texts remain textual legal context for glossators, not a required institution edge."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "legal_commentary_glossators",
+      "prerequisite": "scholasticism",
+      "expected": "common_dependency",
+      "reason": "Scholasticism is retained only as dialectical-method context for harmonizing authoritative texts."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "legal_commentary_glossators",
+      "prerequisite": "writing",
+      "reason": "Written marginal and interlinear glosses remain part of the node scope, even though this batch does not otherwise revise the writing edge."
+    }
+  ]
+}

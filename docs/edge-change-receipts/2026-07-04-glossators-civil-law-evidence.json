@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-glossators-civil-law-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "legal_commentary_glossators",
+    "prerequisite": "legal_systems_common_civil"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Legal Systems (Common/Civil Law) is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.62,
+    "evidence_level": "textbook",
+    "note": "Roman-law and civil-law texts, especially the Corpus Juris Civilis, supplied the legal corpus glossators analyzed; this is textual legal context rather than a strict institutional prerequisite."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://www.worldhistory.org/Corpus_Juris_Civilis/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Content, Timeline, and Legacy sections identify the Codex, Digest, and Institutes as Justinian's legal corpus and describe their later influence on western legal systems.",
+    "source_claim_summary": "The source describes the Corpus Juris Civilis as a late-antique Roman legal compilation whose Codex, Digest, and Institutes became durable legal authorities for later western legal systems.",
+    "source_support_rationale": "That pins the legal corpus glossators commented on, while preserving the edge as common textual context because the source does not say a particular civil-law institution was a hard prerequisite for every glossator."
+  },
+  "invariant_preserved_or_changed": "Preserved: legal_commentary_glossators keeps legal_systems_common_civil as common legal-text context, with evidence narrowed to Justinianic Roman-law materials.",
+  "would_reject_if": [
+    "The glossator node were broadened to all medieval commentary rather than Roman-law glossators.",
+    "The legal_systems_common_civil node were narrowed to English common law only and no longer covered Justinianic civil-law texts.",
+    "A stronger source showed glossators did not work from the Corpus Iuris Civilis or related Roman-law materials."
+  ],
+  "short_reason": "Glossators commented on Justinianic Roman-law texts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
