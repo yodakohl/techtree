@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-04-wooden-dugout-canoe-scope",
+  "description": "Lock wooden_dugout_canoe_refinement to sourced hollowed-log boat craft and a direct woodworking prerequisite.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "wooden_dugout_canoe_refinement",
+      "operator": "eq",
+      "value": -8000,
+      "reason": "The date remains anchored to the Mesolithic Pesse-canoe chronology rather than to all earlier inferred watercraft."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "wooden_dugout_canoe_refinement",
+      "prerequisite": "early_boats",
+      "expected": "historical_predecessor",
+      "reason": "Earlier boats remain lineage context, not a one-to-one mechanism."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "wooden_dugout_canoe_refinement",
+      "prerequisite": "woodworking_basic",
+      "expected": "required",
+      "reason": "A shaped hollowed-log hull requires basic wood shaping."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "wooden_dugout_canoe_refinement",
+      "prerequisite": "advanced_stone_tools",
+      "reason": "The broad advanced-stone-tools ancestor is represented through the direct woodworking prerequisite instead of a second immediate edge."
+    }
+  ]
+}

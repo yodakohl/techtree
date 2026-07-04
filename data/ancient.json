@@ -13199,11 +13199,11 @@
     "id": "wooden_dugout_canoe_refinement",
     "name": "Refined Dugout Canoes",
     "era": "Ancient",
-    "description": "Improved hollowed-log boats with shaped hulls, seats, paddles, repairs, and waterproofing for regular transport.",
+    "description": "Improved hollowed-log boats with shaped wooden hulls for regular inland-water transport.",
     "prerequisites": [
       "early_boats",
       "fire_control",
-      "advanced_stone_tools"
+      "woodworking_basic"
     ],
     "firstKnownDate": -8000,
     "datePrecision": "century",
@@ -13213,10 +13213,23 @@
       {
         "prerequisite": "early_boats",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Boats is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Earlier watercraft are the historical boat lineage for refined dugouts; this is not a claim that every earlier boat form directly caused the Pesse canoe.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Boats of the World: From the Stone Age to Medieval Times",
+            "url": "https://books.google.com/books?isbn=9780199271863",
+            "publisher": "Oxford University Press",
+            "year": 2004,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "McGrail's prehistoric watercraft survey treats dugouts/logboats as early boat forms and identifies the Pesse canoe as an early recovered dugout."
+          }
+        ]
       },
       {
         "prerequisite": "fire_control",
@@ -13239,15 +13252,39 @@
         ]
       },
       {
-        "prerequisite": "advanced_stone_tools",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "woodworking_basic",
+        "type": "required",
+        "confidence": 0.81,
+        "evidence_level": "textbook",
+        "note": "A refined dugout is a deliberately hollowed and shaped wooden hull, so basic wood shaping is the direct craft prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Boats of the World: From the Stone Age to Medieval Times",
+            "url": "https://books.google.com/books?isbn=9780199271863",
+            "publisher": "Oxford University Press",
+            "year": 2004,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "McGrail describes dugouts/logboats as watercraft made by hollowing and shaping a single tree trunk, connecting the Pesse-style craft to woodworking rather than to the broad advanced-stone-tools ancestor."
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "Boats of the World: From the Stone Age to Medieval Times",
+        "url": "https://books.google.com/books?isbn=9780199271863",
+        "publisher": "Oxford University Press",
+        "year": 2004,
+        "source_type": "textbook",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "McGrail's survey identifies the Pesse canoe as an early dugout/logboat and situates hollowed-log boats among the earliest recovered boat technologies."
+      },
       {
         "title": "Pesse canoe, the oldest boat in the world",
         "url": "https://drentsmuseum.nl/en/collection/pesse-canoe-the-oldest-boat-in-the-world",
@@ -13257,9 +13294,10 @@
         "supports": [
           "node"
         ],
-        "source_locator": "Collection page identifies the Pesse canoe as the oldest boat in the world; the artifact is a wooden dugout-style canoe from the Mesolithic."
+        "source_locator": "Collection page identifies the Pesse canoe as the oldest boat in the world and presents it as a Mesolithic hollowed-log canoe from Pesse."
       }
-    ]
+    ],
+    "scopeNote": "Covers refined Mesolithic hollowed-log boat craft represented by the Pesse canoe and comparable dugout/logboat shaping. It excludes all prehistoric watercraft in general and keeps broad stone-tool traditions represented through the more direct woodworking_basic prerequisite."
   },
   {
     "id": "animal_pack_saddles",

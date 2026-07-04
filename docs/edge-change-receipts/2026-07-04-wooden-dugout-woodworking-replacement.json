@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-wooden-dugout-woodworking-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "wooden_dugout_canoe_refinement",
+    "prerequisite": "woodworking_basic"
+  },
+  "replaced_edge": {
+    "dependent": "wooden_dugout_canoe_refinement",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.81,
+    "evidence_level": "textbook",
+    "note": "A refined dugout is a deliberately hollowed and shaped wooden hull, so basic wood shaping is the direct craft prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://books.google.com/books?isbn=9780199271863",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "McGrail describes dugouts/logboats as watercraft made by hollowing and shaping a single tree trunk, connecting the Pesse-style craft to woodworking rather than to the broad advanced-stone-tools ancestor.",
+    "source_claim_summary": "The source anchors the dugout as a shaped wooden hull made from one tree trunk.",
+    "source_support_rationale": "The old advanced_stone_tools edge skipped over the direct craft capability. Replacing it with woodworking_basic keeps stone-tool ancestry available upstream without treating the broad tool node as the immediate dependency."
+  },
+  "ontology_before": "Refined Dugout Canoes depended directly on Advanced Stone Tools, a broad ancestor that covers many non-woodworking tool traditions.",
+  "ontology_after": "Refined Dugout Canoes depends directly on Basic Woodworking; Advanced Stone Tools remains upstream through the woodworking branch where appropriate.",
+  "invariant_preserved_or_changed": "Changed: advanced_stone_tools is removed and replaced with woodworking_basic as the direct required craft edge.",
+  "would_reject_if": [
+    "The node is later narrowed to tool-use archaeology rather than boat construction.",
+    "A stronger source shows the represented dugouts were not shaped wooden hulls.",
+    "woodworking_basic is split so that a more specific hollow_log_shaping node should replace it."
+  ],
+  "short_reason": "Basic woodworking is the direct craft dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/wooden_dugout_canoe_refinement.before.json /tmp/wooden_dugout_canoe_refinement.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
