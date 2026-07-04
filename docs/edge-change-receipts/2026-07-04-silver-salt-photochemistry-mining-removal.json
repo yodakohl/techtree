@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-silver-salt-photochemistry-mining-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "silver_nitrate_chemistry",
+    "prerequisite": "mining"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mining provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct mining edge remains because the corrected node models chemical knowledge and experimental use of light-sensitive silver salts, not raw silver extraction or ore-supply infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://archive.org/stream/tomwedgwoodfirst00litcrich/tomwedgwoodfirst00litcrich_djvu.txt",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Litchfield reprint of Davy's 1802 Account, pp. 189-194: the account describes use of nitrate of silver in prepared media and experiments with light exposure, not mining, ore processing, or silver supply chains.",
+    "source_claim_summary": "The source supports a laboratory silver-salt photochemistry node and does not make silver mining a direct prerequisite.",
+    "source_support_rationale": "Mined silver is remote material provenance for many silver compounds, but the graph edge should represent the source-backed capability boundary of this chemistry node."
+  },
+  "ontology_before": "Silver-salt photochemistry depended directly on Mining, implying ore extraction enabled the first-known chemical understanding or image experiments.",
+  "ontology_after": "Silver-salt photochemistry is constrained to laboratory chemistry; raw-material extraction is not modeled as a direct prerequisite for this knowledge node.",
+  "invariant_preserved_or_changed": "Changed: mining is no longer a direct prerequisite for silver_nitrate_chemistry.",
+  "would_reject_if": [
+    "The node were rescoped to industrial production of silver nitrate from mined silver at scale.",
+    "A stronger source showed the first-known silver-nitrate photochemical experiments depended on a specific mining technology.",
+    "A separate silver-nitrate-manufacture node were added where silver supply chains are the direct subject."
+  ],
+  "short_reason": "Mining is remote material provenance, not a direct dependency for silver-salt photochemistry.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/silver_nitrate_chemistry.before.json /tmp/silver_nitrate_chemistry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

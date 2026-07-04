@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-silver-salt-photochemistry-alchemy-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "silver_nitrate_chemistry",
+    "prerequisite": "alchemy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Alchemy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct alchemy edge remains because the corrected node is anchored to Davy and Wedgwood's published 1802 laboratory method using nitrate of silver, not to pre-modern transmutation or alchemical material practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://archive.org/stream/tomwedgwoodfirst00litcrich/tomwedgwoodfirst00litcrich_djvu.txt",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Litchfield reprint of Davy's 1802 Account, pp. 189-194: the account describes prepared paper or leather moistened with nitrate of silver and exposed to light, with no alchemical apparatus or transmutation practice.",
+    "source_claim_summary": "The primary account grounds the node in experimental silver-nitrate photochemistry rather than alchemical practice.",
+    "source_support_rationale": "Alchemy remains a broad historical ancestor of chemistry elsewhere in the graph, but this source-backed node is specifically an early nineteenth-century laboratory photochemical method."
+  },
+  "ontology_before": "Silver-salt photochemistry depended directly on Alchemy, implying pre-modern alchemical practice enabled the 1802 silver-nitrate image experiments.",
+  "ontology_after": "Silver-salt photochemistry depends directly on Advanced Chemistry; alchemy remains upstream only through chemistry history and is not a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: alchemy is no longer a direct prerequisite for silver_nitrate_chemistry.",
+  "would_reject_if": [
+    "The node were rescoped to pre-modern discovery of silver-salt darkening rather than Davy and Wedgwood's published photochemical method.",
+    "A stronger source showed that the 1802 silver-nitrate method directly required alchemical apparatus or doctrine.",
+    "The graph removed advanced_chemistry and needed a broader historical chemistry predecessor instead."
+  ],
+  "short_reason": "Alchemy is historical background, not a direct prerequisite for the 1802 silver-nitrate photochemical method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/silver_nitrate_chemistry.before.json /tmp/silver_nitrate_chemistry.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

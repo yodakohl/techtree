@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-04-silver-salt-photochemistry-scope",
+  "description": "Lock the silver_nitrate_chemistry node to source-backed silver-salt photochemistry, not pre-modern alchemy, mining, permanent photography, or Niepce's bitumen heliography.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "silver_nitrate_chemistry",
+      "prerequisite": "advanced_chemistry",
+      "expected": "enabling",
+      "reason": "Davy and Wedgwood's 1802 account is a laboratory silver-nitrate photochemical method within modern experimental chemistry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "silver_nitrate_chemistry",
+      "prerequisite": "alchemy",
+      "reason": "Alchemy is broad historical chemistry context, not a direct prerequisite for the source-backed 1802 silver-nitrate method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "silver_nitrate_chemistry",
+      "prerequisite": "mining",
+      "reason": "Mining is remote raw-material provenance, not a direct prerequisite for the chemical understanding and use of silver salts in photograms."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "photography",
+      "prerequisite": "silver_nitrate_chemistry",
+      "reason": "The graph already anchors Photography to Niepce's 1827 bitumen heliograph, so silver-salt chemistry must not be reintroduced as a direct photography prerequisite."
+    }
+  ]
+}
