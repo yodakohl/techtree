@@ -1,0 +1,26 @@
+{
+  "id": "2026-07-04-herbal-medicine-preparation-scope",
+  "description": "Lock herbal_medicine_preparation to broad plant-remedy preparation grounded in herbalism, with fermentation excluded as a universal prerequisite.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "herbal_medicine_preparation",
+      "prerequisite": "herbalism",
+      "expected": "enabling",
+      "reason": "The node models preparation of medicinal plants, so herbal medicinal-plant knowledge is the direct prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "herbal_medicine_preparation",
+      "prerequisite": "pottery",
+      "expected": "enabling",
+      "reason": "Pottery is retained only as a vessel/storage/heating enabler for some remedies, not as a universal hard requirement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "herbal_medicine_preparation",
+      "prerequisite": "fermentation_basic",
+      "reason": "Fermented remedies are a possible subtype, not a direct prerequisite for broad herbal preparation or its downstream medical institutions."
+    }
+  ]
+}

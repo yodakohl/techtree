@@ -11062,7 +11062,6 @@
     "description": "Preparation of medicinal plants, resins, oils, poultices, teas, and fermented remedies for treating wounds, pain, digestion, and infection symptoms.",
     "prerequisites": [
       "herbalism",
-      "fermentation_basic",
       "pottery"
     ],
     "firstKnownDate": -7000,
@@ -11073,25 +11072,30 @@
       {
         "prerequisite": "herbalism",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Herbalism provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "fermentation_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Herbal medicine preparation presupposes knowledge that selected plants can be used medicinally; the preparation node models processing that knowledge into poultices, teas, oils, resins, and other remedies.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Historical Review of Medicinal Plants' Usage",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3358962/",
+            "publisher": "Pharmacognosy Reviews / PubMed Central",
+            "year": 2012,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Introductory historical review: surveys medicinal plant use from prehistoric practice through Sumerian, Egyptian, Greek, Chinese, and Indian records, supporting herbalism as the prerequisite knowledge base for preparing plant remedies."
+          }
+        ]
       },
       {
         "prerequisite": "pottery",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.6,
         "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
+        "note": "Pottery vessels enabled storage, heating, steeping, and liquid preparation of plant remedies, but poultices and direct plant use mean pottery is an enabling material rather than a universal requirement.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -11109,17 +11113,32 @@
     ],
     "sources": [
       {
+        "title": "Historical Review of Medicinal Plants' Usage",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3358962/",
+        "publisher": "Pharmacognosy Reviews / PubMed Central",
+        "year": 2012,
+        "source_type": "review",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "Introductory historical review: medicinal plants are traced from prehistoric use and early written traditions through ancient Sumerian, Egyptian, Greek, Chinese, and Indian medical plant records."
+      },
+      {
         "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
         "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
         "publisher": "Science / PubMed",
         "year": 2012,
         "source_type": "primary_paper",
         "supports": [
-          "edge",
-          "node"
-        ]
+          "edge"
+        ],
+        "source_locator": "Abstract/title: Xianrendong Cave pottery was produced about 20,000 years ago; pottery is retained only as an enabling vessel technology for some preparation methods."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The -7000 anchor preserves a broad Neolithic/pre-literate preparation umbrella. Direct medicinal-plant evidence is older or later depending on region and evidentiary type, so the date should not be read as a precise first invention.",
+    "scopeNote": "Covers practical preparation of medicinal plant materials into remedies. It excludes formal pharmacology, written pharmacopoeias, and a claim that fermentation was required for all herbal preparations."
   },
   {
     "id": "battlefield_wound_care",
