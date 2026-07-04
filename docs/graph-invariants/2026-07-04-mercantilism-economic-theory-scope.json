@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-04-mercantilism-economic-theory-scope",
+  "description": "Lock Mercantilism Economic Theory to sixteenth-century early modern economic nationalism and state trade policy, not Bodin's sovereignty theory.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mercantilism_economic_theory",
+      "operator": "eq",
+      "value": 1500,
+      "reason": "Econlib dates mercantilism's dominance in Western European thought and policy from the sixteenth century."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mercantilism_economic_theory",
+      "prerequisite": "sovereignty_theory_bodin",
+      "reason": "Bodin's 1576 sovereignty theory is not a sourced prerequisite for sixteenth-century mercantilist policy."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mercantilism_economic_theory",
+      "prerequisite": "metal_coinage",
+      "reason": "Mercantilism's bullion and hard-currency focus still requires monetary-metal context."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mercantilism_economic_theory",
+      "prerequisite": "cartography",
+      "reason": "The node remains scoped to overseas trade and colonial policy where cartographic practice is relevant."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-04-bodin-machiavelli-lineage",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "sovereignty_theory_bodin",
+    "prerequisite": "political_philosophy_machiavelli"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Political Philosophy (Machiavelli) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Machiavelli's prince-as-supreme-within-territory argument is a direct early-modern conceptual predecessor to Bodin's explicit sovereignty doctrine."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://plato.stanford.edu/entries/sovereignty/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Early modern political philosophers section: Machiavelli is described as giving the prince supreme authority within his territory, while Bodin is identified as the first European philosopher to treat sovereignty extensively.",
+    "source_claim_summary": "SEP places Machiavelli's territorial-prince argument immediately before Bodin's explicit sovereignty doctrine in the early modern development of sovereignty.",
+    "source_support_rationale": "The source shows conceptual lineage, not a practical enabling capability, so historical_predecessor is the tighter edge type."
+  },
+  "ontology_before": "Bodin's sovereignty theory depended on Machiavelli as a generic enabling capability.",
+  "ontology_after": "Bodin's sovereignty theory keeps Machiavelli as an early-modern conceptual predecessor for territorial supreme authority.",
+  "invariant_preserved_or_changed": "Changed: sovereignty_theory_bodin -> political_philosophy_machiavelli is now historical_predecessor with textbook evidence.",
+  "would_reject_if": [
+    "The Bodin node were narrowed to only the publication event with no intellectual lineage.",
+    "A stronger source showed Bodin's sovereignty formulation had no meaningful Machiavellian predecessor relationship.",
+    "The Machiavelli node were narrowed away from territorial state power and raison d'etat."
+  ],
+  "short_reason": "SEP frames Machiavelli as a predecessor in the early modern development of sovereignty.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sovereignty_theory_bodin.before.json /tmp/sovereignty_theory_bodin.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

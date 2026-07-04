@@ -1,0 +1,46 @@
+{
+  "id": "2026-07-04-bodin-reformation-context",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "sovereignty_theory_bodin",
+    "prerequisite": "the_reformation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "The Reformation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Reformation-era confessional conflict and the stripping of Catholic temporal power formed the political context for Bodin's sovereignty doctrine, but did not supply a procedural method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://plato.stanford.edu/entries/sovereignty/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Early modern political philosophers section: SEP links Luther's Reformation theology to territorial princes becoming effectively sovereign and then places Bodin's 1576 sovereignty concept in France's civil war.",
+    "source_claim_summary": "SEP describes the Reformation's temporal-power consequences as part of the early modern sovereignty context and dates Bodin's work to France's religious civil war.",
+    "source_support_rationale": "The source supports Reformation-era context for Bodin's doctrine but not a direct method or material dependency, so common_dependency is the correct edge type."
+  },
+  "ontology_before": "Bodin's sovereignty theory depended on the Reformation as a generic enabling capability.",
+  "ontology_after": "Bodin's sovereignty theory keeps the Reformation as early modern confessional-political context for territorial sovereignty.",
+  "invariant_preserved_or_changed": "Changed: sovereignty_theory_bodin -> the_reformation is now common_dependency with textbook evidence.",
+  "would_reject_if": [
+    "The Bodin node were narrowed to purely secular legal drafting with no Reformation-era political context.",
+    "A stronger source showed Reformation politics directly supplied a required procedural method for Bodin's doctrine.",
+    "The Reformation node were narrowed away from Luther, Protestant-Catholic conflict, and territorial-prince authority."
+  ],
+  "short_reason": "The Reformation is sourced context for sovereignty, not a direct enabling technique.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sovereignty_theory_bodin.before.json /tmp/sovereignty_theory_bodin.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

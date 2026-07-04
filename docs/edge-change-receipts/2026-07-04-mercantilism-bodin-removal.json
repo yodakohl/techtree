@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-mercantilism-bodin-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "mercantilism_economic_theory",
+    "prerequisite": "sovereignty_theory_bodin"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Sovereignty Theory (Bodin) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct sovereignty_theory_bodin edge remains because mercantilism is scoped to sixteenth-century economic nationalism and state trade policy, while Bodin's 1576 sovereignty doctrine is a neighboring political theory rather than a sourced prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.econlib.org/library/Enc/Mercantilism.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Opening section: LaHaye defines mercantilism as economic nationalism for a wealthy and powerful state, describes export encouragement/import restraint, and dates dominance from the sixteenth to late eighteenth centuries without requiring Bodin's 1576 sovereignty doctrine.",
+    "source_claim_summary": "Econlib anchors mercantilism in early modern Western European state trade policy and economic nationalism, not in Bodin's sovereignty theory.",
+    "source_support_rationale": "Because the sourced mercantilism scope begins in the sixteenth century and does not name Bodin as a prerequisite, the direct edge would create false chronology and intellectual dependency."
+  },
+  "ontology_before": "Mercantilism depended directly on Bodin's sovereignty theory, forcing broad economic nationalism through a later political-theory node.",
+  "ontology_after": "Mercantilism stands as sixteenth-century economic nationalism and state trade policy without a direct Bodin prerequisite.",
+  "invariant_preserved_or_changed": "Changed: sovereignty_theory_bodin is no longer a direct prerequisite of mercantilism_economic_theory.",
+  "would_reject_if": [
+    "The mercantilism node were narrowed to specifically Bodinian mercantilist theory after 1576.",
+    "A stronger source showed Bodin's sovereignty doctrine was required for the first-known mercantilist policy or literature.",
+    "The mercantilism date were intentionally moved to a later seventeenth-century maturity anchor that depended on Bodinian state theory."
+  ],
+  "short_reason": "The mercantilism source supports sixteenth-century economic nationalism without a Bodin prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/mercantilism_economic_theory.before.json /tmp/mercantilism_economic_theory.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

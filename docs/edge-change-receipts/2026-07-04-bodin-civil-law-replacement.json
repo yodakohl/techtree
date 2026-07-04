@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-04-bodin-civil-law-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "sovereignty_theory_bodin",
+    "prerequisite": "legal_systems_common_civil"
+  },
+  "replaced_edge": {
+    "dependent": "sovereignty_theory_bodin",
+    "prerequisite": "codified_law"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Codified Law provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "common_dependency",
+    "confidence": 0.7,
+    "evidence_level": "textbook",
+    "note": "Bodin's sovereignty formulation grew from legal-humanist and civil-law scholarship, making formal legal-system traditions contextual infrastructure rather than an ancient law-code prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://iep.utm.edu/jean-bodin/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Life and Methodus sections: IEP says Bodin studied and taught law at Toulouse, worked as an advocate at the Parlement of Paris, and combined historical and legal study with legal-humanist methods.",
+    "source_claim_summary": "IEP roots Bodin's political theory in legal scholarship and legal-humanist study rather than ancient Mesopotamian law codes.",
+    "source_support_rationale": "The existing legal_systems_common_civil node captures the formal civil-law/common-law legal-system infrastructure better than the ancient codified_law node."
+  },
+  "ontology_before": "Bodin's sovereignty theory depended directly on ancient written law codes, laundering Ur-Nammu evidence into an early modern French legal-political theory.",
+  "ontology_after": "Bodin's sovereignty theory depends on formal legal-system traditions as contextual legal infrastructure for a jurist's sovereignty doctrine.",
+  "invariant_preserved_or_changed": "Changed: codified_law was replaced by legal_systems_common_civil for sovereignty_theory_bodin.",
+  "would_reject_if": [
+    "The Bodin node were narrowed to generic ancient law-code influence rather than early modern sovereignty doctrine.",
+    "A stronger source showed ancient Mesopotamian law codes were a direct prerequisite to Bodin's 1576 theory.",
+    "The legal_systems_common_civil node were narrowed away from Roman civil-law traditions and formal legal procedure."
+  ],
+  "short_reason": "Bodin's source context is civil-law/legal-humanist scholarship, not ancient law-code evidence.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/sovereignty_theory_bodin.before.json /tmp/sovereignty_theory_bodin.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

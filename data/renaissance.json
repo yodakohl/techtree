@@ -3963,12 +3963,11 @@
       "codified_law",
       "cartography",
       "metal_coinage",
-      "printing_press",
-      "sovereignty_theory_bodin"
+      "printing_press"
     ],
-    "firstKnownDate": 1517,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1500,
+    "datePrecision": "century",
+    "region": "Western Europe / early modern nation-state trade policy",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -4058,17 +4057,20 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "sovereignty_theory_bodin",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sovereignty Theory (Bodin) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
+      {
+        "title": "Mercantilism",
+        "url": "https://www.econlib.org/library/Enc/Mercantilism.html",
+        "publisher": "Econlib / The Concise Encyclopedia of Economics",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Opening section: Laura LaHaye defines mercantilism as economic nationalism for building a wealthy and powerful state, describes restraining imports and encouraging exports, and says it dominated Western European thought and policy from the sixteenth to late eighteenth centuries.",
+        "supports": [
+          "node"
+        ]
+      },
       {
         "title": "Historical development of banks",
         "url": "https://www.britannica.com/money/bank/Historical-development",
@@ -4076,11 +4078,11 @@
         "year": 2026,
         "source_type": "textbook",
         "supports": [
-          "edge",
-          "node"
+          "edge"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers early modern mercantilism as economic nationalism and state trade policy from the sixteenth through late eighteenth centuries, not Jean Bodin's sovereignty theory or later neomercantilism."
   },
   {
     "id": "microbiology_early_observations",
@@ -6351,36 +6353,50 @@
     "description": "The political concept, articulated by Jean Bodin, that the state possesses absolute and perpetual power within its territory. This theory provided a philosophical foundation for the modern, centralized nation-state.",
     "prerequisites": [
       "political_philosophy_machiavelli",
-      "codified_law",
+      "legal_systems_common_civil",
       "the_reformation"
     ],
-    "firstKnownDate": 1517,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1576,
+    "datePrecision": "year",
+    "region": "France / French Wars of Religion and early modern sovereignty debates",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "political_philosophy_machiavelli",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Political Philosophy (Machiavelli) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "codified_law",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Codified Law provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Machiavelli's prince-as-supreme-within-territory argument is a direct early-modern conceptual predecessor to Bodin's explicit sovereignty doctrine.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Ur-Nammu Law Code",
-            "url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
-            "publisher": "The Schoyen Collection",
-            "year": 2011,
-            "source_type": "museum",
+            "title": "Sovereignty",
+            "url": "https://plato.stanford.edu/entries/sovereignty/",
+            "publisher": "Stanford Encyclopedia of Philosophy",
+            "year": 2020,
+            "source_type": "textbook",
+            "source_locator": "Early modern political philosophers section: Machiavelli is described as giving the prince supreme authority within his territory, while Bodin is identified as the first European philosopher to treat sovereignty extensively.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "legal_systems_common_civil",
+        "type": "common_dependency",
+        "confidence": 0.7,
+        "evidence_level": "textbook",
+        "note": "Bodin's sovereignty formulation grew from legal-humanist and civil-law scholarship, making formal legal-system traditions contextual infrastructure rather than an ancient law-code prerequisite.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Jean Bodin",
+            "url": "https://iep.utm.edu/jean-bodin/",
+            "publisher": "Internet Encyclopedia of Philosophy",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Life and Methodus sections: IEP says Bodin studied and taught law at Toulouse, worked as an advocate at the Parlement of Paris, and combined historical and legal study with legal-humanist methods.",
             "supports": [
               "edge"
             ]
@@ -6389,26 +6405,63 @@
       },
       {
         "prerequisite": "the_reformation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "The Reformation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "common_dependency",
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "Reformation-era confessional conflict and the stripping of Catholic temporal power formed the political context for Bodin's sovereignty doctrine, but did not supply a procedural method.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Sovereignty",
+            "url": "https://plato.stanford.edu/entries/sovereignty/",
+            "publisher": "Stanford Encyclopedia of Philosophy",
+            "year": 2020,
+            "source_type": "textbook",
+            "source_locator": "Early modern political philosophers section: SEP links Luther's Reformation theology to territorial princes becoming effectively sovereign and then places Bodin's 1576 sovereignty concept in France's civil war.",
+            "supports": [
+              "edge"
+            ]
+          },
+          {
+            "title": "Jean Bodin",
+            "url": "https://iep.utm.edu/jean-bodin/",
+            "publisher": "Internet Encyclopedia of Philosophy",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Opening and Six Bookes sections: IEP says Bodin lived amid the Catholic-Huguenot wars of religion and that the Republique was partly a response to that French political crisis.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "The Ur-Nammu Law Code",
-        "url": "https://www.schoyencollection.com/law/sumerian/ur-nammu-ms-2064",
-        "publisher": "The Schoyen Collection",
-        "year": 2011,
-        "source_type": "museum",
+        "title": "Sovereignty",
+        "url": "https://plato.stanford.edu/entries/sovereignty/",
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "year": 2020,
+        "source_type": "textbook",
+        "source_locator": "Early modern political philosophers section: SEP identifies Bodin as the first European philosopher to treat sovereignty extensively, says De la republique was written in 1576, and defines Bodin's sovereignty as supreme authority within a territory and source of human law.",
         "supports": [
-          "edge",
           "node"
         ]
+      },
+      {
+        "title": "Jean Bodin",
+        "url": "https://iep.utm.edu/jean-bodin/",
+        "publisher": "Internet Encyclopedia of Philosophy",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "The Six Bookes of a Commonweale section: IEP says Bodin's most prominent contribution to political philosophy was first published in 1576, responding partly to the French wars of religion and Monarchomach limits on sovereign power.",
+        "supports": [
+          "node",
+          "edge"
+        ]
       }
-    ]
+    ],
+    "scopeNote": "Covers Bodin's 1576 sovereignty doctrine in Les Six livres de la Republique: supreme territorial authority as the source of human law. It excludes generic state formation, ancient law codes, Westphalia, Hobbes, Rousseau, and later constitutional-sovereignty debates."
   },
   {
     "id": "star_fort_trace_italienne",

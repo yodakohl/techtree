@@ -1,0 +1,64 @@
+{
+  "id": "2026-07-04-bodin-sovereignty-scope",
+  "description": "Lock Sovereignty Theory (Bodin) to Bodin's 1576 sovereignty doctrine, not generic state formation, ancient law codes, or mercantilist economic policy.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "sovereignty_theory_bodin",
+      "operator": "eq",
+      "value": 1576,
+      "reason": "The node is anchored to Bodin's Les Six livres de la Republique, published in 1576."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "political_philosophy_machiavelli",
+      "reason": "Machiavelli's territorial-prince argument remains a sourced early-modern conceptual predecessor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "political_philosophy_machiavelli",
+      "expected": "historical_predecessor",
+      "reason": "Machiavelli supplies conceptual lineage rather than a practical enabling method."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "legal_systems_common_civil",
+      "reason": "Bodin's juristic and legal-humanist context belongs on the formal legal-system node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "legal_systems_common_civil",
+      "expected": "common_dependency",
+      "reason": "Civil-law/legal-system traditions are contextual legal infrastructure, not an ancient code or direct method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "codified_law",
+      "reason": "Ancient written law codes should not be restored as a direct prerequisite for Bodin's early modern sovereignty theory."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "the_reformation",
+      "reason": "Reformation-era confessional conflict remains sourced context for Bodin's sovereignty doctrine."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sovereignty_theory_bodin",
+      "prerequisite": "the_reformation",
+      "expected": "common_dependency",
+      "reason": "The Reformation is contextual political-religious infrastructure, not a direct method or component."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mercantilism_economic_theory",
+      "prerequisite": "sovereignty_theory_bodin",
+      "reason": "Mercantilism should not directly depend on Bodin unless rescoped to a post-1576 Bodinian economic theory."
+    }
+  ]
+}
