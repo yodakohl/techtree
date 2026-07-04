@@ -1,0 +1,32 @@
+{
+  "id": "2026-07-04-industrial-quality-control-source-fit",
+  "description": "Lock industrial_quality_control to inspection, tolerances, gauges, and statistical quality methods without scientific-management context.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "industrial_quality_control",
+      "operator": "eq",
+      "value": 1775,
+      "reason": "The date remains the broad industrial anchor for tolerance and interchangeable-parts quality practices."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "industrial_quality_control",
+      "prerequisite": "interchangeable_parts",
+      "expected": "enabling",
+      "reason": "Interchangeable parts provide the repeatability and tolerance problem space for industrial quality control."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "industrial_quality_control",
+      "prerequisite": "probability_statistics_inference",
+      "reason": "Statistical quality methods retain probability and statistics as an enabling edge."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_quality_control",
+      "prerequisite": "scientific_management",
+      "reason": "Scientific management is managerial workflow context, not a direct quality-control measurement prerequisite."
+    }
+  ]
+}

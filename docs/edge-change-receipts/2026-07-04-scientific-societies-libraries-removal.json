@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-scientific-societies-libraries-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "scientific_societies",
+    "prerequisite": "libraries"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Libraries provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the source-backed society functions are correspondence, experiments, meetings, and publication; libraries are adjacent archival infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Royal Society history describes correspondence, observation, experiment, discussion, and publication as early society functions; library collections are not presented as the prerequisite for formation.",
+    "source_claim_summary": "The source supports correspondence, experiment, discussion, and publication rather than library institutions as direct prerequisites.",
+    "source_support_rationale": "Libraries preserve and organize knowledge, but the scientific-society form is better represented by meetings, correspondence, and publication."
+  },
+  "ontology_before": "Scientific Societies depended directly on Libraries, implying archival collections enabled the society form itself.",
+  "ontology_after": "Scientific Societies depends on scientific method and universities; libraries remain archival infrastructure outside the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: libraries is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is narrowed to library-based academies or archival societies.",
+    "A dependent needs scientific_societies to imply library infrastructure.",
+    "A stronger source shows a specific library institution was the direct prerequisite for the represented society."
+  ],
+  "short_reason": "Libraries are archival context, not the society mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/scientific_societies.before.json /tmp/scientific_societies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

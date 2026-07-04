@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-industrial-quality-control-interchangeable-parts-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "industrial_quality_control",
+    "prerequisite": "interchangeable_parts"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Interchangeable Parts provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Interchangeable-parts production depended on tolerances, gauges, and repeatable inspection practices that fed directly into industrial quality-control practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/interchangeable-parts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica defines interchangeable parts as identical components and links mass production of identical parts to precision equipment and machine-tool practice.",
+    "source_claim_summary": "The source connects interchangeable parts with precision production of identical components.",
+    "source_support_rationale": "The edge is enabling because interchangeable-parts production provides the tolerance and repeatability problem space that quality control manages."
+  },
+  "invariant_preserved_or_changed": "Preserved: interchangeable_parts remains an enabling edge with textbook support.",
+  "would_reject_if": [
+    "The node is narrowed solely to 20th-century statistical process control.",
+    "A dedicated industrial_metrology node is added and should replace interchangeable_parts.",
+    "A stronger source shows quality-control practice should be modeled only downstream of inspection gauges."
+  ],
+  "short_reason": "Interchangeable parts supply the repeatability/tolerance context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

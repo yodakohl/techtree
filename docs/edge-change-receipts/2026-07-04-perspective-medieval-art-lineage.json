@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-04-perspective-medieval-art-lineage",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "perspective_in_art",
+    "prerequisite": "fine_arts_medieval"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Fine Arts (Medieval) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Late medieval art supplied the immediate artistic background from which Renaissance perspective emerged, while true linear perspective was formalized later by Brunelleschi and Alberti."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/art/Renaissance-art",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Britannica notes Giotto's early treatment of painting as a window into space and says true linear perspective was later formalized by Brunelleschi and Alberti.",
+    "source_claim_summary": "The source puts Renaissance perspective in a sequence from late medieval spatial representation to formalized linear perspective.",
+    "source_support_rationale": "The edge is retyped to historical_predecessor because medieval fine arts supply prior artistic lineage, not an enabling technical component."
+  },
+  "ontology_before": "Perspective in Art treated Romanesque and Gothic Fine Arts as an enabling capability for Renaissance perspective.",
+  "ontology_after": "Perspective in Art treats medieval fine arts as predecessor artistic lineage while geometry and mathematics remain technical enablers.",
+  "invariant_preserved_or_changed": "Changed: fine_arts_medieval is now a historical_predecessor edge.",
+  "would_reject_if": [
+    "The node is broadened to all medieval spatial representation.",
+    "A more specific proto_perspective_painting node is added and should replace fine_arts_medieval.",
+    "A stronger source shows medieval fine arts directly supplied a reusable technical method equivalent to linear perspective."
+  ],
+  "short_reason": "Medieval fine arts are lineage, not a direct enabling method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/perspective_in_art.before.json /tmp/perspective_in_art.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

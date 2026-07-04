@@ -1,0 +1,27 @@
+{
+  "id": "2026-07-04-plant-domestication-source-fit",
+  "description": "Lock plant_domestication to early deliberate cultivation/selection with sourced horticulture and harvesting-tool predecessor context.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "plant_domestication",
+      "operator": "eq",
+      "value": -9500,
+      "reason": "The date remains anchored to early Neolithic Lower Jordan Valley domesticated fig evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plant_domestication",
+      "prerequisite": "horticulture",
+      "expected": "enabling",
+      "reason": "Horticulture supplies deliberate cultivation and propagation practice without claiming a single crop pathway."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "plant_domestication",
+      "prerequisite": "advanced_stone_tools",
+      "expected": "historical_predecessor",
+      "reason": "Stone harvesting tools are retained as predecessor lineage, not a hard dependency."
+    }
+  ]
+}

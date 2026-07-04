@@ -1,0 +1,37 @@
+{
+  "id": "2026-07-04-scientific-societies-source-fit",
+  "description": "Lock scientific_societies to organized natural-philosophy collaboration, correspondence, experiment, discussion, and publication.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "scientific_societies",
+      "operator": "eq",
+      "value": 1500,
+      "reason": "The broad Renaissance anchor is preserved until early learned/scientific societies are split more narrowly."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_societies",
+      "prerequisite": "scientific_method",
+      "reason": "The society form is scoped to natural-philosophy observation, experiment, and discussion."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_societies",
+      "prerequisite": "universities",
+      "reason": "Universities remain a learned institutional substrate for the society form."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "scientific_societies",
+      "prerequisite": "humanism",
+      "reason": "Humanism is adjacent intellectual culture, not a direct scientific-society prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "scientific_societies",
+      "prerequisite": "libraries",
+      "reason": "Libraries are archival infrastructure, not the direct mechanism of scientific society formation."
+    }
+  ]
+}

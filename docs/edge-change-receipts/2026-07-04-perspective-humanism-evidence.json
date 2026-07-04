@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-perspective-humanism-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "perspective_in_art",
+    "prerequisite": "humanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Humanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "textbook",
+    "note": "Renaissance humanist philosophy and revived classical learning supplied cultural context for naturalistic representation, including perspective, without being a single technical requirement."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/art/Renaissance-art",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica frames Renaissance art with humanist philosophy, revived classical learning, naturalism, and formalized linear perspective.",
+    "source_claim_summary": "The source links Renaissance humanism and classical revival to the artistic setting in which perspective was formalized.",
+    "source_support_rationale": "Humanism remains enabling rather than required because it explains the cultural program around naturalistic representation without supplying the geometric construction itself."
+  },
+  "invariant_preserved_or_changed": "Preserved: perspective_in_art keeps humanism as an enabling cultural-context edge with source support.",
+  "would_reject_if": [
+    "The node is narrowed to the geometric construction alone.",
+    "The edge is expected to represent a hard technical dependency rather than cultural context.",
+    "A stronger source separates humanist philosophy from perspective adoption in Florence."
+  ],
+  "short_reason": "Humanism is sourced cultural context for Renaissance perspective.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

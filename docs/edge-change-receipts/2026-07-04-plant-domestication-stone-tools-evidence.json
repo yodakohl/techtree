@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-plant-domestication-stone-tools-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "plant_domestication",
+    "prerequisite": "advanced_stone_tools"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.72,
+    "evidence_level": "primary_source",
+    "note": "Glossed flint cereal-harvesting tools predate fully domesticated crops and supply a source-backed lithic harvesting predecessor without making stone tools the sole path to plant domestication."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The Ohalo II use-wear study reports glossed flint blades used for harvesting near-ripe wild cereals about 23,000 years ago.",
+    "source_claim_summary": "The source supports a lithic harvesting-tool predecessor for later crop cultivation and domestication.",
+    "source_support_rationale": "The edge remains a historical predecessor because harvesting tools are part of the plant-use lineage but are not a universal hard requirement for every domesticated plant."
+  },
+  "invariant_preserved_or_changed": "Preserved: advanced_stone_tools remains a historical predecessor edge with source support.",
+  "would_reject_if": [
+    "The node is narrowed to vegetatively propagated tree crops only.",
+    "A specific cereal_harvesting_sickles node is added and should replace advanced_stone_tools.",
+    "A stronger source shows Ohalo II harvesting tools did not contribute to later cultivation lineages."
+  ],
+  "short_reason": "Harvesting tools are a sourced predecessor, not a hard dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-plant-domestication-horticulture-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "plant_domestication",
+    "prerequisite": "horticulture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Horticulture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "primary_source",
+    "note": "The Gilgal I fig evidence ties early domestication to deliberate cultivation and vegetative propagation, making horticultural practice a direct enabler."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.science.org/doi/10.1126/science.1125910",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Kislev, Hartmann, and Bar-Yosef report early Neolithic parthenocarpic figs from Gilgal I and argue they were maintained by vegetative propagation.",
+    "source_claim_summary": "The source connects early domesticated figs to deliberate propagation and cultivation practice.",
+    "source_support_rationale": "Horticulture remains enabling because the edge captures cultivation practice without claiming all plant domestication begins with the same fig propagation pathway."
+  },
+  "invariant_preserved_or_changed": "Preserved: plant_domestication keeps horticulture as an enabling edge with primary-source support.",
+  "would_reject_if": [
+    "The node is narrowed to cereal domestication only.",
+    "A separate vegetative_propagation node is added and should replace horticulture for the fig lineage.",
+    "A stronger source shows the Gilgal I figs were gathered rather than cultivated."
+  ],
+  "short_reason": "Cultivation practice is sourced by the Gilgal I fig evidence.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

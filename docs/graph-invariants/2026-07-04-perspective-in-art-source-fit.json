@@ -1,0 +1,27 @@
+{
+  "id": "2026-07-04-perspective-in-art-source-fit",
+  "description": "Lock perspective_in_art to Renaissance pictorial perspective with sourced humanist context and medieval art lineage.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "perspective_in_art",
+      "operator": "eq",
+      "value": 1415,
+      "reason": "The date remains anchored to Brunelleschi's early 15th-century perspective demonstrations."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "perspective_in_art",
+      "prerequisite": "humanism",
+      "expected": "enabling",
+      "reason": "Humanism is retained as cultural/intellectual context, not a mathematical construction requirement."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "perspective_in_art",
+      "prerequisite": "fine_arts_medieval",
+      "expected": "historical_predecessor",
+      "reason": "Late medieval fine art is predecessor lineage for Renaissance perspective rather than an enabling component."
+    }
+  ]
+}

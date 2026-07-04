@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-industrial-quality-control-scientific-management-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_quality_control",
+    "prerequisite": "scientific_management"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Management provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because quality-control measurement, tolerances, gauges, and sampling can be scoped independently of later Taylor-style managerial workflow systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/interchangeable-parts",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica links interchangeable-parts production to identical components, precision equipment, and machine tools rather than to scientific-management workflows.",
+    "source_claim_summary": "The source supports precision production and interchangeability as the direct industrial quality-control context.",
+    "source_support_rationale": "Scientific management may influence later factory management, but it is not needed as a direct prerequisite for inspection and tolerance practice."
+  },
+  "ontology_before": "Industrial Quality Control depended directly on Scientific Management, implying quality-control measurement required managerial workflow systems.",
+  "ontology_after": "Industrial Quality Control depends on interchangeable-parts practice and probability/statistics; scientific management remains adjacent factory-management context.",
+  "invariant_preserved_or_changed": "Changed: scientific_management is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is narrowed to Taylorist quality departments.",
+    "A dependent requires industrial_quality_control to imply time-study management methods.",
+    "A stronger source shows scientific management directly created the represented quality-control practice."
+  ],
+  "short_reason": "Scientific management is managerial context, not the measurement mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/industrial_quality_control.before.json /tmp/industrial_quality_control.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

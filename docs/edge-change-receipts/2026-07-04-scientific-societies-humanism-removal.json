@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-scientific-societies-humanism-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "scientific_societies",
+    "prerequisite": "humanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Humanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because scientific societies are scoped to organized natural-philosophy collaboration, correspondence, experiment, discussion, and publication rather than to humanist literary education.",
+  "source_supports_edge": "no",
+  "source_url": "https://royalsociety.org/about-us/who-we-are/history/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Royal Society history says the new Fellowship concerned itself with natural philosophy, gathering information by correspondence, observing nature, conducting experiments, discussing outcomes, and publishing results.",
+    "source_claim_summary": "The source supports scientific collaboration and publication practices, not humanism as a direct prerequisite.",
+    "source_support_rationale": "Humanism remains adjacent intellectual culture; keeping it direct would make literary-humanist education a required edge for scientific society formation."
+  },
+  "ontology_before": "Scientific Societies depended directly on Humanism, implying humanist education was a causal prerequisite for the society form.",
+  "ontology_after": "Scientific Societies depends on scientific method and universities; humanism remains adjacent intellectual context outside the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: humanism is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is narrowed to Italian humanist academies rather than scientific societies.",
+    "A dependent needs scientific_societies to imply humanist literary culture.",
+    "A stronger source shows humanism directly caused the represented scientific society form."
+  ],
+  "short_reason": "Humanism is context, not the society mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/scientific_societies.before.json /tmp/scientific_societies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
