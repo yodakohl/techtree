@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-illuminated-manuscripts-codex-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "illuminated_manuscripts_scribal_art",
+    "prerequisite": "book_binding_codex_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Book Binding (Codex Production) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Illuminated manuscripts are decorated handwritten books, so codex and book-production craft supplies the bound-page format for the scoped artifacts."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://oxfordre.com/literature/view/10.1093/acrefore/9780190201098.001.0001/acrefore-9780190201098-e-1021",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Article defines the codex as a folded pre-print manuscript book form and discusses its displacement of scrolls, supporting book/codex production as the artifact format for illuminated manuscripts.",
+    "source_claim_summary": "The source establishes the codex as the manuscript book form used before print culture.",
+    "source_support_rationale": "Because this node is scoped to decorated handwritten books rather than isolated painting, codex production supplies the physical book architecture for the illuminated artifact."
+  },
+  "invariant_preserved_or_changed": "Preserved: illuminated_manuscripts_scribal_art keeps book_binding_codex_production as an enabling format edge.",
+  "would_reject_if": [
+    "The node is narrowed to loose painted leaves rather than bound manuscript books.",
+    "A stronger source shows the scoped early examples were not codices.",
+    "A separate parchment_codex_illumination node is added and should replace this broader book-binding prerequisite."
+  ],
+  "short_reason": "Illuminated books require manuscript-book format context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

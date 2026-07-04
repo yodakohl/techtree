@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-illuminated-manuscripts-scriptoria-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "illuminated_manuscripts_scribal_art",
+    "prerequisite": "monasticism_and_scriptoria"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Monasticism and Scriptoriums provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Early medieval illuminated manuscripts were copied and illuminated in scriptoria, with monasteries serving as major production settings."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.getty.edu/art/exhibitions/scriptorium/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Getty describes the scriptorium as the medieval setting where books were copied and illuminated by hand, tying manuscript illumination to monastic and scribal production spaces.",
+    "source_claim_summary": "The source connects medieval scriptoria to hand copying and illumination of books.",
+    "source_support_rationale": "The edge is enabling because monasteries and scriptoria explain a dominant production setting without claiming every illuminated manuscript was made in a monastery."
+  },
+  "invariant_preserved_or_changed": "Preserved: illuminated_manuscripts_scribal_art keeps monasticism_and_scriptoria as an enabling production-setting edge.",
+  "would_reject_if": [
+    "The node is narrowed to late medieval secular commercial workshops only.",
+    "A stronger source shows the seventh-century anchor should be represented by a specific Insular monastery node.",
+    "monasticism_and_scriptoria is split into separate monasticism and scriptorium nodes that require a more specific production edge."
+  ],
+  "short_reason": "Scriptoria are the sourced early production setting.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

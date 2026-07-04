@@ -1,0 +1,27 @@
+{
+  "id": "2026-07-04-illuminated-manuscripts-source-fit",
+  "description": "Lock illuminated_manuscripts_scribal_art to decorated handwritten manuscript books and sourced codex/scriptorium context.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "illuminated_manuscripts_scribal_art",
+      "operator": "eq",
+      "value": 700,
+      "reason": "The date remains anchored to surviving seventh-century illuminated gospel-book evidence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "illuminated_manuscripts_scribal_art",
+      "prerequisite": "book_binding_codex_production",
+      "expected": "enabling",
+      "reason": "Codex and bookbinding craft supply the manuscript-book format, but illumination can vary by medium and workshop."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "illuminated_manuscripts_scribal_art",
+      "prerequisite": "monasticism_and_scriptoria",
+      "expected": "enabling",
+      "reason": "Scriptoria are a dominant early production setting without excluding later secular workshops."
+    }
+  ]
+}
