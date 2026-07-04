@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-glass-mosaic-glass-blowing-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "glass_mosaic_tesserae",
+    "prerequisite": "glass_blowing_workshops"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Glass-Blowing Workshops provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because glass tesserae are mosaic materials and do not require vessel-oriented blown-glass workshop production.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/essays/roman-glass",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Roman Glass says blown glass did not supplant cast glass, and separately lists multicolored glass tesserae as applications of Roman glass in floor and wall mosaics.",
+    "source_claim_summary": "The source separates Roman glassblowing from other glass production methods and identifies mosaic tesserae as one use of Roman glass.",
+    "source_support_rationale": "Because the source shows Roman glass uses and production routes were broader than blowing, glass-blowing workshops are too narrow to be a direct prerequisite for glass mosaic tesserae."
+  },
+  "ontology_before": "Glass Mosaic Tesserae depended directly on Glass-Blowing Workshops, implying blown-vessel workshop production enabled the mosaic tesserae material.",
+  "ontology_after": "Glass Mosaic Tesserae depends on glassmaking and mosaic art; glass-blowing workshops remain adjacent Roman glass production infrastructure, not a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: glass_mosaic_tesserae no longer directly depends on glass_blowing_workshops.",
+  "would_reject_if": [
+    "The node is narrowed specifically to tesserae produced only by glass-blowing workshops.",
+    "A stronger source shows Roman glass tesserae were normally manufactured through blown-vessel workshop processes.",
+    "The graph adds a specialized blown_glass_tesserae node where glass-blowing workshops are the exact production context."
+  ],
+  "short_reason": "Glass-blowing workshops are too narrow for mosaic glass tesserae production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

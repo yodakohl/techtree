@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-glass-mosaic-mosaic-art-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "glass_mosaic_tesserae",
+    "prerequisite": "mosaic_art"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mosaic Art provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Mosaic-art practice supplies the tessellated design and setting technique for glass tesserae; glass is the material variant rather than a separate display format."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://books.google.com/books?isbn=9780521002301",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Technique and materials discussion defines mosaics as surfaces assembled from small tesserae and treats glass among the traditional materials used in Greek and Roman mosaics.",
+    "source_claim_summary": "The source describes Greek and Roman mosaics as tessellated surfaces built from small pieces and includes glass as one of the materials used for tesserae.",
+    "source_support_rationale": "That directly supports mosaic art as the form and setting technique for glass tesserae, while leaving glassmaking as the separate material-production edge."
+  },
+  "invariant_preserved_or_changed": "Preserved: glass_mosaic_tesserae remains enabled by mosaic_art, now with source-backed tesserae and materials evidence.",
+  "would_reject_if": [
+    "The node is narrowed to raw glass cube manufacture without the mosaic-setting practice.",
+    "A stronger source shows glass tesserae were not treated as part of Greek or Roman mosaic practice.",
+    "The graph later splits a dedicated mosaic_tesserae node that should sit between mosaic_art and glass_mosaic_tesserae."
+  ],
+  "short_reason": "Glass tesserae use the mosaic technique with glass as the material.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

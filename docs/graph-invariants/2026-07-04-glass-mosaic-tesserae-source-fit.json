@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-04-glass-mosaic-tesserae-source-fit",
+  "description": "Lock glass_mosaic_tesserae to glass pieces used in mosaic surfaces without requiring blown-glass workshops.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "glass_mosaic_tesserae",
+      "operator": "eq",
+      "value": 1,
+      "reason": "The batch preserves the broad Roman imperial century anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "glass_mosaic_tesserae",
+      "prerequisite": "mosaic_art",
+      "expected": "enabling",
+      "reason": "Mosaic art remains the source-backed setting and design technique for tesserae."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "glass_mosaic_tesserae",
+      "prerequisite": "glassmaking",
+      "expected": "enabling",
+      "reason": "Glassmaking remains the material-production context for glass tesserae."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "glass_mosaic_tesserae",
+      "prerequisite": "glass_blowing_workshops",
+      "reason": "Blown-glass workshops are adjacent Roman glass production infrastructure, not a necessary direct prerequisite for mosaic tesserae."
+    }
+  ]
+}
