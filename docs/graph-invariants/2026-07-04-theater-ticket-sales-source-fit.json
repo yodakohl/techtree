@@ -1,0 +1,19 @@
+{
+  "id": "2026-07-04-theater-ticket-sales-source-fit",
+  "description": "Lock theater_ticket_sales to theater access, finance, seats, subsidies, and records rather than generic public notice-board infrastructure.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "theater_ticket_sales",
+      "prerequisite": "public_theater_infrastructure",
+      "expected": "common_dependency",
+      "reason": "Large civic theater venues are contextual infrastructure for tickets and seating."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "theater_ticket_sales",
+      "prerequisite": "public_notice_boards",
+      "reason": "Notice boards are broader communications context, not the ticket/access mechanism."
+    }
+  ]
+}

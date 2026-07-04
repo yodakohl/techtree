@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-theater-ticket-sales-notice-boards-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "theater_ticket_sales",
+    "prerequisite": "public_notice_boards"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Public Notice Boards is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct public-notice-board dependency remains because the node is scoped to theater venue access, tickets, subsidies, seating, finance, and public records rather than generic notice-posting infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://bmcr.brynmawr.edu/2014/2014.11.36/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The review identifies fourth-century theatre buildings, massive audiences, organization, funding of performances, and finance and records in Athens, but not public notice boards as a ticket-sales prerequisite.",
+    "source_claim_summary": "The source supports theater infrastructure and finance/records, not generic public notice-board infrastructure.",
+    "source_support_rationale": "Keeping public_notice_boards direct would turn a possible administrative communication channel into a prerequisite for ticket access and seating finance."
+  },
+  "ontology_before": "Theater Ticket Sales depended on Public Notice Boards, implying notice-board infrastructure was part of the ticketing/access mechanism.",
+  "ontology_after": "Theater Ticket Sales depends on public theater infrastructure and currency; notice boards remain broader civic communications context outside the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: public_notice_boards is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to posted theater schedules or public notices rather than ticket access.",
+    "A stronger source showed Athenian theater ticket distribution required notice-board infrastructure.",
+    "A separate theater_public_notices node replaced the ticket-sales scope."
+  ],
+  "short_reason": "Notice boards are communications context, not theater ticketing infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/theater_ticket_sales.before.json /tmp/theater_ticket_sales.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
