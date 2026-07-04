@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-touchscreen-crt-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "touchscreen_interfaces",
+    "prerequisite": "cathode_ray_tube_crt_displays"
+  },
+  "replaced_edge": {
+    "dependent": "touchscreen_interfaces",
+    "prerequisite": "liquid_crystal_displays_lcd_screens"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Liquid Crystal Displays (LCD Screens) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.74,
+    "evidence_level": "primary_source",
+    "note": "The early touch-display lineage was tied to computer display hardware rather than later LCD touch panels."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1049/el:19650200",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Johnson's 1965 paper frames the technology as a touch display input/output device for computers before later LCD touch-panel products.",
+    "source_claim_summary": "The source supports display hardware as a direct substrate but does not require LCD screens.",
+    "source_support_rationale": "CRT displays are the historically appropriate neighboring display lineage for mid-1960s computer display work; LCDs are a later touchscreen product substrate."
+  },
+  "ontology_before": "Touchscreen Interfaces depended on LCD screens, implying later flat-panel displays were prerequisites for a 1965 touch-display claim.",
+  "ontology_after": "Touchscreen Interfaces depends on CRT Displays and Electronics for the early touch-display scope.",
+  "invariant_preserved_or_changed": "Changed: liquid_crystal_displays_lcd_screens is replaced by cathode_ray_tube_crt_displays.",
+  "would_reject_if": [
+    "The node is narrowed to consumer flat-panel touchscreens.",
+    "A dedicated computer_display_terminals node is added and should replace CRT displays.",
+    "A stronger source shows Johnson's first implementation did not use electronic display hardware."
+  ],
+  "short_reason": "LCD is too late for the 1965 touch-display claim.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/touchscreen_interfaces.before.json /tmp/touchscreen_interfaces.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

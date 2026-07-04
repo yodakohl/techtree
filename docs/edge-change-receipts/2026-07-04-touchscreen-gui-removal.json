@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-touchscreen-gui-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "touchscreen_interfaces",
+    "prerequisite": "graphical_user_interface_gui"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Graphical User Interface (GUI) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because early touch-display hardware predates WIMP/GUI consumer software lineages and can operate as a control/display input method without a GUI prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1049/el:19650200",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Johnson's 1965 title and abstracted bibliographic claim describe a touch display input/output device for computers rather than a GUI software system.",
+    "source_claim_summary": "The source supports touch-display hardware and does not require graphical user interface software as a prerequisite.",
+    "source_support_rationale": "Keeping GUI direct would launder later software interaction paradigms into an earlier hardware interface node."
+  },
+  "ontology_before": "Touchscreen Interfaces depended directly on Graphical User Interface.",
+  "ontology_after": "Touchscreen Interfaces is scoped to early touch-display hardware and no longer requires GUI software.",
+  "invariant_preserved_or_changed": "Changed: graphical_user_interface_gui is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is later narrowed to touch-first graphical operating systems.",
+    "A dependent needs touchscreen_interfaces to imply modern mobile UI software.",
+    "A stronger source shows the modeled touchscreen claim is specifically a GUI interaction pattern."
+  ],
+  "short_reason": "GUI software is later interaction context, not an early hardware prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/touchscreen_interfaces.before.json /tmp/touchscreen_interfaces.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

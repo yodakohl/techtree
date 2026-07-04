@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-electric-street-lighting-transit-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electric_street_lighting",
+    "prerequisite": "urban_mass_transit_networks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Urban Mass Transit Networks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because central-station electric lighting does not require streetcar, tram, rail, fare, depot, or station networks.",
+  "source_supports_edge": "no",
+  "source_url": "https://ethw.org/Milestones:Pearl_Street_Station,_1882",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ETHW describes Pearl Street as a central electric generating station supplying incandescent lighting through a service district; the passage does not tie the lighting system to urban mass transit.",
+    "source_claim_summary": "The source pins the node to central-station electric lighting rather than transit-network infrastructure.",
+    "source_support_rationale": "Urban mass transit is neighboring urban infrastructure and would over-broaden the node's causal boundary."
+  },
+  "ontology_before": "Electric Street Lighting depended directly on Urban Mass Transit Networks.",
+  "ontology_after": "Electric Street Lighting depends on electrical lighting systems and central station power only.",
+  "invariant_preserved_or_changed": "Changed: urban_mass_transit_networks is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is later narrowed to electric lamps installed specifically for transit stops or streetcar corridors.",
+    "A dependent needs electric_street_lighting to imply transit planning.",
+    "A stronger source shows early electric street lighting deployment required a specific transit network."
+  ],
+  "short_reason": "Transit networks are not a direct lighting prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/electric_street_lighting.before.json /tmp/electric_street_lighting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

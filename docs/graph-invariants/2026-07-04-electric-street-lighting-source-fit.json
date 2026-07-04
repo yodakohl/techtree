@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-04-electric-street-lighting-source-fit",
+  "description": "Lock electric_street_lighting to central-station electric public lighting and exclude transit infrastructure.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "electric_street_lighting",
+      "operator": "eq",
+      "value": 1882,
+      "reason": "The node remains anchored to Pearl Street-era central-station electric lighting."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "electric_street_lighting",
+      "prerequisite": "electrical_lighting_systems",
+      "reason": "Street lighting directly uses the electrical lighting system."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "electric_street_lighting",
+      "prerequisite": "central_station_power",
+      "reason": "The scope is central-station-powered public lighting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_street_lighting",
+      "prerequisite": "urban_mass_transit_networks",
+      "reason": "Transit networks are separate urban infrastructure, not a street-lighting prerequisite."
+    }
+  ]
+}

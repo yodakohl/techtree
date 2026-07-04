@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-household-refrigerators-cold-chain-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "household_electric_refrigerators",
+    "prerequisite": "food_cold_chain"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Food Cold Chain provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because household electric refrigerators are domestic appliances; industrial refrigerated distribution is a neighboring use case rather than a construction prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ashrae.org/about/mission-and-vision/ashrae-industry-history/domelre-first-electric-refrigerator",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ASHRAE describes DOMELRE as a ready-to-use domestic electric refrigerator mounted on an ice box and plugged in, not as refrigerated transport or warehouse distribution infrastructure.",
+    "source_claim_summary": "The source supports domestic appliance scope and does not require food cold-chain systems.",
+    "source_support_rationale": "Keeping food_cold_chain direct would make downstream distribution infrastructure a prerequisite for a household device."
+  },
+  "ontology_before": "Household Electric Refrigerators depended directly on Food Cold Chain.",
+  "ontology_after": "Household Electric Refrigerators depends directly on Mechanical Refrigeration and Electric Motor only.",
+  "invariant_preserved_or_changed": "Changed: food_cold_chain is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is broadened to refrigerated grocery distribution.",
+    "A dependent requires domestic refrigerators to imply supply-chain infrastructure.",
+    "A stronger source shows DOMELRE commercialization depended on existing cold-chain logistics."
+  ],
+  "short_reason": "Food cold chain is distribution context, not device construction.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/household_electric_refrigerators.before.json /tmp/household_electric_refrigerators.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

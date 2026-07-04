@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-touchscreen-electronics-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "touchscreen_interfaces",
+    "prerequisite": "electronics"
+  },
+  "replaced_edge": {
+    "dependent": "touchscreen_interfaces",
+    "prerequisite": "mems_sensors"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "MEMS Sensors provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "primary_source",
+    "note": "Johnson's touch display is an electronic input/output device, so electronic sensing and signal handling are direct enabling capabilities."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1049/el:19650200",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Johnson's Electronics Letters paper presents a touch display as a novel input/output device for computers.",
+    "source_claim_summary": "The source grounds the node in electronic display/input hardware rather than later MEMS sensors.",
+    "source_support_rationale": "MEMS is an anachronistic sensor family for the 1965 touch-display claim; electronics captures the direct enabling substrate."
+  },
+  "ontology_before": "Touchscreen Interfaces depended on MEMS Sensors, implying a later microelectromechanical sensor lineage was needed for the 1965 device.",
+  "ontology_after": "Touchscreen Interfaces depends on Electronics and CRT Displays as direct early touch-display substrates.",
+  "invariant_preserved_or_changed": "Changed: mems_sensors is replaced by electronics.",
+  "would_reject_if": [
+    "The node is narrowed to a later MEMS-based touch or force sensor.",
+    "A dedicated capacitive_touch_sensor node is added and should replace electronics.",
+    "The date is moved to a later mobile-device touchscreen lineage."
+  ],
+  "short_reason": "Electronics is the direct substrate; MEMS is anachronistic here.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/touchscreen_interfaces.before.json /tmp/touchscreen_interfaces.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-04-household-refrigerators-source-fit",
+  "description": "Lock household_electric_refrigerators to the packaged DOMELRE-style domestic electric refrigerator.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "household_electric_refrigerators",
+      "operator": "eq",
+      "value": 1913,
+      "reason": "The date remains anchored to DOMELRE's 1913 invention."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "household_electric_refrigerators",
+      "prerequisite": "refrigeration",
+      "expected": "required",
+      "reason": "Mechanical refrigeration is the defining process."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "household_electric_refrigerators",
+      "prerequisite": "electric_motor",
+      "expected": "required",
+      "reason": "The DOMELRE-style device used an electric motor for household electrical operation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "household_electric_refrigerators",
+      "prerequisite": "electrical_appliances_early",
+      "reason": "Early electrical appliances are a broad category rather than the direct component dependency."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "household_electric_refrigerators",
+      "prerequisite": "food_cold_chain",
+      "reason": "Food cold-chain logistics are distribution context, not a household refrigerator construction prerequisite."
+    }
+  ]
+}

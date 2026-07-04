@@ -25189,11 +25189,10 @@
     "id": "touchscreen_interfaces",
     "name": "Touchscreen Interfaces",
     "era": "Modern",
-    "description": "Direct-manipulation displays using resistive, capacitive, optical, or acoustic sensing for phones, kiosks, tablets, and control panels.",
+    "description": "Direct finger-operated touch-display input devices that combine electronic sensing with a visual computer display.",
     "prerequisites": [
-      "liquid_crystal_displays_lcd_screens",
-      "mems_sensors",
-      "graphical_user_interface_gui"
+      "electronics",
+      "cathode_ray_tube_crt_displays"
     ],
     "firstKnownDate": 1965,
     "datePrecision": "year",
@@ -25201,43 +25200,63 @@
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "liquid_crystal_displays_lcd_screens",
+        "prerequisite": "electronics",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Liquid Crystal Displays (LCD Screens) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "mems_sensors",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "MEMS Sensors provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "primary_source",
+        "note": "Johnson's touch display is an electronic input/output device, so electronic sensing and signal handling are direct enabling capabilities.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
-            "source_type": "museum",
+            "title": "Touch display - a novel input/output device for computers",
+            "url": "https://doi.org/10.1049/el:19650200",
+            "publisher": "Electronics Letters",
+            "year": 1965,
+            "source_type": "primary_paper",
+            "source_locator": "Johnson's Electronics Letters paper presents a touch display as an input/output device for computers, grounding the node in electronic sensing and display interaction.",
             "supports": [
+              "node",
               "edge"
             ]
           }
         ]
       },
       {
-        "prerequisite": "graphical_user_interface_gui",
+        "prerequisite": "cathode_ray_tube_crt_displays",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Graphical User Interface (GUI) provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.74,
+        "evidence_level": "primary_source",
+        "note": "The early touch-display lineage was tied to computer display hardware rather than later LCD touch panels.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Touch display - a novel input/output device for computers",
+            "url": "https://doi.org/10.1049/el:19650200",
+            "publisher": "Electronics Letters",
+            "year": 1965,
+            "source_type": "primary_paper",
+            "source_locator": "Johnson's 1965 touch-display paper frames the technology as an input/output display device for computers before later LCD and mobile-device implementations.",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "Touch display - a novel input/output device for computers",
+        "url": "https://doi.org/10.1049/el:19650200",
+        "publisher": "Electronics Letters",
+        "year": 1965,
+        "source_type": "primary_paper",
+        "source_locator": "Johnson's 1965 Electronics Letters paper presents the touch display as a computer input/output device.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
       {
         "title": "1965 - The Touchscreen",
         "url": "https://mraths.org.uk/?page_id=531",
@@ -25249,7 +25268,8 @@
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers early finger-operated touch-display input devices; LCD panels, MEMS sensors, and WIMP/GUI software are later neighboring lineages rather than direct prerequisites for the 1965 Malvern touch-display claim."
   },
   {
     "id": "satellite_remote_sensing",

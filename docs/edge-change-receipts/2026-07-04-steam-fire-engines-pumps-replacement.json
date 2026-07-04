@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-steam-fire-engines-pumps-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "steam_fire_engines",
+    "prerequisite": "pumps"
+  },
+  "replaced_edge": {
+    "dependent": "steam_fire_engines",
+    "prerequisite": "industrial_urbanization"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Urbanization provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "Steam fire engines are firefighting pump apparatus; the steam engine supplies power while pump mechanisms move water."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://books.google.com/books?id=gjoDAAAAQAAJ",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Young's Fires, Fire Engines, and Fire Brigades is explicitly about manual and steam fire engines, their construction, use, and management as fire-pumping apparatus.",
+    "source_claim_summary": "The source grounds the node in steam-powered fire-engine pumping apparatus, not in industrial urban growth.",
+    "source_support_rationale": "Replacing industrial_urbanization with pumps preserves the apparatus mechanism and removes broad urban context from the causal edge."
+  },
+  "ontology_before": "Steam Fire Engines depended on Industrial Urbanization, implying urban growth was a direct prerequisite for the apparatus.",
+  "ontology_after": "Steam Fire Engines depends on Mechanical Pumps and Steam Engine as direct mechanism edges.",
+  "invariant_preserved_or_changed": "Changed: industrial_urbanization is replaced by pumps.",
+  "would_reject_if": [
+    "The node is later broadened back to municipal firefighting systems.",
+    "A dedicated fire_pump node is added and should replace the broader pumps edge.",
+    "A stronger source shows the graph should model only a non-pumping steam firefighting vehicle."
+  ],
+  "short_reason": "Pumps are the direct apparatus dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/steam_fire_engines.before.json /tmp/steam_fire_engines.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

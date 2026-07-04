@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-04-household-refrigerators-motor-replacement",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "household_electric_refrigerators",
+    "prerequisite": "electric_motor"
+  },
+  "replaced_edge": {
+    "dependent": "household_electric_refrigerators",
+    "prerequisite": "electrical_appliances_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Electrical Appliances is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "The DOMELRE used an AC motor for household electrical operation, making motorized electric drive a direct device dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ashrae.org/about/mission-and-vision/ashrae-industry-history/domelre-first-electric-refrigerator",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "ASHRAE lists DOMELRE's repulsion-start induction AC motor and states the unit could be plugged into household electrical circuits.",
+    "source_claim_summary": "The source supports an electric motor as a direct component of the household electric refrigerator.",
+    "source_support_rationale": "Early electrical appliances are a broad category; electric_motor is the direct mechanism needed by the scoped device."
+  },
+  "ontology_before": "Household Electric Refrigerators depended on the broad Early Electrical Appliances category.",
+  "ontology_after": "Household Electric Refrigerators depends directly on Electric Motor and Mechanical Refrigeration.",
+  "invariant_preserved_or_changed": "Changed: electrical_appliances_early is replaced by electric_motor.",
+  "would_reject_if": [
+    "The node is broadened to appliance retail networks rather than device construction.",
+    "A dedicated electric_compressor node is added and should replace electric_motor.",
+    "A stronger source shows the represented household units were non-electric absorption refrigerators."
+  ],
+  "short_reason": "The electric motor is the direct device dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/household_electric_refrigerators.before.json /tmp/household_electric_refrigerators.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

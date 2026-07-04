@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-04-steam-fire-engines-source-fit",
+  "description": "Lock steam_fire_engines to steam-powered firefighting pump apparatus and remove municipal/urban context edges.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "steam_fire_engines",
+      "operator": "eq",
+      "value": 1829,
+      "reason": "The date is pinned to the 1829 steam fire-engine apparatus chronology rather than a broad urban fire-service anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "steam_fire_engines",
+      "prerequisite": "steam_engine",
+      "expected": "required",
+      "reason": "Steam power defines the apparatus."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "steam_fire_engines",
+      "prerequisite": "pumps",
+      "expected": "required",
+      "reason": "The apparatus is a fire pump powered by steam."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "steam_fire_engines",
+      "prerequisite": "urban_firefighting_ordinances",
+      "reason": "Urban ordinances are institutional context, not the apparatus mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "steam_fire_engines",
+      "prerequisite": "industrial_urbanization",
+      "reason": "Industrial urbanization is deployment context rather than a direct mechanism edge."
+    }
+  ]
+}

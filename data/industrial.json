@@ -18073,11 +18073,10 @@
     "id": "household_electric_refrigerators",
     "name": "Household Electric Refrigerators",
     "era": "Industrial",
-    "description": "Domestic refrigerators using electric motors, compressors, insulated cabinets, thermostats, and appliance distribution networks.",
+    "description": "Domestic electric refrigerators that packaged mechanical refrigeration, an electric motor, thermostat control, and household plug-in operation.",
     "prerequisites": [
       "refrigeration",
-      "electrical_appliances_early",
-      "food_cold_chain"
+      "electric_motor"
     ],
     "firstKnownDate": 1913,
     "datePrecision": "exact",
@@ -18086,36 +18085,43 @@
     "dependencyEdges": [
       {
         "prerequisite": "refrigeration",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Refrigeration provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "electrical_appliances_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Electrical Appliances is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "food_cold_chain",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Food Cold Chain provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The DOMELRE was a packaged automatic electric refrigeration unit, so mechanical refrigeration is the defining process dependency.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "South Omaha Union Stock Yards, Historic American Engineering Record",
-            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ne/ne0000/ne0085/data/ne0085data.pdf",
-            "publisher": "Historic American Engineering Record / Library of Congress",
-            "year": 1999,
-            "source_type": "official_agency",
-            "source_locator": "HAER narrative describes refrigeration enabling long-distance dressed-meat shipment, packing-company branch houses with large cold-storage facilities, refrigerated peddler railcars, and diversified food distribution infrastructure.",
+            "title": "DOMELRE First Electric Refrigerator",
+            "url": "https://www.ashrae.org/about/mission-and-vision/ashrae-industry-history/domelre-first-electric-refrigerator",
+            "publisher": "ASHRAE",
+            "year": 2026,
+            "source_type": "review",
+            "source_locator": "ASHRAE describes DOMELRE as the first successful mass-marketed package automatic electric refrigeration unit, invented in 1913, with thermostat control, expansion-valve refrigeration control, and an air-cooled condenser.",
             "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
+      },
+      {
+        "prerequisite": "electric_motor",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "The DOMELRE used an AC motor for household electrical operation, making motorized electric drive a direct device dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "DOMELRE First Electric Refrigerator",
+            "url": "https://www.ashrae.org/about/mission-and-vision/ashrae-industry-history/domelre-first-electric-refrigerator",
+            "publisher": "ASHRAE",
+            "year": 2026,
+            "source_type": "review",
+            "source_locator": "ASHRAE lists DOMELRE's repulsion-start induction AC motor and notes that its low running current allowed use on household electrical circuits.",
+            "supports": [
+              "node",
               "edge"
             ]
           }
@@ -18128,13 +18134,14 @@
         "url": "https://www.ashrae.org/about/mission-and-vision/ashrae-industry-history/domelre-first-electric-refrigerator",
         "publisher": "ASHRAE",
         "year": 2026,
-        "source_type": "museum",
-        "source_locator": "ASHRAE describes DOMELRE as the first successful mass-marketed package automatic electric refrigeration unit, invented in 1913 by Fred W. Wolf Jr.",
+        "source_type": "review",
+        "source_locator": "ASHRAE describes DOMELRE as the first successful mass-marketed package automatic electric refrigeration unit, invented in 1913 by Fred W. Wolf Jr., ready to install on an ice box and plug in.",
         "supports": [
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers the early packaged household electric refrigerator, not industrial cold-chain logistics or the broad category of early electrical appliances."
   },
   {
     "id": "postal_money_orders",
@@ -18476,11 +18483,10 @@
     "id": "electric_street_lighting",
     "name": "Electric Street Lighting",
     "era": "Industrial",
-    "description": "Grid-powered lamps, poles, wiring, switches, maintenance crews, and municipal contracts for nighttime public lighting.",
+    "description": "Central-station electric lamps and wiring used for public nighttime street lighting in an urban service district.",
     "prerequisites": [
       "electrical_lighting_systems",
-      "central_station_power",
-      "urban_mass_transit_networks"
+      "central_station_power"
     ],
     "firstKnownDate": 1882,
     "datePrecision": "exact",
@@ -18490,10 +18496,24 @@
       {
         "prerequisite": "electrical_lighting_systems",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electrical Lighting Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "review",
+        "note": "Public electric street lighting depends on the lamp, wiring, switching, and distribution practices of electric lighting systems.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Edison Biography",
+            "url": "https://www.nps.gov/edis/learn/historyculture/edison-biography.htm?simple=True",
+            "publisher": "U.S. National Park Service",
+            "year": 2026,
+            "source_type": "official_agency",
+            "source_locator": "NPS says Edison developed not just an incandescent light but an electric lighting system with the elements needed to make lighting practical, safe, and economical.",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "central_station_power",
@@ -18509,22 +18529,28 @@
             "publisher": "U.S. National Park Service",
             "year": 2026,
             "source_type": "official_agency",
+            "source_locator": "NPS states that the Pearl Street commercial power station went into operation in September 1882, providing light and power to customers in a one-square-mile area.",
             "supports": [
+              "node",
               "edge"
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "urban_mass_transit_networks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Urban Mass Transit Networks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
+      {
+        "title": "Edison Biography",
+        "url": "https://www.nps.gov/edis/learn/historyculture/edison-biography.htm?simple=True",
+        "publisher": "U.S. National Park Service",
+        "year": 2026,
+        "source_type": "official_agency",
+        "source_locator": "NPS says Pearl Street went into operation in September 1882, providing light and power to customers in lower Manhattan.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
       {
         "title": "Milestones:Pearl Street Station, 1882",
         "url": "https://ethw.org/Milestones:Pearl_Street_Station,_1882",
@@ -18536,7 +18562,8 @@
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers central-station-powered public electric lighting; urban mass transit is neighboring urban infrastructure rather than a prerequisite."
   },
   {
     "id": "sanitary_building_codes",
@@ -18784,55 +18811,74 @@
     "id": "steam_fire_engines",
     "name": "Steam Fire Engines",
     "era": "Industrial",
-    "description": "Steam-powered pumps, hoses, crews, alarms, and municipal systems for fighting urban fires.",
+    "description": "Steam-powered firefighting pump apparatus that moved water through hoses for structural fire suppression.",
     "prerequisites": [
       "steam_engine",
-      "urban_firefighting_ordinances",
-      "industrial_urbanization"
+      "pumps"
     ],
-    "firstKnownDate": 1825,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1829,
+    "datePrecision": "exact",
+    "region": "England, beginning with Braithwaite and Ericsson steam fire-engine work",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "steam_engine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Steam Engine provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "The node is scoped to steam-powered fire engines, so a steam engine is the defining power source.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "In Pursuit Of Power",
-            "url": "https://blog.sciencemuseum.org.uk/a-new-age/",
-            "publisher": "Science Museum Group",
-            "year": 2012,
-            "source_type": "museum",
+            "title": "Fires, Fire Engines, and Fire Brigades",
+            "url": "https://books.google.com/books?id=gjoDAAAAQAAJ",
+            "publisher": "Lockwood & Co.",
+            "year": 1866,
+            "source_type": "textbook",
+            "source_locator": "Young's history treats steam fire engines as firefighting apparatus powered by steam rather than by manual pumping.",
             "supports": [
+              "node",
               "edge"
             ]
           }
         ]
       },
       {
-        "prerequisite": "urban_firefighting_ordinances",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Urban Firefighting Ordinances provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "industrial_urbanization",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Urbanization provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "pumps",
+        "type": "required",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Steam fire engines are firefighting pump apparatus; the steam engine supplies power while pump mechanisms move water.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Fires, Fire Engines, and Fire Brigades",
+            "url": "https://books.google.com/books?id=gjoDAAAAQAAJ",
+            "publisher": "Lockwood & Co.",
+            "year": 1866,
+            "source_type": "textbook",
+            "source_locator": "Young's history covers manual and steam fire engines, their construction, use, and management as fire-pumping apparatus.",
+            "supports": [
+              "node",
+              "edge"
+            ]
+          }
+        ]
       }
     ],
     "sources": [
+      {
+        "title": "Fires, Fire Engines, and Fire Brigades",
+        "url": "https://books.google.com/books?id=gjoDAAAAQAAJ",
+        "publisher": "Lockwood & Co.",
+        "year": 1866,
+        "source_type": "textbook",
+        "source_locator": "Young's 1866 history is explicitly scoped to manual and steam fire engines, including their construction, use, and management.",
+        "supports": [
+          "node",
+          "edge"
+        ]
+      },
       {
         "title": "In Pursuit Of Power",
         "url": "https://blog.sciencemuseum.org.uk/a-new-age/",
@@ -18844,7 +18890,8 @@
           "node"
         ]
       }
-    ]
+    ],
+    "scopeNote": "Covers steam-powered firefighting pump apparatus, not the whole municipal fire-service system, alarm network, or urbanization context."
   },
   {
     "id": "railway_dining_cars",

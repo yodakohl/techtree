@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-steam-fire-engines-ordinances-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "steam_fire_engines",
+    "prerequisite": "urban_firefighting_ordinances"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Urban Firefighting Ordinances provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the node is scoped to steam-powered pump apparatus, while ordinances belong to municipal firefighting organization and regulation.",
+  "source_supports_edge": "no",
+  "source_url": "https://books.google.com/books?id=gjoDAAAAQAAJ",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Young's title and scope cover manual and steam fire engines, their construction, use, and management, which pins the edited node to apparatus rather than municipal ordinance systems.",
+    "source_claim_summary": "The source supports fire-engine apparatus history, not medieval municipal ordinance ancestry as a direct prerequisite.",
+    "source_support_rationale": "Urban firefighting ordinances remain a neighboring institutional lineage but are not required for the steam pump apparatus itself."
+  },
+  "ontology_before": "Steam Fire Engines depended on medieval urban firefighting ordinances as a direct enabling edge.",
+  "ontology_after": "Steam Fire Engines is scoped to apparatus and depends directly on steam power plus pumps.",
+  "invariant_preserved_or_changed": "Changed: urban_firefighting_ordinances is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is broadened to municipal firefighting departments, fire-alarm systems, or brigade administration.",
+    "A dependent later needs steam_fire_engines to imply a full municipal fire service.",
+    "A stronger source shows a specific ordinance regime directly caused the represented apparatus."
+  ],
+  "short_reason": "Ordinances are institutional context, not apparatus mechanics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/steam_fire_engines.before.json /tmp/steam_fire_engines.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

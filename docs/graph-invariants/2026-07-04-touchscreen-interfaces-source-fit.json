@@ -1,0 +1,57 @@
+{
+  "id": "2026-07-04-touchscreen-interfaces-source-fit",
+  "description": "Lock touchscreen_interfaces to early touch-display input hardware and exclude later mobile/display/software lineages.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "touchscreen_interfaces",
+      "operator": "eq",
+      "value": 1965,
+      "reason": "The node remains anchored to Johnson's 1965 touch-display publication."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "electronics",
+      "reason": "Electronic sensing and signal handling are direct substrate capabilities for the touch-display device."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "electronics",
+      "expected": "enabling",
+      "reason": "Electronics enables the early touch-display substrate without making one electronics lineage the sole possible implementation."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "cathode_ray_tube_crt_displays",
+      "reason": "The edited scope is early computer touch-display hardware, not later LCD/mobile panels."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "cathode_ray_tube_crt_displays",
+      "expected": "enabling",
+      "reason": "CRT displays preserve the early display-hardware boundary while allowing later touchscreen lineages to use different display substrates."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "liquid_crystal_displays_lcd_screens",
+      "reason": "LCD screens are a later touch-panel substrate and should not be required for the 1965 claim."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "mems_sensors",
+      "reason": "MEMS sensors are an anachronistic sensor family for this 1965 touch-display scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "touchscreen_interfaces",
+      "prerequisite": "graphical_user_interface_gui",
+      "reason": "GUI software is later interaction context, not a prerequisite for early touch-display hardware."
+    }
+  ]
+}

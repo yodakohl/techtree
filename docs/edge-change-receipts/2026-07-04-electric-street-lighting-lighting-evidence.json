@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-04-electric-street-lighting-lighting-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "electric_street_lighting",
+    "prerequisite": "electrical_lighting_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Electrical Lighting Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Public electric street lighting depends on the lamp, wiring, switching, and distribution practices of electric lighting systems."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nps.gov/edis/learn/historyculture/edison-biography.htm?simple=True",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "NPS states Edison invented not just an incandescent light but an electric lighting system with the elements necessary for practical lighting.",
+    "source_claim_summary": "The source supports lighting systems as the direct technical substrate for electric street lighting.",
+    "source_support_rationale": "The scoped node is public electric lighting, so lighting-system capability is direct rather than optional municipal context."
+  },
+  "ontology_before": "Electric Street Lighting had an unsourced edge from Electrical Lighting Systems.",
+  "ontology_after": "Electric Street Lighting retains the lighting-system edge with NPS source support.",
+  "invariant_preserved_or_changed": "Preserved: topology unchanged for this edge; evidence quality improved.",
+  "would_reject_if": [
+    "The node is narrowed to non-electric gas street lighting.",
+    "The node is broadened to urban lighting policy rather than electrical infrastructure.",
+    "A separate public_arc_lighting node should replace the current electrical_lighting_systems edge."
+  ],
+  "short_reason": "Street lighting directly uses electric lighting systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/electric_street_lighting.before.json /tmp/electric_street_lighting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
