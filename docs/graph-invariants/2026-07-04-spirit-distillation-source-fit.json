@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-04-spirit-distillation-source-fit",
+  "description": "Lock distillation_for_alcoholic_spirits to fermented alcohol plus distillation, with apparatus materials upstream.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "distillation_for_alcoholic_spirits",
+      "operator": "eq",
+      "value": 1100,
+      "reason": "The date remains a broad medieval anchor for distilled beverage spirits rather than a claim about all distillation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "distillation_for_alcoholic_spirits",
+      "prerequisite": "distillation_advanced",
+      "expected": "required",
+      "reason": "Distilled spirits are defined by distillation that concentrates fermented ethanol."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "distillation_for_alcoholic_spirits",
+      "prerequisite": "fermentation_basic",
+      "expected": "required",
+      "reason": "Fermentation produces the ethanol-bearing liquid that is distilled into spirits."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "distillation_for_alcoholic_spirits",
+      "prerequisite": "glassmaking",
+      "reason": "Glassmaking is apparatus-material ancestry already represented through distillation_advanced."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "distillation_for_alcoholic_spirits",
+      "prerequisite": "pottery",
+      "reason": "Pottery is vessel ancestry for upstream fermentation/distillation, not a direct spirits prerequisite."
+    }
+  ]
+}

@@ -289,12 +289,10 @@
     "id": "distillation_for_alcoholic_spirits",
     "name": "Distillation for Alcoholic Spirits",
     "era": "Medieval",
-    "description": "Application of advanced distillation to produce concentrated alcoholic beverages like aqua vitae, brandy, and whiskey.",
+    "description": "Application of distillation to fermented beverages or washes to produce concentrated alcoholic spirits such as aqua vitae and brandy.",
     "prerequisites": [
       "distillation_advanced",
-      "fermentation_basic",
-      "glassmaking",
-      "pottery"
+      "fermentation_basic"
     ],
     "firstKnownDate": 1100,
     "datePrecision": "century",
@@ -303,74 +301,61 @@
     "dependencyEdges": [
       {
         "prerequisite": "distillation_advanced",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Advanced Distillation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "fermentation_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "glassmaking",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Glassmaking provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Distilled spirits are made by concentrating fermented ethanol through distillation, making advanced distillation the direct process prerequisite.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Glass of the Ancient Mediterranean",
-            "url": "https://mcclungmuseum.utk.edu/wp-content/uploads/sites/78/2013/08/3980-AncientGlassBroch-3.0.pdf",
-            "publisher": "McClung Museum of Natural History and Culture",
-            "year": 2013,
-            "source_type": "museum",
+            "title": "Distilled spirit",
+            "url": "https://www.britannica.com/topic/distilled-spirit",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Britannica defines distilled spirits as alcoholic beverages made by distilling and concentrating ethanol from fermented grain, fruit, or vegetable bases."
           }
         ]
       },
       {
-        "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "fermentation_basic",
+        "type": "required",
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Spirits distill ethanol that was first produced by fermentation of grain, fruit, or vegetable material.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "primary_paper",
+            "title": "Distilled spirit",
+            "url": "https://www.britannica.com/topic/distilled-spirit",
+            "publisher": "Encyclopaedia Britannica",
+            "year": 2026,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Britannica explains that distilled spirits are produced from ethanol made by fermenting grain, fruit, or vegetables before distillation concentrates the alcohol."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Glass of the Ancient Mediterranean",
-        "url": "https://mcclungmuseum.utk.edu/wp-content/uploads/sites/78/2013/08/3980-AncientGlassBroch-3.0.pdf",
-        "publisher": "McClung Museum of Natural History and Culture",
-        "year": 2013,
-        "source_type": "museum",
+        "title": "Distilled spirit",
+        "url": "https://www.britannica.com/topic/distilled-spirit",
+        "publisher": "Encyclopaedia Britannica",
+        "year": 2026,
+        "source_type": "textbook",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Britannica defines distilled spirits as fermented agricultural alcohol concentrated by distillation and gives brandy, whisky, vodka, and related spirits as examples."
       }
-    ]
+    ],
+    "scopeNote": "Covers beverage spirits made by distilling fermented alcohol. It excludes the general apparatus-material ancestry of distillation, which is represented upstream by distillation_advanced, and it excludes undistilled beer, wine, cider, and mead."
   },
   {
     "id": "basic_chemistry",

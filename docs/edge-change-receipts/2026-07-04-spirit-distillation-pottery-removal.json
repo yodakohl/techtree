@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-spirit-distillation-pottery-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "distillation_for_alcoholic_spirits",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because ceramic vessel ancestry belongs to fermentation and distillation apparatus upstream, not to the scoped act of making spirits from fermented alcohol.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/distilled-spirit",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica defines distilled spirits by distilling fermented agricultural ethanol; it does not make pottery a separate prerequisite of the beverage-spirit category.",
+    "source_claim_summary": "The source supports fermented ethanol plus distillation, not pottery as a direct spirits dependency.",
+    "source_support_rationale": "Pottery remains available upstream through fermentation and distillation histories; keeping it direct would overstate a generic container technology."
+  },
+  "ontology_before": "Distillation for Alcoholic Spirits depended directly on Pottery in addition to fermentation and distillation.",
+  "ontology_after": "Distillation for Alcoholic Spirits depends on fermentation and distillation; pottery remains upstream where those technologies require vessels.",
+  "invariant_preserved_or_changed": "Changed: pottery is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is narrowed to ceramic-still distillation specifically.",
+    "fermentation_basic and distillation_advanced lose their vessel/container ancestry.",
+    "A stronger source shows early alcoholic-spirit production was defined by a pottery-specific method."
+  ],
+  "short_reason": "Pottery is upstream vessel context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_for_alcoholic_spirits.before.json /tmp/distillation_for_alcoholic_spirits.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-04-spirit-distillation-advanced-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "distillation_for_alcoholic_spirits",
+    "prerequisite": "distillation_advanced"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Distillation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "textbook",
+    "note": "Distilled spirits are made by concentrating fermented ethanol through distillation, making advanced distillation the direct process prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/topic/distilled-spirit",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Britannica defines distilled spirits as alcoholic beverages made by distilling and concentrating ethanol from fermented grain, fruit, or vegetable bases.",
+    "source_claim_summary": "The source defines the spirit-making method as distillation that concentrates fermented ethanol.",
+    "source_support_rationale": "Because the node is scoped specifically to distilled beverages, distillation is not optional enabling context; it is the defining process."
+  },
+  "ontology_before": "Distillation for Alcoholic Spirits treated Advanced Distillation as one enabling capability among several apparatus-material prerequisites.",
+  "ontology_after": "Distillation for Alcoholic Spirits treats Advanced Distillation as the required process edge and leaves apparatus ancestry upstream.",
+  "invariant_preserved_or_changed": "Changed: distillation_advanced is tightened from enabling to required.",
+  "would_reject_if": [
+    "The node is broadened to include undistilled fermented beverages.",
+    "A stronger source shows the graph should model freeze concentration rather than true distillation for this date.",
+    "distillation_advanced is split and a narrower beverage_distillation node should replace it."
+  ],
+  "short_reason": "Distillation is the defining process for spirits.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_for_alcoholic_spirits.before.json /tmp/distillation_for_alcoholic_spirits.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
