@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-papyrus-parchment-plant-domestication-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "paper_making_papyrus_parchment",
+    "prerequisite": "plant_domestication"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Plant Domestication provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct plant_domestication edge remains because papyrus writing surfaces require identifying, harvesting, and processing papyrus stems, not evidence that papyrus had to be domesticated.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/essays/papyrus-making-in-egypt",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Metropolitan Museum essay explains papyrus manufacture through stripping the green rind from papyrus stems and cutting the pith into strips, without identifying plant domestication as a requirement.",
+    "source_claim_summary": "The source supports plant identification and material processing for papyrus sheets, not domestication of papyrus.",
+    "source_support_rationale": "Plant domestication is too strong and specific for this edge; foraging_and_botany captures the required plant knowledge without adding an unsupported agricultural claim."
+  },
+  "ontology_before": "Papyrus & Parchment Writing Surfaces directly depended on Plant Domestication, implying papyrus sheets required domesticated plant production.",
+  "ontology_after": "Papyrus & Parchment Writing Surfaces depends on foraging_and_botany for the papyrus branch and avoids claiming domestication where the source only supports harvesting and processing papyrus stems.",
+  "invariant_preserved_or_changed": "Changed: plant_domestication is no longer a direct prerequisite for paper_making_papyrus_parchment.",
+  "would_reject_if": [
+    "The node were narrowed to a later agricultural papyrus-cultivation industry rather than early papyrus writing surfaces.",
+    "A stronger source showed early papyrus sheet production depended specifically on domesticated papyrus plants.",
+    "A separate papyrus-cultivation node were added and should carry a plant_domestication prerequisite."
+  ],
+  "short_reason": "Papyrus-sheet evidence supports plant gathering and processing, not plant domestication.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/paper_making_papyrus_parchment.before.json /tmp/paper_making_papyrus_parchment.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

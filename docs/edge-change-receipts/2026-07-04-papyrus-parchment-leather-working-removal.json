@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-papyrus-parchment-leather-working-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "paper_making_papyrus_parchment",
+    "prerequisite": "leather_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Leather Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct leather_working edge remains because parchment and vellum are prepared animal-skin writing supports, not tanned leather goods; the corrected dependency is hide preparation and finishing.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.archives.gov/preservation/formats/paper-vellum.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "National Archives describes parchment manufacture as removing the skin, cleaning away hair and flesh, stretching it on a wooden frame, scraping, wetting, drying, and finishing the surface for ink.",
+    "source_claim_summary": "The source supports prepared-skin processing for writing surfaces rather than tanned leather working as the direct craft dependency.",
+    "source_support_rationale": "Leather working can be adjacent to later bound-book covers or other hide crafts, but the parchment/vellum part of this node depends on cleaned, stretched, scraped, and finished skins for writing."
+  },
+  "ontology_before": "Papyrus & Parchment Writing Surfaces directly depended on Leather Working, implying parchment was a leather-working product.",
+  "ontology_after": "Papyrus & Parchment Writing Surfaces depends on hide_processing for the parchment/vellum branch while keeping leather_working out of the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: leather_working is no longer a direct prerequisite for paper_making_papyrus_parchment.",
+  "would_reject_if": [
+    "The node were narrowed specifically to leather book covers or leather goods rather than writing surfaces.",
+    "A stronger source showed the first-known parchment/vellum writing-surface process required tanning or leather-working techniques instead of parchment preparation.",
+    "A separate leather-covered-codex node were being audited, where leather_working may remain a direct material/craft prerequisite."
+  ],
+  "short_reason": "Parchment and vellum are prepared skins for writing, not tanned leather-working products.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/paper_making_papyrus_parchment.before.json /tmp/paper_making_papyrus_parchment.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

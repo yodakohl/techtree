@@ -6480,9 +6480,9 @@
     "description": "Early forms of writing surfaces derived from plants (papyrus) or animal skins (parchment), more portable than clay tablets.",
     "prerequisites": [
       "writing",
-      "plant_domestication",
+      "foraging_and_botany",
       "animal_husbandry",
-      "leather_working"
+      "hide_processing"
     ],
     "firstKnownDate": -2900,
     "datePrecision": "century",
@@ -6510,19 +6510,32 @@
         ]
       },
       {
-        "prerequisite": "plant_domestication",
+        "prerequisite": "foraging_and_botany",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.74,
         "evidence_level": "expert_inference",
-        "note": "Plant Domestication provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "note": "Papyrus writing surfaces required identifying, harvesting, and processing papyrus plants; this is plant-material knowledge, not necessarily domestication.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Papyrus-Making in Egypt",
+            "url": "https://www.metmuseum.org/essays/papyrus-making-in-egypt",
+            "publisher": "The Metropolitan Museum of Art",
+            "year": 2015,
+            "source_type": "museum",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Met essay explains papyrus was made by stripping the green rind from papyrus stems and cutting the pith into strips, supporting plant gathering and processing rather than domestication."
+          }
+        ]
       },
       {
         "prerequisite": "animal_husbandry",
         "type": "enabling",
-        "confidence": 0.68,
+        "confidence": 0.64,
         "evidence_level": "expert_inference",
-        "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path.",
+        "note": "Parchment and vellum use calf, goat, or sheep skins, so managed livestock supplied an important material path, but papyrus did not depend on animal husbandry.",
         "reviewStatus": "source_checked",
         "sources": [
           {
@@ -6534,16 +6547,40 @@
             "supports": [
               "edge"
             ]
+          },
+          {
+            "title": "Differences between Parchment, Vellum and Paper",
+            "url": "https://www.archives.gov/preservation/formats/paper-vellum.html",
+            "publisher": "U.S. National Archives and Records Administration",
+            "year": 2016,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "National Archives explains that parchment is usually calf, goat, or sheep skin prepared for writing or printing."
           }
         ]
       },
       {
-        "prerequisite": "leather_working",
+        "prerequisite": "hide_processing",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Leather Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.76,
+        "evidence_level": "textbook",
+        "note": "Parchment and vellum depend on cleaning, stretching, scraping, and finishing animal skins for writing, which is hide processing rather than tanned leather working.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Differences between Parchment, Vellum and Paper",
+            "url": "https://www.archives.gov/preservation/formats/paper-vellum.html",
+            "publisher": "U.S. National Archives and Records Administration",
+            "year": 2016,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "National Archives describes parchment manufacture as removing skin, cleaning away hair and flesh, stretching the skin on a wooden frame, scraping, wetting, drying, and finishing the surface for ink."
+          }
+        ]
       }
     ],
     "sources": [
@@ -6557,9 +6594,21 @@
         "supports": [
           "node"
         ]
+      },
+      {
+        "title": "Differences between Parchment, Vellum and Paper",
+        "url": "https://www.archives.gov/preservation/formats/paper-vellum.html",
+        "publisher": "U.S. National Archives and Records Administration",
+        "year": 2016,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "edge"
+        ],
+        "source_locator": "National Archives defines parchment as prepared animal skin for writing or printing, explains vellum as calf-skin parchment, and distinguishes parchment/vellum from paper."
       }
     ],
-    "scopeNote": "Anchored to papyrus as the earliest plant-based writing support in this broad writing-surface node; parchment is a later animal-skin writing support within the same portability/use-family."
+    "scopeNote": "Anchored to papyrus as the earliest plant-based writing support in this broad writing-surface node; parchment is a later prepared-animal-skin writing support. The node does not imply papyrus required plant domestication or that parchment was tanned leather."
   },
   {
     "id": "pharmacopoeia",

@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-04-papyrus-parchment-writing-surfaces-scope",
+  "description": "Lock Papyrus & Parchment Writing Surfaces to plant-material papyrus preparation plus prepared animal-skin parchment/vellum, without claiming papyrus domestication or tanned leather working.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "paper_making_papyrus_parchment",
+      "prerequisite": "foraging_and_botany",
+      "expected": "enabling",
+      "reason": "Papyrus sheet manufacture requires identifying, harvesting, and processing papyrus stems, but the inspected source does not require domesticated papyrus."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "paper_making_papyrus_parchment",
+      "prerequisite": "animal_husbandry",
+      "expected": "enabling",
+      "reason": "Parchment and vellum use calf, goat, or sheep skins, so managed livestock is an enabling material path for that branch while not being required for papyrus."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "paper_making_papyrus_parchment",
+      "prerequisite": "hide_processing",
+      "expected": "enabling",
+      "reason": "Parchment/vellum production depends on cleaning, stretching, scraping, and finishing animal skins for writing."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "paper_making_papyrus_parchment",
+      "prerequisite": "plant_domestication",
+      "reason": "Papyrus-sheet evidence supports papyrus plant processing, not a direct domestication requirement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "paper_making_papyrus_parchment",
+      "prerequisite": "leather_working",
+      "reason": "Parchment and vellum are prepared writing skins, so the direct prerequisite is hide preparation rather than tanned leather working."
+    }
+  ]
+}
