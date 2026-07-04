@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-warehouse-barcode-barcodes-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "warehouse_barcode_automation",
+    "prerequisite": "barcodes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Barcodes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Barcode labels and scanners provide the automatic-identification mechanism for warehouse receiving, picking, routing, inventory, and traceability workflows."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gs1us.org/industries-and-insights/media-center/press-releases/gs1-us-celebrates-50-year-barcode-scanniversary",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "GS1 US describes the UPC barcode scan as a pivotal moment for supply-chain automation and says barcodes continue to support real-time inventory and traceability.",
+    "source_claim_summary": "The source ties barcode scanning to supply-chain automation, inventory visibility, and traceability.",
+    "source_support_rationale": "The warehouse node is specifically barcode-enabled automation, so automatic identification is the enabling mechanism rather than generic logistics context."
+  },
+  "invariant_preserved_or_changed": "Preserved: barcodes remains an enabling edge, now with review-level source support.",
+  "would_reject_if": [
+    "The node were narrowed to non-barcode warehouse automation such as RFID-only or vision-only workflows.",
+    "A stronger source showed warehouse barcode automation did not use barcode labels or scanners for inventory identification.",
+    "A future node split separated barcode scanning hardware from warehouse workflow automation."
+  ],
+  "short_reason": "Barcode scanning is the automatic-identification mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

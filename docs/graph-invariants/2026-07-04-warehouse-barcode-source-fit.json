@@ -1,0 +1,26 @@
+{
+  "id": "2026-07-04-warehouse-barcode-source-fit",
+  "description": "Lock warehouse_barcode_automation to barcode-enabled warehouse and distribution-center automation rather than broad ERP-suite prerequisites.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "warehouse_barcode_automation",
+      "prerequisite": "barcodes",
+      "expected": "enabling",
+      "reason": "Barcodes supply the automatic-identification mechanism."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "warehouse_barcode_automation",
+      "prerequisite": "supply_chain_management_software",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Supply-chain and inventory software scale scan-derived workflow data."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "warehouse_barcode_automation",
+      "prerequisite": "enterprise_resource_planning",
+      "reason": "ERP suites are broad enterprise integration context, not a direct barcode-automation mechanism."
+    }
+  ]
+}

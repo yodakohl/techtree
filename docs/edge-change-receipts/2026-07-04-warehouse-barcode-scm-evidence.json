@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-warehouse-barcode-scm-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "warehouse_barcode_automation",
+    "prerequisite": "supply_chain_management_software"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Supply Chain Management Software supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Warehouse barcode automation scales through supply-chain visibility and inventory-management software that turn scans into location, status, routing, and replenishment data."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.supplychain.gs1us.org/supply-chain-visibility",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "GS1 US describes supply-chain visibility as using data and technology for real-time production, location, and status information, and says GS1 Standards enable automated inventory processes.",
+    "source_claim_summary": "The source links supply-chain visibility technology, real-time status data, GS1 standards, and automated inventory processes.",
+    "source_support_rationale": "The edge is scaling rather than required because barcode scanning can exist locally, but warehouse-scale automation depends on software that manages scan-derived inventory and status data."
+  },
+  "invariant_preserved_or_changed": "Preserved: supply_chain_management_software remains a commercial_or_scaling_dependency with stronger source support.",
+  "would_reject_if": [
+    "The node were narrowed to standalone handheld barcode scanning with no inventory or supply-chain workflow integration.",
+    "A stronger source showed warehouse barcode automation should depend only on local database systems rather than supply-chain visibility software.",
+    "A more precise warehouse_management_systems prerequisite replaces the broader supply-chain software dependency."
+  ],
+  "short_reason": "Barcode automation scales through software-managed inventory visibility.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

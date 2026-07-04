@@ -26419,24 +26419,52 @@
     ],
     "firstKnownDate": 1983,
     "datePrecision": "decade",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The decade anchor covers early compiler and build-tool trust concerns; modern SSDF, SBOM, and EO 14028 terminology is primarily 2021-2022.",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "continuous_integration",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Continuous Integration provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Secure build, test, and deployment pipelines make CI/CD automation a key implementation surface for software supply-chain security, though the security practice also covers non-CI build workflows.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Secure Software Development Framework",
+            "url": "https://csrc.nist.gov/projects/ssdf",
+            "publisher": "NIST Computer Security Resource Center",
+            "year": 2022,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "NIST SSDF groups practices for secure software development, build artifacts, deployment, and supply-chain risk mitigation across SDLC automation."
+          }
+        ]
       },
       {
         "prerequisite": "open_source_software",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Open Source Software supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Open-source dependencies and package ecosystems are a major software-supply-chain security scope, especially for dependency governance, provenance, and third-party component controls.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Software Supply Chain Security Guidance",
+            "url": "https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-supply-chain-security-guidance",
+            "publisher": "NIST",
+            "year": 2021,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "NIST EO 14028 software supply-chain guidance includes open-source software controls and supply-chain risk practices for software producers and federal acquisition."
+          }
+        ]
       },
       {
         "prerequisite": "zero_trust_security",
@@ -26481,9 +26509,20 @@
           "node"
         ],
         "source_locator": "SSDF project page: NIST SP 800-218 defines SSDF Version 1.1 for mitigating software vulnerability and supply-chain risk."
+      },
+      {
+        "title": "Countering Trusting Trust through Diverse Double-Compiling",
+        "url": "https://arxiv.org/abs/1004.5548",
+        "publisher": "arXiv",
+        "year": 2010,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Wheeler frames the Thompson trusting-trust compiler attack as a build/toolchain trust problem and proposes diverse double-compiling to detect compiler subversion."
       }
     ],
-    "sourceCheckedDowngradeNote": "Real NIST software supply-chain security sources added, but formal 2021 SSDF/EO chronology conflicts with older cybersecurity dependency placement; keep structurally validated pending topology review."
+    "scopeNote": "Covers software dependency, build, provenance, package, and deployment-pipeline security; the early date is an antecedent anchor rather than the date of modern SSDF/SBOM terminology."
   },
   {
     "id": "vector_databases",
@@ -30621,47 +30660,54 @@
     "description": "Barcode scanners, labels, picking systems, inventory databases, handheld terminals, and routing workflows for warehouses.",
     "prerequisites": [
       "barcodes",
-      "enterprise_resource_planning",
       "supply_chain_management_software"
     ],
     "firstKnownDate": 1960,
     "datePrecision": "decade",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The date anchors 1960s barcode/AIDC logistics antecedents; UPC-scale retail and supply-chain deployment is better attested from 1974.",
     "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "barcodes",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Barcodes provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "enterprise_resource_planning",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "Barcode labels and scanners provide the automatic-identification mechanism for warehouse receiving, picking, routing, inventory, and traceability workflows.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "GS1 US Celebrates 50-Year Barcode Scanniversary",
+            "url": "https://www.gs1us.org/industries-and-insights/media-center/press-releases/gs1-us-celebrates-50-year-barcode-scanniversary",
+            "publisher": "GS1 US",
+            "year": 2024,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "GS1 US describes the UPC barcode scan as a pivotal moment for supply-chain automation and says barcodes continue to support real-time inventory and traceability."
+          }
+        ]
       },
       {
         "prerequisite": "supply_chain_management_software",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Supply Chain Management Software supports manufacturing, deployment, commercialization, or operational scaling.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Warehouse barcode automation scales through supply-chain visibility and inventory-management software that turn scans into location, status, routing, and replenishment data.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Review of Maritime Transport",
-            "url": "https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport",
-            "publisher": "UNCTAD",
+            "title": "What is Supply Chain Visibility?",
+            "url": "https://www.supplychain.gs1us.org/supply-chain-visibility",
+            "publisher": "GS1 US",
             "year": 2026,
-            "source_type": "review",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "GS1 US describes supply-chain visibility as using data and technology for real-time production, location, and status information, and says GS1 Standards enable automated inventory processes."
           }
         ]
       }
@@ -30677,9 +30723,20 @@
           "node"
         ],
         "source_locator": "GS1 US says the first UPC barcode scan occurred on June 26, 1974 and marked a pivotal moment for retail and supply-chain automation."
+      },
+      {
+        "title": "Barcode",
+        "url": "https://en.wikipedia.org/wiki/Barcode",
+        "publisher": "Wikipedia",
+        "year": 2026,
+        "source_type": "generic_overview",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "History section describes late-1960s Computer Identics barcode installations for a General Motors factory and a General Trading Company distribution center."
       }
     ],
-    "sourceCheckedDowngradeNote": "Real source added during Modern placeholder-source review; kept structurally_validated because the source supports barcode-enabled retail and supply-chain automation scope but does not fully pin the exact graph chronology and dependency topology."
+    "scopeNote": "Covers barcode-enabled warehouse and distribution-center automation workflows, not ERP suites as a mandatory prerequisite."
   },
   {
     "id": "rfid_cold_chain_monitoring",

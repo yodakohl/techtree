@@ -35,7 +35,7 @@
       </nav>
 
       <h2>Core metadata</h2>
-      <ul><li><strong>ID:</strong> software_supply_chain_security</li><li><strong>Era:</strong> Modern</li><li><strong>First known date:</strong> 1983 (decade)</li><li><strong>Region:</strong> Global / multiple regions</li><li><strong>Review status:</strong> structurally_validated</li><li><strong>Maturity:</strong> N/A</li></ul>
+      <ul><li><strong>ID:</strong> software_supply_chain_security</li><li><strong>Era:</strong> Modern</li><li><strong>First known date:</strong> 1983 (decade)</li><li><strong>Region:</strong> Global / multiple regions</li><li><strong>Review status:</strong> source_checked</li><li><strong>Maturity:</strong> N/A</li></ul>
 
       <h2>Prerequisites</h2>
       <ul><li><a href="https://pushme.site/techtree/tech/continuous_integration.html">Continuous Integration (continuous_integration)</a></li><li><a href="https://pushme.site/techtree/tech/open_source_software.html">Open Source Software (open_source_software)</a></li><li><a href="https://pushme.site/techtree/tech/zero_trust_security.html">Zero Trust Security (zero_trust_security)</a></li></ul>
@@ -49,16 +49,16 @@
       
 
       <h2>Node sources</h2>
-      <ul><li><a href="https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-supply-chain-security-guidance" target="_blank" rel="noopener noreferrer">Software Supply Chain Security Guidance</a> (NIST, 2021, official_agency) • Supports: node<br/><small>Locator: NIST guidance page for Executive Order 14028 Section 4 software supply chain security standards, tools, best practices, and guidelines.</small></li><li><a href="https://csrc.nist.gov/projects/ssdf" target="_blank" rel="noopener noreferrer">Secure Software Development Framework</a> (NIST Computer Security Resource Center, 2022, official_agency) • Supports: node<br/><small>Locator: SSDF project page: NIST SP 800-218 defines SSDF Version 1.1 for mitigating software vulnerability and supply-chain risk.</small></li></ul>
+      <ul><li><a href="https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-supply-chain-security-guidance" target="_blank" rel="noopener noreferrer">Software Supply Chain Security Guidance</a> (NIST, 2021, official_agency) • Supports: node<br/><small>Locator: NIST guidance page for Executive Order 14028 Section 4 software supply chain security standards, tools, best practices, and guidelines.</small></li><li><a href="https://csrc.nist.gov/projects/ssdf" target="_blank" rel="noopener noreferrer">Secure Software Development Framework</a> (NIST Computer Security Resource Center, 2022, official_agency) • Supports: node<br/><small>Locator: SSDF project page: NIST SP 800-218 defines SSDF Version 1.1 for mitigating software vulnerability and supply-chain risk.</small></li><li><a href="https://arxiv.org/abs/1004.5548" target="_blank" rel="noopener noreferrer">Countering Trusting Trust through Diverse Double-Compiling</a> (arXiv, 2010, primary_paper) • Supports: node<br/><small>Locator: Wheeler frames the Thompson trusting-trust compiler attack as a build/toolchain trust problem and proposes diverse double-compiling to detect compiler subversion.</small></li></ul>
 
       <h2>Prerequisite edge evidence</h2>
       
     <p><strong>Edge/source evidence summary:</strong></p>
     <ul>
       <li>Prerequisite edges: 3</li>
-      <li>Average edge confidence: 69%</li>
-      <li>Prerequisite sources: 1</li>
-      <li>expert_inference: 3</li>
+      <li>Average edge confidence: 75%</li>
+      <li>Prerequisite sources: 3</li>
+      <li>expert_inference: 1</li><li>review: 2</li>
     </ul>
 
       <table>
@@ -77,19 +77,19 @@
             <tr>
               <td><a href="https://pushme.site/techtree/tech/continuous_integration.html">Continuous Integration</a> (continuous_integration)</td>
               <td>enabling</td>
-              <td>68%</td>
-              <td>expert_inference</td>
-              <td>Continuous Integration provides a capability that enables this technology without being the only possible path.</td>
-              <td><p>No sources recorded.</p></td>
+              <td>78%</td>
+              <td>review</td>
+              <td>Secure build, test, and deployment pipelines make CI/CD automation a key implementation surface for software supply-chain security, though the security practice also covers non-CI build workflows.</td>
+              <td><ul><li><a href="https://csrc.nist.gov/projects/ssdf" target="_blank" rel="noopener noreferrer">Secure Software Development Framework</a> (NIST Computer Security Resource Center, 2022, official_agency) • Supports: edge<br/><small>Locator: NIST SSDF groups practices for secure software development, build artifacts, deployment, and supply-chain risk mitigation across SDLC automation.</small></li></ul></td>
             </tr>
 
             <tr>
               <td><a href="https://pushme.site/techtree/tech/open_source_software.html">Open Source Software</a> (open_source_software)</td>
               <td>commercial_or_scaling_dependency</td>
-              <td>72%</td>
-              <td>expert_inference</td>
-              <td>Open Source Software supports manufacturing, deployment, commercialization, or operational scaling.</td>
-              <td><p>No sources recorded.</p></td>
+              <td>78%</td>
+              <td>review</td>
+              <td>Open-source dependencies and package ecosystems are a major software-supply-chain security scope, especially for dependency governance, provenance, and third-party component controls.</td>
+              <td><ul><li><a href="https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-supply-chain-security-guidance" target="_blank" rel="noopener noreferrer">Software Supply Chain Security Guidance</a> (NIST, 2021, official_agency) • Supports: edge<br/><small>Locator: NIST EO 14028 software supply-chain guidance includes open-source software controls and supply-chain risk practices for software producers and federal acquisition.</small></li></ul></td>
             </tr>
 
             <tr>

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-warehouse-barcode-erp-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "warehouse_barcode_automation",
+    "prerequisite": "enterprise_resource_planning"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct ERP dependency remains because warehouse barcode automation is scoped to barcode-enabled identification and warehouse workflow execution, not to enterprise-wide ERP suites.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.tandfonline.com/doi/full/10.1080/13614576.2020.1742770",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The ERP review dates the ERP term to Gartner in 1990 as a new generation of MRP systems, while this warehouse node is anchored to barcode and distribution-center automation antecedents.",
+    "source_claim_summary": "ERP is a later integrated enterprise-software category, not the direct automatic-identification mechanism for warehouse barcode automation.",
+    "source_support_rationale": "Keeping ERP as an enabling prerequisite would make the warehouse barcode node depend on a broad later enterprise-planning suite instead of the directly sourced barcode and inventory-visibility mechanisms."
+  },
+  "ontology_before": "Warehouse Barcode Automation depended directly on ERP, conflating enterprise planning suites with warehouse-floor barcode identification and inventory workflows.",
+  "ontology_after": "Warehouse Barcode Automation depends on barcodes and supply-chain management software; ERP remains adjacent enterprise integration context rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: enterprise_resource_planning is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to ERP-integrated warehouse modules only.",
+    "A stronger source showed ERP suites were required for the represented first warehouse barcode automation systems.",
+    "A separate ERP warehouse-module node replaced this broader barcode-automation node."
+  ],
+  "short_reason": "ERP is broad integration context, not the barcode automation mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/warehouse_barcode_automation.before.json /tmp/warehouse_barcode_automation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

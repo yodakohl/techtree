@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-software-supply-chain-ci-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "software_supply_chain_security",
+    "prerequisite": "continuous_integration"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Continuous Integration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Secure build, test, and deployment pipelines make CI/CD automation a key implementation surface for software supply-chain security, though the security practice also covers non-CI build workflows."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://csrc.nist.gov/projects/ssdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "NIST SSDF groups practices for secure software development, build artifacts, deployment, and supply-chain risk mitigation across SDLC automation.",
+    "source_claim_summary": "The source frames software supply-chain security as secure-development and SDLC practice, including build and deployment artifacts.",
+    "source_support_rationale": "Continuous integration is modeled as enabling because it supplies the automated build/test/deployment surface that SSDF-style controls protect, without being the only possible workflow."
+  },
+  "invariant_preserved_or_changed": "Preserved: continuous_integration remains an enabling edge with review-level source support.",
+  "would_reject_if": [
+    "The node were narrowed to policy-only supply-chain governance without build or deployment-pipeline controls.",
+    "A stronger source showed CI/CD automation is irrelevant to software supply-chain security practice.",
+    "A separate secure_build_pipelines node replaced continuous_integration as the more precise prerequisite."
+  ],
+  "short_reason": "CI/CD automation is a key supply-chain security surface.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

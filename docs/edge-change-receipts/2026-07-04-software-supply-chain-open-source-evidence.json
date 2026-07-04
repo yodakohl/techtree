@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-software-supply-chain-open-source-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "software_supply_chain_security",
+    "prerequisite": "open_source_software"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Open Source Software supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Open-source dependencies and package ecosystems are a major software-supply-chain security scope, especially for dependency governance, provenance, and third-party component controls."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-supply-chain-security-guidance",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "NIST EO 14028 software supply-chain guidance includes open-source software controls and supply-chain risk practices for software producers and federal acquisition.",
+    "source_claim_summary": "The source treats open-source software controls as part of software supply-chain security guidance.",
+    "source_support_rationale": "The edge remains a scaling dependency because open-source ecosystems broaden the dependency and package-governance surface that supply-chain controls manage."
+  },
+  "invariant_preserved_or_changed": "Preserved: open_source_software remains a commercial_or_scaling_dependency with stronger source support.",
+  "would_reject_if": [
+    "The node were narrowed to proprietary-only software delivery.",
+    "A stronger source showed open-source components are out of scope for software supply-chain security.",
+    "The graph gains a more precise package_registries or dependency_management node that should replace this broad prerequisite."
+  ],
+  "short_reason": "Open-source dependencies are a central software supply-chain security scope.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
