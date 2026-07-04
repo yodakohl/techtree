@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-petroleum-refining-oil-drilling-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "petroleum_refining_fractional_distillation",
+    "prerequisite": "oil_drilling"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Oil Drilling provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "textbook",
+    "note": "Commercial petroleum refining depended on a crude-oil supply from productive oil wells, including the 1858 Ontario and 1859 Titusville wells tied to early refining chronology."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/petroleum-refining",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Britannica states that crude-petroleum refining originated with successful oil wells in Ontario in 1858 and Titusville, Pennsylvania, in 1859.",
+    "source_claim_summary": "The source links the origin of crude-petroleum refining to successful oil wells.",
+    "source_support_rationale": "Oil drilling is enabling because productive wells provide the crude-petroleum feedstock that made commercial refining a distinct industrial process."
+  },
+  "invariant_preserved_or_changed": "Preserved: oil_drilling remains an enabling edge with textbook support.",
+  "would_reject_if": [
+    "The node were narrowed to pre-oil-well coal-oil or shale-oil refining.",
+    "A stronger source showed commercial crude-petroleum refining preceded productive oil wells.",
+    "A dedicated crude_oil_supply node replaced oil_drilling as the graph prerequisite."
+  ],
+  "short_reason": "Productive oil wells supply the crude petroleum feedstock.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

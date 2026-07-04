@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-petroleum-refining-distillation-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "petroleum_refining_fractional_distillation",
+    "prerequisite": "distillation_advanced"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Distillation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "Fractional distillation is the core separation method that turns crude petroleum into boiling-range fractions such as gasoline, kerosene, diesel, and bitumen."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/video/refining-process-petroleum-components/-16663",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Britannica describes distillation as the refining process used to separate petroleum into gasoline, kerosene, diesel fuel, bitumen, and other products.",
+    "source_claim_summary": "The source presents distillation as the method that separates petroleum into useful product fractions.",
+    "source_support_rationale": "This supports an enabling edge because petroleum refining's defining operation is adapted industrial distillation rather than a generic chemical context."
+  },
+  "invariant_preserved_or_changed": "Preserved: distillation_advanced remains an enabling edge with textbook support.",
+  "would_reject_if": [
+    "The node were narrowed to cracking, reforming, or hydrotreating rather than fractional distillation.",
+    "A stronger source showed early petroleum refining did not depend on distillation practice.",
+    "A more precise fractional_distillation node replaced distillation_advanced as the prerequisite."
+  ],
+  "short_reason": "Distillation is the core petroleum-separation method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

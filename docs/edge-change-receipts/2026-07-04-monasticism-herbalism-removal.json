@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-monasticism-herbalism-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "monasticism_and_scriptoria",
+    "prerequisite": "herbalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbalism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct herbalism prerequisite remains because this node is scoped to monastic communities and manuscript-preserving scriptoria, while herbal medicine belongs in downstream hospital, infirmary, and early-medicine nodes.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Scriptorium",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The entry defines a scriptorium as a medieval monastic writing room for copying and illuminating manuscripts, with discussion centered on book production and manuscript preservation rather than herbal medicine.",
+    "source_claim_summary": "The source supports a manuscript-copying scope for scriptoria and does not support herbalism as a direct prerequisite.",
+    "source_support_rationale": "Herbal practice may be part of some monastic medical activity, but keeping it direct launders infirmary and hospital context into the scriptoria/book-preservation node."
+  },
+  "ontology_before": "Monasticism and Scriptoria depended directly on Herbalism, making medicinal practice part of the prerequisite set for manuscript-preserving monastic institutions.",
+  "ontology_after": "Monasticism and Scriptoria depends on writing, codex book form, philosophy, and agriculture; herbalism remains available for medical descendants rather than this manuscript-production scope.",
+  "invariant_preserved_or_changed": "Changed: herbalism is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node were rescoped to monastic infirmaries and herb gardens rather than scriptoria.",
+    "A stronger source showed herbal medical practice was required for the represented monastic/scriptoria institution.",
+    "Downstream hospital nodes lost their direct medical-practice prerequisites."
+  ],
+  "short_reason": "Herbalism is medical context, not a scriptoria prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/monasticism_and_scriptoria.before.json /tmp/monasticism_and_scriptoria.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

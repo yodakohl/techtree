@@ -1,0 +1,19 @@
+{
+  "id": "2026-07-04-monasticism-scriptoria-source-fit",
+  "description": "Lock monasticism_and_scriptoria to monastic manuscript preservation and scriptoria rather than medical herbal-practice context.",
+  "checks": [
+    {
+      "type": "edge_type",
+      "dependent": "monasticism_and_scriptoria",
+      "prerequisite": "codex_early_book_form",
+      "expected": "historical_predecessor",
+      "reason": "Codex is the earlier bound-manuscript book form copied in scriptoria."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "monasticism_and_scriptoria",
+      "prerequisite": "herbalism",
+      "reason": "Herbalism is medical/infirmary context rather than a prerequisite for scriptoria and manuscript preservation."
+    }
+  ]
+}

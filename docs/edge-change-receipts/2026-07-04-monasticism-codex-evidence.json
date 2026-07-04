@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-monasticism-codex-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "monasticism_and_scriptoria",
+    "prerequisite": "codex_early_book_form"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Codex (Early Book Form) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "The codex book form is the earlier bound-manuscript format that medieval monastic scriptoria copied, preserved, and illuminated."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://oxfordre.com/literature/view/10.1093/acrefore/9780190201098.001.0001/acrefore-9780190201098-e-1021",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The article defines the codex as a folded book form in pre-print manuscript culture and treats its transition from ancient scroll technology.",
+    "source_claim_summary": "The source identifies codex as the bound book form of manuscript culture that precedes medieval scriptoria.",
+    "source_support_rationale": "Scriptoria copied and preserved manuscripts; the corrected edge keeps codex as historical book-form lineage, not as a religious or agricultural cause of monasticism."
+  },
+  "invariant_preserved_or_changed": "Preserved: codex_early_book_form remains a historical_predecessor edge with review-level source support.",
+  "would_reject_if": [
+    "The node were narrowed to monastic community organization without manuscript copying.",
+    "A stronger source showed medieval scriptoria primarily copied scrolls rather than codices.",
+    "A separate manuscript_culture node replaced codex_early_book_form as the better predecessor."
+  ],
+  "short_reason": "Codex is the manuscript book-form lineage for scriptoria.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
