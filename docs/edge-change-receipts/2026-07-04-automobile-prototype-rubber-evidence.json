@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-automobile-prototype-rubber-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "automobile_prototype",
+    "prerequisite": "vulcanized_rubber"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Vulcanized Rubber provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Durable rubber tire and belt materials supported practical road operation for Benz-style motor vehicles, but they were enabling components rather than the date-defining invention."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The development/specifications section describes steel-spoked wheels with solid rubber tires and a simple belt system serving as a single-speed transmission.",
+    "source_claim_summary": "The source identifies solid rubber tires and belt transmission as components of the Benz Patent-Motorwagen.",
+    "source_support_rationale": "Those components support keeping vulcanized rubber as an enabling material edge while preventing it from being read as the core invention of the gas-engine vehicle."
+  },
+  "invariant_preserved_or_changed": "Preserved: automobile_prototype remains enabled by vulcanized_rubber, now with component evidence.",
+  "would_reject_if": [
+    "The automobile_prototype node were narrowed to a rubber-free internal-combustion demonstration rig.",
+    "A stronger source showed the early Benz road vehicle did not use any rubber tire or belt materials.",
+    "The vulcanized_rubber node were narrowed away from durable rubber components used in tires and belts."
+  ],
+  "short_reason": "Benz-style prototypes used rubber tires and belt materials as enabling components.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

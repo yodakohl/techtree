@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-04-transoceanic-news-stock-ticker-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "transoceanic_news_agencies",
+    "prerequisite": "stock_ticker_systems"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Stock Ticker Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Stock ticker systems are parallel financial-information terminals and clients, not a prerequisite for news agencies that existed before ticker systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/topic/news-agency",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica's history section places Havas in 1835, AP in 1846, Wolff in 1849, and Reuters in 1851, with agencies serving newspapers through telegraphed text.",
+    "source_claim_summary": "The source establishes newspaper and telegraph-based news agencies before stock ticker systems became available.",
+    "source_support_rationale": "This refutes the stock-ticker prerequisite because ticker systems are later financial terminals, while the agency model already existed around newspapers and telegraph services."
+  },
+  "ontology_before": "The node implied that stock ticker systems enabled transoceanic news agencies.",
+  "ontology_after": "The node is scoped to newspaper-facing wire agencies over telegraph and cable networks, with stock tickers excluded as parallel financial display systems.",
+  "invariant_preserved_or_changed": "Changed: transoceanic_news_agencies no longer directly depends on stock_ticker_systems.",
+  "would_reject_if": [
+    "The node were narrowed to financial quote-wire terminal services rather than news agencies.",
+    "A stronger source showed stock ticker systems were a prerequisite for Reuters/Havas/AP-style agency operation.",
+    "Stock ticker systems were rescoped to mean all telegraphed financial news rather than ticker display infrastructure."
+  ],
+  "short_reason": "News agencies predate stock tickers and did not require ticker terminals.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/transoceanic_news_agencies.before.json /tmp/transoceanic_news_agencies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

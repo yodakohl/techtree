@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-automobile-prototype-bicycle-evidence",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "automobile_prototype",
+    "prerequisite": "bicycle"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bicycle provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "textbook",
+    "note": "Bicycle-derived lightweight vehicle practice, especially wire-spoked wheels and chain/belt drive layouts, helped enable Benz-style motor-vehicle prototypes without making bicycles the sole path."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://en.wikipedia.org/wiki/Carl_Benz",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Benz and Cie. / Patent-Motorwagen section says Benz used similar technology from his bicycle experience, including wire wheels and chain/drive arrangements.",
+    "source_claim_summary": "The source links Benz's automobile design to bicycle experience and identifies wire wheels plus chain/drive features.",
+    "source_support_rationale": "This supports an enabling edge only for lightweight wheel and drive practice, not for the full bicycle as a required precursor to every automobile path."
+  },
+  "invariant_preserved_or_changed": "Preserved: automobile_prototype keeps bicycle as an enabling edge with a narrowed component rationale.",
+  "would_reject_if": [
+    "The automobile_prototype node were narrowed away from Benz-style lightweight three-wheeled prototypes.",
+    "A stronger source showed Benz's wheel and drive choices had no bicycle-derived design relationship.",
+    "A future graph split added a more precise wire-spoked-wheel or lightweight-chain-drive node."
+  ],
+  "short_reason": "Bicycle-derived wheel and drive practice supports the prototype edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

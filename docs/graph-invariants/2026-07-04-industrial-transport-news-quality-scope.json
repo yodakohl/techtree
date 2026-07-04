@@ -1,0 +1,71 @@
+{
+  "id": "2026-07-04-industrial-transport-news-quality-scope",
+  "description": "Lock the July 4 industrial batch to Benz prototype component evidence and newspaper/cable-scoped transoceanic news agencies.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "automobile_prototype",
+      "operator": "eq",
+      "value": 1886,
+      "reason": "The prototype node is anchored to Benz's January 29, 1886 gas-engine vehicle patent."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "automobile_prototype",
+      "prerequisite": "vulcanized_rubber",
+      "reason": "Rubber tire and belt materials remain enabling component capabilities for Benz-style prototypes."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "automobile_prototype",
+      "prerequisite": "vulcanized_rubber",
+      "expected": "enabling",
+      "reason": "Rubber components support practical road operation but are not the date-defining invention."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "automobile_prototype",
+      "prerequisite": "bicycle",
+      "reason": "Bicycle-derived lightweight wheel and drive practice remains the local rationale for this broader prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "automobile_prototype",
+      "prerequisite": "bicycle",
+      "expected": "enabling",
+      "reason": "Bicycle practice is an enabling design influence, not a required precursor for all automobile development."
+    },
+    {
+      "type": "first_known_date",
+      "node": "transoceanic_news_agencies",
+      "operator": "eq",
+      "value": 1866,
+      "reason": "The node is anchored to cable-enabled transoceanic agency operation after commercially viable Atlantic cable service."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "transoceanic_news_agencies",
+      "prerequisite": "mass_media_newspapers",
+      "reason": "Newspapers remain the source-backed subscriber and distribution market for early wire agencies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "transoceanic_news_agencies",
+      "prerequisite": "mass_media_newspapers",
+      "expected": "enabling",
+      "reason": "Newspapers enabled the agency market but were not a single required technical component."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "transoceanic_news_agencies",
+      "prerequisite": "telegraph_cables_transoceanic",
+      "reason": "Transoceanic cable networks remain the differentiating communication infrastructure."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "transoceanic_news_agencies",
+      "prerequisite": "stock_ticker_systems",
+      "reason": "Stock ticker terminals should not return as a prerequisite for newspaper-facing news agencies."
+    }
+  ]
+}
