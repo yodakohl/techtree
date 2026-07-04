@@ -1,0 +1,32 @@
+{
+  "id": "2026-07-04-electric-fans-source-fit",
+  "description": "Lock electric_fans to motor-driven fan devices and remove broad category/regulatory prerequisites.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "electric_fans",
+      "operator": "eq",
+      "value": 1886,
+      "reason": "The date remains anchored to Edison Tech Center and ETHW's 1886 Wheeler electric-fan chronology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electric_fans",
+      "prerequisite": "electric_motor",
+      "expected": "required",
+      "reason": "A motor remains required because the node is scoped to motor-driven fans."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_fans",
+      "prerequisite": "electrical_appliances_early",
+      "reason": "Early electrical appliances are a broad category that includes electric fans, not a separate predecessor."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_fans",
+      "prerequisite": "industrial_safety_regulation",
+      "reason": "Industrial safety regulation is possible guarding or deployment context, not a source-backed prerequisite for electric fans."
+    }
+  ]
+}

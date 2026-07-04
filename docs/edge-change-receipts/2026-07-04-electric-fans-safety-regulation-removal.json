@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-electric-fans-safety-regulation-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electric_fans",
+    "prerequisite": "industrial_safety_regulation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because safety regulation may affect later guarding and workplace deployment, but it is not the source-backed mechanism for inventing or operating motor-driven fans.",
+  "source_supports_edge": "no",
+  "source_url": "https://edisontechcenter.org/Fan.html",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Motor Size and History sections describe early fans as heavy motor-driven devices and note cages protected expensive blades rather than tying the invention to safety regulation.",
+    "source_claim_summary": "The source grounds electric fan development in motor and blade design, while treating guards as design details rather than regulatory prerequisites.",
+    "source_support_rationale": "Industrial safety regulation belongs to later deployment or guarding context; the cited development path does not require it as an enabling technology edge."
+  },
+  "ontology_before": "Electric Fans depended on Industrial Safety Regulation, implying workplace safety rules enabled the fan device.",
+  "ontology_after": "Electric Fans depends on Electric Motor; safety regulation is treated as possible later deployment or guarding context.",
+  "invariant_preserved_or_changed": "Changed: electric_fans no longer directly depends on industrial_safety_regulation.",
+  "would_reject_if": [
+    "The node is later narrowed to guarded industrial ventilation fans required by workplace safety law.",
+    "A stronger source shows safety regulation directly created the early electric fan category.",
+    "A separate industrial_fan_guarding_standards node is added and explicitly scoped to safety-regulated fan deployment."
+  ],
+  "short_reason": "Safety regulation is deployment context, not a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

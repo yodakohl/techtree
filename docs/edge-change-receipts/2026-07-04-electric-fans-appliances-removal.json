@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-electric-fans-appliances-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electric_fans",
+    "prerequisite": "electrical_appliances_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Electrical Appliances is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct dependency remains because electric fans are themselves an early appliance category, while the source-backed mechanism is the electric motor driving fan blades.",
+  "source_supports_edge": "no",
+  "source_url": "https://edisontechcenter.org/Fan.html",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "History and motor sections identify Schuyler Wheeler's 1886 fan and explain that a DC or AC motor drives the rotating fan shaft.",
+    "source_claim_summary": "The source explains electric fans through motor-driven blades and early fan designs, not through a prior broad electrical-appliance category.",
+    "source_support_rationale": "Because electrical appliances are a taxonomy that includes electric fans, keeping that category as a predecessor launders classification context into a causal edge."
+  },
+  "ontology_before": "Electric Fans depended on Early Electrical Appliances, implying the broad appliance category historically preceded the motor-driven fan device.",
+  "ontology_after": "Electric Fans depends on Electric Motor; early appliances remain a neighboring category rather than a prerequisite.",
+  "invariant_preserved_or_changed": "Changed: electric_fans no longer directly depends on electrical_appliances_early.",
+  "would_reject_if": [
+    "The node is later narrowed to mass-market household fan adoption after appliance markets were already established.",
+    "A stronger source shows electric fans were developed from a specific prior appliance platform rather than from motor-driven fan design.",
+    "A separate electrical_appliance_marketplaces node is added and explicitly scopes commercialization rather than invention."
+  ],
+  "short_reason": "Early appliances are a category, not the causal predecessor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
