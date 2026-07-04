@@ -1,0 +1,33 @@
+{
+  "id": "2026-07-04-glass-blowing-workshops-scope",
+  "description": "Lock Glass-Blowing Workshops to Roman workshop-scale glass production enabled by blown-glass technique and general glassmaking, without requiring formal collegia.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "glass_blowing_workshops",
+      "operator": "eq",
+      "value": 1,
+      "reason": "The launch-quality scope is first-century CE Roman workshop production, not the earlier invention of free blowing."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "glass_blowing_workshops",
+      "prerequisite": "blown_glass",
+      "expected": "enabling",
+      "reason": "The node is defined by workshop use of free-blown and mold-blown forming techniques."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "glass_blowing_workshops",
+      "prerequisite": "glassmaking",
+      "expected": "enabling",
+      "reason": "Workshop-scale blown vessels still require the broader glassmaking material and furnace base."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "glass_blowing_workshops",
+      "prerequisite": "trade_guilds_collegia",
+      "reason": "The inspected sources support skilled craftsmen and workshops but not formal collegia as a direct prerequisite."
+    }
+  ]
+}

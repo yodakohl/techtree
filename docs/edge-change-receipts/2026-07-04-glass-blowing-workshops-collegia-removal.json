@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-04-glass-blowing-workshops-collegia-removal",
+  "decision_date": "2026-07-04",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "glass_blowing_workshops",
+    "prerequisite": "trade_guilds_collegia"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trade Guilds (Collegia) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct trade_guilds_collegia edge remains because the inspected workshop sources support skilled craftsmen and Roman glass-blowing production, not formal collegia as a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/essays/roman-glass",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Metropolitan Museum essay anchors the scope in Rome's first-century glass industry, skilled craftsmen, workshops in Rome, and glassblowing's production impact, without identifying formal collegia as a required institution.",
+    "source_claim_summary": "The source supports workshop-scale glass production by skilled craftsmen but does not make guild or collegium organization a direct prerequisite.",
+    "source_support_rationale": "Formal collegia may be relevant to some Roman crafts, but the launch-quality glass-blowing workshop node is pinned to technique and glass-production capacity rather than guild governance."
+  },
+  "ontology_before": "Glass-Blowing Workshops depended directly on Trade Guilds (Collegia), implying formal Roman craft associations were required for the production node.",
+  "ontology_after": "Glass-Blowing Workshops depends on blown-glass technique and broader glassmaking; formal collegia are excluded from the direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: trade_guilds_collegia is no longer a direct prerequisite for glass_blowing_workshops.",
+  "would_reject_if": [
+    "The node were rescoped to formal glassworkers' collegia rather than workshop-scale glass production.",
+    "A strong source showed the first-century Roman glass-blowing workshops depended specifically on a documented collegium.",
+    "A separate node for Roman glassworker guild organization were added, where trade_guilds_collegia would be the central institution."
+  ],
+  "short_reason": "The workshop evidence is technical and production-scale, not a formal collegia dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/glass_blowing_workshops.before.json /tmp/glass_blowing_workshops.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
