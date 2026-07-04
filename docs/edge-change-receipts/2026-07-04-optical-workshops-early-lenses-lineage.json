@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-04-optical-workshops-early-lenses-lineage",
+  "decision_date": "2026-07-04",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "optical_workshops",
+    "prerequisite": "glass_lenses_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Glass Lenses is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.76,
+    "evidence_level": "textbook",
+    "note": "Earlier glass, crystal, and reading-stone lens traditions supplied the optical-material lineage for spectacle lenses and workshop lens grinding, without forming a one-to-one production dependency."
+  },
+  "source_supports_edge": "partial",
+  "source_url": "https://books.google.com/books?isbn=9780871692597",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Background and early-spectacle chapters discuss medieval reading stones, corrective lenses, and the transition from lens use to spectacle manufacture and lens-grinding industries.",
+    "source_claim_summary": "The source traces the transition from earlier lens and reading-stone uses into spectacle lenses and later organized optical production.",
+    "source_support_rationale": "This supports early glass and crystal lenses as historical lineage for workshop lens grinding while preserving the edge as predecessor rather than a hard production dependency."
+  },
+  "invariant_preserved_or_changed": "Preserved: optical_workshops keeps glass_lenses_early as a historical predecessor with a narrowed lens-material lineage rationale.",
+  "would_reject_if": [
+    "The node is narrowed to administrative spectacle shops with no lens-grinding or lens-material scope.",
+    "A stronger source shows early lens and reading-stone traditions were unrelated to medieval spectacle lens production.",
+    "The graph splits reading_stones and corrective_lenses into separate nodes that should replace the broad early-lenses predecessor."
+  ],
+  "short_reason": "Earlier lenses provide lineage for workshop lens grinding.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "2026-07-04-optical-workshops-source-fit",
+  "description": "Lock optical_workshops to medieval spectacle and lens-grinding craft networks without changing topology.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "optical_workshops",
+      "operator": "eq",
+      "value": 1200,
+      "reason": "The node remains anchored to thirteenth-century northern Italian spectacle making."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "optical_workshops",
+      "prerequisite": "spectacles_eyeglasses",
+      "expected": "enabling",
+      "reason": "Spectacle making remains the source-backed craft and demand context for workshops."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "optical_workshops",
+      "prerequisite": "glass_lenses_early",
+      "expected": "historical_predecessor",
+      "reason": "Earlier lenses remain lineage evidence rather than a strict production dependency."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "optical_workshops",
+      "prerequisite": "guilds",
+      "expected": "enabling",
+      "reason": "Guilds remain enabling craft-organization context and are not revised by this source batch."
+    }
+  ]
+}
