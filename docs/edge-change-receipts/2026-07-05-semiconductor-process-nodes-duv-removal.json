@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-semiconductor-process-nodes-duv-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "semiconductor_process_nodes",
+    "prerequisite": "duv_stepper_lithography"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "DUV Stepper Lithography provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct DUV dependency remains because the process-node node is anchored to 1979 VLSI-era design-rule generations, while the DUV excimer-lithography evidence begins in 1982.",
+  "source_supports_edge": "no",
+  "source_url": "https://ieeexplore.ieee.org/document/1482581/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The 1982 IEEE Electron Device Letters paper reports deep-ultraviolet lithography using excimer lasers for semiconductor patterning.",
+    "source_claim_summary": "The primary paper anchors DUV excimer-laser lithography after the process-node node's 1979 VLSI-era date.",
+    "source_support_rationale": "A later lithography specialization can scale later process generations, but it should not be modeled as a direct prerequisite for a node whose chronology begins before the DUV milestone."
+  },
+  "ontology_before": "Semiconductor Process Nodes depended directly on DUV Stepper Lithography, implying DUV was an enabling input to the 1979 process-node anchor.",
+  "ontology_after": "Semiconductor Process Nodes remains anchored to VLSI design-rule context and CMP-enabled manufacturing; DUV remains a later lithography specialization feeding EUV.",
+  "invariant_preserved_or_changed": "Changed: duv_stepper_lithography is no longer a direct prerequisite for semiconductor_process_nodes.",
+  "would_reject_if": [
+    "The process-node node were narrowed to post-1982 DUV-scaled nodes rather than VLSI-era process generations.",
+    "A stronger source showed DUV stepper lithography was deployed before the 1979 process-node anchor.",
+    "The remaining VLSI design prerequisite were removed and left the process-node node without its design-rule chronology anchor."
+  ],
+  "short_reason": "DUV lithography is later scaling technology, not the 1979 process-node anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/semiconductor_process_nodes.before.json /tmp/semiconductor_process_nodes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

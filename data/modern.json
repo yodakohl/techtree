@@ -26327,10 +26327,12 @@
       "software_engineering",
       "public_key_infrastructure"
     ],
-    "firstKnownDate": 1989,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 2005,
+    "datePrecision": "exact",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "Anchored to the early documented web-API ecosystem around ProgrammableWeb in 2005; API-economy terminology and platform-business practices matured later.",
+    "region": "Web API ecosystems / ProgrammableWeb and global platform businesses",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "world_wide_web",
@@ -26395,17 +26397,28 @@
     ],
     "sources": [
       {
-        "title": "API economy",
-        "url": "https://en.wikipedia.org/wiki/API_economy",
+        "title": "Identification of Practices and Capabilities in API Management: A Systematic Literature Review",
+        "url": "https://arxiv.org/abs/2006.10481",
+        "publisher": "arXiv",
+        "year": 2020,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The review frames API management around publishing, documenting, monitoring, and monetizing APIs across organizational boundaries."
+      },
+      {
+        "title": "Web API",
+        "url": "https://en.wikipedia.org/wiki/Web_API",
         "publisher": "Wikipedia",
         "year": 2026,
         "source_type": "generic_overview",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Growth-and-impact section: ProgrammableWeb tracked 105 web APIs in 2005 and over 24,000 in 2022."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    ]
   },
   {
     "id": "software_supply_chain_security",
@@ -29813,8 +29826,7 @@
     "description": "Online payment systems connecting merchants, banks, card networks, fraud checks, identity, settlement, and e-commerce workflows.",
     "prerequisites": [
       "e_commerce_platforms",
-      "digital_identity_systems",
-      "api_economy"
+      "digital_identity_systems"
     ],
     "fields": [
       "Finance & Markets"
@@ -29822,10 +29834,10 @@
     "fieldLanes": {
       "Finance & Markets": "Financial Computing"
     },
-    "firstKnownDate": 1989,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1996,
+    "datePrecision": "exact",
+    "region": "United States / CyberSource and early e-commerce payment processing",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "e_commerce_platforms",
@@ -29866,41 +29878,21 @@
             "year": 2026
           }
         ]
-      },
-      {
-        "prerequisite": "api_economy",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "API Economy provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Application programming interface",
-            "url": "https://en.wikipedia.org/wiki/Application_programming_interface",
-            "source_type": "generic_overview",
-            "supports": [
-              "edge"
-            ],
-            "publisher": "Wikipedia",
-            "year": 2026
-          }
-        ]
       }
     ],
     "sources": [
       {
-        "title": "Payment service provider",
-        "url": "https://en.wikipedia.org/wiki/Payment_service_provider",
-        "publisher": "Wikipedia",
-        "year": 2026,
-        "source_type": "generic_overview",
+        "title": "CyberSource Corporation 2008 Definitive Proxy Statement",
+        "url": "https://www.sec.gov/Archives/edgar/data/934280/000120677408000758/cybersource_nps.htm",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "year": 2008,
+        "source_type": "official_agency",
         "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Director biography section: CyberSource was founded in 1994, built payment-processing capability for software.net, and created a focused payment-processing business in 1996."
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    ]
   },
   {
     "id": "autonomous_vehicle_stack",
@@ -35559,21 +35551,33 @@
     "maturity": "established",
     "sources": [
       {
+        "title": "Ultrafast Deep UV Lithography with Excimer Lasers",
+        "url": "https://ieeexplore.ieee.org/document/1482581/",
+        "publisher": "IEEE Electron Device Letters",
+        "year": 1982,
+        "source_type": "primary_paper",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The 1982 paper reports deep-ultraviolet lithography using excimer lasers for semiconductor patterning."
+      },
+      {
         "title": "Light and Lasers: Lithography Principles",
         "url": "https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers",
         "publisher": "ASML",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "ASML explains that DUV lithography uses 248 nm KrF and 193 nm ArF excimer-laser light sources for chip patterning."
       }
     ],
-    "firstKnownDate": 1960,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
-    "reviewStatus": "structurally_validated",
+    "firstKnownDate": 1982,
+    "datePrecision": "exact",
+    "region": "IBM and semiconductor lithography research; later global semiconductor fabs",
+    "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "photolithography",
@@ -35588,10 +35592,11 @@
             "url": "https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers",
             "publisher": "ASML",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "ASML describes lithography as projecting light through a pattern to print chip features on wafers."
           }
         ]
       },
@@ -35608,10 +35613,11 @@
             "url": "https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers",
             "publisher": "ASML",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "ASML identifies DUV systems with excimer-laser light sources, tying laser technology to the DUV exposure method."
           }
         ]
       },
@@ -35628,15 +35634,15 @@
             "url": "https://www.asml.com/en/en/technology/lithography-principles/light-and-lasers",
             "publisher": "ASML",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "ASML's lithography description covers projecting a circuit pattern through mask optics onto photoresist-coated wafers."
           }
         ]
       }
-    ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because current node evidence is only weak_web or generic_overview; source supports provisional discovery but not a source-checked trust claim."
+    ]
   },
   {
     "id": "euv_lithography",
@@ -36460,7 +36466,6 @@
     "description": "Generations of semiconductor manufacturing defined by device architecture, density, lithography, interconnect, and process design rules.",
     "prerequisites": [
       "vlsi_design",
-      "duv_stepper_lithography",
       "chemical_mechanical_planarization"
     ],
     "fields": [
@@ -36487,11 +36492,12 @@
         "url": "https://www.asml.com/en/en/products/euv-lithography-systems",
         "publisher": "ASML",
         "year": 2026,
-        "source_type": "generic_overview",
+        "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "ASML describes EUV lithography as a later leading-edge system for printing the most intricate chip layers."
       }
     ],
     "firstKnownDate": 1979,
@@ -36512,28 +36518,6 @@
             "url": "https://www.computerhistory.org/revolution/digital-logic/12/287/1613",
             "publisher": "Computer History Museum",
             "year": 1979,
-            "source_type": "museum",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "duv_stepper_lithography",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "DUV Stepper Lithography provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The Silicon Engine",
-            "url": "https://www.computerhistory.org/siliconengine/",
-            "publisher": "Computer History Museum",
-            "year": 2007,
             "source_type": "museum",
             "supports": [
               "node",

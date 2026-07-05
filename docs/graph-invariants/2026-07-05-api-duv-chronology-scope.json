@@ -1,0 +1,18 @@
+{
+  "id": "2026-07-05-api-duv-chronology-scope",
+  "description": "Keep later platform and lithography ecosystem nodes from returning as direct prerequisites for earlier payment and process-node anchors.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_payment_gateways",
+      "prerequisite": "api_economy",
+      "reason": "Mid-1990s online payment processing predates the web-API economy anchor, so API Economy should not be a direct prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "semiconductor_process_nodes",
+      "prerequisite": "duv_stepper_lithography",
+      "reason": "The process-node node is anchored to 1979 VLSI-era design-rule generations; 1982 DUV excimer lithography is later scaling context."
+    }
+  ]
+}

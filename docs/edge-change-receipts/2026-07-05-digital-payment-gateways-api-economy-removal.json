@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-digital-payment-gateways-api-economy-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "digital_payment_gateways",
+    "prerequisite": "api_economy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "API Economy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct API-economy dependency remains because mid-1990s online payment processing predates the documented web-API ecosystem/API-economy anchor and is better modeled from e-commerce and digital identity infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sec.gov/Archives/edgar/data/934280/000120677408000758/cybersource_nps.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Director biography section: CyberSource was founded in 1994, built payment-processing capability for software.net, and created a focused payment-processing business in 1996.",
+    "source_claim_summary": "The SEC-hosted CyberSource proxy anchors online payment processing to the mid-1990s, before the API-economy node's web-API ecosystem date.",
+    "source_support_rationale": "Because the source supports payment-gateway chronology without requiring an API-economy ecosystem, the API edge would make a later platform concept a prerequisite for an earlier payment-processing business."
+  },
+  "ontology_before": "Digital Payment Gateways depended directly on API Economy, implying the payment-gateway node required a later web-API business ecosystem.",
+  "ontology_after": "Digital Payment Gateways remains anchored to e-commerce platforms and digital identity/security infrastructure; API Economy remains a later platform-business ecosystem node.",
+  "invariant_preserved_or_changed": "Changed: api_economy is no longer a direct prerequisite for digital_payment_gateways.",
+  "would_reject_if": [
+    "The payment-gateway node were narrowed to modern API-first payment platforms rather than mid-1990s online payment processing.",
+    "A stronger source showed that CyberSource-style payment processing depended on an already mature API economy in 1996.",
+    "The API Economy node were rescoped back to generic software APIs rather than web-API business ecosystems."
+  ],
+  "short_reason": "Payment gateways predate the API-economy ecosystem anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/digital_payment_gateways.before.json /tmp/digital_payment_gateways.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
