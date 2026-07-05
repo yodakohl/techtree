@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-gold-silver-prospecting-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "gold_and_silver_working",
+    "prerequisite": "prospecting"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Prospecting was treated as an enabling capability for precious-metal working without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct prospecting dependency remains because the source-backed node represents known precious-metal working, not a separate search-and-discovery practice as a required prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/s10963-021-09155-7",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and introduction: the review dates and contextualizes early gold and silver metallurgy but does not identify prospecting as a direct prerequisite.",
+    "source_claim_summary": "The source supports a chronology and regional context for early gold and silver working.",
+    "source_support_rationale": "Prospecting is discovery and resource-search context; retaining it direct would make a broad upstream activity part of the node's mechanism."
+  },
+  "ontology_before": "Gold and Silver Working depended directly on Prospecting, implying formal prospecting was required for the earliest scoped precious-metal work.",
+  "ontology_after": "Gold and Silver Working keeps its source-backed chronology and no longer directly requires a separate prospecting node.",
+  "invariant_preserved_or_changed": "Changed: prospecting is no longer a direct prerequisite for gold_and_silver_working.",
+  "would_reject_if": [
+    "The node were rescoped to organized ore-discovery systems rather than precious-metal working.",
+    "A stronger source showed prospecting directly enabled the early Balkan and Aegean gold or silver evidence.",
+    "A later mining-specific precious-metal node replaced this native precious-metal-working scope."
+  ],
+  "short_reason": "Prospecting is broad resource-search context, not the direct working mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gold_and_silver_working.before.json /tmp/gold_and_silver_working.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-naval-logbooks-mercator-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "naval_logbooks",
+    "prerequisite": "cartography_mercator_projection"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mercator-projection cartography was treated as an enabling capability for naval logbooks without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct Mercator-projection dependency remains because a ship logbook is a record-keeping artifact for course, weather, position, and events, not a map-projection technology.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Logbook_(nautical)",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nautical logbook overview: the article describes logbooks as records of navigation and ship operation, without making the Mercator projection a direct prerequisite.",
+    "source_claim_summary": "The source supports the logbook as a written navigational and operational record kept aboard ships.",
+    "source_support_rationale": "Mercator maps are navigation context; the logbook's direct prerequisite is durable writing material and record practice, not a specific projection."
+  },
+  "ontology_before": "Naval Logbooks depended directly on Cartography (Mercator Projection), tying logbook record-keeping to a specific map projection.",
+  "ontology_after": "Naval Logbooks keeps Paper Making as the direct material prerequisite and removes the map-projection edge.",
+  "invariant_preserved_or_changed": "Changed: cartography_mercator_projection is no longer a direct prerequisite for naval_logbooks.",
+  "would_reject_if": [
+    "The node were rescoped to Mercator-chart navigation rather than shipboard records.",
+    "A stronger source showed the first scoped naval logbooks directly required Mercator projection charts.",
+    "Paper-making were removed and the node needed a different source-backed record-medium prerequisite."
+  ],
+  "short_reason": "Mercator projection is navigation context, not the logbook record medium.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/naval_logbooks.before.json /tmp/naval_logbooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-gold-silver-casting-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "gold_and_silver_working",
+    "prerequisite": "casting_and_molding"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Casting and molding was treated as an enabling capability for precious-metal working without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct casting-and-molding dependency remains because the node is scoped to native gold and silver working, including ornaments and value storage, not to cast-metal production as the required mechanism.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/s10963-021-09155-7",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and introduction: the review places gold and silver evidence within early Balkan metallurgy and dates early gold and silver, without making casting and molding a direct prerequisite.",
+    "source_claim_summary": "The source supports early precious-metal working in Balkan and Aegean contexts, including gold and silver chronology.",
+    "source_support_rationale": "Casting and molding is a neighboring metalworking process; keeping it direct would overstate the mechanism for native gold and silver working."
+  },
+  "ontology_before": "Gold and Silver Working depended directly on Casting and Molding, implying cast-metal production was required for the scoped precious-metal node.",
+  "ontology_after": "Gold and Silver Working stands as a source-backed precious-metal-working node without a direct casting-and-molding prerequisite.",
+  "invariant_preserved_or_changed": "Changed: casting_and_molding is no longer a direct prerequisite for gold_and_silver_working.",
+  "would_reject_if": [
+    "The node were narrowed to cast precious-metal object production rather than native precious-metal working.",
+    "A stronger source showed casting and molding directly enabled the earliest scoped gold and silver evidence.",
+    "A new dependent needed gold_and_silver_working to imply casting technology rather than precious-metal material use."
+  ],
+  "short_reason": "Casting is adjacent process context, not the source-backed direct prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gold_and_silver_working.before.json /tmp/gold_and_silver_working.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

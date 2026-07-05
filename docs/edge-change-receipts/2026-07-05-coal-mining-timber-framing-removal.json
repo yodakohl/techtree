@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-coal-mining-timber-framing-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "coal_mining",
+    "prerequisite": "timber_framing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Timber framing was treated as an enabling capability for coal mining without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct timber-framing dependency remains because the node is scoped to coal extraction generally, not to a particular mine-support construction technique.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/coal-fossil-fuel",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Coal article: Britannica describes coal as an extractive and industrial fuel topic without making timber framing a direct prerequisite.",
+    "source_claim_summary": "The source supports the coal-mining node through coal extraction and industrial use, not mine timbering as a required prior technology.",
+    "source_support_rationale": "Timber supports are an implementation detail in some underground mines; direct graph edges should represent the broader extractive capability."
+  },
+  "ontology_before": "Coal Mining depended directly on Timber Framing, implying a building-frame technology was required for the coal-mining node.",
+  "ontology_after": "Coal Mining keeps Mining as its direct prerequisite and removes timber framing as overly specific infrastructure context.",
+  "invariant_preserved_or_changed": "Changed: timber_framing is no longer a direct prerequisite for coal_mining.",
+  "would_reject_if": [
+    "The node were narrowed to timber-supported underground shaft mining.",
+    "A stronger source showed timber framing directly enabled the earliest scoped coal extraction.",
+    "A dedicated underground_coal_mine_supports node were added and required this construction lineage."
+  ],
+  "short_reason": "Timber framing is mine-support context, not the broad extraction prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/coal_mining.before.json /tmp/coal_mining.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

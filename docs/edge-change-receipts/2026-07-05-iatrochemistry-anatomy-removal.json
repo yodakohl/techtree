@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-iatrochemistry-anatomy-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "iatrochemistry_paracelsus",
+    "prerequisite": "human_anatomy_physiology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Human anatomy and physiology was treated as an enabling capability for iatrochemistry without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct anatomy-and-physiology dependency remains because the node is specifically Paracelsian chemical medicine, not Vesalian anatomical study as the required input.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Iatrochemistry",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Overview and history sections: the article links iatrochemistry to chemical explanations of disease and Paracelsus rather than to anatomical dissection or Vesalian physiology.",
+    "source_claim_summary": "The source supports chemical explanation and remedy-making as the defining iatrochemical relationship.",
+    "source_support_rationale": "Anatomy and physiology are neighboring medical sciences; making them direct prerequisites would blur a chemical-medicine node with anatomical reform."
+  },
+  "ontology_before": "Iatrochemistry depended directly on Human Anatomy and Physiology, implying anatomical reform was required for the Paracelsian chemical-medicine node.",
+  "ontology_after": "Iatrochemistry keeps Alchemy and Scientific Method as direct prerequisites and removes the anatomy edge as broad medical context.",
+  "invariant_preserved_or_changed": "Changed: human_anatomy_physiology is no longer a direct prerequisite for iatrochemistry_paracelsus.",
+  "would_reject_if": [
+    "The node were rescoped to physiological chemistry rather than Paracelsian iatrochemistry.",
+    "A stronger source showed human anatomy and physiology directly enabled the represented iatrochemical movement.",
+    "A dedicated medical_reform_synthesis node replaced this one and intentionally combined chemical and anatomical reform."
+  ],
+  "short_reason": "Anatomy is neighboring medical reform, not the direct iatrochemical anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/iatrochemistry_paracelsus.before.json /tmp/iatrochemistry_paracelsus.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-reformation-philosophy-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "the_reformation",
+    "prerequisite": "philosophy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Philosophy was treated as an enabling capability for the Reformation without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct philosophy dependency remains because the node is scoped to the 1517 religious reform movement, printing, and Christian humanist textual work rather than broad ancient philosophy.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/event/Ninety-five-Theses",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Ninety-five Theses article: Britannica treats Luther's theses and their religious controversy as the Reformation trigger, without making generic philosophy a direct prerequisite.",
+    "source_claim_summary": "The source supports the Reformation through Luther's theological dispute and the Ninety-five Theses.",
+    "source_support_rationale": "Broad philosophy is too unspecific for a direct edge; humanism and printing better match the scoped textual and dissemination mechanisms."
+  },
+  "ontology_before": "The Reformation depended directly on Philosophy, implying generic philosophical tradition was a graph prerequisite for the movement.",
+  "ontology_after": "The Reformation keeps Printing Press and Humanism as direct prerequisites and removes the generic philosophy edge.",
+  "invariant_preserved_or_changed": "Changed: philosophy is no longer a direct prerequisite for the_reformation.",
+  "would_reject_if": [
+    "The node were rescoped to scholastic or philosophical theology rather than the Reformation movement.",
+    "A stronger source showed generic philosophy directly enabled the scoped Reformation node.",
+    "Humanism were removed and no remaining edge captured the textual-critical intellectual mechanism."
+  ],
+  "short_reason": "Generic philosophy is too broad for the Reformation's direct mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/the_reformation.before.json /tmp/the_reformation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

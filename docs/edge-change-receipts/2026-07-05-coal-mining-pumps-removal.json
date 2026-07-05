@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-coal-mining-pumps-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "coal_mining",
+    "prerequisite": "pumps"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical pumps were treated as an enabling capability for coal mining without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct pump dependency remains because the coal-mining node covers surface outcrops and underground seams before later pumped deep mining became a scaling constraint.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/coal-fossil-fuel",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Coal article: Britannica gives coal's formation, extraction context, and industrial fuel role without making mechanical pumps a direct prerequisite for coal mining.",
+    "source_claim_summary": "The source supports coal as an extractive fuel and industrial resource rather than a pump-defined technology.",
+    "source_support_rationale": "Pumps matter for flooded deep workings, but the node's wider extraction scope should not require a specific drainage technology."
+  },
+  "ontology_before": "Coal Mining depended directly on Mechanical Pumps, implying pumped drainage was required for the whole coal-mining node.",
+  "ontology_after": "Coal Mining depends on Mining as the direct extractive practice; pumps remain later mine infrastructure context outside this direct prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: pumps is no longer a direct prerequisite for coal_mining.",
+  "would_reject_if": [
+    "The node were narrowed to deep, waterlogged coal mines that explicitly require pump drainage.",
+    "A stronger source showed pumps directly enabled the earliest scoped coal extraction.",
+    "The remaining mining prerequisite were removed and left coal extraction without any direct extractive anchor."
+  ],
+  "short_reason": "Pumps are later mine infrastructure, not the direct coal-extraction anchor.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/coal_mining.before.json /tmp/coal_mining.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

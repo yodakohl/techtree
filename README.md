@@ -33,7 +33,7 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-07-04 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
+Generated 2026-07-05 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
 
 Future-era technologies are forecast/roadmap nodes. They are structurally validated, but they are excluded from launch-quality source-check, placeholder-date, edge-source, source-fit, and source-URL gates.
 
@@ -47,7 +47,7 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | Source-checked nodes with primary/review/textbook/official sources | 1,263 / 1,394 (90.6%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,394 (0.0%) |
 | Nodes with node-level sources | 1,421 / 1,421 (100.0%) |
-| Dependency edges with edge-level sources | 3,884 / 4,307 (90.2%) |
+| Dependency edges with edge-level sources | 3,884 / 4,295 (90.4%) |
 | Era-default placeholder dates | 2 / 1,421 (0.1%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.

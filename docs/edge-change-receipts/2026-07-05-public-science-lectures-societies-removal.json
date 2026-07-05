@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-public-science-lectures-societies-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "public_science_lectures",
+    "prerequisite": "scientific_societies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific societies were treated as an enabling capability for public science lectures without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct scientific-society dependency remains because the 1597 public lecture program is civic and educational, preceding the later Royal Society-style institutional form.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cityoflondon.gov.uk/things-to-do/attractions-museums-entertainment/gresham-college",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gresham College page: City of London presents Gresham as a public lecture institution founded through Gresham's bequest, not as an outgrowth of scientific societies.",
+    "source_claim_summary": "The source supports Gresham College as a civic public lecture institution with a distinct foundation.",
+    "source_support_rationale": "Scientific societies are later institutional peers and dependents; making them direct prerequisites reverses the historical direction for this node."
+  },
+  "ontology_before": "Public Science Lectures depended directly on Scientific Societies, implying society organization was required for the lecture program.",
+  "ontology_after": "Public Science Lectures stands as a source-backed civic lecture node and remains a predecessor to later scientific exchange institutions.",
+  "invariant_preserved_or_changed": "Changed: scientific_societies is no longer a direct prerequisite for public_science_lectures.",
+  "would_reject_if": [
+    "The node were rescoped to Royal Society lectures rather than the Gresham public lecture program.",
+    "A stronger source showed scientific societies directly enabled the 1597 public lecture institution.",
+    "The outgoing historical-predecessor edges were removed and chronology no longer represented the lecture-to-society relationship."
+  ],
+  "short_reason": "Scientific societies are later institutional context, not the lecture prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_science_lectures.before.json /tmp/public_science_lectures.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

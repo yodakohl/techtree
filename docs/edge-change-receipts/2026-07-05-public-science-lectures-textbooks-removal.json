@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-public-science-lectures-textbooks-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "public_science_lectures",
+    "prerequisite": "printed_standardized_textbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed standardized textbooks were treated as an enabling capability for public science lectures without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct printed-textbook dependency remains because the public lecture node is scoped to civic spoken demonstrations and endowed teaching, not textbook standardization.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cityoflondon.gov.uk/things-to-do/attractions-museums-entertainment/gresham-college",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Gresham College page: City of London presents the institution through public lectures and its civic foundation, without identifying printed standardized textbooks as required infrastructure.",
+    "source_claim_summary": "The source supports public lectures as Gresham College's civic educational function.",
+    "source_support_rationale": "Textbooks are related educational media; a lecture institution should not inherit a direct textbook-standardization prerequisite without source support."
+  },
+  "ontology_before": "Public Science Lectures depended directly on Printed Standardized Textbooks, implying standardized printed course media were required for the lecture program.",
+  "ontology_after": "Public Science Lectures keeps its source-backed civic lecture scope and no longer directly depends on textbook standardization.",
+  "invariant_preserved_or_changed": "Changed: printed_standardized_textbooks is no longer a direct prerequisite for public_science_lectures.",
+  "would_reject_if": [
+    "The node were narrowed to printed science curricula rather than public lectures.",
+    "A stronger source showed standardized textbooks directly enabled the 1597 Gresham lecture program.",
+    "A dependent required public_science_lectures to represent textbook-mediated instruction rather than civic spoken demonstrations."
+  ],
+  "short_reason": "Printed textbooks are educational media, not the direct lecture prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_science_lectures.before.json /tmp/public_science_lectures.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

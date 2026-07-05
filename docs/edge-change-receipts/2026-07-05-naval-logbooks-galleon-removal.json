@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-naval-logbooks-galleon-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "naval_logbooks",
+    "prerequisite": "galleon_ship_design"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Galleon ship design was treated as an enabling capability for naval logbooks without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct galleon-design dependency remains because shipboard logbooks can be kept on multiple vessel types and are scoped to records, not to one hull form.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Logbook_(nautical)",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Nautical logbook overview: the article treats logbooks as ship records of operation and navigation, without limiting them to galleons.",
+    "source_claim_summary": "The source supports naval logbooks as a general shipboard record practice.",
+    "source_support_rationale": "Galleon design is a vessel-specific context; keeping it direct would incorrectly narrow the record practice to one ship design family."
+  },
+  "ontology_before": "Naval Logbooks depended directly on Galleon Ship Design, implying galleons were required for the logbook practice.",
+  "ontology_after": "Naval Logbooks keeps Paper Making as the direct prerequisite and removes the vessel-design edge.",
+  "invariant_preserved_or_changed": "Changed: galleon_ship_design is no longer a direct prerequisite for naval_logbooks.",
+  "would_reject_if": [
+    "The node were narrowed to logbooks specifically aboard galleons.",
+    "A stronger source showed galleon design directly enabled the scoped logbook practice.",
+    "A separate galleon_navigation_records node were introduced and intentionally tied to galleon hulls."
+  ],
+  "short_reason": "Galleon design is vessel context, not the logbook prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/naval_logbooks.before.json /tmp/naval_logbooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

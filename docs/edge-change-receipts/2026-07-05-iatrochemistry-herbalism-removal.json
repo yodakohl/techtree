@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-iatrochemistry-herbalism-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "iatrochemistry_paracelsus",
+    "prerequisite": "herbalism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbalism was treated as an enabling capability for iatrochemistry without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct herbalism dependency remains because Paracelsian iatrochemistry is scoped to chemical and mineral medical explanations, often challenging Galenic herbal practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Iatrochemistry",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Overview and history sections: the article frames iatrochemistry as chemical medicine rooted in alchemy and associated with Paracelsus, not as an herbalism dependency.",
+    "source_claim_summary": "The source supports iatrochemistry as a chemically framed medical movement connected to alchemy and Paracelsus.",
+    "source_support_rationale": "Herbalism is the Galenic and botanical medical context the node contrasts with; retaining it direct would invert that relationship."
+  },
+  "ontology_before": "Iatrochemistry depended directly on Herbalism, implying plant-based medicine was a causal prerequisite for Paracelsian chemical medicine.",
+  "ontology_after": "Iatrochemistry keeps Alchemy and Scientific Method as direct prerequisites; herbalism remains adjacent medical context outside the direct graph edge.",
+  "invariant_preserved_or_changed": "Changed: herbalism is no longer a direct prerequisite for iatrochemistry_paracelsus.",
+  "would_reject_if": [
+    "The node were rescoped to herbal pharmacopoeias rather than chemical medicine.",
+    "A stronger source showed herbalism directly enabled Paracelsian iatrochemistry rather than serving as a rival tradition.",
+    "A dependent required iatrochemistry_paracelsus to mean continuity from plant-based Galenic practice."
+  ],
+  "short_reason": "Herbalism is medical context, not the chemical-medicine prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/iatrochemistry_paracelsus.before.json /tmp/iatrochemistry_paracelsus.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

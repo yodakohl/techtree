@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-05-reformation-vernacular-literature-removal",
+  "decision_date": "2026-07-05",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "the_reformation",
+    "prerequisite": "vernacular_literature_prose_poetry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Renaissance vernacular literature was treated as an enabling capability for the Reformation without direct edge-level source support."
+  },
+  "new_claim_absent": "No direct vernacular-literature dependency remains because the Reformation node is anchored to theological dispute, printing, and Christian humanist textual criticism rather than literary prose and poetry.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/event/Ninety-five-Theses",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Ninety-five Theses article: Britannica centers Luther's theses and religious controversy, without presenting Renaissance vernacular literature as a direct prerequisite.",
+    "source_claim_summary": "The source supports the Reformation's religious and textual controversy around Luther's theses.",
+    "source_support_rationale": "Vernacular literature is related cultural context; the direct graph should use printing and humanism for dissemination and textual critique."
+  },
+  "ontology_before": "The Reformation depended directly on Renaissance Vernacular Literature, implying literary prose and poetry were required for the movement.",
+  "ontology_after": "The Reformation keeps Printing Press and Humanism as direct prerequisites; vernacular literature remains cultural context outside the prerequisite set.",
+  "invariant_preserved_or_changed": "Changed: vernacular_literature_prose_poetry is no longer a direct prerequisite for the_reformation.",
+  "would_reject_if": [
+    "The node were narrowed to vernacular Bible translation or vernacular polemical publishing.",
+    "A stronger source showed Renaissance vernacular literature directly enabled the scoped Reformation node.",
+    "A future Reformation media node explicitly needed literary vernacular culture as the direct mechanism."
+  ],
+  "short_reason": "Vernacular literature is related context, not the direct Reformation prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/the_reformation.before.json /tmp/the_reformation.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
