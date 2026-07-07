@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-07-point-of-care-testing-lab-on-chip-removal",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "point_of_care_testing",
+    "prerequisite": "lab_on_a_chip"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Lab-on-a-Chip provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because point-of-care testing is defined by near-patient testing and rapid turnaround; lab-on-a-chip is a later miniaturized implementation path, not a prerequisite for the broader modality.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK592387/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "StatPearls describes point-of-care testing as testing at or near the site of patient care, with near-patient testing in the 1950s and the term point-of-care appearing in the early 1980s.",
+    "source_claim_summary": "The source defines POCT broadly through care location and rapid clinical turnaround rather than lab-on-a-chip microfluidic hardware.",
+    "source_support_rationale": "Keeping lab-on-a-chip as a direct prerequisite would make a later microfluidic implementation necessary for older test-strip, lateral-flow, and immunoassay POCT workflows."
+  },
+  "ontology_before": "Point-of-care testing depended directly on lab-on-a-chip, making microfluidic chip miniaturization part of the general POCT definition.",
+  "ontology_after": "Point-of-care testing depends on immunoassay diagnostics and can later be enhanced by lab-on-a-chip systems without requiring them.",
+  "invariant_preserved_or_changed": "Changed: lab_on_a_chip is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is later narrowed to microfluidic point-of-care devices rather than point-of-care testing generally.",
+    "A source shows the modeled historical POCT claim cannot operate without lab-on-a-chip hardware.",
+    "A dependent requires point_of_care_testing to imply microfluidic chip integration."
+  ],
+  "short_reason": "Lab-on-a-chip is a later POCT implementation path, not a direct prerequisite for POCT itself.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/point_of_care_testing.before.json /tmp/point_of_care_testing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

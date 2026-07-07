@@ -33,7 +33,7 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-07-05 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
+Generated 2026-07-07 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
 
 Future-era technologies are forecast/roadmap nodes. They are structurally validated, but they are excluded from launch-quality source-check, placeholder-date, edge-source, source-fit, and source-URL gates.
 
@@ -41,14 +41,14 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | --- | --- |
 | Technologies | 1,659 |
 | Launch-quality scope (non-Future nodes) | 1,421 / 1,659 (85.7%; 238 Future excluded) |
-| Source-checked nodes | 1,397 / 1,421 (98.3%) |
-| Source-checked nodes with non-placeholder dates | 1,397 / 1,397 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,397 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,267 / 1,397 (90.7%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,397 (0.0%) |
+| Source-checked nodes | 1,400 / 1,421 (98.5%) |
+| Source-checked nodes with non-placeholder dates | 1,400 / 1,400 (100.0%) |
+| Source-checked nodes with placeholder dates | 0 / 1,400 (0.0%) |
+| Source-checked nodes with primary/review/textbook/official sources | 1,270 / 1,400 (90.7%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,400 (0.0%) |
 | Nodes with node-level sources | 1,421 / 1,421 (100.0%) |
-| Dependency edges with edge-level sources | 3,882 / 4,293 (90.4%) |
-| Era-default placeholder dates | 2 / 1,421 (0.1%) |
+| Dependency edges with edge-level sources | 3,886 / 4,291 (90.6%) |
+| Era-default placeholder dates | 0 / 1,421 (0.0%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
 

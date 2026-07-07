@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-07-vr-poct-scope",
+  "description": "Lock the 2026-07-07 removals that keep broad POCT and early immersive VR from inheriting later implementation-specific prerequisites.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "point_of_care_testing",
+      "prerequisite": "lab_on_a_chip",
+      "reason": "Lab-on-a-chip is a later microfluidic POCT implementation path, not a direct prerequisite for general near-patient testing."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "virtual_reality",
+      "prerequisite": "graphical_user_interface_gui",
+      "reason": "The Sutherland-style immersive VR scope depends on computer graphics, software, electronics, and tracking rather than desktop GUI software."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "virtual_reality",
+      "prerequisite": "computer_graphics_3d",
+      "reason": "The 1968 head-mounted display anchor requires generated three-dimensional imagery."
+    },
+    {
+      "type": "first_known_date",
+      "node": "virtual_reality",
+      "operator": "eq",
+      "value": 1968,
+      "reason": "The node is anchored to Sutherland's 1968 head-mounted three-dimensional display for computer-simulated VR."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-07-virtual-reality-gui-removal",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "virtual_reality",
+    "prerequisite": "graphical_user_interface_gui"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Graphical User Interface (GUI) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the 1968 head-mounted display depended on electronics, software, tracking, and computer graphics rather than a general GUI software paradigm.",
+  "source_supports_edge": "no",
+  "source_url": "https://dl.acm.org/doi/10.1145/1476589.1476686",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Sutherland describes a head-mounted three-dimensional computer display with perspective changing according to the viewer's position, not a desktop graphical user interface.",
+    "source_claim_summary": "The source supports computer-generated 3D display and tracking as the early VR anchor while not requiring GUI software.",
+    "source_support_rationale": "Keeping GUI direct would import later desktop interaction conventions into an earlier immersive display lineage."
+  },
+  "ontology_before": "Virtual reality depended directly on graphical_user_interface_gui.",
+  "ontology_after": "Virtual reality is scoped to immersive computer-simulated environments anchored by the Sutherland head-mounted display and no longer requires a GUI prerequisite.",
+  "invariant_preserved_or_changed": "Changed: graphical_user_interface_gui is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is later narrowed to desktop-windowed virtual-world software rather than immersive VR systems.",
+    "A source shows Sutherland-style or early immersive VR required GUI software as a direct enabling technology.",
+    "A dependent needs virtual_reality to imply GUI application software rather than immersive computer-generated environments."
+  ],
+  "short_reason": "Early computer VR needed computer graphics and display/tracking hardware, not a GUI prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/virtual_reality.before.json /tmp/virtual_reality.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
