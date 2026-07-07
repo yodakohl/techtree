@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-quarantine-military-field-medicine-replaced-by-maritime-law",
+  "decision_date": "2026-07-07",
+  "edge": {
+    "dependent": "quarantine_public_health_measures",
+    "prerequisite": "maritime_law_codes"
+  },
+  "replaced_edge": {
+    "dependent": "quarantine_public_health_measures",
+    "prerequisite": "military_field_medicine"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Military Field Medicine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Maritime Law Codes provides the shipping-law and port-regulation context for bills of health, ship detention, and port quarantine."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://wwwnc.cdc.gov/eid/article/19/2/12-0312_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "CDC Emerging Infectious Diseases review describes maritime bills of health, port surveillance networks, ship-captain declarations about crew and cargo origins, and quarantine detention for ships arriving from plague-affected areas.",
+    "source_claim_summary": "The review documents ship-focused quarantine practices that used port declarations, health documents, surveillance networks, and detention of vessels from infected areas.",
+    "source_support_rationale": "This source pins the dependency to maritime legal and port-regulation practice because the operational quarantine mechanism is ship admission control, not battlefield medicine."
+  },
+  "ontology_before": "Quarantine public health measures depended directly on military field medicine, mixing battlefield care with port quarantine, bills of health, and ship-detention rules.",
+  "ontology_after": "Quarantine public health measures depend on maritime_law_codes for the shipping-law and port-regulation context of bills of health and vessel detention.",
+  "invariant_preserved_or_changed": "Changed: quarantine_public_health_measures no longer depends on military_field_medicine and now depends on maritime_law_codes as an enabling port-law prerequisite.",
+  "would_reject_if": [
+    "The quarantine node were rescoped to battlefield disease control or campaign medicine rather than port quarantine and civic isolation measures.",
+    "A source showed Dubrovnik/Ragusa quarantine practice depended specifically on military field-medicine institutions.",
+    "The maritime_law_codes node were narrowed away from ship, cargo, port, and maritime admission rules."
+  ],
+  "short_reason": "The source-backed quarantine mechanism is port and shipping regulation, not military medical care.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/quarantine_public_health_measures.before.json /tmp/quarantine_public_health_measures.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

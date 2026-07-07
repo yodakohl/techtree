@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-quarantine-public-health-maritime-scope",
+  "description": "Lock Quarantine & Public Health Measures to civic disease-control inspection, port quarantine, bills of health, and maritime detention rather than herbal treatment or battlefield medicine.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "herbal_medicine_preparation",
+      "reason": "Herbal preparation is treatment context and must not carry the source-backed quarantine administration scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "military_field_medicine",
+      "reason": "Battlefield care must not be restored as the port-quarantine and civic isolation prerequisite."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "public_health_inspections",
+      "reason": "The source-backed scope uses organized public-health inspection, isolation, and disease-control oversight."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "public_health_inspections",
+      "expected": "enabling",
+      "reason": "Public health inspection enables quarantine administration but is not a single mechanical hard prerequisite."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "maritime_law_codes",
+      "reason": "Bills of health, ship declarations, and vessel detention need the maritime-law and port-regulation context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "quarantine_public_health_measures",
+      "prerequisite": "maritime_law_codes",
+      "expected": "enabling",
+      "reason": "Maritime law enables port quarantine rules without making the edge a required engineering dependency."
+    },
+    {
+      "type": "first_known_date",
+      "node": "quarantine_public_health_measures",
+      "operator": "eq",
+      "value": 1377,
+      "reason": "The node remains anchored to the 1377 Dubrovnik/Ragusa quarantine rule."
+    }
+  ]
+}

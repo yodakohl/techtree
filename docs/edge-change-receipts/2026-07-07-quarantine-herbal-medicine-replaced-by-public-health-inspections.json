@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-quarantine-herbal-medicine-replaced-by-public-health-inspections",
+  "decision_date": "2026-07-07",
+  "edge": {
+    "dependent": "quarantine_public_health_measures",
+    "prerequisite": "public_health_inspections"
+  },
+  "replaced_edge": {
+    "dependent": "quarantine_public_health_measures",
+    "prerequisite": "herbal_medicine_preparation"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Health Inspections provides civic disease-control oversight for quarantine, isolation, sanitary cordons, and port screening without making Roman aedile practice the only path."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://wwwnc.cdc.gov/eid/article/19/2/12-0312_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "CDC Emerging Infectious Diseases review describes quarantine as coordinated disease control using isolation, sanitary cordons, bills of health, fumigation, disinfection, and regulation, with authorities in Dubrovnik/Ragusa introducing quarantine in 1377.",
+    "source_claim_summary": "The review frames quarantine as an organized public-health control system administered by authorities, not as a pharmacological or herbal treatment practice.",
+    "source_support_rationale": "This supports replacing a treatment-material edge with a civic inspection and disease-control edge while preserving the broader public-health scope of the quarantine node."
+  },
+  "ontology_before": "Quarantine public health measures depended directly on herbal medicine preparation, implying disease-control detention and port screening flowed from treatment-material practice.",
+  "ontology_after": "Quarantine public health measures depend on public_health_inspections for organized civic disease-control oversight and screening authority.",
+  "invariant_preserved_or_changed": "Changed: quarantine_public_health_measures no longer depends on herbal_medicine_preparation and now depends on public_health_inspections as an enabling civic oversight prerequisite.",
+  "would_reject_if": [
+    "The quarantine node were narrowed to medical treatment of plague victims rather than isolation, screening, detention, and port public-health controls.",
+    "A source showed herbal remedy preparation was a direct administrative prerequisite for Dubrovnik/Ragusa quarantine rules.",
+    "The public_health_inspections node were narrowed away from civic health oversight and disease-control enforcement."
+  ],
+  "short_reason": "Quarantine is a civic disease-control system; herbal preparation is treatment context, not the enabling administrative practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/quarantine_public_health_measures.before.json /tmp/quarantine_public_health_measures.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
