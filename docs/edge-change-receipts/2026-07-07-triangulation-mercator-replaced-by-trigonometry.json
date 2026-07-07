@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-triangulation-mercator-replaced-by-trigonometry",
+  "decision_date": "2026-07-07",
+  "edge": {
+    "dependent": "triangulation_surveying",
+    "prerequisite": "trigonometry"
+  },
+  "replaced_edge": {
+    "dependent": "triangulation_surveying",
+    "prerequisite": "cartography_mercator_projection"
+  },
+  "change_class": "topology_change",
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Cartography (Mercator Projection) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trigonometry supplies the triangle-side and angle relationships used to compute unknown positions from measured baselines and angles in triangulation surveying."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Triangulation_%28surveying%29",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The overview defines surveying triangulation as determining a point from known points at the ends of a baseline by measuring angles and using trigonometry rather than measuring the distance directly.",
+    "source_claim_summary": "The source describes the actual computational method of triangulation as angle measurement over triangles solved with trigonometry.",
+    "source_support_rationale": "This directly supports trigonometry as the enabling mathematical method, while Mercator projection is a later map-projection technique rather than a prerequisite for triangulation measurement."
+  },
+  "ontology_before": "Triangulation Surveying depended directly on Mercator Projection, conflating map projection with the triangle-solving survey method.",
+  "ontology_after": "Triangulation Surveying depends on trigonometry for the angle-and-baseline mathematics used to compute unknown positions.",
+  "invariant_preserved_or_changed": "Changed: triangulation_surveying no longer depends on cartography_mercator_projection and now depends on trigonometry as an enabling method prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to Mercator-projection map production rather than baseline-and-angle surveying.",
+    "A source showed triangulation surveying specifically depends on the Mercator projection rather than trigonometry.",
+    "The trigonometry node were narrowed away from triangle side-angle relationships used in surveying."
+  ],
+  "short_reason": "Triangulation is solved with trigonometry; Mercator projection is the wrong dependency layer.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/triangulation_surveying.before.json /tmp/triangulation_surveying.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

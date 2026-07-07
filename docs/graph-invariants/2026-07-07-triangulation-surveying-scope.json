@@ -1,0 +1,32 @@
+{
+  "id": "2026-07-07-triangulation-surveying-scope",
+  "description": "Lock Triangulation Surveying to baseline-and-angle survey measurement solved with trigonometry, not Mercator-projection cartography.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "triangulation_surveying",
+      "prerequisite": "cartography_mercator_projection",
+      "reason": "Mercator projection is a map-projection technology, not the method prerequisite for triangulation measurement."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "triangulation_surveying",
+      "prerequisite": "trigonometry",
+      "reason": "Triangulation uses angle measurements and triangle relationships to compute unknown positions from a baseline."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "triangulation_surveying",
+      "prerequisite": "trigonometry",
+      "expected": "enabling",
+      "reason": "Trigonometry enables the computational survey method without being the whole instrument or map-production system."
+    },
+    {
+      "type": "first_known_date",
+      "node": "triangulation_surveying",
+      "operator": "eq",
+      "value": 1533,
+      "reason": "The node is anchored to Gemma Frisius's 1533 proposal for using triangulation in mapmaking."
+    }
+  ]
+}
