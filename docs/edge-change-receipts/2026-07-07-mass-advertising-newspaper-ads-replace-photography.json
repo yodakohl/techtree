@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-07-mass-advertising-newspaper-ads-replace-photography",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "advertising_mass_media_early",
+    "prerequisite": "public_newspaper_advertising"
+  },
+  "replaced_edge": {
+    "dependent": "advertising_mass_media_early",
+    "prerequisite": "photography"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Photography provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Newspaper Advertising provides the paid-periodical notice practice that mass advertising scaled through larger newspapers, magazines, posters, brands, and retail campaigns."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.masshist.org/beehiveblog/2013/05/advertising-in-america/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Massachusetts Historical Society notes that the Boston News-Letter solicited paid notices in 1704 and carried the first paid American newspaper advertisements two weeks later.",
+    "source_claim_summary": "Paid newspaper notices provide the periodical advertising practice that later mass advertising scaled.",
+    "source_support_rationale": "The source documents newspaper advertising as an established paid periodical practice before industrial-era mass advertising, while photography is not required for the 1837 newspaper, magazine, poster, and retail campaign scope."
+  },
+  "ontology_before": "Early mass advertising depended directly on photography, overstating a visual reproduction technology that was not required for the 1837 mass-periodical advertising scope.",
+  "ontology_after": "Early mass advertising depends on public_newspaper_advertising as the narrower paid-notice practice that scaled through mass newspapers, magazines, posters, brands, and retail campaigns.",
+  "invariant_preserved_or_changed": "Changed: advertising_mass_media_early now depends on public_newspaper_advertising and no longer directly depends on photography.",
+  "would_reject_if": [
+    "The node is rescoped to photographic display advertising rather than early industrial mass advertising.",
+    "A stronger source shows photography was a direct required method for the 1837 mass-advertising scope.",
+    "A more precise paid_periodical_advertising node is added and replaces public_newspaper_advertising."
+  ],
+  "short_reason": "The direct lineage is paid newspaper advertising, not photography.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/advertising_mass_media_early.before.json /tmp/advertising_mass_media_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-statistical-life-tables-record-scope",
+  "description": "Lock statistical_life_tables to Graunt's 1662 mortality-table work using compiled civic/parish death records rather than merchant double-entry bookkeeping.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "statistical_life_tables",
+      "operator": "eq",
+      "value": 1662,
+      "reason": "The source-checked node remains anchored to Graunt's 1662 Natural and Political Observations on the Bills of Mortality."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "statistical_life_tables",
+      "prerequisite": "record_keeping",
+      "expected": "enabling",
+      "reason": "Compiled parish and civic mortality records supply the tabulated observations that Graunt converted into survival estimates."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "statistical_life_tables",
+      "prerequisite": "record_keeping",
+      "reason": "Recordkeeping is the corrected direct data substrate for the mortality-table scope."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "statistical_life_tables",
+      "prerequisite": "census",
+      "reason": "Population counting remains a direct statistical-data context for life-table inference."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "statistical_life_tables",
+      "prerequisite": "double_entry_diffusion",
+      "reason": "Double-entry bookkeeping is a merchant accounting practice and is broader than the mortality-record source base used here."
+    }
+  ]
+}

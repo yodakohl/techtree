@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-07-statistical-life-tables-record-keeping-replaces-double-entry",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "statistical_life_tables",
+    "prerequisite": "record_keeping"
+  },
+  "replaced_edge": {
+    "dependent": "statistical_life_tables",
+    "prerequisite": "double_entry_diffusion"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Double-Entry Bookkeeping Diffusion provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Record Keeping provides the mortality registers and compiled bills that Graunt transformed into statistical life-table and survival estimates."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.lindahall.org/about/news/scientist-of-the-day/john-graunt/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Linda Hall Library describes weekly and annual Bills of Mortality compiled from parish death records, then says Graunt compiled his own tables from those published bills to estimate life spans and ages at death.",
+    "source_claim_summary": "Graunt's life-table work was built from compiled mortality records rather than merchant bookkeeping methods.",
+    "source_support_rationale": "The source identifies parish mortality registers and printed bills as the operating data substrate, which makes record_keeping the narrower direct prerequisite and leaves double-entry accounting outside the scoped method."
+  },
+  "ontology_before": "Statistical Life Tables depended on double_entry_diffusion, implying merchant bookkeeping diffusion was part of Graunt's mortality-table method.",
+  "ontology_after": "Statistical Life Tables depends on record_keeping because Graunt transformed compiled parish mortality records and Bills of Mortality into survival estimates.",
+  "invariant_preserved_or_changed": "Changed: statistical_life_tables now depends on record_keeping and no longer directly depends on double_entry_diffusion.",
+  "would_reject_if": [
+    "The node is rescoped to actuarial accounting methods that specifically depend on double-entry bookkeeping.",
+    "A stronger source shows Graunt's mortality tables required merchant double-entry ledgers rather than compiled civic death records.",
+    "The record_keeping node is narrowed away from civic, parish, or mortality-record compilation."
+  ],
+  "short_reason": "Graunt's source data was mortality recordkeeping, not merchant double-entry bookkeeping.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/statistical_life_tables.before.json /tmp/statistical_life_tables.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

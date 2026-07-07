@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-07-mass-advertising-newspaper-scope",
+  "description": "Lock advertising_mass_media_early to mass-periodical and retail advertising that scales paid newspaper advertising rather than requiring photography.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "advertising_mass_media_early",
+      "operator": "eq",
+      "value": 1837,
+      "reason": "The source-checked node remains anchored to early industrial mass-advertising practice rather than later photographic display advertising."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advertising_mass_media_early",
+      "prerequisite": "public_newspaper_advertising",
+      "expected": "enabling",
+      "reason": "Paid public newspaper advertising is the narrower direct practice that mass advertising scales through larger periodical and retail channels."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advertising_mass_media_early",
+      "prerequisite": "public_newspaper_advertising",
+      "reason": "The corrected scope keeps paid newspaper advertising as a direct lineage prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advertising_mass_media_early",
+      "prerequisite": "mass_media_newspapers",
+      "expected": "enabling",
+      "reason": "Mass newspapers and magazines provide the distribution medium for large-audience advertising."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advertising_mass_media_early",
+      "prerequisite": "mass_media_newspapers",
+      "reason": "Mass-periodical distribution remains a direct enabling substrate for the node."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "advertising_mass_media_early",
+      "prerequisite": "photography",
+      "reason": "Photography can improve later advertising imagery but is not a direct prerequisite for early mass newspaper, magazine, poster, brand, and retail campaigns."
+    }
+  ]
+}
