@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-07-epicureanism-formal-logic-removal",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "epicureanism",
+    "prerequisite": "formal_logic_syllogism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Formal Logic (Syllogism) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Epicureanism remains scoped to Epicurus's school, ethics, and atomist/materialist physics; Aristotelian syllogistic logic is not source-supported as a direct prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Epicureanism",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction and philosophy sections describe Epicureanism as Epicurus's atomist, materialist, modest-pleasure philosophy and do not identify Aristotelian syllogistic logic as an enabling dependency.",
+    "source_claim_summary": "The source supports philosophy and atomist/materialist physics lineage, not a direct formal-syllogism prerequisite.",
+    "source_support_rationale": "Formal logic remains a neighboring classical reasoning node, but keeping it here launders a broad intellectual-context edge into a prerequisite claim."
+  },
+  "ontology_before": "Epicureanism depended directly on Formal Logic (Syllogism), implying Aristotelian deductive logic enabled Epicurus's school.",
+  "ontology_after": "Epicureanism depends on Philosophy and Classical Chemical Arts/atomist material traditions; formal syllogistic logic remains separate.",
+  "invariant_preserved_or_changed": "Changed: epicureanism no longer directly depends on formal_logic_syllogism.",
+  "would_reject_if": [
+    "The node is rescoped to Epicurean formal logic or canonic as a logic-system node.",
+    "A source explicitly shows Epicureanism required Aristotelian syllogistic logic as a direct prerequisite.",
+    "A dedicated epicurean_canonic node is added and needs a narrower logic prerequisite."
+  ],
+  "short_reason": "Epicureanism's sourced lineage is philosophical and atomist, not Aristotelian syllogistic.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/epicureanism.before.json /tmp/epicureanism.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

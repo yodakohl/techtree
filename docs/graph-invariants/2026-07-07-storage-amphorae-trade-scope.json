@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-storage-amphorae-trade-scope",
+  "description": "Lock Storage Amphorae to ceramic storage and transport containers tied to preservation and trade routes, not market-square institutions.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "pottery_storage_amphorae",
+      "operator": "eq",
+      "value": -3000,
+      "reason": "The broad storage-amphora node remains anchored to its ancient date."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pottery_storage_amphorae",
+      "prerequisite": "trade_routes",
+      "expected": "enabling",
+      "reason": "Trade routes are the corrected exchange and transport context."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "pottery_storage_amphorae",
+      "prerequisite": "trade_routes",
+      "reason": "The jar form is linked to stored goods moving through exchange networks."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "pottery_storage_amphorae",
+      "prerequisite": "food_preservation_drying_salting",
+      "reason": "Preserved food and liquid-storage contents remain part of the broad node scope."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pottery_storage_amphorae",
+      "prerequisite": "town_market_squares",
+      "reason": "Market squares are broader retail/civic venues and should not be restored as a direct prerequisite for the container technology."
+    }
+  ]
+}

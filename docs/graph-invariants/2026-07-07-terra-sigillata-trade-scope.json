@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-terra-sigillata-trade-scope",
+  "description": "Lock Terra Sigillata Pottery to red-slip Roman ceramic production and trade distribution rather than formal collegia.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "terra_sigillata_pottery",
+      "operator": "eq",
+      "value": -100,
+      "reason": "The node remains anchored to the broad first-century BCE Roman terra sigillata emergence."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "terra_sigillata_pottery",
+      "prerequisite": "trade_routes",
+      "expected": "enabling",
+      "reason": "Trade routes are the corrected distribution and export context."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "terra_sigillata_pottery",
+      "prerequisite": "trade_routes",
+      "reason": "The pottery type is source-backed as widely exported and economically distributed."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "terra_sigillata_pottery",
+      "prerequisite": "basic_chemistry_early_forms",
+      "reason": "Slip preparation, clay processing, and firing traditions remain part of the ceramic-technology lineage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "terra_sigillata_pottery",
+      "prerequisite": "trade_guilds_collegia",
+      "reason": "Formal collegia should not be restored unless the node is narrowed to Roman potters' associations."
+    }
+  ]
+}

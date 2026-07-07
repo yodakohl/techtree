@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-terra-sigillata-trade-routes-replaces-collegia",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "terra_sigillata_pottery",
+    "prerequisite": "trade_routes"
+  },
+  "replaced_edge": {
+    "dependent": "terra_sigillata_pottery",
+    "prerequisite": "trade_guilds_collegia"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trade Guilds (Collegia) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trade Routes better capture the distribution and export network that made terra sigillata a widely traded Roman tableware; collegia are not required by the current source-backed scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Terra_sigillata",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Roman red gloss pottery sections describe terra sigillata as industrial-scale Italian and Gaulish tableware that was widely exported and whose distribution helps reconstruct the ancient Roman economy.",
+    "source_claim_summary": "Terra sigillata's source-backed scaling context is production and trade distribution, not formal collegia.",
+    "source_support_rationale": "The source supports workshops, industrial production, and export/distribution; it does not make formal craft associations a required prerequisite."
+  },
+  "ontology_before": "Terra Sigillata Pottery depended on Trade Guilds (Collegia), implying formal associations enabled the pottery type.",
+  "ontology_after": "Terra Sigillata Pottery depends on Trade Routes for export and distribution, while pottery and early chemical arts cover the ceramic production lineage.",
+  "invariant_preserved_or_changed": "Changed: terra_sigillata_pottery now depends on trade_routes and no longer directly depends on trade_guilds_collegia.",
+  "would_reject_if": [
+    "The node is narrowed to formal potters' collegia rather than red-slip tableware.",
+    "A stronger source shows Roman terra sigillata production required collegia as formal guild institutions.",
+    "A separate roman_pottery_collegia node is added and becomes the direct dependency."
+  ],
+  "short_reason": "Trade distribution is sourced; formal collegia are not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/terra_sigillata_pottery.before.json /tmp/terra_sigillata_pottery.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

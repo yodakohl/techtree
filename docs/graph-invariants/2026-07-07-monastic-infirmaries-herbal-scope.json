@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-monastic-infirmaries-herbal-scope",
+  "description": "Lock Monastic Infirmaries to monastery medical wards using scriptoria/medical manuscripts and herbal remedy preparation, not military field medicine.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "monastic_infirmaries",
+      "operator": "eq",
+      "value": 1050,
+      "reason": "The node remains anchored to the c.1050-1300 monastic-infirmary scholarship window."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "monastic_infirmaries",
+      "prerequisite": "herbal_medicine_preparation",
+      "expected": "enabling",
+      "reason": "Herbal remedy preparation is the corrected material medical practice for monastic infirmaries."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "monastic_infirmaries",
+      "prerequisite": "monastic_scriptoria",
+      "reason": "Monastic manuscript copying and medical texts remain direct context for the ward scope."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "monastic_infirmaries",
+      "prerequisite": "herbal_medicine_preparation",
+      "reason": "Herbal remedies and recipes are source-backed in monastic medical practice."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "monastic_infirmaries",
+      "prerequisite": "military_field_medicine",
+      "reason": "Battlefield medicine should not be restored as a direct prerequisite for monastic infirmary wards."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-storage-amphorae-trade-routes-replaces-market-squares",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pottery_storage_amphorae",
+    "prerequisite": "trade_routes"
+  },
+  "replaced_edge": {
+    "dependent": "pottery_storage_amphorae",
+    "prerequisite": "town_market_squares"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Town Market Squares provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Trade Routes provides the exchange and transport context that made standardized storage amphorae useful for moving oil, wine, grain, fish, and other goods beyond a single household or workshop."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Amphora",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The overview describes amphorae as containers delivered by land or sea and says stamps, inscriptions, and contents help historians reconstruct ancient trade networks.",
+    "source_claim_summary": "Storage amphorae are trade and transport containers, not primarily market-square institutions.",
+    "source_support_rationale": "The source directly ties amphora form, contents, inscriptions, and land/sea delivery to trade-network reconstruction. Town market squares are downstream exchange venues and are broader than the container technology."
+  },
+  "ontology_before": "Storage Amphorae depended on Town Market Squares, which made a public market venue appear to enable ceramic storage-container form.",
+  "ontology_after": "Storage Amphorae depends on Trade Routes for the movement and exchange context while keeping Pottery Wheel and Food Preservation as production/content context.",
+  "invariant_preserved_or_changed": "Changed: pottery_storage_amphorae now depends on trade_routes and no longer directly depends on town_market_squares.",
+  "would_reject_if": [
+    "The node is narrowed to amphorae used only as retail stall containers.",
+    "A source shows the earliest standardized storage amphorae required town market squares rather than broader trade routes.",
+    "A separate market_amphora_retail node is added and needs town_market_squares."
+  ],
+  "short_reason": "Storage amphorae are transport and storage containers, not market-square infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pottery_storage_amphorae.before.json /tmp/pottery_storage_amphorae.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

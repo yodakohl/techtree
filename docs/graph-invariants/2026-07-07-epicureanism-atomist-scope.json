@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-07-epicureanism-atomist-scope",
+  "description": "Keep Epicureanism scoped to Epicurus's philosophical school and atomist/materialist lineage, not Aristotelian syllogistic logic.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "epicureanism",
+      "operator": "eq",
+      "value": -306,
+      "reason": "The node remains anchored to Epicurus's Garden in Athens."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "epicureanism",
+      "prerequisite": "philosophy",
+      "reason": "Epicureanism remains a philosophical school."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "epicureanism",
+      "prerequisite": "basic_chemistry_early_forms",
+      "reason": "The graph's existing classical material-transformation/atomist-adjacent node remains the closest available predecessor for Epicurean materialism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "epicureanism",
+      "prerequisite": "formal_logic_syllogism",
+      "reason": "Aristotelian syllogistic logic is not a direct source-backed prerequisite for Epicurus's school."
+    }
+  ]
+}
