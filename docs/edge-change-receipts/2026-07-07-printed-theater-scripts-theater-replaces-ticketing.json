@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-printed-theater-scripts-theater-replaces-ticketing",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "printed_theater_scripts",
+    "prerequisite": "theater"
+  },
+  "replaced_edge": {
+    "dependent": "printed_theater_scripts",
+    "prerequisite": "theater_ticketing_systems"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Theater Ticketing Systems is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Theater supplies the dramatic-performance and play-text tradition that printed scripts publish; paid ticketing systems are not required by the publication scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/List_of_Shakespeare_plays_in_quarto",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Overview and title-page entries: lists Shakespeare plays printed in quarto before the First Folio, with title pages describing staged performances by theater companies and printed or sold editions.",
+    "source_claim_summary": "Early printed play quartos are explicitly theatrical performance texts and commercial printed editions.",
+    "source_support_rationale": "The source ties printed scripts to theater-company performance and print sale, while not requiring ticketing systems as a prerequisite."
+  },
+  "ontology_before": "Printed Theater Scripts directly depended on Theater Ticketing Systems, which blurred publication of play texts with paid-entry theater commerce.",
+  "ontology_after": "Printed Theater Scripts now directly depends on Theater as the performance and dramatic-text lineage, while keeping printing press and printing-rights context.",
+  "invariant_preserved_or_changed": "Changed: printed_theater_scripts no longer directly depends on theater_ticketing_systems and now directly depends on theater.",
+  "would_reject_if": [
+    "The node is rescoped to commercial theater admission or box-office operations rather than printed scripts.",
+    "A source shows paid ticketing systems were necessary for the early publication and circulation of play texts.",
+    "The printing_press or early_copyright_printing_privileges contexts are removed without a narrower replacement."
+  ],
+  "short_reason": "Printed scripts require theater and print publication, not ticketing infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/printed_theater_scripts.before.json /tmp/printed_theater_scripts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

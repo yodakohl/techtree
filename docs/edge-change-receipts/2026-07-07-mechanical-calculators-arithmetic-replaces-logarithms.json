@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-mechanical-calculators-arithmetic-replaces-logarithms",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "mechanical_calculators_early",
+    "prerequisite": "basic_arithmetic"
+  },
+  "replaced_edge": {
+    "dependent": "mechanical_calculators_early",
+    "prerequisite": "logarithms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Logarithms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.76,
+    "evidence_level": "review",
+    "note": "Basic Arithmetic supplies the operations that Pascal-style mechanical calculators automated; logarithms are not required by the Pascaline-centered 1642 scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Mechanical_calculator",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Overview: defines a mechanical calculator as a device for performing the basic operations of arithmetic automatically and identifies Pascal's 1642 Pascaline as the first operational mechanical calculator.",
+    "source_claim_summary": "The source directly scopes early mechanical calculators to automatic arithmetic operations.",
+    "source_support_rationale": "The cited scope requires arithmetic but does not require logarithmic tables or logarithmic computation."
+  },
+  "ontology_before": "Early Mechanical Calculators depended on Logarithms, incorrectly implying Pascal's adding-machine lineage required logarithmic computation.",
+  "ontology_after": "Early Mechanical Calculators depends on Basic Arithmetic, geared calculating devices, and instrument-making capability.",
+  "invariant_preserved_or_changed": "Changed: mechanical_calculators_early no longer directly depends on logarithms and now directly depends on basic_arithmetic.",
+  "would_reject_if": [
+    "The node is broadened to logarithmic slide rules or logarithmic calculating aids rather than gear-based Pascal-style calculators.",
+    "A source shows Pascaline-style calculators required logarithmic methods rather than arithmetic operations.",
+    "The geared_calculating_devices or scientific_instrument_making_guilds contexts are removed without a narrower replacement."
+  ],
+  "short_reason": "Pascal's early mechanical calculator automated arithmetic, not logarithms.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/mechanical_calculators_early.before.json /tmp/mechanical_calculators_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-07-printed-theater-scripts-publication-scope",
+  "description": "Lock Printed Theater Scripts to play-text publication and theater lineage, not paid-entry ticketing infrastructure.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "printed_theater_scripts",
+      "operator": "eq",
+      "value": 1614,
+      "reason": "The node remains anchored to the existing early modern printed-script scope."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "theater",
+      "reason": "Theater remains the relevant performance and dramatic-text predecessor for printed scripts."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "theater",
+      "expected": "historical_predecessor",
+      "reason": "Theater is the dramatic-performance lineage for printed scripts, not a commercial scaling dependency."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "printing_press",
+      "reason": "Printed scripts still require print-publication infrastructure."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "early_copyright_printing_privileges",
+      "reason": "Stationers' registration and early print-rights practice remain part of commercial play publication context."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "theater_ticketing_systems",
+      "reason": "Ticketing systems should not be restored unless the node is rescoped to theater admission commerce rather than printed play texts."
+    }
+  ]
+}

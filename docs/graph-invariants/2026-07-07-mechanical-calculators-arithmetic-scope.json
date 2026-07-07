@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-07-mechanical-calculators-arithmetic-scope",
+  "description": "Lock Early Mechanical Calculators to Pascal-style arithmetic machines rather than logarithmic calculating aids.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mechanical_calculators_early",
+      "operator": "eq",
+      "value": 1642,
+      "reason": "The node remains anchored to Pascal's 1642 mechanical calculator."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mechanical_calculators_early",
+      "prerequisite": "basic_arithmetic",
+      "reason": "Arithmetic operations are the direct operation scope automated by Pascal-style calculators."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mechanical_calculators_early",
+      "prerequisite": "basic_arithmetic",
+      "expected": "historical_predecessor",
+      "reason": "Arithmetic is the operation lineage automated by early mechanical calculators, not a later scaling or instrument dependency."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mechanical_calculators_early",
+      "prerequisite": "geared_calculating_devices",
+      "reason": "Geared calculation remains the mechanical lineage for the Pascaline scope."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mechanical_calculators_early",
+      "prerequisite": "scientific_instrument_making_guilds",
+      "reason": "Instrument-making capability remains relevant to constructing geared calculating devices."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mechanical_calculators_early",
+      "prerequisite": "logarithms",
+      "reason": "Logarithms should not be restored unless the node is broadened to logarithmic tables, slide rules, or logarithmic calculating aids."
+    }
+  ]
+}
