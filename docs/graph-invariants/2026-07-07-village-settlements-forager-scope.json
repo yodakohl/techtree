@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-village-settlements-forager-scope",
+  "description": "Lock Village Settlements to the source-backed Natufian hunter-forager settlement scope rather than horticultural village farming.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "village_settlements",
+      "operator": "eq",
+      "value": -10000,
+      "reason": "The node remains anchored to Eynan/Ain Mallaha's 10000-8200 BCE permanent-settlement range."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "village_settlements",
+      "prerequisite": "advanced_hunting_gathering",
+      "reason": "The Natufian anchor is described as year-round villages of hunters and foragers using local resources."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "village_settlements",
+      "prerequisite": "advanced_hunting_gathering",
+      "expected": "enabling",
+      "reason": "Advanced hunter-forager lifeways are the enabling subsistence and ecological context for the settlement anchor."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "village_settlements",
+      "prerequisite": "basic_shelter",
+      "reason": "Built shelter remains a historical predecessor for permanent or semi-permanent settlement."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "village_settlements",
+      "prerequisite": "horticulture",
+      "reason": "Horticulture should not be restored unless the node is rescoped away from the Natufian hunter-forager anchor."
+    }
+  ]
+}

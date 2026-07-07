@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-village-settlements-forager-lifeways-replaces-horticulture",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "village_settlements",
+    "prerequisite": "advanced_hunting_gathering"
+  },
+  "replaced_edge": {
+    "dependent": "village_settlements",
+    "prerequisite": "horticulture"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Horticulture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.76,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Hunting & Gathering fits the Natufian settlement anchor: the Met describes year-round villages of hunters and foragers relying on local gazelle, wild cereals, and marine resources rather than cultivated horticulture."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/essays/eynanain-mallaha-10000-8200-b-c",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "The Met describes Natufians as hunters and foragers who settled in villages year-round and relied on local resources including gazelle, wild cereals, and marine life.",
+    "source_claim_summary": "The source anchors permanent Natufian villages to hunter-forager subsistence, not horticulture.",
+    "source_support_rationale": "The corrected edge uses the source-backed forager lifeway package already represented by advanced_hunting_gathering."
+  },
+  "ontology_before": "Village Settlements depended on Horticulture, implying cultivation enabled the Eynan/Ain Mallaha anchor despite the source describing settled hunters and foragers.",
+  "ontology_after": "Village Settlements depends on Advanced Hunting & Gathering and Basic Shelter, matching the Natufian hunter-forager settlement scope.",
+  "invariant_preserved_or_changed": "Changed: village_settlements now depends on advanced_hunting_gathering and no longer directly depends on horticulture.",
+  "would_reject_if": [
+    "The node is rescoped to Neolithic farming villages rather than Natufian permanent or semi-permanent settlements.",
+    "A source directly shows horticulture or cultivation at Eynan/Ain Mallaha as the enabling basis for the stored date.",
+    "advanced_hunting_gathering is removed without adding another source-backed hunter-forager settlement context."
+  ],
+  "short_reason": "The settlement anchor is source-backed as hunter-forager, not horticultural.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/village_settlements.before.json /tmp/village_settlements.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
