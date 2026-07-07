@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-07-mass-media-channel-scope",
+  "description": "Lock Mass Media to predecessor media channels rather than sociology as a field of study.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "mass_media",
+      "operator": "eq",
+      "value": 1925,
+      "reason": "The node remains anchored to the existing radio/print-based modern mass-audience communication scope."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mass_media",
+      "prerequisite": "radio_broadcasting",
+      "reason": "Radio broadcasting remains a direct broadcast mass-media channel."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mass_media",
+      "prerequisite": "television",
+      "reason": "Television remains a direct broadcast mass-media channel."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "mass_media",
+      "prerequisite": "mass_media_newspapers",
+      "reason": "Newspapers remain the earlier print mass-audience channel in the mass-media lineage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "mass_media",
+      "prerequisite": "mass_media_newspapers",
+      "expected": "historical_predecessor",
+      "reason": "The newspaper relationship is a predecessor-media lineage, not an analytic social-science field."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "mass_media",
+      "prerequisite": "sociology_early",
+      "reason": "Sociology should not be restored unless the node is rescoped to academic media studies."
+    }
+  ]
+}

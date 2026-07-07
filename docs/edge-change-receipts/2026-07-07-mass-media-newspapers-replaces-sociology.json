@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-mass-media-newspapers-replaces-sociology",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "mass_media",
+    "prerequisite": "mass_media_newspapers"
+  },
+  "replaced_edge": {
+    "dependent": "mass_media",
+    "prerequisite": "sociology_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Sociology (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Mass Media (Newspapers) is the earlier print-mass-audience channel in the mass-media lineage; sociology is a field that studies media rather than a prerequisite medium."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Mass_media",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Definition and print-media sections: identify print media including newspapers as mass media, note newspapers developed into mass-audience media in the 19th century, and list newspapers with radio and television among major mass-media forms.",
+    "source_claim_summary": "The source places newspapers in the lineage of mass media alongside radio and television.",
+    "source_support_rationale": "The corrected edge represents a predecessor medium, while sociology is a later analytic field that can study mass media without enabling it."
+  },
+  "ontology_before": "Mass Media depended on Sociology (Early), making a field of study look like a prerequisite medium.",
+  "ontology_after": "Mass Media depends on radio broadcasting, television, printing press, and Mass Media (Newspapers) as media-channel lineage.",
+  "invariant_preserved_or_changed": "Changed: mass_media now depends on mass_media_newspapers and no longer directly depends on sociology_early.",
+  "would_reject_if": [
+    "The node is rescoped to the academic study of mass media rather than mass communication technologies.",
+    "A source shows early sociology was necessary to create mass-media channels.",
+    "mass_media_newspapers is removed without adding a narrower print-mass-media predecessor."
+  ],
+  "short_reason": "Newspapers are a predecessor mass medium; sociology is a study field.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/mass_media.before.json /tmp/mass_media.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

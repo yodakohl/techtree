@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-typewritten-workflows-typewriter-replaces-parts-catalogs",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "typewritten_office_workflows",
+    "prerequisite": "typewriter"
+  },
+  "replaced_edge": {
+    "dependent": "typewritten_office_workflows",
+    "prerequisite": "industrial_parts_catalogs"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Parts Catalogs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.88,
+    "evidence_level": "textbook",
+    "note": "Commercial typewriters are the required device around which typed correspondence, forms, carbon copies, and clerical office routines were built."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/typewriter",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Britannica states that Sholes signed with E. Remington and Sons for manufacture and that the first typewriters were placed on the market in 1874.",
+    "source_claim_summary": "The source anchors the commercial typewriter availability that the office-workflow node is scoped around.",
+    "source_support_rationale": "A typewritten office workflow cannot exist without commercial typewriters, whereas parts catalogs are not the device or institutional practice being represented."
+  },
+  "ontology_before": "Typewritten Office Workflows depended on Industrial Parts Catalogs, which conflated catalog commerce with typed correspondence and clerical practice.",
+  "ontology_after": "Typewritten Office Workflows now directly depends on Typewriter and Paper Making as the device and document substrate for typed office practice.",
+  "invariant_preserved_or_changed": "Changed: typewritten_office_workflows now depends on typewriter and no longer directly depends on industrial_parts_catalogs.",
+  "would_reject_if": [
+    "The node is rescoped to industrial catalog production rather than typed office correspondence and forms.",
+    "A source shows industrial parts catalogs were necessary for typewritten office workflows.",
+    "typewriter is removed without a narrower commercial-typewriter prerequisite."
+  ],
+  "short_reason": "The typewriter is the required device; parts catalogs are not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/typewritten_office_workflows.before.json /tmp/typewritten_office_workflows.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

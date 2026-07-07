@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-typewritten-workflows-paper-replaces-installment-credit",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "typewritten_office_workflows",
+    "prerequisite": "paper_making"
+  },
+  "replaced_edge": {
+    "dependent": "typewritten_office_workflows",
+    "prerequisite": "consumer_installment_credit"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Consumer Installment Credit provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.7,
+    "evidence_level": "review",
+    "note": "Paper Making supplies the document substrate for typed correspondence, forms, filings, and carbon-copy workflows; consumer installment credit is a sales channel rather than an office-workflow prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Carbon_paper",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Overview and History sections: defines carbon paper as sheets used to make copies when inscribed by a typewriter and explains the office term carbon copy.",
+    "source_claim_summary": "The source documents paper-based carbon-copy sheets as part of typewriter copying practice.",
+    "source_support_rationale": "The corrected edge is about the paper document substrate for copies and forms, not the financing or sale of typewriters to consumers."
+  },
+  "ontology_before": "Typewritten Office Workflows depended on Consumer Installment Credit, implying typewriter financing enabled office workflow practice.",
+  "ontology_after": "Typewritten Office Workflows depends on Paper Making for document substrate and Typewriter for the required office device.",
+  "invariant_preserved_or_changed": "Changed: typewritten_office_workflows now depends on paper_making and no longer directly depends on consumer_installment_credit.",
+  "would_reject_if": [
+    "The node is rescoped to consumer financing of typewriters rather than office document workflows.",
+    "A source shows installment credit was necessary for typed office workflows.",
+    "paper_making is removed without a narrower document-substrate or carbon-copy prerequisite."
+  ],
+  "short_reason": "Office workflows need paper documents; installment credit is only sales context.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/typewritten_office_workflows.before.json /tmp/typewritten_office_workflows.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

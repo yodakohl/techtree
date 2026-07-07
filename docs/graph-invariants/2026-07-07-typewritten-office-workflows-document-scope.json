@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-typewritten-office-workflows-document-scope",
+  "description": "Lock Typewritten Office Workflows to commercial typewriters and paper document workflows, not catalogs or installment credit.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "typewritten_office_workflows",
+      "operator": "eq",
+      "value": 1874,
+      "reason": "The node remains anchored to first commercial typewriter availability."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "typewritten_office_workflows",
+      "prerequisite": "typewriter",
+      "reason": "The typewriter remains the required device for the scoped office workflows."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "typewritten_office_workflows",
+      "prerequisite": "typewriter",
+      "expected": "required",
+      "reason": "Typed office workflows cannot exist without typewriters."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "typewritten_office_workflows",
+      "prerequisite": "paper_making",
+      "reason": "Paper remains the document substrate for typed correspondence, forms, files, and carbon copies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "typewritten_office_workflows",
+      "prerequisite": "paper_making",
+      "expected": "enabling",
+      "reason": "Paper enables the document workflow without being the typewriting device itself."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "typewritten_office_workflows",
+      "prerequisite": "industrial_parts_catalogs",
+      "reason": "Industrial parts catalogs should not be restored unless the node is rescoped to catalog production."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "typewritten_office_workflows",
+      "prerequisite": "consumer_installment_credit",
+      "reason": "Installment credit should not be restored unless the node is rescoped to typewriter sales finance."
+    }
+  ]
+}

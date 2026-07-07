@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-statistics-probability-inference-replaces-bookkeeping",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "statistics_advanced_data_analysis",
+    "prerequisite": "probability_statistics_inference"
+  },
+  "replaced_edge": {
+    "dependent": "statistics_advanced_data_analysis",
+    "prerequisite": "double_entry_diffusion"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Double-Entry Bookkeeping Diffusion provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Probability & Statistical Inference is the direct mathematical lineage for 19th-century regression, correlation, and analytical statistics; double-entry bookkeeping is only a distant data-recording context."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/History_of_statistics",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Introduction: says statistical activities are associated with probability models and that mathematical statistics designates the probability and statistical-inference theories used in statistical practice.",
+    "source_claim_summary": "The source frames probability and statistical inference as the mathematical theory used by modern statistical practice.",
+    "source_support_rationale": "The corrected edge is about mathematical lineage for regression, correlation, and analytical statistics, while bookkeeping only supplies a distant record-keeping context."
+  },
+  "ontology_before": "Statistics (Advanced Data Analysis) depended on Double-Entry Bookkeeping Diffusion, overemphasizing commercial recordkeeping rather than the statistical-mathematical lineage.",
+  "ontology_after": "Statistics (Advanced Data Analysis) depends on Probability & Statistical Inference alongside mathematics, scientific method, print, and logarithms/calculus context.",
+  "invariant_preserved_or_changed": "Changed: statistics_advanced_data_analysis now directly depends on probability_statistics_inference and no longer directly depends on double_entry_diffusion.",
+  "would_reject_if": [
+    "The node is rescoped to accounting tables or commercial bookkeeping analytics rather than statistical methods.",
+    "A stronger source shows double-entry bookkeeping was a necessary prerequisite for 19th-century regression or correlation.",
+    "probability_statistics_inference is removed without replacing it with a narrower probability/statistical-theory predecessor."
+  ],
+  "short_reason": "Advanced statistics descends from probability and statistical inference, not bookkeeping.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/statistics_advanced_data_analysis.before.json /tmp/statistics_advanced_data_analysis.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
