@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-07-ecg-clinical-medicine-replaces-radiology",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "electrocardiography_early",
+    "prerequisite": "medicine_clinical"
+  },
+  "replaced_edge": {
+    "dependent": "electrocardiography_early",
+    "prerequisite": "radiology_departments"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Radiology Departments provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Clinical Medicine provides the patient-diagnosis and medical-interpretation context for applying electrocardiograms to heart disease."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://nationalmaglab.org/magnet-academy/history-of-electricity-magnetism/pioneers/willem-einthoven/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "documents_application_use",
+    "source_locator": "National MagLab says Einthoven published patient ECG examples for heart abnormalities, studied healthy-heart patterns to detect disease differences, and enhanced diagnosis of heart problems.",
+    "source_claim_summary": "Einthoven's electrocardiography was a clinical diagnostic practice for interpreting heart disease, not a radiology-department workflow.",
+    "source_support_rationale": "The source ties ECG to patient heart abnormalities, healthy-heart comparison, and diagnosis; radiology departments are an imaging specialty and are not the clinical substrate described for early ECG."
+  },
+  "ontology_before": "Early Electrocardiography depended on radiology_departments, incorrectly routing an electrical physiological recording method through X-ray imaging infrastructure.",
+  "ontology_after": "Early Electrocardiography depends on medicine_clinical for patient diagnosis and disease interpretation, while laboratory_diagnostic_medicine covers the fixed instrument/lab context.",
+  "invariant_preserved_or_changed": "Changed: electrocardiography_early now depends on medicine_clinical and no longer directly depends on radiology_departments.",
+  "would_reject_if": [
+    "The node is rescoped to ECG deployment inside radiology departments rather than early electrocardiography.",
+    "A stronger source shows early Einthoven ECG practice required X-ray/radiology infrastructure.",
+    "A dedicated clinical_electrophysiology node is added and becomes the narrower prerequisite."
+  ],
+  "short_reason": "ECG was clinical physiological diagnosis, not radiology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/electrocardiography_early.before.json /tmp/electrocardiography_early.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

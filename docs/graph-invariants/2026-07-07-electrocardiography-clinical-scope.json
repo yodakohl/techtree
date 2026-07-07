@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-electrocardiography-clinical-scope",
+  "description": "Lock electrocardiography_early to Einthoven-style electrical physiological recording and clinical heart-disease diagnosis rather than radiology-department imaging workflows.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "electrocardiography_early",
+      "operator": "eq",
+      "value": 1903,
+      "reason": "The node remains anchored to Einthoven's 1903 electrocardiograph work."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electrocardiography_early",
+      "prerequisite": "medicine_clinical",
+      "expected": "enabling",
+      "reason": "Clinical medicine supplies the patient-diagnosis and disease-interpretation context for electrocardiograms."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "electrocardiography_early",
+      "prerequisite": "medicine_clinical",
+      "reason": "Clinical diagnosis is the corrected medical-practice prerequisite for early ECG."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "electrocardiography_early",
+      "prerequisite": "laboratory_diagnostic_medicine",
+      "reason": "The fixed instrument, physiological laboratory, and hospital diagnostic context remains direct."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electrocardiography_early",
+      "prerequisite": "radiology_departments",
+      "reason": "Radiology departments are imaging infrastructure and must not be used to source early electrical cardiac recording."
+    }
+  ]
+}
