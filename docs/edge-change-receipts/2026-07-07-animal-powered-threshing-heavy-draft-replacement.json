@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-animal-powered-threshing-heavy-draft-replacement",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "animal_powered_threshing",
+    "prerequisite": "yokes_and_harnesses"
+  },
+  "replaced_edge": {
+    "dependent": "animal_powered_threshing",
+    "prerequisite": "heavy_draft_plowing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Heavy Draft Plowing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Yokes & Harnesses provides traction arrangements for animal-powered treading or threshing sledges; heavy draft plowing is a related field use rather than a direct prerequisite."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Threshing_board",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The overview describes threshing boards or sledges pulled by oxen, mules, or horses over grain.",
+    "source_claim_summary": "Animal-powered threshing depends on animal traction arrangements, not specifically on heavy draft plowing.",
+    "source_support_rationale": "The corrected edge points to the harnessing/traction technology used to pull threshing sledges and supports animal-driven grain separation without requiring a separate plowing technology."
+  },
+  "ontology_before": "Animal-Powered Threshing depended directly on heavy_draft_plowing, conflating threshing with plow traction.",
+  "ontology_after": "Animal-Powered Threshing depends on threshing_and_winnowing, animal_husbandry, and yokes_and_harnesses as the direct traction predecessor.",
+  "invariant_preserved_or_changed": "Changed: heavy_draft_plowing is no longer direct, and yokes_and_harnesses is now a direct prerequisite.",
+  "would_reject_if": [
+    "The node were narrowed to plow-based field preparation rather than threshing.",
+    "A stronger source showed early animal-powered threshing required heavy draft plows.",
+    "Yokes and harnesses were split so that threshing-sledge traction had a more specific direct node."
+  ],
+  "short_reason": "Animal-powered threshing needs animal traction, not heavy draft plowing specifically.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/animal_powered_threshing.before.json /tmp/animal_powered_threshing.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-07-pack-animal-transport-early-navigation-removal",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "pack_animal_transport",
+    "prerequisite": "early_navigation"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Navigation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No direct edge remains because the scoped early_navigation node covers coastal and open-water navigation, not land route following by pack animals.",
+  "source_supports_edge": "no",
+  "source_url": "https://en.wikipedia.org/wiki/Pack_animal",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The overview defines pack animals by carrying goods or materials on their backs, rather than by nautical route-finding or open-water navigation.",
+    "source_claim_summary": "Pack animal transport is about load-carrying working animals; coastal/open-water navigation is a separate transport-navigation technology.",
+    "source_support_rationale": "The source supports the pack-transport scope without implying a direct dependency on water-navigation methods."
+  },
+  "ontology_before": "Pack Animal Transport depended directly on early_navigation, creating an unrelated water-navigation predecessor for land pack transport.",
+  "ontology_after": "Pack Animal Transport depends on animal domestication and basic rope making; navigation remains relevant to maritime and route-planning nodes rather than the immediate pack-load technology.",
+  "invariant_preserved_or_changed": "Changed: early_navigation is no longer a direct prerequisite for pack_animal_transport.",
+  "would_reject_if": [
+    "The node were re-scoped to caravan route navigation systems rather than animal load transport.",
+    "A stronger source showed the earliest pack animal use depended specifically on formal navigation technology.",
+    "The early_navigation node were broadened away from coastal and open-water navigation into all route finding."
+  ],
+  "short_reason": "Land pack transport is not directly enabled by nautical navigation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pack_animal_transport.before.json /tmp/pack_animal_transport.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

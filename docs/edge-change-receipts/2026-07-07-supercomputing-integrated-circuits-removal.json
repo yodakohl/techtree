@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-07-supercomputing-integrated-circuits-removal",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "supercomputing",
+    "prerequisite": "integrated_circuits"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.64,
+    "evidence_level": "expert_inference",
+    "note": "Integrated circuits became important to later supercomputer packaging and performance, but early supercomputers such as the CDC 6600 were not IC-dependent."
+  },
+  "new_claim_absent": "No direct edge remains because the source-checked first-known supercomputing chronology is anchored before integrated circuits; integrated circuits belong to later supercomputer scaling rather than the earliest node prerequisites.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.computerhistory.org/revolution/supercomputers/10/33",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Computer History Museum describes the CDC 6600 as a 1964 supercomputer built from transistors with peripheral processors, after earlier NORC/Stretch/Atlas high-performance machines.",
+    "source_claim_summary": "Canonical early supercomputer examples do not make integrated circuits a direct prerequisite for the supercomputing node.",
+    "source_support_rationale": "The node now covers the earliest highest-performance scientific machines; later IC-based systems remain part of the description but should not force a temporal dependency after the first-known date."
+  },
+  "ontology_before": "Supercomputing depended directly on integrated_circuits even though the node was anchored to pre-IC or non-IC-dependent early supercomputers.",
+  "ontology_after": "Supercomputing depends on early computers and computation theory, while integrated circuits remain later implementation history rather than an immediate prerequisite.",
+  "invariant_preserved_or_changed": "Changed: integrated_circuits is no longer a direct prerequisite for supercomputing.",
+  "would_reject_if": [
+    "The node were re-scoped only to IC-based vector supercomputers such as the Cray-1.",
+    "The first-known date were moved after integrated-circuit deployment and the evidence explicitly required IC packaging.",
+    "A stronger source showed that the earliest supercomputer lineage was impossible without integrated circuits."
+  ],
+  "short_reason": "The sourced early supercomputer chronology predates an IC prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/supercomputing.after.json /tmp/supercomputing.final.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

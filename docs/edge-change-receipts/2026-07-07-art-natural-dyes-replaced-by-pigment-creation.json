@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-art-natural-dyes-replaced-by-pigment-creation",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "art",
+    "prerequisite": "pigment_creation"
+  },
+  "replaced_edge": {
+    "dependent": "art",
+    "prerequisite": "natural_dyes"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Natural Dyes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pigment Creation provides a capability that enables this technology without being the only possible path."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/21998386/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The paper reports a 100,000-year-old ochre-processing workshop at Blombos Cave, predating the 73,000-year-old ochre drawing used to anchor the art node.",
+    "source_claim_summary": "Prepared ochre pigment technology is a direct material predecessor for early visual art, while textile dyeing is a later specialized application.",
+    "source_support_rationale": "The art node is anchored to ochre mark-making, so pigment creation is the sourced enabling path and natural_dyes should remain scoped to textile dyeing rather than broad visual art."
+  },
+  "ontology_before": "Art depended directly on natural_dyes, implying textile dyeing was a direct predecessor for early visual expression.",
+  "ontology_after": "Art depends on early symbolic communication, pigment creation, and stone tool making; textile dyes remain separate from early pigment-based visual expression.",
+  "invariant_preserved_or_changed": "Changed: natural_dyes is no longer a direct prerequisite for art, and pigment_creation is now a direct prerequisite.",
+  "would_reject_if": [
+    "The art node were narrowed to dyed textiles rather than broad symbolic visual expression.",
+    "A stronger source showed the earliest art evidence depended specifically on textile dye extraction rather than mineral pigments.",
+    "Pigment creation were re-scoped away from ochre and other prepared colorants used in visual marking."
+  ],
+  "short_reason": "Early art is sourced to ochre pigment mark-making, not textile dyes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/art.before.json /tmp/art.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

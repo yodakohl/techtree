@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-pack-animal-transport-yokes-replaced-by-rope",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "pack_animal_transport",
+    "prerequisite": "basic_rope_making"
+  },
+  "replaced_edge": {
+    "dependent": "pack_animal_transport",
+    "prerequisite": "yokes_and_harnesses"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Yokes & Harnesses provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Basic Rope Making provides cords and lashings used to secure carried loads without making nautical navigation or traction harnesses direct prerequisites."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The paper documents deep fiber and cordage technology, supporting cords and lashings as a predecessor for securing loads.",
+    "source_claim_summary": "Cordage is a broad load-securing technology that fits pack transport better than traction yokes or harnesses.",
+    "source_support_rationale": "Pack loads are carried on animals' backs; rope and cord are direct securing infrastructure, while yokes are primarily traction equipment."
+  },
+  "ontology_before": "Pack Animal Transport depended on yokes_and_harnesses, implying traction gear was a direct prerequisite for carried loads.",
+  "ontology_after": "Pack Animal Transport depends on animal domestication and basic rope making; yokes_and_harnesses remains available for traction technologies such as threshing sledges and plowing.",
+  "invariant_preserved_or_changed": "Changed: yokes_and_harnesses is no longer a direct prerequisite for pack_animal_transport, and basic_rope_making is now direct.",
+  "would_reject_if": [
+    "The node were narrowed to draught animals pulling loads rather than pack animals carrying loads.",
+    "A stronger source showed earliest pack transport required yokes rather than ropes, pads, or baskets.",
+    "The yokes_and_harnesses node were broadened to include all load straps and rope lashings."
+  ],
+  "short_reason": "Pack loads need securing cordage more directly than traction yokes.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/pack_animal_transport.before.json /tmp/pack_animal_transport.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}
