@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-07-kepler-telescope-removal",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "planetary_motion_kepler",
+    "prerequisite": "telescope"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Telescope is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No telescope dependency is retained because Kepler's first two laws were derived from Tycho Brahe's pre-telescopic observations and Copernican context, not from telescopic observation.",
+  "source_supports_edge": "no",
+  "source_url": "https://science.nasa.gov/solar-system/orbits-and-keplers-laws/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Kepler and the Mars Problem section: NASA says Tycho made the most accurate astronomical observations of his time without a telescope and assigned Kepler the Mars-orbit problem from those data.",
+    "source_claim_summary": "The source directly places Kepler's Mars data in Tycho's pre-telescopic observational program.",
+    "source_support_rationale": "A telescope cannot be a contextual dependency for this scoped Kepler node when the cited evidence identifies the decisive observational dataset as explicitly non-telescopic."
+  },
+  "ontology_before": "Planetary Motion (Kepler's Laws) included Telescope as a contextual dependency, incorrectly implying telescopic observation underlay the 1609 laws.",
+  "ontology_after": "Planetary Motion (Kepler's Laws) keeps early astronomy, mathematics, scientific method, printing, and Copernican heliocentrism while removing the unsupported telescope dependency.",
+  "invariant_preserved_or_changed": "Changed: planetary_motion_kepler no longer directly depends on telescope and now cites NASA for the Copernican context.",
+  "would_reject_if": [
+    "The node is expanded to Kepler's later optical/telescope work rather than the 1609 laws of planetary motion.",
+    "A source shows telescopic observations were required for the Mars analysis behind Astronomia Nova.",
+    "The early_astronomy_observation and heliocentrism_copernicus context is removed without a more accurate replacement."
+  ],
+  "short_reason": "Kepler's 1609 planetary-motion laws were pre-telescopic.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/planetary_motion_kepler.before.json /tmp/planetary_motion_kepler.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

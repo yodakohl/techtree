@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-fracastoro-clinical-observation-replaces-herbal-preparation",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "theory_of_contagion_fracastoro",
+    "prerequisite": "clinical_observation_diagnosis"
+  },
+  "replaced_edge": {
+    "dependent": "theory_of_contagion_fracastoro",
+    "prerequisite": "herbal_medicine_preparation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Clinical Observation & Diagnosis supplies the medical-observation and disease-classification tradition that Fracastoro extended into a theory of contagion; herbal preparation is not required by this scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Girolamo_Fracastoro",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Life and medical career section: Fracastoro practiced medicine, studied syphilis transmission, and in 1546 proposed that epidemic diseases spread by transferable particles through direct, indirect, or long-distance transmission.",
+    "source_claim_summary": "Fracastoro's source-backed context is medical practice, disease transmission, and a published contagion theory rather than preparation of herbal remedies.",
+    "source_support_rationale": "The source identifies Fracastoro as a practicing physician and explicitly ties his 1546 claim to modes of epidemic transmission, which is the clinical-observation boundary needed by the contagion node."
+  },
+  "ontology_before": "Theory of Contagion depended on Herbal Medicine Preparation, implying remedy-making was the enabling medical base for Fracastoro's transmission theory.",
+  "ontology_after": "Theory of Contagion depends on Clinical Observation & Diagnosis, while printing, scientific method, and humanism preserve the publication and scholarly context.",
+  "invariant_preserved_or_changed": "Changed: theory_of_contagion_fracastoro now depends on clinical_observation_diagnosis and no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": [
+    "A stronger source shows Fracastoro's contagion theory specifically depended on herbal remedy preparation rather than clinical observation and disease classification.",
+    "The node is narrowed to herbal therapeutics instead of transmission theory.",
+    "clinical_observation_diagnosis is removed without adding a more specific medical-observation prerequisite."
+  ],
+  "short_reason": "Clinical observation fits contagion theory; herbal preparation does not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/theory_of_contagion_fracastoro.before.json /tmp/theory_of_contagion_fracastoro.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

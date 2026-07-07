@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-07-public-art-academies-human-anatomy-replaces-art-conservation",
+  "decision_date": "2026-07-07",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "public_art_academies",
+    "prerequisite": "human_anatomy_physiology"
+  },
+  "replaced_edge": {
+    "dependent": "public_art_academies",
+    "prerequisite": "art_conservation_workshops"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Art Conservation Workshops provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Human Anatomy & Physiology better matches the source-backed academy curriculum of anatomy lectures and figure drawing; art conservation workshops are not required by this institutional teaching scope."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://en.wikipedia.org/wiki/Academic_art",
+  "source_shape": {
+    "source_type": "generic_overview",
+    "support_relationship": "documents_application_use",
+    "source_locator": "First art academies in Renaissance Italy section: the article says students at the 1563 Florence academy learned the arts of drawing and heard lectures on anatomy and geometry.",
+    "source_claim_summary": "The source-backed instructional curriculum for early public art academies includes drawing, anatomy, and geometry rather than conservation workshops.",
+    "source_support_rationale": "The replacement edge is justified because the cited curriculum explicitly names anatomy lectures inside the academy, while conservation workshops are not part of the node's first-academy teaching claim."
+  },
+  "ontology_before": "Public Art Academies depended on Art Conservation Workshops, implying conservation practice enabled formal art-academy instruction.",
+  "ontology_after": "Public Art Academies depends on Human Anatomy & Physiology and Perspective in Art, matching the teaching scope of drawing, anatomy, geometry, and artistic theory.",
+  "invariant_preserved_or_changed": "Changed: public_art_academies now depends on human_anatomy_physiology and no longer directly depends on art_conservation_workshops.",
+  "would_reject_if": [
+    "A stronger source shows the 1563 academy was organized around conservation workshops rather than instruction in drawing, anatomy, and geometry.",
+    "The node is narrowed to modern conservation academies instead of Renaissance public art instruction.",
+    "human_anatomy_physiology is removed without adding a more specific anatomy-for-art-training prerequisite."
+  ],
+  "short_reason": "Anatomy is documented in the academy curriculum; conservation workshops are not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_art_academies.before.json /tmp/public_art_academies.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

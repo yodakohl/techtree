@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-public-art-academies-instruction-scope",
+  "description": "Lock Public Art Academies to Renaissance art instruction in drawing, anatomy, geometry, and perspective rather than conservation workshops.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "public_art_academies",
+      "operator": "eq",
+      "value": 1563,
+      "reason": "The node remains anchored to the Florentine academy founded in 1563."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_art_academies",
+      "prerequisite": "perspective_in_art",
+      "reason": "Perspective and geometry remain central to the scoped academy curriculum."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_art_academies",
+      "prerequisite": "human_anatomy_physiology",
+      "reason": "Anatomy is the corrected source-backed teaching prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_art_academies",
+      "prerequisite": "human_anatomy_physiology",
+      "expected": "enabling",
+      "reason": "Anatomical study enables academy figure drawing and instruction without being a physical component."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_art_academies",
+      "prerequisite": "art_conservation_workshops",
+      "reason": "Conservation workshops should not be restored unless the node is narrowed to conservation training institutions."
+    }
+  ]
+}

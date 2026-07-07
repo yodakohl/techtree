@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-07-fracastoro-contagion-medical-observation-scope",
+  "description": "Lock Fracastoro's contagion theory to medical observation and disease transmission rather than herbal remedy preparation.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "theory_of_contagion_fracastoro",
+      "operator": "eq",
+      "value": 1546,
+      "reason": "The node remains anchored to De contagione et contagiosis morbis in 1546."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "theory_of_contagion_fracastoro",
+      "prerequisite": "clinical_observation_diagnosis",
+      "reason": "The corrected medical predecessor is clinical observation and diagnosis."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "theory_of_contagion_fracastoro",
+      "prerequisite": "clinical_observation_diagnosis",
+      "expected": "enabling",
+      "reason": "Clinical observation enables the disease-transmission theory without being a single hard component."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "theory_of_contagion_fracastoro",
+      "prerequisite": "humanism",
+      "reason": "The node remains in Renaissance scholarly and humanist culture."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "theory_of_contagion_fracastoro",
+      "prerequisite": "herbal_medicine_preparation",
+      "reason": "Herbal preparation should not be restored unless the node is narrowed to remedy making."
+    }
+  ]
+}

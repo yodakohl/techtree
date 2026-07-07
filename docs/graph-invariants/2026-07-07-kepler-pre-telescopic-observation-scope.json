@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-07-kepler-pre-telescopic-observation-scope",
+  "description": "Lock Kepler's 1609 planetary-motion node to Tycho's pre-telescopic data and Copernican context, not telescope use.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "planetary_motion_kepler",
+      "operator": "eq",
+      "value": 1609,
+      "reason": "The node remains anchored to Astronomia Nova and Kepler's first two laws."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "planetary_motion_kepler",
+      "prerequisite": "early_astronomy_observation",
+      "reason": "Tycho's pre-telescopic observational dataset remains the relevant observation lineage."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "planetary_motion_kepler",
+      "prerequisite": "heliocentrism_copernicus",
+      "reason": "Kepler's model context remains Copernican heliocentrism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "planetary_motion_kepler",
+      "prerequisite": "telescope",
+      "reason": "The telescope should not be restored for the scoped 1609 laws unless the node is broadened to later optical astronomy."
+    }
+  ]
+}
