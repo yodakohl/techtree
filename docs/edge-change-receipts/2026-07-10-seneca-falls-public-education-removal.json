@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-seneca-falls-public-education-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "feminism_first_wave_suffrage", "prerequisite": "public_education_systems" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Education Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No public-education dependency remains because education access was one reform demand discussed by the movement, not a prerequisite for the 1848 convention.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/exhibitions/women-fight-for-the-vote/about-this-exhibition/seneca-falls-and-building-a-movement-1776-1890/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Opening and convention sections identify educational opportunity as an inequality and later convention topic alongside property, divorce, and labor reforms.",
+    "source_claim_summary": "Seneca Falls organized a broad rights campaign whose demands included better access to education.",
+    "source_support_rationale": "A demanded outcome cannot be treated as infrastructure that had to exist before advocates could organize for it."
+  },
+  "ontology_before": "The suffrage movement depended on an institution whose unequal access was among the movement's grievances.",
+  "ontology_after": "Education remains a reform target in the node scope but is not a prerequisite for organizing the movement.",
+  "invariant_preserved_or_changed": "Changed: feminism_first_wave_suffrage no longer directly depends on public_education_systems.",
+  "would_reject_if": ["Evidence showed the Seneca Falls convention could only be convened through a specific public-education institution."],
+  "short_reason": "Education was a reform demand, not an enabling prerequisite.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

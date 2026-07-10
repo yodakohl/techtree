@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-telegraphic-newsrooms-stock-ticker-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "telegraph_news_tickers", "prerequisite": "stock_ticker_systems" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Stock Ticker Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No stock-ticker dependency remains because the scoped 1840s newsrooms circulated received information before the repository's 1863 stock-ticker system.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.londonmuseum.org.uk/collections/london-stories/how-telegraph-took-off-victorian-london/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Telegraphs were big business describes Electric Telegraph Company newsrooms distributing news, stock information, and weather through the telegraph network.",
+    "source_claim_summary": "The service was a telegraphic newsroom that handled several information categories rather than a stock-ticker mechanism.",
+    "source_support_rationale": "Market prices were content carried by the room; a later electromechanical ticker was not required to receive or announce them."
+  },
+  "ontology_before": "A 1840s information service depended on a later 1863 stock-ticker machine because both handled market data.",
+  "ontology_after": "Telegraphic newsrooms depend directly on telegraph communication; stock tickers remain a separate later display mechanism.",
+  "invariant_preserved_or_changed": "Changed: telegraph_news_tickers no longer directly depends on stock_ticker_systems.",
+  "would_reject_if": ["The node were respecified as a mechanically printed stock-and-news ticker introduced after 1863."],
+  "short_reason": "Stock information content does not require a later ticker machine.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

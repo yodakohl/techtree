@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-duvensee-paddle-dugout-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "dugout_paddles", "prerequisite": "wooden_dugout_canoe_refinement" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Refined Dugout Canoes provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No canoe-construction dependency remains because the scoped archaeological find is a paddle whose associated watercraft type is unknown.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.amh-guide.de/en/exhs/86",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Showcase 70 identifies a pine paddle from Duvensee dated to 6200 BCE but does not identify a dugout canoe found with it.",
+    "source_claim_summary": "The museum record establishes the material, artifact class, place, and age of the Duvensee paddle only.",
+    "source_support_rationale": "An unattested hull construction cannot be promoted into a prerequisite of the directly preserved wooden implement."
+  },
+  "ontology_before": "The paddle artifact depended on a refined dugout canoe, laundering a possible use context into a documented construction relationship.",
+  "ontology_after": "The Duvensee paddle depends on woodworking, while the unknown associated boat type remains unspecified.",
+  "invariant_preserved_or_changed": "Changed: dugout_paddles no longer directly depends on wooden_dugout_canoe_refinement.",
+  "would_reject_if": ["Direct site evidence identified the Duvensee paddle as equipment from a refined dugout canoe."],
+  "short_reason": "The paddle does not establish its boat's hull type.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

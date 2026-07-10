@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-play-quartos-copyright-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "printed_theater_scripts", "prerequisite": "early_copyright_printing_privileges" },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Early Copyright & Printing Privileges is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No copyright-privilege dependency remains because the scoped artifact is the printed quarto itself, whose existence requires theater content and printing but not that optional legal context.",
+  "source_supports_edge": "no",
+  "source_url": "https://shakespearedocumented.folger.edu/node/87",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The object record gives the 1594 imprint, sellers, title-page text, and performed companies without identifying a privilege as constitutive of the edition.",
+    "source_claim_summary": "The surviving quarto is documented through its physical imprint and theatrical title-page evidence.",
+    "source_support_rationale": "A later Hamlet register entry cannot establish copyright privilege as necessary to the earlier Titus printed artifact."
+  },
+  "ontology_before": "Printed play quartos carried a direct legal-context edge based on a different play's later registration.",
+  "ontology_after": "The artifact depends on theater and printing; Stationers' rights remain optional publication context.",
+  "invariant_preserved_or_changed": "Changed: printed_theater_scripts no longer directly depends on early_copyright_printing_privileges.",
+  "would_reject_if": ["The node were narrowed to licensed editions and evidence showed a privilege was required for every scoped quarto."],
+  "short_reason": "A printing privilege was not constitutive of the 1594 artifact.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

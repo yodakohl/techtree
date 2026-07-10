@@ -1,0 +1,262 @@
+{
+  "id": "2026-07-10-direct-evidence-scope-batch",
+  "description": "Lock direct-source scope, resolved chronology, and removal of topic-as-prerequisite edges across the second trust-remediation batch.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dugout_paddles",
+      "prerequisite": "wooden_dugout_canoe_refinement",
+      "reason": "The Duvensee paddle does not identify the construction type of its associated boat."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dugout_paddles",
+      "prerequisite": "woodworking_basic",
+      "expected": "required",
+      "reason": "The scoped pine artifact requires shaping wood into a blade and shaft."
+    },
+    {
+      "type": "first_known_date",
+      "node": "dugout_paddles",
+      "operator": "eq",
+      "value": -6200,
+      "reason": "The artifact remains anchored to the museum's 6200 BCE date."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "cheese_and_yogurt_making",
+      "prerequisite": "animal_husbandry",
+      "expected": "required",
+      "reason": "The scoped curd separation requires a managed animal-milk supply."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "cheese_and_yogurt_making",
+      "prerequisite": "pottery",
+      "expected": "required",
+      "reason": "The direct evidence is milk residue in purpose-made perforated pottery strainers."
+    },
+    {
+      "type": "first_known_date",
+      "node": "cheese_and_yogurt_making",
+      "operator": "eq",
+      "value": -5500,
+      "reason": "The cheese-straining evidence remains anchored within the sixth millennium BCE."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "musketry_formations",
+      "prerequisite": "printing_press",
+      "reason": "Volley drill does not require print production."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "musketry_formations",
+      "prerequisite": "organized_military_formations",
+      "expected": "required",
+      "reason": "Coordinated group volleys require organized infantry ranks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "musketry_formations",
+      "prerequisite": "gunpowder",
+      "expected": "required",
+      "reason": "Gunpowder firearms define the scoped musketry formation."
+    },
+    {
+      "type": "first_known_date",
+      "node": "musketry_formations",
+      "operator": "eq",
+      "value": 1600,
+      "reason": "The source-backed scope remains seventeenth-century musket volley formations."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pike_and_shot_formations",
+      "prerequisite": "organized_military_formations",
+      "reason": "The generic organization edge is inherited through the specific musketry path."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "pike_and_shot_formations",
+      "prerequisite": "iron_working",
+      "reason": "Ancient iron production is not the direct tactical dependency of pike and shot."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "pike_and_shot_formations",
+      "prerequisite": "musketry_formations",
+      "expected": "required",
+      "reason": "The mixed formation necessarily includes ranked musketeers protected by pikes."
+    },
+    {
+      "type": "first_known_date",
+      "node": "pike_and_shot_formations",
+      "operator": "eq",
+      "value": 1620,
+      "reason": "The scope remains anchored to the circa 1620-1630 museum object and tactic description."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_recipe_books",
+      "prerequisite": "chemical_assay_laboratories",
+      "reason": "Assay work is a recipe subject, not infrastructure for the printed genre."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "chemical_recipe_books",
+      "prerequisite": "dyed_textiles",
+      "reason": "Dyeing is optional recipe content, not a publication prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "chemical_recipe_books",
+      "prerequisite": "printing_press",
+      "expected": "required",
+      "reason": "The scoped Books of Secrets are a popular printed-book genre."
+    },
+    {
+      "type": "first_known_date",
+      "node": "chemical_recipe_books",
+      "operator": "eq",
+      "value": 1497,
+      "reason": "The node remains anchored to the documented octavo Thesaurus Pauperum edition."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_patent_systems",
+      "prerequisite": "early_copyright_printing_privileges",
+      "reason": "The 1449 English grant predates the later Venetian printing privilege."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_patent_systems",
+      "prerequisite": "scientific_method",
+      "reason": "The legal grant tradition predates and does not require scientific method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "early_patent_systems",
+      "prerequisite": "joint_stock_companies",
+      "reason": "The 1449 grant tradition predates the later joint-stock company node."
+    },
+    {
+      "type": "first_known_date",
+      "node": "early_patent_systems",
+      "operator": "eq",
+      "value": 1449,
+      "reason": "English and Welsh invention-patent records remain anchored to 1449."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_patent_specifications",
+      "prerequisite": "technical_drawing_standards",
+      "reason": "The 1711 detailed written specification remains distinct from later patent drawings."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_patent_specifications",
+      "prerequisite": "printing_press",
+      "reason": "Later Patent Office publication is not the original enrolled disclosure process."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "printed_patent_specifications",
+      "prerequisite": "early_patent_systems",
+      "expected": "required",
+      "reason": "A patent specification exists within the patent-grant process it supplements."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_patent_specifications",
+      "operator": "eq",
+      "value": 1711,
+      "reason": "The first detailed British patent specification remains anchored to 1711."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "early_copyright_printing_privileges",
+      "reason": "A printing privilege is not constitutive of the surviving 1594 quarto."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "theater",
+      "expected": "historical_predecessor",
+      "reason": "The printed artifact reproduces a play performed by named acting companies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "printed_theater_scripts",
+      "prerequisite": "printing_press",
+      "expected": "required",
+      "reason": "Printed sheets are constitutive of the quarto artifact."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_theater_scripts",
+      "operator": "eq",
+      "value": 1594,
+      "reason": "The play-quarto scope remains anchored to the 1594 Titus Andronicus edition."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "feminism_first_wave_suffrage",
+      "prerequisite": "public_education_systems",
+      "reason": "Education was a reform demand rather than a prerequisite of the convention."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "feminism_first_wave_suffrage",
+      "prerequisite": "printing_press",
+      "reason": "Print was one campaign channel among several organizing strategies."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "feminism_first_wave_suffrage",
+      "prerequisite": "industrial_urbanization",
+      "reason": "Industrial city growth is not a documented prerequisite of Seneca Falls."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "feminism_first_wave_suffrage",
+      "prerequisite": "liberalism_classical",
+      "expected": "historical_predecessor",
+      "reason": "Earlier equality and individual-rights arguments supply the movement's intellectual lineage."
+    },
+    {
+      "type": "first_known_date",
+      "node": "feminism_first_wave_suffrage",
+      "operator": "eq",
+      "value": 1848,
+      "reason": "The organized U.S. suffrage scope remains anchored to Seneca Falls in 1848."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "telegraph_news_tickers",
+      "prerequisite": "stock_ticker_systems",
+      "reason": "The 1840s newsroom service predates the repository's 1863 ticker system."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "telegraph_news_tickers",
+      "prerequisite": "transoceanic_news_agencies",
+      "reason": "Domestic newsrooms predate the repository's 1866 transoceanic agency node."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "telegraph_news_tickers",
+      "prerequisite": "telegraph",
+      "expected": "required",
+      "reason": "The scoped service receives remote information over electric telegraph lines."
+    },
+    {
+      "type": "first_known_date",
+      "node": "telegraph_news_tickers",
+      "operator": "eq",
+      "value": 1840,
+      "reason": "The telegraphic-newsroom scope remains anchored to the 1840s museum account."
+    }
+  ]
+}

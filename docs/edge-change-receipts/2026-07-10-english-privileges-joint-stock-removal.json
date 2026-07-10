@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-english-privileges-joint-stock-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_patent_systems", "prerequisite": "joint_stock_companies" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No joint-stock dependency remains because individual Crown invention privileges are documented more than a century before the cited 1555 Muscovy Company.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/patents-of-invention",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The guide dates English and Welsh patent records from 1449 and describes the Crown and Chancery grant process through October 1852.",
+    "source_claim_summary": "English invention privileges originated as state grants within a royal administrative process.",
+    "source_support_rationale": "A later chartered trading corporation is a different monopoly form and cannot enable privileges already present in the record."
+  },
+  "ontology_before": "The early invention-grant system depended on a later joint-stock trading company because both involved monopoly rights.",
+  "ontology_after": "Invention privileges and joint-stock trading charters remain distinct legal institutions.",
+  "invariant_preserved_or_changed": "Changed: early_patent_systems no longer directly depends on joint_stock_companies.",
+  "would_reject_if": ["The node were narrowed to a post-1555 corporate invention program whose operation required joint-stock organization."],
+  "short_reason": "Joint-stock companies postdate the scoped grant tradition.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

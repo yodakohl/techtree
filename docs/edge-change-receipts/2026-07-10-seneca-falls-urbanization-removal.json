@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-seneca-falls-urbanization-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "feminism_first_wave_suffrage", "prerequisite": "industrial_urbanization" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Urbanization provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No industrial-urbanization dependency remains because the 1848 Seneca Falls convention is documented through rights and reform networks rather than city growth.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/exhibitions/women-fight-for-the-vote/about-this-exhibition/seneca-falls-and-building-a-movement-1776-1890/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Early inspirations and convention sections trace the gathering to equality writing, antislavery organizing, personal networks, and named organizers.",
+    "source_claim_summary": "The documented movement origin lies in rights arguments and reform-organizing experience culminating at Seneca Falls.",
+    "source_support_rationale": "A generic example about later industrial labor activism does not establish urbanization as necessary to this specific 1848 event."
+  },
+  "ontology_before": "The U.S. convention depended on broad industrial city growth through a source about unrelated labor conditions.",
+  "ontology_after": "The movement is anchored to its documented rights convention and intellectual predecessor.",
+  "invariant_preserved_or_changed": "Changed: feminism_first_wave_suffrage no longer directly depends on industrial_urbanization.",
+  "would_reject_if": ["Direct evidence established industrial urbanization as a necessary organizing mechanism for the Seneca Falls convention."],
+  "short_reason": "Urban growth is broad context, not the convention's prerequisite.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

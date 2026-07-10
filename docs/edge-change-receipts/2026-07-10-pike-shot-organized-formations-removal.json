@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-pike-shot-organized-formations-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "pike_and_shot_formations", "prerequisite": "organized_military_formations" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Organized Military Formations provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No redundant general-formation edge remains because the retained musketry-formation prerequisite already carries organized rank drill into this mixed tactic.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/22730",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object description documents the specific ranked interaction of pikemen and musketeers rather than a separate causal role for generic ancient formations.",
+    "source_claim_summary": "The documented tactic consists of pikemen protecting flanking musketeers as those firearm troops fire and reload.",
+    "source_support_rationale": "Keeping the specific musketry path preserves organized drill without duplicating its remote generic ancestor on the mixed formation."
+  },
+  "ontology_before": "Pike and shot had both a specific musketry-formation dependency and its generic organized-formation ancestor as parallel prerequisites.",
+  "ontology_after": "The mixed tactic inherits organization through the specific musketry-formation path.",
+  "invariant_preserved_or_changed": "Changed: pike_and_shot_formations no longer directly depends on organized_military_formations.",
+  "would_reject_if": ["The musketry prerequisite ceased to encode organized infantry ranks or a distinct direct organization mechanism were documented."],
+  "short_reason": "The generic formation edge duplicated the retained specific path.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

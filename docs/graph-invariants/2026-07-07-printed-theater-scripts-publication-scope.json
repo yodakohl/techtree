@@ -1,13 +1,13 @@
 {
   "id": "2026-07-07-printed-theater-scripts-publication-scope",
-  "description": "Lock Printed Theater Scripts to play-text publication and theater lineage, not paid-entry ticketing infrastructure.",
+  "description": "Lock Printed English Play Quartos to the 1594 artifact, print production, and theater lineage, not ticketing or optional rights context.",
   "checks": [
     {
       "type": "first_known_date",
       "node": "printed_theater_scripts",
       "operator": "eq",
-      "value": 1614,
-      "reason": "The node remains anchored to the existing early modern printed-script scope."
+      "value": 1594,
+      "reason": "The node remains anchored to the surviving first quarto of Titus Andronicus."
     },
     {
       "type": "direct_edge_present",
@@ -29,10 +29,10 @@
       "reason": "Printed scripts still require print-publication infrastructure."
     },
     {
-      "type": "direct_edge_present",
+      "type": "direct_edge_absent",
       "dependent": "printed_theater_scripts",
       "prerequisite": "early_copyright_printing_privileges",
-      "reason": "Stationers' registration and early print-rights practice remain part of commercial play publication context."
+      "reason": "A printing privilege is optional legal context rather than a constitutive feature of the 1594 printed artifact."
     },
     {
       "type": "direct_edge_absent",

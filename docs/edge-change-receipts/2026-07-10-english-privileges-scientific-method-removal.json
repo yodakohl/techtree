@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-english-privileges-scientific-method-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_patent_systems", "prerequisite": "scientific_method" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Method provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No scientific-method dependency remains because Crown invention privileges were legal grants already documented in 1449, before the repository's 1500 scientific-method node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/patents-of-invention",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Sections 1-3 date the English and Welsh patent records from 1449 and describe a petition, warrant, bill, and sealing process rather than experimental method.",
+    "source_claim_summary": "The early patent mechanism was an administrative and legal grant process documented in fifteenth-century records.",
+    "source_support_rationale": "A broad history of the later Scientific Revolution neither supports the grant date nor establishes experiment as a condition of the privilege."
+  },
+  "ontology_before": "A fifteenth-century legal grant depended on a later generalized scientific-method node through an unrelated source.",
+  "ontology_after": "English invention privileges remain a legal-institutional root; scientific practice is not made a grant prerequisite.",
+  "invariant_preserved_or_changed": "Changed: early_patent_systems no longer directly depends on scientific_method.",
+  "would_reject_if": ["A primary grant rule required experimental scientific method for the scoped 1449 privilege."],
+  "short_reason": "The legal grants predate and do not require scientific method.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

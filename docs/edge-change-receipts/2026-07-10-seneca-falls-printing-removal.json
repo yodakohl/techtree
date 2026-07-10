@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-seneca-falls-printing-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "feminism_first_wave_suffrage", "prerequisite": "printing_press" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printing Press provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct printing dependency remains because publications helped disseminate suffrage arguments but were one strategy among conventions, speeches, petitions, and lobbying.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/classroom-materials/womens-suffrage/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Strategies section lists formal groups, conventions, lobbying, petitions, speeches, parades, picketing, and periodicals as multiple forms of action.",
+    "source_claim_summary": "The suffrage campaign used a diverse organizing repertoire in which print was important but not exclusive.",
+    "source_support_rationale": "Citing a Gutenberg Bible establishes the availability of print, not that a printing press directly caused or was required by the convention."
+  },
+  "ontology_before": "The movement had a direct Gutenberg-era technology edge based on general dissemination context.",
+  "ontology_after": "The scoped organizing event retains its equality-ideas lineage while print remains one optional campaign channel.",
+  "invariant_preserved_or_changed": "Changed: feminism_first_wave_suffrage no longer directly depends on printing_press.",
+  "would_reject_if": ["The node were narrowed to a specific suffrage periodical or printed propaganda operation."],
+  "short_reason": "Print was one campaign tactic, not the movement's defining prerequisite.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

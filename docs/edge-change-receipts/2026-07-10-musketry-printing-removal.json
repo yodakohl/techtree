@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-musketry-printing-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "musketry_formations", "prerequisite": "printing_press" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printing Press provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No printing dependency remains because soldiers can learn and execute coordinated volley drill through command and practice without printed manuals.",
+  "source_supports_edge": "no",
+  "source_url": "https://britishcivilwars.ncl.ac.uk/weapons-warfare/meet-the-civil-war-soldiers/meet-a-musketeer/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Opening description explains group volley use and matchlock operation without making print production part of the firing method.",
+    "source_claim_summary": "Musketry volley effectiveness derives from organized groups firing together with gunpowder weapons.",
+    "source_support_rationale": "A Gutenberg Bible proves movable-type printing existed but supplies no causal evidence for battlefield rank drill."
+  },
+  "ontology_before": "Musket formations depended directly on printing through an unrelated Gutenberg Bible source.",
+  "ontology_after": "Musket volley formations depend on organized infantry and gunpowder firearms; printed manuals are optional dissemination context.",
+  "invariant_preserved_or_changed": "Changed: musketry_formations no longer directly depends on printing_press.",
+  "would_reject_if": ["The node were narrowed to a specific drill system whose first implementation demonstrably required printed manuals."],
+  "short_reason": "Volley drill does not require print production.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

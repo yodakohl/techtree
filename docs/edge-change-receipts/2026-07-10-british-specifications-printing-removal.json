@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-british-specifications-printing-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "printed_patent_specifications", "prerequisite": "printing_press" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printing Press provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No printing dependency remains because the node now covers enrolled detailed specifications; Patent Office publication of historical grants was a later archival program.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/patents-of-invention",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Sections 2 and 4 distinguish original enrolled specifications from copies printed and published after the Patent Office assumed responsibility in 1852.",
+    "source_claim_summary": "British technical specifications were enrolled legal records before the later Patent Office retrospective publication series.",
+    "source_support_rationale": "Conflating archival printing with the original disclosure assigns a nineteenth-century reproduction method to a 1711 record."
+  },
+  "ontology_before": "The 1711 disclosure was described as contemporaneously printed through a generic Gutenberg citation.",
+  "ontology_after": "The node represents detailed patent specifications; retrospective Patent Office printing remains outside its chronology.",
+  "invariant_preserved_or_changed": "Changed: printed_patent_specifications no longer directly depends on printing_press.",
+  "would_reject_if": ["A primary record established that the scoped 1711 detailed specification was issued through contemporaneous print publication."],
+  "short_reason": "Later archival printing is not the original specification process.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-pike-shot-iron-working-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "pike_and_shot_formations", "prerequisite": "iron_working" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Iron Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No ancient iron-working edge remains because weapon material is remote infrastructure, not the defining tactical dependency of the scoped formation.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/22730",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object description defines the tactical relationship through ranked pike protection, musketeer flanks, volley fire, and reloading shelter.",
+    "source_claim_summary": "The museum explains pike-and-shot as coordinated infantry deployment rather than as a metal-production innovation.",
+    "source_support_rationale": "A source about prehistoric meteoritic beads could not support this early modern tactical edge, and the direct museum account does not require it."
+  },
+  "ontology_before": "The tactical formation depended directly on a prehistoric material-processing node through an unrelated iron-bead citation.",
+  "ontology_after": "The formation depends on the musketry tactic it combines with pike protection; weapon metallurgy remains upstream context.",
+  "invariant_preserved_or_changed": "Changed: pike_and_shot_formations no longer directly depends on iron_working.",
+  "would_reject_if": ["The node were narrowed to manufacturing iron pikes or firearm components rather than deploying infantry."],
+  "short_reason": "Ancient iron production is not the direct cause of this tactic.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

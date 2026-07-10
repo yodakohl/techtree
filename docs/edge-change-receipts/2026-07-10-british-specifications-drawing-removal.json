@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-british-specifications-drawing-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "printed_patent_specifications", "prerequisite": "technical_drawing_standards" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Technical Drawing Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No drawing-standard dependency remains because the 1711 anchor is the first detailed written specification, not the later distinct practice of patent drawings.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/0172219087901372",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract identifies the 1711 innovation as a specification containing a detailed description and does not make drawings part of that first record.",
+    "source_claim_summary": "The first detailed British patent disclosure was a descriptive specification dating to 1711.",
+    "source_support_rationale": "The repository already has a separate 1790 patent-drawing node, so importing that later format would collapse distinct evidence."
+  },
+  "ontology_before": "The first detailed specification was bundled with later patent-drawing conventions.",
+  "ontology_after": "The 1711 written-disclosure node remains distinct from the 1790 patent specification drawings node.",
+  "invariant_preserved_or_changed": "Changed: printed_patent_specifications no longer directly depends on technical_drawing_standards.",
+  "would_reject_if": ["The 1711 source were shown to require standardized technical drawings as part of the first detailed specification."],
+  "short_reason": "The first detailed specification was not scoped as a drawing system.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

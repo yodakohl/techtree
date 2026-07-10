@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-english-privileges-copyright-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_patent_systems", "prerequisite": "early_copyright_printing_privileges" },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Copyright & Printing Privileges is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No printing-privilege predecessor remains because the scoped English invention grants begin in 1449, before the 1469 Venetian printing monopoly represented by that node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/patents-of-invention",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Research-guide introduction dates surviving English and Welsh invention patents from 1449 and separately discusses early grants without specifications.",
+    "source_claim_summary": "English invention privileges are documented before the later Venetian printing privilege used by the removed prerequisite.",
+    "source_support_rationale": "A later foreign print monopoly cannot be a historical predecessor of an already documented English invention grant."
+  },
+  "ontology_before": "English invention privileges depended on a later Venetian copyright and printing privilege.",
+  "ontology_after": "The English grant tradition is independently anchored to 1449 without importing a later print-rights lineage.",
+  "invariant_preserved_or_changed": "Changed: early_patent_systems no longer directly depends on early_copyright_printing_privileges.",
+  "would_reject_if": ["The invention-privilege node were redated and rescoped to a later system directly derived from printing monopolies."],
+  "short_reason": "The proposed predecessor postdated the English grant anchor.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

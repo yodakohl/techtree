@@ -1,0 +1,29 @@
+{
+  "id": "2026-07-10-telegraphic-newsrooms-transoceanic-agencies-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "telegraph_news_tickers", "prerequisite": "transoceanic_news_agencies" },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Transoceanic News Agencies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No transoceanic-agency dependency remains because domestic British telegraphic newsrooms operated in the 1840s before the repository's 1866 global agency node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.londonmuseum.org.uk/collections/london-stories/how-telegraph-took-off-victorian-london/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The museum places the Electric Telegraph Company's domestic newsrooms in the telegraph's British expansion from the 1840s.",
+    "source_claim_summary": "Early company newsrooms fed information from London across Britain through the growing national wire network.",
+    "source_support_rationale": "Later global agency and cable scale expands the service but cannot be an enabling predecessor of the earlier domestic practice."
+  },
+  "ontology_before": "Domestic 1840s newsrooms depended on a 1866 transoceanic news-agency system.",
+  "ontology_after": "The early newsroom service requires telegraphy; transoceanic agencies remain a later scaling path.",
+  "invariant_preserved_or_changed": "Changed: telegraph_news_tickers no longer directly depends on transoceanic_news_agencies.",
+  "would_reject_if": ["The node were narrowed to post-1866 global cable news feeds rather than early British telegraphic newsrooms."],
+  "short_reason": "The later global agency system cannot enable the earlier service.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}
