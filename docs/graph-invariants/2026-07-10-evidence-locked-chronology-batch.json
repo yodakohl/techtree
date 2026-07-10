@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-evidence-locked-chronology-batch",
+  "description": "Lock the named evidence scopes, resolved dates, and removal of generic ingredient, category, and chronology-breaking dependencies for the second archaeological chronology batch.",
+  "checks": [
+    { "type": "direct_edge_absent", "dependent": "oil_lamps", "prerequisite": "pottery", "reason": "The Lascaux lamps are shaped sandstone and limestone rather than ceramic vessels." },
+    { "type": "direct_edge_absent", "dependent": "oil_lamps", "prerequisite": "animal_husbandry", "reason": "Animal-fat fuel does not identify domesticated livestock as its source." },
+    { "type": "edge_type", "dependent": "oil_lamps", "prerequisite": "fire_control", "expected": "required", "reason": "Combustion is the documented operating method of the fat lamps." },
+    { "type": "first_known_date", "node": "oil_lamps", "operator": "eq", "value": -19500, "reason": "The rounded date remains anchored to the official 21,500-21,000 BP Lascaux occupation range." },
+
+    { "type": "edge_type", "dependent": "pastoralism", "prerequisite": "animal_husbandry", "expected": "required", "reason": "Managed caprine herds constitute the Wadi Jilat pastoralist claim." },
+    { "type": "first_known_date", "node": "pastoralism", "operator": "eq", "value": -7000, "reason": "The rounded date remains anchored to Wadi Jilat 13 ranges beginning near 7030 cal BCE." },
+    { "type": "direct_edge_absent", "dependent": "trade_routes", "prerequisite": "pastoralism", "reason": "The scoped pastoralists participated in long-standing networks and postdate the trade-route node." },
+
+    { "type": "direct_edge_absent", "dependent": "simple_windbreak_shelters", "prerequisite": "basic_shelter", "reason": "Shared shelter category does not establish a causal lineage between Ohalo II and Garvald Burn." },
+    { "type": "first_known_date", "node": "simple_windbreak_shelters", "operator": "eq", "value": -4300, "reason": "The probable windbreak remains anchored to the 4350-4000 cal BCE posthole date." },
+
+    { "type": "direct_edge_absent", "dependent": "soap_making_basic", "prerequisite": "animal_husbandry", "reason": "Animal fat is one possible lipid source and does not make husbandry universal." },
+    { "type": "direct_edge_absent", "dependent": "soap_making_basic", "prerequisite": "water_carrying_techniques", "reason": "Water use in a recipe does not establish a transport-technology dependency." },
+    { "type": "first_known_date", "node": "soap_making_basic", "operator": "eq", "value": -3000, "reason": "The date remains at the ACS review's third-millennium BCE empirical boundary." },
+
+    { "type": "direct_edge_absent", "dependent": "early_fortifications", "prerequisite": "woodworking_basic", "reason": "The scoped Tell es-Sultan installation is surviving stone architecture." },
+    { "type": "direct_edge_absent", "dependent": "early_fortifications", "prerequisite": "social_stratification", "reason": "Communal labor does not by itself prove ranked social classes." },
+    { "type": "edge_type", "dependent": "early_fortifications", "prerequisite": "masonry", "expected": "required", "reason": "The wall and tower are constitutively stone construction." },
+    { "type": "first_known_date", "node": "early_fortifications", "operator": "eq", "value": -8300, "reason": "The PPNA wall-and-tower record remains anchored to roughly 8300 BCE." },
+
+    { "type": "edge_type", "dependent": "smoked_food_preservation", "prerequisite": "food_preservation_drying_salting", "expected": "required", "reason": "Cato's sequence salts and air-dries the ham before smoking." },
+    { "type": "edge_type", "dependent": "smoked_food_preservation", "prerequisite": "fire_control", "expected": "required", "reason": "Cato explicitly requires two days in smoke." },
+    { "type": "first_known_date", "node": "smoked_food_preservation", "operator": "eq", "value": -160, "reason": "The surviving procedure remains anchored to the approximate composition of On Agriculture." },
+
+    { "type": "direct_edge_absent", "dependent": "threshing_and_winnowing", "prerequisite": "sickle_harvesting_tools", "reason": "A specific harvesting implement is not required by the threshing-sledge evidence." },
+    { "type": "direct_edge_absent", "dependent": "threshing_and_winnowing", "prerequisite": "basic_weaving_basketry", "reason": "The scoped evidence is a sledge, not basket winnowing." },
+    { "type": "direct_edge_absent", "dependent": "threshing_and_winnowing", "prerequisite": "granaries", "reason": "Storage is downstream of cereal separation rather than its enabler." },
+    { "type": "edge_type", "dependent": "threshing_and_winnowing", "prerequisite": "agriculture", "expected": "enabling", "reason": "Neolithic cereal agriculture supplies the crop-processing system." },
+    { "type": "edge_type", "dependent": "threshing_and_winnowing", "prerequisite": "stone_tool_making", "expected": "required", "reason": "Manufactured flaked-stone inserts are the direct archaeological evidence." },
+    { "type": "edge_type", "dependent": "threshing_and_winnowing", "prerequisite": "animal_husbandry", "expected": "enabling", "reason": "Managed cattle provide the animal-traction pathway described for the sledge." },
+    { "type": "first_known_date", "node": "threshing_and_winnowing", "operator": "eq", "value": -6500, "reason": "The inferred Greek sledge use remains anchored to about 6500 cal BCE." },
+
+    { "type": "direct_edge_absent", "dependent": "early_alchemy_material_science", "prerequisite": "pigment_creation", "reason": "The Pseudo-Democritean text is not a duplicate of Blombos pigment processing." },
+    { "type": "first_known_date", "node": "early_alchemy_material_science", "operator": "eq", "value": 100, "reason": "The alchemical corpus remains anchored to its uncertain first- or second-century CE composition." },
+    { "type": "direct_edge_absent", "dependent": "metallurgical_slag_reuse", "prerequisite": "early_alchemy_material_science", "reason": "A first- or second-century CE text cannot precede a 1500 BCE slag-reuse record." }
+  ]
+}

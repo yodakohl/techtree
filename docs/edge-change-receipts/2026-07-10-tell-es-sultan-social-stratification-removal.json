@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-tell-es-sultan-social-stratification-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_fortifications", "prerequisite": "social_stratification" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Social Stratification provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No social-stratification edge remains because large communal construction demonstrates coordination and labor investment but does not by itself establish ranked social classes as a technical prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/document/192662",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Executive Summary pp. 3-5 describes the wall, ditch, tower, and the social and economic structures needed to manage communal construction without identifying stratified classes as necessary.",
+    "source_claim_summary": "Tell es-Sultan evidences organized communal building, while the source does not establish social stratification as its prerequisite.",
+    "source_support_rationale": "Coordination can occur under multiple social arrangements, so labor scale cannot be converted into a specific hierarchy node without independent evidence."
+  },
+  "ontology_before": "Monumental labor investment was equated with an already developed stratified social order.",
+  "ontology_after": "The architectural record retains communal coordination without encoding a disputed social hierarchy as technical causation.",
+  "invariant_preserved_or_changed": "Changed: early_fortifications no longer directly depends on social_stratification.",
+  "would_reject_if": ["Direct evidence established ranked social classes as necessary organizers of the PPNA construction project."],
+  "short_reason": "Communal construction does not by itself prove social stratification.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

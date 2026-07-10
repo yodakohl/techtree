@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-slag-reuse-alchemy-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "metallurgical_slag_reuse", "prerequisite": "early_alchemy_material_science" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Early Alchemy & Material Science is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No alchemy edge remains because the scoped Pseudo-Democritean corpus dates to the first or second century CE, long after the slag-reuse node's 1500 BCE chronology, and the slag source never supported that lineage.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/books/alchemy-reader/pseudodemocritus-first-or-second-century-ad-from-the-treatise-of-democritus-on-things-natural-and-mystical/B00116659657F0C20F64FBC1017E997B",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter title and summary place the Pseudo-Democritean treatise in the first or second century CE and stress uncertainty in its composition.",
+    "source_claim_summary": "The corrected alchemical recipe corpus postdates the graph's ancient slag-reuse record by more than a millennium.",
+    "source_support_rationale": "A later text cannot be a historical predecessor of an earlier material practice, and no independent source establishes reverse transmission."
+  },
+  "ontology_before": "A placeholder-dated broad alchemy node was made an unsupported predecessor of ancient slag reuse.",
+  "ontology_after": "Slag reuse retains metallurgical inputs without a chronology-breaking dependency on a later alchemical text tradition.",
+  "invariant_preserved_or_changed": "Changed: metallurgical_slag_reuse no longer directly depends on early_alchemy_material_science.",
+  "would_reject_if": ["The alchemical corpus were securely redated before 1500 BCE and shown to transmit slag-reuse practice."],
+  "short_reason": "The corrected alchemy record is later than slag reuse and cannot precede it.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

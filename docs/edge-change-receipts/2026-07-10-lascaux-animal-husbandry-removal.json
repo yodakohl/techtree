@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-lascaux-animal-husbandry-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "oil_lamps", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No animal-husbandry dependency remains because the source identifies animal-fat combustible but does not identify domesticated animals or managed herds as its source.",
+  "source_supports_edge": "no",
+  "source_url": "https://archeologie.culture.gouv.fr/lascaux/en/lighting",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Lighting section, paragraph 2: analysis of soot in the recognized sandstone lamp identifies animal-fat combustible without specifying domestication.",
+    "source_claim_summary": "Animal fat is evidenced as lamp fuel, but managed livestock is not evidenced as the fuel source.",
+    "source_support_rationale": "Wild hunted animals can supply fat, so the material identification cannot establish the much narrower husbandry capability."
+  },
+  "ontology_before": "Any animal-fat fuel was treated as evidence that domesticated-herd management enabled the lamp.",
+  "ontology_after": "The lamp retains its evidenced fat fuel without converting animal material into an unsupported husbandry lineage.",
+  "invariant_preserved_or_changed": "Changed: oil_lamps no longer directly depends on animal_husbandry.",
+  "would_reject_if": ["Direct residue or contextual evidence established that the Lascaux lamp fuel came from managed domestic livestock."],
+  "short_reason": "Animal fat does not by itself evidence animal husbandry.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

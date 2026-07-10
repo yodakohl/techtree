@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-greek-threshing-stone-tool-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "threshing_and_winnowing", "prerequisite": "stone_tool_making" },
+  "replaced_edge": { "dependent": "threshing_and_winnowing", "prerequisite": "basic_weaving_basketry" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Weaving and Basketry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim": { "type": "required", "confidence": 0.95, "evidence_level": "primary_source", "note": "The direct archaeological evidence consists of deliberately flaked stone inserts whose diagnostic use-wear identifies their operation in threshing sledges." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S2352409X24002074",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Materials and results analyze flaked-stone assemblages and identify eight potential sledge inserts made on thick flakes or laminar flakes.",
+    "source_claim_summary": "Manufactured flaked-stone inserts with diagnostic wear are the surviving components used to infer the sledges.",
+    "source_support_rationale": "Stone-tool manufacture is materially constitutive of the evidence; basketry belongs to a different winnowing method excluded from this scope."
+  },
+  "ontology_before": "Basketry was attached because the broad node also named winnowing, although the source did not date basket winnowing.",
+  "ontology_after": "The node requires the manufactured stone inserts that physically constitute its direct archaeological evidence.",
+  "invariant_preserved_or_changed": "Changed: stone_tool_making replaces basic_weaving_basketry as a direct prerequisite.",
+  "would_reject_if": ["The candidate inserts were reidentified as unmodified natural stones rather than deliberately flaked tools."],
+  "short_reason": "The direct evidence is a set of manufactured flaked-stone sledge inserts.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-lascaux-fire-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "oil_lamps", "prerequisite": "fire_control" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim": { "type": "required", "confidence": 0.94, "evidence_level": "primary_source", "note": "The documented objects are lamps because they held combustible fat and produced soot; controlled ignition and a sustained flame are therefore part of the evidenced operation." },
+  "source_supports_edge": "yes",
+  "source_url": "https://archeologie.culture.gouv.fr/lascaux/en/lighting",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Lighting section, paragraphs 2 and 4: identifies soot and animal-fat combustible in a recognized sandstone lamp and describes Lascaux fuel-holding stone lamps.",
+    "source_claim_summary": "Combustible fuel and soot identify the stone objects as flame-producing lamps.",
+    "source_support_rationale": "Unlike a contextual predecessor, fire is the operating process that turns the shaped fuel vessel into a source of light."
+  },
+  "ontology_before": "Fire was only an earlier historical backdrop to the generic lamp node.",
+  "ontology_after": "Controlled combustion is a constitutive operating requirement of the source-pinned fat lamp.",
+  "invariant_preserved_or_changed": "Changed: the oil_lamps to fire_control edge is now required and directly evidenced.",
+  "would_reject_if": ["The objects were shown to provide light through a non-combustion mechanism or the soot and fuel interpretation was withdrawn."],
+  "short_reason": "A fat lamp functions through controlled combustion.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

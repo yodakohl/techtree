@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-greek-threshing-animal-husbandry-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "threshing_and_winnowing", "prerequisite": "animal_husbandry" },
+  "replaced_edge": { "dependent": "threshing_and_winnowing", "prerequisite": "granaries" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Granaries provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "enabling", "confidence": 0.78, "evidence_level": "primary_source", "note": "The paper defines threshing sledges as animal-traction machinery and reviews Early Neolithic cattle evidence compatible with traction, while acknowledging that early use may have been sporadic." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S2352409X24002074",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Introduction and discussion define sledges as animal-traction machinery, review Early Neolithic cattle traction evidence, and call early use potentially sporadic.",
+    "source_claim_summary": "Managed cattle supplied the traction pathway used by the scoped threshing-sledge machinery.",
+    "source_support_rationale": "Animal management enables traction directly, whereas a granary is downstream storage and does not cause cereal separation."
+  },
+  "ontology_before": "Downstream grain storage was represented as an enabler of the earlier processing step.",
+  "ontology_after": "The sledge links to the managed-animal capability that supplies its documented traction pathway.",
+  "invariant_preserved_or_changed": "Changed: animal_husbandry replaces granaries as an enabling prerequisite.",
+  "would_reject_if": ["The Early Neolithic sledge interpretation were shown to involve no animal traction and to depend instead on granary infrastructure."],
+  "short_reason": "Animal management enables sledge traction; granaries are downstream storage.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

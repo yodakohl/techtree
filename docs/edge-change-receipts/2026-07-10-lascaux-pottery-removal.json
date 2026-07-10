@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-lascaux-pottery-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "oil_lamps", "prerequisite": "pottery" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pottery provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pottery dependency remains because the directly documented Lascaux lamps are shaped sandstone and hollow limestone plates rather than ceramic vessels.",
+  "source_supports_edge": "no",
+  "source_url": "https://archeologie.culture.gouv.fr/lascaux/en/lighting",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Lighting section, paragraph 4: describes a crafted red-sandstone lamp and more than one hundred hollow limestone fuel plates at Lascaux.",
+    "source_claim_summary": "The surviving Lascaux lighting vessels are stone lamps and plates, not pottery containers.",
+    "source_support_rationale": "Ceramic lamps exist elsewhere and later, but pottery is absent from the physical lamp evidence that now defines this node."
+  },
+  "ontology_before": "A generic ceramic technology was treated as an enabler of all oil lamps despite the cited source only documenting early pottery.",
+  "ontology_after": "The Lascaux lamp claim follows its directly evidenced stone construction without a ceramic prerequisite.",
+  "invariant_preserved_or_changed": "Changed: oil_lamps no longer directly depends on pottery.",
+  "would_reject_if": ["The Lascaux objects anchoring this node were reidentified as ceramic lamps rather than shaped sandstone and limestone."],
+  "short_reason": "The scoped lamps are stone, not pottery.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

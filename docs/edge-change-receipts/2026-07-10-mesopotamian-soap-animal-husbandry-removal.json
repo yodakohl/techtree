@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-mesopotamian-soap-animal-husbandry-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "soap_making_basic", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No animal-husbandry edge remains because soap can use plant oils as well as animal fats, and the source does not make livestock management a prerequisite of the earliest written production evidence.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubs.acs.org/doi/10.1021/bk-2015-1211.ch009",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: anchors soap production to third-millennium BCE Mesopotamian clay tablets and describes simple ash-and-fat production without asserting a husbandry prerequisite.",
+    "source_claim_summary": "The written soap-production evidence does not identify managed livestock as a necessary upstream technology.",
+    "source_support_rationale": "A possible animal-fat ingredient cannot make husbandry universal when soap recipes may use plant oils and the cited tablets do not establish herd management."
+  },
+  "ontology_before": "A possible fat source made livestock husbandry an enabler of all basic soap production.",
+  "ontology_after": "The written Mesopotamian production record is not tied to one optional lipid supply system.",
+  "invariant_preserved_or_changed": "Changed: soap_making_basic no longer directly depends on animal_husbandry.",
+  "would_reject_if": ["The earliest Mesopotamian soap texts were shown to require only fat from managed domestic animals."],
+  "short_reason": "Optional animal fat does not establish a husbandry dependency.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

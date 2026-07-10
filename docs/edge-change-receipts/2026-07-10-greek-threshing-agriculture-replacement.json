@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-greek-threshing-agriculture-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "threshing_and_winnowing", "prerequisite": "agriculture" },
+  "replaced_edge": { "dependent": "threshing_and_winnowing", "prerequisite": "sickle_harvesting_tools" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Sickle Harvesting Tools provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "enabling", "confidence": 0.91, "evidence_level": "primary_source", "note": "The studied implements are cereal-processing machinery embedded in Early Neolithic farming systems; cultivated cereal production supplies the crop stream they thresh." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S2352409X24002074",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Abstract and discussion describe threshing sledges as agricultural machinery for processing cereals within Early Neolithic farming systems.",
+    "source_claim_summary": "The inferred sledges process cereal crops within established Neolithic farming systems.",
+    "source_support_rationale": "Agriculture supplies the relevant production system, while harvesting with a sickle is only one optional upstream collection method."
+  },
+  "ontology_before": "A specific sickle tradition was treated as the enabler of every threshing operation.",
+  "ontology_after": "The sledge is linked to the agricultural cereal system documented by the study, without requiring one harvesting implement.",
+  "invariant_preserved_or_changed": "Changed: agriculture replaces sickle_harvesting_tools as the crop-system prerequisite.",
+  "would_reject_if": ["The candidate inserts were shown to process only wild non-agricultural material rather than cereals in Neolithic farming contexts."],
+  "short_reason": "Cereal agriculture enables the sledge; a sickle is not a required harvesting path.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

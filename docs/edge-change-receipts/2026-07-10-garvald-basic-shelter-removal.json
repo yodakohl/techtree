@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-garvald-basic-shelter-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "simple_windbreak_shelters", "prerequisite": "basic_shelter" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Shelter is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No basic-shelter edge remains because it expressed a category relationship between shelter records rather than a demonstrated transfer or technical dependency at Garvald Burn.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.archaeologyreportsonline.com/PDF/ARO15_Garvald_burn.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Report pp. 20-22 interprets a dated posthole semicircle beside a hearth and knapping floor as a probable expedient windbreak without identifying an earlier shelter tradition as an input.",
+    "source_claim_summary": "The excavated post-and-stakehole feature is interpreted locally from its layout and wind exposure, not from descent from Ohalo II shelters.",
+    "source_support_rationale": "Both records belong to shelter technology, but graph edges require causal or historical evidence rather than parent-category membership alone."
+  },
+  "ontology_before": "A specific windbreak depended on the broad Basic Shelter node solely because both were shelters.",
+  "ontology_after": "The Garvald Burn feature stands on its own dated archaeological interpretation without a taxonomy-as-causality edge.",
+  "invariant_preserved_or_changed": "Changed: simple_windbreak_shelters no longer directly depends on basic_shelter.",
+  "would_reject_if": ["Evidence demonstrated a specific technological lineage from the Ohalo II shelter tradition to the Garvald Burn feature."],
+  "short_reason": "Shared shelter classification is not a demonstrated historical dependency.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

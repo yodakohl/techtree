@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-cato-smoke-salting-required",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "smoked_food_preservation", "prerequisite": "food_preservation_drying_salting" },
+  "old_claim": { "type": "common_dependency", "confidence": 0, "evidence_level": "weak_inference", "note": "No direct drying-and-salting edge was represented in the previous broad smoked-food claim." },
+  "new_claim": { "type": "required", "confidence": 0.98, "evidence_level": "primary_source", "note": "Cato's documented method requires twelve days packed in salt and two days drying in fresh air before the ham is smoked." },
+  "source_supports_edge": "yes",
+  "source_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cato/De_Agricultura/L%2A.html",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Cato, On Agriculture 162: packs hams in salt for twelve days and hangs them in fresh air for two days before the smoking stage.",
+    "source_claim_summary": "Salting and air drying are explicit prerequisite stages in the attested combined cure.",
+    "source_support_rationale": "The node is now locked to Cato's sequence, so these stages are constitutive rather than optional adjacent preservation methods."
+  },
+  "ontology_before": "The broad node explicitly kept drying and salting outside its prerequisite structure despite lacking direct evidence for smoking alone.",
+  "ontology_after": "The source-pinned Roman method represents the actual combined salting, drying, and smoking sequence.",
+  "invariant_preserved_or_changed": "Changed: smoked_food_preservation now requires food_preservation_drying_salting.",
+  "would_reject_if": ["Cato 162 were shown to describe smoking independently of its preceding salting and air-drying stages."],
+  "short_reason": "The attested procedure salts and dries the ham before smoking it.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

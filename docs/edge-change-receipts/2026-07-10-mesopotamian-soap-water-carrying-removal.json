@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-mesopotamian-soap-water-carrying-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "soap_making_basic", "prerequisite": "water_carrying_techniques" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Water Carrying Techniques provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No water-carrying dependency remains because using liquid in a recipe does not establish water transport as a distinct enabling technology, and the soap source does not document that relationship.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubs.acs.org/doi/10.1021/bk-2015-1211.ch009",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract: discusses the written record and material chemistry of ancient soap production but does not identify water-container transport as an enabling process.",
+    "source_claim_summary": "The source establishes deliberate soap production without a separate water-carrying technology claim.",
+    "source_support_rationale": "Ingredient availability and transport technology are different graph concepts; ordinary water use does not demonstrate the latter."
+  },
+  "ontology_before": "Any process using water inherited a generic water-carrying edge regardless of how water was obtained or used.",
+  "ontology_after": "The soap node is limited to the evidenced chemical production record rather than unrelated transport infrastructure.",
+  "invariant_preserved_or_changed": "Changed: soap_making_basic no longer directly depends on water_carrying_techniques.",
+  "would_reject_if": ["A source showed that transporting water in specialized containers was a necessary step in the earliest documented soap process."],
+  "short_reason": "Water as an ingredient is not evidence for water-carrying technology.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

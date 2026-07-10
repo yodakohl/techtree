@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-pseudo-democritus-pigment-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_alchemy_material_science", "prerequisite": "pigment_creation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pigment Creation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pigment-creation edge remains because the former Blombos citation duplicated that pigment node and did not establish a historical lineage into the first- or second-century Pseudo-Democritean alchemical corpus.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/books/alchemy-reader/pseudodemocritus-first-or-second-century-ad-from-the-treatise-of-democritus-on-things-natural-and-mystical/B00116659657F0C20F64FBC1017E997B",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter title and summary date the treatise to the first or second century CE and describe varied recipes and procedures without tracing them to Blombos ochre processing.",
+    "source_claim_summary": "The scoped alchemy record is a Greco-Egyptian recipe text, not a duplicate label for prehistoric pigment-compound production.",
+    "source_support_rationale": "Similarity in mixing colored materials across 100,000 years cannot establish direct transmission or technical dependence between the two records."
+  },
+  "ontology_before": "The Blombos pigment workshop was duplicated under a broad alchemy label and then made its own prerequisite.",
+  "ontology_after": "Pigment production and the much later source-pinned alchemical recipe corpus remain distinct technologies without an invented lineage.",
+  "invariant_preserved_or_changed": "Changed: early_alchemy_material_science no longer directly depends on pigment_creation.",
+  "would_reject_if": ["Historical evidence established direct transmission from the Blombos pigment practice into the Pseudo-Democritean recipe tradition."],
+  "short_reason": "Prehistoric pigment processing is not evidence for a direct alchemical-text lineage.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

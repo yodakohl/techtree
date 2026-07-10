@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-wadi-jilat-animal-husbandry-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "pastoralism", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "common_dependency", "confidence": 0.55, "evidence_level": "weak_inference", "note": "Animal Husbandry is contextual infrastructure or shared knowledge, not a strict hard prerequisite." },
+  "new_claim": { "type": "required", "confidence": 0.94, "evidence_level": "primary_source", "note": "The Wadi Jilat claim rests on managed domestic caprine herds whose isotope signatures and associated lithic traditions identify mobile herding communities." },
+  "source_supports_edge": "yes",
+  "source_url": "https://nora.nerc.ac.uk/id/eprint/526099/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Accepted manuscript pp. 22-23, Conclusion: combines caprine isotope and chipped-stone evidence to identify indigenous mobile communities adopting herds.",
+    "source_claim_summary": "The Wadi Jilat pastoralist interpretation depends on direct evidence for managed caprine herds moving within mobile steppe lifeways.",
+    "source_support_rationale": "Herd management is not merely adjacent context here; without managed domestic animals, the scoped subsistence strategy would not be pastoralism."
+  },
+  "ontology_before": "Animal husbandry was represented as optional background to a broad pastoralism label.",
+  "ontology_after": "Managed domestic herds are constitutive of the directly studied Wadi Jilat nomadic-pastoralist system.",
+  "invariant_preserved_or_changed": "Changed: pastoralism now requires animal_husbandry with primary evidence.",
+  "would_reject_if": ["The Wadi Jilat caprines were reclassified as unmanaged wild animals rather than domestic herds."],
+  "short_reason": "The scoped pastoralism claim is defined and evidenced through managed herds.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

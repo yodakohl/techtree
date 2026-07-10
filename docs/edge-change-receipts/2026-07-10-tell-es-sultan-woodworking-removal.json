@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-tell-es-sultan-woodworking-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_fortifications", "prerequisite": "woodworking_basic" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No woodworking edge remains because the scoped Tell es-Sultan evidence is a stone wall, ditch, tower, and staircase; the inspected sources identify no timber component or woodworking lineage.",
+  "source_supports_edge": "no",
+  "source_url": "https://whc.unesco.org/en/list/1687",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Brief description identifies the site's relevant monumental features as a wall with ditch and tower, while the nomination describes the preserved Neolithic system as stone construction.",
+    "source_claim_summary": "The scoped PPNA enclosure evidence is stone architecture with no documented wooden defensive component.",
+    "source_support_rationale": "Woodworking existed earlier but chronological priority alone cannot create a lineage when the target construction does not use or evidence wood."
+  },
+  "ontology_before": "All early fortification forms inherited woodworking because generic palisades were listed in the broad description.",
+  "ontology_after": "The Tell es-Sultan record follows its stone architecture without an unevidenced timber prerequisite.",
+  "invariant_preserved_or_changed": "Changed: early_fortifications no longer directly depends on woodworking_basic.",
+  "would_reject_if": ["Excavated evidence established a constitutive wooden structure in the PPNA wall-and-tower installation."],
+  "short_reason": "The scoped installation is stone and does not evidence woodworking.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

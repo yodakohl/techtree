@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-tell-es-sultan-masonry-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "early_fortifications", "prerequisite": "masonry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Masonry provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.96, "evidence_level": "primary_source", "note": "The surviving PPNA installation is itself a massive stone wall and tower with an internal stone staircase, making stone construction part of the documented structure." },
+  "source_supports_edge": "yes",
+  "source_url": "https://whc.unesco.org/en/list/1687",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Brief description identifies the ninth- to eighth-millennium BCE settlement through its surviving monumental wall, ditch, and tower.",
+    "source_claim_summary": "The Tell es-Sultan record is a surviving monumental stone wall-and-tower construction.",
+    "source_support_rationale": "Stone construction is the physical substance of the scoped installation, not merely one optional path to a broad defensive concept."
+  },
+  "ontology_before": "Masonry was treated as one optional enabler for a generic list of palisades, earthworks, and walls.",
+  "ontology_after": "Stone construction is required by the specifically scoped Tell es-Sultan wall-and-tower evidence.",
+  "invariant_preserved_or_changed": "Changed: early_fortifications now requires masonry with direct architectural evidence.",
+  "would_reject_if": ["The PPNA wall and tower were shown to be natural formations or non-stone structures rather than constructed masonry."],
+  "short_reason": "The scoped record is itself a monumental stone construction.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-trade-routes-pastoralism-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "trade_routes", "prerequisite": "pastoralism" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pastoralism provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pastoralism prerequisite remains because Wadi Jilat 13 participated in already established steppe trading networks, and the graph's trade-route record predates the scoped pastoralist case.",
+  "source_supports_edge": "no",
+  "source_url": "https://nora.nerc.ac.uk/id/eprint/526099/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Accepted manuscript p. 23 states that Wadi Jilat 13 was part of long-standing trading networks across steppe regions while identifying its inhabitants as the earliest unequivocal regional nomadic pastoralists.",
+    "source_claim_summary": "The paper places the scoped pastoralists within pre-existing exchange networks rather than making pastoralism their prerequisite.",
+    "source_support_rationale": "Pastoral communities can participate in and extend routes, but participation does not establish that the route concept causally depends on pastoralism."
+  },
+  "ontology_before": "A generic overview of later caravans made pastoralism an enabler of all trade routes, including an earlier route node.",
+  "ontology_after": "Trade routes remain linked to exchange without a backwards dependency on the later source-pinned Wadi Jilat pastoralist case.",
+  "invariant_preserved_or_changed": "Changed: trade_routes no longer directly depends on pastoralism.",
+  "would_reject_if": ["Direct evidence established that the specific trade-route scope in this graph began only through Wadi Jilat-style nomadic pastoralism."],
+  "short_reason": "The scoped pastoralists joined long-standing networks and postdate the trade-route node.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}
