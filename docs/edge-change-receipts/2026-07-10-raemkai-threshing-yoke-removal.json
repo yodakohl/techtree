@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-raemkai-threshing-yoke-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "animal_powered_threshing", "prerequisite": "yokes_and_harnesses" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Yokes & Harnesses provides traction arrangements for animal-powered treading or threshing sledges; heavy draft plowing is a related field use rather than a direct prerequisite." },
+  "new_claim_absent": "No yoke or harness dependency remains because the Raemkai scene shows donkeys directly treading grain and does not depict an animal-drawn board or traction implement.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/577371",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Bottom Register describes donkeys being driven to trample the barley threshing floor; no sledge, board, yoke, or harness is part of the described operation.",
+    "source_claim_summary": "The documented animal-powered method is hoof treading rather than pulling a separate threshing machine.",
+    "source_support_rationale": "A traction-system edge would import the mechanics of a different threshing implementation into a scene whose animals contact the crop directly."
+  },
+  "ontology_before": "Direct animal treading and animal-drawn threshing boards were merged into one harness-dependent method.",
+  "ontology_after": "The Raemkai node models only the directly depicted unyoked donkey-treading implementation.",
+  "invariant_preserved_or_changed": "Changed: animal_powered_threshing no longer directly depends on yokes_and_harnesses.",
+  "would_reject_if": ["Detailed examination of the Raemkai wall established that the donkeys pull a yoked threshing implement hidden or omitted from the current catalog description."],
+  "short_reason": "The donkeys tread the grain directly and do not pull a depicted implement.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

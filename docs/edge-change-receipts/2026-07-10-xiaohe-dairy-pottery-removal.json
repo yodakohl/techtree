@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-xiaohe-dairy-pottery-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "fermented_dairy_products", "prerequisite": "pottery" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pottery provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pottery dependency remains because the direct Xiaohe evidence consists of preserved organic dairy masses from tombs rather than residues defining a ceramic production method.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S0305440314000466",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Highlights, Abstract, and Samples describe organic masses associated with mummies and analyze those masses directly by proteomics.",
+    "source_claim_summary": "The material evidence is preserved kefir cheese from burial contexts, not a pottery-dependent straining or storage process.",
+    "source_support_rationale": "Keeping ceramics would import the separate Kuyavian perforated-vessel technique into a Xiaohe claim whose analyzed substrate and inferred recipe do not require it."
+  },
+  "ontology_before": "A generic pottery edge blurred Xiaohe kefir fermentation with a separate Neolithic cheese-straining node.",
+  "ontology_after": "The Xiaohe node follows its directly analyzed dairy masses and remains distinct from perforated-pottery curd straining.",
+  "invariant_preserved_or_changed": "Changed: fermented_dairy_products no longer directly depends on pottery.",
+  "would_reject_if": ["The Xiaohe study demonstrated that pottery was a necessary component of the kefir recipe rather than incidental archaeological context."],
+  "short_reason": "The direct Xiaohe evidence does not establish a ceramic production dependency.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

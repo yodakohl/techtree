@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-scientific-society-university-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "scientific_societies", "prerequisite": "universities" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Universities provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No university prerequisite remains because the documented 1560 Academia was founded as Della Porta's society in Naples, and the institutional source does not make a university its enabling structure.",
+  "source_supports_edge": "no",
+  "source_url": "https://cordis.europa.eu/project/id/101148607",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CORDIS identifies Giambattista Della Porta as founder of the Naples society in 1560 and describes its experimental program without a university foundation requirement.",
+    "source_claim_summary": "The first scoped society is documented as an academy organized around its founder and experimental interests, not as a university unit.",
+    "source_support_rationale": "Universities were neighboring scholarly institutions, but adjacency does not pass the absence-break test for forming this independent society."
+  },
+  "ontology_before": "University organization was assumed to enable all scientific societies despite the independent academy evidence.",
+  "ontology_after": "The society form begins with its documented founder and program without an unsupported institutional parent.",
+  "invariant_preserved_or_changed": "Changed: scientific_societies no longer directly depends on universities.",
+  "would_reject_if": ["Institutional evidence established that a university charter, faculty, venue, or governance body was necessary to found the Academia Secretorum Naturae."],
+  "short_reason": "The 1560 academy is not documented as requiring a university structure.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

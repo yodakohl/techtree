@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-egyptian-mortar-grinding-stone-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "mortar_and_pestle", "prerequisite": "grinding_stones_querns" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Grinding Stones & Querns provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No direct grinding-stone lineage remains because the museum record establishes a paired travertine artifact but does not derive it from Upper Paleolithic grinding slabs or querns.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/554684",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Artwork Details identify the material, paired artifact form, Egyptian origin, and New Kingdom date without assigning a precursor tool tradition.",
+    "source_claim_summary": "The catalog supports the existence of a travertine mortar-and-pestle pair, not a developmental line from flat grinding stones.",
+    "source_support_rationale": "Morphological similarity between grinding tools is insufficient to create a causal edge without manufacturing, use-wear, or transmission evidence."
+  },
+  "ontology_before": "A related grinding-tool category was assumed to be a direct enabler of every mortar-and-pestle artifact.",
+  "ontology_after": "The museum artifact remains use-neutral and carries no unsupported tool-lineage dependency.",
+  "invariant_preserved_or_changed": "Changed: mortar_and_pestle no longer directly depends on grinding_stones_querns.",
+  "would_reject_if": ["A source tied this specific Egyptian artifact tradition to a demonstrated manufacturing or use lineage from the scoped Upper Paleolithic grinding stones."],
+  "short_reason": "The object record does not establish a lineage from grinding slabs or querns.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

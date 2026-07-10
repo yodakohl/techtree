@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-roman-medical-stores-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "state_medical_supply_stores", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.73, "evidence_level": "review", "note": "The Vindonissa field infirmary display includes herbs and ointments alongside instruments and prescriptions, so prepared medicinal materials are part of the stocked Roman medical-supply setting." },
+  "new_claim_absent": "No Abydos herbal-wine dependency remains because evidence that Roman stores held herbs and ointments does not identify the scoped Predynastic fermented preparation as their prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Abydos study identifies herbs and resins in grape wine around 3150 BCE but does not connect that recipe to Vindonissa or Roman military provisioning.",
+    "source_claim_summary": "The prerequisite node now denotes one Egyptian formulation rather than the broad class of every prepared medicinal material.",
+    "source_support_rationale": "A museum display listing Roman herbs supports stocked remedies locally, but it cannot launder all such supplies through an unrelated source-pinned recipe node."
+  },
+  "ontology_before": "A broad label made any stocked herb or ointment appear to descend from the same generic preparation node.",
+  "ontology_after": "Roman supply stores remain directly grounded in military medical provisioning without a false Abydos recipe lineage.",
+  "invariant_preserved_or_changed": "Changed: state_medical_supply_stores no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["Residue, text, or transmission evidence directly tied Roman military medical stores to the scoped Abydos herbal-wine process."],
+  "short_reason": "Roman stocked remedies are not evidence of dependency on the Abydos recipe.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

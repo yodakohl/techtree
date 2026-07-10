@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-zurich-hide-glue-husbandry-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "hide_glue_production", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.97, "evidence_level": "primary_source", "note": "Protein sequencing identifies cattle and domestic ovicaprids as the collagen sources, so livestock tissues are the required feedstock for the scoped adhesive." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S0305440315002496",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Highlights, Abstract, and Conclusions identify cattle and domestic ovicaprid collagen and probable skin or slaughter by-products.",
+    "source_claim_summary": "The detected adhesive derives from collagen-rich tissues of domestic livestock species.",
+    "source_support_rationale": "Those tissues supply the biochemical material transformed into the specific glue, making managed animals a feedstock rather than general background."
+  },
+  "ontology_before": "Animal husbandry was only an optional enabler of a geographically and materially broad glue claim.",
+  "ontology_after": "The Zurich adhesive is tied to the domestic species directly identified by protein sequencing.",
+  "invariant_preserved_or_changed": "Changed: hide_glue_production now requires animal_husbandry.",
+  "would_reject_if": ["The recovered collagen peptides were reidentified as wild species or contamination unrelated to the adhesive beneath the bark strips."],
+  "short_reason": "Domestic cattle and ovicaprid tissues supplied the identified collagen adhesive.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

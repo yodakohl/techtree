@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-anatomy-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "human_anatomy_physiology", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No Abydos herbal-wine dependency remains because Vesalian dissection and descriptive anatomy do not require that remedy formulation.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The source reports chemical analysis of an Egyptian herbal-wine jar and contains no anatomical dissection, physiology, or Vesalian evidence.",
+    "source_claim_summary": "The documented preparation process is unrelated to the observational and dissection methods defining Renaissance anatomy.",
+    "source_support_rationale": "Treating patients with plants is a medical application, but it neither supplies bodies, observations, illustrations, nor methods required for anatomy."
+  },
+  "ontology_before": "A broad medical application was treated as an enabler of anatomical knowledge.",
+  "ontology_after": "Renaissance anatomy retains its direct intellectual, institutional, and publication relationships without a remedy edge.",
+  "invariant_preserved_or_changed": "Changed: human_anatomy_physiology no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["A source demonstrated that the scoped Vesalian anatomy program technically or institutionally required the Abydos herbal-wine process."],
+  "short_reason": "Herbal-wine preparation does not enable anatomical dissection or description.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

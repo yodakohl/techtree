@@ -7,27 +7,20 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 A pre-Future `source_checked` node with `datePrecision: unknown` or an era-default date must either carry explicit uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
 
 Source-checked nodes: 1403
-Source-checked nodes with unresolved chronology: 50 / 1403 (3.6%)
-Listed exceptions without explicit uncertainty metadata: 47
+Source-checked nodes with unresolved chronology: 42 / 1403 (3.0%)
+Listed exceptions without explicit uncertainty metadata: 41
 
 ## Summary By Era
 
 | Era | Source-checked unresolved dates | With explicit uncertainty metadata | Listed exceptions |
 | --- | --- | --- | --- |
-| Ancient | 6 | 1 | 5 |
 | Industrial | 23 | 1 | 22 |
-| Renaissance | 21 | 1 | 20 |
+| Renaissance | 19 | 0 | 19 |
 
 ## Unresolved-Chronology Nodes
 
 | ID | Name | Era | firstKnownDate | datePrecision | Source title | source_type | Why date is still uncertain |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `animal_powered_threshing` | Animal-Powered Threshing | Ancient | -3000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `fermented_dairy_products` | Fermented Dairy Products | Ancient | -7000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `heavy_draft_plowing` | Heavy Draft Plowing | Ancient | -3000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `herbal_medicine_preparation` | Herbal Medicine Preparation | Ancient | -7000 | unknown | Historical Review of Medicinal Plants' Usage; Early pottery at 20,000 years ago in Xianrendong Cave, China | review, primary_paper | The -7000 anchor preserves a broad Neolithic/pre-literate preparation umbrella. Direct medicinal-plant evidence is older or later depending on region and evidentiary type, so the date should not be read as a precise first invention. |
-| `hide_glue_production` | Hide Glue Production | Ancient | -7000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `mortar_and_pestle` | Mortar & Pestle | Ancient | -7000 | unknown | Thirty thousand-year-old evidence of plant food processing | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `anthropology_cultural` | Cultural Anthropology | Industrial | 1825 | unknown | Cultural anthropology | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `breech_loading_firearms` | Breech-loading Firearms | Industrial | 1775 | unknown | Benjamin Huntsman | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `cold_storage_warehouses` | Cold Storage Warehouses | Industrial | 1877 | unknown | South Omaha Union Stock Yards, Historic American Engineering Record | official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
@@ -56,7 +49,6 @@ Listed exceptions without explicit uncertainty metadata: 47
 | `biology` | Biology | Renaissance | 1545 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `calculus_formalization` | Calculus Formalization | Renaissance | 1614 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `clockwork_automata` | Clockwork Automata | Renaissance | 1614 | unknown | Escapement | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `encyclopedic_compendiums_knowledge_organization` | Encyclopedic Compendiums & Knowledge Organization | Renaissance | 1500 | unknown | Encyclopaedia; Gregor Reisch; Encyclopaedia - The kinds of encyclopaedias | textbook, textbook, textbook | The 1500 placement approximates the late-15th-century and early-16th-century transition to printed encyclopedic compendia such as Reisch's Margarita philosophica. |
 | `engraved_scientific_plates` | Engraved Scientific Plates | Renaissance | 1614 | unknown | Gutenberg Bible | official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `experimental_controls` | Experimental Controls | Renaissance | 1553 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `iatrochemistry_paracelsus` | Iatrochemistry (Paracelsus) | Renaissance | 1543 | unknown | Alchemy | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
@@ -71,5 +63,4 @@ Listed exceptions without explicit uncertainty metadata: 47
 | `printed_scientific_errata` | Printed Scientific Errata | Renaissance | 1665 | unknown | History of Philosophical Transactions | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `printed_standardized_textbooks` | Printed Standardized Textbooks | Renaissance | 1543 | unknown | Gutenberg Bible; Scientific Revolution | official_agency, textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `scientific_peer_review_practices` | Scientific Peer Review Practices | Renaissance | 1665 | unknown | History of Philosophical Transactions | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `scientific_societies` | Scientific Societies | Renaissance | 1500 | unknown | History of the Royal Society; Scientific Revolution | official_agency, textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 

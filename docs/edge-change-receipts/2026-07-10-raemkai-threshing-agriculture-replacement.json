@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-raemkai-threshing-agriculture-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "animal_powered_threshing", "prerequisite": "agriculture" },
+  "replaced_edge": { "dependent": "animal_powered_threshing", "prerequisite": "threshing_and_winnowing" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Threshing & Winnowing provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.98, "evidence_level": "primary_source", "note": "The depicted process receives harvested barley sheaves and separates their grain, so cereal agriculture supplies the required material stream." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/art/collection/search/577371",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Bottom Register describes reaping barley, bundling and transporting sheaves, donkey trampling on the threshing floor, and winnowing.",
+    "source_claim_summary": "The donkey-treading operation is one stage in a directly depicted agricultural barley-harvest sequence.",
+    "source_support_rationale": "Cereal production supplies the crop being processed, while the separate Greek sledge node is an independent implementation rather than this scene's precursor."
+  },
+  "ontology_before": "One specific Neolithic Greek threshing-sledge instance was treated as the enabler of a later independent Egyptian treading method.",
+  "ontology_after": "The Raemkai scene depends on the documented cereal-production system without claiming descent from another regional threshing implementation.",
+  "invariant_preserved_or_changed": "Changed: agriculture replaces threshing_and_winnowing as the crop-system prerequisite for animal_powered_threshing.",
+  "would_reject_if": ["The Raemkai register were shown not to depict cultivated barley harvesting and processing or to document direct adoption of the Greek sledge tradition."],
+  "short_reason": "Agriculture supplies the barley; a distinct Greek sledge is not a causal prerequisite.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

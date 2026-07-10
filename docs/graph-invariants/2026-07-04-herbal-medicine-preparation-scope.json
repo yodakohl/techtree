@@ -1,6 +1,6 @@
 {
   "id": "2026-07-04-herbal-medicine-preparation-scope",
-  "description": "Lock herbal_medicine_preparation to broad plant-remedy preparation grounded in herbalism, with fermentation excluded as a universal prerequisite.",
+  "description": "Lock herbal_medicine_preparation to the source-pinned Abydos herbal-wine evidence while retaining herbal knowledge and pottery as broader enabling context.",
   "checks": [
     {
       "type": "edge_type",
@@ -17,10 +17,11 @@
       "reason": "Pottery is retained only as a vessel/storage/heating enabler for some remedies, not as a universal hard requirement."
     },
     {
-      "type": "direct_edge_absent",
+      "type": "edge_type",
       "dependent": "herbal_medicine_preparation",
       "prerequisite": "fermentation_basic",
-      "reason": "Fermented remedies are a possible subtype, not a direct prerequisite for broad herbal preparation or its downstream medical institutions."
+      "expected": "required",
+      "reason": "The node is now dated and scoped through the chemically analyzed Abydos preparation whose documented carrier is grape wine."
     }
   ]
 }

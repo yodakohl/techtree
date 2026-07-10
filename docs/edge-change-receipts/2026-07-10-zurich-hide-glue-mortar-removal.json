@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-zurich-hide-glue-mortar-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "hide_glue_production", "prerequisite": "mortar_and_pestle" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Mortar & Pestle provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No mortar-and-pestle dependency remains because the molecular study describes hot-water collagen extraction and provides no crushing or pounding step.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S0305440315002496",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction describes immersion of skin, bone, and connective tissue in hot water; Methods analyze flakes from beneath the bark decoration.",
+    "source_claim_summary": "The supported production mechanism is thermal collagen extraction, with no documented grinding-tool operation.",
+    "source_support_rationale": "Adding a mortar would invent an equipment requirement absent from both the biochemical process description and the sampled bow context."
+  },
+  "ontology_before": "A generic pounding tool was assumed to enable hide glue without process or artifact evidence.",
+  "ontology_after": "The Zurich glue retains only its directly supported livestock feedstock and thermal extraction dependencies.",
+  "invariant_preserved_or_changed": "Changed: hide_glue_production no longer directly depends on mortar_and_pestle.",
+  "would_reject_if": ["The Zurich production sequence were documented to require pulverizing collagen material with a mortar and pestle before extraction."],
+  "short_reason": "The documented hide-glue process uses hot water, not a mortar-and-pestle step.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

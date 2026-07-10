@@ -1,0 +1,55 @@
+{
+  "id": "2026-07-10-evidence-locked-chronology-batch-three",
+  "description": "Lock the direct archaeological and institutional dates, distinct scopes, and corrected dependency boundaries for the third evidence-led chronology batch.",
+  "checks": [
+    { "type": "edge_type", "dependent": "herbal_medicine_preparation", "prerequisite": "fermentation_basic", "expected": "required", "reason": "The scoped Abydos remedy dispenses herbs and resins through grape wine." },
+    { "type": "first_known_date", "node": "herbal_medicine_preparation", "operator": "eq", "value": -3150, "reason": "The category date remains anchored to the analyzed Abydos jar." },
+
+    { "type": "direct_edge_absent", "dependent": "mortar_and_pestle", "prerequisite": "grinding_stones_querns", "reason": "The Met artifact record does not establish a lineage from flat grinding stones." },
+    { "type": "direct_edge_absent", "dependent": "mortar_and_pestle", "prerequisite": "pottery", "reason": "The scoped mortar and pestle are travertine rather than ceramic." },
+    { "type": "direct_edge_absent", "dependent": "mortar_and_pestle", "prerequisite": "herbal_medicine_preparation", "reason": "The museum record assigns no medicinal use and an application is not the artifact's cause." },
+    { "type": "first_known_date", "node": "mortar_and_pestle", "operator": "eq", "value": -1550, "reason": "The date remains at the beginning of the Met's ca. 1550-1295 BCE range." },
+
+    { "type": "edge_type", "dependent": "fermented_dairy_products", "prerequisite": "animal_husbandry", "expected": "required", "reason": "Managed ruminant milk is the directly identified feedstock." },
+    { "type": "edge_type", "dependent": "fermented_dairy_products", "prerequisite": "fermentation_basic", "expected": "required", "reason": "Kefir fermentation is constitutive of the Xiaohe product." },
+    { "type": "direct_edge_absent", "dependent": "fermented_dairy_products", "prerequisite": "pottery", "reason": "The Xiaohe evidence is directly analyzed dairy masses, not a pottery technique." },
+    { "type": "first_known_date", "node": "fermented_dairy_products", "operator": "eq", "value": -1615, "reason": "The date remains at the earliest bound among the sampled tomb ranges." },
+
+    { "type": "edge_type", "dependent": "hide_glue_production", "prerequisite": "animal_husbandry", "expected": "required", "reason": "Domestic cattle and ovicaprid collagen supply the glue feedstock." },
+    { "type": "edge_type", "dependent": "hide_glue_production", "prerequisite": "fire_control", "expected": "required", "reason": "Hot-water gelatinization performs the collagen extraction." },
+    { "type": "direct_edge_absent", "dependent": "hide_glue_production", "prerequisite": "mortar_and_pestle", "reason": "The documented extraction has no crushing or pounding step." },
+    { "type": "first_known_date", "node": "hide_glue_production", "operator": "eq", "value": -3176, "reason": "The date remains at the start of the bow's 3176-3153 BCE dendrochronological range." },
+
+    { "type": "direct_edge_absent", "dependent": "animal_powered_threshing", "prerequisite": "threshing_and_winnowing", "reason": "The Greek sledge is an independent implementation rather than Raemkai's precursor." },
+    { "type": "edge_type", "dependent": "animal_powered_threshing", "prerequisite": "agriculture", "expected": "required", "reason": "Cultivated barley supplies the directly depicted material stream." },
+    { "type": "edge_type", "dependent": "animal_powered_threshing", "prerequisite": "animal_husbandry", "expected": "required", "reason": "Managed donkeys perform the documented trampling." },
+    { "type": "direct_edge_absent", "dependent": "animal_powered_threshing", "prerequisite": "yokes_and_harnesses", "reason": "The donkeys tread grain directly rather than pulling a board." },
+    { "type": "direct_edge_absent", "dependent": "combine_harvesters", "prerequisite": "animal_powered_threshing", "reason": "Horse-drawn motion does not establish a lineage from Raemkai donkey treading." },
+    { "type": "first_known_date", "node": "animal_powered_threshing", "operator": "eq", "value": -2446, "reason": "The date remains at the beginning of the Met's ca. 2446-2389 BCE wall range." },
+
+    { "type": "edge_type", "dependent": "heavy_draft_plowing", "prerequisite": "animal_drawn_plows", "expected": "required", "reason": "The seeder is a funnel attachment on an animal-drawn plow." },
+    { "type": "direct_edge_absent", "dependent": "heavy_draft_plowing", "prerequisite": "animal_husbandry", "reason": "Livestock management is represented transitively through animal_drawn_plows." },
+    { "type": "direct_edge_absent", "dependent": "heavy_draft_plowing", "prerequisite": "yokes_and_harnesses", "reason": "The scoped innovation is seed delivery rather than a distinct harness." },
+    { "type": "direct_edge_absent", "dependent": "terraced_hillside_farming", "prerequisite": "heavy_draft_plowing", "reason": "A Mesopotamian seed-funnel plow does not enable retaining-wall terraces." },
+    { "type": "first_known_date", "node": "heavy_draft_plowing", "operator": "eq", "value": -2500, "reason": "The date remains anchored to Early Dynastic III in the mid-third millennium BCE." },
+
+    { "type": "direct_edge_absent", "dependent": "encyclopedic_compendiums_knowledge_organization", "prerequisite": "scientific_societies", "reason": "The scoped 1503 Margarita predates the evidence-locked society category." },
+    { "type": "first_known_date", "node": "encyclopedic_compendiums_knowledge_organization", "operator": "eq", "value": 1503, "reason": "The date remains anchored to the Freiburg edition catalog." },
+
+    { "type": "direct_edge_absent", "dependent": "scientific_societies", "prerequisite": "scientific_method", "reason": "The earliest scoped academy used historically mixed investigative traditions." },
+    { "type": "direct_edge_absent", "dependent": "scientific_societies", "prerequisite": "universities", "reason": "The 1560 Academia is not documented as requiring a university structure." },
+    { "type": "direct_edge_absent", "dependent": "experimental_controls", "prerequisite": "scientific_societies", "reason": "The current controls anchor predates the 1560 society evidence." },
+    { "type": "direct_edge_absent", "dependent": "probability_statistics_inference", "prerequisite": "scientific_societies", "reason": "The 1654 milestone is documented through Pascal-Fermat correspondence rather than a society." },
+    { "type": "first_known_date", "node": "scientific_societies", "operator": "eq", "value": 1560, "reason": "The category remains anchored to the Academia Secretorum Naturae foundation." },
+
+    { "type": "direct_edge_absent", "dependent": "medical_ethics", "prerequisite": "herbal_medicine_preparation", "reason": "A specific remedy process does not cause professional ethical norms." },
+    { "type": "direct_edge_absent", "dependent": "early_veterinary_medicine", "prerequisite": "herbal_medicine_preparation", "reason": "The Abydos residue supplies no classical animal-care lineage." },
+    { "type": "direct_edge_absent", "dependent": "public_hospitals_infirmaries", "prerequisite": "herbal_medicine_preparation", "reason": "Roman infirmaries do not require the scoped Egyptian herbal-wine recipe." },
+    { "type": "direct_edge_absent", "dependent": "state_medical_supply_stores", "prerequisite": "herbal_medicine_preparation", "reason": "Stocked Roman herbs do not establish dependence on the Abydos formulation." },
+    { "type": "direct_edge_absent", "dependent": "hospitals_early", "prerequisite": "herbal_medicine_preparation", "reason": "Hospital establishment is independent of one ancient remedy recipe." },
+    { "type": "direct_edge_absent", "dependent": "university_medical_faculties", "prerequisite": "herbal_medicine_preparation", "reason": "The Salerno teaching lineage is not sourced through the Abydos preparation." },
+    { "type": "direct_edge_absent", "dependent": "monastic_infirmaries", "prerequisite": "herbal_medicine_preparation", "reason": "Monastic remedies have no demonstrated lineage from the scoped Egyptian process." },
+    { "type": "direct_edge_absent", "dependent": "human_anatomy_physiology", "prerequisite": "herbal_medicine_preparation", "reason": "An herbal-wine recipe does not enable Vesalian dissection or description." },
+    { "type": "direct_edge_absent", "dependent": "botanical_gardens_herbaria", "prerequisite": "herbal_medicine_preparation", "reason": "Plant collections and pressed specimens do not require the Abydos recipe." }
+  ]
+}

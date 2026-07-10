@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-margarita-society-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "encyclopedic_compendiums_knowledge_organization", "prerequisite": "scientific_societies" },
+  "old_claim": { "type": "commercial_or_scaling_dependency", "confidence": 0.62, "evidence_level": "textbook", "note": "Learned and scientific societies did not enable the earliest printed compendia, but their journals, proceedings, and specialist contributor networks later scaled arts-and-sciences reference works." },
+  "new_claim_absent": "No scientific-society edge remains because the node is locked to Reisch's 1503 printed compendium, which predates the documented 1560 scientific-society category.",
+  "source_supports_edge": "no",
+  "source_url": "https://dl.ub.uni-freiburg.de/diglit/reisch1503",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Freiburg library catalog dates the printed Margarita philosophica edition to 1503 and exposes its twelve-book contents.",
+    "source_claim_summary": "The scoped compendium was already printed and organized decades before the first directly documented scientific society in this graph.",
+    "source_support_rationale": "Later academies may have supported other reference works, but that scaling history falls outside a node explicitly locked to the 1503 edition."
+  },
+  "ontology_before": "Later collaborative encyclopedias were blended into an early single-author printed compendium through a scaling edge.",
+  "ontology_after": "The Margarita node represents its own 1503 production context without importing later academy networks.",
+  "invariant_preserved_or_changed": "Changed: encyclopedic_compendiums_knowledge_organization no longer directly depends on scientific_societies.",
+  "would_reject_if": ["Evidence showed a scientific society operating before 1503 directly sponsored, compiled, printed, or distributed Reisch's Margarita philosophica."],
+  "short_reason": "The 1503 compendium predates the evidence-locked scientific-society category.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

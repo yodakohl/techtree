@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-terrace-seeder-plow-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "terraced_hillside_farming", "prerequisite": "heavy_draft_plowing" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Heavy Draft Plowing provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No seeder-plow dependency remains because retaining walls and stepped slope fields do not require the distinct Mesopotamian animal-drawn seed-funnel implement.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/water-supply-system",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The cited water-supply overview concerns water control and infrastructure and provides no seeder-plow requirement for hillside terraces.",
+    "source_claim_summary": "Terrace construction and water management are independent of the newly scoped Mesopotamian seed-funnel plow.",
+    "source_support_rationale": "The old link depended on the obsolete broad phrase heavy draft plowing and disappears when both endpoint scopes are read literally."
+  },
+  "ontology_before": "A generic plowing label was used to imply that draft tillage enabled retaining-wall terrace construction.",
+  "ontology_after": "Terrace farming retains its wall and water-management relationships without an unrelated seeding implement.",
+  "invariant_preserved_or_changed": "Changed: terraced_hillside_farming no longer directly depends on heavy_draft_plowing.",
+  "would_reject_if": ["Direct archaeological or agronomic evidence showed the scoped terrace system could only operate with the Early Dynastic Mesopotamian seeder-plow."],
+  "short_reason": "A Mesopotamian seed-funnel plow is not a prerequisite for building or using terraces.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

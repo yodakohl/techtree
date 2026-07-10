@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-seeder-plow-yoke-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "heavy_draft_plowing", "prerequisite": "yokes_and_harnesses" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Yokes & Harnesses provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No separate yoke edge remains because the source defines the innovation as a seed funnel on a traction plow, while animal_drawn_plows already represents the complete pulling arrangement.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.11588/diglit.49001.30",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Page 178 locates the innovation in the funnel behind the share and describes the field team without identifying a novel yoke or harness as part of the seeder mechanism.",
+    "source_claim_summary": "The feature separating the seeder-plow from an ordinary traction plow is controlled seed delivery, not a distinct harness design.",
+    "source_support_rationale": "A direct harness edge would model generic traction twice and would not explain the seed-metering capability that now defines the node."
+  },
+  "ontology_before": "Generic traction equipment was attached directly to a node ambiguously described as heavy draft plowing.",
+  "ontology_after": "The scoped seeder innovation has one immediate machine prerequisite, with harnessing represented within that upstream traction-plow system.",
+  "invariant_preserved_or_changed": "Changed: heavy_draft_plowing no longer directly depends on yokes_and_harnesses.",
+  "would_reject_if": ["A source demonstrated that the Early Dynastic seeder-plow required a distinct yoke technology not already represented by animal_drawn_plows."],
+  "short_reason": "The seed funnel, not a separate harness, is the scoped implement innovation.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-egyptian-mortar-pottery-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "mortar_and_pestle", "prerequisite": "pottery" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pottery provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pottery dependency remains because the catalogued mortar and pestle are made from travertine rather than ceramic material.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/554684",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Artwork Details list the medium as travertine, also called Egyptian alabaster.",
+    "source_claim_summary": "The directly catalogued pair is a stone artifact and supplies no evidence for ceramic manufacture or pottery use.",
+    "source_support_rationale": "A separate vessel technology is neither a material component nor a necessary operating element of this use-neutral stone pair."
+  },
+  "ontology_before": "Pottery was attached to a mortar category even though the cited claim did not specify a ceramic artifact.",
+  "ontology_after": "The stone artifact follows its catalogued material without an unrelated ceramic prerequisite.",
+  "invariant_preserved_or_changed": "Changed: mortar_and_pestle no longer directly depends on pottery.",
+  "would_reject_if": ["The Met reclassified this mortar-and-pestle pair as ceramic or documented pottery as a necessary component of the object."],
+  "short_reason": "The scoped pair is travertine, not pottery.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

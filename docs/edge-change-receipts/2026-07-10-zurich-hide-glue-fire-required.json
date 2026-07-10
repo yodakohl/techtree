@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-zurich-hide-glue-fire-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "hide_glue_production", "prerequisite": "fire_control" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim": { "type": "required", "confidence": 0.9, "evidence_level": "primary_source", "note": "Producing collagen glue requires hot-water gelatinization to hydrolyze, denature, and solubilize collagen, making controlled heating part of the documented extraction method." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S0305440315002496",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Introduction explains that hide glue is extracted by immersing collagen-bearing tissues in hot water, where heat causes gelatinization.",
+    "source_claim_summary": "High-temperature water treatment converts collagen-bearing animal tissue into soluble gelatin adhesive.",
+    "source_support_rationale": "The scoped claim is production of collagen glue rather than merely finding raw hide, so controlled heat performs the required chemical transformation."
+  },
+  "ontology_before": "Fire was represented as remote historical background despite the thermal extraction chemistry of hide glue.",
+  "ontology_after": "Controlled heating is represented as an operating step in producing the identified collagen adhesive.",
+  "invariant_preserved_or_changed": "Changed: hide_glue_production now requires fire_control.",
+  "would_reject_if": ["The Zurich adhesive were shown to be raw untreated tissue or a cold-extracted binder that did not require collagen gelatinization."],
+  "short_reason": "Hot-water gelatinization is the chemical extraction step for hide glue.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

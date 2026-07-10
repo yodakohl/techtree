@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-seeder-plow-husbandry-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "heavy_draft_plowing", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No redundant direct husbandry edge remains because the required animal_drawn_plows node already encapsulates the managed traction-animal pathway for the seeder-plow architecture.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.11588/diglit.49001.30",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Page 178 treats oxen and the seeder-plow together as one plowing team and defines the funnel as a modification of the plow.",
+    "source_claim_summary": "The documented immediate machine dependency is the animal-drawn plow rather than a separate parallel husbandry component.",
+    "source_support_rationale": "Keeping both levels would duplicate a transitive livestock requirement and obscure the implement architecture that directly distinguishes this node."
+  },
+  "ontology_before": "The broad node listed both the immediate traction-plow system and its upstream animal-management dependency in parallel.",
+  "ontology_after": "The seeder-plow links to its immediate mechanical base and relies on that node's own animal prerequisites transitively.",
+  "invariant_preserved_or_changed": "Changed: heavy_draft_plowing no longer directly depends on animal_husbandry.",
+  "would_reject_if": ["The graph's animal_drawn_plows node ceased to represent managed draft animals or the seeder-plow used livestock independently of that plow system."],
+  "short_reason": "Animal husbandry is already represented through the required animal-drawn plow node.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-roman-infirmary-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "public_hospitals_infirmaries", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No Abydos herbal-wine dependency remains because Roman institutional infirmaries are not documented as requiring or descending from that specific Predynastic recipe.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The paper concerns chemical residues from Egyptian wine jars and does not describe Roman valetudinaria, hospital organization, or institutional care.",
+    "source_claim_summary": "The source dates one remedy preparation but provides no causal bridge to Roman hospital institutions.",
+    "source_support_rationale": "Medicinal plants were used in many settings, yet a care facility can exist without the exact fermentation process that now defines the prerequisite node."
+  },
+  "ontology_before": "General medicinal-plant history was used to connect an ancient recipe umbrella to Roman institutional care.",
+  "ontology_after": "The infirmary node retains its military-care and infrastructure relationships without a specific remedy inheritance.",
+  "invariant_preserved_or_changed": "Changed: public_hospitals_infirmaries no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["A source demonstrated direct institutional adoption of the scoped Abydos herbal-wine process by Roman valetudinaria."],
+  "short_reason": "The specific Abydos preparation does not enable the Roman hospital institution.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

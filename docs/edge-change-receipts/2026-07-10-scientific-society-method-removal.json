@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-scientific-society-method-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "scientific_societies", "prerequisite": "scientific_method" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Scientific Method provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No universal scientific-method prerequisite remains because the first scoped society investigated natural secrets through mixed experimental, natural-magical, and Aristotelian practices rather than one codified method.",
+  "source_supports_edge": "no",
+  "source_url": "https://cordis.europa.eu/project/id/101148607",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CORDIS describes the 1560 academy's experiments, natural magic, empirical Aristotelianism, and contribution to the later rise of experimentalism.",
+    "source_claim_summary": "The early society combined several investigative traditions and is itself part of the historical development of experimental practice.",
+    "source_support_rationale": "Making a later generalized method its prerequisite would reverse that development and impose a uniformity absent from the institutional evidence."
+  },
+  "ontology_before": "A broad modernized scientific-method category was presumed to enable every early society devoted to nature.",
+  "ontology_after": "The institutional category can begin with historically mixed investigative practices without circular method gating.",
+  "invariant_preserved_or_changed": "Changed: scientific_societies no longer directly depends on scientific_method.",
+  "would_reject_if": ["A primary institutional record established that membership in the 1560 Academia required the exact codified method represented by scientific_method."],
+  "short_reason": "The earliest scoped society helped develop experimentalism rather than requiring one settled method.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

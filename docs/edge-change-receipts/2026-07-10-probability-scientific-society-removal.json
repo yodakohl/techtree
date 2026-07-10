@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-probability-scientific-society-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "probability_statistics_inference", "prerequisite": "scientific_societies" },
+  "old_claim": { "type": "commercial_or_scaling_dependency", "confidence": 0.5, "evidence_level": "weak_inference", "note": "Scientific societies helped circulate early modern mathematical work but are dissemination infrastructure, not a hard prerequisite." },
+  "new_claim_absent": "No society-scaling edge remains because the node is anchored to the 1654 Pascal-Fermat correspondence and its cited history does not identify a scientific society as part of that development.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/probability",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica dates modern mathematical probability to the 1654 Pascal-Fermat correspondence and discusses the mathematical problem lineage without a society dependency.",
+    "source_claim_summary": "The scoped probability milestone arose through direct mathematical correspondence rather than a learned-society publication or program.",
+    "source_support_rationale": "General later dissemination by academies does not explain or scale the exact 1654 event that defines this node's chronology and scope."
+  },
+  "ontology_before": "A generic claim about circulation attached scientific societies to a milestone whose source identifies a different communication path.",
+  "ontology_after": "The probability node follows its documented mathematical correspondence lineage without speculative society infrastructure.",
+  "invariant_preserved_or_changed": "Changed: probability_statistics_inference no longer directly depends on scientific_societies.",
+  "would_reject_if": ["A reliable source demonstrated that a scientific society directly commissioned, hosted, published, or materially scaled the 1654 Pascal-Fermat probability work."],
+  "short_reason": "The 1654 probability milestone is documented through correspondence, not a scientific society.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

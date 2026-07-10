@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-botanical-gardens-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "botanical_gardens_herbaria", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No Abydos herbal-wine dependency remains because Padua's living collection and herbarium practices are not documented as requiring that specific Egyptian preparation.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The paper studies residues in ancient Egyptian wine jars and does not address Renaissance university gardens, pressed specimens, taxonomy, or exchange.",
+    "source_claim_summary": "The source-pinned recipe and the Padua collection institution represent different practices with no demonstrated lineage.",
+    "source_support_rationale": "Medicinal use motivated some gardens, but one preparation method is not necessary for cultivating, preserving, teaching, or classifying plants."
+  },
+  "ontology_before": "A broad remedy label was used as a generic cause of later botanical collections.",
+  "ontology_after": "The garden and herbarium node follows its collection and teaching evidence without inheriting the Abydos recipe.",
+  "invariant_preserved_or_changed": "Changed: botanical_gardens_herbaria no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["A reliable source directly traced the Padua garden or early herbarium method to the scoped Abydos herbal-wine practice."],
+  "short_reason": "Botanical collections do not require the specific Abydos remedy process.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

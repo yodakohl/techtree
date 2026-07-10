@@ -10897,14 +10897,15 @@
     "id": "herbal_medicine_preparation",
     "name": "Herbal Medicine Preparation",
     "era": "Ancient",
-    "description": "Preparation of medicinal plants, resins, oils, poultices, teas, and fermented remedies for treating wounds, pain, digestion, and infection symptoms.",
+    "description": "Combining herbs and tree resins with grape wine as a remedy carrier, directly evidenced by chemically analyzed residues from an Abydos pottery jar.",
     "prerequisites": [
       "herbalism",
-      "pottery"
+      "pottery",
+      "fermentation_basic"
     ],
-    "firstKnownDate": -7000,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": -3150,
+    "datePrecision": "decade",
+    "region": "Tomb U-j, Abydos, Egypt",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -10947,36 +10948,46 @@
             ]
           }
         ]
+      },
+      {
+        "prerequisite": "fermentation_basic",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "primary_source",
+        "note": "The scoped Abydos preparation dispensed herbs and tree resins in grape wine, making a fermented beverage the documented remedy carrier.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Ancient Egyptian herbal wines",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+            "publisher": "Proceedings of the National Academy of Sciences / PubMed Central",
+            "year": 2009,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract and Discussion: chemical analyses identify grape wine carrying herbs and tree resins; the authors state that plant additives were dispensed through alcoholic beverages."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Historical Review of Medicinal Plants' Usage",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3358962/",
-        "publisher": "Pharmacognosy Reviews / PubMed Central",
-        "year": 2012,
-        "source_type": "review",
-        "supports": [
-          "node",
-          "edge"
-        ],
-        "source_locator": "Introductory historical review: medicinal plants are traced from prehistoric use and early written traditions through ancient Sumerian, Egyptian, Greek, Chinese, and Indian medical plant records."
-      },
-      {
-        "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-        "publisher": "Science / PubMed",
-        "year": 2012,
+        "title": "Ancient Egyptian herbal wines",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+        "publisher": "Proceedings of the National Academy of Sciences / PubMed Central",
+        "year": 2009,
         "source_type": "primary_paper",
         "supports": [
-          "edge"
+          "node",
+          "maturity"
         ],
-        "source_locator": "Abstract/title: Xianrendong Cave pottery was produced about 20,000 years ago; pottery is retained only as an enabling vessel technology for some preparation methods."
+        "source_locator": "Abstract and Archaeological Samples: absorbed residues in Abydos jar 156, dated about 3150 BCE, chemically identify grape wine with herbs and tree resins and are interpreted as organic medicinal remedies."
       }
     ],
     "dateUncertainty": true,
-    "dateUncertaintyNote": "The -7000 anchor preserves a broad Neolithic/pre-literate preparation umbrella. Direct medicinal-plant evidence is older or later depending on region and evidentiary type, so the date should not be read as a precise first invention.",
-    "scopeNote": "Covers practical preparation of medicinal plant materials into remedies. It excludes formal pharmacology, written pharmacopoeias, and a claim that fermentation was required for all herbal preparations."
+    "dateUncertaintyNote": "The paper dates the Abydos jar to about 3150 BCE. Its chemical markers permit several candidate herb genera, so the exact plant recipe remains uncertain.",
+    "scopeNote": "The category date is locked to the earliest chemically evidenced herbal-wine preparation in this source. It does not project later Egyptian prescriptions, exact herb species, teas, poultices, or demonstrated clinical efficacy back to 3150 BCE."
   },
   {
     "id": "battlefield_wound_care",
@@ -11017,81 +11028,31 @@
   },
   {
     "id": "mortar_and_pestle",
-    "name": "Mortar & Pestle",
+    "name": "Egyptian Travertine Mortar and Pestle",
     "era": "Ancient",
-    "description": "Grinding and mixing tools for preparing grains, pigments, medicines, spices, resins, and mineral powders.",
-    "prerequisites": [
-      "grinding_stones_querns",
-      "pottery",
-      "herbal_medicine_preparation"
-    ],
-    "firstKnownDate": -7000,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "description": "A paired travertine mortar and pestle preserved from Egypt's New Kingdom, establishing the artifact form without assigning an unsupported food, pigment, or medical use.",
+    "prerequisites": [],
+    "firstKnownDate": -1550,
+    "datePrecision": "century",
+    "region": "Egypt",
     "reviewStatus": "source_checked",
-    "dependencyEdges": [
-      {
-        "prerequisite": "grinding_stones_querns",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Grinding Stones & Querns provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Thirty thousand-year-old evidence of plant food processing",
-            "url": "https://www.pnas.org/doi/10.1073/pnas.1006993107",
-            "publisher": "Proceedings of the National Academy of Sciences",
-            "year": 2010,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "herbal_medicine_preparation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      }
-    ],
+    "dependencyEdges": [],
     "sources": [
       {
-        "title": "Thirty thousand-year-old evidence of plant food processing",
-        "url": "https://www.pnas.org/doi/10.1073/pnas.1006993107",
-        "publisher": "Proceedings of the National Academy of Sciences",
-        "year": 2010,
-        "source_type": "primary_paper",
+        "title": "Mortar and pestle",
+        "url": "https://www.metmuseum.org/art/collection/search/554684",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2026,
+        "source_type": "museum",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Artwork Details identify object 10.130.1282a, b as a travertine mortar and pestle from Egypt, Dynasty 18, New Kingdom, dated ca. 1550-1295 BCE."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The Met assigns the object the broad New Kingdom range ca. 1550-1295 BCE; -1550 records the beginning of that catalogued range, not an exact manufacture year.",
+    "scopeNote": "This artifact-only scope is distinct from mortar_pestle_food_processing, which models directly evidenced Natufian plant-food processing at Raqefet Cave."
   },
   {
     "id": "orchard_grafting",
@@ -11173,95 +11134,54 @@
   },
   {
     "id": "heavy_draft_plowing",
-    "name": "Heavy Draft Plowing",
+    "name": "Mesopotamian Seeder Plow",
     "era": "Ancient",
-    "description": "Improved harnessing, teamwork, and plow handling for turning heavier soils with oxen or other draft animals.",
+    "description": "An animal-drawn plow fitted with a funnel behind the share so a second operator could meter seed directly into newly cut furrows.",
     "prerequisites": [
-      "animal_drawn_plows",
-      "animal_husbandry",
-      "yokes_and_harnesses"
+      "animal_drawn_plows"
     ],
-    "firstKnownDate": -3000,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": -2500,
+    "datePrecision": "century",
+    "region": "Southern Mesopotamia / Early Dynastic III",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "animal_drawn_plows",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Animal-Drawn Plows provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.94,
+        "evidence_level": "review",
+        "note": "The scoped implement is an animal-drawn plow modified with a seed funnel behind its share, so the traction plow is its required mechanical base.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Plow",
-            "url": "https://www.britannica.com/technology/plow",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "edge"
-            ],
-            "source_locator": "Britannica's plow entry describes the plow as a soil-turning or furrow-cutting implement and traces animal-drawn plow forms, supporting animal-drawn plows as the direct enabling base for heavier draft plowing."
-          }
-        ]
-      },
-      {
-        "prerequisite": "animal_husbandry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-            "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-            "publisher": "Bioarchaeology of the Near East",
-            "year": 2014,
+            "title": "The agriculture of Mesopotamia c. 3000-600 B.C.",
+            "url": "https://doi.org/10.11588/diglit.49001.30",
+            "publisher": "Tools & Tillage / Heidelberg University Library",
+            "year": 1982,
             "source_type": "review",
             "supports": [
               "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "yokes_and_harnesses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Yokes & Harnesses provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Cattle pulled loads 2,000 years earlier than previously thought",
-            "url": "https://www.ucl.ac.uk/news/2018/dec/cattle-pulled-loads-2000-years-earlier-previously-thought-0",
-            "publisher": "University College London",
-            "year": 2018,
-            "source_type": "official_agency",
-            "supports": [
-              "edge"
             ],
-            "source_locator": "UCL summarizes Neolithic cattle traction evidence, defines traction as animals pulling loads, and states that when the plough became available farmers were already experienced in cattle traction."
+            "source_locator": "Page 178 describes fields worked by oxen and defines the seeder-plow as a plow with a funnel fixed behind the share to place seed in the cut furrow."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-        "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-        "publisher": "Bioarchaeology of the Near East",
-        "year": 2014,
+        "title": "The agriculture of Mesopotamia c. 3000-600 B.C.",
+        "url": "https://doi.org/10.11588/diglit.49001.30",
+        "publisher": "Tools & Tillage / Heidelberg University Library",
+        "year": 1982,
         "source_type": "review",
         "supports": [
-          "edge",
-          "node"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Page 178 states that from at least the Early Dynastic III period, in the mid-third millennium BCE, Mesopotamian farmers sowed with a plow whose funnel dropped metered seed behind the share into the furrow."
       }
-    ]
+    ],
+    "scopeNote": "The retained id no longer denotes generic heavy-soil or mouldboard plowing. It is locked to the distinct Mesopotamian seeder-plow attachment and remains separate from animal_drawn_plows and the medieval heavy_plow_mouldboard node."
   },
   {
     "id": "town_market_squares",
@@ -12029,95 +11949,78 @@
   },
   {
     "id": "animal_powered_threshing",
-    "name": "Animal-Powered Threshing",
+    "name": "Raemkai Donkey-Treading Threshing",
     "era": "Ancient",
-    "description": "Use of cattle, donkeys, horses, or threshing sledges to separate grain from stalks at larger agricultural scale.",
+    "description": "Donkeys driven over a Saqqara threshing floor to trample barley, followed by sweeping the grain-and-chaff mixture into a container for winnowing.",
     "prerequisites": [
-      "threshing_and_winnowing",
-      "animal_husbandry",
-      "yokes_and_harnesses"
+      "agriculture",
+      "animal_husbandry"
     ],
-    "firstKnownDate": -3000,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": -2446,
+    "datePrecision": "century",
+    "region": "Tomb chapel of Raemkai, Saqqara, Egypt",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "threshing_and_winnowing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Threshing & Winnowing provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "agriculture",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "primary_source",
+        "note": "The depicted process receives harvested barley sheaves and separates their grain, so cereal agriculture supplies the required material stream.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Threshing",
-            "url": "https://en.wikipedia.org/wiki/Threshing",
-            "publisher": "Wikipedia",
+            "title": "Tomb Chapel of Raemkai: East Wall",
+            "url": "https://www.metmuseum.org/art/collection/search/577371",
+            "publisher": "The Metropolitan Museum of Art",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "museum",
             "supports": [
               "edge"
             ],
-            "source_locator": "The overview defines threshing as separating grain from stalks and describes ancient animal treading as a threshing method."
+            "source_locator": "Bottom Register: The Grain Harvest describes cut barley, bundled sheaves, their transport to the threshing floor, donkey trampling, and subsequent winnowing."
           }
         ]
       },
       {
         "prerequisite": "animal_husbandry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.97,
+        "evidence_level": "primary_source",
+        "note": "Managed donkeys are the motive agents explicitly driven across the barley on the scoped threshing floor.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-            "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-            "publisher": "Bioarchaeology of the Near East",
-            "year": 2014,
-            "source_type": "review",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "yokes_and_harnesses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Yokes & Harnesses provides traction arrangements for animal-powered treading or threshing sledges; heavy draft plowing is a related field use rather than a direct prerequisite.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Threshing board",
-            "url": "https://en.wikipedia.org/wiki/Threshing_board",
-            "publisher": "Wikipedia",
+            "title": "Tomb Chapel of Raemkai: East Wall",
+            "url": "https://www.metmuseum.org/art/collection/search/577371",
+            "publisher": "The Metropolitan Museum of Art",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "museum",
             "supports": [
               "edge"
             ],
-            "source_locator": "The overview describes threshing boards or sledges pulled by oxen, mules, or horses over grain, supporting traction harnessing as the direct predecessor."
+            "source_locator": "The Met's scene description and translated inscription identify donkeys being driven to trample the barley threshing floor."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-        "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-        "publisher": "Bioarchaeology of the Near East",
-        "year": 2014,
-        "source_type": "review",
+        "title": "Tomb Chapel of Raemkai: East Wall",
+        "url": "https://www.metmuseum.org/art/collection/search/577371",
+        "publisher": "The Metropolitan Museum of Art",
+        "year": 2026,
+        "source_type": "museum",
         "supports": [
-          "edge",
-          "node"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Artwork Details date the Dynasty 5 wall to ca. 2446-2389 BCE; Bottom Register explicitly describes donkeys trampling barley on the threshing floor before winnowing."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The Met assigns the chapel wall the range ca. 2446-2389 BCE; -2446 records the beginning of that catalogued range.",
+    "scopeNote": "This node is limited to directly depicted donkey-treading at Raemkai and does not duplicate the Neolithic Greek threshing-sledge node or imply a yoked threshing board."
   },
   {
     "id": "clay_accounting_tokens",
@@ -12554,81 +12457,78 @@
   },
   {
     "id": "fermented_dairy_products",
-    "name": "Fermented Dairy Products",
+    "name": "Xiaohe Kefir-Fermented Dairy",
     "era": "Ancient",
-    "description": "Milk preservation through fermentation into yogurt, kefir-like drinks, curds, and cheeses for nutrition and trade.",
+    "description": "Kefir-fermented cheese made from ruminant milk, identified by quantitative proteomics in organic masses placed with Early Bronze Age burials at Xiaohe.",
     "prerequisites": [
       "animal_husbandry",
-      "fermentation_basic",
-      "pottery"
+      "fermentation_basic"
     ],
-    "firstKnownDate": -7000,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": -1615,
+    "datePrecision": "decade",
+    "region": "Xiaohe cemetery, Xinjiang, China",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "animal_husbandry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "primary_source",
+        "note": "Proteomics identifies skimmed ruminant milk and the paper links the dairy to extensive cattle and goat herding, making managed milk animals the required raw-material source.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-            "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-            "publisher": "Bioarchaeology of the Near East",
+            "title": "Proteomics evidence for kefir dairy in Early Bronze Age China",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0305440314000466",
+            "publisher": "Journal of Archaeological Science",
             "year": 2014,
-            "source_type": "review",
+            "source_type": "primary_paper",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Highlights, Abstract, and Discussion identify the masses as kefir cheese from ruminant milk and connect production to cattle and goat herding."
           }
         ]
       },
       {
         "prerequisite": "fermentation_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "pottery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Pottery provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.99,
+        "evidence_level": "primary_source",
+        "note": "The identified product was curdled by a symbiotic culture of lactic-acid bacteria and yeasts, so microbial fermentation is constitutive of the scoped kefir dairy.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Early pottery at 20,000 years ago in Xianrendong Cave, China",
-            "url": "https://pubmed.ncbi.nlm.nih.gov/22745428/",
-            "publisher": "Science / PubMed",
-            "year": 2012,
+            "title": "Proteomics evidence for kefir dairy in Early Bronze Age China",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0305440314000466",
+            "publisher": "Journal of Archaeological Science",
+            "year": 2014,
             "source_type": "primary_paper",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Abstract and Discussion identify kefir fermentation by Lactobacillus kefiranofaciens with other lactic-acid bacteria and yeasts as the basis of the product."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-        "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-        "publisher": "Bioarchaeology of the Near East",
+        "title": "Proteomics evidence for kefir dairy in Early Bronze Age China",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0305440314000466",
+        "publisher": "Journal of Archaeological Science",
         "year": 2014,
-        "source_type": "review",
+        "source_type": "primary_paper",
         "supports": [
-          "edge",
-          "node"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Samples section reports AMS ranges beginning at 1615 BCE; proteomic results identify the burial masses as kefir-fermented cheese from ruminant milk."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The three sampled tombs have calibrated ranges of 1615-1530, 1615-1515, and 1610-1440 BCE; -1615 records the earliest bound rather than a single production year.",
+    "scopeNote": "This node is locked to direct Xiaohe kefir-fermentation evidence and is distinct from cheese_and_yogurt_making, which models sixth-millennium BCE curd straining in perforated Kuyavian pottery."
   },
   {
     "id": "irrigation_sluice_gates",
@@ -13645,8 +13545,7 @@
     "description": "Retaining walls and stepped fields that controlled erosion and water on slopes.",
     "prerequisites": [
       "irrigation_sluice_gates",
-      "masonry",
-      "heavy_draft_plowing"
+      "masonry"
     ],
     "firstKnownDate": -3000,
     "datePrecision": "century",
@@ -13692,14 +13591,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "heavy_draft_plowing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Heavy Draft Plowing provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
@@ -13808,81 +13699,78 @@
   },
   {
     "id": "hide_glue_production",
-    "name": "Hide Glue Production",
+    "name": "Zurich Neolithic Hide Glue",
     "era": "Ancient",
-    "description": "Rendering animal collagen into adhesive for tools, containers, ornaments, instruments, and repairs.",
+    "description": "Collagen glue extracted from cattle and domestic ovicaprid tissues and used to fix decorative bark strips to a Neolithic yew bow.",
     "prerequisites": [
       "animal_husbandry",
-      "fire_control",
-      "mortar_and_pestle"
+      "fire_control"
     ],
-    "firstKnownDate": -7000,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": -3176,
+    "datePrecision": "decade",
+    "region": "Parkhaus Opera, Zurich, Switzerland",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "animal_husbandry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path.",
+        "type": "required",
+        "confidence": 0.97,
+        "evidence_level": "primary_source",
+        "note": "Protein sequencing identifies cattle and domestic ovicaprids as the collagen sources, so livestock tissues are the required feedstock for the scoped adhesive.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-            "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-            "publisher": "Bioarchaeology of the Near East",
-            "year": 2014,
-            "source_type": "review",
+            "title": "Molecular evidence of use of hide glue in 4th millennium BC Europe",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0305440315002496",
+            "publisher": "Journal of Archaeological Science",
+            "year": 2015,
+            "source_type": "primary_paper",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Highlights, Abstract, and Conclusions report collagen from cattle and domestic ovicaprids and interpret skin and slaughter by-products as the hide-glue feedstock."
           }
         ]
       },
       {
         "prerequisite": "fire_control",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "Producing collagen glue requires hot-water gelatinization to hydrolyze, denature, and solubilize collagen, making controlled heating part of the documented extraction method.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa",
-            "url": "https://www.pnas.org/doi/10.1073/pnas.1117620109",
-            "publisher": "Proceedings of the National Academy of Sciences",
-            "year": 2012,
+            "title": "Molecular evidence of use of hide glue in 4th millennium BC Europe",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0305440315002496",
+            "publisher": "Journal of Archaeological Science",
+            "year": 2015,
             "source_type": "primary_paper",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Introduction defines hide-glue extraction as immersing skin, bone, or slaughter by-products in hot water, where high temperature gelatinizes collagen."
           }
         ]
-      },
-      {
-        "prerequisite": "mortar_and_pestle",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mortar & Pestle provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia",
-        "url": "https://www.anthropology.uw.edu.pl/08/bne-08-03.pdf",
-        "publisher": "Bioarchaeology of the Near East",
-        "year": 2014,
-        "source_type": "review",
+        "title": "Molecular evidence of use of hide glue in 4th millennium BC Europe",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0305440315002496",
+        "publisher": "Journal of Archaeological Science",
+        "year": 2015,
+        "source_type": "primary_paper",
         "supports": [
-          "edge",
-          "node"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Abstract dates the yew bow by dendrochronology to 3176-3153 BCE; LC-MS/MS collagen sequencing identifies probable hide glue used beneath decorative bark strips."
       }
-    ]
+    ],
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The bow is dendrochronologically dated to 3176-3153 BCE; -3176 records the beginning of that range rather than an exact glue-production year.",
+    "scopeNote": "The node is locked to the molecularly identified Zurich bow adhesive. It does not claim that every collagen adhesive required the same feedstock or application."
   },
   {
     "id": "charcoal_pit_kilns",

@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-raemkai-threshing-husbandry-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "animal_powered_threshing", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.97, "evidence_level": "primary_source", "note": "Managed donkeys are the motive agents explicitly driven across the barley on the scoped threshing floor." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.metmuseum.org/art/collection/search/577371",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The Met translates the scene inscription as trampling the barley threshing floor and identifies donkeys being driven over it.",
+    "source_claim_summary": "Handlers use managed donkeys as the active force that separates grain on the threshing floor.",
+    "source_support_rationale": "Removing the animals would remove the defining operating mechanism of this specifically scoped treading practice."
+  },
+  "ontology_before": "Animal management was treated as one optional enabler of a broad collection of unrelated threshing methods.",
+  "ontology_after": "The source-pinned node requires the donkeys that physically perform the documented trampling.",
+  "invariant_preserved_or_changed": "Changed: animal_powered_threshing now requires animal_husbandry.",
+  "would_reject_if": ["The figures on the Raemkai threshing floor were reidentified as unmanaged wild animals or as unrelated to the trampling operation."],
+  "short_reason": "Managed donkeys perform the scoped threshing operation.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

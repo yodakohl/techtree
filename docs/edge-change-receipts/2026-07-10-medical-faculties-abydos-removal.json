@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-medical-faculties-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "university_medical_faculties", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "common_dependency", "confidence": 0.55, "evidence_level": "weak_inference", "note": "Herbal Medicine Preparation is contextual infrastructure or shared knowledge, not a strict hard prerequisite." },
+  "new_claim_absent": "No Abydos herbal-wine dependency remains because formal medical teaching at Salerno is not sourced through this specific ancient formulation.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The archaeochemical study addresses Egyptian herbal wine and does not discuss medieval curricula, credentials, faculties, or Salerno.",
+    "source_claim_summary": "The source supports a preparation process but supplies no educational lineage into a medieval medical school.",
+    "source_support_rationale": "Shared interest in remedies is contextual overlap, not enough to retain a graph dependency after the prerequisite scope was narrowed."
+  },
+  "ontology_before": "Contextual medicinal knowledge was represented as a direct shared dependency of formal medical faculties.",
+  "ontology_after": "The faculty node stands on its own educational evidence until a source-backed curricular prerequisite is identified.",
+  "invariant_preserved_or_changed": "Changed: university_medical_faculties no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["Curricular or transmission evidence directly linked Salerno's medical faculty tradition to the scoped Abydos formulation."],
+  "short_reason": "The Abydos recipe is not a sourced dependency of medieval medical education.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

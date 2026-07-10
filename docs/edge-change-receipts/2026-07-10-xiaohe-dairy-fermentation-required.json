@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-xiaohe-dairy-fermentation-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "fermented_dairy_products", "prerequisite": "fermentation_basic" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Fermentation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim": { "type": "required", "confidence": 0.99, "evidence_level": "primary_source", "note": "The identified product was curdled by a symbiotic culture of lactic-acid bacteria and yeasts, so microbial fermentation is constitutive of the scoped kefir dairy." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S0305440314000466",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and Discussion attribute curdling to Lactobacillus kefiranofaciens together with other lactic-acid bacteria and yeasts.",
+    "source_claim_summary": "A symbiotic microbial culture fermented the ruminant milk into the identified kefir cheese.",
+    "source_support_rationale": "Fermentation defines the recovered product and distinguishes it from rennet curdling or untreated milk, so it is part of the method itself."
+  },
+  "ontology_before": "Fermentation was treated only as a broad historical background for an unspecified dairy category.",
+  "ontology_after": "The source-pinned product directly requires the microbial process identified by proteomics.",
+  "invariant_preserved_or_changed": "Changed: fermented_dairy_products now requires fermentation_basic.",
+  "would_reject_if": ["The microbial proteins or process markers were shown not to represent kefir fermentation of the Xiaohe dairy masses."],
+  "short_reason": "Microbial kefir fermentation is the defining production process of the recovered cheese.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

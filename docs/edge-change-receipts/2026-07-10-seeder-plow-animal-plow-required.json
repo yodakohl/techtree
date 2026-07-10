@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-seeder-plow-animal-plow-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "heavy_draft_plowing", "prerequisite": "animal_drawn_plows" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal-Drawn Plows provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.94, "evidence_level": "review", "note": "The scoped implement is an animal-drawn plow modified with a seed funnel behind its share, so the traction plow is its required mechanical base." },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.11588/diglit.49001.30",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Page 178 defines the seeder-plow as a plow with a funnel fixed behind its share and discusses oxen assigned to field plowing and seeding.",
+    "source_claim_summary": "The seed-metering mechanism is an attachment to an existing animal-drawn furrow-cutting plow.",
+    "source_support_rationale": "Removing the underlying plow eliminates the share, beam, furrow, and moving platform that make the documented seed funnel work."
+  },
+  "ontology_before": "The node described generic heavy draft work and treated animal plows as one optional enabler.",
+  "ontology_after": "The node represents a specific seeder-plow architecture whose base implement is definitionally an animal-drawn plow.",
+  "invariant_preserved_or_changed": "Changed: heavy_draft_plowing now requires animal_drawn_plows.",
+  "would_reject_if": ["The Early Dynastic seeding device were shown to operate independently of a moving animal-drawn plow and furrow-cutting share."],
+  "short_reason": "The seeder is a funnel attachment on an animal-drawn plow.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

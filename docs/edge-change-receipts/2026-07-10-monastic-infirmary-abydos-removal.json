@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-monastic-infirmary-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "monastic_infirmaries", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation supplies the plant-remedy and medicine-making practice explicitly represented in monastic infirmary care; military field medicine is not required by this monastic ward scope." },
+  "new_claim_absent": "No Abydos herbal-wine dependency remains because medieval monastic recipe collections do not establish descent from the specific Predynastic Egyptian wine preparation.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The PNAS paper identifies an Abydos herbal-wine residue but does not document medieval monastic manuscripts, wards, pharmacies, or recipe transmission.",
+    "source_claim_summary": "The source-pinned prerequisite and the monastic healing evidence are separate formulations from distant institutional contexts.",
+    "source_support_rationale": "Monastic herbal remedies remain valid node content, but their existence should not be converted into dependence on one unrelated ancient recipe."
+  },
+  "ontology_before": "All plant-remedy practice was collapsed into one generic prerequisite across unrelated cultures and periods.",
+  "ontology_after": "Monastic infirmaries retain their own manuscript and institutional evidence without an unsupported cross-cultural recipe lineage.",
+  "invariant_preserved_or_changed": "Changed: monastic_infirmaries no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["Textual or material evidence directly traced the documented monastic remedies to the scoped Abydos herbal-wine tradition."],
+  "short_reason": "Monastic remedies do not establish descent from the Abydos herbal-wine process.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

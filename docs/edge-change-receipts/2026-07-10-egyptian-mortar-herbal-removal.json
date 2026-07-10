@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-egyptian-mortar-herbal-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "mortar_and_pestle", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No herbal-preparation dependency remains because the museum catalog does not assign a medical use, and an application cannot be presumed to cause the artifact form.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/554684",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The collection entry identifies the object only as a mortar and pestle and gives no medicinal, botanical, food, or pigment function.",
+    "source_claim_summary": "The catalog establishes the paired artifact while leaving its historical application unspecified.",
+    "source_support_rationale": "Assigning herbal medicine would turn one possible use into an unsupported causal predecessor and would reverse the likely tool-to-application direction."
+  },
+  "ontology_before": "A possible later application was treated as the enabling cause of an otherwise use-neutral artifact.",
+  "ontology_after": "The artifact remains function-neutral until direct residue, context, or textual evidence identifies its use.",
+  "invariant_preserved_or_changed": "Changed: mortar_and_pestle no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["Residue analysis or a secure archaeological context identified this catalogued pair as equipment made specifically for herbal remedy preparation."],
+  "short_reason": "The artifact record does not support a medicinal function or reverse application edge.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

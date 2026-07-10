@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-early-hospitals-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "hospitals_early", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No Abydos herbal-wine edge remains because medieval hospital establishment does not require the exact Egyptian fermented-remedy process.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The source analyzes ancient Egyptian jar residues and contains no evidence about Byzantine or medieval hospital foundations.",
+    "source_claim_summary": "A dated herbal-wine preparation is materially and institutionally separate from the later hospital-establishment claim.",
+    "source_support_rationale": "Hospitals may maintain gardens or pharmacies, but those optional care resources do not make one ancient recipe a prerequisite for founding the institution."
+  },
+  "ontology_before": "A generic remedy umbrella was attached directly to the formation of early hospitals.",
+  "ontology_after": "Hospital formation retains its religious, legal, construction, and broader herbal context without the specific recipe edge.",
+  "invariant_preserved_or_changed": "Changed: hospitals_early no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["A reliable source showed the scoped hospital tradition required or directly inherited the Abydos herbal-wine formulation."],
+  "short_reason": "A specific ancient recipe is not required to establish a hospital.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

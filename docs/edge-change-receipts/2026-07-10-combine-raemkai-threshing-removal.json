@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-combine-raemkai-threshing-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "combine_harvesters", "prerequisite": "animal_powered_threshing" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.62, "evidence_level": "expert_inference", "note": "Early combines were horse-drawn and built on prior animal-powered grain-processing practices." },
+  "new_claim_absent": "No Raemkai donkey-treading dependency remains because horse traction moved early combines but did not make the specific Egyptian hoof-threshing method their documented technical predecessor.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/combine",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The combine entry defines a machine that cuts, threshes, and cleans grain and notes early horse-drawn machines without tracing them to Egyptian donkey treading.",
+    "source_claim_summary": "Animal traction propelled early combines, while the machine's internal threshing process is the relevant functional component.",
+    "source_support_rationale": "Sharing animal power does not establish transmission of the Raemkai floor method into nineteenth-century combination harvesters."
+  },
+  "ontology_before": "A shared motive-power category was mistaken for a technical lineage from ancient floor treading to a mechanized combine.",
+  "ontology_after": "The combine keeps its direct threshing-and-winnowing process dependency without a specific unsupported Egyptian lineage.",
+  "invariant_preserved_or_changed": "Changed: combine_harvesters no longer directly depends on animal_powered_threshing.",
+  "would_reject_if": ["A reliable history of the combine demonstrated direct design transmission from donkey-treading threshing floors into early combine threshing mechanisms."],
+  "short_reason": "Horse-drawn motion does not make donkey floor-treading a combine design predecessor.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

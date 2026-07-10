@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-controls-scientific-society-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "experimental_controls", "prerequisite": "scientific_societies" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Scientific Societies provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No scientific-society dependency remains because the experimental-controls node is dated 1553, while the evidence-locked scientific-society category begins in 1560.",
+  "source_supports_edge": "no",
+  "source_url": "https://cordis.europa.eu/project/id/101148607",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "CORDIS explicitly dates the Academia Secretorum Naturae foundation to Naples in 1560.",
+    "source_claim_summary": "The earliest directly supported society in the category appears after the current 1553 controls anchor.",
+    "source_support_rationale": "A later institution cannot enable an earlier documented practice, and the existing controls source supplies no alternative society connection."
+  },
+  "ontology_before": "A placeholder 1500 society date masked a seven-year chronology inversion into experimental controls.",
+  "ontology_after": "The earlier controls claim no longer depends on a later-founded institutional category.",
+  "invariant_preserved_or_changed": "Changed: experimental_controls no longer directly depends on scientific_societies.",
+  "would_reject_if": ["Strong evidence moved the scientific-society category before 1553 and directly tied that institution to the scoped experimental controls."],
+  "short_reason": "The controls date precedes the first directly supported scientific society.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

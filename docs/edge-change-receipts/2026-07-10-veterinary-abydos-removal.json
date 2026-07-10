@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-veterinary-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "early_veterinary_medicine", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No Abydos herbal-wine edge remains because the classical veterinary node is anchored to horse selection and care, not this Egyptian human-remedy residue.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The analyzed Abydos jar supports plant additives in grape wine but supplies no animal-treatment context or veterinary application.",
+    "source_claim_summary": "The archaeochemical evidence establishes an Egyptian herbal-wine remedy without documenting care of working animals.",
+    "source_support_rationale": "Possible use of plants in later animal care cannot substitute for a direct connection between the source-pinned recipe and Xenophon-era horsemanship."
+  },
+  "ontology_before": "A broad plant-remedy label was allowed to imply an unsupported veterinary treatment lineage.",
+  "ontology_after": "The veterinary node follows its husbandry and cavalry-care evidence without inheriting the Abydos formulation.",
+  "invariant_preserved_or_changed": "Changed: early_veterinary_medicine no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["Direct evidence identified the Abydos preparation as an animal remedy or established its transmission into the scoped classical veterinary practice."],
+  "short_reason": "The Abydos residue is not evidence for classical veterinary care.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

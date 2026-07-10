@@ -1,6 +1,6 @@
 {
   "id": "2026-07-07-monastic-infirmaries-herbal-scope",
-  "description": "Lock Monastic Infirmaries to monastery medical wards using scriptoria/medical manuscripts and herbal remedy preparation, not military field medicine.",
+  "description": "Lock Monastic Infirmaries to monastery medical wards using scriptoria and medical manuscripts without importing military medicine or an unrelated Abydos recipe.",
   "checks": [
     {
       "type": "first_known_date",
@@ -10,23 +10,16 @@
       "reason": "The node remains anchored to the c.1050-1300 monastic-infirmary scholarship window."
     },
     {
-      "type": "edge_type",
+      "type": "direct_edge_absent",
       "dependent": "monastic_infirmaries",
       "prerequisite": "herbal_medicine_preparation",
-      "expected": "enabling",
-      "reason": "Herbal remedy preparation is the corrected material medical practice for monastic infirmaries."
+      "reason": "Monastic remedies are not documented as descending from the source-pinned Abydos herbal-wine process."
     },
     {
       "type": "direct_edge_present",
       "dependent": "monastic_infirmaries",
       "prerequisite": "monastic_scriptoria",
       "reason": "Monastic manuscript copying and medical texts remain direct context for the ward scope."
-    },
-    {
-      "type": "direct_edge_present",
-      "dependent": "monastic_infirmaries",
-      "prerequisite": "herbal_medicine_preparation",
-      "reason": "Herbal remedies and recipes are source-backed in monastic medical practice."
     },
     {
       "type": "direct_edge_absent",

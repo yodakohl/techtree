@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-medical-ethics-abydos-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "medical_ethics", "prerequisite": "herbal_medicine_preparation" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbal Medicine Preparation provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No Abydos herbal-wine edge remains because professional ethical norms do not require that specific remedy preparation and no transmission lineage is documented.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The paper chemically analyzes an Abydos herbal-wine preparation and does not address professional conduct, confidentiality, teaching, or medical ethics.",
+    "source_claim_summary": "The source supports one ancient remedy formulation rather than an institutional or intellectual ethics lineage.",
+    "source_support_rationale": "Treatment materials may coexist with medical norms, but the absence-break test does not make this Egyptian recipe necessary for classical ethical rules."
+  },
+  "ontology_before": "A generic remedy category was treated as an enabler of professional medical ethics.",
+  "ontology_after": "Medical ethics retains its philosophical and written-norm relationships without inheriting a specific ancient formulation.",
+  "invariant_preserved_or_changed": "Changed: medical_ethics no longer directly depends on herbal_medicine_preparation.",
+  "would_reject_if": ["A source directly traced the scoped classical ethical code to the Abydos herbal-wine preparation or a demonstrated derivative tradition."],
+  "short_reason": "A specific remedy formulation does not cause professional ethical norms.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-abydos-wine-fermentation-required",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "herbal_medicine_preparation", "prerequisite": "fermentation_basic" },
+  "old_claim": { "type": "common_dependency", "confidence": 0, "evidence_level": "weak_inference", "note": "The previous broad herbal-preparation claim did not represent its documented fermented-wine carrier as a dependency." },
+  "new_claim": { "type": "required", "confidence": 0.98, "evidence_level": "primary_source", "note": "The scoped Abydos preparation dispensed herbs and tree resins in grape wine, making a fermented beverage the documented remedy carrier." },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2678600/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and Discussion identify grape wine as the carrier through which herbs and tree resins were dispensed.",
+    "source_claim_summary": "The analyzed Abydos preparation contains plant additives in a fermented grape-wine medium.",
+    "source_support_rationale": "Because the node is now limited to this chemically identified recipe, the wine medium is constitutive rather than one optional later formulation."
+  },
+  "ontology_before": "Herbal preparation was treated as an undifferentiated umbrella with no process matching its dated evidence.",
+  "ontology_after": "The dated claim follows the archaeochemical Abydos recipe and represents its fermented carrier explicitly.",
+  "invariant_preserved_or_changed": "Changed: herbal_medicine_preparation now requires fermentation_basic for the scoped Abydos herbal-wine preparation.",
+  "would_reject_if": ["The Abydos residue were shown not to contain grape wine or the plant additives were shown to come from an unrelated deposit."],
+  "short_reason": "The directly analyzed remedy used fermented grape wine as its carrier.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}
