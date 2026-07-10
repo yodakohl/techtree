@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-nahal-spindle-pottery-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "drop_spindles", "prerequisite": "pottery" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pottery provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pottery dependency remains because all 113 candidate whorls in the scoped assemblage are perforated stones rather than ceramic vessel fragments.",
+  "source_supports_edge": "no",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0312007",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and assemblage description identify more than one hundred deliberately perforated pebbles as the candidate spindle whorls.",
+    "source_claim_summary": "The evidence-backed whorls are modified stone pebbles whose raw material and manufacture do not involve pottery production.",
+    "source_support_rationale": "Later cultures could reuse potsherds as whorls, but that optional material path is absent from this scoped assemblage."
+  },
+  "ontology_before": "Spindle-whorl technology was modeled as requiring pottery regardless of artifact material.",
+  "ontology_after": "The stone-whorl node has no ceramic prerequisite.",
+  "invariant_preserved_or_changed": "Changed: drop_spindles no longer directly depends on pottery.",
+  "would_reject_if": ["The Nahal Ein-Gev II candidate whorls were reclassified as ceramic rather than stone artifacts."],
+  "short_reason": "The scoped whorls are perforated stones, not pottery products.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

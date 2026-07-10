@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-schnidejoch-stone-tool-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "leather_tanning", "prerequisite": "advanced_stone_tools" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Advanced Stone Tools is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No advanced-stone-tool dependency remains because the evidenced claim is chemical plant-extract tanning and the study does not identify a required stone implement.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440310000592",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract attributes the tanning evidence to plant and lipid biomarkers recovered through optical, molecular, and isotopic analysis.",
+    "source_claim_summary": "The scoped innovation is an aqueous plant treatment identified chemically in worked leather rather than a stone-tool manufacturing technique.",
+    "source_support_rationale": "Mechanical hide preparation is inherited through leather_working, while no particular advanced stone toolkit is necessary for the chemical stage."
+  },
+  "ontology_before": "A specific tanning chemistry inherited a generic stone-age chronology edge.",
+  "ontology_after": "The node depends on broader leather working and its directly evidenced plant treatment only.",
+  "invariant_preserved_or_changed": "Changed: leather_tanning no longer directly depends on advanced_stone_tools.",
+  "would_reject_if": ["The Schnidejoch study identified an advanced stone implement as necessary to produce the analyzed leather."],
+  "short_reason": "No advanced stone tool is evidenced as part of the plant-tanning process.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

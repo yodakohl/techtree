@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-beycesultan-indigo-dye-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "dyed_textiles", "prerequisite": "natural_dyes" },
+  "replaced_edge": { "dependent": "dyed_textiles", "prerequisite": "textiles_weaving" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Textiles & Weaving provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.9, "evidence_level": "primary_source", "note": "Chromatographic identification of indigotin is constitutive evidence that the scoped textile was colored with a plant-derived indigo dye." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/untwisting-beycesultan-hoyuk-the-earliest-evidence-for-nalbinding-and-indigodyed-textiles-in-anatolia/4A00AC3051C50B89F5907F25F03A4B5C",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "HPLC-PDA analysis, Indigo dyes, and Conclusions detect indigotin in Tx1 and identify staining with an indigo dye, most likely woad.",
+    "source_claim_summary": "Chemical analysis identifies an indigo colorant in Tx1, while microscopy identifies its fabric structure as single-needle looping rather than weaving.",
+    "source_support_rationale": "A plant-derived dye is required for the scoped color claim, but a weaving dependency would contradict the paper's nalbinding identification."
+  },
+  "ontology_before": "The dyed-textile node required weaving even though its directly analyzed fabric was not woven.",
+  "ontology_after": "The scoped nalbinding textile requires the chemically identified natural dye process instead.",
+  "invariant_preserved_or_changed": "Changed: dyed_textiles now requires natural_dyes and no longer directly depends on textiles_weaving.",
+  "would_reject_if": ["Microscopy reclassified Tx1 as woven cloth or chemical analysis withdrew the indigotin identification."],
+  "short_reason": "Tx1 is indigo-dyed nalbinding, so dyeing is required and weaving is not.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

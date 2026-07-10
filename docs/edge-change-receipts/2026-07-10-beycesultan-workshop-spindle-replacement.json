@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-beycesultan-workshop-spindle-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "household_textile_production", "prerequisite": "drop_spindles" },
+  "replaced_edge": { "dependent": "household_textile_production", "prerequisite": "natural_dyes" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Natural Dyes provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.88, "evidence_level": "primary_source", "note": "The workshop's yarn-production stage is evidenced by 47 spindle whorls of varied forms and sizes." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/untwisting-beycesultan-hoyuk-the-earliest-evidence-for-nalbinding-and-indigodyed-textiles-in-anatolia/4A00AC3051C50B89F5907F25F03A4B5C",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Textile tools section and Table 1 report 47 spindle whorls from room 28 and reconstruct spinning and yarn production from them.",
+    "source_claim_summary": "Room 28 contains a large spindle-whorl assemblage alongside loom weights and other equipment in a probable textile workshop.",
+    "source_support_rationale": "Spinning is an evidenced production stage in this workshop, while dyeing is not required to produce the natural tabby textile or operate the room."
+  },
+  "ontology_before": "A general household workshop required dyeing but omitted its directly evidenced spinning equipment.",
+  "ontology_after": "The Beycesultan workshop requires spindle-based yarn production and does not require an optional dye process.",
+  "invariant_preserved_or_changed": "Changed: household_textile_production now requires drop_spindles and no longer depends on natural_dyes.",
+  "would_reject_if": ["The room 28 perforated objects were shown not to be spindle whorls or not to belong to the workshop context."],
+  "short_reason": "Spindle whorls are direct workshop evidence; dyeing is not constitutive of the scoped room.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-ulucak-loom-weight-direction-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "loom", "prerequisite": "loom_weights" },
+  "replaced_edge": { "dependent": "loom_weights", "prerequisite": "loom" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Loom provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.88, "evidence_level": "primary_source", "note": "The scoped warp-weighted loom is identified from its grouped tension weights, making those weights constitutive components of this reconstruction." },
+  "source_supports_edge": "yes",
+  "source_url": "https://hoyuk.gov.tr/eng/full-text/139/eng",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Ulucak discussion reports eleven loom weights together in Building 12 and treats that cluster as the clearest Neolithic loom evidence in Anatolia.",
+    "source_claim_summary": "The inferred warp-weighted loom is archaeologically reconstructed from a spatially associated set of eleven surviving tension weights.",
+    "source_support_rationale": "The weights are physical components used to infer the loom, so component-to-system direction is supported while system-to-component direction is circular."
+  },
+  "ontology_before": "A loom weight depended on an already completed loom, creating a circular component relationship.",
+  "ontology_after": "The reconstructed warp-weighted loom requires the surviving tension-weight components that identify it.",
+  "invariant_preserved_or_changed": "Changed: loom now requires loom_weights, and loom_weights no longer depends on loom.",
+  "would_reject_if": ["The Building 12 objects were reidentified as unrelated weights with no role in the loom reconstruction."],
+  "short_reason": "The surviving weights are components and evidence of the loom, not its downstream product.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

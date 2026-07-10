@@ -1,0 +1,23 @@
+{
+  "id": "2026-07-10-vindolanda-tent-leather-required",
+  "decision_date": "2026-07-10",
+  "change_class": "semantic_retype",
+  "edge": { "dependent": "hide_tent_frames", "prerequisite": "leather_tanning" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Leather Tanning provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.88, "evidence_level": "primary_source", "note": "The scoped shelter components are manufactured leather panels, so conversion of animal hides into durable leather is a constitutive material process." },
+  "source_supports_edge": "yes",
+  "source_url": "https://research.tees.ac.uk/en/publications/species-analysis-of-leather-objects-and-manufacturing-offcuts-fro/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract reports ZooMS analysis of eight leather panels from one Roman military tent dated to Vindolanda's first occupation.",
+    "source_claim_summary": "The scoped tent evidence consists specifically of manufactured cattle- and sheep-hide leather panels from one shelter.",
+    "source_support_rationale": "Without durable leather there is no artifact matching this node's panel scope, so the material process is required rather than merely helpful."
+  },
+  "ontology_before": "Leather was treated as one optional route to a broad hypothetical prehistoric tent frame.",
+  "ontology_after": "Leather is constitutive of the directly evidenced Roman tent-panel artifact.",
+  "invariant_preserved_or_changed": "Changed: hide_tent_frames retains the leather_tanning edge but strengthens it from enabling to required under the Roman panel scope.",
+  "would_reject_if": ["The Vindolanda panels were reidentified as untreated hides or as objects unrelated to a military tent."],
+  "short_reason": "Leather is the defining material of the surviving Roman tent panels.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

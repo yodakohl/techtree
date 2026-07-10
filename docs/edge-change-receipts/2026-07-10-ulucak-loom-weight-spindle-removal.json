@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-ulucak-loom-weight-spindle-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "loom_weights", "prerequisite": "drop_spindles" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Drop Spindles provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No spindle-whorl dependency remains because spinning and warp tension are separate textile operations, and the source explicitly tracks their artifacts as distinct technologies.",
+  "source_supports_edge": "no",
+  "source_url": "https://hoyuk.gov.tr/eng/full-text/139/eng",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Ulucak discussion states that spindle whorls appear earlier and loom weights emerge later around 6000 BCE, treating the two assemblages separately.",
+    "source_claim_summary": "Spindle whorls produce yarn while loom weights tension warp; co-occurrence in textile production does not make one artifact a component of the other.",
+    "source_support_rationale": "The source's separate chronology and functions support sibling components feeding weaving, not a direct spindle-to-weight causal edge."
+  },
+  "ontology_before": "A warp-tension component depended directly on an unrelated yarn-spinning component.",
+  "ontology_after": "Spindle whorls and loom weights remain distinct textile tools connected through downstream production contexts.",
+  "invariant_preserved_or_changed": "Changed: loom_weights no longer directly depends on drop_spindles.",
+  "would_reject_if": ["Evidence showed that the Ulucak weights were manufactured from or mechanically operated by spindle whorls."],
+  "short_reason": "Spinning whorls and loom weights perform separate operations.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

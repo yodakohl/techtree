@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-vindolanda-tent-shelter-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "hide_tent_frames", "prerequisite": "basic_shelter" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Shelter is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No generic shelter edge remains because the node is now an evidence-locked Roman leather-panel artifact rather than a universal shelter-development stage.",
+  "source_supports_edge": "no",
+  "source_url": "https://research.tees.ac.uk/en/publications/species-analysis-of-leather-objects-and-manufacturing-offcuts-fro/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract identifies eight panels from one Roman military tent in Vindolanda's first occupation and analyzes their hide species.",
+    "source_claim_summary": "The revised node is a specific assemblage of manufactured Roman tent panels, not an abstract step after all earlier shelters.",
+    "source_support_rationale": "Generic shelter chronology adds no technical cause beyond the directly required leather process and would broaden the artifact scope again."
+  },
+  "ontology_before": "A hypothetical prehistoric hide frame inherited a broad shelter-history edge.",
+  "ontology_after": "The Vindolanda node is limited to its directly analyzed Roman tent components.",
+  "invariant_preserved_or_changed": "Changed: hide_tent_frames no longer directly depends on basic_shelter.",
+  "would_reject_if": ["The node were broadened again to represent the historical evolution of all portable shelters."],
+  "short_reason": "A specific Roman artifact does not need a generic shelter-history edge.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

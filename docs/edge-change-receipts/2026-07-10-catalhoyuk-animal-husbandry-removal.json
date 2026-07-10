@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-catalhoyuk-animal-husbandry-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "textiles_weaving", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No animal-husbandry dependency remains because the scoped preserved cloth is made from tree-bast plant fibers rather than wool or another animal product.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/abs/use-of-local-fibres-for-textiles-at-neolithic-catalhoyuk/294D8367B55E0A752ACC1825035840FC",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract reports that the woven fibers are locally sourced oak bast and revises earlier flax and wool identifications.",
+    "source_claim_summary": "Microscopy establishes a plant-bast raw material for the preserved woven textiles rather than managed-animal fiber.",
+    "source_support_rationale": "Animal husbandry may enable later wool weaving, but it is unrelated to the material requirements of this evidence-locked node."
+  },
+  "ontology_before": "All textile weaving was assumed to require managed animals as a fiber source.",
+  "ontology_after": "The Catalhoyuk weaving node follows its directly identified plant material without a wool dependency.",
+  "invariant_preserved_or_changed": "Changed: textiles_weaving no longer directly depends on animal_husbandry.",
+  "would_reject_if": ["The scoped Catalhoyuk samples were reidentified as animal fiber rather than tree bast."],
+  "short_reason": "The analyzed textiles are plant bast, not animal fiber.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

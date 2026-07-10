@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-yanghai-leather-working-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "animal_pack_saddles", "prerequisite": "leather_working" },
+  "replaced_edge": { "dependent": "animal_pack_saddles", "prerequisite": "leather_tanning" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Leather Tanning provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.9, "evidence_level": "primary_source", "note": "The saddle is constructed from shaped, stuffed, and edge-stitched hides and is explicitly characterized as sophisticated leather and needlework." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S2352226723000235",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract and construction analysis describe two stuffed wing-shaped hides sewn along their edges and call the artifact masterful leather and needlework.",
+    "source_claim_summary": "The surviving saddle is materially defined by cut, stuffed, and stitched hide components assembled through leather-working techniques.",
+    "source_support_rationale": "Artifact construction directly requires leather working, whereas the study does not identify the chemical tanning recipe needed to justify the narrower old edge."
+  },
+  "ontology_before": "The saddle depended on a specific tanning method that its archaeological study did not establish.",
+  "ontology_after": "The saddle requires the directly observed leather-cutting, stuffing, and stitching capability.",
+  "invariant_preserved_or_changed": "Changed: animal_pack_saddles now requires leather_working and no longer directly depends on leather_tanning.",
+  "would_reject_if": ["The Yanghai saddle were shown to use no shaped or stitched hide components."],
+  "short_reason": "Leather working is observed directly; a particular tanning process is not.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

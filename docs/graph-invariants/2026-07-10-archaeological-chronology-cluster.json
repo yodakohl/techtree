@@ -1,0 +1,66 @@
+{
+  "id": "2026-07-10-archaeological-chronology-cluster",
+  "description": "Lock direct archaeological scope, chronology, component direction, and removal of generic topic-as-prerequisite edges across the textile, leather, shelter, and early-mechanism batch.",
+  "checks": [
+    { "type": "direct_edge_absent", "dependent": "composite_sickle_blades", "prerequisite": "sickle_harvesting_tools", "reason": "The Ohalo II inserts predate the later generic sickle node." },
+    { "type": "direct_edge_absent", "dependent": "composite_sickle_blades", "prerequisite": "woodworking_basic", "reason": "No wooden Ohalo II handle survives and the assemblage includes hand-held blades." },
+    { "type": "edge_type", "dependent": "composite_sickle_blades", "prerequisite": "stone_tool_making", "expected": "required", "reason": "Manufactured flint inserts constitute the direct evidence." },
+    { "type": "first_known_date", "node": "composite_sickle_blades", "operator": "eq", "value": -21000, "reason": "The rounded date remains anchored to the 23,000-year-old Ohalo II context." },
+
+    { "type": "direct_edge_absent", "dependent": "drop_spindles", "prerequisite": "basic_weaving_basketry", "reason": "The spindle interpretation does not establish a basketry lineage." },
+    { "type": "direct_edge_absent", "dependent": "drop_spindles", "prerequisite": "textiles_weaving", "reason": "The possible whorls predate the scoped preserved weaving evidence." },
+    { "type": "direct_edge_absent", "dependent": "drop_spindles", "prerequisite": "pottery", "reason": "The Nahal Ein-Gev II artifacts are perforated stones." },
+    { "type": "first_known_date", "node": "drop_spindles", "operator": "eq", "value": -10000, "reason": "The rounded date remains anchored to the 12,000-year-old Late Natufian context." },
+
+    { "type": "direct_edge_absent", "dependent": "textiles_weaving", "prerequisite": "plant_domestication", "reason": "The scoped fibers are locally gathered tree bast rather than a domesticated crop." },
+    { "type": "direct_edge_absent", "dependent": "textiles_weaving", "prerequisite": "animal_husbandry", "reason": "The scoped woven fibers are plant bast rather than wool." },
+    { "type": "first_known_date", "node": "textiles_weaving", "operator": "eq", "value": -6700, "reason": "The Catalhoyuk textiles remain anchored to the 6700-6500 cal BCE range." },
+
+    { "type": "direct_edge_absent", "dependent": "natural_dyes", "prerequisite": "textiles_weaving", "reason": "The Dzudzuana evidence is colored fiber rather than woven cloth." },
+    { "type": "direct_edge_absent", "dependent": "natural_dyes", "prerequisite": "herbalism", "reason": "Plant material does not establish a medicinal-practice dependency." },
+    { "type": "first_known_date", "node": "natural_dyes", "operator": "eq", "value": -30000, "reason": "The rounded date remains anchored to the paper's 30,000-year age." },
+
+    { "type": "direct_edge_absent", "dependent": "loom_weights", "prerequisite": "loom", "reason": "The component-to-system direction must not be reversed." },
+    { "type": "direct_edge_absent", "dependent": "loom_weights", "prerequisite": "pottery", "reason": "Clay or stone warp weights are not pottery vessels." },
+    { "type": "direct_edge_absent", "dependent": "loom_weights", "prerequisite": "drop_spindles", "reason": "Spinning and warp tension are separate textile operations." },
+    { "type": "first_known_date", "node": "loom_weights", "operator": "eq", "value": -6000, "reason": "Ulucak loom-weight use remains anchored to about 6000 BCE." },
+    { "type": "direct_edge_absent", "dependent": "loom", "prerequisite": "woodworking_basic", "reason": "No wooden frame survives in the scoped Ulucak context." },
+    { "type": "edge_type", "dependent": "loom", "prerequisite": "loom_weights", "expected": "required", "reason": "The grouped weights are constitutive components of the reconstructed loom." },
+    { "type": "first_known_date", "node": "loom", "operator": "eq", "value": -5800, "reason": "The loom reconstruction remains anchored to Ulucak Level IVb." },
+
+    { "type": "direct_edge_absent", "dependent": "household_textile_production", "prerequisite": "natural_dyes", "reason": "Dyeing is not required for the room 28 workshop claim." },
+    { "type": "edge_type", "dependent": "household_textile_production", "prerequisite": "drop_spindles", "expected": "required", "reason": "Forty-seven spindle whorls directly evidence yarn production." },
+    { "type": "first_known_date", "node": "household_textile_production", "operator": "eq", "value": -1700, "reason": "Room 28 remains anchored to the 1700-1595 BCE radiocarbon range." },
+    { "type": "direct_edge_absent", "dependent": "dyed_textiles", "prerequisite": "textiles_weaving", "reason": "Tx1 is nalbinding rather than woven cloth." },
+    { "type": "edge_type", "dependent": "dyed_textiles", "prerequisite": "natural_dyes", "expected": "required", "reason": "Indigotin is chemically identified in the textile." },
+    { "type": "first_known_date", "node": "dyed_textiles", "operator": "eq", "value": -1900, "reason": "Tx1 remains anchored to the 1915-1745 BCE range." },
+
+    { "type": "direct_edge_absent", "dependent": "leather_tanning", "prerequisite": "animal_husbandry", "reason": "Managed animals are only one possible hide source." },
+    { "type": "direct_edge_absent", "dependent": "leather_tanning", "prerequisite": "advanced_stone_tools", "reason": "No advanced stone implement is required by the chemical tanning evidence." },
+    { "type": "direct_edge_absent", "dependent": "leather_tanning", "prerequisite": "fire_control", "reason": "The evidenced method is aqueous plant-extract tanning rather than smoke tanning." },
+    { "type": "edge_type", "dependent": "leather_tanning", "prerequisite": "leather_working", "expected": "required", "reason": "Tanning is a constitutive stage of broader hide-to-leather processing." },
+    { "type": "first_known_date", "node": "leather_tanning", "operator": "eq", "value": -2900, "reason": "The Schnidejoch leather remains anchored to the 2914-2652 cal BCE range." },
+
+    { "type": "direct_edge_absent", "dependent": "hide_tent_frames", "prerequisite": "basic_shelter", "reason": "The node is a specific Roman panel artifact rather than a universal shelter stage." },
+    { "type": "direct_edge_absent", "dependent": "hide_tent_frames", "prerequisite": "woodworking_basic", "reason": "The scoped evidence contains no analyzed wooden frame." },
+    { "type": "edge_type", "dependent": "hide_tent_frames", "prerequisite": "leather_tanning", "expected": "required", "reason": "Manufactured leather is constitutive of the surviving tent panels." },
+    { "type": "first_known_date", "node": "hide_tent_frames", "operator": "eq", "value": 85, "reason": "The panels remain anchored to Vindolanda's circa 85-90 CE first occupation." },
+
+    { "type": "direct_edge_absent", "dependent": "rope_bridges", "prerequisite": "woodworking_basic", "reason": "Q'eswachaka uses grass cable and stone abutments rather than timber." },
+    { "type": "direct_edge_absent", "dependent": "rope_bridges", "prerequisite": "loom", "reason": "The structural ropes are twisted and braided by hand." },
+    { "type": "first_known_date", "node": "rope_bridges", "operator": "eq", "value": 1400, "reason": "The tradition remains anchored conservatively to more than six centuries of Inka technique." },
+
+    { "type": "direct_edge_absent", "dependent": "cart_axle_bearings", "prerequisite": "leather_tanning", "reason": "The basic plain bearing is a wooden axle supported in the chassis." },
+    { "type": "first_known_date", "node": "cart_axle_bearings", "operator": "eq", "value": -3350, "reason": "The mechanism remains anchored to the Ljubljana wheel-and-axle range." },
+
+    { "type": "direct_edge_absent", "dependent": "animal_pack_saddles", "prerequisite": "pack_animal_transport", "reason": "The Yanghai artifact is directly identified as a riding saddle." },
+    { "type": "direct_edge_absent", "dependent": "animal_pack_saddles", "prerequisite": "leather_tanning", "reason": "The study directly supports leather working but not a specific tanning method." },
+    { "type": "direct_edge_absent", "dependent": "animal_pack_saddles", "prerequisite": "basic_rope_making", "reason": "The saddle is stitched hide rather than a rope structure." },
+    { "type": "edge_type", "dependent": "animal_pack_saddles", "prerequisite": "horseback_riding", "expected": "historical_predecessor", "reason": "The saddle improves an established riding practice." },
+    { "type": "edge_type", "dependent": "animal_pack_saddles", "prerequisite": "leather_working", "expected": "required", "reason": "Shaped and stitched leather constitutes the artifact." },
+    { "type": "first_known_date", "node": "animal_pack_saddles", "operator": "eq", "value": -700, "reason": "The saddle remains anchored to the 727-396 BCE radiocarbon range." },
+
+    { "type": "direct_edge_absent", "dependent": "simple_windbreak_shelters", "prerequisite": "leather_tanning", "reason": "The cited shelter evidence is built from plant material." },
+    { "type": "first_known_date", "node": "wicked_oil_lamps", "operator": "eq", "value": -1070, "reason": "The rag-wick lamp remains anchored to the museum's 1070-945 BCE or earlier range." }
+  ]
+}

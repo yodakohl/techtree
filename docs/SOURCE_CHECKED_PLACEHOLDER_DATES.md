@@ -7,14 +7,14 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 A pre-Future `source_checked` node with `datePrecision: unknown` or an era-default date must either carry explicit uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
 
 Source-checked nodes: 1403
-Source-checked nodes with unresolved chronology: 70 / 1403 (5.0%)
-Listed exceptions without explicit uncertainty metadata: 67
+Source-checked nodes with unresolved chronology: 58 / 1403 (4.1%)
+Listed exceptions without explicit uncertainty metadata: 55
 
 ## Summary By Era
 
 | Era | Source-checked unresolved dates | With explicit uncertainty metadata | Listed exceptions |
 | --- | --- | --- | --- |
-| Ancient | 26 | 1 | 25 |
+| Ancient | 14 | 1 | 13 |
 | Industrial | 23 | 1 | 22 |
 | Renaissance | 21 | 1 | 20 |
 
@@ -23,31 +23,19 @@ Listed exceptions without explicit uncertainty metadata: 67
 | ID | Name | Era | firstKnownDate | datePrecision | Source title | source_type | Why date is still uncertain |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `animal_powered_threshing` | Animal-Powered Threshing | Ancient | -3000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `composite_sickle_blades` | Composite Sickle Blades | Ancient | -9500 | unknown | The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `drop_spindles` | Drop Spindles | Ancient | -9500 | unknown | Basketry | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `dyed_textiles` | Dyed Textiles | Ancient | -7000 | unknown | Textile | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `early_alchemy_material_science` | Early Alchemy & Material Science | Ancient | -7000 | unknown | A 100,000-Year-Old Ochre-Processing Workshop at Blombos Cave, South Africa | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `early_fortifications` | Early Fortifications | Ancient | -9000 | unknown | Decision 42 COM 8B.34: Gobekli Tepe (Turkey) | official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `fermented_dairy_products` | Fermented Dairy Products | Ancient | -7000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `heavy_draft_plowing` | Heavy Draft Plowing | Ancient | -3000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `herbal_medicine_preparation` | Herbal Medicine Preparation | Ancient | -7000 | unknown | Historical Review of Medicinal Plants' Usage; Early pottery at 20,000 years ago in Xianrendong Cave, China | review, primary_paper | The -7000 anchor preserves a broad Neolithic/pre-literate preparation umbrella. Direct medicinal-plant evidence is older or later depending on region and evidentiary type, so the date should not be read as a precise first invention. |
 | `hide_glue_production` | Hide Glue Production | Ancient | -7000 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `hide_tent_frames` | Hide Tent Frames | Ancient | -9500 | unknown | Stone Age hut in Israel yields world's oldest evidence of bedding | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `household_textile_production` | Household Textile Production | Ancient | -9500 | unknown | Loom | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `leather_tanning` | Leather Tanning | Ancient | -9500 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `loom` | Loom | Ancient | -9500 | unknown | Loom | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `loom_weights` | Loom Weights | Ancient | -9500 | unknown | Loom | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `mortar_and_pestle` | Mortar & Pestle | Ancient | -7000 | unknown | Thirty thousand-year-old evidence of plant food processing | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `natural_dyes` | Natural Dyes | Ancient | -9500 | unknown | Textile | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `oil_lamps` | Oil Lamps | Ancient | -9500 | unknown | Early pottery at 20,000 years ago in Xianrendong Cave, China | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `pastoralism` | Pastoralism | Ancient | -9500 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `rope_bridges` | Rope Bridges | Ancient | -9500 | unknown | Bridge engineering | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `simple_windbreak_shelters` | Windbreak Shelters | Ancient | -9500 | unknown | Stone Age hut in Israel yields world's oldest evidence of bedding | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `smoked_food_preservation` | Smoked Food Preservation | Ancient | -9000 | unknown | Microstratigraphic evidence of in situ fire in the Acheulean strata of Wonderwerk Cave, Northern Cape province, South Africa | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `soap_making_basic` | Basic Soap Making | Ancient | -9500 | unknown | Pace and process in the emergence of animal husbandry in Neolithic Southwest Asia | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `textiles_weaving` | Textiles & Weaving | Ancient | -9500 | unknown | Textile | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `threshing_and_winnowing` | Threshing & Winnowing | Ancient | -9000 | unknown | Basketry | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `wicked_oil_lamps` | Wicked Oil Lamps | Ancient | -9500 | unknown | Early pottery at 20,000 years ago in Xianrendong Cave, China | primary_paper | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `anthropology_cultural` | Cultural Anthropology | Industrial | 1825 | unknown | Cultural anthropology | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `breech_loading_firearms` | Breech-loading Firearms | Industrial | 1775 | unknown | Benjamin Huntsman | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `cold_storage_warehouses` | Cold Storage Warehouses | Industrial | 1877 | unknown | South Omaha Union Stock Yards, Historic American Engineering Record | official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-ulucak-loom-woodworking-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "loom", "prerequisite": "woodworking_basic" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No woodworking dependency remains because the Ulucak loom is inferred from a weight cluster and no wooden frame survives in the scoped context.",
+  "source_supports_edge": "no",
+  "source_url": "https://hoyuk.gov.tr/eng/full-text/139/eng",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Ulucak discussion calls the Building 12 group the clearest Neolithic loom evidence and identifies that evidence specifically as eleven loom weights.",
+    "source_claim_summary": "The loom reconstruction rests on clustered tension weights; the source reports no preserved timber frame or woodworking trace from the installation.",
+    "source_support_rationale": "A plausible perishable frame is not enough to assert direct woodworking lineage when the node is intentionally locked to surviving evidence."
+  },
+  "ontology_before": "The inferred loom imported a generic woodworking predecessor despite no surviving frame evidence.",
+  "ontology_after": "The Ulucak loom depends on its evidenced weights and textile function only.",
+  "invariant_preserved_or_changed": "Changed: loom no longer directly depends on woodworking_basic.",
+  "would_reject_if": ["A wooden frame securely associated with the Building 12 weight cluster were recovered and analyzed."],
+  "short_reason": "The scoped loom is inferred from weights, not preserved woodwork.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

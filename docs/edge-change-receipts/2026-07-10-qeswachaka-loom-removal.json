@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-qeswachaka-loom-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "rope_bridges", "prerequisite": "loom" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Loom provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No textile-loom dependency remains because families and bridge builders twist and braid the grass ropes by hand before assembling the bridge.",
+  "source_supports_edge": "no",
+  "source_url": "https://ich.unesco.org/en/RL/knowledge-skills-and-rituals-related-to-the-annual-renewal-of-the-q-eswachaka-bridge-00594",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Element description gives the sequence as hand-cutting and twisting straw, combining ropes, braiding six large cables, tying them to stone bases, and weaving the bridge in place.",
+    "source_claim_summary": "Community members manufacture and assemble the structural ropes manually during the three-day renewal without a warp-weighted textile loom.",
+    "source_support_rationale": "The source's use of weaving as an assembly verb does not imply the separate archaeological loom technology represented by the prerequisite node."
+  },
+  "ontology_before": "Any object described as woven inherited a textile-loom dependency.",
+  "ontology_after": "The bridge uses hand-twisted and braided rope construction without laundering textile equipment into its graph path.",
+  "invariant_preserved_or_changed": "Changed: rope_bridges no longer directly depends on loom.",
+  "would_reject_if": ["Documentation showed that Q'eswachaka's ropes or deck are produced on a mechanical textile loom."],
+  "short_reason": "The bridge is hand twisted and braided; no loom is used.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

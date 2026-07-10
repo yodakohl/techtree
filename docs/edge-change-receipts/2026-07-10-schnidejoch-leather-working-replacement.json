@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-schnidejoch-leather-working-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "leather_tanning", "prerequisite": "leather_working" },
+  "replaced_edge": { "dependent": "leather_tanning", "prerequisite": "animal_husbandry" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Animal Husbandry provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.84, "evidence_level": "primary_source", "note": "The plant extract is applied within a sequence of mechanical and chemical skin-processing operations that converts raw hide into leather." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440310000592",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract and Introduction define leather production as mechanical and chemical treatment of raw skin and identify an aqueous plant extract used for tanning.",
+    "source_claim_summary": "The Schnidejoch claim is a specific chemical stage within hide-to-leather processing, evidenced by plant biomarkers in worked leather artifacts.",
+    "source_support_rationale": "Generic animal management is not necessary because hides can come from wild animals, while prior skin processing is intrinsic to the documented tanning operation."
+  },
+  "ontology_before": "Plant tanning was tied to animal husbandry even though domestic stock is not a universal source of hides.",
+  "ontology_after": "Plant tanning is modeled as a required stage within the broader leather-working process.",
+  "invariant_preserved_or_changed": "Changed: leather_tanning now requires leather_working and no longer depends on animal_husbandry.",
+  "would_reject_if": ["The Schnidejoch material were shown to be untreated raw hide rather than worked and tanned leather."],
+  "short_reason": "Tanning is part of leather working; husbandry is only one possible hide source.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

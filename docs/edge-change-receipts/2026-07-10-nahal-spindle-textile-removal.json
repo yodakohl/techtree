@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-nahal-spindle-textile-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "drop_spindles", "prerequisite": "textiles_weaving" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Textiles & Weaving provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No preserved-textile dependency remains because the possible spindle whorls are about three millennia earlier than the graph's directly evidenced Catalhoyuk weaving node.",
+  "source_supports_edge": "no",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0312007",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract dates the possible whorls to 12,000 years ago and reconstructs their use for spinning fibers into yarn.",
+    "source_claim_summary": "The analyzed spinning technology belongs to the Late Natufian and predates the currently scoped preserved woven textiles at Catalhoyuk.",
+    "source_support_rationale": "Spinning can supply many fiber products and cannot require a later surviving weaving example as its historical cause."
+  },
+  "ontology_before": "The earlier yarn-making tool depended on a later preserved woven-textile node.",
+  "ontology_after": "Spindle whorls precede and can feed later textile weaving without a backward edge.",
+  "invariant_preserved_or_changed": "Changed: drop_spindles no longer directly depends on textiles_weaving.",
+  "would_reject_if": ["The Nahal Ein-Gev II context were redated later than the Catalhoyuk textile contexts."],
+  "short_reason": "The spinning evidence predates the scoped weaving evidence.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-ljubljana-bearing-leather-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "cart_axle_bearings", "prerequisite": "leather_tanning" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Leather Tanning provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No leather-tanning dependency remains because the basic early bearing is the rotating wooden axle supported in a chassis groove; leather liners are optional refinements.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1115/1.2004-NOV-4",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Early-vehicle discussion explains that fixed wheels and their axle rotated together in transverse chassis grooves, which themselves constituted the bearing.",
+    "source_claim_summary": "The earliest plain-bearing architecture can be formed entirely by the wooden axle and its supporting chassis surface.",
+    "source_support_rationale": "Leather can reduce wear in some designs but its absence does not break the fundamental bearing mechanism represented by this node."
+  },
+  "ontology_before": "The generic early cart bearing required one optional lining material.",
+  "ontology_after": "The Ljubljana rotating-axle system is modeled from its wooden wheel, axle, and chassis support.",
+  "invariant_preserved_or_changed": "Changed: cart_axle_bearings no longer directly depends on leather_tanning.",
+  "would_reject_if": ["Analysis of the Ljubljana assembly established that a leather liner was necessary for its axle support to function."],
+  "short_reason": "The plain bearing works as a wooden axle in a chassis groove.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

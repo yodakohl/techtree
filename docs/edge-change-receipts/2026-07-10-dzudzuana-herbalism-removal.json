@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-dzudzuana-herbalism-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "natural_dyes", "prerequisite": "herbalism" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Herbalism provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No herbalism dependency remains because medicinal plant practice is not evidenced by, or technically necessary for, the colored Dzudzuana fibers.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/19745144/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract attributes the fibers to cordage, basketry, hafting, or sewing activities and reports dyed fibers without a medicinal-use claim.",
+    "source_claim_summary": "The paper documents fiber technology and possible material uses, not an herbal medical tradition or transferred medicinal knowledge.",
+    "source_support_rationale": "Plant-derived materials do not make herbalism a prerequisite; that edge conflated raw-material knowledge with an unrelated medical domain."
+  },
+  "ontology_before": "Natural fiber coloring inherited a medicinal-plant prerequisite solely because both can involve plants.",
+  "ontology_after": "The dyed-fiber node remains limited to its material evidence and does not import herbal medicine.",
+  "invariant_preserved_or_changed": "Changed: natural_dyes no longer directly depends on herbalism.",
+  "would_reject_if": ["Direct analysis established that the Dzudzuana dye process derived from a documented medicinal herbal practice."],
+  "short_reason": "Shared plant material does not establish a causal herbalism dependency.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

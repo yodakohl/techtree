@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-dzudzuana-weaving-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "natural_dyes", "prerequisite": "textiles_weaving" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Textiles & Weaving provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No weaving dependency remains because the direct Dzudzuana evidence consists of individual spun, knotted, and dyed flax fibers rather than woven cloth.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/19745144/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Title and abstract record describe spun, dyed, and knotted wild-flax fibers from Upper Paleolithic cave layers.",
+    "source_claim_summary": "The direct color evidence is microscopic fiber material and does not establish a woven textile structure.",
+    "source_support_rationale": "Fiber coloring can precede cloth construction, and the find predates the graph's scoped preserved weaving by more than twenty millennia."
+  },
+  "ontology_before": "Fiber dyeing required a much later preserved woven-cloth tradition.",
+  "ontology_after": "The Dzudzuana color evidence stands as an earlier fiber process without a weaving prerequisite.",
+  "invariant_preserved_or_changed": "Changed: natural_dyes no longer directly depends on textiles_weaving.",
+  "would_reject_if": ["The Dzudzuana colored fibers were shown to come exclusively from woven cloth produced after the Catalhoyuk evidence."],
+  "short_reason": "The direct evidence is colored fiber, not woven cloth.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

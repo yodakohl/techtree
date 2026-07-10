@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-ulucak-loom-weight-pottery-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "loom_weights", "prerequisite": "pottery" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pottery provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No pottery dependency remains because fired-clay vessel production is not required to define or use a clay or stone warp-tension weight.",
+  "source_supports_edge": "no",
+  "source_url": "https://hoyuk.gov.tr/eng/full-text/139/eng",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Regional review distinguishes loom weights from pottery and reports both clay and stone textile tools, including stone whorls and dedicated clay weights.",
+    "source_claim_summary": "Loom weights are purpose-specific textile components whose function is tensioning warp, not producing or containing ceramic vessels.",
+    "source_support_rationale": "Shared clay material does not create a dependency on the repository's pottery-vessel node, and stone weights demonstrate another manufacturing path."
+  },
+  "ontology_before": "Every loom weight inherited pottery technology because some weights were clay.",
+  "ontology_after": "The component node is material-neutral and does not confuse clay objects with pottery vessels.",
+  "invariant_preserved_or_changed": "Changed: loom_weights no longer directly depends on pottery.",
+  "would_reject_if": ["The node were narrowed specifically to weights made by repurposing completed pottery vessels."],
+  "short_reason": "Clay loom weights are not pottery vessels, and weights can also be stone.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

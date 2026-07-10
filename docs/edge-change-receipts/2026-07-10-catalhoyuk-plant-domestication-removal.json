@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-catalhoyuk-plant-domestication-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "textiles_weaving", "prerequisite": "plant_domestication" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Plant Domestication provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No plant-domestication dependency remains because microscopy identifies the woven fibers as locally gathered tree bast rather than domesticated flax.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/antiquity/article/abs/use-of-local-fibres-for-textiles-at-neolithic-catalhoyuk/294D8367B55E0A752ACC1825035840FC",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract reports scanning-electron-microscope identification of locally sourced oak bast and questions prior assumptions about domesticated flax fiber.",
+    "source_claim_summary": "The Catalhoyuk woven textiles use local wild tree-bast fibers rather than a domesticated fiber crop.",
+    "source_support_rationale": "Gathered bast can support the evidenced weaving directly, so crop domestication is not a necessary enabling stage for this node."
+  },
+  "ontology_before": "All early woven textiles were assumed to require domesticated plant fiber.",
+  "ontology_after": "The Catalhoyuk node reflects direct evidence for local wild tree-bast weaving.",
+  "invariant_preserved_or_changed": "Changed: textiles_weaving no longer directly depends on plant_domestication.",
+  "would_reject_if": ["The analyzed Catalhoyuk fibers were reidentified as domesticated flax or another cultivated fiber crop."],
+  "short_reason": "The direct fiber analysis identifies local tree bast, not a domesticated crop.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

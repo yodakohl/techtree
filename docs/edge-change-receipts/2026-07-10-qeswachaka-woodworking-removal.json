@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-qeswachaka-woodworking-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "rope_bridges", "prerequisite": "woodworking_basic" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No woodworking dependency remains because Q'eswachaka uses hand-braided grass cables tied to stone abutments and no timber structural component.",
+  "source_supports_edge": "no",
+  "source_url": "https://americanindian.si.edu/nk360/inka-innovation/tension/tension",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Building Material and Tension Forces describe local grass fibers twisted and braided into cables tied to massive rock abutments.",
+    "source_claim_summary": "The bridge's directly documented structural system is biodegradable grass rope in tension anchored to stone bases.",
+    "source_support_rationale": "Wood is not a component of this evidence-locked bridge tradition, so generic timber craft cannot be a direct prerequisite."
+  },
+  "ontology_before": "All rope bridges inherited timber construction regardless of their actual structure.",
+  "ontology_after": "Q'eswachaka follows its grass-cable and stone-abutment architecture.",
+  "invariant_preserved_or_changed": "Changed: rope_bridges no longer directly depends on woodworking_basic.",
+  "would_reject_if": ["Authoritative construction documentation identified a load-bearing timber component in Q'eswachaka."],
+  "short_reason": "The documented bridge uses grass rope and stone, not timber.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

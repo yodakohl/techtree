@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-yanghai-horseback-riding-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "animal_pack_saddles", "prerequisite": "horseback_riding" },
+  "replaced_edge": { "dependent": "animal_pack_saddles", "prerequisite": "pack_animal_transport" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Pack Animal Transport provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "historical_predecessor", "confidence": 0.86, "evidence_level": "primary_source", "note": "The saddle is an improvement within an already established horseback-riding practice rather than a prerequisite for the first mounted travel." },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S2352226723000235",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Abstract and discussion identify the artifact as a saddle for horse riding and frame saddle invention as an improvement to horseback mobility.",
+    "source_claim_summary": "The directly dated Yanghai artifact is a riding saddle associated with equestrian practice, not evidence for loading generic pack animals.",
+    "source_support_rationale": "The source's functional identification fixes the lineage to mounted riding while the old pack-transport category describes a different use case."
+  },
+  "ontology_before": "The stable saddle id represented a speculative third-millennium pack-load system.",
+  "ontology_after": "The node represents the directly dated Yanghai riding saddle within horseback-mobility history.",
+  "invariant_preserved_or_changed": "Changed: animal_pack_saddles now follows horseback_riding and no longer depends on pack_animal_transport.",
+  "would_reject_if": ["Construction or use-wear evidence reidentified the Yanghai object as pack equipment rather than a riding saddle."],
+  "short_reason": "The primary study identifies a riding saddle, not a generic pack saddle.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-schnidejoch-fire-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "leather_tanning", "prerequisite": "fire_control" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No fire-control dependency remains because the identified Schnidejoch method uses an aqueous extract of plant material and does not require smoke tanning or heating.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0305440310000592",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract identifies aqueous extracts of diverse plant material as the tanning agent; Introduction lists smoke tanning only as a different possible method.",
+    "source_claim_summary": "Chemical biomarkers support a water-based plant treatment for these artifacts rather than a smoke-based tanning route.",
+    "source_support_rationale": "Fire may support other tanning traditions, but it is not a required operation for the specifically evidenced aqueous process."
+  },
+  "ontology_before": "All tanning methods inherited fire because smoke is one possible hide treatment.",
+  "ontology_after": "The Schnidejoch plant-extract method is represented without an unrelated smoke-processing edge.",
+  "invariant_preserved_or_changed": "Changed: leather_tanning no longer directly depends on fire_control.",
+  "would_reject_if": ["Analysis established that heating or smoke was necessary to prepare the Schnidejoch tanning extract."],
+  "short_reason": "The evidenced tanning agent is aqueous plant extract, not smoke.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

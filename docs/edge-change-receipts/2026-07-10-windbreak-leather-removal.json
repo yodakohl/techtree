@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-windbreak-leather-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "simple_windbreak_shelters", "prerequisite": "leather_tanning" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Leather Tanning provides a capability that enables this technology without being the only possible path." },
+  "new_claim_absent": "No leather-tanning dependency remains because the cited Ohalo II shelter evidence consists of brush huts built from branches, plant stems, and grasses.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC404215/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Shelter and bedding description identifies brush-hut walls and floors made from branches, plant stems, and bundled grasses at Ohalo II.",
+    "source_claim_summary": "The source-backed shelter construction uses gathered plant material and does not establish any hide covering or leather treatment.",
+    "source_support_rationale": "Leather could be optional in other windbreak designs, but it is neither necessary nor present in the evidence currently cited for this node."
+  },
+  "ontology_before": "All simple windbreaks required tanned leather because hide was one item in a broad material list.",
+  "ontology_after": "The shelter node can follow its plant-built evidence without an optional hide-processing edge.",
+  "invariant_preserved_or_changed": "Changed: simple_windbreak_shelters no longer directly depends on leather_tanning.",
+  "would_reject_if": ["Direct Ohalo II evidence established a tanned-hide covering as a required part of the shelter."],
+  "short_reason": "The cited shelter is plant built and does not evidence leather.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

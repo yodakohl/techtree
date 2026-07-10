@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-yanghai-rope-making-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "animal_pack_saddles", "prerequisite": "basic_rope_making" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No rope-making dependency remains because the Yanghai saddle is constructed by shaping, stuffing, and stitching hides rather than manufacturing load-bearing rope.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S2352226723000235",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and construction analysis describe stuffed wing-shaped hides sewn along the outer edges with a central spacer and support elements.",
+    "source_claim_summary": "The saddle's observed construction is leather and needlework; rope production is not identified as a component or manufacturing stage.",
+    "source_support_rationale": "Sewing thread does not make the repository's general rope-making node a prerequisite, and no structural rope is part of the artifact."
+  },
+  "ontology_before": "Any stitched or strapped saddle inherited a generic rope-technology lineage.",
+  "ontology_after": "The Yanghai saddle follows its directly observed leather-working construction.",
+  "invariant_preserved_or_changed": "Changed: animal_pack_saddles no longer directly depends on basic_rope_making.",
+  "would_reject_if": ["Construction analysis identified manufactured rope as a structural component of the Yanghai saddle."],
+  "short_reason": "The artifact is stitched leather, not a rope structure.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-nahal-spindle-basketry-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "drop_spindles", "prerequisite": "basic_weaving_basketry" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Weaving and Basketry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No basketry dependency remains because the perforated-stone interpretation is based on rotational geometry and spinning experiments, not a demonstrated basket-making lineage.",
+  "source_supports_edge": "no",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0312007",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract, 3D analysis, and feasibility experiments reconstruct the perforated pebbles as possible fiber-spinning whorls without deriving them from basketry tools.",
+    "source_claim_summary": "The claimed function follows from centered mass, perforation geometry, and experimental rotation of the stones as spindle whorls.",
+    "source_support_rationale": "Basketry is a possible use for spun fiber but is neither a component nor a demonstrated historical cause of the analyzed objects."
+  },
+  "ontology_before": "Possible spindle whorls were made downstream of a separate basketry tradition.",
+  "ontology_after": "The Nahal Ein-Gev II assemblage stands on its direct artifact and experimental evidence without a speculative craft lineage.",
+  "invariant_preserved_or_changed": "Changed: drop_spindles no longer directly depends on basic_weaving_basketry.",
+  "would_reject_if": ["The study established that the perforated stones were adapted directly from basketry equipment."],
+  "short_reason": "The functional reconstruction does not establish a basketry prerequisite.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

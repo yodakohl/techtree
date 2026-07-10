@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-vindolanda-tent-woodworking-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": { "dependent": "hide_tent_frames", "prerequisite": "woodworking_basic" },
+  "old_claim": { "type": "historical_predecessor", "confidence": 0.75, "evidence_level": "expert_inference", "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency." },
+  "new_claim_absent": "No woodworking dependency remains because the scoped Vindolanda evidence consists of leather panels and does not preserve or analyze a tent frame or poles.",
+  "source_supports_edge": "no",
+  "source_url": "https://research.tees.ac.uk/en/publications/species-analysis-of-leather-objects-and-manufacturing-offcuts-fro/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract reports species analysis of eight leather panels from the same tent and does not include wooden frame components in the analyzed artifact.",
+    "source_claim_summary": "The direct evidence and node scope are the cut hide panels; no pole, frame, or woodworking trace is part of the analyzed set.",
+    "source_support_rationale": "Likely use of poles in an assembled tent does not justify importing a frame dependency into a node explicitly narrowed to surviving panels."
+  },
+  "ontology_before": "The old node combined hypothetical hide covering and wooden frame into one unsupported prehistoric claim.",
+  "ontology_after": "The revised node represents only the surviving Roman leather-panel evidence.",
+  "invariant_preserved_or_changed": "Changed: hide_tent_frames no longer directly depends on woodworking_basic.",
+  "would_reject_if": ["The node were respecified to include a directly evidenced and analyzed wooden tent frame."],
+  "short_reason": "No wooden frame is part of the scoped archaeological evidence.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}

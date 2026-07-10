@@ -1,0 +1,24 @@
+{
+  "id": "2026-07-10-ohalo-composite-sickle-stone-tool-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": { "dependent": "composite_sickle_blades", "prerequisite": "stone_tool_making" },
+  "replaced_edge": { "dependent": "composite_sickle_blades", "prerequisite": "sickle_harvesting_tools" },
+  "old_claim": { "type": "enabling", "confidence": 0.68, "evidence_level": "expert_inference", "note": "Sickle Harvesting Tools provides a capability that enables this technology without being the only possible path." },
+  "new_claim": { "type": "required", "confidence": 0.9, "evidence_level": "primary_source", "note": "The scoped composite harvesting evidence consists of deliberately produced flint blades whose wear and hafting traces identify their cutting function." },
+  "source_supports_edge": "yes",
+  "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167151",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Abstract, Introduction, and use-wear results analyze five glossed flint blades and identify cereal-cutting wear plus hafting traces on some inserts.",
+    "source_claim_summary": "The Ohalo II evidence is a set of manufactured flint cutting inserts, some of which preserve traces of hafting in a composite implement.",
+    "source_support_rationale": "Stone-tool production is materially constitutive of the surviving inserts, whereas the later generic sickle node cannot cause an artifact that predates it."
+  },
+  "ontology_before": "The earliest composite harvesting inserts depended on a later broad sickle tradition.",
+  "ontology_after": "The Ohalo II node depends directly on production of its evidenced flint inserts.",
+  "invariant_preserved_or_changed": "Changed: composite_sickle_blades now requires stone_tool_making and no longer depends on sickle_harvesting_tools.",
+  "would_reject_if": ["Evidence showed that the Ohalo II artifacts were unmodified natural flakes rather than deliberately produced stone tools."],
+  "short_reason": "The direct evidence is manufactured flint, and it predates the later generic sickle node.",
+  "validation_commands": ["npm run edge-receipts", "npm run graph-invariants", "npm run invariant-coverage", "npm test", "npm run quality"]
+}
