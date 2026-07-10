@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-bone-awls-tanning-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bone_awls_needles",
+    "prerequisite": "leather_tanning"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Leather Tanning provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct tanning dependency remains because a hide-piercing bone tool can be manufactured independently of any particular hide-treatment process.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11212769/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The review treats bone awls as hide-piercing implements and discusses sewing technologies without making leather tanning a manufacturing prerequisite for the tool.",
+    "source_claim_summary": "The source distinguishes the piercing implement from the hide-processing and clothing applications in which it may be used.",
+    "source_support_rationale": "Use on hide does not make a specific tanning process causally necessary for manufacturing the awl, while bone_tool_making preserves the actual artifact mechanism."
+  },
+  "ontology_before": "A use context, processed leather, was modeled as an enabling prerequisite for manufacturing a bone awl.",
+  "ontology_after": "Bone awls depend on bone-tool manufacture; hide preparation remains an application context rather than a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: leather_tanning is no longer a direct prerequisite for bone_awls_needles.",
+  "would_reject_if": [
+    "The node were narrowed to a documented toolkit whose production process explicitly required chemically tanned leather.",
+    "A direct archaeological source established tanning as necessary to manufacture the scoped awl artifacts."
+  ],
+  "short_reason": "Hide use does not make tanning a tool-manufacturing dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/bone_awls_needles.before.json /tmp/bone_awls_needles.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

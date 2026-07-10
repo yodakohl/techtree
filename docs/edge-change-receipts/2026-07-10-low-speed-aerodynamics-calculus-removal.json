@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-low-speed-aerodynamics-calculus-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "aerodynamics_subsonic",
+    "prerequisite": "logarithms_calculus_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Logarithms & Early Calculus is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No separate logarithms-and-calculus edge remains because the broader sourced mathematics edge already represents quantitative capability without asserting one bundled technique as the unique lineage.",
+  "source_supports_edge": "no",
+  "source_url": "https://appel.nasa.gov/wp-content/uploads/2018/08/NASA-SP-367-Intro-to-Aero-of-Flight.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA presents quantitative force, pressure, lift, and drag relationships but does not identify the graph's bundled Logarithms and Early Calculus node as a direct historical prerequisite.",
+    "source_claim_summary": "The source supports mathematics broadly as an aerodynamic capability without pinning a unique logarithms-calculus lineage.",
+    "source_support_rationale": "Keeping both mathematics and a narrower bundled mathematics node duplicates the same context and overstates a specific lineage not licensed by the cited history."
+  },
+  "ontology_before": "Aerodynamics carried both a general mathematics edge and an unsourced bundled logarithms-calculus predecessor.",
+  "ontology_after": "The sourced mathematics edge carries quantitative capability without a redundant specific mathematical lineage.",
+  "invariant_preserved_or_changed": "Changed: logarithms_calculus_early is no longer a direct prerequisite for aerodynamics_subsonic.",
+  "would_reject_if": [
+    "A source explicitly tied the earliest scoped aerodynamic formulation to a named logarithmic or calculus method represented by that node.",
+    "The broad mathematics edge were removed and a more precise calculus dependency became necessary to preserve the mechanism."
+  ],
+  "short_reason": "The specific bundled math edge duplicated broader sourced mathematics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/aerodynamics_subsonic.before.json /tmp/aerodynamics_subsonic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

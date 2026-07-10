@@ -1,0 +1,183 @@
+{
+  "id": "2026-07-10-source-fit-scope-corrections",
+  "description": "Lock the first trust-model remediation batch to source-backed chronology and prevent unrelated contextual prerequisites from returning.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "census",
+      "prerequisite": "basic_arithmetic",
+      "reason": "The 4000 BC census anchor must not depend on the later formal-arithmetic node."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "census",
+      "prerequisite": "record_keeping",
+      "reason": "Clay-tablet enumeration retains its documentary administrative context."
+    },
+    {
+      "type": "first_known_date",
+      "node": "census",
+      "operator": "eq",
+      "value": -4000,
+      "reason": "The chronology is anchored to the ONS Babylonian census account."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bone_awls_needles",
+      "prerequisite": "stone_tool_making",
+      "reason": "The rescoped artifact is a bone tool rather than a stone-tool category."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "bone_awls_needles",
+      "prerequisite": "leather_tanning",
+      "reason": "A hide-use context must not become a tool-manufacturing prerequisite."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "bone_awls_needles",
+      "prerequisite": "bone_tool_making",
+      "expected": "required",
+      "reason": "Bone-tool manufacture remains the direct material method for bone awls."
+    },
+    {
+      "type": "first_known_date",
+      "node": "bone_awls_needles",
+      "operator": "eq",
+      "value": -45000,
+      "reason": "The node stays anchored to the earliest reviewed Eurasian bone-awl range."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "medical_case_notes",
+      "prerequisite": "public_library_reading_rooms",
+      "reason": "Hippocratic case narratives do not require a public library institution."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "medical_case_notes",
+      "prerequisite": "public_health_inspections",
+      "reason": "Clinical case histories must not be conflated with municipal sanitation records."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_case_notes",
+      "prerequisite": "writing",
+      "expected": "historical_predecessor",
+      "reason": "Writing preserves the documentary lineage of the Hippocratic corpus."
+    },
+    {
+      "type": "first_known_date",
+      "node": "medical_case_notes",
+      "operator": "eq",
+      "value": -400,
+      "reason": "The review dates Hippocratic case histories to about 400 BC."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "theater_ticketing_systems",
+      "prerequisite": "printing_press",
+      "reason": "Tiered paid admission did not require printed tickets."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "theater_ticketing_systems",
+      "prerequisite": "public_theater_infrastructure",
+      "reason": "Venue zones remain the physical basis for tiered admission."
+    },
+    {
+      "type": "first_known_date",
+      "node": "theater_ticketing_systems",
+      "operator": "eq",
+      "value": 1600,
+      "reason": "The scope is anchored to documented London public-theater admissions by 1600."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aerodynamics_subsonic",
+      "prerequisite": "thermodynamics",
+      "reason": "Cayley's 1799 low-speed aerodynamic work predates formal thermodynamics."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aerodynamics_subsonic",
+      "prerequisite": "construction",
+      "reason": "Classical monumental construction is unrelated to aerodynamic science."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "aerodynamics_subsonic",
+      "prerequisite": "logarithms_calculus_early",
+      "reason": "The specific bundled math node must not duplicate the sourced general mathematics edge."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "aerodynamics_subsonic",
+      "prerequisite": "scientific_method",
+      "reason": "Experimental method remains an enabling capability for aerodynamic science."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "aerodynamics_subsonic",
+      "prerequisite": "mathematics",
+      "reason": "Quantitative force analysis remains the field's mathematical capability."
+    },
+    {
+      "type": "first_known_date",
+      "node": "aerodynamics_subsonic",
+      "operator": "eq",
+      "value": 1799,
+      "reason": "The node remains anchored to Cayley's foundational design and force separation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "municipal_gas_lighting",
+      "prerequisite": "municipal_water_supply",
+      "reason": "A neighboring pipe utility is not a causal prerequisite for gas lighting."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "municipal_gas_lighting",
+      "prerequisite": "urban_planning_grid_system",
+      "reason": "Gas lighting can be deployed without an orthogonal street grid."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "municipal_gas_lighting",
+      "prerequisite": "industrial_gas_production",
+      "reason": "Manufactured gas supply remains the direct technical enabler."
+    },
+    {
+      "type": "first_known_date",
+      "node": "municipal_gas_lighting",
+      "operator": "eq",
+      "value": 1807,
+      "reason": "The public-lighting scope stays anchored to Pall Mall in 1807."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "barometer",
+      "prerequisite": "alchemy",
+      "reason": "Mercury use must not be laundered into an alchemical process dependency."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "barometer",
+      "prerequisite": "glassmaking",
+      "reason": "The glass vacuum tube remains a direct instrument capability."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "barometer",
+      "prerequisite": "fluid_mechanics_early",
+      "reason": "Hydrostatic pressure remains the instrument's physical principle."
+    },
+    {
+      "type": "first_known_date",
+      "node": "barometer",
+      "operator": "eq",
+      "value": 1643,
+      "reason": "The barometer stays anchored to Torricelli's 1643 experiment."
+    }
+  ]
+}

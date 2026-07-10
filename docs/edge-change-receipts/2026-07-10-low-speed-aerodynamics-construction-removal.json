@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-low-speed-aerodynamics-construction-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "aerodynamics_subsonic",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No monumental-construction dependency remains because architectural building practice is neither the experimental method nor mathematical mechanism of low-speed aerodynamic science.",
+  "source_supports_edge": "no",
+  "source_url": "https://appel.nasa.gov/wp-content/uploads/2018/08/NASA-SP-367-Intro-to-Aero-of-Flight.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA frames Cayley's achievement through aerodynamic forces, aircraft configuration, experiments, and quantitative flight analysis rather than monumental architecture.",
+    "source_claim_summary": "The source identifies aerodynamic analysis and experimentation as the foundation of the scoped field.",
+    "source_support_rationale": "The graph's construction node is Classical monumental architecture, so keeping it would launder generic making/building context into an unrelated scientific prerequisite."
+  },
+  "ontology_before": "Classical monumental construction was treated as an enabling dependency of aerodynamic science.",
+  "ontology_after": "Low-speed aerodynamics depends on scientific method and mathematics, not an unrelated architecture node.",
+  "invariant_preserved_or_changed": "Changed: construction is no longer a direct prerequisite for aerodynamics_subsonic.",
+  "would_reject_if": [
+    "The construction node were respecified as aerodynamic model fabrication or wind-tunnel construction.",
+    "A source established monumental architectural construction as a direct method dependency of Cayley's aerodynamics."
+  ],
+  "short_reason": "Monumental construction is not an aerodynamic-science prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/aerodynamics_subsonic.before.json /tmp/aerodynamics_subsonic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-commercial-theater-printing-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "theater_ticketing_systems",
+    "prerequisite": "printing_press"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Printing Press is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No printing dependency remains because the scoped system is paid admission and seating allocation at public playhouses, which operated through prices and venue zones without requiring printed tickets.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.shakespearesglobe.com/discover/shakespeares-world/audiences/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Globe documents one-penny yard admission and higher prices for benches, cushions, and premium rooms without identifying printed tickets as part of the admission mechanism.",
+    "source_claim_summary": "Commercial theater admission used tiered payment and spatial seating categories inside public playhouses.",
+    "source_support_rationale": "The mechanism is payment for venue access and seat class; a Gutenberg Bible citation proves printing technology but does not establish it as a dependency of theater admission."
+  },
+  "ontology_before": "Commercial theater admission was tied to the printing press through an unrelated Gutenberg Bible source.",
+  "ontology_after": "Commercial theater admission depends on public playhouse infrastructure, while printing remains separate publicity and publishing context.",
+  "invariant_preserved_or_changed": "Changed: printing_press is no longer a direct prerequisite for theater_ticketing_systems.",
+  "would_reject_if": [
+    "The node were narrowed to a documented printed-ticket issuing system rather than paid venue admission.",
+    "A source established printed tickets as necessary to the earliest scoped London playhouse admissions."
+  ],
+  "short_reason": "Tiered playhouse admission did not require printed tickets.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/theater_ticketing_systems.before.json /tmp/theater_ticketing_systems.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

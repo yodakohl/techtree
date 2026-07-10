@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-10-hippocratic-case-writing-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "medical_case_notes",
+    "prerequisite": "writing"
+  },
+  "replaced_edge": {
+    "dependent": "medical_case_notes",
+    "prerequisite": "public_library_reading_rooms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Library Reading Rooms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "The scoped claim is a corpus of written patient narratives, making writing the direct documentary predecessor without requiring libraries or civic inspection offices."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4012665/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The review identifies written case histories in the Hippocratic Corpus around 400 BC and reproduces a narrative from Epidemics.",
+    "source_claim_summary": "Hippocratic case histories are documentary medical narratives preserved in a written corpus.",
+    "source_support_rationale": "Writing is the general recording capability required by the claim, whereas public reading rooms are later distribution infrastructure absent from the case-history mechanism."
+  },
+  "ontology_before": "Medical case notes were incorrectly routed through public library reading rooms.",
+  "ontology_after": "Hippocratic case histories inherit from writing as a documentary practice without requiring a public library institution.",
+  "invariant_preserved_or_changed": "Changed: writing replaces public_library_reading_rooms as the documentary predecessor.",
+  "would_reject_if": [
+    "The node were narrowed to a specific library-based medical reading or copying program.",
+    "The cited Hippocratic material proved oral-only rather than a written corpus."
+  ],
+  "short_reason": "Written case histories require writing, not public reading rooms.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/medical_case_notes.before.json /tmp/medical_case_notes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 const {
     loadData,
+    hasLocatedNodeSource,
+    hasLocatedStrongTrustSource,
+    hasNodeSource,
     hasStrongTrustSource
 } = require('./accuracy-risk-report');
 const {
@@ -71,12 +74,9 @@ function edgeHasSource(edge) {
     return Array.isArray(edge.sources) && edge.sources.length > 0;
 }
 
-function hasNodeSource(item) {
-    return Array.isArray(item.sources) && item.sources.length > 0;
-}
-
 function onlyWeakOrGenericSources(item) {
-    return hasNodeSource(item) && item.sources.every(source => {
+    const sources = (item.sources || []).filter(source => source.supports?.includes('node'));
+    return sources.length > 0 && sources.every(source => {
         return ['weak_web', 'generic_overview'].includes(source.source_type);
     });
 }
@@ -121,7 +121,10 @@ function debtFor(item, dependents) {
             missingNodeSource: false,
             weakNodeSources: false,
             lacksStrongNodeSource: false,
+            lacksLocatedNodeSource: false,
+            lacksLocatedStrongSource: false,
             eraDefaultDate: false,
+            unknownDate: false,
             generated: false,
             structurallyValidated: false
         };
@@ -133,8 +136,11 @@ function debtFor(item, dependents) {
     const missingNodeSource = !hasNodeSource(item);
     const weakNodeSources = onlyWeakOrGenericSources(item);
     const lacksStrongNodeSource = !missingNodeSource && !hasStrongTrustSource(item);
+    const lacksLocatedNodeSource = !missingNodeSource && !hasLocatedNodeSource(item);
+    const lacksLocatedStrongSource = !lacksStrongNodeSource && !hasLocatedStrongTrustSource(item);
     const generated = item.reviewStatus === 'generated';
     const structurallyValidated = item.reviewStatus === 'structurally_validated';
+    const unknownDate = item.datePrecision === 'unknown';
 
     const labels = [];
     if (missingEdgeSources.length) labels.push(`${missingEdgeSources.length}/${edges.length} dependency edges missing sources`);
@@ -142,6 +148,9 @@ function debtFor(item, dependents) {
     if (missingNodeSource) labels.push('missing node source');
     if (weakNodeSources) labels.push('weak/generic node sources only');
     if (lacksStrongNodeSource) labels.push('no strong node source');
+    if (lacksLocatedNodeSource) labels.push('no located node evidence');
+    if (lacksLocatedStrongSource) labels.push('no located strong-type evidence');
+    if (unknownDate) labels.push('unknown date precision');
     if (generated) labels.push('generated review status');
     if (structurallyValidated) labels.push('not source_checked');
 
@@ -151,6 +160,9 @@ function debtFor(item, dependents) {
     if (missingNodeSource) score += 25;
     if (weakNodeSources) score += 14;
     if (lacksStrongNodeSource) score += 8;
+    if (lacksLocatedNodeSource) score += 12;
+    if (lacksLocatedStrongSource) score += 5;
+    if (unknownDate) score += 32;
     if (generated) score += 18;
     if (structurallyValidated) score += 6;
     score += Math.min(dependents.length, 15);
@@ -162,7 +174,10 @@ function debtFor(item, dependents) {
         missingNodeSource,
         weakNodeSources,
         lacksStrongNodeSource,
+        lacksLocatedNodeSource,
+        lacksLocatedStrongSource,
         eraDefaultDate,
+        unknownDate,
         generated,
         structurallyValidated
     };

@@ -33,7 +33,7 @@ Example entry points:
 <!-- QUALITY_SNAPSHOT_START -->
 ## Quality Snapshot
 
-Generated 2026-07-07 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
+Generated 2026-07-10 from the same dataset audit used by `npm run accuracy:risks`. This is a launch-quality trust snapshot for non-Future nodes, not proof of global accuracy.
 
 Future-era technologies are forecast/roadmap nodes. They are structurally validated, but they are excluded from launch-quality source-check, placeholder-date, edge-source, source-fit, and source-URL gates.
 
@@ -42,12 +42,15 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | Technologies | 1,659 |
 | Launch-quality scope (non-Future nodes) | 1,421 / 1,659 (85.7%; 238 Future excluded) |
 | Source-checked nodes | 1,403 / 1,421 (98.7%) |
-| Source-checked nodes with non-placeholder dates | 1,403 / 1,403 (100.0%) |
-| Source-checked nodes with placeholder dates | 0 / 1,403 (0.0%) |
-| Source-checked nodes with primary/review/textbook/official sources | 1,266 / 1,403 (90.2%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,403 (0.0%) |
-| Nodes with node-level sources | 1,421 / 1,421 (100.0%) |
-| Dependency edges with edge-level sources | 4,062 / 4,287 (94.8%) |
+| Source-checked nodes with resolved chronology | 1,326 / 1,403 (94.5%) |
+| Source-checked nodes with unresolved chronology | 77 / 1,403 (5.5%) |
+| Source-checked nodes with strong-type node sources | 1,267 / 1,403 (90.3%) |
+| Source-checked nodes with located strong-type evidence | 605 / 1,403 (43.1%) |
+| Source-checked nodes using only weak/generic sources | 7 / 1,403 (0.5%) |
+| Nodes with node-level sources | 1,419 / 1,421 (99.9%) |
+| Nodes with located node-level evidence | 681 / 1,421 (47.9%) |
+| Dependency edges with edge-level sources | 4,059 / 4,277 (94.9%) |
+| Dependency edges with located evidence | 885 / 4,277 (20.7%) |
 | Era-default placeholder dates | 0 / 1,421 (0.0%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.

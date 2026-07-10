@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-municipal-gas-water-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "municipal_gas_lighting",
+    "prerequisite": "municipal_water_supply"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Municipal Water Supply provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No municipal-water dependency remains because analogous underground distribution does not make a water-supply system causally necessary for manufactured-gas street lighting.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/en/art/collection/search/820411",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Met documents coal-gas lighting at Pall Mall in 1807 and does not identify municipal water supply as part of the lighting system.",
+    "source_claim_summary": "The historical installation is explained through manufactured coal gas, public lamps, and the Pall Mall deployment.",
+    "source_support_rationale": "Shared pipe-network form is an analogy, not a prerequisite; industrial gas production preserves the actual supplied medium and system mechanism."
+  },
+  "ontology_before": "Municipal gas lighting depended on the neighboring but technically separate municipal water-supply network.",
+  "ontology_after": "Piped gas lighting depends on gas production and supply without asserting that a water utility enabled it.",
+  "invariant_preserved_or_changed": "Changed: municipal_water_supply is no longer a direct prerequisite for municipal_gas_lighting.",
+  "would_reject_if": [
+    "A source showed the first scoped gas network directly reused an operating municipal water-supply system as required infrastructure.",
+    "The node were broadened to a generic municipal utility-network concept rather than gas lighting."
+  ],
+  "short_reason": "A similar pipe network is not a causal water-system dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/municipal_gas_lighting.before.json /tmp/municipal_gas_lighting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

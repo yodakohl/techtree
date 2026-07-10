@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-census-arithmetic-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "census",
+    "prerequisite": "basic_arithmetic"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.55,
+    "evidence_level": "weak_inference",
+    "note": "Basic Arithmetic is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim_absent": "No direct basic_arithmetic edge remains because the broad formal-number-system node is later than the source-backed Babylonian enumeration anchor.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ons.gov.uk/census/2011census/howourcensusworks/aboutcensuses/censushistory/censustakingintheancientworld",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ONS dates Babylonian census-taking to 4000 BC, while the graph's basic_arithmetic node is scoped to later written number systems and operations.",
+    "source_claim_summary": "The source supports administrative enumeration before the current chronology of the broad formal-arithmetic node.",
+    "source_support_rationale": "Counting is intrinsic to a census, but routing the earlier census through a later formal arithmetic node would reverse the graph chronology and conflate an operation with a separately scoped technology."
+  },
+  "ontology_before": "Census depended on a broad formal arithmetic node dated a millennium later than the corrected Babylonian census anchor.",
+  "ontology_after": "Census retains record keeping as its administrative infrastructure without creating a reversed dependency on later formal arithmetic systems.",
+  "invariant_preserved_or_changed": "Changed: basic_arithmetic is no longer a direct prerequisite for census.",
+  "would_reject_if": [
+    "The basic_arithmetic node were resourced and rescoped to demonstrably earlier counting practices before 4000 BC.",
+    "The census chronology were replaced by stronger evidence placing the scoped node after formal arithmetic systems."
+  ],
+  "short_reason": "The formal arithmetic node postdates the cited Babylonian census.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/census.before.json /tmp/census.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

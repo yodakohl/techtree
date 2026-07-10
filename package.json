@@ -16,6 +16,7 @@
     "quality:placeholder-dates": "node scripts/source-checked-placeholder-report.js",
     "quality:source-checked-sample": "node scripts/source-checked-audit-sample.js",
     "quality:source-fit": "node scripts/audit-random-source-fit.js",
+    "quality:source-fit:strict": "node scripts/audit-random-source-fit.js --check --strict",
     "quality:queue": "node scripts/source-quality-queue.js",
     "quality:field:crispr": "node scripts/generate-field-quality-snapshot.js",
     "trust:audit": "node scripts/audit-trust-levels.js",
@@ -30,7 +31,7 @@
     "source-urls": "node scripts/audit-source-urls.js",
     "temporal": "node scripts/audit-temporal-consistency.js",
     "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && npm run trust:audit && node scripts/source-checked-placeholder-report.js --check && node scripts/audit-random-source-fit.js --check && node scripts/generate-quality-snapshot.js --check && node scripts/generate-field-quality-snapshot.js --check && npm run metrics:check && npm run check:public",
-    "test": "node scripts/validate-data.js && npm run temporal",
+    "test": "node scripts/test-quality-audits.js && node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },
   "keywords": [

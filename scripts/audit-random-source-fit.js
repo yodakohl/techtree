@@ -10,9 +10,6 @@ const REPORT_PATH = path.join(__dirname, '..', 'docs', 'RANDOM_SOURCE_FIT_AUDIT.
 const SEED = 'techtree-random-source-fit-v1';
 const SAMPLE_SIZE = 50;
 
-const args = new Set(process.argv.slice(2));
-const check = args.has('--check');
-
 function hashSeed(value) {
     let hash = 1779033703 ^ value.length;
     for (let i = 0; i < value.length; i += 1) {
@@ -100,7 +97,12 @@ function meaningfulTokens(value) {
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, ' ')
         .split(/\s+/)
-        .filter(token => token.length >= 4 && !stop.has(token));
+        .filter(token => token.length >= 4 && !stop.has(token))
+        .map(token => {
+            if (token.length > 5 && token.endsWith('ies')) return `${token.slice(0, -3)}y`;
+            if (token.length > 4 && token.endsWith('s')) return token.slice(0, -1);
+            return token;
+        });
 }
 
 function sourceEvidenceMismatch(node) {
@@ -122,18 +124,29 @@ function hasConceptOrInstitutionScope(node) {
 }
 
 function hasGenericTemplateEdgeNote(edge) {
-    return /plausible dependency|broadly enables|provides a capability|earlier historical predecessor|not a one-to-one|supports the later emergence/i.test(edge.notes || '');
+    return /plausible dependency|broadly enables|provides a capability|earlier historical predecessor|not a one-to-one|supports the later emergence/i.test(edge.note || '');
+}
+
+function usesEraDefaultDate(node) {
+    const defaults = ERA_DEFAULT_DATES[node.era];
+    return Boolean(defaults)
+        && node.firstKnownDate === defaults.firstKnownDate
+        && node.datePrecision === defaults.datePrecision
+        && node.region === defaults.region;
 }
 
 function nodeFlags(node, edges) {
     const edgeSources = edges.flatMap(edge => edge.sources || []);
     const allSources = [...(node.sources || []), ...edgeSources];
+    const nodeSources = (node.sources || []).filter(source => source.supports?.includes('node'));
     const flags = [];
     if (allSources.some(isWikipediaSearchSource)) flags.push('wikipedia_search_source');
+    if (!nodeSources.length) flags.push('no_node_source');
     if (edges.length && edges.some(edge => !Array.isArray(edge.sources) || edge.sources.length === 0)) flags.push('no_edge_sources');
     if (edges.some(hasGenericTemplateEdgeNote)) flags.push('generic_template_edge_note');
     if (sourceEvidenceMismatch(node)) flags.push('source_evidence_mismatch');
-    if (node.reviewStatus === 'source_checked' && node.firstKnownDate === ERA_DEFAULT_DATES[node.era]) flags.push('source_checked_placeholder_date');
+    if (node.reviewStatus === 'source_checked' && usesEraDefaultDate(node)) flags.push('source_checked_placeholder_date');
+    if (node.reviewStatus === 'source_checked' && node.datePrecision === 'unknown') flags.push('source_checked_unknown_date');
     if (hasConceptOrInstitutionScope(node)) flags.push('concept_or_institution_not_technology');
     return flags;
 }
@@ -141,7 +154,7 @@ function nodeFlags(node, edges) {
 function dependencySummary(edges) {
     if (!edges.length) return 'None';
     return edges
-        .map(edge => `${edge.prerequisite} (${edge.evidenceType || 'unspecified'}; ${edge.reviewStatus || 'unreviewed'})`)
+        .map(edge => `${edge.prerequisite} (${edge.evidence_level || 'unspecified'}; ${edge.reviewStatus || 'unreviewed'})`)
         .join('; ');
 }
 
@@ -150,7 +163,7 @@ function edgeSourceSummary(edges) {
     return values.length ? values.join('; ') : 'None';
 }
 
-function renderReport() {
+function buildAudit() {
     const nodes = launchQualityNodes(loadNodes());
     const sampled = sample(nodes);
     const rows = sampled.map(node => {
@@ -166,6 +179,11 @@ function renderReport() {
         for (const flag of row.flags) flagCounts.set(flag, (flagCounts.get(flag) || 0) + 1);
     }
 
+    return { nodes, rows, flagCounts };
+}
+
+function renderReport(audit = buildAudit()) {
+    const { nodes, rows, flagCounts } = audit;
     const lines = [];
     lines.push('# Random Source-Fit Audit');
     lines.push('');
@@ -208,16 +226,40 @@ function renderReport() {
     return `${lines.join('\n')}\n`;
 }
 
-const report = renderReport();
+function main() {
+    const args = new Set(process.argv.slice(2));
+    const check = args.has('--check');
+    const strict = args.has('--strict');
+    const audit = buildAudit();
+    const report = renderReport(audit);
+    const flaggedRows = audit.rows.filter(row => row.flags.length > 0);
 
-if (check) {
-    const current = fs.existsSync(REPORT_PATH) ? fs.readFileSync(REPORT_PATH, 'utf8') : '';
-    if (current !== report) {
-        console.error('docs/RANDOM_SOURCE_FIT_AUDIT.md is stale. Run `node scripts/audit-random-source-fit.js`.');
-        process.exit(1);
+    if (check) {
+        const current = fs.existsSync(REPORT_PATH) ? fs.readFileSync(REPORT_PATH, 'utf8') : '';
+        if (current !== report) {
+            console.error('docs/RANDOM_SOURCE_FIT_AUDIT.md is stale. Run `node scripts/audit-random-source-fit.js`.');
+            process.exit(1);
+        }
+        if (strict && flaggedRows.length) {
+            console.error(`Random source-fit audit has ${flaggedRows.length} flagged sampled node(s).`);
+            process.exit(1);
+        }
+        console.log(`Random source-fit audit report is current; ${flaggedRows.length}/${audit.rows.length} sampled node(s) are flagged.`);
+    } else {
+        fs.writeFileSync(REPORT_PATH, report);
+        console.log(`Wrote ${path.relative(process.cwd(), REPORT_PATH)}`);
     }
-    console.log('Random source-fit audit report is current.');
-} else {
-    fs.writeFileSync(REPORT_PATH, report);
-    console.log(`Wrote ${path.relative(process.cwd(), REPORT_PATH)}`);
 }
+
+if (require.main === module) main();
+
+module.exports = {
+    buildAudit,
+    dependencySummary,
+    hasGenericTemplateEdgeNote,
+    meaningfulTokens,
+    nodeFlags,
+    renderReport,
+    sourceEvidenceMismatch,
+    usesEraDefaultDate
+};

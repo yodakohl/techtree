@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-10-bone-awls-bone-tool-replacement",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "bone_awls_needles",
+    "prerequisite": "bone_tool_making"
+  },
+  "replaced_edge": {
+    "dependent": "bone_awls_needles",
+    "prerequisite": "stone_tool_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Stone Tool Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "The scoped artifacts are deliberately shaped bone perforators, so bone-tool manufacture is their direct material method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11212769/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "The review identifies bone awls as dedicated hide-piercing implements and discusses the manufacture and chronology of Paleolithic bone tools.",
+    "source_claim_summary": "Paleolithic awls are intentionally shaped bone implements rather than a generic application of stone-tool manufacture.",
+    "source_support_rationale": "Material manufacture is the direct mechanism for the scoped artifact; stone tools may be workshop implements but are not the artifact class represented by this node."
+  },
+  "ontology_before": "The node mixed awls and eyed needles and routed the bundle through generic stone-tool making.",
+  "ontology_after": "The node represents uneyed Paleolithic bone awls and depends directly on bone-tool manufacture; eyed needles remain a separate node.",
+  "invariant_preserved_or_changed": "Changed: bone_tool_making replaces stone_tool_making as the direct material prerequisite.",
+  "would_reject_if": [
+    "The node were respecified as lithic borers rather than deliberately shaped bone awls.",
+    "Artifact analysis showed that the scoped awls were unmodified bones rather than manufactured bone tools."
+  ],
+  "short_reason": "Bone awls are a bone-tool form, not a stone-tool node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/bone_awls_needles.before.json /tmp/bone_awls_needles.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

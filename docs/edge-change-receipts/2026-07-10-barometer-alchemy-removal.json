@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-barometer-alchemy-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "barometer",
+    "prerequisite": "alchemy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Alchemy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No alchemy dependency remains because Torricelli's barometer is supported by glass apparatus, controlled experiment, and hydrostatic pressure rather than an alchemical process.",
+  "source_supports_edge": "no",
+  "source_url": "https://collection.sciencemuseumgroup.org.uk/objects/co54518/replica-of-torricellis-first-barometer-1643-barometer-replica",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Science Museum Group describes Torricelli's glass-and-mercury vacuum experiment and atmospheric-pressure principle without an alchemical method or lineage.",
+    "source_claim_summary": "The instrument arose from a mercury-column vacuum experiment using glass apparatus and fluid pressure.",
+    "source_support_rationale": "Mercury's historical use in alchemy is mere material context; it does not make alchemical practice a causal prerequisite for the pressure-measurement instrument."
+  },
+  "ontology_before": "The barometer depended on broad alchemy because it used mercury, despite no sourced process relationship.",
+  "ontology_after": "The barometer depends on glassmaking, experimental method, and early fluid mechanics; alchemy is not a direct prerequisite.",
+  "invariant_preserved_or_changed": "Changed: alchemy is no longer a direct prerequisite for barometer.",
+  "would_reject_if": [
+    "A primary source established an alchemical procedure as necessary to Torricelli's instrument construction or interpretation.",
+    "The node were respecified as an alchemical mercury apparatus rather than a barometer."
+  ],
+  "short_reason": "Mercury use does not make alchemy a barometer prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/barometer.before.json /tmp/barometer.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

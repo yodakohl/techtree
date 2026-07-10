@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-municipal-gas-grid-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "municipal_gas_lighting",
+    "prerequisite": "urban_planning_grid_system"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Urban Planning (Grid System) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No orthogonal-grid dependency remains because piped street lighting can be installed on irregular street networks and the cited Pall Mall deployment does not require grid planning.",
+  "source_supports_edge": "no",
+  "source_url": "https://historicengland.org.uk/content/docs/education/explorer/street-spotters-guide-a4-bw-pdf/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Historic England identifies Pall Mall in 1807 as the first public street illuminated by gas without making orthogonal urban planning part of the system.",
+    "source_claim_summary": "The source anchors public gas street lighting to a particular London street and date rather than a city-grid plan.",
+    "source_support_rationale": "Street access is deployment context, but the graph's orthogonal planning node is a specific urban form that neither determines nor enables gas combustion and distribution."
+  },
+  "ontology_before": "Gas lighting was made dependent on a specific ancient orthogonal urban-planning tradition.",
+  "ontology_after": "Gas lighting is independent of street-grid geometry and retains gas production as its direct technical enabler.",
+  "invariant_preserved_or_changed": "Changed: urban_planning_grid_system is no longer a direct prerequisite for municipal_gas_lighting.",
+  "would_reject_if": [
+    "The node were narrowed to a documented gas network whose installation specifically required a newly planned orthogonal grid.",
+    "A source established urban grid planning as a necessary technical input to the 1807 Pall Mall installation."
+  ],
+  "short_reason": "Gas street lighting does not require orthogonal city planning.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/municipal_gas_lighting.before.json /tmp/municipal_gas_lighting.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

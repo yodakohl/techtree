@@ -47,12 +47,15 @@ function buildSnapshot(report, generatedAt = report.generatedAt) {
         metric('Technologies', t.totalTechnologies),
         metric('Launch-quality scope (non-Future nodes)', t.launchQualityTechnologies, t.totalTechnologies, `${percentage(t.launchQualityTechnologies, t.totalTechnologies)}; ${t.excludedFutureTechnologies} Future excluded`),
         metric('Source-checked nodes', t.sourceChecked, t.launchQualityTechnologies, percentage(t.sourceChecked, t.launchQualityTechnologies)),
-        metric('Source-checked nodes with non-placeholder dates', t.sourceCheckedNonPlaceholderDates, t.sourceChecked, percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)),
-        metric('Source-checked nodes with placeholder dates', t.sourceCheckedEraDefaultDates, t.sourceChecked, percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)),
-        metric('Source-checked nodes with primary/review/textbook/official sources', t.sourceCheckedStrongSources, t.sourceChecked, percentage(t.sourceCheckedStrongSources, t.sourceChecked)),
+        metric('Source-checked nodes with resolved chronology', t.sourceCheckedResolvedChronology, t.sourceChecked, percentage(t.sourceCheckedResolvedChronology, t.sourceChecked)),
+        metric('Source-checked nodes with unresolved chronology', t.sourceCheckedUnresolvedChronology, t.sourceChecked, percentage(t.sourceCheckedUnresolvedChronology, t.sourceChecked)),
+        metric('Source-checked nodes with strong-type node sources', t.sourceCheckedStrongSources, t.sourceChecked, percentage(t.sourceCheckedStrongSources, t.sourceChecked)),
+        metric('Source-checked nodes with located strong-type evidence', t.sourceCheckedLocatedStrongSources, t.sourceChecked, percentage(t.sourceCheckedLocatedStrongSources, t.sourceChecked)),
         metric('Source-checked nodes using only weak/generic sources', t.sourceCheckedOnlyWeakGeneric, t.sourceChecked, percentage(t.sourceCheckedOnlyWeakGeneric, t.sourceChecked)),
         metric('Nodes with node-level sources', t.nodesWithSources, t.launchQualityTechnologies, percentage(t.nodesWithSources, t.launchQualityTechnologies)),
+        metric('Nodes with located node-level evidence', t.nodesWithLocatedSources, t.launchQualityTechnologies, percentage(t.nodesWithLocatedSources, t.launchQualityTechnologies)),
         metric('Dependency edges with edge-level sources', t.edgesWithSources, t.totalEdges, percentage(t.edgesWithSources, t.totalEdges)),
+        metric('Dependency edges with located evidence', t.edgesWithLocatedSources, t.totalEdges, percentage(t.edgesWithLocatedSources, t.totalEdges)),
         metric('Era-default placeholder dates', t.eraDefaultDates, t.launchQualityTechnologies, percentage(t.eraDefaultDates, t.launchQualityTechnologies))
     ];
 

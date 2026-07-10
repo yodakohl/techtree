@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-low-speed-aerodynamics-thermodynamics-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "aerodynamics_subsonic",
+    "prerequisite": "thermodynamics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Thermodynamics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No thermodynamics dependency remains because Cayley's 1799 low-speed aerodynamic framework predates the graph's 1824 thermodynamics node and does not require compressible-flow energy analysis.",
+  "source_supports_edge": "no",
+  "source_url": "https://appel.nasa.gov/wp-content/uploads/2018/08/NASA-SP-367-Intro-to-Aero-of-Flight.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA's historical introduction dates Cayley's foundational aerodynamic design and force separation to 1799, before the current thermodynamics anchor.",
+    "source_claim_summary": "Foundational low-speed aerodynamics developed through force analysis before formal thermodynamics.",
+    "source_support_rationale": "Thermodynamics matters for later compressible and propulsion problems, but retaining it here would reverse chronology for the scoped Cayley-era aerodynamic science."
+  },
+  "ontology_before": "Low-speed aerodynamics depended on a later thermodynamics node despite its earlier source-backed foundation.",
+  "ontology_after": "Classical low-speed aerodynamics retains experimental and mathematical prerequisites without a reversed thermodynamics edge.",
+  "invariant_preserved_or_changed": "Changed: thermodynamics is no longer a direct prerequisite for aerodynamics_subsonic.",
+  "would_reject_if": [
+    "The node were narrowed to compressible high-subsonic flow where thermodynamic state changes are essential.",
+    "The chronology were moved to a later thermodynamics-dependent formulation rather than Cayley's foundational work."
+  ],
+  "short_reason": "Cayley-era low-speed aerodynamics predates formal thermodynamics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/aerodynamics_subsonic.before.json /tmp/aerodynamics_subsonic.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

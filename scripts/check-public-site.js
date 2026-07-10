@@ -90,12 +90,15 @@ function checkLLMSMetrics(result) {
     'Technologies',
     'Launch-quality scope (non-Future nodes)',
     'Source-checked nodes',
-    'Source-checked nodes with non-placeholder dates',
-    'Source-checked nodes with placeholder dates',
-    'Source-checked nodes with primary/review/textbook/official sources',
+    'Source-checked nodes with resolved chronology',
+    'Source-checked nodes with unresolved chronology',
+    'Source-checked nodes with strong-type node sources',
+    'Source-checked nodes with located strong-type evidence',
     'Source-checked nodes using only weak/generic sources',
     'Nodes with node-level sources',
+    'Nodes with located node-level evidence',
     'Dependency edges with edge-level sources',
+    'Dependency edges with located evidence',
     'Era-default placeholder dates'
   ];
 

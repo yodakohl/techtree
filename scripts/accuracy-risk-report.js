@@ -66,20 +66,42 @@ function usesEraDefaultDate(item) {
         && item.region === defaults.region;
 }
 
-function hasSource(item) {
-    return Array.isArray(item.sources) && item.sources.length > 0;
+function nodeSupportingSources(item) {
+    return (item.sources || []).filter(source => {
+        return Array.isArray(source?.supports) && source.supports.includes('node');
+    });
+}
+
+function hasNodeSource(item) {
+    return nodeSupportingSources(item).length > 0;
+}
+
+function sourceHasLocator(source) {
+    return [source?.source_locator, source?.locator]
+        .some(value => typeof value === 'string' && value.trim().length > 0);
+}
+
+function hasLocatedNodeSource(item) {
+    return nodeSupportingSources(item).some(sourceHasLocator);
+}
+
+function hasUnresolvedChronology(item) {
+    return item?.datePrecision === 'unknown' || usesEraDefaultDate(item);
 }
 
 function allSourcesBelow(item, threshold) {
-    return hasSource(item) && item.sources.every(source => sourceQualityWeight(source.source_type) < threshold);
+    const sources = nodeSupportingSources(item);
+    return sources.length > 0 && sources.every(source => sourceQualityWeight(source.source_type) < threshold);
 }
 
 function allSourcesGeneric(item) {
-    return hasSource(item) && item.sources.every(source => source.source_type === 'generic_overview');
+    const sources = nodeSupportingSources(item);
+    return sources.length > 0 && sources.every(source => source.source_type === 'generic_overview');
 }
 
 function allSourcesWeakOrGeneric(item) {
-    return hasSource(item) && item.sources.every(source => source.source_type === 'generic_overview' || source.source_type === 'weak_web');
+    const sources = nodeSupportingSources(item);
+    return sources.length > 0 && sources.every(source => source.source_type === 'generic_overview' || source.source_type === 'weak_web');
 }
 
 function isWikipediaSource(source) {
@@ -94,10 +116,18 @@ function isWikipediaSource(source) {
 }
 
 function hasStrongTrustSource(item) {
-    return hasSource(item) && item.sources.some(source => {
+    return nodeSupportingSources(item).some(source => {
         if (!STRONG_SOURCE_TYPES.has(source.source_type)) return false;
         if (isWikipediaSource(source)) return false;
-        return Array.isArray(source.supports) && source.supports.includes('node');
+        return true;
+    });
+}
+
+function hasLocatedStrongTrustSource(item) {
+    return nodeSupportingSources(item).some(source => {
+        if (!STRONG_SOURCE_TYPES.has(source.source_type)) return false;
+        if (isWikipediaSource(source)) return false;
+        return sourceHasLocator(source);
     });
 }
 
@@ -126,9 +156,12 @@ function makeReport(data, taxonomy) {
     const candidates = new Map();
 
     let nodesWithSources = 0;
+    let nodesWithLocatedSources = 0;
     let sourceChecked = 0;
-    let sourceCheckedNonPlaceholderDates = 0;
+    let sourceCheckedResolvedChronology = 0;
+    let sourceCheckedUnresolvedChronology = 0;
     let sourceCheckedStrongSources = 0;
+    let sourceCheckedLocatedStrongSources = 0;
     let sourceCheckedNoSources = 0;
     let sourceCheckedAllWeak = 0;
     let sourceCheckedOnlyWeakGeneric = 0;
@@ -137,6 +170,7 @@ function makeReport(data, taxonomy) {
     let sourceCheckedEraDefaultDates = 0;
     let totalEdges = 0;
     let edgesWithSources = 0;
+    let edgesWithLocatedSources = 0;
 
     function addCandidate(item, risk, priority, reason) {
         const existing = candidates.get(item.id);
@@ -161,13 +195,17 @@ function makeReport(data, taxonomy) {
     }
 
     for (const item of scopedData) {
-        if (hasSource(item)) nodesWithSources += 1;
+        if (hasNodeSource(item)) nodesWithSources += 1;
+        if (hasLocatedNodeSource(item)) nodesWithLocatedSources += 1;
         const isSourceChecked = item.reviewStatus === 'source_checked';
         const hasEraDefaultDate = usesEraDefaultDate(item);
+        const hasUnresolvedDate = hasUnresolvedChronology(item);
         if (isSourceChecked) {
             sourceChecked += 1;
-            if (!hasEraDefaultDate) sourceCheckedNonPlaceholderDates += 1;
+            if (hasUnresolvedDate) sourceCheckedUnresolvedChronology += 1;
+            else sourceCheckedResolvedChronology += 1;
             if (hasStrongTrustSource(item)) sourceCheckedStrongSources += 1;
+            if (hasLocatedStrongTrustSource(item)) sourceCheckedLocatedStrongSources += 1;
         }
 
         const era = eraStats[item.era];
@@ -198,7 +236,16 @@ function makeReport(data, taxonomy) {
             }
         }
 
-        if (item.reviewStatus === 'source_checked' && !hasSource(item)) {
+        if (item.datePrecision === 'unknown') {
+            addCandidate(
+                item,
+                isSourceChecked ? 'source_checked_unknown_date_precision' : 'unknown_date_precision',
+                isSourceChecked ? 88 : 72,
+                'Chronology is marked unknown and is not launch-ready even though its year differs from the era default.'
+            );
+        }
+
+        if (item.reviewStatus === 'source_checked' && !hasNodeSource(item)) {
             sourceCheckedNoSources += 1;
             addCandidate(item, 'source_checked_without_sources', 100, 'Source-checked node has no node-level sources.');
         }
@@ -218,7 +265,7 @@ function makeReport(data, taxonomy) {
         for (const field of item.fields || []) {
             if (!fieldStats[field]) continue;
             fieldStats[field].total += 1;
-            if (hasSource(item)) fieldStats[field].sourced += 1;
+            if (hasNodeSource(item)) fieldStats[field].sourced += 1;
             if (item.reviewStatus === 'source_checked') fieldStats[field].sourceChecked += 1;
             if (usesEraDefaultDate(item)) fieldStats[field].eraDefaultDate += 1;
         }
@@ -228,13 +275,16 @@ function makeReport(data, taxonomy) {
             increment(edgeTypes, edge.type || 'unknown');
             increment(edgeEvidence, edge.evidence_level || 'unknown');
             increment(outgoingCounts, edge.prerequisite);
-            if (Array.isArray(edge.sources) && edge.sources.length > 0) edgesWithSources += 1;
+            if (Array.isArray(edge.sources) && edge.sources.length > 0) {
+                edgesWithSources += 1;
+                if (edge.sources.some(sourceHasLocator)) edgesWithLocatedSources += 1;
+            }
         }
     }
 
     for (const item of data) {
         const outgoing = outgoingCounts.get(item.id) || 0;
-        if (outgoing >= 30 && !hasSource(item)) {
+        if (outgoing >= 30 && !hasNodeSource(item)) {
             addCandidate(
                 item,
                 'high_impact_unsourced_anchor',
@@ -259,9 +309,13 @@ function makeReport(data, taxonomy) {
         totals: {
             technologies: data.length,
             nodesWithSources,
+            nodesWithLocatedSources,
             sourceChecked,
-            sourceCheckedNonPlaceholderDates,
+            sourceCheckedNonPlaceholderDates: sourceCheckedResolvedChronology,
+            sourceCheckedResolvedChronology,
+            sourceCheckedUnresolvedChronology,
             sourceCheckedStrongSources,
+            sourceCheckedLocatedStrongSources,
             sourceCheckedNoSources,
             sourceCheckedAllWeak,
             sourceCheckedOnlyWeakGeneric,
@@ -274,7 +328,8 @@ function makeReport(data, taxonomy) {
             eraDefaultDates,
             sourceCheckedEraDefaultDates,
             totalEdges,
-            edgesWithSources
+            edgesWithSources,
+            edgesWithLocatedSources
         },
         reviewStatus: Object.fromEntries([...reviewStatus.entries()].sort()),
         eraStats,
@@ -303,17 +358,20 @@ function renderMarkdown(report) {
         ['Technologies', t.totalTechnologies],
         ['Launch-quality scope', `${t.launchQualityTechnologies} ${t.launchQualityScope} nodes; ${t.excludedFutureTechnologies} Future nodes excluded`],
         ['Nodes with node-level sources', `${t.nodesWithSources}/${t.launchQualityTechnologies} (${percentage(t.nodesWithSources, t.launchQualityTechnologies)})`],
+        ['Nodes with located node-level evidence', `${t.nodesWithLocatedSources}/${t.launchQualityTechnologies} (${percentage(t.nodesWithLocatedSources, t.launchQualityTechnologies)})`],
         ['Source-checked nodes', `${t.sourceChecked}/${t.launchQualityTechnologies} (${percentage(t.sourceChecked, t.launchQualityTechnologies)})`],
-        ['Source-checked nodes with non-placeholder dates', `${t.sourceCheckedNonPlaceholderDates}/${t.sourceChecked} (${percentage(t.sourceCheckedNonPlaceholderDates, t.sourceChecked)})`],
-        ['Source-checked nodes with placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
-        ['Source-checked nodes with primary/review/textbook/official sources', `${t.sourceCheckedStrongSources}/${t.sourceChecked} (${percentage(t.sourceCheckedStrongSources, t.sourceChecked)})`],
+        ['Source-checked nodes with resolved chronology', `${t.sourceCheckedResolvedChronology}/${t.sourceChecked} (${percentage(t.sourceCheckedResolvedChronology, t.sourceChecked)})`],
+        ['Source-checked nodes with unresolved chronology', `${t.sourceCheckedUnresolvedChronology}/${t.sourceChecked} (${percentage(t.sourceCheckedUnresolvedChronology, t.sourceChecked)})`],
+        ['Source-checked nodes with strong-type node sources', `${t.sourceCheckedStrongSources}/${t.sourceChecked} (${percentage(t.sourceCheckedStrongSources, t.sourceChecked)})`],
+        ['Source-checked nodes with located strong-type evidence', `${t.sourceCheckedLocatedStrongSources}/${t.sourceChecked} (${percentage(t.sourceCheckedLocatedStrongSources, t.sourceChecked)})`],
         ['Source-checked nodes using only weak/generic sources', `${t.sourceCheckedOnlyWeakGeneric}/${t.sourceChecked} (${percentage(t.sourceCheckedOnlyWeakGeneric, t.sourceChecked)})`],
         ['Source-checked nodes without sources', t.sourceCheckedNoSources],
         ['Source-checked nodes with only weak sources', t.sourceCheckedAllWeak],
         ['Pre-1900 source-checked nodes with only generic sources', t.sourceCheckedGenericOld],
         ['Era-default placeholder dates', `${t.eraDefaultDates}/${t.launchQualityTechnologies} (${percentage(t.eraDefaultDates, t.launchQualityTechnologies)})`],
         ['Source-checked era-default placeholder dates', `${t.sourceCheckedEraDefaultDates}/${t.sourceChecked} (${percentage(t.sourceCheckedEraDefaultDates, t.sourceChecked)})`],
-        ['Dependency edges with edge-level sources', `${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`]
+        ['Dependency edges with edge-level sources', `${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`],
+        ['Dependency edges with located evidence', `${t.edgesWithLocatedSources}/${t.totalEdges} (${percentage(t.edgesWithLocatedSources, t.totalEdges)})`]
     ]);
 
     const eraRows = [['Era', 'Nodes', 'Era-default placeholder date', 'Source-checked', 'Source-checked placeholder date']];
@@ -369,6 +427,8 @@ function renderText(report) {
     console.log(`Technologies: ${t.totalTechnologies}`);
     console.log(`Launch-quality scope: ${t.launchQualityTechnologies} ${t.launchQualityScope} nodes; ${t.excludedFutureTechnologies} Future nodes excluded`);
     console.log(`Source-checked: ${t.sourceChecked}/${t.launchQualityTechnologies} (${percentage(t.sourceChecked, t.launchQualityTechnologies)})`);
+    console.log(`Resolved source-checked chronology: ${t.sourceCheckedResolvedChronology}/${t.sourceChecked} (${percentage(t.sourceCheckedResolvedChronology, t.sourceChecked)})`);
+    console.log(`Located node evidence: ${t.nodesWithLocatedSources}/${t.launchQualityTechnologies} (${percentage(t.nodesWithLocatedSources, t.launchQualityTechnologies)})`);
     console.log(`Pre-1900 source-checked generic-only: ${t.sourceCheckedGenericOld}`);
     console.log(`Era-default placeholder dates: ${t.eraDefaultDates}/${t.launchQualityTechnologies} (${percentage(t.eraDefaultDates, t.launchQualityTechnologies)})`);
     console.log(`Edge source coverage: ${t.edgesWithSources}/${t.totalEdges} (${percentage(t.edgesWithSources, t.totalEdges)})`);
@@ -401,11 +461,17 @@ module.exports = {
     STRONG_SOURCE_TYPES,
     FUTURE_EXCLUSION_NOTE,
     LAUNCH_QUALITY_SCOPE_LABEL,
+    hasLocatedNodeSource,
+    hasLocatedStrongTrustSource,
+    hasNodeSource,
     hasStrongTrustSource,
+    hasUnresolvedChronology,
     isLaunchQualityNode,
     loadData,
     makeReport,
     percentage,
     readJson,
-    renderMarkdown
+    renderMarkdown,
+    sourceHasLocator,
+    usesEraDefaultDate
 };

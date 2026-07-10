@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-10-hippocratic-case-inspection-removal",
+  "decision_date": "2026-07-10",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "medical_case_notes",
+    "prerequisite": "public_health_inspections"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Health Inspections provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No civic-inspection dependency remains because Hippocratic individual case narratives are a clinical documentary form, not records produced by municipal sanitation offices.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4012665/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The review describes individual Hippocratic case histories around 400 BC and their medical narrative content without linking them to civic health inspection.",
+    "source_claim_summary": "The cited cases belong to the Hippocratic clinical corpus rather than Roman municipal administrative records.",
+    "source_support_rationale": "The former Aedile citation concerned civic administration, while the corrected source locates case histories in clinical observation and writing; those are distinct institutional scopes."
+  },
+  "ontology_before": "Medical case notes depended on an aedile-style public health inspection office unrelated to Hippocratic clinical narratives.",
+  "ontology_after": "Hippocratic case histories are modeled as written clinical records without a municipal-inspection prerequisite.",
+  "invariant_preserved_or_changed": "Changed: public_health_inspections is no longer a direct prerequisite for medical_case_notes.",
+  "would_reject_if": [
+    "The node were respecified as municipal inspection reports rather than individual clinical case histories.",
+    "A primary source demonstrated that the cited Hippocratic cases were produced by civic sanitation inspectors."
+  ],
+  "short_reason": "Clinical case histories are not municipal inspection records.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/medical_case_notes.before.json /tmp/medical_case_notes.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

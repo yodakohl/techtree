@@ -1,22 +1,18 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const { ERA_DEFAULT_DATES } = require('./edge-schema');
-const { loadData, percentage } = require('./accuracy-risk-report');
+const {
+    hasUnresolvedChronology,
+    loadData,
+    percentage,
+    usesEraDefaultDate
+} = require('./accuracy-risk-report');
 const { FUTURE_EXCLUSION_NOTE, isLaunchQualityNode } = require('./quality-scope');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const OUTPUT_FILE = path.join(ROOT_DIR, 'docs', 'SOURCE_CHECKED_PLACEHOLDER_DATES.md');
 const args = new Set(process.argv.slice(2));
 const checkOnly = args.has('--check');
-
-function usesEraDefaultDate(item) {
-    const defaults = ERA_DEFAULT_DATES[item.era];
-    return Boolean(defaults)
-        && item.firstKnownDate === defaults.firstKnownDate
-        && item.datePrecision === defaults.datePrecision
-        && item.region === defaults.region;
-}
 
 function hasExplicitDateUncertainty(item) {
     return item.dateUncertainty === true
@@ -34,7 +30,9 @@ function dateUncertaintyReason(item) {
     if (item.dateUncertainty === true) {
         return 'Explicitly marked date-uncertain; source supports the node, but the canonical first-known date still needs chronology review.';
     }
-    return 'Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review.';
+    return item.datePrecision === 'unknown'
+        ? 'Listed exception: chronology precision is unknown and still needs source-backed resolution.'
+        : 'Listed exception: source supports the node, but the canonical first-known date is still an era-default placeholder pending chronology review.';
 }
 
 function reportIds(markdown) {
@@ -53,17 +51,17 @@ function buildReport(data = loadData()) {
     const sourceChecked = data
         .filter(isLaunchQualityNode)
         .filter(item => item.reviewStatus === 'source_checked');
-    const placeholders = sourceChecked
-        .filter(item => usesEraDefaultDate(item))
+    const unresolved = sourceChecked
+        .filter(item => hasUnresolvedChronology(item))
         .sort((a, b) => {
             const eraDelta = String(a.era).localeCompare(String(b.era));
             if (eraDelta) return eraDelta;
             return a.id.localeCompare(b.id);
         });
-    const exceptions = placeholders.filter(item => !hasExplicitDateUncertainty(item));
+    const exceptions = unresolved.filter(item => !hasExplicitDateUncertainty(item));
 
     const byEra = new Map();
-    for (const item of placeholders) {
+    for (const item of unresolved) {
         const current = byEra.get(item.era) || { total: 0, explicitUncertainty: 0, exceptions: 0 };
         current.total += 1;
         if (hasExplicitDateUncertainty(item)) current.explicitUncertainty += 1;
@@ -71,14 +69,14 @@ function buildReport(data = loadData()) {
         byEra.set(item.era, current);
     }
 
-    const summaryRows = [['Era', 'Source-checked placeholder dates', 'With explicit uncertainty metadata', 'Listed exceptions']];
+    const summaryRows = [['Era', 'Source-checked unresolved dates', 'With explicit uncertainty metadata', 'Listed exceptions']];
     for (const [era, counts] of [...byEra.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
         summaryRows.push([era, counts.total, counts.explicitUncertainty, counts.exceptions]);
     }
 
-    const placeholderRows = [['ID', 'Name', 'Era', 'firstKnownDate', 'datePrecision', 'Source title', 'source_type', 'Why date is still uncertain']];
-    for (const item of placeholders) {
-        placeholderRows.push([
+    const unresolvedRows = [['ID', 'Name', 'Era', 'firstKnownDate', 'datePrecision', 'Source title', 'source_type', 'Why date is still uncertain']];
+    for (const item of unresolved) {
+        unresolvedRows.push([
             `\`${item.id}\``,
             item.name,
             item.era,
@@ -91,25 +89,25 @@ function buildReport(data = loadData()) {
     }
 
     return [
-        '# Source-Checked Placeholder Date Exceptions',
+        '# Source-Checked Unresolved Chronology',
         '',
         'Generated from canonical era JSON. Future forecast nodes are excluded from this launch-quality report.',
         '',
         FUTURE_EXCLUSION_NOTE,
         '',
-        'A pre-Future `source_checked` node that still uses its era-default date must either carry explicit date uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.',
+        'A pre-Future `source_checked` node with `datePrecision: unknown` or an era-default date must either carry explicit uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.',
         '',
         `Source-checked nodes: ${sourceChecked.length}`,
-        `Source-checked nodes using era-default placeholder dates: ${placeholders.length} / ${sourceChecked.length} (${percentage(placeholders.length, sourceChecked.length)})`,
+        `Source-checked nodes with unresolved chronology: ${unresolved.length} / ${sourceChecked.length} (${percentage(unresolved.length, sourceChecked.length)})`,
         `Listed exceptions without explicit uncertainty metadata: ${exceptions.length}`,
         '',
         '## Summary By Era',
         '',
         markdownTable(summaryRows),
         '',
-        '## Placeholder-Date Nodes',
+        '## Unresolved-Chronology Nodes',
         '',
-        placeholders.length ? markdownTable(placeholderRows) : 'No source-checked placeholder-date nodes.',
+        unresolved.length ? markdownTable(unresolvedRows) : 'No source-checked unresolved-chronology nodes.',
         ''
     ].join('\n');
 }
@@ -136,7 +134,7 @@ function main() {
             console.error(`${path.relative(ROOT_DIR, OUTPUT_FILE)} is missing placeholder-date ids: ${missing.join(', ')}`);
             process.exit(1);
         }
-        console.log('Source-checked placeholder-date exception report is current.');
+        console.log('Source-checked unresolved-chronology report is current.');
         return;
     }
 
