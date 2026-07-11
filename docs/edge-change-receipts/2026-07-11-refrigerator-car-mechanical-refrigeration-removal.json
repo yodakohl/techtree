@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-refrigerator-car-mechanical-refrigeration-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "railway_refrigerator_cars",
+    "prerequisite": "refrigeration"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Refrigeration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The Ayer car used insulation in an ice-replenishment operating context; the source does not identify a mechanical refrigeration plant aboard the car.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.si.edu/object/ayers-patent-model-refrigerator-car-1876%3Anmah_1063788",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Smithsonian dates Ayer's Chicago refrigerator-car patent to November 7, 1876 and describes its double-wall insulation for longer perishable shipments with less ice replenishment.",
+    "source_claim_summary": "The Smithsonian describes Ayer's 1876 insulated railroad car for longer perishable shipments with reduced ice-replenishment cost and delay.",
+    "source_support_rationale": "That object evidence supports rail transport and insulation directly, while refrigeration overstates the apparatus or reverses component-to-system causality."
+  },
+  "ontology_before": "railway_refrigerator_cars inherited directly from refrigeration as an origin or component dependency.",
+  "ontology_after": "railway_refrigerator_cars no longer inherits from refrigeration; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: railway_refrigerator_cars no longer has a direct prerequisite edge from refrigeration.",
+  "would_reject_if": [
+    "Direct historical evidence showed that refrigeration was an operational prerequisite for the source-pinned railway_refrigerator_cars milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "The 1876 insulated car does not require the separately scoped mechanical refrigeration node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

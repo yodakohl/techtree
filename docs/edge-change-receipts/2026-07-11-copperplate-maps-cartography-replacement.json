@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-11-copperplate-maps-cartography-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "precision_map_engraving",
+    "prerequisite": "cartography"
+  },
+  "replaced_edge": {
+    "dependent": "precision_map_engraving",
+    "prerequisite": "technical_drawing_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Technical Drawing Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.9,
+    "evidence_level": "review",
+    "note": "The engraved plate encoded cartographic linework, place names, and signs from a map, making cartographic content the required information layer."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://press.uchicago.edu/sites/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter22.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Pages 3 and 10 explain copperplate intaglio map printing and identify the 1478 Rome Ptolemy's Geography as using punched lettering throughout its engraved maps.",
+    "source_claim_summary": "The chapter describes engraved map linework, place-name lettering, and cartographic signs as the information cut into plates.",
+    "source_support_rationale": "A map plate must begin with cartographic information, whereas the removed technical-drawing node is scoped to later machine-book conventions."
+  },
+  "ontology_before": "precision_map_engraving inherited from technical_drawing_standards, which the cited evidence did not establish as its direct enabling method.",
+  "ontology_after": "precision_map_engraving inherits from cartography, the source-documented capability used by the scoped milestone.",
+  "invariant_preserved_or_changed": "Changed: cartography replaces technical_drawing_standards as a direct prerequisite for precision_map_engraving.",
+  "would_reject_if": [
+    "Direct evidence showed that technical_drawing_standards, rather than cartography, supplied the operative method used in the scoped precision_map_engraving milestone."
+  ],
+  "short_reason": "Cartographic content, not later machine-drawing standards, is encoded on the plate.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-dining-car-mail-order-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "railway_dining_cars",
+    "prerequisite": "mail_order_catalog_retail"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mail-Order Catalog Retail provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "NPS traces dining cars through hospital trains, railroad dining cars, and Pullman hotel service, with no mail-order catalog mechanism involved.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/articles/000/pullman-and-the-advent-of-the-dining-car.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS dates Pullman's President hotel car to 1867 and says the dining-only Delmonico followed one year later, after earlier hospital and railroad cars combined kitchen and dining areas.",
+    "source_claim_summary": "NPS traces dedicated dining cars from onboard rail kitchens and the 1867-1868 Pullman hotel and dining cars.",
+    "source_support_rationale": "The railcar and onboard hospitality workflow explain the milestone directly, while mail_order_catalog_retail is absent from the documented operating history."
+  },
+  "ontology_before": "railway_dining_cars inherited directly from mail_order_catalog_retail as an origin or component dependency.",
+  "ontology_after": "railway_dining_cars no longer inherits from mail_order_catalog_retail; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: railway_dining_cars no longer has a direct prerequisite edge from mail_order_catalog_retail.",
+  "would_reject_if": [
+    "Direct historical evidence showed that mail_order_catalog_retail was an operational prerequisite for the source-pinned railway_dining_cars milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Mail-order retail is unrelated to the documented dining-car lineage.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

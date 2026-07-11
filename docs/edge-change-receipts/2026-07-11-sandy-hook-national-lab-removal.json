@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-sandy-hook-national-lab-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_ballistics_laboratories",
+    "prerequisite": "industrial_laboratories_standard_testing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "The proving ground was a dedicated weapons-testing facility with proof batteries and ranges for systematic ordnance tests."
+  },
+  "new_claim_absent": "Sandy Hook was established in 1874 as its own specialist proving ground, twenty-six years before the separately scoped NPL national standards laboratory.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/gate/learn/historyculture/shpg.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS says the Army established Sandy Hook in 1874 as a dedicated proving ground for systematic tests of new weapons, guns, gunpowder, shells, fuses, and primers.",
+    "source_claim_summary": "NPS documents Sandy Hook as a dedicated U.S. Army weapons-testing site established in 1874.",
+    "source_support_rationale": "Its own proof batteries and ranges supplied the testing institution; later national metrology laboratories are a parallel class rather than an ancestor."
+  },
+  "ontology_before": "industrial_ballistics_laboratories inherited directly from industrial_laboratories_standard_testing as an origin or component dependency.",
+  "ontology_after": "industrial_ballistics_laboratories no longer inherits from industrial_laboratories_standard_testing; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: industrial_ballistics_laboratories no longer has a direct prerequisite edge from industrial_laboratories_standard_testing.",
+  "would_reject_if": [
+    "Direct historical evidence showed that industrial_laboratories_standard_testing was an operational prerequisite for the source-pinned industrial_ballistics_laboratories milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "The 1874 proving ground cannot depend on a 1900 national laboratory model.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

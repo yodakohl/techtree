@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-carbon-arc-welding-machine-tools-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electric_arc_welding",
+    "prerequisite": "precision_machine_tools"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Precision Machine Tools provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "TWI attributes the joining method to heat from an electric arc and does not identify precision machine tools as required for the 1881 demonstration.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.twi-global.com/technical-knowledge/faqs/the-history-of-welding",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The timeline says Auguste de Meritens joined lead storage-battery plates with arc heat at Cabot Laboratory in 1881 and that the resulting patents marked the beginning of carbon arc welding.",
+    "source_claim_summary": "TWI records de Meritens joining lead storage-battery plates with arc heat at Cabot Laboratory in 1881.",
+    "source_support_rationale": "Electric current supplies the documented heat source; precision_machine_tools either names the wrong material or a later manufacturing aid rather than the joining principle."
+  },
+  "ontology_before": "electric_arc_welding inherited directly from precision_machine_tools as an origin or component dependency.",
+  "ontology_after": "electric_arc_welding no longer inherits from precision_machine_tools; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: electric_arc_welding no longer has a direct prerequisite edge from precision_machine_tools.",
+  "would_reject_if": [
+    "Direct historical evidence showed that precision_machine_tools was an operational prerequisite for the source-pinned electric_arc_welding milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Precision machine tools are not part of the documented first arc-welding method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

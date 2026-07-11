@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-ortelius-atlas-drawing-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_map_atlases",
+    "prerequisite": "technical_drawing_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Technical Drawing Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The 1570 atlas does not depend on the separately scoped 1588 machine-book drawing standards; uniform atlas engraving is already represented in its cartography edge.",
+  "source_supports_edge": "no",
+  "source_url": "https://museumplantinmoretus.be/en/first-atlas-abraham-ortelius",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Museum Plantin-Moretus dates the first Ortelius atlas edition to 1570 and describes maps engraved in a uniform format for one volume.",
+    "source_claim_summary": "The museum attributes the atlas's uniform format to Ortelius's map selection and engraving process at the time of the 1570 edition.",
+    "source_support_rationale": "Uniform layout within an atlas is not the same scoped technology as late Renaissance machine-book drawing standards, which the graph dates eighteen years later."
+  },
+  "ontology_before": "The first printed atlas depended on a later technical-drawing node scoped to machine-book conventions.",
+  "ontology_after": "The atlas depends on cartography and printing while its internal uniformity remains part of the atlas claim itself.",
+  "invariant_preserved_or_changed": "Changed: printed_map_atlases no longer directly depends on technical_drawing_standards.",
+  "would_reject_if": [
+    "The technical_drawing_standards node were resourced and redated to a pre-1570 convention directly used to produce Ortelius's atlas."
+  ],
+  "short_reason": "The former prerequisite postdates the atlas and represents a different drawing practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/printed_map_atlases.before.json /tmp/printed_map_atlases.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

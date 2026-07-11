@@ -1,0 +1,111 @@
+{
+  "id": "2026-07-11-renaissance-chronology-source-fit",
+  "description": "Lock the corrected chronology and causal boundaries for the Renaissance source-fit batch.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "naval_logbooks",
+      "operator": "eq",
+      "value": 1669,
+      "reason": "The National Archives dates the surviving Royal Navy officers' log series from around 1669."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "naval_logbooks",
+      "prerequisite": "paper_making",
+      "reason": "The archival evidence documents navigational records rather than a papermaking innovation."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "naval_logbooks",
+      "prerequisite": "navigation",
+      "expected": "enabling",
+      "reason": "Position, course, and movement entries directly use navigational practice."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_map_atlases",
+      "operator": "eq",
+      "value": 1570,
+      "reason": "Museum Plantin-Moretus and the Library of Congress date Ortelius's first atlas to 1570."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_map_atlases",
+      "prerequisite": "technical_drawing_standards",
+      "reason": "The 1570 atlas cannot depend on the separately scoped 1588 machine-book convention."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_standardized_textbooks",
+      "operator": "eq",
+      "value": 1474,
+      "reason": "KU Leuven documents its first printed university textbook in 1474."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_standardized_textbooks",
+      "prerequisite": "scientific_illustration_printing",
+      "reason": "The textbook practice predates and does not require scientific illustration."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_scientific_errata",
+      "operator": "eq",
+      "value": 1665,
+      "reason": "Philosophical Transactions volume 1 includes a standalone errata notice in 1665."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_scientific_errata",
+      "prerequisite": "printed_standardized_textbooks",
+      "reason": "The scoped correction notice is journal-native rather than textbook-derived."
+    },
+    {
+      "type": "first_known_date",
+      "node": "arsenal_standardized_ship_parts",
+      "operator": "eq",
+      "value": 1574,
+      "reason": "The reviewed history dates the documented Venetian prefabricated-parts demonstration to Henry III's 1574 visit."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "arsenal_standardized_ship_parts",
+      "prerequisite": "shipyard_drydocks",
+      "expected": "enabling",
+      "reason": "The Arsenale's docks and sequential sheds formed the production infrastructure."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "arsenal_standardized_ship_parts",
+      "prerequisite": "technical_drawing_standards",
+      "reason": "The later drawing node is not documented in the Venetian production process."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "arsenal_standardized_ship_parts",
+      "prerequisite": "galleon_ship_design",
+      "reason": "Venetian galley and warship production is independent of Iberian galleon design."
+    },
+    {
+      "type": "first_known_date",
+      "node": "naval_gunnery_tables",
+      "operator": "eq",
+      "value": 1578,
+      "reason": "Bourne's table-based printed gunnery manual first appeared in 1578."
+    },
+    {
+      "type": "first_known_date",
+      "node": "clockwork_automata",
+      "operator": "eq",
+      "value": 1585,
+      "reason": "The British Museum dates Schlottheim's Mechanical Galleon to circa 1585."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "clockwork_automata",
+      "prerequisite": "mechanical_theater_machinery",
+      "reason": "The documented object uses integrated clockwork rather than stage machinery."
+    }
+  ]
+}

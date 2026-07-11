@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-clockwork-automata-theater-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "clockwork_automata",
+    "prerequisite": "mechanical_theater_machinery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mechanical Theater Machinery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No theater-machinery prerequisite remains because the documented automaton is driven by integrated spring clockwork rather than stage equipment.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/H_1866-1030-1",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object description and curator's comments document the circa-1585 automaton's springs, clock, gears, programme barrel, moving figures, bellows, music, and cannon sequence.",
+    "source_claim_summary": "The museum identifies a self-contained clockwork mechanism as the source of the Mechanical Galleon's sequenced movement and effects.",
+    "source_support_rationale": "The complete mechanism account supplies no stage apparatus or theater lineage, while the former citation discussed escapements and could not support that edge."
+  },
+  "ontology_before": "Court automata were made downstream of the separately scoped Italian perspective-stage machinery tradition.",
+  "ontology_after": "Court automata remain on the mechanical-clock branch without importing an unrelated theatrical production system.",
+  "invariant_preserved_or_changed": "Changed: clockwork_automata no longer directly depends on mechanical_theater_machinery.",
+  "would_reject_if": [
+    "Workshop evidence established that Schlottheim's scoped automata derived their mechanisms from Renaissance stage machinery rather than clockmaking practice."
+  ],
+  "short_reason": "The object record documents integrated clockwork and no theater-machinery dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/clockwork_automata.before.json /tmp/clockwork_automata.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-corporate-research-quality-control-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_research_laboratories",
+    "prerequisite": "industrial_quality_control"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Quality Control provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "GE describes a laboratory for original research and innovation, not an institution derived from factory inspection or statistical quality control.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ge.com/news/reports/innovation-inside-our-dna-ge-announces-ge-researchs-evolution-into-three-new-advanced",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "GE states that it created the General Electric Research Laboratory in 1900 for original research and concentrated researchers under one roof to support the company's innovation.",
+    "source_claim_summary": "GE says its 1900 laboratory concentrated researchers under one roof to conduct original research for company innovation.",
+    "source_support_rationale": "Quality control may use laboratory results, but the institutional mission described by GE is creating new knowledge rather than inspecting production output."
+  },
+  "ontology_before": "industrial_research_laboratories inherited directly from industrial_quality_control as an origin or component dependency.",
+  "ontology_after": "industrial_research_laboratories no longer inherits from industrial_quality_control; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: industrial_research_laboratories no longer has a direct prerequisite edge from industrial_quality_control.",
+  "would_reject_if": [
+    "Direct historical evidence showed that industrial_quality_control was an operational prerequisite for the source-pinned industrial_research_laboratories milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Original corporate research is not downstream of industrial quality inspection.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

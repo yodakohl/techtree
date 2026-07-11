@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-industrial-breechloader-rifling-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "breech_loading_firearms",
+    "prerequisite": "rifling_firearms"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Rifling in Firearms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The Hall arm combined rifling and breech loading, but the source does not say barrel rifling caused or enabled the rear-loading action.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS records Hall's 1819 contract for 1,000 breech-loading rifles, his precision machinery, his December 20, 1822 report that he could fabricate arms exactly alike, and the 1820-1840 uniformity work at Harpers Ferry.",
+    "source_claim_summary": "NPS describes a breech-loading rifle contract and separately details the machinery used to manufacture Hall arms.",
+    "source_support_rationale": "A firearm can possess both properties without one mechanism supplying the method for the other; precision manufacture is the supported production dependency."
+  },
+  "ontology_before": "breech_loading_firearms inherited directly from rifling_firearms as an origin or component dependency.",
+  "ontology_after": "breech_loading_firearms no longer inherits from rifling_firearms; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: breech_loading_firearms no longer has a direct prerequisite edge from rifling_firearms.",
+  "would_reject_if": [
+    "Direct historical evidence showed that rifling_firearms was an operational prerequisite for the source-pinned breech_loading_firearms milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Co-occurring rifling is not a causal prerequisite for a breech-loading mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-venetian-arsenal-galleon-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "arsenal_standardized_ship_parts",
+    "prerequisite": "galleon_ship_design"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Galleon Ship Design provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No galleon prerequisite remains because the Venetian evidence concerns arsenal-wide galley and warship production rather than Iberian galleon design.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.worldhistory.org/article/2776/arsenale/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Shipyard & Workshops describes prefabricated warship subparts and rapid assembly; the article's naval discussion centers on Venetian galleys, galleasses, and arsenal operations.",
+    "source_claim_summary": "The production method is documented as a Venetian arsenal process for its own warship system, not as an application of Iberian galleon design.",
+    "source_support_rationale": "A ship-production workflow can serve multiple hull forms, and the cited Venetian case neither requires nor traces its method through the graph's galleon node."
+  },
+  "ontology_before": "Venetian arsenal prefabrication was modeled as downstream of Iberian Atlantic galleon design.",
+  "ontology_after": "Venetian arsenal prefabrication remains a shipyard production process independent of the parallel galleon-design branch.",
+  "invariant_preserved_or_changed": "Changed: arsenal_standardized_ship_parts no longer directly depends on galleon_ship_design.",
+  "would_reject_if": [
+    "A direct history demonstrated that the 1574 Venetian prefabrication workflow was adopted from and technically required Iberian galleon design."
+  ],
+  "short_reason": "The scoped Venetian production system is not a galleon-design derivative.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/arsenal_standardized_ship_parts.before.json /tmp/arsenal_standardized_ship_parts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-11-naval-logbooks-navigation-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "naval_logbooks",
+    "prerequisite": "navigation"
+  },
+  "replaced_edge": {
+    "dependent": "naval_logbooks",
+    "prerequisite": "paper_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Paper Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "Officers' logbooks recorded a vessel's position, course, and movement, making navigational practice part of the documented information system rather than merely a writing material."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/royal-navy-ships-voyages-log-books/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Sections 1-4 date Royal Navy officers' logs from around 1669 and say masters' logs recorded position, course, movements, and weather.",
+    "source_claim_summary": "The archival guide defines the surviving logbook series through navigational and operational information recorded during voyages.",
+    "source_support_rationale": "Navigation is an information-producing method represented in the entries, whereas paper is only one historically contingent carrier for those entries."
+  },
+  "ontology_before": "The logbook node inherited from papermaking even though its source only described paper production.",
+  "ontology_after": "The scoped officers' logbook node inherits from navigation, the documented practice whose outputs the logs preserve.",
+  "invariant_preserved_or_changed": "Changed: navigation replaces paper_making as the direct enabling prerequisite for naval_logbooks.",
+  "would_reject_if": [
+    "A direct archival history showed that the scoped Royal Navy officers' log series was primarily an innovation in paper manufacture rather than navigational recordkeeping."
+  ],
+  "short_reason": "The archive documents navigational records, not a papermaking dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/naval_logbooks.before.json /tmp/naval_logbooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

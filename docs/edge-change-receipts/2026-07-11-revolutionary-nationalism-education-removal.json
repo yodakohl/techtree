@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-revolutionary-nationalism-education-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "nationalism_modern",
+    "prerequisite": "public_education_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Public Education Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Mass public education later helped states form citizens, but the 1789 revolutionary manifestation precedes the relevant education systems in this graph.",
+  "source_supports_edge": "no",
+  "source_url": "https://assets.cambridge.org/97805217/65169/excerpt/9780521765169_excerpt.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 8-9 explain that the nation-state became an attractive model after the French Revolution of 1789-1815 and that its patriotic national unity helped nationalism become a major nineteenth-century political force.",
+    "source_claim_summary": "The academic sources place the first great modern manifestation in the late eighteenth-century French Revolution and trace later nineteenth-century spread.",
+    "source_support_rationale": "That chronology distinguishes the 1789 political event from public_education_systems, which can affect later diffusion without causing the source-pinned manifestation."
+  },
+  "ontology_before": "nationalism_modern inherited directly from public_education_systems as an origin or component dependency.",
+  "ontology_after": "nationalism_modern no longer inherits from public_education_systems; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: nationalism_modern no longer has a direct prerequisite edge from public_education_systems.",
+  "would_reject_if": [
+    "Direct historical evidence showed that public_education_systems was an operational prerequisite for the source-pinned nationalism_modern milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Public schools are a later nation-building mechanism, not a prerequisite for the French Revolution.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

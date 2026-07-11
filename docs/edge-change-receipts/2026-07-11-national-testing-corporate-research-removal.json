@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-national-testing-corporate-research-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_laboratories_standard_testing",
+    "prerequisite": "industrial_research_laboratories"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Research Laboratories provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "NPL and the scoped GE laboratory were both founded in 1900 in different countries; NPL describes a state standards mission rather than descent from GE corporate research.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.npl.co.uk/about-us/history",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPL says it was founded in 1900 for standardising and verifying instruments, testing materials, and determining physical constants, with research spanning physics, electricity, engineering, and metallurgy.",
+    "source_claim_summary": "NPL records its own 1900 foundation for instrument verification, material testing, and physical constants.",
+    "source_support_rationale": "The institutional missions are parallel laboratory forms; calibration and quality needs explain NPL more directly than a same-year foreign corporate lab."
+  },
+  "ontology_before": "industrial_laboratories_standard_testing inherited directly from industrial_research_laboratories as an origin or component dependency.",
+  "ontology_after": "industrial_laboratories_standard_testing no longer inherits from industrial_research_laboratories; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: industrial_laboratories_standard_testing no longer has a direct prerequisite edge from industrial_research_laboratories.",
+  "would_reject_if": [
+    "Direct historical evidence showed that industrial_research_laboratories was an operational prerequisite for the source-pinned industrial_laboratories_standard_testing milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "A parallel 1900 U.S. corporate laboratory is not NPL's prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

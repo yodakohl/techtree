@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-11-copperplate-maps-printing-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "precision_map_engraving",
+    "prerequisite": "printing_press"
+  },
+  "replaced_edge": {
+    "dependent": "precision_map_engraving",
+    "prerequisite": "printed_map_atlases"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Map Atlases provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Copperplate map engraving was designed to transfer inked intaglio lines repeatedly onto paper as part of the Renaissance print-production system."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://press.uchicago.edu/sites/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter22.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Pages 3 and 10 explain copperplate intaglio map printing and identify the 1478 Rome Ptolemy's Geography as using punched lettering throughout its engraved maps.",
+    "source_claim_summary": "The cartography chapter explains how engraved intaglio plates transferred inked map lines repeatedly onto paper.",
+    "source_support_rationale": "Printing is the production capability used by the engraved plate, while an atlas is a later compiled publication that can consume engraved maps."
+  },
+  "ontology_before": "precision_map_engraving inherited from printed_map_atlases, which the cited evidence did not establish as its direct enabling method.",
+  "ontology_after": "precision_map_engraving inherits from printing_press, the source-documented capability used by the scoped milestone.",
+  "invariant_preserved_or_changed": "Changed: printing_press replaces printed_map_atlases as a direct prerequisite for precision_map_engraving.",
+  "would_reject_if": [
+    "Direct evidence showed that printed_map_atlases, rather than printing_press, supplied the operative method used in the scoped precision_map_engraving milestone."
+  ],
+  "short_reason": "Copperplate printing produces maps and predates the compiled atlas milestone.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

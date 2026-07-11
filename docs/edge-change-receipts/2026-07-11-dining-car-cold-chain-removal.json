@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-dining-car-cold-chain-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "railway_dining_cars",
+    "prerequisite": "food_cold_chain"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Food Cold Chain provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The 1868 dining-only car follows earlier onboard kitchens and preserved meals; NPS does not require a complete refrigerated food-distribution chain.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/articles/000/pullman-and-the-advent-of-the-dining-car.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS dates Pullman's President hotel car to 1867 and says the dining-only Delmonico followed one year later, after earlier hospital and railroad cars combined kitchen and dining areas.",
+    "source_claim_summary": "NPS traces dedicated dining cars from onboard rail kitchens and the 1867-1868 Pullman hotel and dining cars.",
+    "source_support_rationale": "The railcar and onboard hospitality workflow explain the milestone directly, while food_cold_chain is absent from the documented operating history."
+  },
+  "ontology_before": "railway_dining_cars inherited directly from food_cold_chain as an origin or component dependency.",
+  "ontology_after": "railway_dining_cars no longer inherits from food_cold_chain; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: railway_dining_cars no longer has a direct prerequisite edge from food_cold_chain.",
+  "would_reject_if": [
+    "Direct historical evidence showed that food_cold_chain was an operational prerequisite for the source-pinned railway_dining_cars milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Onboard meal service predates and does not require the graph's 1877 cold-chain milestone.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

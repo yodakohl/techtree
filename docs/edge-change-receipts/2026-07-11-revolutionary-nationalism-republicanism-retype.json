@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-11-revolutionary-nationalism-republicanism-retype",
+  "decision_date": "2026-07-11",
+  "change_class": "semantic_retype",
+  "removed_edge": false,
+  "edge": {
+    "dependent": "nationalism_modern",
+    "prerequisite": "democracy_republicanism"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Democracy & Republicanism provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.84,
+    "evidence_level": "textbook",
+    "note": "French Revolutionary nationalism joined popular sovereignty and citizenship to national unity, drawing on republican political traditions as a historical foundation rather than a technical dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://assets.cambridge.org/97805217/65169/excerpt/9780521765169_excerpt.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Pages 8-9 explain that the nation-state became an attractive model after the French Revolution of 1789-1815 and that its patriotic national unity helped nationalism become a major nineteenth-century political force.",
+    "source_claim_summary": "Cambridge links the French revolutionary nation-state model to rights of citizens, patriotic unity, and popular political legitimacy.",
+    "source_support_rationale": "Those ideas establish an intellectual and institutional predecessor relationship, not a technical input consumed by nationalist organization."
+  },
+  "ontology_before": "democracy_republicanism was modeled as a capability directly supplied to nationalism_modern.",
+  "ontology_after": "democracy_republicanism is modeled as documented historical context preceding nationalism_modern, not a consumed technical component.",
+  "invariant_preserved_or_changed": "Changed: nationalism_modern->democracy_republicanism is now historical_predecessor rather than enabling.",
+  "would_reject_if": [
+    "Evidence showed that nationalism_modern operationally consumed democracy_republicanism as a technical component rather than drawing on it as historical context."
+  ],
+  "short_reason": "Republican popular sovereignty is historical political lineage rather than a component capability.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

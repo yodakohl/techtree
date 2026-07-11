@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-university-textbooks-illustration-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_standardized_textbooks",
+    "prerequisite": "scientific_illustration_printing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Illustration Printing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Scientific illustration is not a prerequisite for the scoped 1474 printed university textbooks, which predate the illustration node by decades.",
+  "source_supports_edge": "no",
+  "source_url": "https://research.kuleuven.be/portal/en/project/3H200353",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Project summary: Leuven's first printed textbook appeared in 1474 with Aristotle and Porphyry texts for Faculty of Arts students; the corpus covers 410 teaching-linked editions.",
+    "source_claim_summary": "KU Leuven documents university textbooks as a teaching and print-production practice beginning in 1474 without making scientific illustration constitutive.",
+    "source_support_rationale": "The directly dated textbook practice precedes the graph's 1543 scientific-illustration node, and many curricular text editions required no diagrams at all."
+  },
+  "ontology_before": "Printed university textbooks were placed downstream of a later, optional scientific-book illustration practice.",
+  "ontology_after": "Printed university textbooks depend on printing and university curricula while scientific illustration remains an optional later specialization.",
+  "invariant_preserved_or_changed": "Changed: printed_standardized_textbooks no longer directly depends on scientific_illustration_printing.",
+  "would_reject_if": [
+    "The 1474 Leuven textbook were shown to require printed scientific illustrations or the illustration node were redated earlier than that textbook practice."
+  ],
+  "short_reason": "The dated textbook corpus predates and does not require scientific illustration.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/printed_standardized_textbooks.before.json /tmp/printed_standardized_textbooks.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

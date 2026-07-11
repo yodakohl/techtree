@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-sanitary-codes-factory-safety-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "sanitary_building_codes",
+    "prerequisite": "industrial_safety_regulation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Safety Regulation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Section 157 derives the byelaws from municipal public-health and building powers, without making factory labor-safety regulation a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.legislation.gov.uk/ukpga/1875/55/pdfs/ukpga_18750055_en.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Section 157 on pages 68-69 authorizes urban building byelaws for sewerage, structural health, air space, ventilation, drainage, water closets, privies, cesspools, and buildings unfit for habitation.",
+    "source_claim_summary": "The 1875 Act directly authorizes urban building rules for health, ventilation, drainage, waste facilities, and habitation.",
+    "source_support_rationale": "Municipal sanitation and code enforcement match the statute's authority and subject matter; occupational factory rules govern a different regulated setting."
+  },
+  "ontology_before": "sanitary_building_codes inherited directly from industrial_safety_regulation as an origin or component dependency.",
+  "ontology_after": "sanitary_building_codes no longer inherits from industrial_safety_regulation; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: sanitary_building_codes no longer has a direct prerequisite edge from industrial_safety_regulation.",
+  "would_reject_if": [
+    "Direct historical evidence showed that industrial_safety_regulation was an operational prerequisite for the source-pinned sanitary_building_codes milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Factory safety law is a parallel regulatory lineage, not the basis of section 157.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

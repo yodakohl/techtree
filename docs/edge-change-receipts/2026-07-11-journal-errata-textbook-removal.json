@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-journal-errata-textbook-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_scientific_errata",
+    "prerequisite": "printed_standardized_textbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printed Standardized Textbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No textbook prerequisite remains because the node is now scoped to correction notices inside recurring scientific journals.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.jstor.org/stable/101433",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Philosophical Transactions volume 1, number 4 lists a standalone Errata notice on page 78 as JSTOR stable item 101433.",
+    "source_claim_summary": "The primary publication demonstrates a scientific erratum as a component of a numbered journal issue in 1665.",
+    "source_support_rationale": "The corrected object is journal-native; textbook publication contributes neither the corrected venue nor a necessary production method for the notice."
+  },
+  "ontology_before": "Scientific errata inherited jointly from textbooks and journals despite the cited evidence containing only a journal history.",
+  "ontology_after": "Scientific journal errata remain downstream of scientific journals without laundering book-revision practices into the node.",
+  "invariant_preserved_or_changed": "Changed: printed_scientific_errata no longer directly depends on printed_standardized_textbooks.",
+  "would_reject_if": [
+    "Evidence showed that the scoped 1665 Philosophical Transactions erratum required or was derived from printed university textbook production."
+  ],
+  "short_reason": "The primary record is a journal correction notice, not a textbook-derived practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/printed_scientific_errata.before.json /tmp/printed_scientific_errata.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

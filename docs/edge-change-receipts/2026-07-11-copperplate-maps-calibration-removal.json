@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-copperplate-maps-calibration-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "precision_map_engraving",
+    "prerequisite": "instrument_calibration_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Instrument Calibration Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The 1478 engraved maps are documented through intaglio cutting and punched lettering; no calibrated-instrument institution is required for that print process.",
+  "source_supports_edge": "no",
+  "source_url": "https://press.uchicago.edu/sites/hoc/HOC_V3_Pt1/HOC_VOLUME3_Part1_chapter22.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 3 and 10 explain copperplate intaglio map printing and identify the 1478 Rome Ptolemy's Geography as using punched lettering throughout its engraved maps.",
+    "source_claim_summary": "The chapter identifies copperplate intaglio technique and punched lettering throughout the 1478 Rome Ptolemy maps.",
+    "source_support_rationale": "Engraving reproduces existing cartographic content on a plate; calibration may improve later surveys but is not part of the documented plate-making operation."
+  },
+  "ontology_before": "precision_map_engraving inherited directly from instrument_calibration_standards as an origin or component dependency.",
+  "ontology_after": "precision_map_engraving no longer inherits from instrument_calibration_standards; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: precision_map_engraving no longer has a direct prerequisite edge from instrument_calibration_standards.",
+  "would_reject_if": [
+    "Direct historical evidence showed that instrument_calibration_standards was an operational prerequisite for the source-pinned precision_map_engraving milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Instrument calibration is not documented as a prerequisite for the 1478 engraving method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

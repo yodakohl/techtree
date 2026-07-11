@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-11-ammonia-fertilizer-lineage-retype",
+  "decision_date": "2026-07-11",
+  "change_class": "semantic_retype",
+  "removed_edge": false,
+  "edge": {
+    "dependent": "synthetic_ammonia_research",
+    "prerequisite": "chemical_fertilizers"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Chemical Fertilizers provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.8,
+    "evidence_level": "review",
+    "note": "Existing nitrogen-fertilizer use and constrained ammonium-salt supply formed the documented agricultural context for synthetic ammonia research."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.basf.com/gb/en/media/science-around-us/fertilizer-out-of-thin-air",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "BASF dates Haber's foundational ammonia-synthesis work from 1904, Bosch's industrial scale-up assignment to 1909, its materials-testing facility to 1912, and the first industrial plant to September 1913.",
+    "source_claim_summary": "BASF connects ammonia synthesis to constrained fertilizer supply and later large-scale mineral-fertilizer production.",
+    "source_support_rationale": "Agricultural demand motivated and commercialized the research, while chemical equilibrium, feed gases, catalysts, and high-pressure engineering performed the synthesis."
+  },
+  "ontology_before": "chemical_fertilizers was modeled as a capability directly supplied to synthetic_ammonia_research.",
+  "ontology_after": "chemical_fertilizers is modeled as documented historical context preceding synthetic_ammonia_research, not a consumed technical component.",
+  "invariant_preserved_or_changed": "Changed: synthetic_ammonia_research->chemical_fertilizers is now historical_predecessor rather than enabling.",
+  "would_reject_if": [
+    "Evidence showed that synthetic_ammonia_research operationally consumed chemical_fertilizers as a technical component rather than drawing on it as historical context."
+  ],
+  "short_reason": "Existing fertilizers supplied application demand and historical context, not the synthesis method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

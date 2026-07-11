@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-revolutionary-nationalism-printing-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "nationalism_modern",
+    "prerequisite": "printing_press"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Printing Press provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The French Revolution is the scoped political manifestation; print helped spread ideas but is not established as a direct origin prerequisite for the 1789 event.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/journals/american-political-science-review/article/abs/nature-of-nationalism/F194739E31731C18104C697E9D3CC747",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The article dates modern nationalism to the second half of the eighteenth century and calls the French Revolution its first great manifestation while distinguishing deeper historical roots.",
+    "source_claim_summary": "The academic sources place the first great modern manifestation in the late eighteenth-century French Revolution and trace later nineteenth-century spread.",
+    "source_support_rationale": "That chronology distinguishes the 1789 political event from printing_press, which can affect later diffusion without causing the source-pinned manifestation."
+  },
+  "ontology_before": "nationalism_modern inherited directly from printing_press as an origin or component dependency.",
+  "ontology_after": "nationalism_modern no longer inherits from printing_press; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: nationalism_modern no longer has a direct prerequisite edge from printing_press.",
+  "would_reject_if": [
+    "Direct historical evidence showed that printing_press was an operational prerequisite for the source-pinned nationalism_modern milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Printing is a diffusion channel, not the origin dependency documented for 1789 nationalism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

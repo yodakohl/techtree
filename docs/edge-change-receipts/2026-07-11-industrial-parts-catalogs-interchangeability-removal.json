@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-industrial-parts-catalogs-interchangeability-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_parts_catalogs",
+    "prerequisite": "interchangeable_parts"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.66,
+    "evidence_level": "textbook",
+    "note": "Interchangeable parts scaled the replacement-part and specification use case for industrial catalogs, but trade catalogs could exist for non-interchangeable goods."
+  },
+  "new_claim_absent": "Industrial trade catalogs existed before Hall's 1822 interchangeable-parts milestone, so later replacement-part demand is retained in scope notes rather than modeled as an origin edge.",
+  "source_supports_edge": "no",
+  "source_url": "https://library.si.edu/trade-literature",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Smithsonian defines trade literature as printed or handwritten lists of items for sale and says manufacturers issued trade catalogs to promote and sell products.",
+    "source_claim_summary": "The Smithsonian definition covers manufacturer catalogs and sales lists without limiting them to standardized interchangeable replacement parts.",
+    "source_support_rationale": "Printing and merchandising explain the early catalog form directly; interchangeability is a later product characteristic that expands one catalog use case but reverses first-known chronology."
+  },
+  "ontology_before": "Industrial parts catalogs retained a later interchangeable-parts scaling edge even though the node includes earlier general industrial trade literature.",
+  "ontology_after": "Industrial parts catalogs inherit from printing, while later standardized replacement-part cataloging remains a maturity use case rather than an origin dependency.",
+  "invariant_preserved_or_changed": "Changed: industrial_parts_catalogs no longer directly depends on interchangeable_parts.",
+  "would_reject_if": [
+    "The node were narrowed to catalogs exclusively listing standardized interchangeable replacement parts first documented after 1822."
+  ],
+  "short_reason": "General industrial trade catalogs predate interchangeable replacement parts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_parts_catalogs.before3.json /tmp/industrial_parts_catalogs.after3.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

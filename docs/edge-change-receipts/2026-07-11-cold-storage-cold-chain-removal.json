@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-cold-storage-cold-chain-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "cold_storage_warehouses",
+    "prerequisite": "food_cold_chain"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Food Cold Chain provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The warehouse is a physical storage component that later participates in integrated cold chains, so the complete chain is not its prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/pictures/item/ri0344/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The HAER record dates initial construction to 1893-1894 and describes a Providence cold-storage warehouse using then-current insulation, electricity generation, and refrigeration technology.",
+    "source_claim_summary": "HAER documents the Providence building as an insulated, powered, mechanically refrigerated storage warehouse.",
+    "source_support_rationale": "Refrigeration and warehouse operations explain the facility itself; transport-wide temperature continuity is a larger system assembled from facilities like this one."
+  },
+  "ontology_before": "cold_storage_warehouses inherited directly from food_cold_chain as an origin or component dependency.",
+  "ontology_after": "cold_storage_warehouses no longer inherits from food_cold_chain; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: cold_storage_warehouses no longer has a direct prerequisite edge from food_cold_chain.",
+  "would_reject_if": [
+    "Direct historical evidence showed that food_cold_chain was an operational prerequisite for the source-pinned cold_storage_warehouses milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "A cold-storage warehouse is a component of the cold chain, not its descendant.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

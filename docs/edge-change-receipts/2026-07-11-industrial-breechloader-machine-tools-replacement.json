@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-11-industrial-breechloader-machine-tools-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "breech_loading_firearms",
+    "prerequisite": "precision_machine_tools"
+  },
+  "replaced_edge": {
+    "dependent": "breech_loading_firearms",
+    "prerequisite": "steel_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Steel Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Hall's contract and subsequent rifle works joined the breech-loading design to purpose-built precision machinery for repeatable arm production."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "NPS records Hall's 1819 contract for 1,000 breech-loading rifles, his precision machinery, his December 20, 1822 report that he could fabricate arms exactly alike, and the 1820-1840 uniformity work at Harpers Ferry.",
+    "source_claim_summary": "NPS describes Hall tooling workshops and building drilling and cutting machines for repeatable production of his breech-loading rifles.",
+    "source_support_rationale": "Those machines directly shaped the action and components, while the removed Huntsman biography did not discuss Hall rifles or breech mechanisms."
+  },
+  "ontology_before": "breech_loading_firearms inherited from steel_production, which the cited evidence did not establish as its direct enabling method.",
+  "ontology_after": "breech_loading_firearms inherits from precision_machine_tools, the source-documented capability used by the scoped milestone.",
+  "invariant_preserved_or_changed": "Changed: precision_machine_tools replaces steel_production as a direct prerequisite for breech_loading_firearms.",
+  "would_reject_if": [
+    "Direct evidence showed that steel_production, rather than precision_machine_tools, supplied the operative method used in the scoped breech_loading_firearms milestone."
+  ],
+  "short_reason": "Purpose-built precision machinery, not generic crucible steel, is documented in Hall production.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

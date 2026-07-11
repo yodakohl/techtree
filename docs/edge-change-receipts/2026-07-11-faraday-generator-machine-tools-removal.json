@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-faraday-generator-machine-tools-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electric_generators_dynamos",
+    "prerequisite": "precision_machine_tools"
+  },
+  "old_claim": {
+    "type": "required",
+    "confidence": 0.82,
+    "evidence_level": "expert_inference",
+    "note": "Precision Machine Tools is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim_absent": "The 1831 experimental disk apparatus is documented as an electromagnetic generator, without precision machine tools identified as a required production system.",
+  "source_supports_edge": "no",
+  "source_url": "https://americanhistory.si.edu/collections/object/nmah_709848",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Smithsonian collection identifies the apparatus as a model of Faraday's 1831 dynamo, the rotating disk generator associated with his electromagnetic-induction experiments.",
+    "source_claim_summary": "The Smithsonian object record identifies a model of Faraday's 1831 dynamo and its rotating generator configuration.",
+    "source_support_rationale": "Later industrial dynamos benefited from precision manufacturing, but that scaling relationship should not be projected backward as an origin dependency."
+  },
+  "ontology_before": "electric_generators_dynamos inherited directly from precision_machine_tools as an origin or component dependency.",
+  "ontology_after": "electric_generators_dynamos no longer inherits from precision_machine_tools; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: electric_generators_dynamos no longer has a direct prerequisite edge from precision_machine_tools.",
+  "would_reject_if": [
+    "Direct historical evidence showed that precision_machine_tools was an operational prerequisite for the source-pinned electric_generators_dynamos milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Precision machine tools are not documented as a prerequisite for the first Faraday disk.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

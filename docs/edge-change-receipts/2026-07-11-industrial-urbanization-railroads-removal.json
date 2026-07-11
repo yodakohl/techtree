@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-industrial-urbanization-railroads-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_urbanization",
+    "prerequisite": "railroads"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Railroads provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The factory-era urbanization process begins before the 1825 railway milestone; railways later accelerated urban growth but did not originate the scoped process.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/books/abs/cambridge-urban-history-of-britain/population-and-society-17001840/A2FA7FE65F5A6C05FA4EC09794441034",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The chapter treats 1750-1850 urbanization and industrialization as related processes, attributes much urban growth to migration, and notes the 1851 majority-urban census milestone.",
+    "source_claim_summary": "Cambridge documents industrial urbanization as a migration-driven process extending from the eighteenth century into the mid-nineteenth century.",
+    "source_support_rationale": "That chronology begins before railways and supports factories and migration as the initial process; later rail transport can accelerate growth without being its prerequisite."
+  },
+  "ontology_before": "Industrial urbanization inherited directly from railways despite the urbanization process beginning before the graph's first railway milestone.",
+  "ontology_after": "Industrial urbanization retains factory and agricultural lineage while railways remain later transport infrastructure outside its origin edges.",
+  "invariant_preserved_or_changed": "Changed: industrial_urbanization no longer directly depends on railroads.",
+  "would_reject_if": [
+    "Direct demographic evidence showed that the scoped British industrial urbanization process began only after and because of railway deployment."
+  ],
+  "short_reason": "Railways accelerated an urbanization process that was already underway.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_urbanization.before3.json /tmp/industrial_urbanization.after3.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

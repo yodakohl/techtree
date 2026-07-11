@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-11-venetian-arsenal-shipyard-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "arsenal_standardized_ship_parts",
+    "prerequisite": "shipyard_drydocks"
+  },
+  "replaced_edge": {
+    "dependent": "arsenal_standardized_ship_parts",
+    "prerequisite": "technical_drawing_standards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Technical Drawing Standards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "The Arsenale's drydocks, wet docks, workshops, and sequential work sheds supplied the physical shipyard system in which stored subparts could be assembled and ships floated between production stages."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.worldhistory.org/article/2776/arsenale/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Opening and Shipyard & Workshops sections describe the drydocks, wet docks, workshops, sequential sheds, stored subparts, and ships floated between assembly stages.",
+    "source_claim_summary": "The reviewed history presents prefabricated-part production as an operation of the Arsenale's integrated shipyard infrastructure.",
+    "source_support_rationale": "Docks and sequential work sheds are physical components of the documented production system; the removed drawing node is later and concerns another shipbuilding tradition."
+  },
+  "ontology_before": "Venetian prefabrication inherited from late technical drawing despite no direct Venetian evidence and an incompatible date.",
+  "ontology_after": "Venetian prefabrication inherits from the shipyard and dock infrastructure in which its production sequence physically operated.",
+  "invariant_preserved_or_changed": "Changed: shipyard_drydocks replaces technical_drawing_standards as the direct enabling prerequisite.",
+  "would_reject_if": [
+    "Primary production records showed that the 1574 prefabrication system depended on the later scoped drawing convention but not on the Arsenale's docks and sequential work sheds."
+  ],
+  "short_reason": "The source directly documents shipyard infrastructure as the production system.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/arsenal_standardized_ship_parts.before.json /tmp/arsenal_standardized_ship_parts.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-revolutionary-nationalism-railroads-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "nationalism_modern",
+    "prerequisite": "railroads"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Railroads provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The source places nationalism at the French Revolution decades before the graph's 1825 railway milestone, making railways later diffusion infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://assets.cambridge.org/97805217/65169/excerpt/9780521765169_excerpt.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 8-9 explain that the nation-state became an attractive model after the French Revolution of 1789-1815 and that its patriotic national unity helped nationalism become a major nineteenth-century political force.",
+    "source_claim_summary": "The academic sources place the first great modern manifestation in the late eighteenth-century French Revolution and trace later nineteenth-century spread.",
+    "source_support_rationale": "That chronology distinguishes the 1789 political event from railroads, which can affect later diffusion without causing the source-pinned manifestation."
+  },
+  "ontology_before": "nationalism_modern inherited directly from railroads as an origin or component dependency.",
+  "ontology_after": "nationalism_modern no longer inherits from railroads; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: nationalism_modern no longer has a direct prerequisite edge from railroads.",
+  "would_reject_if": [
+    "Direct historical evidence showed that railroads was an operational prerequisite for the source-pinned nationalism_modern milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Railways postdate the scoped 1789 manifestation and cannot be its origin prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

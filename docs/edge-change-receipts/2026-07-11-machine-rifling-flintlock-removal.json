@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-machine-rifling-flintlock-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "rifling_firearms",
+    "prerequisite": "muskets_flintlock"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Muskets (Flintlock) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The scoped Hall milestone is enabled by dedicated precision machinery; neither a smoothbore flintlock musket nor Huntsman steel is documented as the causal production method.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nps.gov/hafe/learn/historyculture/john-h-hall.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NPS records Hall's 1819 contract for 1,000 breech-loading rifles, his precision machinery, his December 20, 1822 report that he could fabricate arms exactly alike, and the 1820-1840 uniformity work at Harpers Ferry.",
+    "source_claim_summary": "NPS attributes Hall rifle production to specially tooled workshops, drilling machinery, cutting machines, and the uniformity principle.",
+    "source_support_rationale": "The documented machine process directly explains repeatable rifle manufacture, while the former muskets_flintlock edge merely named a neighboring firearm or material technology."
+  },
+  "ontology_before": "rifling_firearms inherited directly from muskets_flintlock as an origin or component dependency.",
+  "ontology_after": "rifling_firearms no longer inherits from muskets_flintlock; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: rifling_firearms no longer has a direct prerequisite edge from muskets_flintlock.",
+  "would_reject_if": [
+    "Direct historical evidence showed that muskets_flintlock was an operational prerequisite for the source-pinned rifling_firearms milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "muskets_flintlock is not the method documented for Hall's machine-produced rifles.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

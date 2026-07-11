@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-11-installment-selling-mass-production-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "consumer_installment_credit",
+    "prerequisite": "mass_production"
+  },
+  "replaced_edge": {
+    "dependent": "consumer_installment_credit",
+    "prerequisite": "department_stores_mass_retail"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Department Stores & Mass Retail provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "Mechanized production of consumer durables created the product volumes and price structure through which installment selling became available to a broad market."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.library.hbs.edu/hc/credit/credit4b.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The Harvard exhibit says mechanization and mass-produced consumer durables made installment plans broadly available in the nineteenth century and quotes the Singer company plan in 1856.",
+    "source_claim_summary": "The Harvard exhibit says mechanization and mass production of durable goods made installment plans available to average consumers.",
+    "source_support_rationale": "The production system explains the volume and economics behind installment contracts, while the cited Singer milestone was not a department-store practice."
+  },
+  "ontology_before": "consumer_installment_credit inherited from department_stores_mass_retail, which the cited evidence did not establish as its direct enabling method.",
+  "ontology_after": "consumer_installment_credit inherits from mass_production, the source-documented capability used by the scoped milestone.",
+  "invariant_preserved_or_changed": "Changed: mass_production replaces department_stores_mass_retail as a direct prerequisite for consumer_installment_credit.",
+  "would_reject_if": [
+    "Direct evidence showed that department_stores_mass_retail, rather than mass_production, supplied the operative method used in the scoped consumer_installment_credit milestone."
+  ],
+  "short_reason": "Harvard ties broad installment selling to mass-produced durable goods, not department-store origin.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

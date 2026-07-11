@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-installment-selling-stock-exchange-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "consumer_installment_credit",
+    "prerequisite": "stock_exchange_modern"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Modern Stock Exchange provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The Singer installment contract operated through retail delivery and scheduled payments; the source does not make stock-exchange trading part of the method.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.library.hbs.edu/hc/credit/credit4b.html",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Harvard exhibit says mechanization and mass-produced consumer durables made installment plans broadly available in the nineteenth century and quotes the Singer company plan in 1856.",
+    "source_claim_summary": "Harvard documents installment sales through durable-goods firms, retail agents, down payments, and scheduled customer payments.",
+    "source_support_rationale": "Corporate finance may support firms generally, but it is not the transactional mechanism by which the source says consumers acquired goods on installments."
+  },
+  "ontology_before": "consumer_installment_credit inherited directly from stock_exchange_modern as an origin or component dependency.",
+  "ontology_after": "consumer_installment_credit no longer inherits from stock_exchange_modern; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: consumer_installment_credit no longer has a direct prerequisite edge from stock_exchange_modern.",
+  "would_reject_if": [
+    "Direct historical evidence showed that stock_exchange_modern was an operational prerequisite for the source-pinned consumer_installment_credit milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "A securities exchange is not part of the documented retail installment contract.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-mass-advertising-department-store-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "advertising_mass_media_early",
+    "prerequisite": "department_stores_mass_retail"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Department Stores & Mass Retail provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Advertising agents and print campaigns are documented before the 1852 modern department-store milestone, so stores are later clients rather than origin prerequisites.",
+  "source_supports_edge": "no",
+  "source_url": "https://americanhistory.si.edu/explore/exhibitions/american-enterprise/online/advertising-business/early-years",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Smithsonian traces newspaper advertising agents in the 1830s-1840s, urban billposting in the 1850s, and the later combination of industrialization, railroads, print media, and national markets.",
+    "source_claim_summary": "The Smithsonian chronology places newspaper-space agents in the 1830s and 1840s, before Le Bon Marche opened in 1852.",
+    "source_support_rationale": "A later retail customer can expand advertising demand without being the capability that created newspaper agents, handbills, or urban billposting."
+  },
+  "ontology_before": "advertising_mass_media_early inherited directly from department_stores_mass_retail as an origin or component dependency.",
+  "ontology_after": "advertising_mass_media_early no longer inherits from department_stores_mass_retail; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: advertising_mass_media_early no longer has a direct prerequisite edge from department_stores_mass_retail.",
+  "would_reject_if": [
+    "Direct historical evidence showed that department_stores_mass_retail was an operational prerequisite for the source-pinned advertising_mass_media_early milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "Print advertising agencies predate the scoped modern department store.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

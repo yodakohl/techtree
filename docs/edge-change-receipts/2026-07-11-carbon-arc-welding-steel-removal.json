@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-carbon-arc-welding-steel-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electric_arc_welding",
+    "prerequisite": "steel_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Steel Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The 1881 demonstration joined lead battery plates, so generic steel production is not a prerequisite for the scoped first carbon-arc welding event.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.twi-global.com/technical-knowledge/faqs/the-history-of-welding",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The timeline says Auguste de Meritens joined lead storage-battery plates with arc heat at Cabot Laboratory in 1881 and that the resulting patents marked the beginning of carbon arc welding.",
+    "source_claim_summary": "TWI records de Meritens joining lead storage-battery plates with arc heat at Cabot Laboratory in 1881.",
+    "source_support_rationale": "Electric current supplies the documented heat source; steel_production either names the wrong material or a later manufacturing aid rather than the joining principle."
+  },
+  "ontology_before": "electric_arc_welding inherited directly from steel_production as an origin or component dependency.",
+  "ontology_after": "electric_arc_welding no longer inherits from steel_production; the source-pinned scope is represented by its remaining prerequisites.",
+  "invariant_preserved_or_changed": "Changed: electric_arc_welding no longer has a direct prerequisite edge from steel_production.",
+  "would_reject_if": [
+    "Direct historical evidence showed that steel_production was an operational prerequisite for the source-pinned electric_arc_welding milestone rather than later context or a parallel practice."
+  ],
+  "short_reason": "The first documented arc weld used lead, not steel.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-11-faraday-generator-electromagnetism-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "electric_generators_dynamos",
+    "prerequisite": "electromagnetism_early_discoveries"
+  },
+  "replaced_edge": {
+    "dependent": "electric_generators_dynamos",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.62,
+    "evidence_level": "expert_inference",
+    "note": "Steam engines drove many early central-station dynamos, but generator principles and small generators did not require steam engines as hard prerequisites."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.9,
+    "evidence_level": "textbook",
+    "note": "Faraday's rotating generator applied the relationship between magnetism, motion, and induced electric current established by early electromagnetism."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britannica.com/technology/dynamo",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Britannica explains the dynamo as an electric generator and places Faraday's 1831 induction work at the foundation of mechanical-to-electrical energy conversion.",
+    "source_claim_summary": "The references identify Faraday's 1831 apparatus as an electric generator founded on electromagnetic induction.",
+    "source_support_rationale": "The first disk could be rotated without steam power, whereas the magnetism-motion-current relationship is the physical principle that produces its output."
+  },
+  "ontology_before": "electric_generators_dynamos inherited from steam_engine, which the cited evidence did not establish as its direct enabling method.",
+  "ontology_after": "electric_generators_dynamos inherits from electromagnetism_early_discoveries, the source-documented capability used by the scoped milestone.",
+  "invariant_preserved_or_changed": "Changed: electromagnetism_early_discoveries replaces steam_engine as a direct prerequisite for electric_generators_dynamos.",
+  "would_reject_if": [
+    "Direct evidence showed that steam_engine, rather than electromagnetism_early_discoveries, supplied the operative method used in the scoped electric_generators_dynamos milestone."
+  ],
+  "short_reason": "Electromagnetic induction explains the 1831 generator; a steam engine does not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-11-national-testing-calibration-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "industrial_laboratories_standard_testing",
+    "prerequisite": "instrument_calibration_standards"
+  },
+  "replaced_edge": {
+    "dependent": "industrial_laboratories_standard_testing",
+    "prerequisite": "precision_machine_tools"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Precision Machine Tools supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.88,
+    "evidence_level": "review",
+    "note": "NPL's founding mission explicitly centered on standardising and verifying instruments, extending established calibration practice into a national laboratory."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.npl.co.uk/about-us/history",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "NPL says it was founded in 1900 for standardising and verifying instruments, testing materials, and determining physical constants, with research spanning physics, electricity, engineering, and metallurgy.",
+    "source_claim_summary": "NPL states that standardising and verifying instruments was one of its three founding purposes in 1900.",
+    "source_support_rationale": "Verification extends calibration practice into an authoritative laboratory service, while generic machine tools are neither the mission nor a necessary institutional predecessor."
+  },
+  "ontology_before": "industrial_laboratories_standard_testing inherited from precision_machine_tools, which the cited evidence did not establish as its direct enabling method.",
+  "ontology_after": "industrial_laboratories_standard_testing inherits from instrument_calibration_standards, the source-documented capability used by the scoped milestone.",
+  "invariant_preserved_or_changed": "Changed: instrument_calibration_standards replaces precision_machine_tools as a direct prerequisite for industrial_laboratories_standard_testing.",
+  "would_reject_if": [
+    "Direct evidence showed that precision_machine_tools, rather than instrument_calibration_standards, supplied the operative method used in the scoped industrial_laboratories_standard_testing milestone."
+  ],
+  "short_reason": "NPL explicitly standardized and verified instruments, making calibration the direct lineage.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
