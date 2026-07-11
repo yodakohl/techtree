@@ -319,6 +319,22 @@ npm run accuracy:risks
 npm run accuracy:risks -- --markdown --limit 20
 ```
 
+For a larger curation pass, generate a compact batch grouped by canonical data
+file and focused on one kind of debt:
+
+```bash
+npm run agent:batch -- --focus chronology --limit 8
+# edit the listed nodes
+npm run agent:ready
+```
+
+`agent:ready` regenerates only stale snapshots/public pages and then runs
+independent changed-file checks concurrently. Use `npm run agent:next` when one
+target needs a deeper packet instead. The available batch focuses are
+`chronology`, `edges`, `node-evidence`, `review-status`, and `source-fit`;
+`source-fit` is a terminology-overlap review heuristic rather than a quality
+gate.
+
 The latest baseline is [Accuracy Risk Report 2026-06-07](docs/ACCURACY_RISK_REPORT_2026-06-07.md).
 
 For source-heavy changes, run the optional network URL audit:
@@ -330,6 +346,9 @@ npm run source-urls -- --field "Pharmaceuticals & Drug Development"
 ```
 
 This checks cited source URLs and fails on 404 or 5xx responses. It is kept separate from offline validation because it depends on network availability.
+`npm run source-urls -- --changed` checks only URLs newly introduced since
+`HEAD`; `agent:ready` uses this fast scope for ordinary data edits. The weekly
+CI job still checks all pre-Future URLs.
 
 GitHub Actions runs the offline data-quality workflow on every push and pull request. The source URL audit runs weekly and can also be triggered manually from the Actions tab.
 

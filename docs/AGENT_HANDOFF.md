@@ -16,6 +16,13 @@ For the next launch-readiness target with packet/setup commands:
 npm run agent:next
 ```
 
+For a larger, file-grouped curation batch with current source locators and
+unsourced-edge details:
+
+```bash
+npm run agent:batch -- --focus chronology --limit 8
+```
+
 ## Repo Shape
 
 - Canonical data: `data/{ancient,classical,medieval,renaissance,industrial,modern,future}.json`
@@ -28,10 +35,12 @@ npm run agent:next
 
 ## Token-Saving Rules
 
-- Do not read whole data files unless absolutely necessary; use `rg '"id": "node_id"' data/*.json`, `npm run node-packet -- <id>`, or short Node snippets.
+- Do not read whole data files unless absolutely necessary; use `rg '"id": "node_id"' data/*.json`, the compact `agent:batch` evidence, `npm run node-packet -- <id>` for semantic changes, or short Node snippets.
 - Use `npm run agent:brief` and `docs/QUALITY_SNAPSHOT.md` instead of recomputing context manually.
-- Use `npm run agent:next` when the accuracy queue is empty or too broad; it ranks remaining pre-Future placeholder-date, node-source, edge-source, and review-status debt and prints the packet/snapshot/check commands for the top target.
-- After edits, run `npm run agent:check` to see the minimal validation plan for changed files. Use `npm run agent:check -- --run` to execute that targeted plan once.
+- Use `npm run agent:batch` for homogeneous multi-node work. Focus values are `chronology`, `edges`, `node-evidence`, `review-status`, and `source-fit`; targets are grouped by canonical data file. `source-fit` is a terminology-overlap review heuristic, not proof that a citation is wrong.
+- Use `npm run agent:next` for a single ranked target and detailed setup commands.
+- After edits, run `npm run agent:ready`. It refreshes only stale generated outputs, then executes independent changed-file checks concurrently. Its data plan checks only source URLs newly introduced since `HEAD`.
+- Use `npm run agent:check` to preview the plan without changing or validating anything.
 - Keep a validation ledger mentally: if no files changed after a command passed, do not rerun it. Rerun only checks affected by later edits.
 - For UI work, read only the relevant view files and run `node --check` on changed JS.
 - For data quality work, fix a small queue of high-risk pre-Future nodes from `npm run accuracy:risks`; do not expand the dataset while chronology or edge-semantics debt is the active ask.
@@ -44,13 +53,15 @@ npm run agent:next
 ```bash
 npm run agent:check
 npm run agent:check -- --run
+npm run agent:ready
 ```
 
-This planner reads the current git diff and recommends only checks that match touched files: JS syntax checks for changed JS, receipt audits for receipt changes, trust audit for trust-rule changes, snapshot checks for generated quality files, and data/quality gates only when data or audit tooling changed.
+This planner reads the current git diff and recommends only checks that match touched files: JS syntax and regression tests for changed JS, receipt audits for receipt changes, trust audit for trust-rule changes, snapshot checks for generated quality files, and data/quality gates only when data or audit tooling changed. `agent:ready` is the normal edit-to-validation command.
 
 ## Final Validation
 
-Run this once before commit/push for non-trivial changes, not after every small edit:
+Run any checks below that were not already included in the final `agent:ready`
+plan once before commit/push, not after every small edit:
 
 ```bash
 npm test
@@ -64,6 +75,10 @@ For field source checks:
 ```bash
 npm run source-urls -- --field "Genome Editing / CRISPR-Cas"
 ```
+
+For ordinary data edits, `agent:ready` uses `npm run source-urls -- --changed`
+and makes no network requests when no URL was added. The weekly CI workflow
+continues to audit the full pre-Future URL corpus.
 
 ## Publish
 

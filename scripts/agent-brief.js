@@ -69,18 +69,20 @@ function main() {
     console.log('');
 
     console.log('Fast Commands');
-    for (const name of ['agent:next', 'test', 'quality', 'coverage', 'accuracy:risks', 'source-urls', 'start']) {
+    for (const name of ['agent:batch', 'agent:next', 'agent:ready', 'test', 'quality', 'coverage', 'accuracy:risks', 'source-urls', 'start']) {
         if (pkg.scripts?.[name]) console.log(`- npm run ${name}`);
     }
     console.log('');
 
     console.log('Token-Saving Workflow');
     console.log('- Start with this brief, then targeted rg/node reads; avoid opening whole data/*.json files.');
-    console.log('- Use npm run agent:next for a ranked launch-readiness target and copy-ready review commands.');
-    console.log('- For data changes, inspect exact node packets with npm run node-packet -- <id> before editing.');
+    console.log('- Use npm run agent:batch for a file-grouped multi-node queue; focus chronology, edges, node-evidence, review-status, or source-fit.');
+    console.log('- Use npm run agent:next for one ranked target and copy-ready review commands.');
+    console.log('- Use npm run node-packet -- <id> when a target needs scope or dependency-semantic changes.');
     console.log('- For bulk additions, use compact TSV + scripts/import-compact-tech.js; do not hand-edit era JSON in bulk.');
     console.log('- For demo/UI work, touch demo.html, demo.js, style.css; run node --check demo.js plus npm test.');
-    console.log('- Before final: npm test && npm run quality && git diff --check, then commit and push origin HEAD:main.');
+    console.log('- After edits, npm run agent:ready refreshes stale derived files and runs independent changed-file checks concurrently.');
+    console.log('- Before final: ensure the agent:ready plan covered the full change, then commit and push origin HEAD:main.');
 }
 
 main();

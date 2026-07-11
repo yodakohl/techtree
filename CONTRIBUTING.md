@@ -75,12 +75,13 @@ The built-in server uses Node's test runner; add API and persistence cases under
 Before submitting a non-trivial code, documentation, or mixed change, run:
 
 ```bash
-npm run agent:check -- --run
-npm test
-npm run quality
-npm run coverage
-git diff --check
+npm run agent:ready
 ```
+
+This refreshes stale generated artifacts and runs the checks selected from the
+actual diff. Data changes include `npm test`, `npm run quality`, coverage, and a
+network audit limited to newly introduced URLs. Use `npm run agent:check` first
+when you only want to inspect the plan.
 
 Public instances must remain read-only. The write API is intentionally a trusted
 local maintenance surface, not an authenticated multi-user service. Changes to

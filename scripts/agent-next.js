@@ -14,11 +14,15 @@ const {
     FUTURE_EXCLUSION_NOTE,
     isLaunchQualityNode
 } = require('./quality-scope');
+const { sourceEvidenceMismatch } = require('./audit-random-source-fit');
 
 const DEFAULT_LIMIT = 10;
+const FOCUS_OPTIONS = new Set(['chronology', 'edges', 'node-evidence', 'review-status', 'source-fit']);
 
 function parseArgs(args) {
     const options = {
+        batch: false,
+        focus: null,
         id: null,
         limit: DEFAULT_LIMIT,
         json: false
@@ -26,8 +30,15 @@ function parseArgs(args) {
 
     for (let index = 0; index < args.length; index += 1) {
         const arg = args[index];
-        if (arg === '--json') {
+        if (arg === '--batch') {
+            options.batch = true;
+        } else if (arg === '--json') {
             options.json = true;
+        } else if (arg === '--focus') {
+            options.focus = args[index + 1];
+            index += 1;
+        } else if (arg.startsWith('--focus=')) {
+            options.focus = arg.slice('--focus='.length);
         } else if (arg === '--id') {
             options.id = args[index + 1];
             index += 1;
@@ -48,12 +59,15 @@ function parseArgs(args) {
     if (!Number.isFinite(options.limit) || options.limit < 1) {
         throw new Error('--limit must be a positive integer');
     }
+    if (options.focus && !FOCUS_OPTIONS.has(options.focus)) {
+        throw new Error(`--focus must be one of: ${[...FOCUS_OPTIONS].join(', ')}`);
+    }
     return options;
 }
 
 function usage(exitCode = 1) {
     const stream = exitCode ? process.stderr : process.stdout;
-    stream.write(`Usage: node scripts/agent-next.js [--limit 10] [--id node_id] [--json]
+    stream.write(`Usage: node scripts/agent-next.js [--batch] [--focus chronology|edges|node-evidence|review-status|source-fit] [--limit 10] [--id node_id] [--json]
 
 Ranks the next launch-readiness data-quality targets from remaining source,
 edge-source, review-status, and placeholder-date debt. Future forecast nodes
@@ -126,7 +140,9 @@ function debtFor(item, dependents) {
             eraDefaultDate: false,
             unknownDate: false,
             generated: false,
-            structurallyValidated: false
+            structurallyValidated: false,
+            sourceFitMismatch: false,
+            categories: []
         };
     }
 
@@ -141,6 +157,7 @@ function debtFor(item, dependents) {
     const generated = item.reviewStatus === 'generated';
     const structurallyValidated = item.reviewStatus === 'structurally_validated';
     const unknownDate = item.datePrecision === 'unknown';
+    const sourceFitMismatch = sourceEvidenceMismatch(item);
 
     const labels = [];
     if (missingEdgeSources.length) labels.push(`${missingEdgeSources.length}/${edges.length} dependency edges missing sources`);
@@ -153,6 +170,16 @@ function debtFor(item, dependents) {
     if (unknownDate) labels.push('unknown date precision');
     if (generated) labels.push('generated review status');
     if (structurallyValidated) labels.push('not source_checked');
+    if (sourceFitMismatch) labels.push('mechanical node/source evidence mismatch');
+
+    const categories = [];
+    if (eraDefaultDate || unknownDate) categories.push('chronology');
+    if (missingEdgeSources.length) categories.push('edges');
+    if (missingNodeSource || weakNodeSources || lacksStrongNodeSource || lacksLocatedNodeSource || lacksLocatedStrongSource) {
+        categories.push('node-evidence');
+    }
+    if (generated || structurallyValidated) categories.push('review-status');
+    if (sourceFitMismatch) categories.push('source-fit');
 
     let score = 0;
     score += missingEdgeSources.length * 14;
@@ -165,6 +192,7 @@ function debtFor(item, dependents) {
     if (unknownDate) score += 32;
     if (generated) score += 18;
     if (structurallyValidated) score += 6;
+    if (sourceFitMismatch) score += 16;
     score += Math.min(dependents.length, 15);
 
     return {
@@ -179,7 +207,9 @@ function debtFor(item, dependents) {
         eraDefaultDate,
         unknownDate,
         generated,
-        structurallyValidated
+        structurallyValidated,
+        sourceFitMismatch,
+        categories
     };
 }
 
@@ -208,12 +238,14 @@ function buildQueue(data = loadData(), options = {}) {
                 missingEdgeSourceCount: debt.missingEdgeSources.length,
                 dependentCount: dependentIds.length,
                 score: debt.score,
+                categories: debt.categories,
                 debt: debt.labels,
                 item,
                 missingEdgeSources: debt.missingEdgeSources
             };
         })
         .filter(Boolean)
+        .filter(row => !options.focus || options.id === row.id || row.categories.includes(options.focus))
         .sort((left, right) => {
             if (right.score !== left.score) return right.score - left.score;
             if (right.missingEdgeSourceCount !== left.missingEdgeSourceCount) {
@@ -248,6 +280,7 @@ function buildQueue(data = loadData(), options = {}) {
                 missingEdgeSourceCount: debt.missingEdgeSources.length,
                 dependentCount: dependentIds.length,
                 score: debt.score,
+                categories: debt.categories,
                 debt: debt.labels,
                 item: target,
                 missingEdgeSources: debt.missingEdgeSources
@@ -317,7 +350,81 @@ function renderTarget(target) {
     ].join('\n');
 }
 
-function renderText(result) {
+function oneLine(value, maxLength = 220) {
+    const normalized = String(value || '').replace(/\s+/g, ' ').trim();
+    if (normalized.length <= maxLength) return normalized;
+    return `${normalized.slice(0, maxLength - 3)}...`;
+}
+
+function nodeSources(item) {
+    return (item.sources || []).filter(source => source.supports?.includes('node'));
+}
+
+function renderBatch(result, options) {
+    const byFile = new Map();
+    for (const row of result.queue) {
+        if (!byFile.has(row.file)) byFile.set(row.file, []);
+        byFile.get(row.file).push(row.id);
+    }
+
+    const lines = [
+        'Launch Readiness Batch',
+        `Scope: ${result.queue.length} highest-ranked pre-Future target(s)${options.focus ? ` focused on ${options.focus}` : ''}.`,
+        FUTURE_EXCLUSION_NOTE,
+        '',
+        'Edit Groups'
+    ];
+
+    for (const [file, ids] of [...byFile.entries()].sort(([left], [right]) => left.localeCompare(right))) {
+        lines.push(`- ${file}: ${ids.join(', ')}`);
+    }
+
+    lines.push('', 'Target Evidence');
+    result.queue.forEach((row, index) => {
+        lines.push(
+            '',
+            `${index + 1}. ${row.id} [${row.score}] - ${row.name}`,
+            `   claim: ${row.era}, ${dateLabel(row.item)}; ${row.item.region || 'unknown region'}; ${row.reviewStatus || 'unknown status'}`,
+            `   debt: ${row.debt.join('; ') || 'none detected'}`,
+            `   file/dependents: ${row.file}; ${row.dependentCount}`
+        );
+
+        const sources = nodeSources(row.item);
+        if (!sources.length) {
+            lines.push('   node source: none');
+        } else {
+            for (const source of sources) {
+                const locator = source.source_locator || source.locator || 'missing';
+                lines.push(`   node source: ${sourceLabel(source)}; locator: ${oneLine(locator)}; ${source.url || 'no URL'}`);
+            }
+        }
+
+        if (row.missingEdgeSources.length) {
+            lines.push(`   unsourced edges: ${row.missingEdgeSources.map(edge => `${edge.prerequisite} (${edge.type || 'unknown'})`).join(', ')}`);
+        } else {
+            lines.push('   unsourced edges: none');
+        }
+        lines.push(`   research query: "${row.name}" history first ${row.item.firstKnownDate ?? ''} primary source`);
+    });
+
+    const focusArg = options.focus ? ` --focus ${options.focus}` : '';
+    lines.push(
+        '',
+        'Batch Workflow',
+        '```bash',
+        `npm run agent:batch -- --limit ${options.limit}${focusArg}`,
+        '# use node-packet only for targets whose scope or dependency semantics will change',
+        'npm run agent:ready',
+        '```'
+    );
+    return lines.join('\n');
+}
+
+function renderText(result, options) {
+    if (options.batch) {
+        console.log(renderBatch(result, options));
+        return;
+    }
     console.log('Launch Readiness Work Queue');
     console.log('Basis: remaining pre-Future placeholder-date, node-source, edge-source, and review-status debt.');
     console.log(FUTURE_EXCLUSION_NOTE);
@@ -342,6 +449,13 @@ function main() {
         const serializable = {
             queue: result.queue.map(({ item, missingEdgeSources, ...row }) => ({
                 ...row,
+                nodeSources: nodeSources(item).map(source => ({
+                    title: source.title,
+                    publisher: source.publisher,
+                    url: source.url,
+                    source_type: source.source_type,
+                    source_locator: source.source_locator || source.locator || null
+                })),
                 missingEdgeSources: missingEdgeSources.map(edge => ({
                     prerequisite: edge.prerequisite,
                     type: edge.type,
@@ -350,11 +464,12 @@ function main() {
                     reviewStatus: edge.reviewStatus
                 }))
             })),
-            target: result.target && result.target.id
+            target: result.target && result.target.id,
+            focus: options.focus
         };
         console.log(JSON.stringify(serializable, null, 2));
     } else {
-        renderText(result);
+        renderText(result, options);
     }
 }
 
@@ -370,5 +485,8 @@ if (require.main === module) {
 module.exports = {
     buildQueue,
     commandLines,
+    debtFor,
+    parseArgs,
+    renderBatch,
     usesEraDefaultDate
 };

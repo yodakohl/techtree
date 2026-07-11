@@ -1,8 +1,26 @@
 #!/usr/bin/env node
-const { execFileSync, spawnSync } = require('child_process');
+const { execFileSync, spawn, spawnSync } = require('child_process');
 
-const args = new Set(process.argv.slice(2));
-const run = args.has('--run');
+function parseArgs(argv) {
+    const args = new Set(argv);
+    const allowed = new Set(['--help', '-h', '--parallel', '--refresh', '--run']);
+    const unknown = [...args].filter(arg => !allowed.has(arg));
+    if (unknown.length) throw new Error(`Unknown argument: ${unknown[0]}`);
+    return {
+        help: args.has('--help') || args.has('-h'),
+        parallel: args.has('--parallel'),
+        refresh: args.has('--refresh'),
+        run: args.has('--run') || args.has('--parallel')
+    };
+}
+
+function usage() {
+    console.log(`Usage: node scripts/agent-check-plan.js [--refresh] [--run] [--parallel]
+
+Plans validation from changed files. --refresh updates stale generated artifacts
+before planning. --run executes the plan; --parallel runs independent checks
+concurrently and implies --run.`);
+}
 
 function git(args) {
     try {
@@ -93,6 +111,9 @@ function plan(files) {
     for (const file of files.filter(isJs)) {
         addCommand(commands, 'JS syntax', ['node', '--check', file], `syntax-check changed JavaScript file ${file}`);
     }
+    if (files.some(isJs)) {
+        addCommand(commands, 'Regression suite', ['npm', 'test'], 'JavaScript behavior or validation tooling changed');
+    }
 
     if (files.includes('package.json')) {
         addCommand(
@@ -146,7 +167,7 @@ function plan(files) {
     }
 
     if (files.some(isTechnologyData)) {
-        addCommand(commands, 'Source URL audit', ['npm', 'run', 'source-urls'], 'technology sources may have changed');
+        addCommand(commands, 'Changed source URL audit', ['npm', 'run', 'source-urls', '--', '--changed'], 'new technology source URLs may have been introduced');
     }
 
     return removeQualityCoveredCommands(commands);
@@ -183,9 +204,89 @@ function runPlan(commands) {
         });
         if (result.status !== 0) process.exit(result.status || 1);
     }
+    return true;
 }
 
-const files = changedFiles();
-const commands = plan(files);
-printPlan(files, commands);
-if (run && commands.length) runPlan(commands);
+function runCommandAsync(command) {
+    return new Promise(resolve => {
+        const child = spawn(command.cmd[0], command.cmd.slice(1), {
+            cwd: process.cwd(),
+            env: process.env,
+            shell: false,
+            stdio: ['ignore', 'pipe', 'pipe']
+        });
+        const stdout = [];
+        const stderr = [];
+        let settled = false;
+        const finish = result => {
+            if (settled) return;
+            settled = true;
+            resolve({ command, ...result });
+        };
+        child.stdout.on('data', chunk => stdout.push(chunk));
+        child.stderr.on('data', chunk => stderr.push(chunk));
+        child.on('error', error => finish({ status: 1, stdout, stderr, error }));
+        child.on('close', status => finish({ status, stdout, stderr, error: null }));
+    });
+}
+
+async function runPlanParallel(commands) {
+    console.log(`\nRunning ${commands.length} independent check(s) concurrently...`);
+    const results = await Promise.all(commands.map(runCommandAsync));
+    let passed = true;
+
+    for (const result of results) {
+        console.log(`\n$ ${result.command.cmd.join(' ')}`);
+        if (result.stdout.length) process.stdout.write(Buffer.concat(result.stdout).toString());
+        if (result.stderr.length) process.stderr.write(Buffer.concat(result.stderr).toString());
+        if (result.error) console.error(result.error.message);
+        if (result.status !== 0 || result.error) {
+            passed = false;
+            console.error(`Check failed: ${result.command.label}`);
+        }
+    }
+    return passed;
+}
+
+function refreshDerived() {
+    const result = spawnSync(process.execPath, ['scripts/refresh-derived.js'], {
+        cwd: process.cwd(),
+        stdio: 'inherit',
+        shell: false
+    });
+    return result.status === 0;
+}
+
+async function main(argv = process.argv.slice(2)) {
+    const options = parseArgs(argv);
+    if (options.help) {
+        usage();
+        return 0;
+    }
+    if (options.refresh && !refreshDerived()) return 1;
+
+    const files = changedFiles();
+    const commands = plan(files);
+    printPlan(files, commands);
+    if (!options.run || !commands.length) return 0;
+    const passed = options.parallel ? await runPlanParallel(commands) : runPlan(commands);
+    return passed ? 0 : 1;
+}
+
+if (require.main === module) {
+    main().then(status => {
+        if (status) process.exit(status);
+    }).catch(error => {
+        console.error(error.message);
+        process.exit(1);
+    });
+}
+
+module.exports = {
+    changedFiles,
+    main,
+    parseArgs,
+    plan,
+    removeQualityCoveredCommands,
+    runPlanParallel
+};

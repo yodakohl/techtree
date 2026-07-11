@@ -32,7 +32,7 @@ For `required` edge demotions, list the mechanism/context edges preserved:
 
 ## Validation
 
-- [ ] `npm run agent:check -- --run`
+- [ ] `npm run agent:ready`
 - [ ] `npm run edge-receipts`
 - [ ] `npm test`
 - [ ] `npm run quality`
