@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-price-currents-stock-exchange-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_financial_price_lists",
+    "prerequisite": "stock_exchange_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Stock Exchanges is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No stock-exchange prerequisite remains because Amsterdam commodity price-currents are attested around 1585, before the scoped 1602 VOC securities market.",
+  "source_supports_edge": "no",
+  "source_url": "https://pure.uva.nl/ws/files/4296021/61245_Lesger_Amsterdam_information2.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Page 7 dates Amsterdam printed commodity price-currents to 1585 or shortly before and describes their broker-supplied weekly price data.",
+    "source_claim_summary": "Printed commodity price information circulated in Amsterdam well before the VOC share market represented by the stock-exchange node.",
+    "source_support_rationale": "A later securities venue cannot be the predecessor of an earlier commodity-information publication, even though later price currents covered financial assets."
+  },
+  "ontology_before": "A broad price-list node was routed through the later Amsterdam securities market.",
+  "ontology_after": "The node is scoped to earlier commodity price-currents and depends only on print production.",
+  "invariant_preserved_or_changed": "Changed: printed_financial_price_lists no longer directly depends on stock_exchange_early.",
+  "would_reject_if": [
+    "The node were narrowed back to post-1602 lists whose defining content was VOC securities quotations rather than commodity prices."
+  ],
+  "short_reason": "The attested 1585 commodity price-currents predate the scoped stock exchange.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/printed_financial_price_lists.before.json /tmp/printed_financial_price_lists.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-anthropology-sociology-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "anthropology_cultural",
+    "prerequisite": "sociology_early"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Sociology (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "No sociology prerequisite remains because scientific anthropology was taking shape through independent comparative, linguistic, anatomical, and ethnological traditions around 1840.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/cultural-anthropology",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Historical Development, 19th-century beginnings traces anthropology to race, anatomy, settlement, language, comparative society, economy, and industry studies and dates an evolutionary principle to about 1840.",
+    "source_claim_summary": "Britannica presents multiple independent intellectual and observational streams for nineteenth-century scientific anthropology.",
+    "source_support_rationale": "The documented origin does not pass through Comte's separately named sociology discipline, and the corrected anthropology date no longer permits that direction."
+  },
+  "ontology_before": "Cultural anthropology inherited its historical foundation through sociology despite parallel nineteenth-century disciplinary origins.",
+  "ontology_after": "Cultural anthropology retains exploration, print, and scientific-method context without claiming sociology as its predecessor.",
+  "invariant_preserved_or_changed": "Changed: anthropology_cultural no longer directly depends on sociology_early; both remain parallel social-science branches.",
+  "would_reject_if": [
+    "A disciplinary history demonstrated that the scoped 1840s anthropology tradition was institutionally derived from Comte's sociology rather than parallel comparative traditions."
+  ],
+  "short_reason": "The source documents parallel roots and the corrected chronology makes sociology later.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/anthropology_cultural.before.json /tmp/anthropology_cultural.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

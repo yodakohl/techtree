@@ -10139,39 +10139,17 @@
     "id": "anthropology_cultural",
     "name": "Cultural Anthropology",
     "era": "Industrial",
-    "description": "The study of human societies, cultures, and their development, often involving ethnographic fieldwork and participant observation.",
+    "description": "The nineteenth-century comparative study and classification of human societies, cultures, languages, economies, and historical development.",
     "prerequisites": [
-      "sociology_early",
       "exploration_global",
       "printing_press",
       "scientific_method"
     ],
-    "firstKnownDate": 1825,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1840,
+    "datePrecision": "decade",
+    "region": "Western Europe",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "sociology_early",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Sociology (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Anthropology",
-            "url": "https://en.wikipedia.org/wiki/Anthropology",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
-            "supports": [
-              "edge"
-            ],
-            "source_locator": "Overview: defines anthropology as a scientific study crossing biology and sociology and says social anthropology studies behavior patterns while cultural anthropology studies cultural meaning, norms, and values."
-          }
-        ]
-      },
       {
         "prerequisite": "exploration_global",
         "type": "enabling",
@@ -10244,7 +10222,7 @@
         "supports": [
           "node"
         ],
-        "locator": "Britannica's historical development section says modern anthropology began to take shape before the middle of the 19th century and describes cultural anthropology's specialized methods and disciplinary split."
+        "locator": "Historical Development, 19th-century beginnings: modern anthropology began taking shape before the middle of the nineteenth century through race, anatomy, settlement, language, society, economy, and industry studies; it dates an evolutionary study principle to about 1840."
       }
     ]
   },
@@ -10252,7 +10230,7 @@
     "id": "sociology_early",
     "name": "Sociology (Early)",
     "era": "Industrial",
-    "description": "The systematic study of social behavior, society, patterns of social relationships, and culture in response to the massive changes brought by industrialization.",
+    "description": "The named discipline for systematic study of society and social patterns, shaped by early nineteenth-century industrialization, urban growth, and positivist methods.",
     "prerequisites": [
       "philosophy",
       "scientific_method",
@@ -10260,9 +10238,9 @@
       "printing_press",
       "probability_statistics_inference"
     ],
-    "firstKnownDate": 1825,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1838,
+    "datePrecision": "exact",
+    "region": "France and Western Europe",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -10307,11 +10285,24 @@
       },
       {
         "prerequisite": "industrial_urbanization",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Urbanization provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "type": "historical_predecessor",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "OpenStax places sociology's emergence after early nineteenth-century industrialization, mass movement into cities, and changing employment; urbanization is historical context rather than a component dependency.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "1.2 The History of Sociology",
+            "url": "https://openstax.org/books/introduction-sociology-3e/pages/1-2-the-history-of-sociology",
+            "publisher": "OpenStax / Rice University",
+            "year": 2021,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The opening history section links the discipline's emergence to early nineteenth-century industrialization, new employment, and millions moving into cities."
+          }
+        ]
       },
       {
         "prerequisite": "printing_press",
@@ -10356,15 +10347,15 @@
     ],
     "sources": [
       {
-        "title": "Presocratic Philosophy",
-        "url": "https://plato.stanford.edu/archives/spr2012/entries/presocratics/",
-        "publisher": "Stanford Encyclopedia of Philosophy",
-        "year": 2012,
+        "title": "1.2 The History of Sociology",
+        "url": "https://openstax.org/books/introduction-sociology-3e/pages/1-2-the-history-of-sociology",
+        "publisher": "OpenStax / Rice University",
+        "year": 2021,
         "source_type": "textbook",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Creating a Discipline: European Theorists states that Auguste Comte reintroduced the term sociology in 1838 and named the scientific study of social patterns positivism."
       }
     ]
   },
@@ -10380,18 +10371,31 @@
       "printing_press",
       "universities"
     ],
-    "firstKnownDate": 1825,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1895,
+    "datePrecision": "exact",
+    "region": "France and Germany",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "sociology_early",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Sociology (Early) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.86,
+        "evidence_level": "textbook",
+        "note": "OpenStax traces Comte's 1838 disciplinary framing before Durkheim's 1895 department and methodological publication, making early sociology a documented historical predecessor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "1.2 The History of Sociology",
+            "url": "https://openstax.org/books/introduction-sociology-3e/pages/1-2-the-history-of-sociology",
+            "publisher": "OpenStax / Rice University",
+            "year": 2021,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The section places Comte's disciplinary term in 1838 and Durkheim's first European sociology department and Rules of the Sociological Method in 1895."
+          }
+        ]
       },
       {
         "prerequisite": "scientific_method",
@@ -10476,15 +10480,15 @@
     ],
     "sources": [
       {
-        "title": "Scientific Revolution",
-        "url": "https://www.britannica.com/science/Scientific-Revolution",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
+        "title": "1.2 The History of Sociology",
+        "url": "https://openstax.org/books/introduction-sociology-3e/pages/1-2-the-history-of-sociology",
+        "publisher": "OpenStax / Rice University",
+        "year": 2021,
         "source_type": "textbook",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "The Durkheim section dates the first European sociology department and Rules of the Sociological Method to 1895; the Weber section identifies his social-action framework and 1904 major work."
       }
     ]
   },
@@ -14876,56 +14880,70 @@
     "id": "scientific_management",
     "name": "Scientific Management",
     "era": "Industrial",
-    "description": "Time studies, standardized tasks, workflow analysis, and managerial methods for increasing industrial productivity.",
+    "description": "Taylor's codified system of time studies, standardized tasks, workflow analysis, and managerial methods for increasing industrial productivity.",
     "prerequisites": [
       "factory_system",
       "division_of_labor"
     ],
-    "firstKnownDate": 1775,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1911,
+    "datePrecision": "exact",
+    "region": "United States",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "factory_system",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Factory System provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "OpenStax situates Taylor's system in factory work and traces his methods to production jobs at Midvale Steel.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Derwent Valley Mills",
-            "url": "https://whc.unesco.org/en/list/1030/",
-            "publisher": "UNESCO World Heritage Centre",
-            "year": 2026,
-            "source_type": "official_agency",
+            "title": "3.4 Taylor-Made Management",
+            "url": "https://openstax.org/books/principles-management/pages/3-4-taylor-made-management",
+            "publisher": "OpenStax / Rice University",
+            "year": 2019,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The section places Taylor at Midvale Steel and describes applying his engineering background to factory production work."
           }
         ]
       },
       {
         "prerequisite": "division_of_labor",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Division of Labor provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.84,
+        "evidence_level": "textbook",
+        "note": "Taylor's method decomposed production acts into component tasks, timed them, and reconstructed standardized jobs, directly applying functional division of labor.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "3.4 Taylor-Made Management",
+            "url": "https://openstax.org/books/principles-management/pages/3-4-taylor-made-management",
+            "publisher": "OpenStax / Rice University",
+            "year": 2019,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Taylor-Made Management states that Taylor pioneered division of labor based on function and broke each production act into its smallest parts before reconstructing the job."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Derwent Valley Mills",
-        "url": "https://whc.unesco.org/en/list/1030/",
-        "publisher": "UNESCO World Heritage Centre",
-        "year": 2026,
+        "title": "The Principles of Scientific Management",
+        "url": "https://www.loc.gov/item/11010339",
+        "publisher": "Library of Congress",
+        "year": 1911,
         "source_type": "official_agency",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "Library of Congress catalog record: Frederick Winslow Taylor, The Principles of Scientific Management, published by Harper & Brothers in 1911 under the subject Industrial efficiency."
       }
     ]
   },
@@ -15017,14 +15035,14 @@
     "id": "motorized_logistics",
     "name": "Motorized Logistics",
     "era": "Industrial",
-    "description": "Use of trucks, tractors, depots, roads, and scheduling systems to move goods beyond railheads and ports.",
+    "description": "Organized use of truck companies, depots, roads, maintenance, and dispatch systems to extend logistics beyond railheads and ports.",
     "prerequisites": [
       "internal_combustion_engine",
       "logistics_supply_lines"
     ],
-    "firstKnownDate": 1860,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1914,
+    "datePrecision": "decade",
+    "region": "Europe and United States",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -15036,37 +15054,51 @@
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Etienne Lenoir",
-            "url": "https://www.britannica.com/biography/Etienne-Lenoir",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "U.S. Army Quartermaster Museum: Motorized Truck Companies",
+            "url": "https://history.army.mil/Army-Museum-Enterprise/Find-an-Army-Museum/US-Army-Quartermaster-Museum/Education/",
+            "publisher": "U.S. Army Center of Military History",
             "year": 2026,
-            "source_type": "textbook",
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The museum history describes European armies employing thousands of trucks in World War I and the U.S. Army purchasing trucks to create its first motorized truck companies in March 1916."
           }
         ]
       },
       {
         "prerequisite": "logistics_supply_lines",
         "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Logistics & Supply Lines supports manufacturing, deployment, commercialization, or operational scaling.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "The first U.S. motorized truck companies were organized specifically to carry supplies and troops for Pershing's expedition, making logistics operations the system being motorized.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "U.S. Army Quartermaster Museum: Motorized Truck Companies",
+            "url": "https://history.army.mil/Army-Museum-Enterprise/Find-an-Army-Museum/US-Army-Quartermaster-Museum/Education/",
+            "publisher": "U.S. Army Center of Military History",
+            "year": 2026,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The March-July 1916 account records Quartermaster truck companies delivering more than 4,000 tons of supplies and hundreds of troops to Pershing's mobile force."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "Etienne Lenoir",
-        "url": "https://www.britannica.com/biography/Etienne-Lenoir",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "U.S. Army Quartermaster Museum: Motorized Truck Companies",
+        "url": "https://history.army.mil/Army-Museum-Enterprise/Find-an-Army-Museum/US-Army-Quartermaster-Museum/Education/",
+        "publisher": "U.S. Army Center of Military History",
         "year": 2026,
-        "source_type": "textbook",
+        "source_type": "official_agency",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "The museum history notes thousands of European military trucks in World War I and documents creation and supply operations of the first U.S. Army motorized truck companies in March 1916."
       }
     ]
   },
@@ -19720,80 +19752,73 @@
     "id": "industrial_canning_lines",
     "name": "Industrial Canning Lines",
     "era": "Industrial",
-    "description": "Mechanized filling, sealing, sterilizing, labeling, and distribution systems for shelf-stable food.",
+    "description": "Cannery production systems combining can making, food preparation, filling, sealing, heat processing, and packing for shelf-stable food.",
     "prerequisites": [
       "canning_food_preservation",
-      "factory_system",
-      "food_cold_chain"
+      "factory_system"
     ],
-    "firstKnownDate": 1877,
-    "datePrecision": "unknown",
-    "region": "Afro-Eurasia and other historical societies",
+    "firstKnownDate": 1882,
+    "datePrecision": "exact",
+    "region": "Eastport, Maine, and Boston, Massachusetts, United States",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "canning_food_preservation",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Canning & Food Preservation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "factory_system",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Factory System provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.88,
+        "evidence_level": "primary_source",
+        "note": "The documented 1882 cannery workflow prepared food, filled and sealed cans, and heat-processed them in retorts or hot baths, directly implementing canning preservation at factory scale.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Derwent Valley Mills",
-            "url": "https://whc.unesco.org/en/list/1030/",
-            "publisher": "UNESCO World Heritage Centre",
-            "year": 2026,
+            "title": "Fisheries of the United States: 1882 Cannery Photographs",
+            "url": "https://repository.si.edu/bitstreams/913facd2-422f-4549-8fc4-2fe6f63bd889/download",
+            "publisher": "Smithsonian Institution / U.S. Fish Commission",
+            "year": 1909,
             "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Catalog entries for 1882 Eastport and Boston canneries identify can-making, food preparation, sealing rooms, retorts, hot-bath trays, and packing rooms as linked production operations."
           }
         ]
       },
       {
-        "prerequisite": "food_cold_chain",
+        "prerequisite": "factory_system",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Food Cold Chain provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "The 1882 photographic catalog records specialized cannery rooms and coordinated stages for preparation, sealing, heat processing, and packing, evidencing a factory-organized workflow.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "South Omaha Union Stock Yards, Historic American Engineering Record",
-            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ne/ne0000/ne0085/data/ne0085data.pdf",
-            "publisher": "Historic American Engineering Record / Library of Congress",
-            "year": 1999,
+            "title": "Fisheries of the United States: 1882 Cannery Photographs",
+            "url": "https://repository.si.edu/bitstreams/913facd2-422f-4549-8fc4-2fe6f63bd889/download",
+            "publisher": "Smithsonian Institution / U.S. Fish Commission",
+            "year": 1909,
             "source_type": "official_agency",
-            "source_locator": "HAER narrative describes refrigeration enabling long-distance dressed-meat shipment, packing-company branch houses with large cold-storage facilities, refrigerated peddler railcars, and diversified food distribution infrastructure.",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "The catalog groups 1882 photographs by cannery room and operation, including can manufacture, sealing, cooking/retorts, and packing."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Derwent Valley Mills",
-        "url": "https://whc.unesco.org/en/list/1030/",
-        "publisher": "UNESCO World Heritage Centre",
-        "year": 2026,
+        "title": "Fisheries of the United States: 1882 Cannery Photographs",
+        "url": "https://repository.si.edu/bitstreams/913facd2-422f-4549-8fc4-2fe6f63bd889/download",
+        "publisher": "Smithsonian Institution / U.S. Fish Commission",
+        "year": 1909,
         "source_type": "official_agency",
         "supports": [
-          "edge",
           "node"
-        ]
+        ],
+        "source_locator": "The Smithsonian catalog identifies 1882 cannery photographs showing sardine and mackerel preparation, can making, sealing rooms, retorts and hot baths, and packing rooms in Maine and Massachusetts."
       }
-    ]
+    ],
+    "scopeNote": "Anchored to documented 1882 cannery production workflows. Food cold-chain infrastructure is excluded because sealed heat-processed cans are designed for shelf-stable storage without refrigeration."
   },
   {
     "id": "electric_arc_lighting",

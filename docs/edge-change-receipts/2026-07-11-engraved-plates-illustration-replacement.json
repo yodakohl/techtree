@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-11-engraved-plates-illustration-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "engraved_scientific_plates",
+    "prerequisite": "scientific_illustration_printing"
+  },
+  "replaced_edge": {
+    "dependent": "engraved_scientific_plates",
+    "prerequisite": "precision_map_engraving"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Precision Map Engraving provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.86,
+    "evidence_level": "primary_source",
+    "note": "Micrographia's engraved microscope plates extend the established practice of printing scientific observations as reproducible illustrations; the broader 1543 scientific-illustration node is the direct historical lineage, unlike map-specific engraving."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://wellcomecollection.org/works/apmaw56u",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Wellcome catalogs Hooke's 1665 Micrographia as a printed microscopy and natural-history folio with 38 plates, including folded engravings.",
+    "source_claim_summary": "The object is a scientific publication whose engraved plates reproduce observed natural specimens and microscope views.",
+    "source_support_rationale": "Scientific illustration is the relevant parent practice; map engraving is another application of engraving rather than a prerequisite for Hooke's plates."
+  },
+  "ontology_before": "Scientific plates inherited their illustration method through the map-specific engraving branch.",
+  "ontology_after": "Hooke's plates inherit from the broader scientific-illustration printing branch while map engraving remains parallel.",
+  "invariant_preserved_or_changed": "Changed: scientific_illustration_printing replaces precision_map_engraving as the direct historical predecessor.",
+  "would_reject_if": [
+    "Production records showed that Hooke's plates specifically depended on map-engraving workshops or cartographic plates rather than general scientific illustration practice."
+  ],
+  "short_reason": "Scientific illustration, not cartography, is the scoped lineage of Micrographia's plates.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/engraved_scientific_plates.before.json /tmp/engraved_scientific_plates.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

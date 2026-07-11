@@ -1,0 +1,113 @@
+{
+  "id": "2026-07-11-source-fit-chronology-batch",
+  "description": "Lock the evidence-backed chronology and causal boundaries established by the July source-fit remediation batch.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "anthropology_cultural",
+      "operator": "eq",
+      "value": 1840,
+      "reason": "Britannica dates a defining evolutionary study principle to about 1840 while describing anthropology's pre-mid-century formation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "anthropology_cultural",
+      "prerequisite": "sociology_early",
+      "reason": "Anthropology's comparative disciplinary roots are parallel to, not derived from, Comte's sociology."
+    },
+    {
+      "type": "first_known_date",
+      "node": "sociology_early",
+      "operator": "eq",
+      "value": 1838,
+      "reason": "OpenStax dates Comte's public reintroduction of the sociology term to 1838."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "sociology_early",
+      "prerequisite": "industrial_urbanization",
+      "expected": "historical_predecessor",
+      "reason": "Industrialization and urban migration are the discipline's historical setting rather than a component method."
+    },
+    {
+      "type": "first_known_date",
+      "node": "sociology_classical_theories_durkheim_weber",
+      "operator": "eq",
+      "value": 1895,
+      "reason": "Durkheim's first European sociology department and Rules of the Sociological Method are both dated 1895."
+    },
+    {
+      "type": "first_known_date",
+      "node": "artillery_fortification_schools",
+      "operator": "eq",
+      "value": 1570,
+      "reason": "Cossart documents institutionalization of Spanish-monarchy gunner schools from the 1570s."
+    },
+    {
+      "type": "first_known_date",
+      "node": "printed_financial_price_lists",
+      "operator": "eq",
+      "value": 1585,
+      "reason": "Lesger dates Amsterdam's printed commodity price-currents to 1585 or shortly before."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_financial_price_lists",
+      "prerequisite": "stock_exchange_early",
+      "reason": "The commodity price-currents predate the scoped 1602 VOC securities market."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "printed_financial_price_lists",
+      "prerequisite": "newspaper_periodicals",
+      "reason": "Amsterdam price-currents predate Amsterdam printed newspapers by roughly three decades."
+    },
+    {
+      "type": "first_known_date",
+      "node": "engraved_scientific_plates",
+      "operator": "eq",
+      "value": 1665,
+      "reason": "Wellcome catalogs Hooke's engraved Micrographia plates in the London 1665 folio."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "engraved_scientific_plates",
+      "prerequisite": "precision_map_engraving",
+      "reason": "Map engraving is a parallel application rather than the parent practice for Hooke's scientific plates."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "engraved_scientific_plates",
+      "prerequisite": "scientific_illustration_printing",
+      "expected": "historical_predecessor",
+      "reason": "Printed scientific illustration is the documented lineage extended by Micrographia's engraved plates."
+    },
+    {
+      "type": "first_known_date",
+      "node": "scientific_management",
+      "operator": "eq",
+      "value": 1911,
+      "reason": "The scoped codified Taylor system is anchored to the 1911 Principles of Scientific Management."
+    },
+    {
+      "type": "first_known_date",
+      "node": "motorized_logistics",
+      "operator": "eq",
+      "value": 1914,
+      "reason": "The node is scoped to organized World War I-era truck logistics rather than the 1860 engine invention."
+    },
+    {
+      "type": "first_known_date",
+      "node": "industrial_canning_lines",
+      "operator": "eq",
+      "value": 1882,
+      "reason": "Smithsonian catalog entries document linked cannery production stages in 1882 photographs."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "industrial_canning_lines",
+      "prerequisite": "food_cold_chain",
+      "reason": "Shelf-stable canned food does not require refrigeration before opening."
+    }
+  ]
+}

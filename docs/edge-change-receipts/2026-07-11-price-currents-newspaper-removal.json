@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-price-currents-newspaper-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_financial_price_lists",
+    "prerequisite": "newspaper_periodicals"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Newspaper Periodicals provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No newspaper prerequisite remains because weekly Amsterdam price-currents began around 1585 while the same study dates Amsterdam's printed newspapers from about 1618.",
+  "source_supports_edge": "no",
+  "source_url": "https://pure.uva.nl/ws/files/4296021/61245_Lesger_Amsterdam_information2.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 7-8 distinguish printed commodity price-currents beginning around 1585 from printed Amsterdam newspapers beginning around 1618.",
+    "source_claim_summary": "The study establishes separate publication traditions and places price-currents roughly three decades before local printed newspapers.",
+    "source_support_rationale": "Shared use of a press does not make the later newspaper format causal infrastructure for the earlier specialized price sheet."
+  },
+  "ontology_before": "Specialized market price sheets were modeled as depending on a later general-news periodical format.",
+  "ontology_after": "Price-currents and newspapers are parallel print products with distinct documented start dates.",
+  "invariant_preserved_or_changed": "Changed: printed_financial_price_lists no longer directly depends on newspaper_periodicals.",
+  "would_reject_if": [
+    "Evidence dated a defining newspaper-hosted price-list format earlier than the independent 1585 Amsterdam commodity sheets."
+  ],
+  "short_reason": "Amsterdam price-currents predate Amsterdam printed newspapers by about three decades.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/printed_financial_price_lists.before.json /tmp/printed_financial_price_lists.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

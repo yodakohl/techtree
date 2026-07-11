@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-canning-cold-chain-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "industrial_canning_lines",
+    "prerequisite": "food_cold_chain"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Food Cold Chain provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No cold-chain prerequisite remains because sealed heat-processed canned foods are shelf stable and are specifically designed for storage without refrigeration before opening.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/shelf-stable-food",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "USDA FSIS defines shelf-stable canned foods as airtight, heat-processed products that do not require refrigeration until after opening.",
+    "source_claim_summary": "Commercial canning achieves room-temperature stability through heat treatment, sterile airtight containment, and a vacuum seal.",
+    "source_support_rationale": "Refrigerated distribution is an alternative preservation pathway, not infrastructure required to manufacture shelf-stable cans."
+  },
+  "ontology_before": "Industrial canning was made dependent on refrigerated storage and transport despite representing shelf-stable preservation.",
+  "ontology_after": "Industrial canning depends on canning preservation and factory workflow; cold-chain systems remain a separate food-distribution branch.",
+  "invariant_preserved_or_changed": "Changed: industrial_canning_lines no longer directly depends on food_cold_chain.",
+  "would_reject_if": [
+    "The node were narrowed to refrigerated canned products explicitly labeled and distributed under continuous cold-chain controls."
+  ],
+  "short_reason": "Shelf-stable canning removes rather than requires pre-opening refrigeration.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run node-snapshot-diff -- /tmp/industrial_canning_lines.before.json /tmp/industrial_canning_lines.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-11-sociology-urbanization-retype",
+  "decision_date": "2026-07-11",
+  "change_class": "semantic_retype",
+  "removed_edge": false,
+  "edge": {
+    "dependent": "sociology_early",
+    "prerequisite": "industrial_urbanization"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Industrial Urbanization provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.82,
+    "evidence_level": "textbook",
+    "note": "OpenStax places sociology's emergence after early nineteenth-century industrialization, mass movement into cities, and changing employment; urbanization is historical context rather than a component dependency."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://openstax.org/books/introduction-sociology-3e/pages/1-2-the-history-of-sociology",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The opening history section links sociology's emergence to early nineteenth-century industrialization, changed employment, and millions moving into cities.",
+    "source_claim_summary": "Industrial transformation and urban migration form the documented setting immediately before European sociology became a named discipline.",
+    "source_support_rationale": "A setting that motivates inquiry explains historical succession, but it is not a technical capability consumed by the discipline."
+  },
+  "ontology_before": "Industrial urbanization was modeled as a capability supplied to sociology.",
+  "ontology_after": "Industrial urbanization is modeled as the documented historical setting for sociology's emergence.",
+  "invariant_preserved_or_changed": "Changed: the edge now records historical sequence while preserving the direct sociology_early to classical sociology lineage.",
+  "would_reject_if": [
+    "Evidence showed that urban infrastructure was an operational component required to practice sociology rather than a historical stimulus and study subject."
+  ],
+  "short_reason": "Urbanization is the discipline's historical setting, not one of its component methods.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
