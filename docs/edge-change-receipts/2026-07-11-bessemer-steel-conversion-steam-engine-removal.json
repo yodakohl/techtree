@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-bessemer-steel-conversion-steam-engine-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "bessemer_steel_conversion",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Steam Engine provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Steam power is industrial context but is not the chemical substrate or mechanism of Mushet's manganese addition.",
+  "source_supports_edge": "no",
+  "source_url": "https://repository.si.edu/bitstreams/a4eeb903-1608-4cde-b43b-ac9e74810346/download",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The United States National Museum account describes Mushet adding iron, carbon, and manganese to Bessemer metal under his September 1856 patent.",
+    "source_claim_summary": "The museum study identifies the Bessemer process as the direct substrate of Mushet's improvement, not generic furnace or steam technology.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. Steam power is industrial context but is not the chemical substrate or mechanism of Mushet's manganese addition."
+  },
+  "ontology_before": "bessemer_steel_conversion treated steam_engine as a direct enabling relationship.",
+  "ontology_after": "Steam power is industrial context but is not the chemical substrate or mechanism of Mushet's manganese addition.",
+  "invariant_preserved_or_changed": "Changed: bessemer_steel_conversion no longer has steam_engine as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes steam_engine as a necessary causal input to the newly scoped bessemer_steel_conversion claim."
+  ],
+  "short_reason": "Steam power is industrial context but is not the chemical substrate or mechanism of Mushet's manganese addition.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

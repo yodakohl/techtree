@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-marine-chronometer-prototypes-naval-logbooks-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "marine_chronometer_prototypes",
+    "prerequisite": "naval_logbooks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Naval Logbooks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Voyage reports documented sea trials, but record keeping was evidence from testing rather than a component needed to build the clock.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nms.ac.uk/discover-catalogue/calculating-longitude-at-sea-the-clock-that-tried-to-solve-the-problem",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "National Museums Scotland documents a purpose-made 1662 pendulum sea clock, its makers, sea trials, and failure as a longitude solution.",
+    "source_claim_summary": "The artifact history supports mechanical clockwork as the prototype substrate while treating trial records and later rating practice as context.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. Voyage reports documented sea trials, but record keeping was evidence from testing rather than a component needed to build the clock."
+  },
+  "ontology_before": "marine_chronometer_prototypes treated naval_logbooks as a direct enabling relationship.",
+  "ontology_after": "Voyage reports documented sea trials, but record keeping was evidence from testing rather than a component needed to build the clock.",
+  "invariant_preserved_or_changed": "Changed: marine_chronometer_prototypes no longer has naval_logbooks as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes naval_logbooks as a necessary causal input to the newly scoped marine_chronometer_prototypes claim."
+  ],
+  "short_reason": "Voyage reports documented sea trials, but record keeping was evidence from testing rather than a component needed to build the clock.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

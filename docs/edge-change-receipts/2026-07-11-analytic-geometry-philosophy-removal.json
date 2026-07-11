@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-analytic-geometry-philosophy-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "analytic_geometry",
+    "prerequisite": "philosophy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Philosophy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Descartes's scoped method directly joins algebra and geometry; philosophy is publication context rather than a technical prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sil.si.edu/exhibitions/science-and-the-artists-book/scie.htm",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Smithsonian dates Descartes's 1637 publication and identifies its concluding essay as analytic geometry.",
+    "source_claim_summary": "The Smithsonian record pins the method to Descartes's algebraic geometry and does not establish either philosophy or Cavalieri's method as a direct prerequisite.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. Descartes's scoped method directly joins algebra and geometry; philosophy is publication context rather than a technical prerequisite."
+  },
+  "ontology_before": "analytic_geometry treated philosophy as a direct enabling relationship.",
+  "ontology_after": "Descartes's scoped method directly joins algebra and geometry; philosophy is publication context rather than a technical prerequisite.",
+  "invariant_preserved_or_changed": "Changed: analytic_geometry no longer has philosophy as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes philosophy as a necessary causal input to the newly scoped analytic_geometry claim."
+  ],
+  "short_reason": "Descartes's scoped method directly joins algebra and geometry; philosophy is publication context rather than a technical prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

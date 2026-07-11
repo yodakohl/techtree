@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-peer-review-correspondence-universities-research-curricula-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "peer_review_correspondence",
+    "prerequisite": "universities_research_curricula"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "University Curricula provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The Royal Society history does not connect Oldenburg's editorial decisions to university curricula.",
+  "source_supports_edge": "no",
+  "source_url": "https://royalsociety.org/blog/2015/03/philosophical-transactions-the-early-years/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Royal Society describes Oldenburg selecting, adapting, translating, summarizing, and combining letters and reports when the journal began in 1665.",
+    "source_claim_summary": "The institutional history distinguishes editor-led correspondence selection from later peer review and from unrelated production or university systems.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The Royal Society history does not connect Oldenburg's editorial decisions to university curricula."
+  },
+  "ontology_before": "peer_review_correspondence treated universities_research_curricula as a direct enabling relationship.",
+  "ontology_after": "The Royal Society history does not connect Oldenburg's editorial decisions to university curricula.",
+  "invariant_preserved_or_changed": "Changed: peer_review_correspondence no longer has universities_research_curricula as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes universities_research_curricula as a necessary causal input to the newly scoped peer_review_correspondence claim."
+  ],
+  "short_reason": "The Royal Society history does not connect Oldenburg's editorial decisions to university curricula.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-naval-gunnery-tables-calculus-formalization-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "naval_gunnery_tables",
+    "prerequisite": "calculus_formalization"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Calculus Formalization provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The gunnery-table node is anchored before Leibniz's 1684 publication, making the direct calculus dependency chronologically impossible.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/technology/military-technology/The-gunpowder-revolution-c-1300-1650",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica surveys gunpowder artillery through 1650 and does not identify Leibniz's 1684 differential-calculus publication as an input to early gunnery tables.",
+    "source_claim_summary": "The military history supports cannon context but cannot support a mathematical dependency whose scoped publication occurs decades later.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The gunnery-table node is anchored before Leibniz's 1684 publication, making the direct calculus dependency chronologically impossible."
+  },
+  "ontology_before": "naval_gunnery_tables treated calculus_formalization as a direct enabling relationship.",
+  "ontology_after": "The gunnery-table node is anchored before Leibniz's 1684 publication, making the direct calculus dependency chronologically impossible.",
+  "invariant_preserved_or_changed": "Changed: naval_gunnery_tables no longer has calculus_formalization as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes calculus_formalization as a necessary causal input to the newly scoped naval_gunnery_tables claim."
+  ],
+  "short_reason": "The gunnery-table node is anchored before Leibniz's 1684 publication, making the direct calculus dependency chronologically impossible.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

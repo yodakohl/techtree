@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-alkaloid-isolation-pharmacopoeia-compilation-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "alkaloid_isolation",
+    "prerequisite": "pharmacopoeia_compilation"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pharmacopoeia Compilation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Nineteenth-century chemical isolation retains chemistry and experimental pharmacology; Pliny's 77 CE encyclopedia is not a direct process input.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/alkaloid",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica defines alkaloids as naturally occurring organic nitrogen compounds and discusses their chemical properties and historical isolation.",
+    "source_claim_summary": "The chemistry account supports alkaloid isolation as a chemical practice without identifying Pliny's encyclopedia as a causal input.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. Nineteenth-century chemical isolation retains chemistry and experimental pharmacology; Pliny's 77 CE encyclopedia is not a direct process input."
+  },
+  "ontology_before": "alkaloid_isolation treated pharmacopoeia_compilation as a direct enabling relationship.",
+  "ontology_after": "Nineteenth-century chemical isolation retains chemistry and experimental pharmacology; Pliny's 77 CE encyclopedia is not a direct process input.",
+  "invariant_preserved_or_changed": "Changed: alkaloid_isolation no longer has pharmacopoeia_compilation as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes pharmacopoeia_compilation as a necessary causal input to the newly scoped alkaloid_isolation claim."
+  ],
+  "short_reason": "Nineteenth-century chemical isolation retains chemistry and experimental pharmacology; Pliny's 77 CE encyclopedia is not a direct process input.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-pharmacopoeia-compilation-libraries-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "pharmacopoeia_compilation",
+    "prerequisite": "libraries"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Libraries provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The source documents an authored Roman encyclopedia but does not establish a library institution as a production prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://classics.stanford.edu/publications/plinys-roman-economy-natural-history-innovation-and-growth",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Stanford describes Natural History as a 77 CE, 37-book compilation of ancient Mediterranean knowledge for craftsmen and farmers.",
+    "source_claim_summary": "The reviewed record scopes the node to Pliny's identifiable 77 CE encyclopedia rather than to a generic pharmaceutical workflow.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The source documents an authored Roman encyclopedia but does not establish a library institution as a production prerequisite."
+  },
+  "ontology_before": "pharmacopoeia_compilation treated libraries as a direct enabling relationship.",
+  "ontology_after": "The source documents an authored Roman encyclopedia but does not establish a library institution as a production prerequisite.",
+  "invariant_preserved_or_changed": "Changed: pharmacopoeia_compilation no longer has libraries as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes libraries as a necessary causal input to the newly scoped pharmacopoeia_compilation claim."
+  ],
+  "short_reason": "The source documents an authored Roman encyclopedia but does not establish a library institution as a production prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

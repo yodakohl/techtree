@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-scientific-peer-review-practices-experimental-controls-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "scientific_peer_review_practices",
+    "prerequisite": "experimental_controls"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Experimental Controls provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The 1753 Committee of Papers governed publication decisions; experimental-control design was neither a committee mechanism nor an institutional prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://royalsociety.org/blog/2015/03/philosophical-transactions-the-early-years/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Committee decisions section describes the 1753 voting procedure and optional expert referral as the Society's first statutory provision for peer review.",
+    "source_claim_summary": "The Royal Society account defines a publication-governance process based on journal and society institutions, not experimental-control technique.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The 1753 Committee of Papers governed publication decisions; experimental-control design was neither a committee mechanism nor an institutional prerequisite."
+  },
+  "ontology_before": "scientific_peer_review_practices treated experimental_controls as a direct enabling relationship.",
+  "ontology_after": "The 1753 Committee of Papers governed publication decisions; experimental-control design was neither a committee mechanism nor an institutional prerequisite.",
+  "invariant_preserved_or_changed": "Changed: scientific_peer_review_practices no longer has experimental_controls as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes experimental_controls as a necessary causal input to the newly scoped scientific_peer_review_practices claim."
+  ],
+  "short_reason": "The 1753 Committee of Papers governed publication decisions; experimental-control design was neither a committee mechanism nor an institutional prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-convolutional-neural-networks-backpropagation-training-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "convolutional_neural_networks",
+    "prerequisite": "backpropagation_training"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Backpropagation Training provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The founding 1980 Neocognitron architecture predates the scoped 1986 backpropagation procedure and was self-organizing.",
+  "source_supports_edge": "no",
+  "source_url": "https://link.springer.com/article/10.1007/BF00344251",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Fukushima's 1980 paper presents the self-organizing Neocognitron architecture six years before the scoped 1986 backpropagation publication.",
+    "source_claim_summary": "The primary chronology shows that the founding CNN architecture cannot depend on the later Rumelhart-Hinton-Williams procedure.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The founding 1980 Neocognitron architecture predates the scoped 1986 backpropagation procedure and was self-organizing."
+  },
+  "ontology_before": "convolutional_neural_networks treated backpropagation_training as a direct enabling relationship.",
+  "ontology_after": "The founding 1980 Neocognitron architecture predates the scoped 1986 backpropagation procedure and was self-organizing.",
+  "invariant_preserved_or_changed": "Changed: convolutional_neural_networks no longer has backpropagation_training as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes backpropagation_training as a necessary causal input to the newly scoped convolutional_neural_networks claim."
+  ],
+  "short_reason": "The founding 1980 Neocognitron architecture predates the scoped 1986 backpropagation procedure and was self-organizing.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-printed-scientific-errata-scientific-peer-review-practices-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_scientific_errata",
+    "prerequisite": "scientific_peer_review_practices"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Peer Review Practices provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The 1665 errata scope predates the 1753 Committee of Papers procedure, so the later review institution cannot enable it.",
+  "source_supports_edge": "no",
+  "source_url": "https://royalsociety.org/blog/2015/03/philosophical-transactions-the-early-years/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Royal Society dates the journal to 1665 and its Committee of Papers publication procedure to the Society's takeover in 1753.",
+    "source_claim_summary": "The dated institutional history rules out making a 1753 review procedure a prerequisite for a node anchored to 1665 print correction.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The 1665 errata scope predates the 1753 Committee of Papers procedure, so the later review institution cannot enable it."
+  },
+  "ontology_before": "printed_scientific_errata treated scientific_peer_review_practices as a direct enabling relationship.",
+  "ontology_after": "The 1665 errata scope predates the 1753 Committee of Papers procedure, so the later review institution cannot enable it.",
+  "invariant_preserved_or_changed": "Changed: printed_scientific_errata no longer has scientific_peer_review_practices as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes scientific_peer_review_practices as a necessary causal input to the newly scoped printed_scientific_errata claim."
+  ],
+  "short_reason": "The 1665 errata scope predates the 1753 Committee of Papers procedure, so the later review institution cannot enable it.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

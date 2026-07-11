@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-calculus-formalization-scientific-method-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "calculus_formalization",
+    "prerequisite": "scientific_method"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Method provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "A generic scientific-method edge does not identify a mathematical operation or lineage required by Leibniz's differential rules.",
+  "source_supports_edge": "no",
+  "source_url": "https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The St Andrews biography states that Leibniz published differential-calculus notation and derivative rules in Nova Methodus in 1684.",
+    "source_claim_summary": "The source anchors the calculus claim to Leibniz's published rules without naming logarithms or a generic scientific method as direct antecedents.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. A generic scientific-method edge does not identify a mathematical operation or lineage required by Leibniz's differential rules."
+  },
+  "ontology_before": "calculus_formalization treated scientific_method as a direct enabling relationship.",
+  "ontology_after": "A generic scientific-method edge does not identify a mathematical operation or lineage required by Leibniz's differential rules.",
+  "invariant_preserved_or_changed": "Changed: calculus_formalization no longer has scientific_method as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes scientific_method as a necessary causal input to the newly scoped calculus_formalization claim."
+  ],
+  "short_reason": "A generic scientific-method edge does not identify a mathematical operation or lineage required by Leibniz's differential rules.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

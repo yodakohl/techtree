@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-pharmacopoeia-compilation-pharmacopoeia-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "pharmacopoeia_compilation",
+    "prerequisite": "pharmacopoeia"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pharmacopoeia provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The specific Pliny encyclopedia is no longer modeled as depending on the separate broad pharmacopoeia category, which duplicated its medicinal-compilation meaning.",
+  "source_supports_edge": "no",
+  "source_url": "https://classics.stanford.edu/publications/plinys-roman-economy-natural-history-innovation-and-growth",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Stanford describes Natural History as a 77 CE, 37-book compilation of ancient Mediterranean knowledge for craftsmen and farmers.",
+    "source_claim_summary": "The reviewed record scopes the node to Pliny's identifiable 77 CE encyclopedia rather than to a generic pharmaceutical workflow.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. The specific Pliny encyclopedia is no longer modeled as depending on the separate broad pharmacopoeia category, which duplicated its medicinal-compilation meaning."
+  },
+  "ontology_before": "pharmacopoeia_compilation treated pharmacopoeia as a direct enabling relationship.",
+  "ontology_after": "The specific Pliny encyclopedia is no longer modeled as depending on the separate broad pharmacopoeia category, which duplicated its medicinal-compilation meaning.",
+  "invariant_preserved_or_changed": "Changed: pharmacopoeia_compilation no longer has pharmacopoeia as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes pharmacopoeia as a necessary causal input to the newly scoped pharmacopoeia_compilation claim."
+  ],
+  "short_reason": "The specific Pliny encyclopedia is no longer modeled as depending on the separate broad pharmacopoeia category, which duplicated its medicinal-compilation meaning.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

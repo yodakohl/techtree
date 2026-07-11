@@ -1,6 +1,6 @@
 # Quality Snapshot
 
-Generated: 2026-07-10T12:50:37.193Z
+Generated: 2026-07-11T12:36:58.656Z
 
 This is a launch-quality trust snapshot generated from the same report object used by `npm run accuracy:risks`; it covers non-Future nodes and is not proof of global accuracy.
 
@@ -11,15 +11,15 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | Technologies | 1,659 |
 | Launch-quality scope (non-Future nodes) | 1,421 / 1,659 (85.7%; 238 Future excluded) |
 | Source-checked nodes | 1,403 / 1,421 (98.7%) |
-| Source-checked nodes with resolved chronology | 1,361 / 1,403 (97.0%) |
-| Source-checked nodes with unresolved chronology | 42 / 1,403 (3.0%) |
-| Source-checked nodes with strong-type node sources | 1,267 / 1,403 (90.3%) |
-| Source-checked nodes with located strong-type evidence | 635 / 1,403 (45.3%) |
+| Source-checked nodes with resolved chronology | 1,366 / 1,403 (97.4%) |
+| Source-checked nodes with unresolved chronology | 37 / 1,403 (2.6%) |
+| Source-checked nodes with strong-type node sources | 1,266 / 1,403 (90.2%) |
+| Source-checked nodes with located strong-type evidence | 641 / 1,403 (45.7%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,403 (0.0%) |
 | Nodes with node-level sources | 1,419 / 1,421 (99.9%) |
-| Nodes with located node-level evidence | 711 / 1,421 (50.0%) |
-| Dependency edges with edge-level sources | 4,009 / 4,208 (95.3%) |
-| Dependency edges with located evidence | 900 / 4,208 (21.4%) |
+| Nodes with located node-level evidence | 718 / 1,421 (50.5%) |
+| Dependency edges with edge-level sources | 3,985 / 4,180 (95.3%) |
+| Dependency edges with located evidence | 899 / 4,180 (21.5%) |
 | Era-default placeholder dates | 0 / 1,421 (0.0%) |
 
 ## Manual audit note

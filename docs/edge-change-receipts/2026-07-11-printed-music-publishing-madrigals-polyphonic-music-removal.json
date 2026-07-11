@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-printed-music-publishing-madrigals-polyphonic-music-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "printed_music_publishing",
+    "prerequisite": "madrigals_polyphonic_music"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Madrigals & Polyphonic Music provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Petrucci's 1501 anthology predates the graph's later madrigal node; a later repertoire category cannot enable the earlier printing process.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.loc.gov/static/research-centers/performing-arts/documents/Anthologies-Final-Bibliography.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Library of Congress identifies the 1501 Odhecaton as the first movable-type book of polyphonic music and first printed music anthology.",
+    "source_claim_summary": "The bibliographic record anchors Petrucci's printing to 1501, before the graph's later madrigal category, and supports printing rather than that genre as the production dependency.",
+    "source_support_rationale": "The corrected scope leaves this relationship outside the causal boundary. Petrucci's 1501 anthology predates the graph's later madrigal node; a later repertoire category cannot enable the earlier printing process."
+  },
+  "ontology_before": "printed_music_publishing treated madrigals_polyphonic_music as a direct enabling relationship.",
+  "ontology_after": "Petrucci's 1501 anthology predates the graph's later madrigal node; a later repertoire category cannot enable the earlier printing process.",
+  "invariant_preserved_or_changed": "Changed: printed_music_publishing no longer has madrigals_polyphonic_music as a direct prerequisite.",
+  "would_reject_if": [
+    "A direct historical or technical source establishes madrigals_polyphonic_music as a necessary causal input to the newly scoped printed_music_publishing claim."
+  ],
+  "short_reason": "Petrucci's 1501 anthology predates the graph's later madrigal node; a later repertoire category cannot enable the earlier printing process.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

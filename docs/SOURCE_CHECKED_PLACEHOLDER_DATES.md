@@ -7,15 +7,15 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 A pre-Future `source_checked` node with `datePrecision: unknown` or an era-default date must either carry explicit uncertainty metadata (`dateUncertainty`, `dateUncertaintyNote`, or `chronologyUncertainty`) or appear in this report.
 
 Source-checked nodes: 1403
-Source-checked nodes with unresolved chronology: 42 / 1403 (3.0%)
-Listed exceptions without explicit uncertainty metadata: 41
+Source-checked nodes with unresolved chronology: 37 / 1403 (2.6%)
+Listed exceptions without explicit uncertainty metadata: 36
 
 ## Summary By Era
 
 | Era | Source-checked unresolved dates | With explicit uncertainty metadata | Listed exceptions |
 | --- | --- | --- | --- |
 | Industrial | 23 | 1 | 22 |
-| Renaissance | 19 | 0 | 19 |
+| Renaissance | 14 | 0 | 14 |
 
 ## Unresolved-Chronology Nodes
 
@@ -44,23 +44,18 @@ Listed exceptions without explicit uncertainty metadata: 41
 | `sociology_classical_theories_durkheim_weber` | Classical Sociology | Industrial | 1825 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `sociology_early` | Sociology (Early) | Industrial | 1825 | unknown | Presocratic Philosophy | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `synthetic_ammonia_research` | Synthetic Ammonia Research | Industrial | 1842 | unknown | Haber-Bosch process; Nitrogen fixation | textbook, textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `analytic_geometry` | Analytic Geometry | Renaissance | 1614 | unknown | Geometry | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `artillery_fortification_schools` | Artillery & Fortification Schools | Renaissance | 1609 | unknown | Gutenberg Bible | official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `biology` | Biology | Renaissance | 1545 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `calculus_formalization` | Calculus Formalization | Renaissance | 1614 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `clockwork_automata` | Clockwork Automata | Renaissance | 1614 | unknown | Escapement | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `engraved_scientific_plates` | Engraved Scientific Plates | Renaissance | 1614 | unknown | Gutenberg Bible | official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `experimental_controls` | Experimental Controls | Renaissance | 1553 | unknown | Scientific Revolution | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `iatrochemistry_paracelsus` | Iatrochemistry (Paracelsus) | Renaissance | 1543 | unknown | Alchemy | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `marine_chronometer_prototypes` | Marine Chronometer Prototypes | Renaissance | 1614 | unknown | Escapement | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `maritime_insurance` | Maritime Insurance | Renaissance | 1553 | unknown | Marine insurance | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `medical_case_records` | Medical Case Records | Renaissance | 1543 | unknown | Papermaking | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `naval_gunnery_tables` | Naval Gunnery Tables | Renaissance | 1614 | unknown | Military technology - The gunpowder revolution, c. 1300-1650 | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `naval_logbooks` | Naval Logbooks | Renaissance | 1569 | unknown | Papermaking | textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `printed_financial_price_lists` | Printed Financial Price Lists | Renaissance | 1605 | unknown | The World's First Stock Exchange: Amsterdam VOC Shares, 1602-1700 | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `printed_map_atlases` | Printed Map Atlases | Renaissance | 1614 | unknown | The first atlas - Abraham Ortelius; Ortelius Atlas | museum, official_agency | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `printed_music_publishing` | Printed Music Publishing | Renaissance | 1520 | unknown | Gutenberg Bible; Music in the Renaissance; Harmonice Musices Odhecaton | official_agency, museum, generic_overview | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `printed_scientific_errata` | Printed Scientific Errata | Renaissance | 1665 | unknown | History of Philosophical Transactions | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 | `printed_standardized_textbooks` | Printed Standardized Textbooks | Renaissance | 1543 | unknown | Gutenberg Bible; Scientific Revolution | official_agency, textbook | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
-| `scientific_peer_review_practices` | Scientific Peer Review Practices | Renaissance | 1665 | unknown | History of Philosophical Transactions | review | Listed exception: chronology precision is unknown and still needs source-backed resolution. |
 
