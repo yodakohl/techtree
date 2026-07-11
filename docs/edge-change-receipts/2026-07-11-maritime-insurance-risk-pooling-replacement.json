@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-11-maritime-insurance-risk-pooling-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "maritime_insurance",
+    "prerequisite": "merchant_risk_pooling"
+  },
+  "replaced_edge": {
+    "dependent": "maritime_insurance",
+    "prerequisite": "joint_stock_companies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Joint-Stock Companies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.9,
+    "evidence_level": "primary_source",
+    "note": "Medieval sea loans and commenda contracts allocated voyage risk before standalone premium insurance separated risk transfer from investment."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The introduction distinguishes twelfth-century Genoese sea loans from the mid-fourteenth-century emergence of standalone insurance contracts and markets.",
+    "source_claim_summary": "The economic-history study establishes sea-loan risk sharing as the earlier contractual lineage from which separate marine insurance emerged.",
+    "source_support_rationale": "This replaces the anachronistic joint-stock dependency with the earlier voyage-risk contract family that the source actually places before standalone insurance."
+  },
+  "ontology_before": "Maritime Insurance depended on Joint-Stock Companies even though the graph dates those companies more than two centuries after the first known Genoese policy.",
+  "ontology_after": "Maritime Insurance follows the documented transition from medieval sea-loan and commenda risk sharing to standalone premium contracts.",
+  "invariant_preserved_or_changed": "Changed: maritime_insurance now depends on merchant_risk_pooling and no longer directly depends on joint_stock_companies.",
+  "would_reject_if": [
+    "A stronger source dates joint-stock companies before the first standalone policies and shows that they were required to create the fourteenth-century Genoese insurance market.",
+    "The maritime_insurance node is later narrowed to corporate insurers rather than standalone marine policies."
+  ],
+  "short_reason": "Sea-loan and commenda risk sharing is the documented predecessor; joint-stock companies are later institutions.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/maritime_insurance.before.json /tmp/maritime_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

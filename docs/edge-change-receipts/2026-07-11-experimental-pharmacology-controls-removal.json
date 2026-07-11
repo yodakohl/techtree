@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-experimental-pharmacology-controls-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "experimental_pharmacology",
+    "prerequisite": "experimental_controls"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Experimental Controls provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The controls node is now scoped to Lind-style comparative trials in 1747 and therefore cannot enable the graph's early-modern pharmacology node dated around 1600.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3149409/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The historical review identifies Lind's 1747 scurvy comparison as the controlled clinical trial milestone and describes its common conditions and six treatment arms.",
+    "source_claim_summary": "The source anchors the corrected controlled-trial scope to 1747, well after the dependent node's 1600 chronology.",
+    "source_support_rationale": "A later comparative-trial method cannot be a prerequisite for the earlier remedy-comparison practice; the latter retains casebook and iatrochemical context."
+  },
+  "ontology_before": "Experimental Pharmacology depended on an Experimental Controls node whose old placeholder date concealed the chronological reversal.",
+  "ontology_after": "Early-modern pharmacology remains linked to period-appropriate medical records and iatrochemistry, while controlled comparative trials begin later.",
+  "invariant_preserved_or_changed": "Changed: experimental_pharmacology no longer directly depends on experimental_controls.",
+  "would_reject_if": [
+    "Experimental pharmacology is redated and rescoped to post-1747 controlled therapeutic trials.",
+    "A source establishes a controlled comparative design matching the corrected node scope before the dependent's 1600 anchor."
+  ],
+  "short_reason": "The corrected controls milestone is 1747 and cannot enable a node anchored around 1600.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/experimental_controls.before.json /tmp/experimental_controls.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

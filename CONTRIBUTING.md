@@ -5,6 +5,9 @@ expansions. The highest-value contribution is one disputed technology edge,
 reviewed carefully enough that another agent or maintainer can reproduce the
 decision.
 
+Use Node.js 20 or newer. The repository has no runtime package dependencies, so
+validation can run immediately after checkout.
+
 ## Best First Contribution
 
 Start with the [Edge Review Queue](docs/EDGE_REVIEW_QUEUE.md). It lists current
@@ -62,6 +65,31 @@ For source-heavy field work, also run:
 ```bash
 npm run source-urls -- --field "Genome Editing / CRISPR-Cas" --timeout-ms 15000 --concurrency 4
 ```
+
+## Code and Documentation Changes
+
+Code changes should include focused regression coverage when behavior changes.
+The built-in server uses Node's test runner; add API and persistence cases under
+`test/`. Browser scripts are syntax-checked by the standard test command.
+
+Before submitting a non-trivial code, documentation, or mixed change, run:
+
+```bash
+npm run agent:check -- --run
+npm test
+npm run quality
+npm run coverage
+git diff --check
+```
+
+Public instances must remain read-only. The write API is intentionally a trusted
+local maintenance surface, not an authenticated multi-user service. Changes to
+`server.js` must preserve request-size limits, full-dataset validation, ETag
+preconditions, canonical era persistence, and the static-file allowlist.
+
+Future nodes remain in the graph and must stay structurally valid, but they are
+excluded from launch-quality source and chronology statistics. Do not remove
+Future entries merely to improve a quality percentage.
 
 ## What We Will Reject
 

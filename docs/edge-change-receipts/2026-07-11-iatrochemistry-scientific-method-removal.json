@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-iatrochemistry-scientific-method-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "iatrochemistry_paracelsus",
+    "prerequisite": "scientific_method"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Scientific Method provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Paracelsian iatrochemistry is retained as a chemical-medicine development from alchemical practices; the source does not make a generalized scientific-method node its prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK583763/",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter 3 identifies Paracelsus as the key proponent of iatrochemistry and traces his program through chemical principles, mineral medicines, distillation, and alchemical practice without deriving it from a generalized scientific method.",
+    "source_claim_summary": "The historical account places Paracelsian chemical medicine inside the practical alchemical and medical traditions of sixteenth-century Europe.",
+    "source_support_rationale": "Removing the generic method edge prevents a later ideal of scientific practice from being projected backward as a causal prerequisite while the directly documented alchemical lineage remains."
+  },
+  "ontology_before": "Iatrochemistry depended both on alchemy and on a broad Scientific Method node, treating the latter as a documented enabling capability.",
+  "ontology_after": "Iatrochemistry retains its source-backed alchemical lineage without claiming that a generalized scientific method was required for Paracelsus's chemical medicine.",
+  "invariant_preserved_or_changed": "Changed: iatrochemistry_paracelsus no longer directly depends on scientific_method; its alchemy edge remains.",
+  "would_reject_if": [
+    "A direct historical source shows that Paracelsus's chemical-medicine program explicitly depended on the methodology represented by scientific_method rather than on the alchemical and medical practices retained in the graph."
+  ],
+  "short_reason": "The source documents chemical medicine's alchemical lineage, not a prerequisite relationship to a generalized scientific method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/iatrochemistry_paracelsus.before.json /tmp/iatrochemistry_paracelsus.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

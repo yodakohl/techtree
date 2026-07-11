@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Validate structure and temporal consistency
+      - name: Test code, API, structure, and temporal consistency
         run: npm test
 
       - name: Run data quality audit
@@ -33,4 +33,3 @@ jobs:
 
       - name: Generate coverage report
         run: npm run coverage
-

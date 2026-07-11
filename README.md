@@ -1,7 +1,7 @@
 # TechTree
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-43853d.svg)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20%2B-43853d.svg)](https://nodejs.org/)
 [![Dataset](https://img.shields.io/badge/technologies-1659-6f42c1.svg)](data/)
 [![Validation](https://img.shields.io/badge/data-validated-brightgreen.svg)](scripts/validate-data.js)
 [![Data Quality](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml/badge.svg)](https://github.com/yodakohl/techtree/actions/workflows/data-quality.yml)
@@ -10,10 +10,10 @@
 
 [Live Demo](https://pushme.site/techtree/demo.html) · [CRISPR Target Trace](https://pushme.site/techtree/demo.html?field=Genome%20Editing%20%2F%20CRISPR-Cas&target=crispr_gene_editing#tech-crispr_gene_editing) · [Graph View](https://pushme.site/techtree/) · [Sorted View](https://pushme.site/techtree/sorted.html) · [Agent Entry](llms.txt)
 
-Every technology now has a stable public URL at:
+Every technology and field lens has a stable public URL:
 
-- https://pushme.site/techtree/tech/`<id>`.html
-- https://pushme.site/techtree/fields/`<slug>`.html
+- `https://pushme.site/techtree/tech/<id>.html`
+- `https://pushme.site/techtree/fields/<slug>.html`
 
 Example entry points:
 
@@ -42,15 +42,15 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | Technologies | 1,659 |
 | Launch-quality scope (non-Future nodes) | 1,421 / 1,659 (85.7%; 238 Future excluded) |
 | Source-checked nodes | 1,403 / 1,421 (98.7%) |
-| Source-checked nodes with resolved chronology | 1,366 / 1,403 (97.4%) |
-| Source-checked nodes with unresolved chronology | 37 / 1,403 (2.6%) |
+| Source-checked nodes with resolved chronology | 1,371 / 1,403 (97.7%) |
+| Source-checked nodes with unresolved chronology | 32 / 1,403 (2.3%) |
 | Source-checked nodes with strong-type node sources | 1,266 / 1,403 (90.2%) |
-| Source-checked nodes with located strong-type evidence | 641 / 1,403 (45.7%) |
+| Source-checked nodes with located strong-type evidence | 645 / 1,403 (46.0%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,403 (0.0%) |
 | Nodes with node-level sources | 1,419 / 1,421 (99.9%) |
-| Nodes with located node-level evidence | 718 / 1,421 (50.5%) |
-| Dependency edges with edge-level sources | 3,985 / 4,180 (95.3%) |
-| Dependency edges with located evidence | 899 / 4,180 (21.5%) |
+| Nodes with located node-level evidence | 722 / 1,421 (50.8%) |
+| Dependency edges with edge-level sources | 3,980 / 4,174 (95.4%) |
+| Dependency edges with located evidence | 903 / 4,174 (21.6%) |
 | Era-default placeholder dates | 0 / 1,421 (0.0%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
@@ -73,7 +73,7 @@ TechTree is built as public-good infrastructure for researchers, builders, educa
 
 ## Views
 
-- **Graph View**: a Vis Network dependency graph with search, era and field filtering, focused dependency context, source metadata, and editable entries.
+- **Graph View**: a Vis Network dependency graph with search, era and field filtering, focused dependency context, source metadata, and an editor available only in explicit local write mode.
 - **Sorted View**: a compact branch/table browser for scanning technologies by era, dependency depth, branch, field lens, maturity, and roadmap status.
 - **Demo View**: a target-focused dashboard that opens directly on CRISPR/Cas9 and shows what had to exist to reach a selected technology, plus lane maps, likely next technologies, dependency confidence, and sources.
 
@@ -81,12 +81,11 @@ TechTree is built as public-good infrastructure for researchers, builders, educa
 
 Requirements:
 
-- [Node.js](https://nodejs.org/) 18 or newer
+- [Node.js](https://nodejs.org/) 20 or newer
 
-Install dependencies and start the local server:
+TechTree has no runtime package dependencies. Start the local, read-only server:
 
 ```bash
-npm install
 npm start
 ```
 
@@ -103,17 +102,19 @@ Open:
 - Graph view: `http://localhost:3000`
 - Sorted view: `http://localhost:3000/sorted.html`
 
-The server listens on port `3000` by default. Use `PORT` to run on a different port:
+The server binds to `127.0.0.1:3000` by default. Use `HOST` and `PORT` to change the listener:
 
 ```bash
-PORT=8080 npm start
+HOST=0.0.0.0 PORT=8080 npm start
 ```
 
-For a browse-only deployment, disable write operations:
+Write operations are disabled by default. Enable the local editor explicitly only on a trusted machine:
 
 ```bash
-TECHTREE_READ_ONLY=true npm start
+TECHTREE_READ_ONLY=false npm start
 ```
+
+The write API has no authentication. Never expose a write-enabled instance directly to an untrusted network; use read-only mode for public deployments.
 
 ## Features
 
@@ -121,7 +122,7 @@ TECHTREE_READ_ONLY=true npm start
 - Filter the graph by era or curated field lens.
 - Focus the graph around selected technologies and their direct dependency context.
 - Inspect prerequisites and unlocks from the side panel.
-- Add, edit, or delete technologies when not running in read-only mode.
+- Add, edit, or delete technologies in explicit local write mode, with full-graph validation and stale-write protection before persistence.
 - Browse a compact sorted view grouped by derived technology branches.
 - Present a concise target-trace demo for researchers, contributors, and reviewers.
 - Use field lenses for focused exploration, including mechanical engineering, finance/markets, genome editing, semiconductor technology, AI/ML, energy systems, spaceflight, robotics, diagnostics, climate, agriculture, cybersecurity, transportation, materials, telecommunications, water/sanitation, and pharmaceuticals/drug development.
@@ -249,7 +250,7 @@ Curated field entries may add field-lens, maturity, and roadmap metadata:
 
 Rules:
 
-- `id` values must be unique lowercase identifiers.
+- `id` values must be unique lowercase identifiers using letters, numbers, underscores, or hyphens.
 - `era` must match the file where the technology is stored.
 - `dependencyEdges` must contain typed semantic dependency objects; `prerequisites` is kept as a compatibility mirror of those edge targets.
 - The prerequisite graph must remain acyclic.
@@ -295,7 +296,7 @@ Run the validator before committing data changes:
 npm test
 ```
 
-The validator checks required fields, typed dependency-edge metadata, duplicate IDs, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles. `npm test` also runs the temporal audit, which rejects earlier-era nodes depending on later-era nodes, Modern nodes depending on Future nodes, and edges where the prerequisite has a later `firstKnownDate`.
+The validator checks required and bounded fields, typed dependency-edge metadata, duplicate IDs and prerequisites, invalid eras, era/file mismatches, missing prerequisites, self-prerequisites, and dependency cycles. `npm test` also syntax-checks the browser and server code, runs API regression tests, and runs the temporal audit, which rejects earlier-era nodes depending on later-era nodes, Modern nodes depending on Future nodes, and edges where the prerequisite has a later `firstKnownDate`.
 
 Run the data-quality audit to catch generated placeholder rows, duplicate display names, weak source metadata, overconfident weak-inference edges, semantic edge-change receipts, and technologies that use modern or future-only terminology too early:
 
@@ -358,6 +359,7 @@ For bulk additions, follow [Technology Expansion Runbook](docs/TECH_EXPANSION_RU
 app.js                         Graph view client
 sorted.js                      Compact sorted browser
 server.js                      Static file server and JSON API
+test/server.test.js            API, persistence, and static-serving regression tests
 data/                          Canonical era JSON and taxonomy data
 data/expansion/                Compact TSV expansion sources
 docs/                          Coverage and expansion documentation
@@ -381,9 +383,20 @@ scripts/audit-source-urls.js   Optional network audit for cited source URLs
 
 The server exposes:
 
-- `GET /api/tech-tree`: returns the full technology array.
-- `PUT /api/tech-tree`: replaces the dataset and persists it to era files, unless `TECHTREE_READ_ONLY=true`.
+- `GET /api/tech-tree`: returns the full technology array and its current `ETag`.
+- `PUT /api/tech-tree`: validates and replaces the dataset in explicit write mode. Send `Content-Type: application/json` and the latest GET response's `ETag` in `If-Match`.
 - `GET /api/config`: returns client configuration such as read-only status.
+
+The write path has an 8 MiB body limit, applies structural and temporal validation to the complete graph, rejects stale writes with `412`, and atomically replaces each changed canonical era file. Invalid datasets return `422` with bounded error details. Empty datasets are never accepted.
+
+Static serving is allowlisted to the three application views, their assets, and generated `tech/` and `fields/` pages. Repository internals, source data files, scripts, and Git metadata are not public through the Node server.
+
+### Deployment Security
+
+- Read-only mode is the default; keep it enabled for public deployments.
+- The built-in write API has no users, sessions, or authentication and is intended for trusted local maintenance only.
+- The default listener is loopback-only. Set `HOST=0.0.0.0` only behind an appropriate reverse proxy or network boundary.
+- Security headers, strict API methods, request-size limits, schema validation, temporal validation, and optimistic concurrency are enforced by `server.js` and covered by `npm run test:server`.
 
 ## License
 

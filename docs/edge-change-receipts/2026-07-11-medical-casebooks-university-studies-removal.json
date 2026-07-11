@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-medical-casebooks-university-studies-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "medical_case_records",
+    "prerequisite": "university_medical_studies"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "University Medical Studies provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The scoped Forman-Napier casebooks were produced by astrological practitioners outside the licensed university-physician category, so university medical study is not a prerequisite for this record form.",
+  "source_supports_edge": "no",
+  "source_url": "https://casebooks.lib.cam.ac.uk/astrological-medicine/early-modern-medicine",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Cambridge critical introduction places Forman and Napier among irregular practitioners and distinguishes them from licensed physicians and university-trained medicine.",
+    "source_claim_summary": "The practitioners behind the anchor archive occupied a medical setting that did not require licensed university physician training.",
+    "source_support_rationale": "Removing this edge preserves the casebooks as a documentary practice across practitioner types instead of equating record keeping with one professional training route."
+  },
+  "ontology_before": "Medical Case Records treated university medical study as an enabling prerequisite for early modern serial casebooks.",
+  "ontology_after": "Early Modern Medical Casebooks are grounded in their written-case lineage and paper medium without requiring university physician training.",
+  "invariant_preserved_or_changed": "Changed: medical_case_records no longer directly depends on university_medical_studies.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to university teaching-hospital records rather than the Forman-Napier practitioner casebooks.",
+    "A source establishes university medical training as necessary for producing the anchor casebook archive."
+  ],
+  "short_reason": "The anchor records came from practitioners outside the university-licensed physician category.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/medical_case_records.before.json /tmp/medical_case_records.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

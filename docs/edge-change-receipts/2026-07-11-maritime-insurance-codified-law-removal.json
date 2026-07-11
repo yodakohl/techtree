@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-maritime-insurance-codified-law-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "maritime_insurance",
+    "prerequisite": "codified_law"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Codified Law provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The corrected graph uses medieval notarial contracts as the specific legal-document capability; an additional edge to ancient written law codes is too broad to express that mechanism.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1515/apjri-2022-0037",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Section 2 identifies a notarial policy in 1343 and Genoese insurance regulation in 1369, providing specific medieval legal institutions rather than tracing policies directly to ancient law codes.",
+    "source_claim_summary": "The historical account supplies a local notarial and regulatory setting for early policies, not a direct causal edge from ancient codification.",
+    "source_support_rationale": "Replacing the category-level law claim with notarial_records keeps the legal mechanism precise and avoids counting remote legal ancestry as a direct technology dependency."
+  },
+  "ontology_before": "Maritime Insurance depended directly on Ancient Written Law Codes as a broad legal foundation.",
+  "ontology_after": "Maritime Insurance uses the source-attested medieval notarial-record layer without a redundant direct edge to ancient codification.",
+  "invariant_preserved_or_changed": "Changed: maritime_insurance no longer directly depends on codified_law; notarial_records now carries the documented legal mechanism.",
+  "would_reject_if": [
+    "A direct historical source shows that the first Genoese premium policies specifically required the ancient code tradition represented by codified_law beyond the retained medieval notarial mechanism."
+  ],
+  "short_reason": "Medieval notarial records are the specific documented legal capability; ancient law codes are too remote and broad.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/maritime_insurance.before.json /tmp/maritime_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

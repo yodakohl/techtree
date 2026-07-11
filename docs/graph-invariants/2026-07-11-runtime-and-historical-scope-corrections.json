@@ -1,0 +1,137 @@
+{
+  "id": "2026-07-11-runtime-and-historical-scope-corrections",
+  "description": "Lock the corrected chronology and causal boundaries for Paracelsian iatrochemistry, marine insurance, early modern medical casebooks, comparative trials, probability, and biology.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "iatrochemistry_paracelsus",
+      "prerequisite": "scientific_method",
+      "reason": "A generalized scientific-method category must not be projected backward as a prerequisite for Paracelsian chemical medicine."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "iatrochemistry_paracelsus",
+      "prerequisite": "alchemy",
+      "expected": "enabling",
+      "reason": "The documented practical alchemical lineage remains the enabling capability for the scoped chemical-medicine program."
+    },
+    {
+      "type": "first_known_date",
+      "node": "iatrochemistry_paracelsus",
+      "operator": "eq",
+      "value": 1530,
+      "reason": "The chronology remains anchored to the decade of Paracelsus's mature chemical-medicine work."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "maritime_insurance",
+      "prerequisite": "banking",
+      "reason": "The later-scoped Banking node must not replace the specific notarial mechanism behind the first Genoese policies."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "maritime_insurance",
+      "prerequisite": "joint_stock_companies",
+      "reason": "Joint-stock companies postdate the first standalone marine policies and must remain downstream rather than causal ancestors."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "maritime_insurance",
+      "prerequisite": "mathematics",
+      "reason": "Formal actuarial mathematics belongs to a later pricing node, not the first standalone policy milestone."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "maritime_insurance",
+      "prerequisite": "codified_law",
+      "reason": "Ancient written codes are too remote and broad once medieval notarial contracts carry the documented legal capability."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "maritime_insurance",
+      "prerequisite": "merchant_risk_pooling",
+      "expected": "historical_predecessor",
+      "reason": "Sea loans and commenda remain the contractual risk-sharing lineage before standalone premium insurance."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "maritime_insurance",
+      "prerequisite": "notarial_records",
+      "expected": "enabling",
+      "reason": "Medieval notarial drafting remains the direct documentary capability for the early policy market."
+    },
+    {
+      "type": "first_known_date",
+      "node": "maritime_insurance",
+      "operator": "eq",
+      "value": 1343,
+      "reason": "The node remains anchored to the first known Genoese policy dated 18 March 1343."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "medical_case_records",
+      "prerequisite": "anatomical_illustration",
+      "reason": "Anatomical atlases must not be conflated with the serial consultation-record form represented by casebooks."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "medical_case_records",
+      "prerequisite": "university_medical_studies",
+      "reason": "The Forman-Napier anchor archive was not contingent on licensed university physician training."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_case_records",
+      "prerequisite": "medical_case_notes",
+      "expected": "historical_predecessor",
+      "reason": "Hippocratic written case histories remain the documentary predecessor to early modern serial casebooks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "medical_case_records",
+      "prerequisite": "paper_making",
+      "expected": "enabling",
+      "reason": "Paper notebooks remain the material medium for the surviving serial archive."
+    },
+    {
+      "type": "first_known_date",
+      "node": "medical_case_records",
+      "operator": "eq",
+      "value": 1596,
+      "reason": "The node remains anchored to the beginning of Simon Forman's surviving casebook run."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "experimental_pharmacology",
+      "prerequisite": "experimental_controls",
+      "reason": "A controlled-comparison milestone dated 1747 cannot enable the graph's pharmacology practice anchored around 1600."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "probability_statistics_inference",
+      "prerequisite": "experimental_controls",
+      "reason": "The 1654 mathematical-probability lineage must not depend on a later 1747 controlled-trial design."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "experimental_controls",
+      "prerequisite": "scientific_method",
+      "expected": "enabling",
+      "reason": "Comparative trials retain their general experimental-method context without becoming ancestors of earlier technologies."
+    },
+    {
+      "type": "first_known_date",
+      "node": "experimental_controls",
+      "operator": "eq",
+      "value": 1747,
+      "reason": "The controlled-comparison scope remains anchored to Lind's six-treatment scurvy trial."
+    },
+    {
+      "type": "first_known_date",
+      "node": "biology",
+      "operator": "eq",
+      "value": 1802,
+      "reason": "The unified named field remains anchored to Lamarck and Treviranus in 1802 rather than earlier organism study."
+    }
+  ]
+}

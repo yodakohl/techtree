@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-11-maritime-insurance-notarial-records-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "maritime_insurance",
+    "prerequisite": "notarial_records"
+  },
+  "replaced_edge": {
+    "dependent": "maritime_insurance",
+    "prerequisite": "banking"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Banking provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.86,
+    "evidence_level": "review",
+    "note": "Genoese notaries drafted and preserved the contracts that formed the early marine-insurance market and its enforceable documentary record."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1515/apjri-2022-0037",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Section 2 states that the first known policy was drawn up in Genoa by notary Tommaso Casanova on 18 March 1343 and describes later Genoese insurance regulation.",
+    "source_claim_summary": "The study directly locates early marine-insurance policies in Genoese notarial drafting and documentary practice.",
+    "source_support_rationale": "The current Banking node is anchored to a later institution, whereas notarial records identify the concrete legal-document capability used by the first policy market."
+  },
+  "ontology_before": "Maritime Insurance depended on the later-scoped Banking node as a broad financial prerequisite.",
+  "ontology_after": "Maritime Insurance depends on medieval notarial records as the documented contract-drafting and preservation layer for early policies.",
+  "invariant_preserved_or_changed": "Changed: maritime_insurance now depends on notarial_records and no longer directly depends on banking.",
+  "would_reject_if": [
+    "A source shows that the first Genoese standalone policies could not exist without the specific later banking institution represented by banking.",
+    "The notarial_records node is rescoped away from medieval Genoese commercial contracts."
+  ],
+  "short_reason": "Notarial drafting is directly documented in the first policy; the later Banking node is not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/maritime_insurance.before.json /tmp/maritime_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

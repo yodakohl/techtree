@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-11-medical-casebooks-paper-evidence-upgrade",
+  "decision_date": "2026-07-11",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "medical_case_records",
+    "prerequisite": "paper_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Paper Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.72,
+    "evidence_level": "review",
+    "note": "Paper notebooks supplied the writable medium for the large serial archive of consultation records that defines this scoped casebook practice."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://casebooks.lib.cam.ac.uk/reading-the-casebooks/what-are-the-casebooks",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The critical edition describes 66 handwritten volumes containing roughly 80,000 consultations and dates the surviving Forman and Napier casebook runs.",
+    "source_claim_summary": "The anchor practice is materially embodied in a large handwritten notebook archive rather than only in oral consultation or printed anatomy.",
+    "source_support_rationale": "The source upgrades a generic medium inference by identifying the physical serial volumes that preserve and define the scoped record-keeping practice."
+  },
+  "invariant_preserved_or_changed": "Preserved: paper_making remains an enabling medium rather than a medical method; changed: the edge now has archive-specific review evidence.",
+  "would_reject_if": [
+    "The node is broadened to include oral case transmission or non-paper records for which paper production is not enabling.",
+    "A manuscript study shows that the anchor volumes used a different writing medium."
+  ],
+  "short_reason": "The Cambridge edition documents the handwritten serial volumes that materially carry the casebook archive.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/medical_case_records.before.json /tmp/medical_case_records.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

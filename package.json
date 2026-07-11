@@ -31,7 +31,9 @@
     "source-urls": "node scripts/audit-source-urls.js",
     "temporal": "node scripts/audit-temporal-consistency.js",
     "quality": "node scripts/audit-data-quality.js && npm run edge-receipts && npm run graph-invariants && npm run invariant-coverage && npm run trust:audit && node scripts/source-checked-placeholder-report.js --check && node scripts/audit-random-source-fit.js --check && node scripts/generate-quality-snapshot.js --check && node scripts/generate-field-quality-snapshot.js --check && npm run metrics:check && npm run check:public",
-    "test": "node scripts/test-quality-audits.js && node scripts/validate-data.js && npm run temporal",
+    "test:code": "node --check server.js && node --check app.js && node --check demo.js && node --check sorted.js",
+    "test:server": "node --test test/*.test.js",
+    "test": "npm run test:code && npm run test:server && node scripts/test-quality-audits.js && node scripts/validate-data.js && npm run temporal",
     "start": "node server.js"
   },
   "keywords": [
@@ -95,7 +97,7 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "type": "commonjs"
 }

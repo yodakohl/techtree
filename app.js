@@ -10,6 +10,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const deleteBtn = document.getElementById('delete-tech-btn');
     const updateBtn = document.getElementById('update-tech-btn');
     const addBtn = document.getElementById('add-tech-btn');
+    const cancelEditBtn = document.getElementById('cancel-edit-btn');
+    const editorTitleEl = document.getElementById('editor-title');
+    const editorStatusEl = document.getElementById('editor-status');
+    const appStatusEl = document.getElementById('app-status');
+    const newTechIdInput = document.getElementById('new-tech-id');
+    const newTechNameInput = document.getElementById('new-tech-name');
+    const newTechEraInput = document.getElementById('new-tech-era');
+    const newTechDescriptionInput = document.getElementById('new-tech-description');
+    const newTechPrereqInput = document.getElementById('new-tech-prereq');
     const searchInput = document.getElementById('search-tech');
     const eraFilter = document.getElementById('era-filter');
     const fieldFilter = document.getElementById('field-filter');
@@ -26,8 +35,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         techInfoPanel.insertBefore(techMetadataEl, techPrerequisitesEl.nextSibling);
     }
 
-    let appConfig = { readOnly: false };
+    function setStatus(element, message, state = '') {
+        if (!element) return;
+        element.textContent = message;
+        element.classList.toggle('is-error', state === 'error');
+        element.classList.toggle('is-success', state === 'success');
+    }
+
+    let appConfig = { readOnly: true };
     let dynamicData = [];
+    let datasetEtag = '';
     try {
         const [configResult, resp] = await Promise.all([
             fetch('api/config')
@@ -35,15 +52,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .catch(() => appConfig),
             fetch('api/tech-tree')
         ]);
-        appConfig = configResult;
+        appConfig = { readOnly: configResult?.readOnly !== false };
         if (resp.ok) {
+            datasetEtag = resp.headers.get('etag') || '';
             dynamicData = await resp.json();
+            if (!Array.isArray(dynamicData)) throw new Error('Server returned an invalid dataset');
         } else {
-            throw new Error('Failed to load tech tree');
+            throw new Error(`Failed to load tech tree (${resp.status})`);
         }
     } catch (err) {
         console.error('Error loading tech tree:', err);
-        alert('Failed to load tech tree from server.');
+        setStatus(appStatusEl, 'The technology graph could not be loaded. Refresh the page or check the server.', 'error');
         return;
     }
 
@@ -101,7 +120,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         tech.datePrecision = tech.datePrecision || defaults.datePrecision;
         tech.region = tech.region || defaults.region;
         tech.reviewStatus = tech.reviewStatus || 'generated';
-        tech.dependencyEdges = (tech.prerequisites || []).map(createDefaultDependencyEdge);
+        if (!Array.isArray(tech.dependencyEdges)) {
+            tech.dependencyEdges = (tech.prerequisites || []).map(createDefaultDependencyEdge);
+        }
         return tech;
     }
 
@@ -310,6 +331,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const nodes = new vis.DataSet(nodeItems);
     const edges = new vis.DataSet(edgeItems);
+    const requestedTargetId = new URLSearchParams(window.location.search).get('target');
+    const initialTargetId = requestedTargetId && nodes.get(requestedTargetId)
+        ? requestedTargetId
+        : (nodes.get('crispr_gene_editing') ? 'crispr_gene_editing' : null);
 
     const data = { nodes: nodes, edges: edges };
 
@@ -351,9 +376,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const network = new vis.Network(container, data, options);
 
-    // Fit once after initial draw so the layout sizes correctly
+    // Open on a useful local context; deselecting restores the full overview.
     network.once('afterDrawing', () => {
-        network.fit();
+        window.requestAnimationFrame(() => {
+            if (initialTargetId) selectTechnology(initialTargetId);
+            else network.fit();
+        });
     });
 
 
@@ -709,6 +737,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!nodes.get(nodeId)) return;
         selectedNodeId = nodeId;
         if (syncSelection) network.selectNodes([nodeId]);
+        const url = new URL(window.location.href);
+        url.searchParams.set('target', nodeId);
+        window.history.replaceState(null, '', url);
         updateInfoPanel(nodeId);
         updateGraphView({ focusSelected: true });
     }
@@ -721,6 +752,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     network.on("deselectNode", function () {
         selectedNodeId = null;
+        const url = new URL(window.location.href);
+        url.searchParams.delete('target');
+        window.history.replaceState(null, '', url);
         updateInfoPanel(null);
         updateGraphView({ fit: true });
     });
@@ -743,203 +777,205 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     updateGraphView();
 
-    async function saveData() {
+    const validEras = new Set(Object.keys(eraDefaultDates));
+    let isSaving = false;
+    let editingNodeId = null;
+
+    function cloneData() {
+        return JSON.parse(JSON.stringify(dynamicData));
+    }
+
+    function parsePrerequisites(value) {
+        return value
+            .split(',')
+            .map(prerequisite => prerequisite.trim())
+            .filter(Boolean);
+    }
+
+    function readEditorValues() {
+        return {
+            id: newTechIdInput.value.trim(),
+            name: newTechNameInput.value.trim(),
+            era: newTechEraInput.value,
+            description: newTechDescriptionInput.value.trim(),
+            prerequisites: parsePrerequisites(newTechPrereqInput.value)
+        };
+    }
+
+    function validateEditorValues(values, editingId = null) {
+        if (!/^[a-z0-9]+(?:[_-][a-z0-9]+)*$/.test(values.id)) {
+            return 'Identifier must use lowercase letters, numbers, underscores, or hyphens.';
+        }
+        if (values.id.length > 160) return 'Identifier must be 160 characters or fewer.';
+        if (!values.name) return 'Name is required.';
+        if (values.name.length > 200) return 'Name must be 200 characters or fewer.';
+        if (!values.description) return 'Description is required.';
+        if (values.description.length > 5000) return 'Description must be 5,000 characters or fewer.';
+        if (!validEras.has(values.era)) return 'Select a valid era.';
+        if (!editingId && nodesById[values.id]) return 'A technology with this identifier already exists.';
+        if (new Set(values.prerequisites).size !== values.prerequisites.length) {
+            return 'Prerequisites must not contain duplicate identifiers.';
+        }
+        if (values.prerequisites.includes(values.id)) return 'A technology cannot require itself.';
+        const missing = values.prerequisites.filter(prerequisite => !nodesById[prerequisite]);
+        if (missing.length) return `Unknown prerequisite: ${missing[0]}.`;
+        return '';
+    }
+
+    function preserveDependencyEdges(tech, prerequisites) {
+        const existingEdges = new Map(getDependencyEdges(tech).map(edge => [edge.prerequisite, edge]));
+        return prerequisites.map(prerequisite => existingEdges.get(prerequisite) || createDefaultDependencyEdge(prerequisite));
+    }
+
+    function setMutationControlsDisabled(disabled) {
+        isSaving = disabled;
+        if (addBtn) addBtn.disabled = disabled;
+        if (updateBtn) updateBtn.disabled = disabled;
+        if (cancelEditBtn) cancelEditBtn.disabled = disabled;
+        if (editBtn) editBtn.disabled = disabled || !selectedNodeId;
+        if (deleteBtn) deleteBtn.disabled = disabled || !selectedNodeId;
+    }
+
+    async function apiErrorMessage(response) {
         try {
-            await fetch('api/tech-tree', {
+            const payload = await response.json();
+            const message = payload.error?.message || `Save failed (${response.status}).`;
+            const details = Array.isArray(payload.error?.details) ? payload.error.details.slice(0, 3) : [];
+            return details.length ? `${message} ${details.join(' ')}` : message;
+        } catch (error) {
+            return `Save failed (${response.status}).`;
+        }
+    }
+
+    async function persistCandidate(candidate, successMessage) {
+        if (isSaving) return false;
+        setMutationControlsDisabled(true);
+        setStatus(editorStatusEl, 'Saving...');
+        setStatus(appStatusEl, '');
+
+        try {
+            const response = await fetch('api/tech-tree', {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(dynamicData)
+                headers: {
+                    'Content-Type': 'application/json',
+                    'If-Match': datasetEtag
+                },
+                body: JSON.stringify(candidate)
             });
-        } catch (e) {
-            console.error('Failed to save tech tree:', e);
+            if (!response.ok) throw new Error(await apiErrorMessage(response));
+
+            setStatus(editorStatusEl, successMessage, 'success');
+            window.location.reload();
+            return true;
+        } catch (error) {
+            console.error('Failed to save tech tree:', error);
+            setStatus(editorStatusEl, error.message || 'The technology graph could not be saved.', 'error');
+            setMutationControlsDisabled(false);
+            return false;
         }
     }
 
     function clearForm() {
-        document.getElementById('new-tech-id').value = '';
-        document.getElementById('new-tech-name').value = '';
-        document.getElementById('new-tech-era').value = '';
-        document.getElementById('new-tech-description').value = '';
-        document.getElementById('new-tech-prereq').value = '';
-        document.getElementById('new-tech-id').disabled = false;
-        updateBtn.style.display = 'none';
-        addBtn.style.display = 'inline-block';
+        newTechIdInput.value = '';
+        newTechNameInput.value = '';
+        newTechEraInput.value = 'Modern';
+        newTechDescriptionInput.value = '';
+        newTechPrereqInput.value = '';
+        newTechIdInput.disabled = false;
+        newTechEraInput.disabled = false;
+        editingNodeId = null;
+        if (editorTitleEl) editorTitleEl.textContent = 'Add Technology';
+        if (updateBtn) updateBtn.hidden = true;
+        if (cancelEditBtn) cancelEditBtn.hidden = true;
+        if (addBtn) addBtn.hidden = false;
+        setStatus(editorStatusEl, '');
     }
 
     if (addBtn) {
-        addBtn.addEventListener('click', () => {
-            if (appConfig.readOnly) return;
-            const id = document.getElementById('new-tech-id').value.trim();
-            const name = document.getElementById('new-tech-name').value.trim();
-            const era = document.getElementById('new-tech-era').value.trim();
-            const desc = document.getElementById('new-tech-description').value.trim();
-            const prereqStr = document.getElementById('new-tech-prereq').value.trim();
-
-            if (!id || !name) {
-                alert('ID and Name are required.');
+        addBtn.addEventListener('click', async () => {
+            if (appConfig.readOnly || isSaving) return;
+            const values = readEditorValues();
+            const validationError = validateEditorValues(values);
+            if (validationError) {
+                setStatus(editorStatusEl, validationError, 'error');
                 return;
             }
 
-            if (nodes.get(id)) {
-                alert('A technology with this ID already exists.');
-                return;
-            }
-
-            const prereqs = prereqStr ? prereqStr.split(',').map(p => p.trim()).filter(Boolean) : [];
-
-            const newTech = applyDefaultMetadata({ id, name, era, description: desc, prerequisites: prereqs });
-            dynamicData.push(newTech);
-            nodesById[id] = newTech;
-            prereqMap[id] = prereqs;
-            prereqs.forEach(pr => {
-                if (!dependentsMap[pr]) dependentsMap[pr] = [];
-                dependentsMap[pr].push(id);
-            });
-
-            const baseColor = eraColors[era] || '#cccccc';
-            nodes.add({
-                id,
-                label: name,
-                title: desc,
-                era,
-                description: desc,
-                color: baseColor,
-                origColor: baseColor,
-                borderWidth: 1,
-                origBorderWidth: 1,
-                origX: 0,
-                origY: 0,
-                x: 0,
-                y: 0
-            });
-            prereqs.forEach(pr => {
-                if (nodes.get(pr)) {
-                    edges.add({ from: pr, to: id, arrows: 'to', color: { color: edgeColor('enabling') } });
-                }
-            });
-
-            saveData();
-            clearForm();
-            updateGraphView({ fit: true });
+            const candidate = cloneData();
+            candidate.push(applyDefaultMetadata({ ...values }));
+            await persistCandidate(candidate, 'Technology added. Reloading the graph...');
         });
     }
 
     if (editBtn) {
         editBtn.addEventListener('click', () => {
-            if (!selectedNodeId) return;
-            const tech = dynamicData.find(t => t.id === selectedNodeId);
+            if (appConfig.readOnly || isSaving || !selectedNodeId) return;
+            const tech = dynamicData.find(item => item.id === selectedNodeId);
             if (!tech) return;
 
-            document.getElementById('new-tech-id').value = tech.id;
-            document.getElementById('new-tech-name').value = tech.name;
-            document.getElementById('new-tech-era').value = tech.era;
-            document.getElementById('new-tech-description').value = tech.description;
-            document.getElementById('new-tech-prereq').value = tech.prerequisites.join(', ');
-            document.getElementById('new-tech-id').disabled = true;
-            addBtn.style.display = 'none';
-            updateBtn.style.display = 'inline-block';
+            newTechIdInput.value = tech.id;
+            newTechNameInput.value = tech.name;
+            newTechEraInput.value = tech.era;
+            newTechDescriptionInput.value = tech.description;
+            newTechPrereqInput.value = getPrerequisiteIds(tech).join(', ');
+            newTechIdInput.disabled = true;
+            newTechEraInput.disabled = true;
+            editingNodeId = tech.id;
+            if (editorTitleEl) editorTitleEl.textContent = 'Edit Technology';
+            if (addBtn) addBtn.hidden = true;
+            if (updateBtn) updateBtn.hidden = false;
+            if (cancelEditBtn) cancelEditBtn.hidden = false;
+            setStatus(editorStatusEl, '');
+            newTechNameInput.focus();
         });
     }
 
+    if (cancelEditBtn) cancelEditBtn.addEventListener('click', clearForm);
+
     if (updateBtn) {
-        updateBtn.addEventListener('click', () => {
-            if (appConfig.readOnly) return;
-            if (!selectedNodeId) return;
-            const name = document.getElementById('new-tech-name').value.trim();
-            const era = document.getElementById('new-tech-era').value.trim();
-            const desc = document.getElementById('new-tech-description').value.trim();
-            const prereqStr = document.getElementById('new-tech-prereq').value.trim();
-            const prereqs = prereqStr ? prereqStr.split(',').map(p => p.trim()).filter(Boolean) : [];
+        updateBtn.addEventListener('click', async () => {
+            if (appConfig.readOnly || isSaving || !editingNodeId) return;
+            const values = readEditorValues();
+            const validationError = validateEditorValues(values, editingNodeId);
+            if (validationError) {
+                setStatus(editorStatusEl, validationError, 'error');
+                return;
+            }
 
-            const techIndex = dynamicData.findIndex(t => t.id === selectedNodeId);
+            const candidate = cloneData();
+            const techIndex = candidate.findIndex(item => item.id === editingNodeId);
             if (techIndex === -1) return;
-            const tech = dynamicData[techIndex];
-            const oldPrereqs = prereqMap[selectedNodeId] || [];
-            tech.name = name;
-            tech.era = era;
-            tech.description = desc;
-            tech.prerequisites = prereqs;
-            tech.dependencyEdges = prereqs.map(createDefaultDependencyEdge);
-            applyDefaultMetadata(tech);
-            nodesById[selectedNodeId] = tech;
-            prereqMap[selectedNodeId] = prereqs;
-            oldPrereqs.forEach(pr => {
-                dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
-            });
-            prereqs.forEach(pr => {
-                if (!dependentsMap[pr]) dependentsMap[pr] = [];
-                if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
-            });
-
-            const baseColor = eraColors[era] || '#cccccc';
-            nodes.update({
-                id: selectedNodeId,
-                label: name,
-                era,
-                description: desc,
-                title: desc,
-                color: baseColor,
-                origColor: baseColor
-            });
-
-            // Remove old edges
-            edges.get({ filter: e => e.to === selectedNodeId || e.from === selectedNodeId }).forEach(e => edges.remove(e.id));
-            // Re-add edges for this node
-            prereqs.forEach(pr => {
-                if (nodes.get(pr)) {
-                    edges.add({ from: pr, to: selectedNodeId, arrows: 'to', color: { color: edgeColor('enabling') } });
-                }
-            });
-            // Reconnect edges from this node to its dependents
-            dynamicData.forEach(t => {
-                if (getPrerequisiteIds(t).includes(selectedNodeId)) {
-                    edges.add({ from: selectedNodeId, to: t.id, arrows: 'to', color: { color: edgeColor('enabling') } });
-                }
-            });
-            oldPrereqs.forEach(pr => {
-                dependentsMap[pr] = (dependentsMap[pr] || []).filter(d => d !== selectedNodeId);
-            });
-            prereqs.forEach(pr => {
-                if (!dependentsMap[pr]) dependentsMap[pr] = [];
-                if (!dependentsMap[pr].includes(selectedNodeId)) dependentsMap[pr].push(selectedNodeId);
-            });
-
-            saveData();
-            clearForm();
-            updateInfoPanel(selectedNodeId);
-            updateGraphView({ fit: true, focusSelected: true });
+            const current = candidate[techIndex];
+            candidate[techIndex] = {
+                ...current,
+                name: values.name,
+                description: values.description,
+                prerequisites: values.prerequisites,
+                dependencyEdges: preserveDependencyEdges(current, values.prerequisites)
+            };
+            await persistCandidate(candidate, 'Technology updated. Reloading the graph...');
         });
     }
 
     if (deleteBtn) {
-        deleteBtn.addEventListener('click', () => {
-            if (appConfig.readOnly) return;
-            if (!selectedNodeId) return;
+        deleteBtn.addEventListener('click', async () => {
+            if (appConfig.readOnly || isSaving || !selectedNodeId) return;
+            const tech = dynamicData.find(item => item.id === selectedNodeId);
+            if (!tech) return;
+            const dependentCount = dependentsMap[selectedNodeId]?.length || 0;
+            const dependencyNotice = dependentCount
+                ? ` This will also remove it from ${dependentCount} dependent ${dependentCount === 1 ? 'node' : 'nodes'}.`
+                : '';
+            if (!window.confirm(`Delete "${tech.name}"?${dependencyNotice}`)) return;
 
-            // Remove edges connected to the node
-            edges.get({ filter: e => e.to === selectedNodeId || e.from === selectedNodeId }).forEach(e => edges.remove(e.id));
-
-            // Remove from other tech prerequisites
-            dynamicData.forEach(t => {
-                t.prerequisites = t.prerequisites.filter(p => p !== selectedNodeId);
-            });
-            if (dependentsMap[selectedNodeId]) {
-                dependentsMap[selectedNodeId].forEach(dep => {
-                    prereqMap[dep] = (prereqMap[dep] || []).filter(p => p !== selectedNodeId);
-                });
-                delete dependentsMap[selectedNodeId];
-            }
-            delete prereqMap[selectedNodeId];
-            delete nodesById[selectedNodeId];
-
-            nodes.remove({ id: selectedNodeId });
-            dynamicData = dynamicData.filter(t => t.id !== selectedNodeId);
-
-            saveData();
-            selectedNodeId = null;
-            updateInfoPanel(null);
-            clearForm();
-            updateGraphView({ fit: true });
+            const candidate = cloneData()
+                .filter(item => item.id !== selectedNodeId)
+                .map(item => ({
+                    ...item,
+                    prerequisites: item.prerequisites.filter(prerequisite => prerequisite !== selectedNodeId),
+                    dependencyEdges: item.dependencyEdges.filter(edge => edge.prerequisite !== selectedNodeId)
+                }));
+            await persistCandidate(candidate, 'Technology deleted. Reloading the graph...');
         });
     }
 });

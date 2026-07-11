@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-11-probability-statistics-controls-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "probability_statistics_inference",
+    "prerequisite": "experimental_controls"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "confidence": 0.46,
+    "evidence_level": "weak_inference",
+    "note": "Controlled experiments support later statistical inference, but probability theory did not initially require experimental-control methodology."
+  },
+  "new_claim_absent": "Seventeenth-century mathematical probability is retained through probability_theory; the later 1747 comparative-trial milestone is downstream context, not its prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britannica.com/science/probability",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Britannica dates the beginning of modern mathematical probability to the Pascal-Fermat correspondence in 1654 and develops that lineage independently of later controlled clinical trials.",
+    "source_claim_summary": "The field's 1654 mathematical origin precedes and does not require the corrected 1747 controlled-comparison node.",
+    "source_support_rationale": "Removing the reversed edge keeps mathematical uncertainty reasoning distinct from a later experimental design that can use statistics but did not create the earlier theory."
+  },
+  "ontology_before": "Probability and Statistical Inference pointed to Experimental Controls even though its own note admitted that early probability did not require that method.",
+  "ontology_after": "Probability and Statistical Inference depends on probability_theory; controlled trials remain a later application context rather than an ancestor.",
+  "invariant_preserved_or_changed": "Changed: probability_statistics_inference no longer directly depends on experimental_controls.",
+  "would_reject_if": [
+    "The probability node is later narrowed to statistical analysis of controlled trials rather than the 1654 mathematical-probability lineage.",
+    "A historical source demonstrates that the specific controlled-comparison practice existed before and caused the Pascal-Fermat theory."
+  ],
+  "short_reason": "The 1654 probability lineage predates the corrected 1747 controls milestone and does not require it.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/experimental_controls.before.json /tmp/experimental_controls.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

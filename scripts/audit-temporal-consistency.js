@@ -26,12 +26,13 @@ const BROAD_FIELD_PATTERNS = [
     /research$/
 ];
 
-function loadData() {
-    return fs.readdirSync(DATA_DIR)
+function loadData(dataDir = DATA_DIR) {
+    return fs.readdirSync(dataDir)
         .filter(isTechnologyDataFile)
         .sort()
         .flatMap(file => {
-            const items = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));
+            const items = JSON.parse(fs.readFileSync(path.join(dataDir, file), 'utf8'));
+            if (!Array.isArray(items)) throw new Error(`${file} must contain a JSON array`);
             return items.map(item => ({ ...item, __file: file }));
         });
 }
@@ -46,46 +47,66 @@ function isNarrowSubfield(node) {
     return /platform|therapy|therapeutic|screen|database|airliner|ssd|drive|charging|gateway|application|app|workflow|model/.test(text);
 }
 
-const data = loadData();
-const byId = new Map(data.map(item => [item.id, item]));
-const errors = [];
+function auditTemporalConsistency(data, { label = 'payload' } = {}) {
+    if (!Array.isArray(data)) return [`${label} must be a JSON array`];
 
-for (const item of data) {
-    const itemEraOrder = ERA_ORDER.get(item.era);
-    for (const edge of getDependencyEdges(item)) {
-        const prerequisite = byId.get(edge.prerequisite);
-        if (!prerequisite) continue;
+    const byId = new Map(data.map(item => [item.id, item]));
+    const errors = [];
 
-        const prerequisiteEraOrder = ERA_ORDER.get(prerequisite.era);
-        if (prerequisiteEraOrder > itemEraOrder) {
-            errors.push(`${item.__file}: ${item.id} (${item.era}) depends on later-era ${edge.prerequisite} (${prerequisite.era})`);
-        }
-        if (item.era === 'Modern' && prerequisite.era === 'Future') {
-            errors.push(`${item.__file}: ${item.id} is Modern but depends on Future node ${edge.prerequisite}`);
-        }
-        if (typeof item.firstKnownDate === 'number' && typeof prerequisite.firstKnownDate === 'number' && prerequisite.firstKnownDate > item.firstKnownDate) {
-            errors.push(`${item.__file}: ${item.id} (${item.firstKnownDate}) depends on later firstKnownDate ${edge.prerequisite} (${prerequisite.firstKnownDate})`);
-        }
+    for (const [index, item] of data.entries()) {
+        if (!item || typeof item !== 'object') continue;
+        const itemLabel = item.__file || `${label}[${index}]`;
+        const itemEraOrder = ERA_ORDER.get(item.era);
+        for (const edge of getDependencyEdges(item)) {
+            const prerequisite = byId.get(edge.prerequisite);
+            if (!prerequisite) continue;
 
-        const itemText = `${item.id} ${item.name}`.toLowerCase();
-        const prerequisiteText = `${prerequisite.id} ${prerequisite.name}`.toLowerCase();
-        for (const rule of PRODUCT_COMPONENT_RULES) {
-            if (rule.component.test(itemText) && rule.product.test(prerequisiteText)) {
-                errors.push(`${item.__file}: ${item.id} depends on product/application ${edge.prerequisite}; ${rule.reason}`);
+            const prerequisiteEraOrder = ERA_ORDER.get(prerequisite.era);
+            if (prerequisiteEraOrder > itemEraOrder) {
+                errors.push(`${itemLabel}: ${item.id} (${item.era}) depends on later-era ${edge.prerequisite} (${prerequisite.era})`);
+            }
+            if (item.era === 'Modern' && prerequisite.era === 'Future') {
+                errors.push(`${itemLabel}: ${item.id} is Modern but depends on Future node ${edge.prerequisite}`);
+            }
+            if (typeof item.firstKnownDate === 'number' && typeof prerequisite.firstKnownDate === 'number' && prerequisite.firstKnownDate > item.firstKnownDate) {
+                errors.push(`${itemLabel}: ${item.id} (${item.firstKnownDate}) depends on later firstKnownDate ${edge.prerequisite} (${prerequisite.firstKnownDate})`);
+            }
+
+            const itemText = `${item.id} ${item.name}`.toLowerCase();
+            const prerequisiteText = `${prerequisite.id} ${prerequisite.name}`.toLowerCase();
+            for (const rule of PRODUCT_COMPONENT_RULES) {
+                if (rule.component.test(itemText) && rule.product.test(prerequisiteText)) {
+                    errors.push(`${itemLabel}: ${item.id} depends on product/application ${edge.prerequisite}; ${rule.reason}`);
+                }
+            }
+
+            if (isBroadField(item) && isNarrowSubfield(prerequisite) && edge.type === 'required') {
+                errors.push(`${itemLabel}: broad node ${item.id} has hard required edge to narrow subfield ${edge.prerequisite}`);
             }
         }
-
-        if (isBroadField(item) && isNarrowSubfield(prerequisite) && edge.type === 'required') {
-            errors.push(`${item.__file}: broad node ${item.id} has hard required edge to narrow subfield ${edge.prerequisite}`);
-        }
     }
+
+    return errors;
 }
 
-if (errors.length) {
-    console.error(`Temporal and semantic edge audit failed with ${errors.length} issue(s):`);
-    for (const error of errors.slice(0, 200)) console.error(`- ${error}`);
-    if (errors.length > 200) console.error(`... ${errors.length - 200} more issue(s) omitted`);
-    process.exit(1);
+function main() {
+    const data = loadData();
+    const errors = auditTemporalConsistency(data, { label: 'data' });
+
+    if (errors.length) {
+        console.error(`Temporal and semantic edge audit failed with ${errors.length} issue(s):`);
+        for (const error of errors.slice(0, 200)) console.error(`- ${error}`);
+        if (errors.length > 200) console.error(`... ${errors.length - 200} more issue(s) omitted`);
+        process.exitCode = 1;
+        return;
+    }
+
+    console.log(`Temporal and semantic edge audit passed for ${data.length} technologies.`);
 }
 
-console.log(`Temporal and semantic edge audit passed for ${data.length} technologies.`);
+if (require.main === module) main();
+
+module.exports = {
+    auditTemporalConsistency,
+    loadData
+};

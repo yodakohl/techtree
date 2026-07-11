@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-11-medical-casebooks-hippocratic-cases-replacement",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "medical_case_records",
+    "prerequisite": "medical_case_notes"
+  },
+  "replaced_edge": {
+    "dependent": "medical_case_records",
+    "prerequisite": "anatomical_illustration"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Anatomical Illustration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.84,
+    "evidence_level": "review",
+    "note": "Hippocratic case histories established the written individual-case tradition that early modern practitioners extended into serial practice casebooks."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4012665/",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The review begins its history of case reports with individual case histories in the Hippocratic Epidemics, probably written around 400 BC.",
+    "source_claim_summary": "Hippocratic written case histories are the documented early lineage for later medical case-report and casebook traditions.",
+    "source_support_rationale": "This replacement follows the same documentary form across periods; anatomical illustration is a different publication practice and is not needed to record consultations."
+  },
+  "ontology_before": "Medical Case Records depended on Renaissance anatomical illustration, conflating images of anatomy with serial records of individual patients and consultations.",
+  "ontology_after": "Early Modern Medical Casebooks inherit from the written individual-case tradition represented by Hippocratic Case Histories.",
+  "invariant_preserved_or_changed": "Changed: medical_case_records now depends on medical_case_notes and no longer directly depends on anatomical_illustration.",
+  "would_reject_if": [
+    "A direct source shows that the Forman-Napier casebook practice required anatomical atlases or illustration as a record-making capability.",
+    "The medical_case_notes node is rescoped away from written individual patient histories."
+  ],
+  "short_reason": "Written Hippocratic cases provide the documentary lineage; anatomical illustration is a separate artifact class.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/medical_case_records.before.json /tmp/medical_case_records.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

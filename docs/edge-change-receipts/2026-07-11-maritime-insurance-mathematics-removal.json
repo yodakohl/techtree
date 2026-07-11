@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-11-maritime-insurance-mathematics-removal",
+  "decision_date": "2026-07-11",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "maritime_insurance",
+    "prerequisite": "mathematics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Mathematics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The first standalone marine policies transferred voyage risk contractually before formal actuarial pricing; a broad mathematics edge is not licensed for this scoped milestone.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/jeea/article-pdf/21/6/2287/54227145/jvad059.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The study explains the rise of medieval insurance through maritime risk, contract structure, notarial markets, and risk sharing; it does not make a mathematical method a prerequisite for the first standalone policies.",
+    "source_claim_summary": "The source's causal account of the first insurance market is contractual and institutional rather than a history of formal mathematical pricing.",
+    "source_support_rationale": "Actuarial calculation remains represented by a later dedicated node, so removing this broad edge keeps first-policy formation separate from later quantitative pricing."
+  },
+  "ontology_before": "Maritime Insurance treated all of mathematics as an enabling prerequisite for the first standalone policy market.",
+  "ontology_after": "The first-policy node retains contract lineage and notarial documentation; later actuarial pricing remains a separate downstream technology.",
+  "invariant_preserved_or_changed": "Changed: maritime_insurance no longer directly depends on mathematics.",
+  "would_reject_if": [
+    "A direct source shows that a specific mathematical technique was necessary to form or execute the first fourteenth-century standalone marine policies."
+  ],
+  "short_reason": "The first policies are documented as contractual risk transfer, while actuarial mathematics is a later scoped development.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run node-snapshot-diff -- /tmp/maritime_insurance.before.json /tmp/maritime_insurance.after.json --require-behavior-change",
+    "npm test",
+    "npm run quality"
+  ]
+}

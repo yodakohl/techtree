@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="A source-backed map of technology prerequisites, unlocks, evidence, and future roadmap fields.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260519a">
+    <link rel="stylesheet" href="style.css?v=20260711a">
     <script defer src="vendor/vis-network.min.js?v=20260516b"></script>
 </head>
 <body>
@@ -32,24 +32,28 @@
         </nav>
     </header>
     <main>
-        <div id="tech-tree-container">
+        <div id="tech-tree-container" role="region" aria-label="Interactive technology dependency graph">
             <!-- The tree will be rendered here by JavaScript -->
         </div>
         <div id="side-panels">
             <div id="tech-info-panel">
                 <h2>Select a Technology</h2>
-                <input type="text" id="search-tech" placeholder="Search by name or ID">
-                <select id="era-filter">
+                <label class="visually-hidden" for="search-tech">Search technologies</label>
+                <input type="search" id="search-tech" placeholder="Search by name or ID" autocomplete="off">
+                <label class="visually-hidden" for="era-filter">Filter by era</label>
+                <select id="era-filter" aria-label="Filter by era">
                     <option value="all">All Eras</option>
                 </select>
-                <select id="field-filter">
+                <label class="visually-hidden" for="field-filter">Filter by field</label>
+                <select id="field-filter" aria-label="Filter by field">
                     <option value="all">All Fields</option>
                 </select>
                 <label class="graph-focus-toggle">
                     <input type="checkbox" id="focus-relevant" checked>
                     Focus relevant
                 </label>
-                <p id="graph-context-summary" class="graph-context-summary"></p>
+                <p id="graph-context-summary" class="graph-context-summary" aria-live="polite"></p>
+                <p id="app-status" class="app-status" role="status" aria-live="polite"></p>
                 <p id="tech-name"></p>
                 <p id="tech-era"></p>
                 <p id="tech-description"></p>
@@ -64,18 +68,45 @@
                         <div id="tech-unlocks-list" class="relationship-chip-list"></div>
                     </section>
                 </div>
-                <button id="edit-tech-btn" disabled>Edit</button>
-                <button id="delete-tech-btn" disabled>Delete</button>
+                <button type="button" id="edit-tech-btn" disabled>Edit</button>
+                <button type="button" id="delete-tech-btn" class="danger-button" disabled>Delete</button>
             </div>
             <div id="tech-add-panel">
-                <h2>Add Technology</h2>
-                <input type="text" id="new-tech-id" placeholder="ID">
-                <input type="text" id="new-tech-name" placeholder="Name">
-                <input type="text" id="new-tech-era" placeholder="Era">
-                <textarea id="new-tech-description" placeholder="Description"></textarea>
-                <input type="text" id="new-tech-prereq" placeholder="Prerequisites (comma separated IDs)">
-                <button id="add-tech-btn">Add Technology</button>
-                <button id="update-tech-btn" style="display:none">Update Technology</button>
+                <h2 id="editor-title">Add Technology</h2>
+                <label class="editor-field" for="new-tech-id">
+                    <span>Identifier</span>
+                    <input type="text" id="new-tech-id" placeholder="steam_engine" autocomplete="off">
+                </label>
+                <label class="editor-field" for="new-tech-name">
+                    <span>Name</span>
+                    <input type="text" id="new-tech-name" autocomplete="off">
+                </label>
+                <label class="editor-field" for="new-tech-era">
+                    <span>Era</span>
+                    <select id="new-tech-era">
+                        <option value="Ancient">Ancient</option>
+                        <option value="Classical">Classical</option>
+                        <option value="Medieval">Medieval</option>
+                        <option value="Renaissance">Renaissance</option>
+                        <option value="Industrial">Industrial</option>
+                        <option value="Modern" selected>Modern</option>
+                        <option value="Future">Future</option>
+                    </select>
+                </label>
+                <label class="editor-field" for="new-tech-description">
+                    <span>Description</span>
+                    <textarea id="new-tech-description" rows="4"></textarea>
+                </label>
+                <label class="editor-field" for="new-tech-prereq">
+                    <span>Prerequisite IDs</span>
+                    <input type="text" id="new-tech-prereq" placeholder="comma_separated, identifiers" autocomplete="off">
+                </label>
+                <div class="editor-actions">
+                    <button type="button" id="add-tech-btn">Add Technology</button>
+                    <button type="button" id="update-tech-btn" hidden>Update Technology</button>
+                    <button type="button" id="cancel-edit-btn" class="secondary-button" hidden>Cancel</button>
+                </div>
+                <p id="editor-status" class="editor-status" role="status" aria-live="polite"></p>
             </div>
             <div id="era-legend">
                 <h2>Era Legend</h2>
@@ -83,7 +114,7 @@
             </div>
         </div>
     </main>
-    <script defer src="app.js?v=20260520a"></script>   <!-- Application logic -->
+    <script defer src="app.js?v=20260711a"></script>   <!-- Application logic -->
 </body>
 </html>
 
