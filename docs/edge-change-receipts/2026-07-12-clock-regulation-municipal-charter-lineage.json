@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-12-clock-regulation-municipal-charter-lineage",
+  "decision_date": "2026-07-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "mechanical_clock_workday_regulation",
+    "prerequisite": "municipal_charters"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Municipal Charters provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Chartered borough self-government supplied the civic institutions that issued and enforced clock-based attendance rules."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.reading.ac.uk/gcms/-/media/project/functions/research/graduate-centre-for-medieval-studies/documents/rms201406-e-buhrer-law-and-mental-competency-in-late-medieval-england.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Pages 96-97 state that clocks appeared in late-fourteenth-century towns and cite a 1372 King's Lynn rule fining burgesses who arrived after the borough clock struck ten.",
+    "source_claim_summary": "The King's Lynn evidence places clock-based fines within borough government exercised by the mayor, commonality, and burgesses.",
+    "source_support_rationale": "Chartered self-government supplies institutional lineage for civic enforcement but is not a mechanical capability that directly enables clock operation."
+  },
+  "ontology_before": "Municipal charters were typed as a generic enabling technology for mechanical clock regulation.",
+  "ontology_after": "Municipal charters are an institutional historical predecessor to borough clock rules; the public clock and guild supervision are the direct enabling capabilities.",
+  "invariant_preserved_or_changed": "Changed: the municipal-charter edge is locked as historical_predecessor by graph invariant 2026-07-12-launch-source-check-completion.",
+  "would_reject_if": [
+    "The node is rescoped to the mechanical construction of public clocks rather than civic time regulation.",
+    "A source demonstrates municipal charters were a direct physical component of mechanical clocks."
+  ],
+  "short_reason": "Municipal charters supplied civic authority, not the clock mechanism itself.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

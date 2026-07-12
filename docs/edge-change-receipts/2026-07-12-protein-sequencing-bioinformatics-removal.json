@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-protein-sequencing-bioinformatics-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "protein_sequencing",
+    "prerequisite": "bioinformatics"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Bioinformatics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The complete insulin sequence was established in 1955, decades before the graph's bioinformatics node.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nejm.org/doi/abs/10.1056/NEJM197010012831412",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The historical review states that Sanger defined the complete structure and amino-acid sequence of insulin in 1955.",
+    "source_claim_summary": "The review fixes complete insulin amino-acid sequencing in 1955.",
+    "source_support_rationale": "A later computational discipline cannot enable the first chemical protein sequence; bioinformatics scales subsequent sequence analysis instead."
+  },
+  "ontology_before": "Protein sequencing depended backward on a later computational analysis discipline.",
+  "ontology_after": "Chemical protein sequencing precedes bioinformatics, which can consume sequence data downstream.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: protein_sequencing no longer directly depends on bioinformatics.",
+  "would_reject_if": [
+    "The node is narrowed to modern high-throughput computational protein sequencing.",
+    "The bioinformatics node is redefined and redated to a method used by Sanger before 1955."
+  ],
+  "short_reason": "The complete insulin sequence was established in 1955, decades before the graph's bioinformatics node.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

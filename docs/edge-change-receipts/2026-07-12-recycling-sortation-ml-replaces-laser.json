@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-recycling-sortation-ml-replaces-laser",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "advanced_recycling_sortation",
+    "prerequisite": "machine_learning_early_algorithms"
+  },
+  "replaced_edge": {
+    "dependent": "advanced_recycling_sortation",
+    "prerequisite": "laser_scanners"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Laser scanners are common in modern sorting systems, but sorting can be achieved with non-laser optical and mechanical workflows."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.92,
+    "note": "The project compared pattern-recognition methods and reported neural networks as the best classifier for its NIR spectra."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://cordis.europa.eu/project/id/EVWA0001",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The 1993-1996 project describes robotic pickup, NIR and MIR sensing, digital spectral preprocessing, pattern recognition including neural networks, and software-controlled mechanical or pneumatic sorting of plastics.",
+    "source_claim_summary": "The CORDIS project used NIR and MIR sensors, digital images, pattern recognition, and neural networks to classify plastic for automated sorting.",
+    "source_support_rationale": "Pattern-recognition software is directly part of the documented classifier, while the general NIR design used an infrared camera and monochromator rather than requiring a laser scanner."
+  },
+  "ontology_before": "Advanced recycling sortation treated laser scanning as its general optical prerequisite and omitted the documented classifier lineage.",
+  "ontology_after": "Robotic plastics sortation depends on robotics, polymer-signature knowledge, and early machine-learning methods.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: advanced_recycling_sortation now depends on machine_learning_early_algorithms and no longer on laser_scanners.",
+  "would_reject_if": [
+    "The node is narrowed to a laser-only Raman sorting system.",
+    "A source shows the 1993 NIR sorting workflow did not use pattern recognition or neural networks."
+  ],
+  "short_reason": "machine_learning_early_algorithms directly supports the scoped system; laser_scanners does not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

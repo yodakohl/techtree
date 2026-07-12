@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-platform-moderation-machine-learning-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "social_media_content_moderation",
+    "prerequisite": "machine_learning_early_algorithms"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Machine Learning (Early Algorithms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "Platform rules and human enforcement workflows existed before automated classifiers and do not require machine learning.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/joc/article/73/3/273/7204763",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The history section describes moderation in early virtual communities and a major shift during the 2000s and early 2010s as large private platforms intensified intervention and expanded governance structures.",
+    "source_claim_summary": "The platform-moderation history describes early community enforcement and later 2000s governance expansion without making machine learning constitutive.",
+    "source_support_rationale": "The documented moderation lineage begins with policy, users, and platform intervention, placing classifiers as an optional later scaling technique rather than an origin prerequisite."
+  },
+  "ontology_before": "All social-media content moderation was modeled as descending from early machine-learning algorithms.",
+  "ontology_after": "Platform moderation depends on social platforms; automated classification can remain a later implementation layer.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: social_media_content_moderation no longer directly depends on machine_learning_early_algorithms.",
+  "would_reject_if": [
+    "The node is narrowed specifically to automated content classification.",
+    "Evidence shows the earliest scoped platform moderation could not operate without machine learning."
+  ],
+  "short_reason": "Platform rules and human enforcement workflows existed before automated classifiers and do not require machine learning.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

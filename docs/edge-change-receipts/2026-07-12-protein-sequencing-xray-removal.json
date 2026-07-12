@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-protein-sequencing-xray-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "protein_sequencing",
+    "prerequisite": "x_ray_crystallography"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "X-ray Crystallography provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Sanger completed insulin amino-acid sequencing chemically; X-ray crystallography determines three-dimensional structure and was not required for that sequence.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nejm.org/doi/abs/10.1056/NEJM197010012831412",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The historical review states that Sanger defined the complete structure and amino-acid sequence of insulin in 1955.",
+    "source_claim_summary": "The historical review attributes the complete 1955 insulin amino-acid sequence to Sanger's protein-chemistry work.",
+    "source_support_rationale": "The first complete sequence is independently documented without an X-ray method, so crystallography is a complementary structural technique rather than an origin dependency."
+  },
+  "ontology_before": "Protein sequencing treated X-ray crystallography as a necessary enabling lineage.",
+  "ontology_after": "Protein sequencing is rooted in biochemistry; crystallographic structure determination remains a parallel method.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: protein_sequencing no longer directly depends on x_ray_crystallography.",
+  "would_reject_if": [
+    "The node is rescoped to crystallography-assisted sequence inference.",
+    "A primary account shows Sanger required X-ray diffraction to determine insulin's amino-acid order."
+  ],
+  "short_reason": "Sanger completed insulin amino-acid sequencing chemically; X-ray crystallography determines three-dimensional structure and was not required for that sequence.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

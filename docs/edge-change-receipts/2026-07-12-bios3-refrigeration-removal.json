@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-bios3-refrigeration-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "closed_loop_life_support_early_forms",
+    "prerequisite": "refrigeration"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Mechanical Refrigeration provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "BIOS-3 is directly characterized by bioregenerative closed-system research; refrigeration is not a distinctive causal prerequisite for the scoped milestone.",
+  "source_supports_edge": "no",
+  "source_url": "https://ntrs.nasa.gov/citations/20040089444",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA's record describes the Krasnoyarsk Bios-3 facility, Chlorella and higher-plant gas exchange, long-duration human habitation, and closed-system research.",
+    "source_claim_summary": "The BIOS-3 review identifies the facility, plant and algal gas exchange, controlled ecology, and long-duration human habitation as the defining system.",
+    "source_support_rationale": "The system account supplies specific biological and space-life-support lineage while providing no basis for elevating refrigeration into a direct graph dependency."
+  },
+  "ontology_before": "The BIOS-3 node inherited a generic refrigeration edge from a broad placeholder life-support scope.",
+  "ontology_after": "The BIOS-3 node retains only the earlier capabilities tied to closed-system chemistry, filtration lineage, and space-life-support research.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: closed_loop_life_support_early_forms no longer directly depends on refrigeration.",
+  "would_reject_if": [
+    "A system-specific source demonstrates that refrigeration was indispensable to the 1972 BIOS-3 design.",
+    "The node is broadened back to every subsystem used in all confined habitats."
+  ],
+  "short_reason": "BIOS-3 is directly characterized by bioregenerative closed-system research; refrigeration is not a distinctive causal prerequisite for the scoped milestone.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

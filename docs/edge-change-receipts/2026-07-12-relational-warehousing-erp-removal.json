@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-relational-warehousing-erp-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "relational_data_warehousing",
+    "prerequisite": "enterprise_resource_planning"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The published 1988 relational warehouse architecture predates the ERP category coined in 1990.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.9sight.com/1988/02/art-ibmsj-ebis/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The 1988 IBM Systems Journal paper describes an integrated warehouse of company data based firmly in the relational database environment for end-user reporting and analysis.",
+    "source_claim_summary": "The 1988 IBM paper directly specifies an integrated company-data warehouse grounded in a relational database environment.",
+    "source_support_rationale": "The primary architecture demonstrates relational data warehousing before ERP terminology existed and identifies relational databases, not ERP, as its technical base."
+  },
+  "ontology_before": "Relational data warehousing depended on a later enterprise-software category.",
+  "ontology_after": "Relational data warehousing depends directly on relational database systems and remains independent of later ERP packages.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: relational_data_warehousing no longer directly depends on enterprise_resource_planning.",
+  "would_reject_if": [
+    "The node is narrowed to warehouses implemented only as ERP reporting modules.",
+    "Evidence shows the 1988 IBM architecture was not a data-warehouse architecture."
+  ],
+  "short_reason": "The published 1988 relational warehouse architecture predates the ERP category coined in 1990.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

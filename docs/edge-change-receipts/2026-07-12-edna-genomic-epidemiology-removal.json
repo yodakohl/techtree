@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-edna-genomic-epidemiology-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "environmental_dna_monitoring",
+    "prerequisite": "genomic_epidemiology"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Genomic Epidemiology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Environmental DNA extraction is documented in 1987, fifteen years before current pathogen genomic epidemiology emerged during SARS.",
+  "source_supports_edge": "no",
+  "source_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1365-294X.2012.05542.x",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The review states that the first environmental-DNA reference dates to 1987 and concerned a method for extracting microbial DNA from sediments; the term expanded in the early 2000s.",
+    "source_claim_summary": "The environmental-DNA review dates the first sediment microbial-DNA extraction method to 1987.",
+    "source_support_rationale": "The older environmental sampling method cannot descend from the 2002 pathogen-surveillance field; both apply molecular data in different domains."
+  },
+  "ontology_before": "Environmental DNA monitoring depended on a later and domain-distinct epidemiology practice.",
+  "ontology_after": "Environmental DNA depends on molecular analysis and ecology while remaining parallel to pathogen genomic epidemiology.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: environmental_dna_monitoring no longer directly depends on genomic_epidemiology.",
+  "would_reject_if": [
+    "The node is narrowed to post-2002 pathogen eDNA surveillance derived specifically from genomic epidemiology.",
+    "Evidence moves the first environmental-DNA method after the SARS genomic-epidemiology milestone."
+  ],
+  "short_reason": "Environmental DNA extraction is documented in 1987, fifteen years before current pathogen genomic epidemiology emerged during SARS.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

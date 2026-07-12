@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-video-telemedicine-television-replaces-ehr",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "telemedicine_video_consults",
+    "prerequisite": "television"
+  },
+  "replaced_edge": {
+    "dependent": "telemedicine_video_consults",
+    "prerequisite": "electronic_health_records"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electronic Health Records provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.98,
+    "note": "The scoped milestone used two-way television cameras and screens to conduct remote clinical examinations and therapy."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.neh.gov/humanities/2017/spring/feature/when-television-was-medical-device",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_approval_or_deployment",
+    "source_locator": "The history describes televised patient examinations and therapy, then identifies the 1964 Omaha-Norfolk microwave link as the first large-scale test of interactive television as a medical medium.",
+    "source_claim_summary": "The Nebraska program used live two-way television for remote examination, diagnosis, psychotherapy, and clinical rounds in 1964.",
+    "source_support_rationale": "Television is the defining medium in the directly documented video-consult milestone, whereas electronic records are absent and historically later."
+  },
+  "ontology_before": "Video telemedicine was modeled as requiring electronic health records.",
+  "ontology_after": "The first video-consult milestone requires television; electronic records remain a later integration.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: telemedicine_video_consults now depends on television and no longer on electronic_health_records.",
+  "would_reject_if": [
+    "The node is narrowed to contemporary EHR-integrated telehealth portals.",
+    "Evidence shows the 1964 Nebraska consultations were not conducted through television."
+  ],
+  "short_reason": "television directly supports the scoped system; electronic_health_records does not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

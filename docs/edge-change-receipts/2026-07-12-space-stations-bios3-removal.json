@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-space-stations-bios3-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "space_stations",
+    "prerequisite": "closed_loop_life_support_early_forms"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Closed-Loop Life Support (Early Forms) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "Salyut 1 became the first space station in 1971, while the scoped BIOS-3 facility was built in 1972.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nasa.gov/missions/station/50-years-ago-launch-of-salyut-the-worlds-first-space-station/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "NASA states that the Soviet Union placed Salyut, the world's first space station, into orbit on April 19, 1971.",
+    "source_claim_summary": "NASA dates the launch of the world's first space station, Salyut 1, to April 19, 1971.",
+    "source_support_rationale": "The directly attested station predates BIOS-3, and first-generation Salyut habitation did not require that later bioregenerative facility."
+  },
+  "ontology_before": "Space stations depended on a closed-loop milestone that occurred after the first station launch.",
+  "ontology_after": "Space stations begin with Salyut 1 and can later adopt increasingly closed life-support subsystems without a reversed origin edge.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: space_stations no longer directly depends on closed_loop_life_support_early_forms.",
+  "would_reject_if": [
+    "The closed-loop node is rescoped and redated to a system installed on Salyut 1 before launch.",
+    "The space-station node is narrowed to a later station that specifically required BIOS-3-derived systems."
+  ],
+  "short_reason": "Salyut 1 became the first space station in 1971, while the scoped BIOS-3 facility was built in 1972.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

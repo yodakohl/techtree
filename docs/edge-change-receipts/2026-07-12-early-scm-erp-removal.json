@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-early-scm-erp-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "supply_chain_management_software",
+    "prerequisite": "enterprise_resource_planning"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Enterprise Resource Planning provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Early 1960s computerized material-planning software predates the distinct ERP category coined in 1990.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.tandfonline.com/doi/full/10.1080/13614576.2020.1742770",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The history section states that Gartner coined ERP in 1990 for a new generation of MRP systems and traces their predecessors to 1960s inventory-control packages.",
+    "source_claim_summary": "The ERP review separates 1960s inventory-control and MRP predecessors from the ERP category Gartner coined in 1990.",
+    "source_support_rationale": "A category coined three decades after early planning software cannot be a prerequisite for that earlier software; ERP belongs downstream in the integration lineage."
+  },
+  "ontology_before": "Early supply-chain planning software incorrectly depended on its later ERP successor.",
+  "ontology_after": "Early supply-chain planning software retains its 1960s operational-planning scope without a backward ERP dependency.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: supply_chain_management_software no longer directly depends on enterprise_resource_planning.",
+  "would_reject_if": [
+    "The node is rescoped exclusively to post-1990 SCM suites built as ERP modules.",
+    "A primary source establishes a pre-1960 ERP category matching the current ERP scope."
+  ],
+  "short_reason": "Early 1960s computerized material-planning software predates the distinct ERP category coined in 1990.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

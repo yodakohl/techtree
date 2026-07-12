@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-video-telemedicine-telecom-replaces-smartphones",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "telemedicine_video_consults",
+    "prerequisite": "telecommunications"
+  },
+  "replaced_edge": {
+    "dependent": "telemedicine_video_consults",
+    "prerequisite": "smartphones"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Smartphones provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.96,
+    "note": "A 112-mile microwave telecommunications link connected the Nebraska facilities for live interactive care."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.neh.gov/humanities/2017/spring/feature/when-television-was-medical-device",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "documents_application_use",
+    "source_locator": "The history describes televised patient examinations and therapy, then identifies the 1964 Omaha-Norfolk microwave link as the first large-scale test of interactive television as a medical medium.",
+    "source_claim_summary": "A 112-mile microwave telecommunications link carried the Nebraska program's interactive medical television service in 1964.",
+    "source_support_rationale": "The long-distance communications link directly enabled the first scoped service decades before smartphones existed."
+  },
+  "ontology_before": "Video telemedicine was modeled as requiring smartphones.",
+  "ontology_after": "Video telemedicine depends on telecommunications, with smartphones retained only as a later access device.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: telemedicine_video_consults now depends on telecommunications and no longer on smartphones.",
+  "would_reject_if": [
+    "The node is narrowed to smartphone-native telemedicine applications.",
+    "Evidence shows no telecommunications link was involved in the 1964 program."
+  ],
+  "short_reason": "telecommunications directly supports the scoped system; smartphones does not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}

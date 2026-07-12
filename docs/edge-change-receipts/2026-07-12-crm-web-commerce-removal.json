@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-crm-web-commerce-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "customer_relationship_management",
+    "prerequisite": "e_commerce_platforms"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "E-Commerce Platforms provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "CRM software took shape by 1993, before the scoped Amazon and eBay Web-platform milestone of 1995.",
+  "source_supports_edge": "no",
+  "source_url": "https://guides.loc.gov/e-commerce/history",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Library of Congress timeline states that Amazon and eBay both came online in 1995 and describes the ensuing wave of Web e-commerce platforms.",
+    "source_claim_summary": "The Library of Congress chronology dates Amazon and eBay Web commerce to 1995.",
+    "source_support_rationale": "The existing CRM chronology predates the directly sourced Web-platform milestone, so e-commerce is a later customer channel rather than an origin prerequisite."
+  },
+  "ontology_before": "Early CRM software depended on Web e-commerce platforms that appeared later.",
+  "ontology_after": "CRM remains based on enterprise data and software, with Web commerce available as a later integration.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-launch-source-check-completion: customer_relationship_management no longer directly depends on e_commerce_platforms.",
+  "would_reject_if": [
+    "The CRM node is rescoped exclusively to e-commerce customer-management modules after 1995.",
+    "A reliable source moves the scoped Web-platform milestone before the CRM date."
+  ],
+  "short_reason": "CRM software took shape by 1993, before the scoped Amazon and eBay Web-platform milestone of 1995.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm test",
+    "npm run quality"
+  ]
+}
