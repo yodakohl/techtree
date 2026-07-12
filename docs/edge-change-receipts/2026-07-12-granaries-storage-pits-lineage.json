@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-12-granaries-storage-pits-lineage",
+  "decision_date": "2026-07-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "granaries",
+    "prerequisite": "food_storage_pits"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Food Storage Pits provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "primary_source",
+    "confidence": 0.86,
+    "note": "Earlier bins and pits form the storage lineage from which purpose-built raised-floor granaries emerged."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/19549877/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Abstract and Figure 2 caption: identify purpose-built granaries at Dhra' around 11,300-11,175 cal BP, before plant domestication, with suspended wooden floors and mud walls.",
+    "source_claim_summary": "Dhra' had purpose-built predomestication granaries with suspended floors and mud walls around 11,300-11,175 cal BP.",
+    "source_support_rationale": "The chronology supports predecessor lineage rather than a one-to-one enabling dependency. Purpose-built raised-floor granaries extend earlier food-storage systems but do not technically require a pit."
+  },
+  "ontology_before": "food_storage_pits was modeled as an enabling capability for granaries.",
+  "ontology_after": "food_storage_pits is retained as historical lineage for granaries, not as a necessary implementation capability.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: granaries->food_storage_pits is historical_predecessor.",
+  "would_reject_if": [
+    "A reliable source demonstrates that the scoped granaries implementation technically requires food_storage_pits."
+  ],
+  "short_reason": "Purpose-built raised-floor granaries extend earlier food-storage systems but do not technically require a pit.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

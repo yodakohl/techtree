@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-merchant-convoys-galleys-replace-arbitration",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "merchant_convoy_systems",
+    "prerequisite": "advanced_shipbuilding_bireme_trireme"
+  },
+  "replaced_edge": {
+    "dependent": "merchant_convoy_systems",
+    "prerequisite": "merchant_arbitration_boards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Merchant Arbitration Boards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "primary_source",
+    "confidence": 0.82,
+    "note": "The muda relied on maneuverable armed galleys, extending a long-established advanced galley-building lineage into state-organized commerce."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://academic.oup.com/qje/article/129/2/753/1868053",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Galley-trade section: describes maneuverable armed galleys traveling in convoy and the state system that set destinations and sailing dates, made permanent for the muda in 1329.",
+    "source_claim_summary": "Venice made its state-scheduled system of armed merchant-galley convoys a permanent institution in 1329.",
+    "source_support_rationale": "The replacement follows the mechanism documented for the scoped milestone. The source directly describes armed maneuverable galleys as the vehicles of the convoy; arbitration boards do not organize vessel movement."
+  },
+  "ontology_before": "merchant_convoy_systems depended on the broad or mismatched prerequisite merchant_arbitration_boards.",
+  "ontology_after": "merchant_convoy_systems now depends on advanced_shipbuilding_bireme_trireme, which matches the directly documented mechanism.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: merchant_convoy_systems depends on advanced_shipbuilding_bireme_trireme and no longer on merchant_arbitration_boards.",
+  "would_reject_if": [
+    "A reliable source shows merchant_arbitration_boards is indispensable while advanced_shipbuilding_bireme_trireme is absent from the current merchant_convoy_systems scope."
+  ],
+  "short_reason": "The source directly describes armed maneuverable galleys as the vehicles of the convoy; arbitration boards do not organize vessel movement.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

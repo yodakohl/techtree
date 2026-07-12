@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-roof-tiles-pottery-wheel-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "kiln_fired_roof_tiles",
+    "prerequisite": "pottery_wheel"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Pottery Wheel provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The reconstructed composite roof system depends on fired architectural ceramics, not vessel throwing on a pottery wheel.",
+  "source_supports_edge": "no",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10199015/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Results and dated context: reconstruct composite tile roofs at Qiaocun from strata concentrated around 2400-2200 BCE in the earliest Longshan phase of the site.",
+    "source_claim_summary": "Qiaocun preserves the earliest known composite tiled roofs in contexts dated about 2400-2200 BCE.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. The reconstructed composite roof system depends on fired architectural ceramics, not vessel throwing on a pottery wheel."
+  },
+  "ontology_before": "kiln_fired_roof_tiles treated pottery_wheel as a direct causal prerequisite.",
+  "ontology_after": "kiln_fired_roof_tiles is scoped to the directly evidenced mechanism and no longer claims pottery_wheel as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: kiln_fired_roof_tiles no longer directly depends on pottery_wheel.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current kiln_fired_roof_tiles scope technically requires pottery_wheel."
+  ],
+  "short_reason": "The reconstructed composite roof system depends on fired architectural ceramics, not vessel throwing on a pottery wheel.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

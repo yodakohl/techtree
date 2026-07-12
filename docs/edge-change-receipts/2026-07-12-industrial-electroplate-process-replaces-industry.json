@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-industrial-electroplate-process-replaces-industry",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "electroplating_industrial",
+    "prerequisite": "electroplating"
+  },
+  "replaced_edge": {
+    "dependent": "electroplating_industrial",
+    "prerequisite": "electrochemical_industry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electrochemical Industry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "primary_source",
+    "confidence": 0.88,
+    "note": "Earlier electrodeposition experiments established the process that Wright and Elkington converted into a patent and factory technology."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://journal.sciencemuseum.ac.uk/article/photography-and-electroplate-in-1840s-birmingham/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Competing processes section: dates Wright and Elkington cyanide-electrolyte innovations and patent electroplate process to 1840 and documents factory licensing and manufacture.",
+    "source_claim_summary": "Birmingham electrolyte and patent innovations made industrial electroplating viable in 1840.",
+    "source_support_rationale": "The replacement follows the mechanism documented for the scoped milestone. The industrial milestone scales the already demonstrated deposition process rather than depending on a broad industry category that itself includes electroplating."
+  },
+  "ontology_before": "electroplating_industrial depended on the broad or mismatched prerequisite electrochemical_industry.",
+  "ontology_after": "electroplating_industrial now depends on electroplating, which matches the directly documented mechanism.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: electroplating_industrial depends on electroplating and no longer on electrochemical_industry.",
+  "would_reject_if": [
+    "A reliable source shows electrochemical_industry is indispensable while electroplating is absent from the current electroplating_industrial scope."
+  ],
+  "short_reason": "The industrial milestone scales the already demonstrated deposition process rather than depending on a broad industry category that itself includes electroplating.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

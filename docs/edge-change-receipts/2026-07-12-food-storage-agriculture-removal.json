@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-food-storage-agriculture-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "food_storage_pits",
+    "prerequisite": "agriculture"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Agriculture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The directly sourced PPNA bins and silos stored gathered or cultivated wild foods before domesticated cereal agriculture.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/19549877/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Discussion of PPNA storage: reports small bins and larger storage silos by about 11,500 cal BP and places the Dhra granaries before domesticated plants.",
+    "source_claim_summary": "Southern Levant communities used food-storage bins and silos before domesticated cereal agriculture.",
+    "source_support_rationale": "Because predomestication storage is the scoped milestone, a later domesticated-crop system cannot remain its direct cause."
+  },
+  "ontology_before": "Food-storage pits were modeled as a product of established agriculture.",
+  "ontology_after": "Early bins and pits are modeled as predomestication storage practices that also supported later cultivation.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: food_storage_pits no longer directly depends on agriculture.",
+  "would_reject_if": [
+    "The node is narrowed to storage of fully domesticated agricultural surplus at later farming settlements."
+  ],
+  "short_reason": "Direct evidence places the scoped storage practices before domesticated agriculture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

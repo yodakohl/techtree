@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-substations-transformers-replace-meters",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "electrical_substations",
+    "prerequisite": "power_transformers"
+  },
+  "replaced_edge": {
+    "dependent": "electrical_substations",
+    "prerequisite": "electric_power_meters"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electric Power Meters provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "textbook",
+    "confidence": 0.9,
+    "note": "Voltage transformation is a defining substation function, and power transformers are the equipment that performs it."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.osha.gov/etools/electric-power/illustrated-glossary/sub-station",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Glossary: defines step-up and step-down substations by their use of large power transformers and circuit breakers within generation, transmission, and distribution grids.",
+    "source_claim_summary": "Power transformers and switching equipment are defining equipment in electrical substations.",
+    "source_support_rationale": "The replacement follows the mechanism documented for the scoped milestone. Voltage transformation is a defining substation function; customer metering is ancillary and not required to create a substation."
+  },
+  "ontology_before": "electrical_substations depended on the broad or mismatched prerequisite electric_power_meters.",
+  "ontology_after": "electrical_substations now depends on power_transformers, which matches the directly documented mechanism.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: electrical_substations depends on power_transformers and no longer on electric_power_meters.",
+  "would_reject_if": [
+    "A reliable source shows electric_power_meters is indispensable while power_transformers is absent from the current electrical_substations scope."
+  ],
+  "short_reason": "Voltage transformation is a defining substation function; customer metering is ancillary and not required to create a substation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

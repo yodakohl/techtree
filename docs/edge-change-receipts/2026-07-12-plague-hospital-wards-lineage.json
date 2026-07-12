@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-12-plague-hospital-wards-lineage",
+  "decision_date": "2026-07-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "plague_pesthouses",
+    "prerequisite": "hospital_patient_wards"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Hospital Patient Wards provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.78,
+    "note": "Earlier organized hospital wards supplied the institutional care model adapted to a dedicated plague-isolation hospital."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "The City of Venice distinguishes the 1423 hospital for infected patients from the 1468 preventive quarantine station for people and goods.",
+    "source_claim_summary": "Venice created Lazzaretto Vecchio in 1423 as a dedicated hospital for people infected with plague.",
+    "source_support_rationale": "The chronology supports predecessor lineage rather than a one-to-one enabling dependency. Organized wards are institutional hospital lineage; the Venetian island hospital was a distinct civic isolation facility."
+  },
+  "ontology_before": "hospital_patient_wards was modeled as an enabling capability for plague_pesthouses.",
+  "ontology_after": "hospital_patient_wards is retained as historical lineage for plague_pesthouses, not as a necessary implementation capability.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: plague_pesthouses->hospital_patient_wards is historical_predecessor.",
+  "would_reject_if": [
+    "A reliable source demonstrates that the scoped plague_pesthouses implementation technically requires hospital_patient_wards."
+  ],
+  "short_reason": "Organized wards are institutional hospital lineage; the Venetian island hospital was a distinct civic isolation facility.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

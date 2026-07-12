@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-12-degrees-university-curricula-replaces-writing",
+  "decision_date": "2026-07-12",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "university_degrees",
+    "prerequisite": "universities_research_curricula"
+  },
+  "replaced_edge": {
+    "dependent": "university_degrees",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "evidence_level": "weak_inference",
+    "confidence": 0.55,
+    "note": "Writing is contextual infrastructure or shared knowledge, not a strict hard prerequisite."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "textbook",
+    "confidence": 0.9,
+    "note": "The scoped qualification is awarded by a university after an organized course of study."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/degree-academic",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Entry: says academic degrees originated in medieval European universities; the first known degree was awarded to civil-law doctoral candidates at Bologna in the twelfth century.",
+    "source_claim_summary": "The first known academic degree was awarded at the medieval University of Bologna in the twelfth century.",
+    "source_support_rationale": "The replacement follows the mechanism documented for the scoped milestone. A university degree requires an awarding university and course of study, while writing alone is only generic background infrastructure."
+  },
+  "ontology_before": "university_degrees depended on the broad or mismatched prerequisite writing.",
+  "ontology_after": "university_degrees now depends on universities_research_curricula, which matches the directly documented mechanism.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: university_degrees depends on universities_research_curricula and no longer on writing.",
+  "would_reject_if": [
+    "A reliable source shows writing is indispensable while universities_research_curricula is absent from the current university_degrees scope."
+  ],
+  "short_reason": "A university degree requires an awarding university and course of study, while writing alone is only generic background infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

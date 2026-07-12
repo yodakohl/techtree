@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-merchant-convoys-bills-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "merchant_convoy_systems",
+    "prerequisite": "bills_of_exchange_early_finance"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Bills of Exchange & Early Finance is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "The muda was organized through state-owned galleys, auctions, routes, and sailing dates; bills of exchange were not a technical prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://academic.oup.com/qje/article/129/2/753/1868053",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Galley-trade section: describes maneuverable armed galleys traveling in convoy and the state system that set destinations and sailing dates, made permanent for the muda in 1329.",
+    "source_claim_summary": "Venice made its state-scheduled system of armed merchant-galley convoys a permanent institution in 1329.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. The muda was organized through state-owned galleys, auctions, routes, and sailing dates; bills of exchange were not a technical prerequisite."
+  },
+  "ontology_before": "merchant_convoy_systems treated bills_of_exchange_early_finance as a direct causal prerequisite.",
+  "ontology_after": "merchant_convoy_systems is scoped to the directly evidenced mechanism and no longer claims bills_of_exchange_early_finance as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: merchant_convoy_systems no longer directly depends on bills_of_exchange_early_finance.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current merchant_convoy_systems scope technically requires bills_of_exchange_early_finance."
+  ],
+  "short_reason": "The muda was organized through state-owned galleys, auctions, routes, and sailing dates; bills of exchange were not a technical prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

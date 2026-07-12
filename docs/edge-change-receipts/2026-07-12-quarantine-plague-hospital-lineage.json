@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-12-quarantine-plague-hospital-lineage",
+  "decision_date": "2026-07-12",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "quarantine_lazarettos",
+    "prerequisite": "plague_pesthouses"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Plague Pesthouses provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "review",
+    "confidence": 0.84,
+    "note": "The 1423 hospital for infected patients was the institutional predecessor to Venice's distinct 1468 station for exposed people and cargo."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "History section: distinguishes the 1423 hospital for infected patients from the 1468 Lazzaretto Nuovo, where potentially infected people and goods underwent quarantine.",
+    "source_claim_summary": "Venice added Lazzaretto Nuovo in 1468 to quarantine potentially infected travelers and goods, distinct from its 1423 plague hospital.",
+    "source_support_rationale": "The chronology supports predecessor lineage rather than a one-to-one enabling dependency. The 1423 treatment hospital preceded but did not technically enable the distinct 1468 preventive station for exposed people and cargo."
+  },
+  "ontology_before": "plague_pesthouses was modeled as an enabling capability for quarantine_lazarettos.",
+  "ontology_after": "plague_pesthouses is retained as historical lineage for quarantine_lazarettos, not as a necessary implementation capability.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: quarantine_lazarettos->plague_pesthouses is historical_predecessor.",
+  "would_reject_if": [
+    "A reliable source demonstrates that the scoped quarantine_lazarettos implementation technically requires plague_pesthouses."
+  ],
+  "short_reason": "The 1423 treatment hospital preceded but did not technically enable the distinct 1468 preventive station for exposed people and cargo.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

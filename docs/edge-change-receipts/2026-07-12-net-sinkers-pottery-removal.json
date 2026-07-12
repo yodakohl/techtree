@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-net-sinkers-pottery-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "net_sinker_weights",
+    "prerequisite": "pottery"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The directly excavated sinkers are stone, so pottery production is not required for the scoped fishing-net component.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nrich.go.kr/english/page.do?menuIdx=1031",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Shell-mound section: reports about 300 stone fishing-net sinkers with fish bones and dates the relevant deposits to 2860-2280 and 2860-2400 BCE.",
+    "source_claim_summary": "Korean Neolithic shell mounds dated from 2860 BCE contain hundreds of stone fishing-net sinkers and fish remains.",
+    "source_support_rationale": "The artifact material directly supplies a non-ceramic implementation, so pottery cannot remain a general causal prerequisite."
+  },
+  "ontology_before": "Net sinker weights were modeled as dependent on pottery manufacture.",
+  "ontology_after": "The sinker milestone stands independently because its directly documented implementation uses stone.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: net_sinker_weights no longer directly depends on pottery.",
+  "would_reject_if": [
+    "The node is narrowed to ceramic sinkers and direct evidence establishes pottery manufacture as indispensable."
+  ],
+  "short_reason": "Directly excavated stone net sinkers do not require pottery manufacture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

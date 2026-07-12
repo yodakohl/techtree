@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-public-health-lab-chlorination-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "public_health_laboratories",
+    "prerequisite": "urban_water_chlorination"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Urban Water Chlorination provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The Hygienic Laboratory opened in 1887 and tested water before urban chlorination became an established practice.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nlm.nih.gov/exhibition/phs_history/beginningsbio.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Biomedical research section: says the Marine Hospital Service established the Hygienic Laboratory in 1887 for bacteriological diagnosis and epidemic-disease study, including water testing.",
+    "source_claim_summary": "The U.S. Marine Hospital Service opened a public bacteriology laboratory in 1887 for epidemic diagnosis, research, and water testing.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. The Hygienic Laboratory opened in 1887 and tested water before urban chlorination became an established practice."
+  },
+  "ontology_before": "public_health_laboratories treated urban_water_chlorination as a direct causal prerequisite.",
+  "ontology_after": "public_health_laboratories is scoped to the directly evidenced mechanism and no longer claims urban_water_chlorination as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: public_health_laboratories no longer directly depends on urban_water_chlorination.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current public_health_laboratories scope technically requires urban_water_chlorination."
+  ],
+  "short_reason": "The Hygienic Laboratory opened in 1887 and tested water before urban chlorination became an established practice.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

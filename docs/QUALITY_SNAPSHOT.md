@@ -1,6 +1,6 @@
 # Quality Snapshot
 
-Generated: 2026-07-12T18:43:02.697Z
+Generated: 2026-07-12T19:40:00.921Z
 
 This is a launch-quality trust snapshot generated from the same report object used by `npm run accuracy:risks`; it covers non-Future nodes and is not proof of global accuracy.
 
@@ -8,19 +8,19 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 
 | Metric | Current |
 | --- | --- |
-| Technologies | 1,659 |
-| Launch-quality scope (non-Future nodes) | 1,421 / 1,659 (85.7%; 238 Future excluded) |
-| Source-checked nodes | 1,421 / 1,421 (100.0%) |
-| Source-checked nodes with resolved chronology | 1,421 / 1,421 (100.0%) |
-| Source-checked nodes with unresolved chronology | 0 / 1,421 (0.0%) |
-| Source-checked nodes with strong-type node sources | 1,282 / 1,421 (90.2%) |
-| Source-checked nodes with located strong-type evidence | 689 / 1,421 (48.5%) |
-| Source-checked nodes using only weak/generic sources | 0 / 1,421 (0.0%) |
-| Nodes with node-level sources | 1,421 / 1,421 (100.0%) |
-| Nodes with located node-level evidence | 755 / 1,421 (53.1%) |
-| Dependency edges with edge-level sources | 3,960 / 4,131 (95.9%) |
-| Dependency edges with located evidence | 967 / 4,131 (23.4%) |
-| Era-default placeholder dates | 0 / 1,421 (0.0%) |
+| Technologies | 1,658 |
+| Launch-quality scope (non-Future nodes) | 1,420 / 1,658 (85.6%; 238 Future excluded) |
+| Source-checked nodes | 1,420 / 1,420 (100.0%) |
+| Source-checked nodes with resolved chronology | 1,420 / 1,420 (100.0%) |
+| Source-checked nodes with unresolved chronology | 0 / 1,420 (0.0%) |
+| Source-checked nodes with strong-type node sources | 1,284 / 1,420 (90.4%) |
+| Source-checked nodes with located strong-type evidence | 711 / 1,420 (50.1%) |
+| Source-checked nodes using only weak/generic sources | 0 / 1,420 (0.0%) |
+| Nodes with node-level sources | 1,420 / 1,420 (100.0%) |
+| Nodes with located node-level evidence | 779 / 1,420 (54.9%) |
+| Dependency edges with edge-level sources | 3,955 / 4,102 (96.4%) |
+| Dependency edges with located evidence | 995 / 4,102 (24.3%) |
+| Era-default placeholder dates | 0 / 1,420 (0.0%) |
 
 ## Manual audit note
 

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-time-studies-time-clock-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "scientific_management_time_studies",
+    "prerequisite": "industrial_time_clocks"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Industrial Time Clocks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Taylor introduced time study in 1881, seven years before the directly documented Bundy and Dey employee recorders.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.ibm.com/history/international-time-recording",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "1888 section: dates the Bundy Key Recorder and Dey Dial Recorder to 1888 and explains how they recorded employee identity and shift times for payroll and attendance.",
+    "source_claim_summary": "Bundy and Dey introduced mechanical employee time recorders in 1888 for payroll and attendance.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. Taylor introduced time study in 1881, seven years before the directly documented Bundy and Dey employee recorders."
+  },
+  "ontology_before": "scientific_management_time_studies treated industrial_time_clocks as a direct causal prerequisite.",
+  "ontology_after": "scientific_management_time_studies is scoped to the directly evidenced mechanism and no longer claims industrial_time_clocks as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: scientific_management_time_studies no longer directly depends on industrial_time_clocks.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current scientific_management_time_studies scope technically requires industrial_time_clocks."
+  ],
+  "short_reason": "Taylor introduced time study in 1881, seven years before the directly documented Bundy and Dey employee recorders.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

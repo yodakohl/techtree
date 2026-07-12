@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-granaries-agriculture-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "granaries",
+    "prerequisite": "agriculture"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Agriculture provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The directly dated Dhra granaries stored cultivated wild cereals before domesticated agriculture.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/19549877/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and Figure 2 caption: identify purpose-built granaries at Dhra' around 11,300-11,175 cal BP, before plant domestication, with suspended wooden floors and mud walls.",
+    "source_claim_summary": "Dhra' had purpose-built predomestication granaries with suspended floors and mud walls around 11,300-11,175 cal BP.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. The directly dated Dhra granaries stored cultivated wild cereals before domesticated agriculture."
+  },
+  "ontology_before": "granaries treated agriculture as a direct causal prerequisite.",
+  "ontology_after": "granaries is scoped to the directly evidenced mechanism and no longer claims agriculture as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: granaries no longer directly depends on agriculture.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current granaries scope technically requires agriculture."
+  ],
+  "short_reason": "The directly dated Dhra granaries stored cultivated wild cereals before domesticated agriculture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

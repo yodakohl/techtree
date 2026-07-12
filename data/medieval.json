@@ -1836,40 +1836,54 @@
   },
   {
     "id": "university_degrees",
-    "name": "University Degrees",
+    "name": "Medieval University Degrees",
     "era": "Medieval",
-    "description": "Formal qualifications (Bachelor, Master, Doctorate) awarded by universities, signifying mastery in specific fields of study.",
+    "description": "Formal academic qualifications awarded by medieval universities after prescribed study and examination, beginning with law doctorates at Bologna.",
     "prerequisites": [
-      "scholasticism",
-      "writing"
+      "universities_research_curricula",
+      "scholasticism"
     ],
     "firstKnownDate": 1100,
     "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "region": "Bologna and other Western European universities",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
+      {
+        "prerequisite": "universities_research_curricula",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "The scoped qualification is awarded by a university after an organized course of study.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "degree, academic",
+            "url": "https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/degree-academic",
+            "publisher": "The Columbia Encyclopedia",
+            "year": 2026,
+            "source_type": "textbook",
+            "source_locator": "Entry: says academic degrees originated in medieval European universities; the first known degree was awarded to civil-law doctoral candidates at Bologna in the twelfth century.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
+      },
       {
         "prerequisite": "scholasticism",
         "type": "common_dependency",
         "confidence": 0.55,
         "evidence_level": "weak_inference",
-        "note": "Scholasticism is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "writing",
-        "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Writing is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "note": "Scholastic teaching and disputation formed the intellectual setting of the first Western universities and their qualifications.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "The universities and scholasticism",
+            "url": "https://www.cambridge.org/core/books/new-cambridge-medieval-history/universities-and-scholasticism/FA741629ABE8B789EEAA8CFFB9989CD3",
+            "publisher": "Cambridge University Press",
+            "year": 1999,
+            "source_type": "textbook",
+            "source_locator": "Chapter summary: describes the twelfth-century scholastic revolution and the emergence of influential university centers including Bologna, Paris, and Oxford.",
             "supports": [
               "edge"
             ]
@@ -1879,13 +1893,24 @@
     ],
     "sources": [
       {
-        "title": "How to write cuneiform",
-        "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-        "publisher": "British Museum",
-        "year": 2020,
-        "source_type": "museum",
+        "title": "degree, academic",
+        "url": "https://www.encyclopedia.com/reference/encyclopedias-almanacs-transcripts-and-maps/degree-academic",
+        "publisher": "The Columbia Encyclopedia",
+        "year": 2026,
+        "source_type": "textbook",
+        "source_locator": "Entry: says academic degrees originated in medieval European universities; the first known degree was awarded to civil-law doctoral candidates at Bologna in the twelfth century.",
         "supports": [
-          "edge",
+          "node"
+        ]
+      },
+      {
+        "title": "The universities and scholasticism",
+        "url": "https://www.cambridge.org/core/books/new-cambridge-medieval-history/universities-and-scholasticism/FA741629ABE8B789EEAA8CFFB9989CD3",
+        "publisher": "Cambridge University Press",
+        "year": 1999,
+        "source_type": "textbook",
+        "source_locator": "Chapter summary: describes the twelfth-century scholastic revolution and the emergence of influential university centers including Bologna, Paris, and Oxford.",
+        "supports": [
           "node"
         ]
       }
@@ -8263,7 +8288,7 @@
     "id": "universities_research_curricula",
     "name": "University Curricula",
     "era": "Medieval",
-    "description": "Structured higher education in law, medicine, theology, arts, mathematics, and natural philosophy with formal degrees and disputation.",
+    "description": "Structured higher education in law, medicine, theology, arts, mathematics, and natural philosophy, organized through lectures, texts, and disputation.",
     "prerequisites": [
       "book_binding_codex_production"
     ],
@@ -14413,40 +14438,32 @@
   },
   {
     "id": "plague_pesthouses",
-    "name": "Plague Pesthouses",
+    "name": "Lazzaretto Vecchio Plague Hospital",
     "era": "Medieval",
-    "description": "Isolated care sites, records, supplies, attendants, and civic rules for severe epidemic outbreaks.",
+    "description": "A permanent island hospital created by Venice to isolate and care for people infected with plague, separating treatment from later traveler-and-cargo quarantine.",
     "prerequisites": [
-      "hospital_patient_wards",
-      "public_health_inspections"
+      "hospital_patient_wards"
     ],
-    "firstKnownDate": 800,
-    "datePrecision": "century",
-    "region": "Afro-Eurasia and other medieval societies",
+    "firstKnownDate": 1423,
+    "datePrecision": "exact",
+    "region": "Lazzaretto Vecchio, Venice",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "hospital_patient_wards",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Hospital Patient Wards provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_health_inspections",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Health Inspections provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "Earlier organized hospital wards supplied the institutional care model adapted to a dedicated plague-isolation hospital.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Aedile",
-            "url": "https://www.britannica.com/topic/aedile",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "The quarantine: a fifteenth-century Venetian innovation",
+            "url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+            "publisher": "City of Venice",
+            "year": 2021,
+            "source_type": "official_agency",
+            "source_locator": "The City of Venice distinguishes the 1423 Lazzaretto Vecchio hospital for infected patients from the 1468 preventive quarantine station for people and goods.",
             "supports": [
               "edge"
             ]
@@ -14456,13 +14473,13 @@
     ],
     "sources": [
       {
-        "title": "Aedile",
-        "url": "https://www.britannica.com/topic/aedile",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "The quarantine: a fifteenth-century Venetian innovation",
+        "url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+        "publisher": "City of Venice",
+        "year": 2021,
+        "source_type": "official_agency",
+        "source_locator": "The City of Venice distinguishes the 1423 Lazzaretto Vecchio hospital for infected patients from the 1468 preventive quarantine station for people and goods.",
         "supports": [
-          "edge",
           "node"
         ]
       }
@@ -15415,16 +15432,16 @@
   },
   {
     "id": "quarantine_lazarettos",
-    "name": "Quarantine Lazarettos",
+    "name": "Lazzaretto Nuovo Quarantine Station",
     "era": "Medieval",
-    "description": "Isolation stations for travelers, crews, cargo, and suspected infection during plague and epidemic response.",
+    "description": "A preventive island station where potentially infected maritime travelers and cargo were detained, inspected, stored, and disinfected before entering Venice.",
     "prerequisites": [
       "quarantine_public_health_measures",
       "plague_pesthouses"
     ],
-    "firstKnownDate": 1423,
+    "firstKnownDate": 1468,
     "datePrecision": "exact",
-    "region": "Venice, Republic of Venice",
+    "region": "Lazzaretto Nuovo, Venice",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
@@ -15432,55 +15449,55 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Quarantine & Public Health Measures provides a capability that enables this technology without being the only possible path.",
+        "note": "Established detention policy supplied the preventive procedure implemented in a permanent maritime quarantine station.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Lessons from the History of Quarantine, from Plague to Influenza A",
-            "url": "https://wwwnc.cdc.gov/eid/article/19/2/12-0312_article",
-            "publisher": "Emerging Infectious Diseases / CDC",
-            "year": 2013,
-            "source_type": "review",
+            "title": "The quarantine: a fifteenth-century Venetian innovation",
+            "url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+            "publisher": "City of Venice",
+            "year": 2021,
+            "source_type": "official_agency",
+            "source_locator": "History section: distinguishes the 1423 hospital for infected patients from the 1468 Lazzaretto Nuovo, where potentially infected people and goods underwent quarantine.",
             "supports": [
               "edge"
-            ],
-            "source_locator": "Abstract and Plague section: the CDC review says quarantine separated persons, animals, and goods exposed to contagious disease and formed part of coordinated disease-control strategies including isolation, cordons, health bills, fumigation, and disinfection."
+            ]
           }
         ]
       },
       {
         "prerequisite": "plague_pesthouses",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Plague Pesthouses provides a capability that enables this technology without being the only possible path.",
+        "type": "historical_predecessor",
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "The 1423 hospital for infected patients was the institutional predecessor to Venice's distinct 1468 station for exposed people and cargo.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Lessons from the History of Quarantine, from Plague to Influenza A",
-            "url": "https://wwwnc.cdc.gov/eid/article/19/2/12-0312_article",
-            "publisher": "Emerging Infectious Diseases / CDC",
-            "year": 2013,
-            "source_type": "review",
+            "title": "The quarantine: a fifteenth-century Venetian innovation",
+            "url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+            "publisher": "City of Venice",
+            "year": 2021,
+            "source_type": "official_agency",
+            "source_locator": "History section: distinguishes the 1423 hospital for infected patients from the 1468 Lazzaretto Nuovo, where potentially infected people and goods underwent quarantine.",
             "supports": [
               "edge"
-            ],
-            "source_locator": "Plague section: the CDC review identifies Venice's 1423 permanent plague hospital or lazaretto and describes later lazarettos as isolated buildings for sick or suspected ship passengers, crew, and merchandise."
+            ]
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Lessons from the History of Quarantine, from Plague to Influenza A",
-        "url": "https://wwwnc.cdc.gov/eid/article/19/2/12-0312_article",
-        "publisher": "Emerging Infectious Diseases / CDC",
-        "year": 2013,
-        "source_type": "review",
+        "title": "The quarantine: a fifteenth-century Venetian innovation",
+        "url": "https://1600.venezia.it/en/articolo/the-quarantine-an-intuition-of-the-fifteenth-century-that-put-venice-at-the-forefront",
+        "publisher": "City of Venice",
+        "year": 2021,
+        "source_type": "official_agency",
+        "source_locator": "History section: distinguishes the 1423 hospital for infected patients from the 1468 Lazzaretto Nuovo, where potentially infected people and goods underwent quarantine.",
         "supports": [
           "node"
-        ],
-        "source_locator": "CDC Emerging Infectious Diseases review says Venice opened the first permanent plague hospital/lazaretto in 1423 on Santa Maria di Nazareth."
+        ]
       }
     ]
   },
@@ -15677,40 +15694,32 @@
   },
   {
     "id": "merchant_convoy_systems",
-    "name": "Merchant Convoy Systems",
+    "name": "Venetian Muda Merchant Convoys",
     "era": "Medieval",
-    "description": "Coordinated armed travel, shared insurance risk, and schedules for caravans and maritime fleets.",
+    "description": "State-scheduled convoys of armed merchant galleys whose routes, departure dates, and vessel leases were organized by the Venetian Republic.",
     "prerequisites": [
-      "merchant_arbitration_boards",
-      "bills_of_exchange_early_finance"
+      "advanced_shipbuilding_bireme_trireme"
     ],
-    "firstKnownDate": 1250,
-    "datePrecision": "decade",
-    "region": "Afro-Eurasia and other medieval societies",
+    "firstKnownDate": 1329,
+    "datePrecision": "exact",
+    "region": "Republic of Venice and Mediterranean routes",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "merchant_arbitration_boards",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Merchant Arbitration Boards provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "bills_of_exchange_early_finance",
+        "prerequisite": "advanced_shipbuilding_bireme_trireme",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Bills of Exchange & Early Finance is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.82,
+        "evidence_level": "primary_source",
+        "note": "The muda relied on maneuverable armed galleys, extending a long-established advanced galley-building lineage into state-organized commerce.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "The History of Money",
-            "url": "https://moneymuseum.spin-cdn.com/media/learning/20190816_the_history_of_money.pdf",
-            "publisher": "American Numismatic Association Money Museum",
-            "year": 2019,
-            "source_type": "museum",
+            "title": "The Political Economy of the Venetian Republic",
+            "url": "https://academic.oup.com/qje/article/129/2/753/1868053",
+            "publisher": "Quarterly Journal of Economics",
+            "year": 2014,
+            "source_type": "primary_paper",
+            "source_locator": "Galley-trade section: describes maneuverable armed galleys traveling in convoy and the state system that set destinations and sailing dates, made permanent for the muda in 1329.",
             "supports": [
               "edge"
             ]
@@ -15720,17 +15729,18 @@
     ],
     "sources": [
       {
-        "title": "The History of Money",
-        "url": "https://moneymuseum.spin-cdn.com/media/learning/20190816_the_history_of_money.pdf",
-        "publisher": "American Numismatic Association Money Museum",
-        "year": 2019,
-        "source_type": "museum",
+        "title": "The Political Economy of the Venetian Republic",
+        "url": "https://academic.oup.com/qje/article/129/2/753/1868053",
+        "publisher": "Quarterly Journal of Economics",
+        "year": 2014,
+        "source_type": "primary_paper",
+        "source_locator": "Galley-trade section: describes maneuverable armed galleys traveling in convoy and the state system that set destinations and sailing dates, made permanent for the muda in 1329.",
         "supports": [
-          "edge",
           "node"
         ]
       }
-    ]
+    ],
+    "dateUncertaintyNote": "The public-galley system evolved from 1321 to 1329 and became permanent on the Greece, Constantinople, and Black Sea routes in 1329."
   },
   {
     "id": "bridge_toll_booths",

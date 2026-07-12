@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-food-storage-basketry-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "food_storage_pits",
+    "prerequisite": "basic_weaving_basketry"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Basic Weaving and Basketry is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "Excavated bins, pits, and silos are fixed storage features and do not require woven basket manufacture as their historical lineage.",
+  "source_supports_edge": "no",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/19549877/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The excavation describes storage bins, silos, and raised-floor granaries through their structural remains; it does not identify woven containers as a prerequisite.",
+    "source_claim_summary": "The source documents fixed PPNA storage structures rather than a basketry-dependent container technology.",
+    "source_support_rationale": "The scope now follows excavated fixed features, so a separate portable weaving tradition adds no defensible causal relationship."
+  },
+  "ontology_before": "Food-storage pits carried a generic historical edge from basketry.",
+  "ontology_after": "Fixed bins and pits stand as an independently evidenced storage practice.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: food_storage_pits no longer directly depends on basic_weaving_basketry.",
+  "would_reject_if": [
+    "Direct excavation evidence shows the scoped bins or pits were constructed from woven basket forms."
+  ],
+  "short_reason": "Fixed excavated storage structures do not require a basketry prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

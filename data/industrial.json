@@ -9403,8 +9403,7 @@
     "description": "Developing and administering vaccines based on attenuated or killed pathogens to stimulate a specific immune response and prevent infectious diseases.",
     "prerequisites": [
       "medicine_clinical",
-      "scientific_method",
-      "microscope"
+      "scientific_method"
     ],
     "firstKnownDate": 1796,
     "datePrecision": "exact",
@@ -9412,11 +9411,12 @@
     "reviewStatus": "source_checked",
     "sources": [
       {
-        "title": "Smallpox vaccine",
-        "url": "https://www.britannica.com/science/smallpox-vaccine",
-        "publisher": "Encyclopaedia Britannica",
-        "year": 2026,
-        "source_type": "textbook",
+        "title": "Smallpox: Vaccination",
+        "url": "https://www.nlm.nih.gov/exhibition/smallpox/sp_vaccination.html",
+        "publisher": "U.S. National Library of Medicine",
+        "year": 2024,
+        "source_type": "official_agency",
+        "source_locator": "Vaccination section: describes Jenner transferring cowpox material to James Phipps in 1796 and testing the resulting protection before publishing in 1798.",
         "supports": [
           "node"
         ]
@@ -9462,14 +9462,6 @@
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "microscope",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Microscope provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ]
   },
@@ -15426,7 +15418,7 @@
     "description": "Grid nodes for transforming voltage, switching circuits, protecting equipment, and distributing electrical power to districts.",
     "prerequisites": [
       "alternating_current_power",
-      "electric_power_meters",
+      "power_transformers",
       "electrical_grid_early_distribution"
     ],
     "firstKnownDate": 1891,
@@ -15455,12 +15447,25 @@
         ]
       },
       {
-        "prerequisite": "electric_power_meters",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electric Power Meters provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "prerequisite": "power_transformers",
+        "type": "required",
+        "confidence": 0.9,
+        "evidence_level": "textbook",
+        "note": "Voltage transformation is a defining substation function, and power transformers are the equipment that performs it.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Electric Power Illustrated Glossary: Substations",
+            "url": "https://www.osha.gov/etools/electric-power/illustrated-glossary/sub-station",
+            "publisher": "U.S. Occupational Safety and Health Administration",
+            "year": 2026,
+            "source_type": "official_agency",
+            "source_locator": "Glossary: defines step-up and step-down substations by their use of large power transformers and circuit breakers within generation, transmission, and distribution grids.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "electrical_grid_early_distribution",
@@ -15485,13 +15490,13 @@
     ],
     "sources": [
       {
-        "title": "Alternating Current",
-        "url": "https://www.britannica.com/science/alternating-current",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "Electric Power Illustrated Glossary: Substations",
+        "url": "https://www.osha.gov/etools/electric-power/illustrated-glossary/sub-station",
+        "publisher": "U.S. Occupational Safety and Health Administration",
         "year": 2026,
-        "source_type": "textbook",
+        "source_type": "official_agency",
+        "source_locator": "Glossary: defines step-up and step-down substations by their use of large power transformers and circuit breakers within generation, transmission, and distribution grids.",
         "supports": [
-          "edge",
           "node"
         ]
       }
@@ -16222,41 +16227,33 @@
   },
   {
     "id": "electroplating_industrial",
-    "name": "Industrial Electroplating",
+    "name": "Patented Industrial Electroplating",
     "era": "Industrial",
-    "description": "Electrochemical deposition of metals for corrosion protection, decoration, electrical contacts, tools, and precision manufactured parts.",
+    "description": "Commercial metal coating by electric current and controlled electrolyte, established through Birmingham patents, factory use, and licensed manufacture.",
     "prerequisites": [
-      "electrochemical_industry",
-      "electricity",
-      "precision_machine_tools"
+      "electroplating",
+      "electricity"
     ],
     "firstKnownDate": 1840,
-    "datePrecision": "decade",
-    "region": "Europe",
+    "datePrecision": "exact",
+    "region": "Birmingham, England",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "electrochemical_industry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electrochemical Industry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "electricity",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electricity provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "electroplating",
+        "type": "historical_predecessor",
+        "confidence": 0.88,
+        "evidence_level": "primary_source",
+        "note": "Earlier electrodeposition experiments established the process that Wright and Elkington converted into a patent and factory technology.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Electrical Years: Part 1",
-            "url": "https://americanhistory.si.edu/explore/exhibitions/electric-dr-franklin/online/electrical-years-1",
-            "publisher": "National Museum of American History",
-            "year": 2026,
-            "source_type": "museum",
+            "title": "Photography and electroplate in 1840s Birmingham",
+            "url": "https://journal.sciencemuseum.ac.uk/article/photography-and-electroplate-in-1840s-birmingham/",
+            "publisher": "Science Museum Group Journal",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "source_locator": "Competing processes section: dates Wright and Elkington cyanide-electrolyte innovations and patent electroplate process to 1840 and documents factory licensing and manufacture.",
             "supports": [
               "edge"
             ]
@@ -16264,19 +16261,20 @@
         ]
       },
       {
-        "prerequisite": "precision_machine_tools",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
+        "prerequisite": "electricity",
+        "type": "enabling",
+        "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Precision Machine Tools supports manufacturing, deployment, commercialization, or operational scaling.",
+        "note": "Electroplating uses electric current to deposit metal from a controlled electrolyte.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Machine Tool",
-            "url": "https://www.britannica.com/technology/machine-tool",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "Photography and electroplate in 1840s Birmingham",
+            "url": "https://journal.sciencemuseum.ac.uk/article/photography-and-electroplate-in-1840s-birmingham/",
+            "publisher": "Science Museum Group Journal",
+            "year": 2023,
+            "source_type": "primary_paper",
+            "source_locator": "Competing processes section: dates Wright and Elkington cyanide-electrolyte innovations and patent electroplate process to 1840 and documents factory licensing and manufacture.",
             "supports": [
               "edge"
             ]
@@ -16286,13 +16284,13 @@
     ],
     "sources": [
       {
-        "title": "Electrical Years: Part 1",
-        "url": "https://americanhistory.si.edu/explore/exhibitions/electric-dr-franklin/online/electrical-years-1",
-        "publisher": "National Museum of American History",
-        "year": 2026,
-        "source_type": "museum",
+        "title": "Photography and electroplate in 1840s Birmingham",
+        "url": "https://journal.sciencemuseum.ac.uk/article/photography-and-electroplate-in-1840s-birmingham/",
+        "publisher": "Science Museum Group Journal",
+        "year": 2023,
+        "source_type": "primary_paper",
+        "source_locator": "Competing processes section: dates Wright and Elkington cyanide-electrolyte innovations and patent electroplate process to 1840 and documents factory licensing and manufacture.",
         "supports": [
-          "edge",
           "node"
         ]
       }
@@ -17246,33 +17244,33 @@
   },
   {
     "id": "standard_time_zones",
-    "name": "Standard Time Zones",
+    "name": "Standard Railway Time Zones",
     "era": "Industrial",
-    "description": "Regional time standards coordinated through railways, telegraph networks, clocks, schedules, and administrative agreements.",
+    "description": "Regional standard times adopted by North American railroads and communities to replace dozens of incompatible local and railway schedules.",
     "prerequisites": [
       "railroads",
-      "telegraph",
-      "mechanical_clock_workday_regulation"
+      "telegraph"
     ],
-    "firstKnownDate": 1837,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
+    "firstKnownDate": 1883,
+    "datePrecision": "exact",
+    "region": "United States and Canada",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "railroads",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Railroads provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.82,
+        "evidence_level": "review",
+        "note": "Railroad scheduling across many local times created the coordination problem and the organizations that adopted the zone plan.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Stockton & Darlington Railway",
-            "url": "https://www.britannica.com/topic/Stockton-and-Darlington-Railway",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Synchronizing Time",
+            "url": "https://americanhistory.si.edu/ontime/synchronizing/zones.html",
+            "publisher": "Smithsonian National Museum of American History",
             "year": 2026,
-            "source_type": "textbook",
+            "source_type": "museum",
+            "source_locator": "Standard Time section: explains the railroad scheduling problem, William F. Allen's five-zone plan, and adoption of Standard Railway Time on November 18, 1883.",
             "supports": [
               "edge"
             ]
@@ -17284,39 +17282,32 @@
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Telegraph provides a capability that enables this technology without being the only possible path.",
+        "note": "Telegraphic time distribution helped synchronize clocks across the geographically distributed railway system.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Invention of the Telegraph",
-            "url": "https://www.loc.gov/collections/samuel-morse-papers/articles-and-essays/invention-of-the-telegraph/",
-            "publisher": "Library of Congress",
+            "title": "Synchronizing Time",
+            "url": "https://americanhistory.si.edu/ontime/synchronizing/zones.html",
+            "publisher": "Smithsonian National Museum of American History",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "museum",
+            "source_locator": "Standard Time section: explains the railroad scheduling problem, William F. Allen's five-zone plan, and adoption of Standard Railway Time on November 18, 1883.",
             "supports": [
               "edge"
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "mechanical_clock_workday_regulation",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mechanical Clock Workday Regulation provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Stockton & Darlington Railway",
-        "url": "https://www.britannica.com/topic/Stockton-and-Darlington-Railway",
-        "publisher": "Encyclopaedia Britannica",
+        "title": "Synchronizing Time",
+        "url": "https://americanhistory.si.edu/ontime/synchronizing/zones.html",
+        "publisher": "Smithsonian National Museum of American History",
         "year": 2026,
-        "source_type": "textbook",
+        "source_type": "museum",
+        "source_locator": "Standard Time section: explains the railroad scheduling problem, William F. Allen's five-zone plan, and adoption of Standard Railway Time on November 18, 1883.",
         "supports": [
-          "edge",
           "node"
         ]
       }
@@ -17708,61 +17699,32 @@
   },
   {
     "id": "amateur_radio_communities",
-    "name": "Amateur Radio Communities",
+    "name": "Early Amateur Radio Clubs",
     "era": "Industrial",
-    "description": "Licensed and informal radio operators who built equipment, relayed messages, tested antennas, and expanded radio expertise.",
+    "description": "Organized communities of wireless experimenters who shared equipment knowledge, coordinated tests, and promoted cooperation in radio communication.",
     "prerequisites": [
-      "radio_telegraphy_wireless_communication",
-      "electrical_lighting_systems",
-      "public_education_systems"
+      "radio_telegraphy_wireless_communication"
     ],
-    "firstKnownDate": 1895,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
+    "firstKnownDate": 1909,
+    "datePrecision": "exact",
+    "region": "New York City, United States",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "radio_telegraphy_wireless_communication",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Radio Telegraphy (Wireless Communication) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.78,
+        "evidence_level": "review",
+        "note": "An amateur wireless club presupposes practical radio communication equipment and experimentation.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Guglielmo Marconi - Biographical",
-            "url": "https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/",
-            "publisher": "Nobel Prize",
-            "year": 2026,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "electrical_lighting_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electrical Lighting Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "public_education_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Public Education Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Public Education",
-            "url": "https://www.britannica.com/topic/public-education",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "title": "Entry Level License Committee Report to the ARRL Board of Directors",
+            "url": "https://www.arrl.org/files/file/About%20ARRL/Committee%20Reports/2017/January/1701-ELL.pdf",
+            "publisher": "American Radio Relay League",
+            "year": 2017,
+            "source_type": "official_agency",
+            "source_locator": "Appendix A license timeline, page 10: records 1909 as the year the first radio clubs started, before U.S. amateur licensing began in 1912.",
             "supports": [
               "edge"
             ]
@@ -17772,13 +17734,13 @@
     ],
     "sources": [
       {
-        "title": "Guglielmo Marconi - Biographical",
-        "url": "https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/",
-        "publisher": "Nobel Prize",
-        "year": 2026,
-        "source_type": "museum",
+        "title": "Entry Level License Committee Report to the ARRL Board of Directors",
+        "url": "https://www.arrl.org/files/file/About%20ARRL/Committee%20Reports/2017/January/1701-ELL.pdf",
+        "publisher": "American Radio Relay League",
+        "year": 2017,
+        "source_type": "official_agency",
+        "source_locator": "Appendix A license timeline, page 10: records 1909 as the year the first radio clubs started, before U.S. amateur licensing began in 1912.",
         "supports": [
-          "edge",
           "node"
         ]
       }
@@ -19981,40 +19943,32 @@
   },
   {
     "id": "industrial_time_clocks",
-    "name": "Industrial Time Clocks",
+    "name": "Employee Time Recorders",
     "era": "Industrial",
-    "description": "Mechanical and electrical time recording devices for shifts, wages, attendance, and factory discipline.",
+    "description": "Mechanical devices that recorded an employee identifier with shift start and end times for attendance and payroll administration.",
     "prerequisites": [
-      "standard_time_zones",
       "factory_system"
     ],
-    "firstKnownDate": 1837,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
+    "firstKnownDate": 1888,
+    "datePrecision": "exact",
+    "region": "New York and Ontario, North America",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
-      {
-        "prerequisite": "standard_time_zones",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Standard Time Zones provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      },
       {
         "prerequisite": "factory_system",
         "type": "enabling",
         "confidence": 0.68,
         "evidence_level": "expert_inference",
-        "note": "Factory System provides a capability that enables this technology without being the only possible path.",
+        "note": "Large workplaces with scheduled shifts and payroll records created the operational setting for employee time recorders.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Derwent Valley Mills",
-            "url": "https://whc.unesco.org/en/list/1030/",
-            "publisher": "UNESCO World Heritage Centre",
+            "title": "The International Time Recording Company",
+            "url": "https://www.ibm.com/history/international-time-recording",
+            "publisher": "IBM",
             "year": 2026,
-            "source_type": "official_agency",
+            "source_type": "review",
+            "source_locator": "1888 section: dates the Bundy Key Recorder and Dey Dial Recorder to 1888 and explains how they recorded employee identity and shift times for payroll and attendance.",
             "supports": [
               "edge"
             ]
@@ -20024,13 +19978,13 @@
     ],
     "sources": [
       {
-        "title": "Derwent Valley Mills",
-        "url": "https://whc.unesco.org/en/list/1030/",
-        "publisher": "UNESCO World Heritage Centre",
+        "title": "The International Time Recording Company",
+        "url": "https://www.ibm.com/history/international-time-recording",
+        "publisher": "IBM",
         "year": 2026,
-        "source_type": "official_agency",
+        "source_type": "review",
+        "source_locator": "1888 section: dates the Bundy Key Recorder and Dey Dial Recorder to 1888 and explains how they recorded employee identity and shift times for payroll and attendance.",
         "supports": [
-          "edge",
           "node"
         ]
       }
@@ -20702,23 +20656,12 @@
     "name": "Scientific Management Time Studies",
     "era": "Industrial",
     "description": "Stopwatch measurement and workflow analysis used to redesign factory tasks and labor allocation.",
-    "prerequisites": [
-      "industrial_time_clocks"
-    ],
+    "prerequisites": [],
     "firstKnownDate": 1881,
     "datePrecision": "year",
     "region": "Philadelphia, Pennsylvania, United States",
     "reviewStatus": "source_checked",
-    "dependencyEdges": [
-      {
-        "prerequisite": "industrial_time_clocks",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Industrial Time Clocks provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
-      }
-    ],
+    "dependencyEdges": [],
     "sources": [
       {
         "title": "Frederick W. Taylor",
@@ -20746,56 +20689,48 @@
   },
   {
     "id": "public_health_laboratories",
-    "name": "Public Health Laboratories",
+    "name": "Government Public Health Laboratory",
     "era": "Industrial",
-    "description": "Municipal labs testing water, milk, pathogens, sewage, and environmental samples for public health.",
+    "description": "A public bacteriology laboratory performing epidemic-disease diagnosis and research, disinfectant studies, and microbial testing of water.",
     "prerequisites": [
-      "urban_water_chlorination",
       "laboratory_diagnostic_medicine"
     ],
-    "firstKnownDate": 1908,
-    "datePrecision": "decade",
-    "region": "Europe, North America, and industrializing regions",
+    "firstKnownDate": 1887,
+    "datePrecision": "exact",
+    "region": "Staten Island, New York, United States",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "urban_water_chlorination",
+        "prerequisite": "laboratory_diagnostic_medicine",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Urban Water Chlorination provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.8,
+        "evidence_level": "review",
+        "note": "The Hygienic Laboratory applied laboratory bacteriology directly to diagnosis and investigation of epidemic diseases.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Drinking Water Regulations",
-            "url": "https://www.epa.gov/dwreginfo/drinking-water-regulations",
-            "publisher": "U.S. Environmental Protection Agency",
+            "title": "Images From the History of the Public Health Service: The Beginnings of Organized Biomedical Research",
+            "url": "https://www.nlm.nih.gov/exhibition/phs_history/beginningsbio.html",
+            "publisher": "U.S. National Library of Medicine",
             "year": 2026,
             "source_type": "official_agency",
+            "source_locator": "Biomedical research section: says the Marine Hospital Service established the Hygienic Laboratory in 1887 for bacteriological diagnosis and epidemic-disease study, including water testing.",
             "supports": [
               "edge"
             ]
           }
         ]
-      },
-      {
-        "prerequisite": "laboratory_diagnostic_medicine",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Laboratory Diagnostic Medicine provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
       }
     ],
     "sources": [
       {
-        "title": "Drinking Water Regulations",
-        "url": "https://www.epa.gov/dwreginfo/drinking-water-regulations",
-        "publisher": "U.S. Environmental Protection Agency",
+        "title": "Images From the History of the Public Health Service: The Beginnings of Organized Biomedical Research",
+        "url": "https://www.nlm.nih.gov/exhibition/phs_history/beginningsbio.html",
+        "publisher": "U.S. National Library of Medicine",
         "year": 2026,
         "source_type": "official_agency",
+        "source_locator": "Biomedical research section: says the Marine Hospital Service established the Hygienic Laboratory in 1887 for bacteriological diagnosis and epidemic-disease study, including water testing.",
         "supports": [
-          "edge",
           "node"
         ]
       }

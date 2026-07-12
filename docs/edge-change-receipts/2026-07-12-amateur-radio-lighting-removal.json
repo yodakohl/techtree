@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-amateur-radio-lighting-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "amateur_radio_communities",
+    "prerequisite": "electrical_lighting_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electrical Lighting Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Wireless clubs depended on radio experimentation, not on electrical lighting infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.arrl.org/files/file/About%20ARRL/Committee%20Reports/2017/January/1701-ELL.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "ARRL committee report Appendix A, page 10: records 1909 as the year the first radio clubs started, before U.S. amateur licensing began in 1912.",
+    "source_claim_summary": "ARRL's historical timeline records the start of the first radio clubs in 1909.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. Wireless clubs depended on radio experimentation, not on electrical lighting infrastructure."
+  },
+  "ontology_before": "amateur_radio_communities treated electrical_lighting_systems as a direct causal prerequisite.",
+  "ontology_after": "amateur_radio_communities is scoped to the directly evidenced mechanism and no longer claims electrical_lighting_systems as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: amateur_radio_communities no longer directly depends on electrical_lighting_systems.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current amateur_radio_communities scope technically requires electrical_lighting_systems."
+  ],
+  "short_reason": "Wireless clubs depended on radio experimentation, not on electrical lighting infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

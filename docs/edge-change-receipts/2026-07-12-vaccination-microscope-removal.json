@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-vaccination-microscope-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "vaccination",
+    "prerequisite": "microscope"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Microscope provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Jenner's 1796 procedure transferred visible cowpox material and demonstrated protection without observing a pathogen microscopically.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nlm.nih.gov/exhibition/smallpox/sp_vaccination.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Vaccination section: describes Jenner transferring cowpox material to James Phipps in 1796 and testing the resulting protection before publishing in 1798.",
+    "source_claim_summary": "Jenner demonstrated cowpox-based protection against smallpox through inoculation in 1796.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. Jenner's 1796 procedure transferred visible cowpox material and demonstrated protection without observing a pathogen microscopically."
+  },
+  "ontology_before": "vaccination treated microscope as a direct causal prerequisite.",
+  "ontology_after": "vaccination is scoped to the directly evidenced mechanism and no longer claims microscope as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: vaccination no longer directly depends on microscope.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current vaccination scope technically requires microscope."
+  ],
+  "short_reason": "Jenner's 1796 procedure transferred visible cowpox material and demonstrated protection without observing a pathogen microscopically.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

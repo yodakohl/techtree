@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-cubit-rods-geometry-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "measuring_rods_and_lines",
+    "prerequisite": "basic_geometry_and_surveying"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Basic Geometry and Surveying is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "A marked cubit rod embodies a linear standard; formal geometry and surveying are applications, not prerequisites for the artifact.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.metmuseum.org/art/collection/search/557017",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object record: identifies a wooden Egyptian cubit measuring rod from Dynasties 12-13, dated about 1981-1640 BCE.",
+    "source_claim_summary": "The Met documents a surviving wooden Egyptian cubit rod dated about 1981-1640 BCE.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. A marked cubit rod embodies a linear standard; formal geometry and surveying are applications, not prerequisites for the artifact."
+  },
+  "ontology_before": "measuring_rods_and_lines treated basic_geometry_and_surveying as a direct causal prerequisite.",
+  "ontology_after": "measuring_rods_and_lines is scoped to the directly evidenced mechanism and no longer claims basic_geometry_and_surveying as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: measuring_rods_and_lines no longer directly depends on basic_geometry_and_surveying.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current measuring_rods_and_lines scope technically requires basic_geometry_and_surveying."
+  ],
+  "short_reason": "A marked cubit rod embodies a linear standard; formal geometry and surveying are applications, not prerequisites for the artifact.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

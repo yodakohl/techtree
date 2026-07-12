@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-industrial-electroplate-machine-tools-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "electroplating_industrial",
+    "prerequisite": "precision_machine_tools"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Precision Machine Tools supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "The 1840 process centered on current, electrolyte chemistry, patents, and plating manufacture rather than precision machine tools.",
+  "source_supports_edge": "no",
+  "source_url": "https://journal.sciencemuseum.ac.uk/article/photography-and-electroplate-in-1840s-birmingham/",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Competing processes section: dates Wright and Elkington cyanide-electrolyte innovations and patent electroplate process to 1840 and documents factory licensing and manufacture.",
+    "source_claim_summary": "Birmingham electrolyte and patent innovations made industrial electroplating viable in 1840.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. The 1840 process centered on current, electrolyte chemistry, patents, and plating manufacture rather than precision machine tools."
+  },
+  "ontology_before": "electroplating_industrial treated precision_machine_tools as a direct causal prerequisite.",
+  "ontology_after": "electroplating_industrial is scoped to the directly evidenced mechanism and no longer claims precision_machine_tools as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: electroplating_industrial no longer directly depends on precision_machine_tools.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current electroplating_industrial scope technically requires precision_machine_tools."
+  ],
+  "short_reason": "The 1840 process centered on current, electrolyte chemistry, patents, and plating manufacture rather than precision machine tools.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-grafting-seed-selection-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "orchard_grafting",
+    "prerequisite": "seed_selection"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Seed Selection provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Grafting propagates joined vegetative tissues and does not technically depend on selecting or reproducing plants from seed.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.sciencedirect.com/science/article/pii/S0960982215000603",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Summary: ancient Greek, Chinese, and Biblical references show people cutting and joining plants by at least the fifth century BCE.",
+    "source_claim_summary": "Written evidence places plant grafting in Europe, the Middle East, and Asia by at least the fifth century BCE.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. Grafting propagates joined vegetative tissues and does not technically depend on selecting or reproducing plants from seed."
+  },
+  "ontology_before": "orchard_grafting treated seed_selection as a direct causal prerequisite.",
+  "ontology_after": "orchard_grafting is scoped to the directly evidenced mechanism and no longer claims seed_selection as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: orchard_grafting no longer directly depends on seed_selection.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current orchard_grafting scope technically requires seed_selection."
+  ],
+  "short_reason": "Grafting propagates joined vegetative tissues and does not technically depend on selecting or reproducing plants from seed.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

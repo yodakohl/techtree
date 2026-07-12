@@ -1,0 +1,40 @@
+{
+  "id": "2026-07-12-city-states-fortification-removal",
+  "decision_date": "2026-07-12",
+  "edge": {
+    "dependent": "city_states",
+    "prerequisite": "early_fortifications"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Early Fortifications is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "The fiscal and urban foundations of a city-state do not require that the city be fortified.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.cambridge.org/core/books/economic-prehistory/mesopotamian-citystates/1F6620B4F91FB754D807196F3BF51FB9",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Chapter summary: identifies urban manufacturing and its easier elite taxation as fiscal foundations of early city-states such as Uruk.",
+    "source_claim_summary": "The Cambridge chapter connects early Mesopotamian city-states to urban production and fiscal extraction.",
+    "source_support_rationale": "The scoped evidence establishes the milestone without the removed dependency. The fiscal and urban foundations of a city-state do not require that the city be fortified."
+  },
+  "ontology_before": "city_states treated early_fortifications as a direct causal prerequisite.",
+  "ontology_after": "city_states is scoped to the directly evidenced mechanism and no longer claims early_fortifications as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-12-structural-accuracy-batch: city_states no longer directly depends on early_fortifications.",
+  "would_reject_if": [
+    "A reliable source demonstrates that every implementation within the current city_states scope technically requires early_fortifications."
+  ],
+  "short_reason": "The fiscal and urban foundations of a city-state do not require that the city be fortified.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}
