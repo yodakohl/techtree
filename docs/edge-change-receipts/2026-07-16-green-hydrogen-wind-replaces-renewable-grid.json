@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-16-green-hydrogen-wind-replaces-renewable-grid",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "green_hydrogen",
+    "prerequisite": "wind_power_modern"
+  },
+  "replaced_edge": {
+    "dependent": "green_hydrogen",
+    "prerequisite": "renewable_energy_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Renewable Energy Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.98,
+    "note": "Wind generation supplied the renewable electricity for the Utsira milestone that anchors this node."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.iphe.net/_files/ugd/45185a_b72aab3ca61e4943a8cf705735b000f8.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Hydrogen-storage section and Figure 16.2 identify Utsira as the world's first-of-a-kind 2004 wind-hydrogen demonstration project, using a wind farm, electrolyser, hydrogen storage, and conversion equipment.",
+    "source_claim_summary": "The chronology anchor produced hydrogen directly from wind electricity in a first-of-a-kind full-scale system.",
+    "source_support_rationale": "The Utsira milestone required wind generation but was a stand-alone system, so it did not require the distinct utility-grid-integration framework represented by renewable_energy_systems."
+  },
+  "ontology_before": "Green hydrogen depended on broad utility-grid integration even though renewable electrolysis can operate as a stand-alone coupled system.",
+  "ontology_after": "The first full-scale green-hydrogen milestone depends directly on its documented wind-power source, while broader grid integration is absent.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-grid-battery-green-hydrogen-boundary: wind_power_modern is required and renewable_energy_systems is absent.",
+  "would_reject_if": [
+    "The chronology anchor is changed from Utsira to a grid-integrated multi-renewable hydrogen system.",
+    "Reliable evidence shows Utsira's electrolysis was not powered by wind generation."
+  ],
+  "short_reason": "Utsira directly coupled wind power to electrolysis and did not require utility-grid renewable integration.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-grid-battery-green-hydrogen-boundary.json",
+    "npm run node-snapshot-diff -- /tmp/green_hydrogen.before.json /tmp/green_hydrogen.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

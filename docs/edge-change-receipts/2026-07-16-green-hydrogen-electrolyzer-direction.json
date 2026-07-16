@@ -1,0 +1,49 @@
+{
+  "id": "2026-07-16-green-hydrogen-electrolyzer-direction",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "green_hydrogen",
+    "prerequisite": "electrolyzer_manufacturing"
+  },
+  "replaced_edge": {
+    "dependent": "electrolyzer_manufacturing",
+    "prerequisite": "green_hydrogen"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Green Hydrogen provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.98,
+    "note": "A manufactured electrolyser was the required apparatus that converted renewable electricity and water into hydrogen in the Utsira system."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.iphe.net/_files/ugd/45185a_b72aab3ca61e4943a8cf705735b000f8.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Utsira system description identifies an electrolyser as the component converting wind-generated electricity into hydrogen, alongside hydrogen storage and reconversion equipment.",
+    "source_claim_summary": "Green-hydrogen production used electrolyser hardware; manufacturing that hardware does not depend on the green-hydrogen application category.",
+    "source_support_rationale": "The previous edge reversed product and application: electrolysers existed for industrial hydrogen before green hydrogen, while an electrolysis-based green-hydrogen system requires an electrolyser."
+  },
+  "ontology_before": "Electrolyser manufacturing incorrectly depended on green hydrogen, while green hydrogen omitted the apparatus that performs electrolysis.",
+  "ontology_after": "Green hydrogen requires electrolyser manufacturing, and the reverse edge is removed.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-grid-battery-green-hydrogen-boundary: green_hydrogen requires electrolyzer_manufacturing and the reverse edge is absent.",
+  "would_reject_if": [
+    "The green_hydrogen node is broadened to include non-electrolytic renewable hydrogen pathways.",
+    "Evidence establishes that manufacturing electrolysers historically required the green-hydrogen market category."
+  ],
+  "short_reason": "Electrolyser hardware enables green-hydrogen production; the application does not enable manufacture of the apparatus.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-grid-battery-green-hydrogen-boundary.json",
+    "npm run node-snapshot-diff -- /tmp/green_hydrogen.before.json /tmp/green_hydrogen.after.json --require-behavior-change",
+    "npm run node-snapshot-diff -- /tmp/electrolyzer_manufacturing.before.json /tmp/electrolyzer_manufacturing.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-renewable-grid-electrical-grid-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "renewable_energy_systems",
+    "prerequisite": "electrical_grid_early_distribution"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Electrical Grid (Early Distribution) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.98,
+    "note": "The scoped technology is integration into utility transmission and distribution systems, so an electrical grid is constitutive rather than merely historical background."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ferc.gov/qf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "FERC's PURPA overview and qualifying-facility rules concern sales to electric utilities and utility purchase, sale, and interconnection obligations.",
+    "source_claim_summary": "The regulatory milestone exists specifically to connect and transact renewable generation through utility electric systems.",
+    "source_support_rationale": "Once the node is scoped to power-grid integration rather than renewable generation generally, a grid is part of the definition and must be represented as required."
+  },
+  "ontology_before": "The electrical grid was represented only as historical background even though the node's defining action is integration into that grid.",
+  "ontology_after": "The electrical grid is a required direct prerequisite of renewable power grid integration.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-renewable-grid-integration-scope: electrical_grid_early_distribution remains direct and is typed required.",
+  "would_reject_if": [
+    "The node is rescoped to standalone renewable systems that do not connect to an electrical grid."
+  ],
+  "short_reason": "A grid is constitutive of grid integration, not merely an earlier historical influence.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-renewable-grid-integration-scope.json",
+    "npm run node-snapshot-diff -- /tmp/renewable_energy_systems.before.json /tmp/renewable_energy_systems.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

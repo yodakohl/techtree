@@ -19025,14 +19025,14 @@
   },
   {
     "id": "renewable_energy_systems",
-    "name": "Renewable Energy Systems",
+    "name": "Renewable Power Grid Integration",
     "era": "Modern",
-    "description": "Broad adoption and integration of various renewable energy sources (solar, wind, geothermal, hydro) into power grids.",
+    "description": "Regulatory, technical, and operational integration of non-utility renewable generators such as hydro, wind, solar, and geothermal facilities into electric power grids.",
     "prerequisites": [
       "solar_power",
       "wind_power_modern",
-      "construction",
       "geothermal_power_earth_heat_energy",
+      "hydroelectric_power_plants",
       "electrical_grid_early_distribution"
     ],
     "fields": [
@@ -19044,129 +19044,149 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Climate Change 2022: Mitigation of Climate Change",
-        "url": "https://www.ipcc.ch/report/ar6/wg3/",
-        "publisher": "IPCC",
+        "title": "PURPA Qualifying Facilities",
+        "url": "https://www.ferc.gov/qf",
+        "publisher": "Federal Energy Regulatory Commission",
+        "year": 1978,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "The 'What is a Qualifying Facility?' section explains that PURPA created a specially regulated class of small power facilities using renewable hydro, wind, solar, biomass, waste, or geothermal resources, with utility purchase and interconnection obligations."
+      },
+      {
+        "title": "Renewable Energy Integration",
+        "url": "https://www.energy.gov/oe/renewable-energy-integration",
+        "publisher": "U.S. Department of Energy",
+        "year": 2026,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Opening definition and goals describe renewable-energy integration as incorporating renewable generation into transmission and distribution systems through coordinated system design, planning, operation, demonstrations, and business models."
+      },
+      {
+        "title": "Climate Change 2022: Mitigation of Climate Change, Chapter 6: Energy Systems",
+        "url": "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Chapter_06.pdf",
+        "publisher": "Intergovernmental Panel on Climate Change",
         "year": 2022,
         "source_type": "review",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "Sections 6.4.3-6.4.4, report pp. 6-48 to 6-52, describe grid integration of variable renewable generation, interconnection, storage, flexibility, advanced controls, and coordinated system planning."
       }
     ],
-    "firstKnownDate": 1954,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1978,
+    "datePrecision": "exact",
+    "region": "United States; later global power systems",
     "reviewStatus": "source_checked",
+    "scopeNote": "Anchored to the 1978 PURPA framework for grid-connected non-utility renewable generation rather than to the 1954 silicon solar-cell milestone. Covers integration into utility grids, not the invention of individual renewable-generation technologies or fully renewable energy economies.",
     "dependencyEdges": [
       {
         "prerequisite": "solar_power",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Solar Power provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Solar generation is one explicitly recognized renewable source that grid-integration frameworks can connect, but it is not the only generation path in a multi-source renewable portfolio.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "PURPA Qualifying Facilities",
+            "url": "https://www.ferc.gov/qf",
+            "publisher": "Federal Energy Regulatory Commission",
+            "year": 1978,
+            "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "The small-power-production definition explicitly lists solar energy among the renewable primary energy sources eligible for the PURPA grid framework."
           }
         ]
       },
       {
         "prerequisite": "wind_power_modern",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Wind Power (Modern) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Wind generation is one explicitly recognized renewable source integrated through the grid framework, while other renewable sources can participate independently.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "PURPA Qualifying Facilities",
+            "url": "https://www.ferc.gov/qf",
+            "publisher": "Federal Energy Regulatory Commission",
+            "year": 1978,
+            "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "construction",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Construction provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
+            ],
+            "source_locator": "The small-power-production definition explicitly lists wind energy among the renewable primary energy sources eligible for the PURPA grid framework."
           }
         ]
       },
       {
         "prerequisite": "geothermal_power_earth_heat_energy",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Geothermal Power (Earth Heat Energy) provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Geothermal generation is one explicitly recognized renewable source integrated through the grid framework, while other renewable sources can participate independently.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "PURPA Qualifying Facilities",
+            "url": "https://www.ferc.gov/qf",
+            "publisher": "Federal Energy Regulatory Commission",
+            "year": 1978,
+            "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "The small-power-production definition explicitly lists geothermal energy among the primary resources eligible for the PURPA grid framework."
+          }
+        ]
+      },
+      {
+        "prerequisite": "hydroelectric_power_plants",
+        "type": "enabling",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Hydroelectric generation is one explicitly recognized renewable source integrated through the grid framework, while the portfolio does not require hydro at every site.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "PURPA Qualifying Facilities",
+            "url": "https://www.ferc.gov/qf",
+            "publisher": "Federal Energy Regulatory Commission",
+            "year": 1978,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The small-power-production definition explicitly lists hydro among the renewable primary energy sources eligible for the PURPA grid framework."
           }
         ]
       },
       {
         "prerequisite": "electrical_grid_early_distribution",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Electrical Grid (Early Distribution) is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "review",
+        "note": "The scoped technology is integration into utility transmission and distribution systems, so an electrical grid is constitutive rather than merely historical background.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Climate Change 2022: Mitigation of Climate Change",
-            "url": "https://www.ipcc.ch/report/ar6/wg3/",
-            "publisher": "IPCC",
-            "year": 2022,
-            "source_type": "review",
+            "title": "PURPA Qualifying Facilities",
+            "url": "https://www.ferc.gov/qf",
+            "publisher": "Federal Energy Regulatory Commission",
+            "year": 1978,
+            "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "PURPA's qualifying-facility framework governs sales to electric utilities; FERC's overview and implementing rules describe utility purchase, sale, and interconnection obligations."
           }
         ]
       }
@@ -24647,11 +24667,10 @@
     "id": "grid_scale_battery_storage",
     "name": "Grid-Scale Battery Storage",
     "era": "Modern",
-    "description": "Large battery installations that balance electrical grids, integrate variable renewable power, and provide backup capacity.",
+    "description": "Megawatt-scale battery systems connected to utility grids for load leveling, peak shaving, regulation, reserve capacity, and evaluation of grid-storage technologies.",
     "prerequisites": [
       "portable_electrochemical_batteries",
-      "electrical_grid_early_distribution",
-      "renewable_energy_systems"
+      "electrical_grid_early_distribution"
     ],
     "fields": [
       "Energy Systems & Grid"
@@ -24662,6 +24681,17 @@
     "maturity": "emerging",
     "sources": [
       {
+        "title": "New Electric Power Technologies: Problems and Prospects for the 1990s",
+        "url": "https://www.princeton.edu/~ota/disk2/1985/8517/851712.PDF",
+        "publisher": "U.S. Congress, Office of Technology Assessment",
+        "year": 1985,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Chapter 9, report pp. 280-281 (PDF pp. 29-30): the national BEST facility began operating in 1982 to test grid-connected battery modules; the report describes load leveling, peak shaving, regulation, and reserve applications."
+      },
+      {
         "title": "Energy Storage",
         "url": "https://www.energy.gov/oe/energy-storage",
         "publisher": "U.S. Department of Energy",
@@ -24670,13 +24700,15 @@
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "The Energy Storage Division overview defines current grid-scale storage work around deployment, reliability, safety, performance validation, and meeting future electric-grid demands."
       }
     ],
-    "firstKnownDate": 1954,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 1982,
+    "datePrecision": "exact",
+    "region": "Hillsborough Township, New Jersey, United States",
     "reviewStatus": "source_checked",
+    "scopeNote": "Anchored to operation of the megawatt-scale Battery Energy Storage Test facility in 1982. Excludes portable batteries, older small DC load-compensation banks, pumped-hydro storage, and later commercial lithium-ion renewable-balancing plants.",
     "dependencyEdges": [
       {
         "prerequisite": "portable_electrochemical_batteries",
@@ -24707,51 +24739,29 @@
               "node",
               "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "DOE describes batteries as one family of electrical energy-storage technologies developed and validated for grid applications."
           }
         ]
       },
       {
         "prerequisite": "electrical_grid_early_distribution",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Electrical Grid (Early Distribution) supports manufacturing, deployment, commercialization, or operational scaling.",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "review",
+        "note": "A utility-grid connection is constitutive of grid-scale battery storage and supplied the operating environment for BEST testing and grid services.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Energy Storage",
-            "url": "https://www.energy.gov/oe/energy-storage",
-            "publisher": "U.S. Department of Energy",
-            "year": 2026,
+            "title": "New Electric Power Technologies: Problems and Prospects for the 1990s",
+            "url": "https://www.princeton.edu/~ota/disk2/1985/8517/851712.PDF",
+            "publisher": "U.S. Congress, Office of Technology Assessment",
+            "year": 1985,
             "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "renewable_energy_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Renewable Energy Systems provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Energy Storage",
-            "url": "https://www.energy.gov/oe/energy-storage",
-            "publisher": "U.S. Department of Energy",
-            "year": 2026,
-            "source_type": "official_agency",
-            "supports": [
-              "node",
-              "maturity",
-              "edge"
-            ]
+            ],
+            "source_locator": "Chapter 9, report pp. 280-281 (PDF pp. 29-30): BEST is described as a national center for grid-connected battery modules and the report lists utility load leveling, peak shaving, regulation, and reserve uses."
           }
         ]
       }
@@ -27646,10 +27656,11 @@
     "id": "green_hydrogen",
     "name": "Green Hydrogen",
     "era": "Modern",
-    "description": "Hydrogen produced with low-carbon electricity, usually through electrolysis, for industry, storage, shipping, and synthetic fuels.",
+    "description": "Hydrogen produced by water electrolysis powered by renewable electricity, anchored to the first full-scale combined wind-power and hydrogen demonstration system.",
     "prerequisites": [
       "electrochemical_industry",
-      "renewable_energy_systems"
+      "wind_power_modern",
+      "electrolyzer_manufacturing"
     ],
     "fields": [
       "Energy Systems & Grid"
@@ -27660,74 +27671,107 @@
     "maturity": "emerging",
     "sources": [
       {
+        "title": "Electricity Storage in the Power Sector",
+        "url": "https://www.iphe.net/_files/ugd/45185a_b72aab3ca61e4943a8cf705735b000f8.pdf",
+        "publisher": "European Commission Joint Research Centre / International Partnership for Hydrogen and Fuel Cells in the Economy",
+        "year": 2011,
+        "source_type": "official_agency",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Hydrogen-storage section and Figure 16.2 identify Utsira, Norway, as the world's first-of-a-kind wind-hydrogen demonstration project, run in 2004 with a wind farm and an electrolyser."
+      },
+      {
         "title": "Electrolysers",
         "url": "https://www.iea.org/energy-system/low-emission-fuels/electrolysers",
-        "publisher": "IEA",
+        "publisher": "International Energy Agency",
         "year": 2024,
         "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "The overview defines electrolysers as devices that split water into hydrogen and oxygen using electricity and describes renewable-powered hydrogen deployment, manufacturing capacity, costs, and project scale-up."
       },
       {
         "title": "Hydrogen",
         "url": "https://www.irena.org/Energy-Transition/Technology/Hydrogen",
-        "publisher": "IRENA",
+        "publisher": "International Renewable Energy Agency",
         "year": 2026,
         "source_type": "official_agency",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "IRENA's hydrogen overview distinguishes renewable hydrogen produced through electrolysis using renewable electricity and discusses its role in energy-system decarbonization."
       }
     ],
-    "firstKnownDate": 1954,
-    "datePrecision": "decade",
-    "region": "Global / multiple regions",
+    "firstKnownDate": 2004,
+    "datePrecision": "exact",
+    "region": "Utsira, Norway; later global deployment",
     "reviewStatus": "source_checked",
+    "scopeNote": "Anchored to the 2004 Utsira wind-electrolysis demonstration rather than the 1954 silicon solar-cell milestone. Covers renewable-electricity electrolysis; excludes fossil-derived hydrogen, nuclear-powered hydrogen, and electrolyser manufacturing as a separate industrial capability.",
     "dependencyEdges": [
       {
         "prerequisite": "electrochemical_industry",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Electrochemical Industry provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "The electrolysis lineage supplied the water-splitting process used by modern renewable-hydrogen systems.",
         "reviewStatus": "source_checked",
         "sources": [
           {
             "title": "Electrolysers",
             "url": "https://www.iea.org/energy-system/low-emission-fuels/electrolysers",
-            "publisher": "IEA",
+            "publisher": "International Energy Agency",
             "year": 2024,
             "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "The technology overview defines electrolysers by their electrical splitting of water into hydrogen and oxygen and describes their use for low-emission hydrogen production."
           }
         ]
       },
       {
-        "prerequisite": "renewable_energy_systems",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Renewable Energy Systems provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "wind_power_modern",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "review",
+        "note": "Wind generation supplied the renewable electricity for the Utsira milestone that anchors this node.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Electrolysers",
-            "url": "https://www.iea.org/energy-system/low-emission-fuels/electrolysers",
-            "publisher": "IEA",
-            "year": 2024,
+            "title": "Electricity Storage in the Power Sector",
+            "url": "https://www.iphe.net/_files/ugd/45185a_b72aab3ca61e4943a8cf705735b000f8.pdf",
+            "publisher": "European Commission Joint Research Centre / International Partnership for Hydrogen and Fuel Cells in the Economy",
+            "year": 2011,
             "source_type": "official_agency",
             "supports": [
-              "node",
-              "maturity",
               "edge"
-            ]
+            ],
+            "source_locator": "Hydrogen-storage section and Figure 16.2 describe the 2004 Utsira first-of-a-kind demonstration as a wind farm coupled to hydrogen production and storage."
+          }
+        ]
+      },
+      {
+        "prerequisite": "electrolyzer_manufacturing",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "review",
+        "note": "A manufactured electrolyser was the required apparatus that converted renewable electricity and water into hydrogen in the Utsira system.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Electricity Storage in the Power Sector",
+            "url": "https://www.iphe.net/_files/ugd/45185a_b72aab3ca61e4943a8cf705735b000f8.pdf",
+            "publisher": "European Commission Joint Research Centre / International Partnership for Hydrogen and Fuel Cells in the Economy",
+            "year": 2011,
+            "source_type": "official_agency",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "The Utsira system description identifies the electrolyser as the component converting wind-generated electricity into stored hydrogen."
           }
         ]
       }
@@ -28302,7 +28346,6 @@
     "era": "Modern",
     "description": "Scaled production of electrochemical systems that split water into hydrogen and oxygen for energy and industrial uses.",
     "prerequisites": [
-      "green_hydrogen",
       "electrochemical_industry",
       "industrial_quality_control"
     ],
@@ -28317,33 +28360,13 @@
         "publisher": "International Energy Agency",
         "year": 2026,
         "source_type": "official_agency",
-        "locator": "IEA documentation describes rapid post-1950s development of electrolyzer systems and their role in large-scale hydrogen production in modern industrial energy systems.",
+        "source_locator": "IEA documentation describes electrolyser technology types, global manufacturing capacity, project deployment, cost reduction, and performance challenges for large-scale hydrogen production.",
         "supports": [
           "node"
         ]
       }
     ],
     "dependencyEdges": [
-      {
-        "prerequisite": "green_hydrogen",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Green Hydrogen provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Electrolysers",
-            "url": "https://www.iea.org/energy-system/low-emission-fuels/electrolysers",
-            "publisher": "IEA",
-            "year": 2024,
-            "source_type": "official_agency",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
       {
         "prerequisite": "electrochemical_industry",
         "type": "enabling",

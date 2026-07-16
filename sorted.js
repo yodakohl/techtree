@@ -565,7 +565,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function getHashTechId() {
-        const raw = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+        const encoded = window.location.hash.replace(/^#/, '');
+        if (!encoded) return null;
+        let raw;
+        try {
+            raw = decodeURIComponent(encoded);
+        } catch {
+            return null;
+        }
         if (!raw) return null;
         return raw.startsWith('tech-') ? raw.slice(5) : raw;
     }
@@ -1083,7 +1090,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function renderBranchView(items, totalCount, selectedField) {
+    function renderBranchView(items, totalCount, selectedField, mode) {
         if (countEl) {
             const lens = selectedField === 'all' ? '' : `${selectedField}: `;
             countEl.textContent = `${lens}${items.length.toLocaleString()} of ${totalCount.toLocaleString()} technologies`;
@@ -1117,7 +1124,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         for (const branch of orderedBranches) {
             const branchItems = branchMap.get(branch)
-                .sort((a, b) => compareTech(a, b, 'dependency'));
+                .slice()
+                .sort((a, b) => compareTech(a, b, mode));
             const section = document.createElement('section');
             section.className = 'branch-section';
 
@@ -1178,7 +1186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             .sort((a, b) => compareTech(a, b, mode));
 
         if (selectedView === 'branches') {
-            renderBranchView(filtered, data.length, selectedField);
+            renderBranchView(filtered, data.length, selectedField, mode);
             renderDetail(selectedTechId ? graph.byId.get(selectedTechId) : null);
             updateSelectedMarkers();
             return;

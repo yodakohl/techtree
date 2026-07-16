@@ -225,8 +225,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     let canvasScale = 0;
     let resizeObserver = null;
 
-    function setStatus(text) {
+    function setStatus(text, state = '') {
         statusEl.textContent = text;
+        statusEl.classList.toggle('is-error', state === 'error');
+        statusEl.setAttribute('aria-live', state === 'error' ? 'assertive' : 'polite');
+    }
+
+    function traceStatus(trace = currentTrace) {
+        if (!trace) return '';
+        return `${trace.target.name} · ${trace.ids.length - 1} prerequisites · ${trace.edges.length} dependency edges`;
     }
 
     function getDependencyEdges(item) {
@@ -1495,7 +1502,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function seekToScene(index, { focus = false } = {}) {
+    function seekToScene(index, { focus = false, announce = false } = {}) {
         if (!scenes.length) return;
         const normalizedIndex = ((index % scenes.length) + scenes.length) % scenes.length;
         const now = performance.now();
@@ -1506,6 +1513,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateSceneText(scenes[normalizedIndex]);
         updateProgress(normalizedIndex / scenes.length);
         requestRender();
+        if (announce && targetInput.getAttribute('aria-invalid') !== 'true') {
+            const scene = scenes[normalizedIndex];
+            setStatus(`Scene ${normalizedIndex + 1} of ${scenes.length}: ${scene.title || scene.item.name}`);
+        }
         if (focus) sceneListEl.children[normalizedIndex]?.focus();
     }
 
@@ -1557,14 +1568,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             button.classList.toggle('is-active', active);
             button.setAttribute('aria-pressed', String(active));
         });
-        setStatus(`${currentTrace.ids.length - 1} prerequisites · ${currentTrace.edges.length} dependency edges`);
+        setStatus(traceStatus());
         requestRender();
     }
 
     function updatePlaybackControl() {
         playToggle.textContent = running ? 'Pause' : 'Play';
         playToggle.setAttribute('aria-label', running ? 'Pause documentary' : 'Play documentary');
-        playToggle.setAttribute('aria-pressed', String(running));
     }
 
     function setRunning(value, { userInitiated = false } = {}) {
@@ -1600,7 +1610,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         targetInput.setAttribute('aria-invalid', 'true');
-        setStatus('Target not found. Choose a technology from the suggestions.');
+        setStatus('Target not found. Choose a technology from the suggestions.', 'error');
     }
 
     function handleReducedMotionChange(event) {
@@ -1632,13 +1642,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         targetInput.addEventListener('change', commitTargetInput);
         targetInput.addEventListener('input', () => {
             targetInput.setAttribute('aria-invalid', 'false');
+            if (currentTrace) setStatus(traceStatus());
         });
         targetInput.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
                 targetInput.value = currentTrace?.target.name || '';
                 targetInput.setAttribute('aria-invalid', 'false');
                 if (currentTrace) {
-                    setStatus(`${currentTrace.ids.length - 1} prerequisites · ${currentTrace.edges.length} dependency edges`);
+                    setStatus(traceStatus());
                 }
                 return;
             }
@@ -1647,8 +1658,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 commitTargetInput();
             }
         });
-        previousButton.addEventListener('click', () => seekToScene(activeIndex - 1));
-        nextButton.addEventListener('click', () => seekToScene(activeIndex + 1));
+        previousButton.addEventListener('click', () => seekToScene(activeIndex - 1, { announce: true }));
+        nextButton.addEventListener('click', () => seekToScene(activeIndex + 1, { announce: true }));
         playToggle.addEventListener('click', () => setRunning(!running, { userInitiated: true }));
         canvas.addEventListener('click', () => {
             seekToScene(activeIndex + 1);
@@ -1683,7 +1694,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         requestRender();
     } catch (error) {
         console.error(error);
-        setStatus('Failed to load demo.');
+        setStatus('Failed to load demo.', 'error');
         titleEl.textContent = 'TechTree demo failed to load';
         captionEl.textContent = error.message;
         stageEl.setAttribute('aria-busy', 'false');

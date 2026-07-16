@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { execFileSync, spawn, spawnSync } = require('child_process');
+const fs = require('node:fs');
 const os = require('node:os');
 
 const DEFAULT_MAX_PARALLELISM = 2;
@@ -64,6 +65,8 @@ function removeQualityCoveredCommands(commands) {
         ['npm', 'run', 'graph-invariants'].join('\0'),
         ['npm', 'run', 'invariant-coverage'].join('\0'),
         ['npm', 'run', 'trust:audit'].join('\0'),
+        ['node', 'scripts/source-checked-placeholder-report.js', '--check'].join('\0'),
+        ['node', 'scripts/audit-random-source-fit.js', '--check'].join('\0'),
         ['node', 'scripts/generate-quality-snapshot.js', '--check'].join('\0'),
         ['node', 'scripts/generate-field-quality-snapshot.js', '--check'].join('\0'),
         ['npm', 'run', 'metrics:check'].join('\0')
@@ -103,9 +106,13 @@ function isPublishedMetricSurface(file) {
     ].includes(file);
 }
 
-function plan(files) {
+function plan(files, options = {}) {
     const commands = [];
     if (!files.length) return commands;
+    const exists = options.exists ?? fs.existsSync;
+    const technologyDataChanged = files.some(isTechnologyData);
+    const taxonomyChanged = files.includes('data/taxonomy.json');
+    const packageMetadataChanged = files.some(file => ['package.json', 'package-lock.json'].includes(file));
 
     const hasStaged = git(['diff', '--cached', '--name-only']).length > 0;
     addCommand(commands, 'Whitespace', ['git', 'diff', '--check'], 'catch whitespace errors in unstaged changes');
@@ -113,11 +120,11 @@ function plan(files) {
         addCommand(commands, 'Staged whitespace', ['git', 'diff', '--cached', '--check'], 'catch whitespace errors in staged changes');
     }
 
-    for (const file of files.filter(isJs)) {
+    for (const file of files.filter(file => isJs(file) && exists(file))) {
         addCommand(commands, 'JS syntax', ['node', '--check', file], `syntax-check changed JavaScript file ${file}`);
     }
-    if (files.some(isJs)) {
-        addCommand(commands, 'Regression suite', ['npm', 'test'], 'JavaScript behavior or validation tooling changed');
+    if (files.some(isJs) || packageMetadataChanged) {
+        addCommand(commands, 'Regression suite', ['npm', 'test'], 'JavaScript behavior, validation tooling, or package metadata changed');
     }
 
     if (files.includes('package.json')) {
@@ -128,6 +135,14 @@ function plan(files) {
             'verify package.json still parses'
         );
     }
+    if (files.includes('package-lock.json') && exists('package-lock.json')) {
+        addCommand(
+            commands,
+            'Package lock JSON',
+            ['node', '-e', "JSON.parse(require('fs').readFileSync('package-lock.json','utf8'))"],
+            'verify package-lock.json still parses'
+        );
+    }
 
     if (files.some(file => file === 'trust-levels.js' || file === 'scripts/audit-trust-levels.js')) {
         addCommand(commands, 'Trust derivation', ['npm', 'run', 'trust:audit'], 'trust rules or audit changed');
@@ -135,6 +150,7 @@ function plan(files) {
 
     if (files.some(file => file.startsWith('docs/edge-change-receipts/'))) {
         addCommand(commands, 'Edge receipts', ['npm', 'run', 'edge-receipts'], 'edge-change receipts changed');
+        addCommand(commands, 'Invariant coverage', ['npm', 'run', 'invariant-coverage'], 'receipt invariant coverage may change');
     }
 
     if (files.some(file => file.startsWith('docs/graph-invariants/'))) {
@@ -142,9 +158,9 @@ function plan(files) {
         addCommand(commands, 'Invariant coverage', ['npm', 'run', 'invariant-coverage'], 'receipt invariant coverage may change');
     }
 
-    if (files.some(isTechnologyData)) {
-        addCommand(commands, 'Data structure and chronology', ['npm', 'test'], 'technology data changed');
-        addCommand(commands, 'Data quality gates', ['npm', 'run', 'quality'], 'technology data changed');
+    if (technologyDataChanged || taxonomyChanged) {
+        addCommand(commands, 'Data structure and chronology', ['npm', 'test'], 'technology data or taxonomy changed');
+        addCommand(commands, 'Data quality gates', ['npm', 'run', 'quality'], 'technology data or taxonomy changed');
     } else if (files.some(file => file.startsWith('scripts/') || file === 'trust-levels.js')) {
         addCommand(commands, 'Quality gates', ['npm', 'run', 'quality'], 'quality/audit tooling changed');
     }
@@ -167,11 +183,11 @@ function plan(files) {
         addCommand(commands, 'CRISPR field snapshot freshness', ['node', 'scripts/generate-field-quality-snapshot.js', '--check'], 'field quality snapshot or generator changed');
     }
 
-    if (files.some(file => file.startsWith('data/expansion/') || isTechnologyData(file))) {
+    if (files.some(file => file.startsWith('data/expansion/') || isTechnologyData(file)) || taxonomyChanged) {
         addCommand(commands, 'Coverage report', ['npm', 'run', 'coverage'], 'technology coverage may have changed');
     }
 
-    if (files.some(isTechnologyData)) {
+    if (technologyDataChanged) {
         addCommand(commands, 'Changed source URL audit', ['npm', 'run', 'source-urls', '--', '--changed'], 'new technology source URLs may have been introduced');
     }
 

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-grid-battery-electrical-grid-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "grid_scale_battery_storage",
+    "prerequisite": "electrical_grid_early_distribution"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Electrical Grid (Early Distribution) supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.98,
+    "note": "A utility-grid connection is constitutive of grid-scale battery storage and supplied the operating environment for BEST testing and grid services."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.princeton.edu/~ota/disk2/1985/8517/851712.PDF",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "U.S. Congress Office of Technology Assessment, Chapter 9, report pp. 280-281 (PDF pp. 29-30): BEST is a national center for grid-connected battery modules and the listed applications are utility-grid services.",
+    "source_claim_summary": "The first megawatt-scale test milestone operated batteries as part of an electric utility system.",
+    "source_support_rationale": "The node is explicitly grid-scale battery storage; without a grid connection it would be a different stationary or standalone battery category."
+  },
+  "ontology_before": "The grid was treated merely as a commercialization aid to a node defined by grid connection and grid services.",
+  "ontology_after": "The electrical grid is a required direct prerequisite of grid-scale battery storage.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-grid-battery-green-hydrogen-boundary: electrical_grid_early_distribution is required.",
+  "would_reject_if": [
+    "The node is rescoped to standalone stationary batteries rather than utility-grid systems."
+  ],
+  "short_reason": "A utility grid is constitutive of grid-scale battery storage.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-grid-battery-green-hydrogen-boundary.json",
+    "npm run node-snapshot-diff -- /tmp/grid_scale_battery_storage.before.json /tmp/grid_scale_battery_storage.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

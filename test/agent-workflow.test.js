@@ -158,6 +158,35 @@ test('data validation plan audits changed URLs instead of the full corpus', () =
     assert(!commands.some(command => command.join(' ') === 'npm run source-urls'));
 });
 
+test('receipt-only changes still audit invariant coverage', () => {
+    const commands = plan(['docs/edge-change-receipts/new-receipt.json']).map(command => command.cmd.join(' '));
+    assert(commands.includes('npm run edge-receipts'));
+    assert(commands.includes('npm run invariant-coverage'));
+});
+
+test('deleted JavaScript skips file syntax checking but still runs regressions', () => {
+    const commands = plan(['scripts/removed-check.js'], { exists: () => false }).map(command => command.cmd.join(' '));
+    assert(!commands.includes('node --check scripts/removed-check.js'));
+    assert(commands.includes('npm test'));
+});
+
+test('taxonomy and package metadata changes select behavioral validation', () => {
+    const taxonomyCommands = plan(['data/taxonomy.json']).map(command => command.cmd.join(' '));
+    assert(taxonomyCommands.includes('npm test'));
+    assert(taxonomyCommands.includes('npm run quality'));
+    assert(taxonomyCommands.includes('npm run coverage'));
+
+    const lockfileCommands = plan(['package-lock.json'], { exists: () => true }).map(command => command.cmd.join(' '));
+    assert(lockfileCommands.includes('npm test'));
+    assert(lockfileCommands.some(command => command.includes("readFileSync('package-lock.json','utf8')")));
+});
+
+test('quality planning removes checks already covered by the quality gate', () => {
+    const commands = plan(['scripts/source-checked-placeholder-report.js']).map(command => command.cmd.join(' '));
+    assert(commands.includes('npm run quality'));
+    assert(!commands.includes('node scripts/source-checked-placeholder-report.js --check'));
+});
+
 test('parallel validation defaults to a memory-conscious CPU-aware worker count', () => {
     assert.equal(resolveParallelism(undefined, 1), 1);
     assert.equal(resolveParallelism(undefined, 8), 2);

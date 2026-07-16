@@ -68,14 +68,17 @@ function createEtagFromBody(body) {
 
 function createJsonRepresentation(data) {
     const body = Buffer.from(JSON.stringify(data));
+    const gzipBody = zlib.gzipSync(body);
     return {
         body,
-        etag: createEtagFromBody(body)
+        etag: createEtagFromBody(body),
+        gzipBody,
+        gzipEtag: createEtagFromBody(gzipBody)
     };
 }
 
 function createEtag(data) {
-    return createJsonRepresentation(data).etag;
+    return createEtagFromBody(Buffer.from(JSON.stringify(data)));
 }
 
 function parseEntityTagList(value) {
@@ -167,17 +170,40 @@ function acceptsGzip(req) {
         .some(value => value === 'gzip' || (value.startsWith('gzip;') && !/q=0(?:\.0+)?(?:;|$)/.test(value)));
 }
 
+function isCompressibleContentType(contentType) {
+    return /^text\//i.test(contentType)
+        || /^(?:application\/(?:javascript|json|xml)|image\/svg\+xml)(?:;|$)/i.test(contentType);
+}
+
+function sendCompressionFailure(req, res) {
+    const body = Buffer.from(JSON.stringify({
+        error: {
+            code: 'compression_failed',
+            message: 'Response compression failed.'
+        }
+    }));
+    setSecurityHeaders(res);
+    res.writeHead(500, {
+        'Cache-Control': 'no-store',
+        'Content-Length': body.length,
+        'Content-Type': 'application/json; charset=utf-8',
+        Vary: 'Accept-Encoding'
+    });
+    res.end(req.method === 'HEAD' ? undefined : body);
+}
+
 function send(req, res, statusCode, content, contentType, cacheControl = 'no-store', extraHeaders = {}) {
     const body = Buffer.isBuffer(content) ? content : Buffer.from(String(content));
     const headers = {
         'Cache-Control': cacheControl,
         'Content-Type': contentType,
-        Vary: 'Accept-Encoding',
         ...extraHeaders
     };
+    const compressible = isCompressibleContentType(contentType);
+    if (compressible && !headers.Vary) headers.Vary = 'Accept-Encoding';
     setSecurityHeaders(res);
 
-    if (req.method === 'HEAD' || !body.length || !acceptsGzip(req)) {
+    if (!body.length || !compressible || !acceptsGzip(req)) {
         res.writeHead(statusCode, { ...headers, 'Content-Length': body.length });
         res.end(req.method === 'HEAD' ? undefined : body);
         return;
@@ -185,7 +211,7 @@ function send(req, res, statusCode, content, contentType, cacheControl = 'no-sto
 
     zlib.gzip(body, (error, compressed) => {
         if (error) {
-            sendJson(req, res, 500, 'compression_failed', 'Response compression failed.');
+            sendCompressionFailure(req, res);
             return;
         }
         res.writeHead(statusCode, {
@@ -194,7 +220,7 @@ function send(req, res, statusCode, content, contentType, cacheControl = 'no-sto
             'Content-Length': compressed.length,
             Vary: 'Accept-Encoding'
         });
-        res.end(compressed);
+        res.end(req.method === 'HEAD' ? undefined : compressed);
     });
 }
 
@@ -217,6 +243,40 @@ function sendNotModified(res, cacheControl, extraHeaders = {}) {
         ...extraHeaders
     });
     res.end();
+}
+
+function selectJsonRepresentation(req, representation) {
+    if (acceptsGzip(req)) {
+        return {
+            body: representation.gzipBody,
+            contentEncoding: 'gzip',
+            etag: representation.gzipEtag
+        };
+    }
+    return {
+        body: representation.body,
+        contentEncoding: null,
+        etag: representation.etag
+    };
+}
+
+function sendJsonRepresentation(req, res, representation, cacheControl) {
+    const selected = selectJsonRepresentation(req, representation);
+    const headers = {
+        'Cache-Control': cacheControl,
+        'Content-Length': selected.body.length,
+        'Content-Type': 'application/json; charset=utf-8',
+        ETag: selected.etag,
+        Vary: 'Accept-Encoding'
+    };
+    if (selected.contentEncoding) headers['Content-Encoding'] = selected.contentEncoding;
+    setSecurityHeaders(res);
+    res.writeHead(200, headers);
+    res.end(req.method === 'HEAD' ? undefined : selected.body);
+}
+
+function matchesCurrentDatasetEtag(value, representation) {
+    return value === representation.etag || value === representation.gzipEtag;
 }
 
 function readRequestBody(req, maxBodyBytes, callback) {
@@ -262,11 +322,33 @@ function parsePathname(req) {
 }
 
 function isPublicPath(requestedPath) {
+    if (requestedPath.includes('\\') || /[\0-\x1f\x7f]/.test(requestedPath)) return false;
     if (PUBLIC_ROOT_FILES.has(requestedPath)) return true;
     const segments = requestedPath.split('/');
     return segments.length > 1
         && PUBLIC_DIRECTORIES.has(segments[0])
         && segments.every(segment => segment && segment !== '.' && segment !== '..' && !segment.startsWith('.'));
+}
+
+function resolvePublicFile(rootDir, requestedPath) {
+    if (!isPublicPath(requestedPath)) return null;
+    const segments = requestedPath.split('/');
+    const filePath = path.resolve(rootDir, requestedPath);
+
+    if (segments.length === 1) {
+        return {
+            filePath,
+            containsRealPath: realPath => realPath === filePath
+        };
+    }
+
+    const publicDirectory = path.resolve(rootDir, segments[0]);
+    const publicPrefix = `${publicDirectory}${path.sep}`;
+    if (!filePath.startsWith(publicPrefix)) return null;
+    return {
+        filePath,
+        containsRealPath: realPath => realPath.startsWith(publicPrefix)
+    };
 }
 
 function serveStatic(req, res, rootDir, pathname) {
@@ -276,20 +358,14 @@ function serveStatic(req, res, rootDir, pathname) {
     }
 
     const requestedPath = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
-    if (!isPublicPath(requestedPath)) {
+    const publicFile = resolvePublicFile(rootDir, requestedPath);
+    if (!publicFile) {
         sendJson(req, res, 404, 'not_found', 'Resource not found.');
         return;
     }
 
-    const filePath = path.resolve(rootDir, requestedPath);
-    const rootPrefix = `${path.resolve(rootDir)}${path.sep}`;
-    if (!filePath.startsWith(rootPrefix)) {
-        sendJson(req, res, 404, 'not_found', 'Resource not found.');
-        return;
-    }
-
-    fs.realpath(filePath, (realPathError, realPath) => {
-        if (realPathError || !realPath.startsWith(rootPrefix)) {
+    fs.realpath(publicFile.filePath, (realPathError, realPath) => {
+        if (realPathError || !publicFile.containsRealPath(realPath)) {
             sendJson(req, res, 404, 'not_found', 'Resource not found.');
             return;
         }
@@ -340,20 +416,13 @@ function createServer(options = {}) {
 
         if (pathname === '/api/tech-tree') {
             if (['GET', 'HEAD'].includes(req.method)) {
-                const responseHeaders = { ETag: techRepresentation.etag };
-                if (ifNoneMatchMatches(req.headers['if-none-match'], techRepresentation.etag)) {
+                const selected = selectJsonRepresentation(req, techRepresentation);
+                const responseHeaders = { ETag: selected.etag };
+                if (ifNoneMatchMatches(req.headers['if-none-match'], selected.etag)) {
                     sendNotModified(res, TECH_TREE_CACHE_CONTROL, responseHeaders);
                     return;
                 }
-                send(
-                    req,
-                    res,
-                    200,
-                    techRepresentation.body,
-                    'application/json; charset=utf-8',
-                    TECH_TREE_CACHE_CONTROL,
-                    responseHeaders
-                );
+                sendJsonRepresentation(req, res, techRepresentation, TECH_TREE_CACHE_CONTROL);
                 return;
             }
             if (req.method !== 'PUT') {
@@ -376,7 +445,7 @@ function createServer(options = {}) {
                 sendJson(req, res, 428, 'precondition_required', 'PUT requests must include the ETag from the latest GET response.');
                 return;
             }
-            if (requestedEtag !== techRepresentation.etag) {
+            if (!matchesCurrentDatasetEtag(requestedEtag, techRepresentation)) {
                 req.resume();
                 sendJson(req, res, 412, 'dataset_changed', 'The dataset changed after it was loaded. Fetch the latest graph and retry.');
                 return;
@@ -389,7 +458,7 @@ function createServer(options = {}) {
                     sendJson(req, res, statusCode, code, readError.message);
                     return;
                 }
-                if (requestedEtag !== techRepresentation.etag) {
+                if (!matchesCurrentDatasetEtag(requestedEtag, techRepresentation)) {
                     sendJson(req, res, 412, 'dataset_changed', 'The dataset changed while this request was uploading. Fetch the latest graph and retry.');
                     return;
                 }
@@ -419,6 +488,14 @@ function createServer(options = {}) {
                 }
 
                 const cleanCandidate = candidate.map(serializableTechnology);
+                let nextRepresentation;
+                try {
+                    nextRepresentation = createJsonRepresentation(cleanCandidate);
+                } catch (error) {
+                    console.error('Failed to prepare technology data response:', error);
+                    sendJson(req, res, 500, 'representation_failed', 'Validated data could not be prepared for serving.');
+                    return;
+                }
                 try {
                     saveData(cleanCandidate, dataDir, taxonomy);
                 } catch (error) {
@@ -428,9 +505,9 @@ function createServer(options = {}) {
                 }
 
                 techData = cleanCandidate;
-                techRepresentation = createJsonRepresentation(techData);
+                techRepresentation = nextRepresentation;
                 sendJsonValue(req, res, 200, { ok: true, technologies: techData.length }, 'no-store', {
-                    ETag: techRepresentation.etag
+                    ETag: selectJsonRepresentation(req, techRepresentation).etag
                 });
             });
             return;

@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-16-voltaic-electrolysis-scope",
+  "description": "Lock electrochemical_industry to the 1800 Voltaic-electrolysis milestone rather than later industrial electrochemical production.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "electrochemical_industry",
+      "operator": "eq",
+      "value": 1800,
+      "reason": "Nicholson, Carlisle, and Cruickshank published their Voltaic decomposition experiments in 1800."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "electrochemical_industry",
+      "prerequisite": "electricity",
+      "reason": "Continuous electrical current is the constitutive electrolysis mechanism."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electrochemical_industry",
+      "prerequisite": "electricity",
+      "expected": "required",
+      "reason": "The scoped process cannot operate without electric current."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "electrochemical_industry",
+      "prerequisite": "advanced_chemistry",
+      "reason": "Chemical identification of gases, solutions, and decomposition products remains a direct enabling context."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electrochemical_industry",
+      "prerequisite": "advanced_chemistry",
+      "expected": "enabling",
+      "reason": "Chemical knowledge enabled interpretation and extension of the experiments without defining the electrical mechanism."
+    },
+    {
+      "type": "path_present",
+      "from": "electrochemical_industry",
+      "to": "electroplating",
+      "reason": "Early Voltaic electrochemistry remains upstream of the graph's early electroplating milestone."
+    }
+  ]
+}

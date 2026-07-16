@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-16-renewable-grid-hydro-replaces-construction",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "renewable_energy_systems",
+    "prerequisite": "hydroelectric_power_plants"
+  },
+  "replaced_edge": {
+    "dependent": "renewable_energy_systems",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "Hydroelectric generation is one explicitly recognized renewable source integrated through the grid framework, while the portfolio does not require hydro at every site."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.ferc.gov/qf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "FERC's 'What is a Qualifying Facility?' section defines eligible small power production by renewable primary sources including hydro, wind, solar, biomass, waste, and geothermal resources.",
+    "source_claim_summary": "The 1978 grid-integration framework names hydropower as a participating renewable-generation class rather than treating generic construction as a technology-specific generation input.",
+    "source_support_rationale": "Hydroelectric power is a direct member of the scoped renewable portfolio. Classical monumental construction is remote, generic infrastructure ancestry and does not distinguish renewable grid integration from nearly every other built system."
+  },
+  "ontology_before": "The renewable-integration node named hydro in its description but omitted the graph's hydroelectric-generation node, while directly depending on generic classical construction.",
+  "ontology_after": "The node includes hydroelectric generation as one enabling renewable source and removes generic construction from its direct technology boundary.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-renewable-grid-integration-scope: hydroelectric_power_plants is present and construction is absent.",
+  "would_reject_if": [
+    "A reliable source shows that hydroelectric generation is excluded from the scoped renewable grid framework.",
+    "The node is broadened from renewable power grid integration to construction of all energy infrastructure."
+  ],
+  "short_reason": "The governing framework explicitly includes hydro, while generic construction is non-specific background rather than a direct renewable-integration prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-renewable-grid-integration-scope.json",
+    "npm run node-snapshot-diff -- /tmp/renewable_energy_systems.before.json /tmp/renewable_energy_systems.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

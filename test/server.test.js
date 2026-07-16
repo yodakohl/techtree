@@ -4,6 +4,7 @@ const http = require('node:http');
 const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
+const zlib = require('node:zlib');
 const taxonomy = require('../data/taxonomy.json');
 const { createEtag, createServer } = require('../server');
 
@@ -41,6 +42,8 @@ async function startFixture(t, options = {}) {
     fs.writeFileSync(path.join(rootDir, 'server.js'), 'private source');
     fs.mkdirSync(path.join(rootDir, '.git'));
     fs.writeFileSync(path.join(rootDir, '.git', 'config'), 'private git config');
+    fs.mkdirSync(path.join(rootDir, 'assets'));
+    fs.writeFileSync(path.join(rootDir, 'assets', 'sample.png'), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
 
     if (options.dataDirAsFile) {
         fs.writeFileSync(dataDir, 'not a directory');
@@ -121,13 +124,18 @@ test('serves API and public assets without exposing repository internals', async
     assert.equal(configResponse.headers.get('x-content-type-options'), 'nosniff');
     assert.match(configResponse.headers.get('content-security-policy'), /default-src 'self'/);
 
-    const dataResponse = await fetch(`${fixture.baseUrl}/api/tech-tree?cache-bust=1`);
+    const dataResponse = await fetch(`${fixture.baseUrl}/api/tech-tree?cache-bust=1`, {
+        headers: { 'Accept-Encoding': 'identity' }
+    });
     assert.equal(dataResponse.status, 200);
     assert.deepEqual(await responseJson(dataResponse), fixture.initialData);
     assert.equal(dataResponse.headers.get('etag'), fixture.etag);
     assert.equal(dataResponse.headers.get('cache-control'), 'public, no-cache');
 
-    const headResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, { method: 'HEAD' });
+    const headResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        method: 'HEAD',
+        headers: { 'Accept-Encoding': 'identity' }
+    });
     assert.equal(headResponse.status, 200);
     assert.equal(await headResponse.text(), '');
     assert.ok(Number(headResponse.headers.get('content-length')) > 0);
@@ -147,7 +155,10 @@ test('revalidates tech-tree GET and HEAD responses without retransmitting the da
     const fixture = await startFixture(t);
 
     const conditionalGet = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
-        headers: { 'If-None-Match': `"stale", W/${fixture.etag}` }
+        headers: {
+            'Accept-Encoding': 'identity',
+            'If-None-Match': `"stale", W/${fixture.etag}`
+        }
     });
     assert.equal(conditionalGet.status, 304);
     assert.equal(await conditionalGet.text(), '');
@@ -159,7 +170,10 @@ test('revalidates tech-tree GET and HEAD responses without retransmitting the da
 
     const conditionalHead = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
         method: 'HEAD',
-        headers: { 'If-None-Match': fixture.etag }
+        headers: {
+            'Accept-Encoding': 'identity',
+            'If-None-Match': fixture.etag
+        }
     });
     assert.equal(conditionalHead.status, 304);
     assert.equal(await conditionalHead.text(), '');
@@ -174,12 +188,131 @@ test('revalidates tech-tree GET and HEAD responses without retransmitting the da
     assert.equal(await wildcardGet.text(), '');
 
     const staleGet = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
-        headers: { 'If-None-Match': '"stale"' }
+        headers: {
+            'Accept-Encoding': 'identity',
+            'If-None-Match': '"stale"'
+        }
     });
     assert.equal(staleGet.status, 200);
     assert.deepEqual(await responseJson(staleGet), fixture.initialData);
     assert.equal(staleGet.headers.get('etag'), fixture.etag);
     assert.equal(staleGet.headers.get('cache-control'), 'public, no-cache');
+});
+
+test('keeps gzip GET and HEAD metadata consistent and skips compressed binary assets', async t => {
+    const fixture = await startFixture(t);
+    const headers = { 'Accept-Encoding': 'gzip' };
+
+    const dataResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, { headers });
+    assert.equal(dataResponse.status, 200);
+    assert.equal(dataResponse.headers.get('content-encoding'), 'gzip');
+    const gzipEtag = dataResponse.headers.get('etag');
+    assert.notEqual(gzipEtag, fixture.etag);
+    const compressedLength = dataResponse.headers.get('content-length');
+    assert.ok(Number(compressedLength) > 0);
+    assert.deepEqual(await responseJson(dataResponse), fixture.initialData);
+
+    const headResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        method: 'HEAD',
+        headers
+    });
+    assert.equal(headResponse.status, 200);
+    assert.equal(headResponse.headers.get('content-encoding'), 'gzip');
+    assert.equal(headResponse.headers.get('etag'), gzipEtag);
+    assert.equal(headResponse.headers.get('content-length'), compressedLength);
+    assert.equal(await headResponse.text(), '');
+
+    const conditionalGzip = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: {
+            'Accept-Encoding': 'gzip',
+            'If-None-Match': gzipEtag
+        }
+    });
+    assert.equal(conditionalGzip.status, 304);
+    assert.equal(conditionalGzip.headers.get('etag'), gzipEtag);
+    assert.equal(await conditionalGzip.text(), '');
+
+    const mismatchedVariant = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: {
+            'Accept-Encoding': 'identity',
+            'If-None-Match': gzipEtag
+        }
+    });
+    assert.equal(mismatchedVariant.status, 200);
+    assert.equal(mismatchedVariant.headers.get('etag'), fixture.etag);
+    assert.deepEqual(await responseJson(mismatchedVariant), fixture.initialData);
+
+    const imageResponse = await fetch(`${fixture.baseUrl}/assets/sample.png`, { headers });
+    assert.equal(imageResponse.status, 200);
+    assert.equal(imageResponse.headers.get('content-encoding'), null);
+    assert.equal(imageResponse.headers.get('vary'), null);
+    assert.deepEqual(Buffer.from(await imageResponse.arrayBuffer()), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+});
+
+test('rejects unsafe and symlinked public paths without terminating the server', async t => {
+    const fixture = await startFixture(t);
+    fs.symlinkSync(path.join(fixture.rootDir, 'server.js'), path.join(fixture.rootDir, 'assets', 'private.js'));
+
+    for (const unsafePath of [
+        '/assets/private.js',
+        '/assets/%00',
+        '/assets/%2e%2e%5cserver.js'
+    ]) {
+        const response = await fetch(`${fixture.baseUrl}${unsafePath}`);
+        assert.equal(response.status, 404, unsafePath);
+        assert.equal((await responseJson(response)).error.code, 'not_found');
+    }
+
+    const healthResponse = await fetch(`${fixture.baseUrl}/api/config`);
+    assert.equal(healthResponse.status, 200);
+    assert.deepEqual(await responseJson(healthResponse), { readOnly: true });
+});
+
+test('returns one uncompressed error if response compression fails', async t => {
+    const fixture = await startFixture(t);
+    const originalGzip = zlib.gzip;
+    zlib.gzip = (body, callback) => setImmediate(() => callback(new Error('forced compression failure')));
+    t.after(() => {
+        zlib.gzip = originalGzip;
+    });
+
+    const failedResponse = await fetch(`${fixture.baseUrl}/index.html`, {
+        headers: { 'Accept-Encoding': 'gzip' }
+    });
+    assert.equal(failedResponse.status, 500);
+    assert.equal(failedResponse.headers.get('content-encoding'), null);
+    assert.equal((await responseJson(failedResponse)).error.code, 'compression_failed');
+
+    const identityResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: { 'Accept-Encoding': 'identity' }
+    });
+    assert.equal(identityResponse.status, 200);
+    assert.deepEqual(await responseJson(identityResponse), fixture.initialData);
+});
+
+test('accepts the current gzip representation ETag as a write precondition', async t => {
+    const fixture = await startFixture(t, { readOnly: false });
+    const dataResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: { 'Accept-Encoding': 'gzip' }
+    });
+    const gzipEtag = dataResponse.headers.get('etag');
+    assert.notEqual(gzipEtag, fixture.etag);
+    assert.deepEqual(await responseJson(dataResponse), fixture.initialData);
+
+    const candidate = [technology({ name: 'Updated through gzip ETag' })];
+    const writeResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'If-Match': gzipEtag
+        },
+        body: JSON.stringify(candidate)
+    });
+    assert.equal(writeResponse.status, 200);
+    assert.deepEqual(await responseJson(writeResponse), { ok: true, technologies: 1 });
+
+    const currentResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`);
+    assert.deepEqual(await responseJson(currentResponse), candidate);
 });
 
 test('enforces API methods and read-only mode', async t => {

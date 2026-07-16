@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-grid-battery-renewable-integration-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "grid_scale_battery_storage",
+    "prerequisite": "renewable_energy_systems"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Renewable Energy Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Grid-scale batteries serve load leveling, peak shaving, regulation, and reserve functions independently of renewable generation; renewable integration is an application, not a prerequisite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.princeton.edu/~ota/disk2/1985/8517/851712.PDF",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "U.S. Congress Office of Technology Assessment, Chapter 9, report pp. 280-281 (PDF pp. 29-30): BEST began operating in 1982, and utility battery uses listed include load leveling, peak shaving, regulation, and spinning reserve without a renewable-generation requirement.",
+    "source_claim_summary": "Megawatt-scale grid batteries were developed and tested for general utility services before modern high-renewable grid applications.",
+    "source_support_rationale": "Renewable generation can create demand for storage, but it is neither the origin nor a constitutive input of grid-scale battery systems."
+  },
+  "ontology_before": "Grid-scale battery storage depended directly on the later renewable-grid-integration node, reversing a relationship in which storage often supports renewable integration.",
+  "ontology_after": "Grid batteries depend on their battery lineage and an electrical grid; renewable integration remains a downstream use case rather than an upstream prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-grid-battery-green-hydrogen-boundary: renewable_energy_systems is absent from grid_scale_battery_storage.",
+  "would_reject_if": [
+    "A source shows the scoped 1982 grid-battery milestone could not operate or provide utility services without renewable generation."
+  ],
+  "short_reason": "Utility-scale batteries predate high-renewable grids and provide multiple non-renewable grid services.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-grid-battery-green-hydrogen-boundary.json",
+    "npm run node-snapshot-diff -- /tmp/grid_scale_battery_storage.before.json /tmp/grid_scale_battery_storage.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

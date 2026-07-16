@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-16-mathematical-instrument-trade-scope",
+  "description": "Lock the mid-sixteenth-century mathematical instrument-making trade while avoiding an anachronistic uniform scientific-instrument guild.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "scientific_instrument_making_guilds",
+      "operator": "eq",
+      "value": 1550,
+      "reason": "Oxford and trade-history sources place commercial mathematical instrument making in London in the 1550s."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_instrument_making_guilds",
+      "prerequisite": "guilds",
+      "reason": "London makers used existing livery-company structures for apprenticeship and legal trade status."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "scientific_instrument_making_guilds",
+      "prerequisite": "guilds",
+      "expected": "enabling",
+      "reason": "Several guilds hosted makers; no single dedicated scientific-instrument guild constituted the whole trade."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "scientific_instrument_making_guilds",
+      "prerequisite": "mathematics",
+      "reason": "The trade produced instruments embodying practical mathematical scales and procedures."
+    },
+    {
+      "type": "path_present",
+      "from": "scientific_instrument_making_guilds",
+      "to": "instrument_calibration_standards",
+      "reason": "The workshop trade remains upstream of formal instrument calibration practices."
+    }
+  ]
+}

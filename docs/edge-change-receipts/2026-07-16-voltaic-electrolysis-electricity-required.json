@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-voltaic-electrolysis-electricity-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "electrochemical_industry",
+    "prerequisite": "electricity"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Electricity provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.99,
+    "note": "Continuous current from a Voltaic pile was the constitutive mechanism used to decompose water and other solutions."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ethw-images.s3.us-east-va.perf.cloud.ovh.us/ieee/c/c3/Experiments_in_Galvanic_Electricity%2C_1800.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "The Philosophical Magazine, volume 7, pp. 337-347, especially pp. 338-339: Nicholson and Carlisle break a Voltaic-pile circuit with water between two conductors and observe hydrogen at one wire and oxygen at the other.",
+    "source_claim_summary": "The founding experiment decomposed water by passing continuous electrical current from a Voltaic pile through it.",
+    "source_support_rationale": "Electrical current is the mechanism that defines electrolysis; without it the scoped process is ordinary chemistry rather than electrochemistry."
+  },
+  "ontology_before": "Electricity was treated as one optional enabling path for a node whose mechanism is electrical decomposition.",
+  "ontology_after": "Electricity is a required direct prerequisite of the 1800 Voltaic-electrolysis milestone.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-voltaic-electrolysis-scope: electricity remains direct and is typed required.",
+  "would_reject_if": [
+    "The node is rescoped away from electrolysis to a non-electrical chemical process."
+  ],
+  "short_reason": "Continuous electric current is constitutive of electrolysis.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-voltaic-electrolysis-scope.json",
+    "npm run node-snapshot-diff -- /tmp/electrochemical_industry.before.json /tmp/electrochemical_industry.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

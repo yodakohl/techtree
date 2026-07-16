@@ -1,0 +1,83 @@
+{
+  "id": "2026-07-16-grid-battery-green-hydrogen-boundary",
+  "description": "Lock corrected chronology and causal direction for grid-scale batteries, renewable grid integration, green hydrogen, and electrolyser manufacturing.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "grid_scale_battery_storage",
+      "operator": "eq",
+      "value": 1982,
+      "reason": "The megawatt-scale BEST facility began operating in 1982."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "grid_scale_battery_storage",
+      "prerequisite": "renewable_energy_systems",
+      "reason": "Grid batteries provide general utility services and do not require renewable generation."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "grid_scale_battery_storage",
+      "prerequisite": "electrical_grid_early_distribution",
+      "reason": "Grid connection is constitutive of the scoped battery category."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "grid_scale_battery_storage",
+      "prerequisite": "electrical_grid_early_distribution",
+      "expected": "required",
+      "reason": "The 1982 BEST milestone tested battery modules in a utility-grid environment."
+    },
+    {
+      "type": "first_known_date",
+      "node": "green_hydrogen",
+      "operator": "eq",
+      "value": 2004,
+      "reason": "The node is anchored to the first-of-a-kind full-scale Utsira wind-hydrogen system."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "green_hydrogen",
+      "prerequisite": "renewable_energy_systems",
+      "reason": "Utsira was a stand-alone coupled system, not dependent on utility-grid renewable integration."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "green_hydrogen",
+      "prerequisite": "wind_power_modern",
+      "reason": "Wind supplied the renewable electricity for the chronology anchor."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "green_hydrogen",
+      "prerequisite": "wind_power_modern",
+      "expected": "required",
+      "reason": "Wind generation was constitutive of the Utsira wind-hydrogen milestone."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "green_hydrogen",
+      "prerequisite": "electrolyzer_manufacturing",
+      "reason": "The manufactured electrolyser performed the water-splitting process."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "green_hydrogen",
+      "prerequisite": "electrolyzer_manufacturing",
+      "expected": "required",
+      "reason": "The scoped green-hydrogen process is renewable-powered water electrolysis."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electrolyzer_manufacturing",
+      "prerequisite": "green_hydrogen",
+      "reason": "Electrolyser manufacturing predates and enables the green-hydrogen application rather than depending on it."
+    },
+    {
+      "type": "path_present",
+      "from": "electrochemical_industry",
+      "to": "green_hydrogen",
+      "reason": "The historical electrolysis lineage remains upstream of modern green hydrogen."
+    }
+  ]
+}

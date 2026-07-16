@@ -75,7 +75,11 @@ header nav {
 }
 
 .site-header nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
     margin: 0;
+    touch-action: manipulation;
 }
 
 header nav a {
@@ -209,6 +213,7 @@ main {
 
 .sorted-summary {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
@@ -431,6 +436,8 @@ main {
 
 .branch-tech-chip {
     display: block;
+    box-sizing: border-box;
+    min-height: 24px;
     margin-bottom: 5px;
     padding: 4px 6px;
     border-left: 3px solid var(--era-color);
@@ -440,6 +447,7 @@ main {
     font-size: 12px;
     line-height: 1.25;
     text-decoration: none;
+    touch-action: manipulation;
 }
 
 .branch-tech-chip[data-maturity='forecast'] {
@@ -3862,6 +3870,9 @@ body.documentary-demo {
 }
 
 .documentary-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
     margin: 0;
     color: rgba(248, 251, 251, 0.66);
     font-size: 13px;
@@ -3869,6 +3880,7 @@ body.documentary-demo {
     text-decoration: none;
     text-transform: uppercase;
     text-underline-offset: 4px;
+    touch-action: manipulation;
 }
 
 .documentary-nav a:hover,
@@ -4108,6 +4120,10 @@ body.documentary-demo {
     right: max(clamp(18px, 4vw, 56px), env(safe-area-inset-right));
     bottom: max(16px, env(safe-area-inset-bottom));
     color: rgba(240, 248, 249, 0.5);
+}
+
+.documentary-status.is-error {
+    color: #ffb4ab;
 }
 
 @media (max-width: 900px) {

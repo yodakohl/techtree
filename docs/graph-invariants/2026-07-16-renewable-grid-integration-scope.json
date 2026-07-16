@@ -1,0 +1,63 @@
+{
+  "id": "2026-07-16-renewable-grid-integration-scope",
+  "description": "Lock the 1978 renewable-power grid-integration milestone and its source-specific direct prerequisite boundary.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "renewable_energy_systems",
+      "operator": "eq",
+      "value": 1978,
+      "reason": "The node is anchored to PURPA's 1978 qualifying-facility framework rather than the invention date of any single generator technology."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "renewable_energy_systems",
+      "prerequisite": "construction",
+      "reason": "Generic classical construction is remote infrastructure ancestry, not a technology-specific renewable-integration prerequisite."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "renewable_energy_systems",
+      "prerequisite": "hydroelectric_power_plants",
+      "reason": "PURPA explicitly includes hydro as a qualifying renewable small-power source."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "renewable_energy_systems",
+      "prerequisite": "hydroelectric_power_plants",
+      "expected": "enabling",
+      "reason": "Hydro can participate in a renewable portfolio without being mandatory in every integrated system."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "renewable_energy_systems",
+      "prerequisite": "electrical_grid_early_distribution",
+      "reason": "The milestone is defined by integration into utility electric systems."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "renewable_energy_systems",
+      "prerequisite": "electrical_grid_early_distribution",
+      "expected": "required",
+      "reason": "An electrical grid is constitutive of power-grid integration."
+    },
+    {
+      "type": "path_present",
+      "from": "solar_power",
+      "to": "renewable_energy_systems",
+      "reason": "Solar generation remains one directly represented renewable source."
+    },
+    {
+      "type": "path_present",
+      "from": "wind_power_modern",
+      "to": "renewable_energy_systems",
+      "reason": "Modern wind generation remains one directly represented renewable source."
+    },
+    {
+      "type": "path_present",
+      "from": "geothermal_power_earth_heat_energy",
+      "to": "renewable_energy_systems",
+      "reason": "Geothermal generation remains one directly represented renewable source."
+    }
+  ]
+}

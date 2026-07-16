@@ -1,0 +1,31 @@
+{
+  "id": "2026-07-16-early-superconductor-scope",
+  "description": "Lock the early-superconductor node to Onnes's 1911 pure-mercury resistance experiment rather than later superconducting applications.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "superconductors_early",
+      "operator": "eq",
+      "value": 1911,
+      "reason": "Onnes reported the disappearance of mercury's resistance at liquid-helium temperatures in 1911."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "superconductors_early",
+      "prerequisite": "cryogenics",
+      "reason": "Liquid-helium temperatures supplied the experimental condition for the first observation."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "superconductors_early",
+      "prerequisite": "electricity",
+      "reason": "Electrical resistance measurement was the observation method."
+    },
+    {
+      "type": "path_present",
+      "from": "superconductors_early",
+      "to": "superconductors_high_temp",
+      "reason": "The 1911 discovery remains the historical predecessor of high-temperature superconductivity."
+    }
+  ]
+}

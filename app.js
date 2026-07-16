@@ -559,6 +559,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return nodes.get(id)?.label || nodesById[id]?.name || id;
     }
 
+    function formatDate(value) {
+        if (typeof value !== 'number') return String(value);
+        if (value < 0) return `${Math.abs(value).toLocaleString()} BCE`;
+        return String(value);
+    }
+
     function createRelationshipChip(id) {
         const chip = document.createElement('button');
         chip.type = 'button';
@@ -607,7 +613,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             appendMetadataValue('Maturity', tech.maturity);
         }
         if (tech.firstKnownDate !== undefined) {
-            appendMetadataValue('First known', `${tech.firstKnownDate} (${tech.datePrecision || 'unknown'}; ${tech.region || 'region unknown'})`);
+            appendMetadataValue('First known', `${formatDate(tech.firstKnownDate)} (${tech.datePrecision || 'unknown'}; ${tech.region || 'region unknown'})`);
         }
         if (tech.reviewStatus) {
             appendMetadataValue('Review', tech.reviewStatus.replaceAll('_', ' '));
@@ -647,6 +653,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function updateInfoPanel(nodeId) {
         if (!nodeId) {
             techNameEl.textContent = '';
+            techNameEl.hidden = true;
             techEraEl.textContent = '';
             techDescriptionEl.textContent = '';
             techPrerequisitesEl.textContent = '';
@@ -661,6 +668,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!nodeData) return;
 
         techNameEl.textContent = nodeData.label;
+        techNameEl.hidden = false;
         techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
         techDescriptionEl.textContent = nodeData.description;
 

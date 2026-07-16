@@ -44,13 +44,13 @@ Future-era technologies are forecast/roadmap nodes. They are structurally valida
 | Source-checked nodes | 1,420 / 1,420 (100.0%) |
 | Source-checked nodes with resolved chronology | 1,420 / 1,420 (100.0%) |
 | Source-checked nodes with unresolved chronology | 0 / 1,420 (0.0%) |
-| Source-checked nodes with strong-type node sources | 1,298 / 1,420 (91.4%) |
-| Source-checked nodes with located strong-type evidence | 772 / 1,420 (54.4%) |
+| Source-checked nodes with strong-type node sources | 1,304 / 1,420 (91.8%) |
+| Source-checked nodes with located strong-type evidence | 782 / 1,420 (55.1%) |
 | Source-checked nodes using only weak/generic sources | 0 / 1,420 (0.0%) |
 | Nodes with node-level sources | 1,420 / 1,420 (100.0%) |
-| Nodes with located node-level evidence | 840 / 1,420 (59.2%) |
-| Dependency edges with edge-level sources | 3,942 / 4,073 (96.8%) |
-| Dependency edges with located evidence | 1,058 / 4,073 (26.0%) |
+| Nodes with located node-level evidence | 850 / 1,420 (59.9%) |
+| Dependency edges with edge-level sources | 3,941 / 4,072 (96.8%) |
+| Dependency edges with located evidence | 1,083 / 4,072 (26.6%) |
 | Era-default placeholder dates | 0 / 1,420 (0.0%) |
 
 Manual remediation audits are tracked separately from headline accuracy metrics; see docs/QUALITY_SNAPSHOT.md.
