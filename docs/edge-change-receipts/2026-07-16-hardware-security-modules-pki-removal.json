@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-hardware-security-modules-pki-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "hardware_security_modules",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Hardware security modules protect and process cryptographic keys for many applications; PKI is one application domain rather than a prerequisite of the module class.",
+  "source_supports_edge": "no",
+  "source_url": "https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4765",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Validated-module certificate 4765, module description and application list: the HSM performs key management, encryption, and signing for PKI, TLS, identity, code signing, and application encryption.",
+    "source_claim_summary": "NIST's validation record documents an HSM as a general cryptographic processor serving PKI alongside several non-PKI application classes.",
+    "source_support_rationale": "Listing PKI as one consumer among independent encryption, signing, TLS, and identity uses establishes that certificate infrastructure consumes HSM capabilities rather than constituting the hardware category."
+  },
+  "ontology_before": "The graph treated one major use of secure cryptographic hardware as a cause of the hardware module itself.",
+  "ontology_after": "HSMs remain general key-protection and cryptographic-processing devices that may support PKI or unrelated cryptographic applications.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-pki-independent-identity-and-primitive-boundaries: hardware_security_modules no longer directly depends on public_key_infrastructure.",
+  "would_reject_if": [
+    "Authoritative module definitions restrict HSMs to X.509 certificate-authority infrastructure and exclude independent encryption or signing uses."
+  ],
+  "short_reason": "NIST validates HSMs for several cryptographic application classes, making PKI a consumer rather than a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/hardware_security_modules.before.json /tmp/hardware_security_modules.after.json --require-behavior-change"
+  ]
+}

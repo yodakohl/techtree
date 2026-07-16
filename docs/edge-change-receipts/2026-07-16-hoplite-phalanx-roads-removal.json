@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-hoplite-phalanx-roads-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "roads"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Roads provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Roads can improve campaign movement and supply, but they are not part of the close-order rank, shield, and spear mechanics that define the hoplite phalanx.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/sites/default/files/2019-09/Greece_Hoplites_Presnotes_KS2.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 1-2: defines hoplite formation through adjacent soldiers, mutually covering shields, spears, collaboration, and training, and identifies hoplites as a Greek city-state infantry force.",
+    "source_claim_summary": "The authoritative formation description identifies coordinated soldiers, shield overlap, spears, and training as the hoplite formation's operative elements.",
+    "source_support_rationale": "A road network can scale marching and logistics, but those campaign functions are separable from arranging heavy infantry into a phalanx on a battlefield."
+  },
+  "ontology_before": "The target mixed campaign transport infrastructure into the direct boundary of a battlefield formation.",
+  "ontology_after": "Roads remain a logistics dependency elsewhere while the hoplite node models formation-specific capabilities.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-organized-military-formations-hoplite-boundary: roads is absent.",
+  "would_reject_if": [
+    "Primary or authoritative evidence demonstrates that constructed roads were indispensable to forming the seventh-century Greek hoplite phalanx."
+  ],
+  "short_reason": "Roads assist campaigns, not the shield-and-rank mechanics of the phalanx.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organized_military_formations.before.json /tmp/organized_military_formations.after.json --require-behavior-change"
+  ]
+}

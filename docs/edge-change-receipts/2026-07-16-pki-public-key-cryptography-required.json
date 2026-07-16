@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-pki-public-key-cryptography-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "public_key_infrastructure",
+    "prerequisite": "encryption_modern_cryptography_public_key"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Encryption (Modern Cryptography, Public Key) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "X.509 certificates carry subject public keys and certification paths are validated from trusted CA public keys, making public-key cryptography constitutive of PKI."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc5280.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Sections 3.2, 4.1.1.1, 4.1.2.7, and 6.1 define certification paths that bind subjects to public keys and validate from trust-anchor public keys.",
+    "source_claim_summary": "RFC 5280 specifies subject public-key information inside certificates and makes trusted public keys inputs to certification-path validation.",
+    "source_support_rationale": "Because the scoped node is X.509 certificate infrastructure, removing public-key cryptography would remove both the certified object and the trust-anchor mechanism rather than merely one implementation option."
+  },
+  "ontology_before": "Public-key cryptography was treated as one optional enabling route to Public Key Infrastructure despite being the object that X.509 certificates bind and validate.",
+  "ontology_after": "Public-key cryptography is a required direct prerequisite of the scoped X.509 certificate infrastructure.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-public-key-infrastructure-x509-boundary: encryption_modern_cryptography_public_key remains required.",
+  "would_reject_if": [
+    "The node is rescoped away from public-key certificate infrastructure to a trust system that neither carries nor validates public keys."
+  ],
+  "short_reason": "RFC 5280 makes subject and trust-anchor public keys structural inputs to X.509 certificates and path validation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_key_infrastructure.before.json /tmp/public_key_infrastructure.after.json --require-behavior-change"
+  ]
+}

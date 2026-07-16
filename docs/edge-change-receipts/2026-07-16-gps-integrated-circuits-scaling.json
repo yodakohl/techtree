@@ -1,0 +1,65 @@
+{
+  "id": "2026-07-16-gps-integrated-circuits-scaling",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps",
+    "prerequisite": "integrated_circuits"
+  },
+  "old_claim": {
+    "type": "required",
+    "evidence_level": "expert_inference",
+    "confidence": 0.82,
+    "note": "Integrated Circuits (Microchips) is modeled as a necessary component or method for this technology in the current graph."
+  },
+  "new_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "primary_source",
+    "confidence": 0.9,
+    "note": "Monolithic microwave and CMOS integrated circuits enabled GPS receivers to become small, low-power, low-cost, and deployable at scale, but they are not the constitutive satellite-ranging principle."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nasa.gov/wp-content/uploads/2024/01/presrep1988.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Department of Defense, \"Miniature Global Positioning System Receivers,\" printed p. 80: describes GaAs MMIC, CMOS tracker/correlator, synthesizer, microprocessor, and interface chips as the technology that miniaturized GPS receivers for lightweight, low-cost handheld use.",
+    "source_claim_summary": "The federal report ties several integrated-circuit families to the transition from bulky GPS equipment to a cigarette-package-sized receiver.",
+    "source_support_rationale": "Those chips materially changed receiver size, power, price, and deployability while leaving the satellite timing and radio-ranging method unchanged."
+  },
+  "ontology_before": "Integrated circuits were treated as a hard constituent of GPS itself.",
+  "ontology_after": "Integrated circuits are modeled as the scaling and miniaturization path for practical GPS receivers, not as the defining ranging mechanism.",
+  "demotion_preserves": [
+    {
+      "prerequisite": "satellite_technology",
+      "type": "required",
+      "reason": "The transmitting satellite constellation remains the indispensable space segment of NAVSTAR GPS."
+    },
+    {
+      "prerequisite": "atomic_clocks",
+      "type": "required",
+      "reason": "Precise synchronized time remains the indispensable basis for GPS range measurement."
+    },
+    {
+      "prerequisite": "radio",
+      "type": "required",
+      "reason": "The satellite-to-receiver radio link still carries every ranging and navigation message."
+    },
+    {
+      "prerequisite": "relativity_special_general",
+      "type": "required",
+      "reason": "Relativistic clock corrections remain necessary for the scoped accurate timing and positioning service."
+    }
+  ],
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: integrated_circuits remains commercial_or_scaling_dependency while four constitutive GPS mechanisms remain required.",
+  "would_reject_if": [
+    "Primary evidence shows that the original GPS ranging architecture could not operate at any scale without monolithic integrated circuits."
+  ],
+  "short_reason": "The federal 1988 report supports chips as receiver-miniaturization and deployment technology rather than the core GPS method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps.before.json /tmp/gps.after.json --require-behavior-change --require-claim-change"
+  ]
+}

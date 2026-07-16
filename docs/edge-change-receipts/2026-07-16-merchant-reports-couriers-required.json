@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-merchant-reports-couriers-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "market_price_bulletins",
+    "prerequisite": "merchant_courier_networks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Merchant Courier Networks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.94,
+    "note": "The scoped reports were letters moved between merchant houses and fairs by dedicated fair couriers, making the courier network the delivery mechanism for timely market information."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://doi.org/10.1111/ehr.13358",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Champagne-fairs discussion, pp. 8-10: fair couriers rapidly spread prices of specie and bills, informed merchants of current market conditions, and carried a documented Siena-to-Champagne letter by 1260.",
+    "source_claim_summary": "Dedicated fair couriers were the mechanism that transported timely price and market information between Italian merchant houses and Champagne.",
+    "source_support_rationale": "The node is explicitly scoped to circulated reports rather than observations made locally at a fair, so transport through the merchant courier network is constitutive of the claim."
+  },
+  "ontology_before": "Merchant couriers were modeled as one optional enabling route for a broad and weakly defined bulletin concept.",
+  "ontology_after": "The narrowed node represents courier-carried market reports, making the courier network a required delivery mechanism.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-merchant-market-reports-scope: merchant_courier_networks is required.",
+  "would_reject_if": [
+    "The node is broadened again to include purely local posted notices that were not circulated between markets."
+  ],
+  "short_reason": "The scoped technology is the circulation of market reports, and the documented circulation mechanism was the fair-courier network.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run quality"
+  ]
+}

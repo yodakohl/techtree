@@ -20,50 +20,73 @@
     <meta name="twitter:description" content="A compact browser for source-backed technology data across fields and eras.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260519a">
+    <link rel="stylesheet" href="style.css?v=20260716b">
 </head>
 <body>
-    <header>
+    <a class="site-skip-link" href="#sorted-search">Skip to technology filters</a>
+    <header class="site-header">
         <h1>Sorted Technologies</h1>
-        <nav>
+        <nav aria-label="Primary navigation">
             <a href="demo.html">Demo</a>
             <a href="index.html">Graph View</a>
         </nav>
     </header>
-    <main class="sorted-main">
+    <main id="sorted-main" class="sorted-main" aria-busy="true">
         <div class="sorted-layout">
             <div id="sorted-tech-container">
-                <div class="sorted-toolbar">
-                    <input type="search" id="sorted-search" placeholder="Search technologies, IDs, prerequisites">
-                    <select id="sorted-view" aria-label="Choose view">
-                        <option value="branches">Compact Branches</option>
-                        <option value="details">Detailed Table</option>
-                    </select>
-                    <select id="sorted-field-filter" aria-label="Choose field lens">
-                        <option value="all">All Fields</option>
-                    </select>
-                    <select id="sorted-branch-filter" aria-label="Filter by branch">
-                        <option value="all">All Branches</option>
-                    </select>
-                    <select id="sorted-era-filter" aria-label="Filter by era">
-                        <option value="all">All Eras</option>
-                    </select>
-                    <select id="sorted-sort" aria-label="Sort technologies">
-                        <option value="era">Era + Depth</option>
-                        <option value="dependency">Dependency Depth</option>
-                        <option value="name">Name</option>
-                    </select>
+                <div class="sorted-toolbar" role="search" aria-labelledby="sorted-filter-title">
+                    <h2 id="sorted-filter-title" class="visually-hidden">Filter technologies</h2>
+                    <label class="sorted-control sorted-control-search" for="sorted-search">
+                        <span>Search</span>
+                        <input type="search" id="sorted-search" placeholder="Names, IDs, prerequisites" autocomplete="off" spellcheck="false" aria-controls="sorted-sections" aria-keyshortcuts="Escape">
+                    </label>
+                    <label class="sorted-control" for="sorted-view">
+                        <span>View</span>
+                        <select id="sorted-view">
+                            <option value="branches">Compact Branches</option>
+                            <option value="details">Detailed Table</option>
+                        </select>
+                    </label>
+                    <label class="sorted-control" for="sorted-field-filter">
+                        <span>Field</span>
+                        <select id="sorted-field-filter">
+                            <option value="all">All Fields</option>
+                        </select>
+                    </label>
+                    <label class="sorted-control" for="sorted-branch-filter">
+                        <span>Branch</span>
+                        <select id="sorted-branch-filter">
+                            <option value="all">All Branches</option>
+                        </select>
+                    </label>
+                    <label class="sorted-control" for="sorted-era-filter">
+                        <span>Era</span>
+                        <select id="sorted-era-filter">
+                            <option value="all">All Eras</option>
+                        </select>
+                    </label>
+                    <label class="sorted-control" for="sorted-sort">
+                        <span>Sort</span>
+                        <select id="sorted-sort">
+                            <option value="era">Era + Depth</option>
+                            <option value="dependency">Dependency Depth</option>
+                            <option value="name">Name</option>
+                        </select>
+                    </label>
+                    <button id="sorted-reset" class="secondary-button sorted-reset" type="button">Clear filters</button>
                 </div>
                 <div class="sorted-summary">
-                    <span id="sorted-count"></span>
-                    <span id="sorted-status" role="status"></span>
+                    <span id="sorted-count" role="status" aria-live="polite" aria-atomic="true"></span>
+                    <span id="sorted-status" role="status" aria-live="polite" aria-atomic="true"></span>
+                    <span id="sorted-selection-status" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></span>
                 </div>
-                <div id="sorted-sections"></div>
-                <button id="sorted-more" class="sorted-more" type="button" hidden>Show More</button>
+                <h2 id="sorted-results-title" class="visually-hidden">Technology results</h2>
+                <div id="sorted-sections" aria-labelledby="sorted-results-title"></div>
+                <button id="sorted-more" class="sorted-more" type="button" aria-controls="sorted-sections" hidden>Show More</button>
             </div>
-            <aside id="sorted-detail-panel" class="sorted-detail-panel" aria-live="polite"></aside>
+            <aside id="sorted-detail-panel" class="sorted-detail-panel" aria-label="Selected technology details" tabindex="-1"></aside>
         </div>
     </main>
-    <script defer src="sorted.js?v=20260606a"></script>
+    <script defer src="sorted.js?v=20260716b"></script>
 </body>
 </html>

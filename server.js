@@ -8,6 +8,7 @@ const { auditTemporalConsistency } = require('./scripts/audit-temporal-consisten
 
 const DEFAULT_ROOT_DIR = __dirname;
 const DEFAULT_MAX_BODY_BYTES = 8 * 1024 * 1024;
+const TECH_TREE_CACHE_CONTROL = 'public, no-cache';
 const PUBLIC_ROOT_FILES = new Set([
     'index.html',
     'demo.html',
@@ -60,9 +61,64 @@ function serializableTechnology(item) {
     return technology;
 }
 
-function createEtag(data) {
-    const digest = crypto.createHash('sha256').update(JSON.stringify(data)).digest('base64url');
+function createEtagFromBody(body) {
+    const digest = crypto.createHash('sha256').update(body).digest('base64url');
     return `"${digest}"`;
+}
+
+function createJsonRepresentation(data) {
+    const body = Buffer.from(JSON.stringify(data));
+    return {
+        body,
+        etag: createEtagFromBody(body)
+    };
+}
+
+function createEtag(data) {
+    return createJsonRepresentation(data).etag;
+}
+
+function parseEntityTagList(value) {
+    const input = String(value || '');
+    const tags = [];
+    let index = 0;
+
+    while (index < input.length) {
+        while (input[index] === ' ' || input[index] === '\t' || input[index] === ',') index += 1;
+        if (index >= input.length) break;
+
+        const start = index;
+        if (input.startsWith('W/', index)) index += 2;
+        if (input[index] !== '"') return null;
+        index += 1;
+
+        while (index < input.length && input[index] !== '"') {
+            const code = input.charCodeAt(index);
+            const valid = code === 0x21
+                || (code >= 0x23 && code <= 0x7e)
+                || (code >= 0x80 && code <= 0xff);
+            if (!valid) return null;
+            index += 1;
+        }
+        if (input[index] !== '"') return null;
+        index += 1;
+        tags.push(input.slice(start, index));
+
+        while (input[index] === ' ' || input[index] === '\t') index += 1;
+        if (index < input.length && input[index] !== ',') return null;
+    }
+
+    return tags;
+}
+
+function ifNoneMatchMatches(value, currentEtag) {
+    if (value === undefined) return false;
+    const input = String(value).trim();
+    if (input === '*') return true;
+    const tags = parseEntityTagList(input);
+    if (!tags) return false;
+    const normalizedCurrent = currentEtag.replace(/^W\//, '');
+    return tags.some(tag => tag.replace(/^W\//, '') === normalizedCurrent);
 }
 
 function saveData(data, dataDir, taxonomy) {
@@ -151,6 +207,16 @@ function sendJson(req, res, statusCode, code, message, details, extraHeaders = {
 
 function sendJsonValue(req, res, statusCode, value, cacheControl = 'no-store', extraHeaders = {}) {
     send(req, res, statusCode, JSON.stringify(value), 'application/json; charset=utf-8', cacheControl, extraHeaders);
+}
+
+function sendNotModified(res, cacheControl, extraHeaders = {}) {
+    setSecurityHeaders(res);
+    res.writeHead(304, {
+        'Cache-Control': cacheControl,
+        Vary: 'Accept-Encoding',
+        ...extraHeaders
+    });
+    res.end();
 }
 
 function readRequestBody(req, maxBodyBytes, callback) {
@@ -252,7 +318,7 @@ function createServer(options = {}) {
     const maxBodyBytes = options.maxBodyBytes || DEFAULT_MAX_BODY_BYTES;
     const taxonomy = options.taxonomy || loadTaxonomy(dataDir);
     let techData = options.initialData || loadData(dataDir, taxonomy);
-    let dataEtag = createEtag(techData);
+    let techRepresentation = createJsonRepresentation(techData);
 
     return http.createServer((req, res) => {
         let pathname;
@@ -274,7 +340,20 @@ function createServer(options = {}) {
 
         if (pathname === '/api/tech-tree') {
             if (['GET', 'HEAD'].includes(req.method)) {
-                sendJsonValue(req, res, 200, techData, 'no-store', { ETag: dataEtag });
+                const responseHeaders = { ETag: techRepresentation.etag };
+                if (ifNoneMatchMatches(req.headers['if-none-match'], techRepresentation.etag)) {
+                    sendNotModified(res, TECH_TREE_CACHE_CONTROL, responseHeaders);
+                    return;
+                }
+                send(
+                    req,
+                    res,
+                    200,
+                    techRepresentation.body,
+                    'application/json; charset=utf-8',
+                    TECH_TREE_CACHE_CONTROL,
+                    responseHeaders
+                );
                 return;
             }
             if (req.method !== 'PUT') {
@@ -297,7 +376,7 @@ function createServer(options = {}) {
                 sendJson(req, res, 428, 'precondition_required', 'PUT requests must include the ETag from the latest GET response.');
                 return;
             }
-            if (requestedEtag !== dataEtag) {
+            if (requestedEtag !== techRepresentation.etag) {
                 req.resume();
                 sendJson(req, res, 412, 'dataset_changed', 'The dataset changed after it was loaded. Fetch the latest graph and retry.');
                 return;
@@ -310,7 +389,7 @@ function createServer(options = {}) {
                     sendJson(req, res, statusCode, code, readError.message);
                     return;
                 }
-                if (requestedEtag !== dataEtag) {
+                if (requestedEtag !== techRepresentation.etag) {
                     sendJson(req, res, 412, 'dataset_changed', 'The dataset changed while this request was uploading. Fetch the latest graph and retry.');
                     return;
                 }
@@ -349,8 +428,10 @@ function createServer(options = {}) {
                 }
 
                 techData = cleanCandidate;
-                dataEtag = createEtag(techData);
-                sendJsonValue(req, res, 200, { ok: true, technologies: techData.length }, 'no-store', { ETag: dataEtag });
+                techRepresentation = createJsonRepresentation(techData);
+                sendJsonValue(req, res, 200, { ok: true, technologies: techData.length }, 'no-store', {
+                    ETag: techRepresentation.etag
+                });
             });
             return;
         }

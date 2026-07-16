@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-gps-satellite-technology-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps",
+    "prerequisite": "satellite_technology"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Satellite Technology provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "NAVSTAR's space segment requires an orbiting satellite constellation to broadcast the ranging and navigation data from which users determine position and velocity."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gao.gov/assets/psad-77-23.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Report pp. 1-3, System Description and Space Segment: defines GPS as space-based and specifies a constellation of satellites continuously broadcasting navigation signals.",
+    "source_claim_summary": "The contemporaneous GAO program report defines orbiting signal-transmitting satellites as GPS's complete space segment and as the ranging references used by receivers.",
+    "source_support_rationale": "Removing artificial satellites would eliminate the broadcast geometry that distinguishes NAVSTAR from terrestrial radio navigation, not merely one optional implementation choice."
+  },
+  "ontology_before": "Satellite technology was treated as one optional enabling route to GPS.",
+  "ontology_after": "An orbiting satellite space segment is a required constituent of the scoped NAVSTAR GPS architecture.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: satellite_technology remains required for gps.",
+  "would_reject_if": [
+    "The node is rescoped to a terrestrial positioning system that does not use orbiting transmitters."
+  ],
+  "short_reason": "The 1977 GAO architecture makes the transmitting satellite constellation constitutive of NAVSTAR GPS.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps.before.json /tmp/gps.after.json --require-behavior-change --require-claim-change"
+  ]
+}

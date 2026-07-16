@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-digital-identity-pki-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "digital_identity_systems",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Digital identity systems can authenticate with passwords, shared secrets, one-time-password seeds, biometrics, or asymmetric keys, so PKI is not universally required.",
+  "source_supports_edge": "no",
+  "source_url": "https://pages.nist.gov/800-63-4/sp800-63/model/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Digital Identity Model, authentication factors and authenticator-secrets discussion: secrets may be asymmetric key pairs or shared secrets including passwords, symmetric keys, and OTP seeds.",
+    "source_claim_summary": "NIST's digital identity model supports several authentication architectures and explicitly includes both public-key and non-public-key authenticators.",
+    "source_support_rationale": "Because password, OTP, shared-secret, and biometric-backed systems satisfy the model without certificate authorities or trust chains, PKI is an optional architecture choice rather than a direct dependency."
+  },
+  "ontology_before": "The graph made all digital identity systems depend directly on one certificate-based authentication architecture.",
+  "ontology_after": "Digital identity remains architecture-neutral and may use PKI-backed authenticators or independent shared-secret, OTP, and biometric approaches.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-pki-independent-identity-and-primitive-boundaries: digital_identity_systems no longer directly depends on public_key_infrastructure.",
+  "would_reject_if": [
+    "The node is narrowed specifically to certificate-based digital identities whose authenticators cannot function without an X.509 trust chain."
+  ],
+  "short_reason": "NIST explicitly models both asymmetric-key and shared-secret authenticators, so PKI is not a universal digital-identity prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/digital_identity_systems.before.json /tmp/digital_identity_systems.after.json --require-behavior-change"
+  ]
+}

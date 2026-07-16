@@ -1,5 +1,6 @@
 // app.js with Vis.js
 document.addEventListener('DOMContentLoaded', async () => {
+    const mainEl = document.getElementById('graph-main');
     const container = document.getElementById('tech-tree-container');
     const techNameEl = document.getElementById('tech-name');
     const techEraEl = document.getElementById('tech-era');
@@ -20,14 +21,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newTechDescriptionInput = document.getElementById('new-tech-description');
     const newTechPrereqInput = document.getElementById('new-tech-prereq');
     const searchInput = document.getElementById('search-tech');
+    const searchOptionsEl = document.getElementById('search-tech-options');
     const eraFilter = document.getElementById('era-filter');
     const fieldFilter = document.getElementById('field-filter');
     const focusRelevantInput = document.getElementById('focus-relevant');
+    const resetFiltersBtn = document.getElementById('reset-graph-filters');
     const graphContextSummaryEl = document.getElementById('graph-context-summary');
     const relationshipsEl = document.getElementById('tech-relationships');
     const prereqListEl = document.getElementById('tech-prereq-list');
     const unlocksListEl = document.getElementById('tech-unlocks-list');
     const addPanel = document.getElementById('tech-add-panel');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const techMetadataEl = document.createElement('div');
     techMetadataEl.className = 'tech-metadata';
     techMetadataEl.hidden = true;
@@ -40,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         element.textContent = message;
         element.classList.toggle('is-error', state === 'error');
         element.classList.toggle('is-success', state === 'success');
+        element.setAttribute('aria-live', state === 'error' ? 'assertive' : 'polite');
     }
 
     let appConfig = { readOnly: true };
@@ -63,6 +68,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (err) {
         console.error('Error loading tech tree:', err);
         setStatus(appStatusEl, 'The technology graph could not be loaded. Refresh the page or check the server.', 'error');
+        container.setAttribute('aria-busy', 'false');
+        mainEl?.setAttribute('aria-busy', 'false');
+        return;
+    }
+
+    if (!window.vis?.Network || !window.vis?.DataSet) {
+        setStatus(appStatusEl, 'The graph library could not be loaded. Refresh the page and try again.', 'error');
+        container.setAttribute('aria-busy', 'false');
+        mainEl?.setAttribute('aria-busy', 'false');
         return;
     }
 
@@ -149,7 +163,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     function renderLegend() {
         const legend = document.getElementById('era-legend');
         if (!legend) return;
-        legend.innerHTML = '';
+        legend.querySelectorAll('.legend-item').forEach(item => item.remove());
+        const fragment = document.createDocumentFragment();
         for (const [era, color] of Object.entries(eraColors)) {
             const item = document.createElement('div');
             item.className = 'legend-item';
@@ -160,13 +175,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             label.textContent = era;
             item.appendChild(swatch);
             item.appendChild(label);
-            legend.appendChild(item);
+            fragment.appendChild(item);
         }
+        legend.appendChild(fragment);
     }
 
     function populateEraFilter() {
         if (!eraFilter) return;
-        eraFilter.innerHTML = '<option value="all">All Eras</option>';
+        eraFilter.replaceChildren(new Option('All Eras', 'all'));
         for (const era of Object.keys(eraColors)) {
             const opt = document.createElement('option');
             opt.value = era;
@@ -179,7 +195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!fieldFilter) return;
         const fields = [...new Set(dynamicData.flatMap(tech => Array.isArray(tech.fields) ? tech.fields : []))]
             .sort((a, b) => a.localeCompare(b));
-        fieldFilter.innerHTML = '<option value="all">All Fields</option>';
+        fieldFilter.replaceChildren(new Option('All Fields', 'all'));
         for (const field of fields) {
             const opt = document.createElement('option');
             opt.value = field;
@@ -188,9 +204,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    function populateSearchOptions() {
+        if (!searchOptionsEl) return;
+        const fragment = document.createDocumentFragment();
+        dynamicData
+            .slice()
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .forEach(tech => {
+                const option = document.createElement('option');
+                option.value = tech.id;
+                option.label = tech.name;
+                fragment.appendChild(option);
+            });
+        searchOptionsEl.replaceChildren(fragment);
+    }
+
     renderLegend();
     populateEraFilter();
     populateFieldFilter();
+    populateSearchOptions();
 
     if (appConfig.readOnly) {
         if (addPanel) addPanel.style.display = 'none';
@@ -203,8 +235,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const dependentsMap = {};
     const prereqMap = {};
     dynamicData.forEach(t => {
-        prereqMap[t.id] = getPrerequisiteIds(t);
-        getPrerequisiteIds(t).forEach(pr => {
+        const prerequisiteIds = getPrerequisiteIds(t);
+        prereqMap[t.id] = prerequisiteIds;
+        prerequisiteIds.forEach(pr => {
             if (!dependentsMap[pr]) dependentsMap[pr] = [];
             dependentsMap[pr].push(t.id);
         });
@@ -348,7 +381,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         interaction: {
             dragNodes: true,
             dragView: true,
-            zoomView: true
+            zoomView: true,
+            tooltipDelay: 240,
+            keyboard: {
+                enabled: true,
+                bindToWindow: false,
+                autoFocus: true,
+                speed: {
+                    x: 12,
+                    y: 12,
+                    zoom: 0.025
+                }
+            }
         },
         nodes: {
             shape: 'box',
@@ -375,6 +419,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     const network = new vis.Network(container, data, options);
+    const graphFrame = container.querySelector('.vis-network');
+    if (graphFrame) {
+        graphFrame.setAttribute('role', 'group');
+        graphFrame.setAttribute('aria-label', 'Technology graph canvas');
+        graphFrame.setAttribute('aria-describedby', 'graph-keyboard-help graph-context-summary');
+    }
 
     // Open on a useful local context; deselecting restores the full overview.
     network.once('afterDrawing', () => {
@@ -385,17 +435,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
 
-    // Refit on window resize
+    // Let the canvas resize without discarding the user's current pan and zoom.
     let resizeTimer = null;
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
         window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(() => network.fit({ animation: false }), 120);
-    });
+        resizeTimer = window.setTimeout(() => {
+            network.setSize('100%', '100%');
+            network.redraw();
+        }, 120);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
 
     let selectedNodeId = null;
     let currentSearchQuery = '';
     let currentEraFilter = 'all';
     let currentFieldFilter = 'all';
+    let searchTimer = null;
 
     function existingIds(ids) {
         return ids.filter(id => Boolean(nodes.get(id)));
@@ -483,6 +538,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         return new Set(dynamicData
             .filter(t => Array.isArray(t.fields) && t.fields.includes(field))
             .map(t => t.id));
+    }
+
+    function getSelectableSearchIds(query) {
+        const fieldMatches = getFieldMatches(currentFieldFilter);
+        return sortedTechIds([...getSearchMatches(query)].filter(id => {
+            const node = nodes.get(id);
+            const matchesEra = currentEraFilter === 'all' || node?.era === currentEraFilter;
+            const matchesField = currentFieldFilter === 'all' || fieldMatches.has(id);
+            return matchesEra && matchesField;
+        }));
     }
 
     function intersectSets(primary, secondary) {
@@ -599,7 +664,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
         techDescriptionEl.textContent = nodeData.description;
 
-        const prereqIds = (nodesById[nodeId] || {}).prerequisites || [];
+        const prereqIds = getPrerequisiteIds(nodesById[nodeId] || {});
         const dependentIds = dependentsMap[nodeId] || [];
         techPrerequisitesEl.textContent = `Prerequisites: ${prereqIds.length ? prereqIds.map(formatTechLabel).join(', ') : 'None'}`;
         renderTechMetadata(nodesById[nodeId]);
@@ -694,11 +759,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (edgeUpdates.length) edges.update(edgeUpdates);
 
         updateGraphSummary(visible.size, dynamicData.length, currentSearchQuery ? filteredMatchIds.size : fieldIds.size);
+        if (resetFiltersBtn) {
+            resetFiltersBtn.disabled = !currentSearchQuery
+                && currentEraFilter === 'all'
+                && currentFieldFilter === 'all';
+        }
 
         if ((focusSelected || fit) && visible.size > 0) {
             network.fit({
                 nodes: Array.from(visible),
-                animation: focusSelected ? { duration: 250, easingFunction: 'easeInOutQuad' } : false
+                animation: focusSelected && !reducedMotionQuery.matches
+                    ? { duration: 250, easingFunction: 'easeInOutQuad' }
+                    : false
             });
         } else if (fit) {
             network.fit({ animation: false });
@@ -706,11 +778,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function resetHighlight() {
+        window.clearTimeout(searchTimer);
         currentSearchQuery = '';
         currentEraFilter = 'all';
         currentFieldFilter = 'all';
+        if (searchInput) searchInput.value = '';
+        if (eraFilter) eraFilter.value = 'all';
         if (fieldFilter) fieldFilter.value = 'all';
         updateGraphView({ fit: true });
+        setStatus(appStatusEl, 'Filters cleared.');
     }
 
     function applySearch(query) {
@@ -733,6 +809,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateGraphView({ fit: true });
     }
 
+    function selectFirstSearchMatch() {
+        const query = searchInput?.value.trim() || '';
+        if (!query) {
+            setStatus(appStatusEl, 'Enter a technology name or identifier to select it.');
+            return;
+        }
+        const normalized = query.toLowerCase();
+        const candidates = getSelectableSearchIds(query);
+        const exact = candidates.find(id => {
+            const item = nodesById[id];
+            return id.toLowerCase() === normalized || item?.name.toLowerCase() === normalized;
+        });
+        const targetId = exact || candidates[0];
+        if (!targetId) {
+            setStatus(appStatusEl, 'No selectable technology matches the current search and filters.', 'error');
+            return;
+        }
+        selectTechnology(targetId);
+    }
+
     function selectTechnology(nodeId, syncSelection = true) {
         if (!nodes.get(nodeId)) return;
         selectedNodeId = nodeId;
@@ -742,6 +838,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.history.replaceState(null, '', url);
         updateInfoPanel(nodeId);
         updateGraphView({ focusSelected: true });
+        setStatus(appStatusEl, `Selected ${formatTechLabel(nodeId)}.`);
     }
 
     network.on("selectNode", function (params) {
@@ -757,10 +854,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.history.replaceState(null, '', url);
         updateInfoPanel(null);
         updateGraphView({ fit: true });
+        setStatus(appStatusEl, 'Selection cleared.');
     });
 
     if (searchInput) {
-        searchInput.addEventListener('input', () => applySearch(searchInput.value));
+        searchInput.addEventListener('input', () => {
+            window.clearTimeout(searchTimer);
+            searchTimer = window.setTimeout(() => applySearch(searchInput.value), 100);
+        });
+        searchInput.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                window.clearTimeout(searchTimer);
+                searchInput.value = '';
+                applySearch('');
+                setStatus(appStatusEl, 'Search cleared.');
+                return;
+            }
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                window.clearTimeout(searchTimer);
+                applySearch(searchInput.value);
+                selectFirstSearchMatch();
+            }
+        });
     }
 
     if (eraFilter) {
@@ -775,7 +891,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         focusRelevantInput.addEventListener('change', () => updateGraphView({ fit: true, focusSelected: true }));
     }
 
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener('click', resetHighlight);
+    }
+
     updateGraphView();
+    container.setAttribute('aria-busy', 'false');
+    mainEl?.setAttribute('aria-busy', 'false');
 
     const validEras = new Set(Object.keys(eraDefaultDates));
     let isSaving = false;
@@ -822,6 +944,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         return '';
     }
 
+    const editorInputs = [
+        newTechIdInput,
+        newTechNameInput,
+        newTechEraInput,
+        newTechDescriptionInput,
+        newTechPrereqInput
+    ].filter(Boolean);
+
+    function clearEditorInvalidStates() {
+        editorInputs.forEach(input => input.setAttribute('aria-invalid', 'false'));
+    }
+
+    function showEditorValidationError(message) {
+        clearEditorInvalidStates();
+        let input = newTechPrereqInput;
+        if (message.startsWith('Identifier') || message.startsWith('A technology with')) input = newTechIdInput;
+        else if (message.startsWith('Name')) input = newTechNameInput;
+        else if (message.startsWith('Description')) input = newTechDescriptionInput;
+        else if (message.startsWith('Select a valid era')) input = newTechEraInput;
+        input?.setAttribute('aria-invalid', 'true');
+        setStatus(editorStatusEl, message, 'error');
+        input?.focus();
+    }
+
     function preserveDependencyEdges(tech, prerequisites) {
         const existingEdges = new Map(getDependencyEdges(tech).map(edge => [edge.prerequisite, edge]));
         return prerequisites.map(prerequisite => existingEdges.get(prerequisite) || createDefaultDependencyEdge(prerequisite));
@@ -829,6 +975,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function setMutationControlsDisabled(disabled) {
         isSaving = disabled;
+        addPanel?.setAttribute('aria-busy', String(disabled));
         if (addBtn) addBtn.disabled = disabled;
         if (updateBtn) updateBtn.disabled = disabled;
         if (cancelEditBtn) cancelEditBtn.disabled = disabled;
@@ -888,8 +1035,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (updateBtn) updateBtn.hidden = true;
         if (cancelEditBtn) cancelEditBtn.hidden = true;
         if (addBtn) addBtn.hidden = false;
+        clearEditorInvalidStates();
         setStatus(editorStatusEl, '');
     }
+
+    editorInputs.forEach(input => {
+        input.addEventListener('input', () => input.setAttribute('aria-invalid', 'false'));
+        input.addEventListener('change', () => input.setAttribute('aria-invalid', 'false'));
+    });
 
     if (addBtn) {
         addBtn.addEventListener('click', async () => {
@@ -897,7 +1050,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const values = readEditorValues();
             const validationError = validateEditorValues(values);
             if (validationError) {
-                setStatus(editorStatusEl, validationError, 'error');
+                showEditorValidationError(validationError);
                 return;
             }
 
@@ -925,6 +1078,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (addBtn) addBtn.hidden = true;
             if (updateBtn) updateBtn.hidden = false;
             if (cancelEditBtn) cancelEditBtn.hidden = false;
+            clearEditorInvalidStates();
             setStatus(editorStatusEl, '');
             newTechNameInput.focus();
         });
@@ -938,7 +1092,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const values = readEditorValues();
             const validationError = validateEditorValues(values, editingNodeId);
             if (validationError) {
-                setStatus(editorStatusEl, validationError, 'error');
+                showEditorValidationError(validationError);
                 return;
             }
 
@@ -978,4 +1132,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             await persistCandidate(candidate, 'Technology deleted. Reloading the graph...');
         });
     }
+
+    window.addEventListener('beforeunload', () => {
+        window.clearTimeout(searchTimer);
+        window.clearTimeout(resizeTimer);
+    });
 });

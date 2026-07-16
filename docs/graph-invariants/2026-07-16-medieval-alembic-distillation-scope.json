@@ -1,0 +1,77 @@
+{
+  "id": "2026-07-16-medieval-alembic-distillation-scope",
+  "description": "Lock distillation_advanced to the ninth-century medieval alembic boundary: Arabic-language alchemical and perfume-making apparatus with controlled heat, evidenced glass and pottery components, no generic bronze-working prerequisite, and no reverse-causal dependency from the c. 270 basic_chemistry node.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "distillation_advanced",
+      "operator": "eq",
+      "value": 800,
+      "reason": "The century anchor follows al-Kindi's ninth-century apparatus and procedure rather than Zosimos's Late Antique activity."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "distillation_advanced",
+      "prerequisite": "alchemy",
+      "reason": "Jabirian and al-Razi alchemical practice shares the documented apparatus and heating methods."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "distillation_advanced",
+      "prerequisite": "alchemy",
+      "expected": "enabling",
+      "reason": "Alchemy enables the experimental tradition but transmutation theory is not required for perfume distillation."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "distillation_advanced",
+      "prerequisite": "glassmaking",
+      "reason": "The documented unit includes a glass receiver."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "distillation_advanced",
+      "prerequisite": "glassmaking",
+      "expected": "enabling",
+      "reason": "Glass is an evidenced component route, not the sole possible apparatus material."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "distillation_advanced",
+      "prerequisite": "fire_control",
+      "reason": "The method requires sustained water-bath or charcoal-stove heating."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "distillation_advanced",
+      "prerequisite": "fire_control",
+      "expected": "required",
+      "reason": "Distillation ceases when the bath cools, making controlled heat part of the operating mechanism."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "distillation_advanced",
+      "prerequisite": "pottery",
+      "reason": "The documented moist-heating apparatus uses an earthenware or pottery bath vessel."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "distillation_advanced",
+      "prerequisite": "pottery",
+      "expected": "enabling",
+      "reason": "Pottery enables the cited bath vessel but is not universal to every apparatus component."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "distillation_advanced",
+      "prerequisite": "bronze_working",
+      "reason": "The scoped ninth-century apparatus is documented without bronze, and no source ties copper-tin alloy craft to this milestone."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_chemistry",
+      "prerequisite": "distillation_advanced",
+      "reason": "The c. 270 node cannot depend on the separately scoped ninth-century medieval alembic milestone."
+    }
+  ]
+}

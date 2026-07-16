@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-internet-personal-computers-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "internet",
+    "prerequisite": "personal_computers"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Personal Computers provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The operational 1983 Internet required TCP/IP-capable hosts, not the personal-computer product category.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc801.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "General Plan and Milestones (pp. 2-5) require IP/TCP on all hosts; Appendix D (pp. 16-21) documents implementations on C/70, HP3000, PDP-11, TENEX/TOPS-20, VAX, Honeywell, LSI-11, and IBM systems.",
+    "source_claim_summary": "RFC 801 defines the transition in terms of TCP/IP-capable hosts and documents operational implementations across multiple non-PC computer classes.",
+    "source_support_rationale": "Personal computers could later access the Internet, but the primary transition plan demonstrates that they were neither the host class that defined the milestone nor a universal enabling condition."
+  },
+  "ontology_before": "The 1983 Internet directly depended on personal computers even though its operational hosts included mainframes, minicomputers, gateways, and other systems.",
+  "ontology_after": "The Internet node depends on its packet-network and TCP/IP architecture while endpoint product categories remain optional access technologies.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-internet-operational-boundary: internet no longer directly depends on personal_computers.",
+  "would_reject_if": [
+    "Primary transition records show that Full Internet Service could not operate until personal computers were deployed as an indispensable host class."
+  ],
+  "short_reason": "RFC 801 documents the 1983 TCP/IP Internet across diverse host systems, so personal computers were optional endpoints rather than a prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/internet.before.json /tmp/internet.after.json --require-behavior-change"
+  ]
+}

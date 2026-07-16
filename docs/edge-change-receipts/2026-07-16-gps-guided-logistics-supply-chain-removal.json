@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-gps-guided-logistics-supply-chain-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "gps_guided_logistics",
+    "prerequisite": "supply_chain_management_software"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Supply Chain Management Software supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct supply-chain-management software dependency remains because the scoped 1997 capability is supported by GPS receivers, electronic maps, vehicle tracking, routing, and dispatch without requiring a broader supply-chain suite.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.gps.gov/1998-biennial-report-congress-global-positioning-system",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Commercial Applications and Productivity Enhancement sections: attributes vehicle navigation, tracking, fleet management, routing, and dispatch gains to GPS receivers and electronic maps, without identifying supply-chain-management software as a constituent.",
+    "source_claim_summary": "The contemporaneous federal account supports the fleet capability through GPS positioning, map displays, vehicle operations, and dispatch functions rather than an enterprise supply-chain platform.",
+    "source_support_rationale": "A later fleet system may integrate with broader supply-chain software, but optional enterprise integration does not explain the documented 1997 GPS navigation and tracking milestone."
+  },
+  "ontology_before": "GPS-guided fleet logistics inherited a generic enterprise-software scaling edge unrelated to its documented positioning and dispatch mechanism.",
+  "ontology_after": "The scoped node depends directly on GPS and motorized fleet operations; broader supply-chain software remains an optional downstream integration.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: supply_chain_management_software is absent as a direct prerequisite of gps_guided_logistics.",
+  "would_reject_if": [
+    "The node is narrowed to an integrated supply-chain execution suite whose documented operation requires supply-chain-management software.",
+    "The 1997 source is shown to make an enterprise supply-chain platform constitutive of the described GPS fleet functions."
+  ],
+  "short_reason": "The documented GPS fleet capability does not require a broader supply-chain software suite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps_guided_logistics.before.json /tmp/gps_guided_logistics.after.json --require-behavior-change --require-claim-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

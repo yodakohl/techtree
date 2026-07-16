@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-urban-sanitary-surveys-radiology-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "urban_sanitary_surveys",
+    "prerequisite": "radiology_departments"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Radiology Departments provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Urban sanitary surveys inspect population health and environmental conditions; clinical X-ray departments are neither part of that method nor chronologically available for the documented 1838 inquiries.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.gutenberg.org/cache/epub/65090/pg65090-images.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Prefatory letter (pp. iii-viii) dates metropolitan sanitary inquiries to 1838; Appendix instructions 1-4 (pp. xi-xvi) define their methods as disease returns, local reports, personal inspection, and examination of housing, drainage, refuse, streets, and sewerage.",
+    "source_claim_summary": "The primary record documents urban sanitary inquiry methods in 1838 without diagnostic imaging.",
+    "source_support_rationale": "A practice operating in 1838 cannot depend on radiology departments established only after the 1895 discovery of X-rays, and the documented survey workflow concerns environmental inspection and population records rather than clinical imaging."
+  },
+  "ontology_before": "The node incorrectly linked environmental and population-health surveys to a later hospital imaging institution.",
+  "ontology_after": "Radiology remains in the clinical-diagnostics lineage and is absent from the direct boundary of sanitary surveys.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-urban-sanitary-surveys-boundary: urban_sanitary_surveys no longer directly depends on radiology_departments.",
+  "would_reject_if": [
+    "The node is explicitly rescoped to a post-1896 survey method whose defining workflow requires radiological imaging."
+  ],
+  "short_reason": "The documented sanitary inquiries predate X-rays and use environmental inspection and health records, not radiology.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/urban_sanitary_surveys.before.json /tmp/urban_sanitary_surveys.after.json --require-behavior-change"
+  ]
+}

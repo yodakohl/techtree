@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-pki-software-engineering-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "public_key_infrastructure",
+    "prerequisite": "software_engineering"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Software Engineering provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Software engineering is a generic implementation discipline, not a distinct technical prerequisite of the X.509 certificate and trust model.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.itu.int/rec/T-REC-X.509-198811-S",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Recommendation record for X.509 (11/88), The Directory - Authentication framework, approved 25 November 1988.",
+    "source_claim_summary": "The originating standards record identifies X.509 as an authentication framework within the international Directory standards, not as a software-engineering method.",
+    "source_support_rationale": "Implementations naturally use software practices, but that broad discipline does not distinguish X.509 infrastructure from other implemented systems and adds no certificate-specific causal mechanism."
+  },
+  "ontology_before": "A generic discipline used to implement many technologies was modeled as a direct enabling cause of PKI.",
+  "ontology_after": "The direct PKI boundary contains its public-key and signature mechanisms; software engineering remains general implementation background.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-public-key-infrastructure-x509-boundary: software_engineering is absent.",
+  "would_reject_if": [
+    "An originating X.509 specification identifies a particular software-engineering method as indispensable to the certificate trust architecture."
+  ],
+  "short_reason": "The X.509 origin record defines an authentication framework, while generic software engineering is implementation background rather than a PKI prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_key_infrastructure.before.json /tmp/public_key_infrastructure.after.json --require-behavior-change"
+  ]
+}

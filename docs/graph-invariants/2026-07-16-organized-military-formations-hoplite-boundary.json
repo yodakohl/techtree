@@ -1,0 +1,75 @@
+{
+  "id": "2026-07-16-organized-military-formations-hoplite-boundary",
+  "description": "Lock organized_military_formations to the mid-seventh-century BCE Greek hoplite phalanx and its formation-specific material and historical lineage.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organized_military_formations",
+      "prerequisite": "iron_working",
+      "reason": "The former citation concerned Egyptian meteoritic beads, while iron was not the defining material system of the bronze-heavy hoplite formation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organized_military_formations",
+      "prerequisite": "archery",
+      "reason": "Archers were auxiliary support rather than constituent ranks of the hoplite phalanx."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organized_military_formations",
+      "prerequisite": "writing",
+      "reason": "Writing preserved military culture but was not needed to assemble the formation, and standardized Homeric texts postdate its emergence."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organized_military_formations",
+      "prerequisite": "roads",
+      "reason": "Roads support campaign movement and logistics, not the battlefield mechanics of close-order infantry."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "organized_military_formations",
+      "prerequisite": "horseback_riding",
+      "reason": "Mounted cavalry was a distinct arm from the foot soldiers who constituted the phalanx."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "organized_military_formations",
+      "prerequisite": "organized_warfare",
+      "reason": "Earlier commanded shield-and-spear formations provide the appropriate historical lineage."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "organized_military_formations",
+      "prerequisite": "organized_warfare",
+      "expected": "historical_predecessor",
+      "reason": "The ancient evidence establishes precedence without proving direct cultural transmission to Greece."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "organized_military_formations",
+      "prerequisite": "bronze_working",
+      "reason": "Bronze armor and the large shield formed the characteristic heavy hoplite panoply."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "organized_military_formations",
+      "prerequisite": "bronze_working",
+      "expected": "enabling",
+      "reason": "Bronze working enabled the panoply but did not alone determine coordinated formation tactics."
+    },
+    {
+      "type": "path_present",
+      "from": "city_states",
+      "to": "organized_military_formations",
+      "reason": "The civic organization lineage remains available transitively through organized_warfare without adding a redundant direct edge."
+    },
+    {
+      "type": "first_known_date",
+      "node": "organized_military_formations",
+      "operator": "eq",
+      "value": -650,
+      "reason": "The reviewed emergence evidence favors about 650 BCE for the hoplite phalanx."
+    }
+  ]
+}

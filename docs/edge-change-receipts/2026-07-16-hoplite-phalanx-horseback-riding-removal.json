@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-hoplite-phalanx-horseback-riding-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "horseback_riding"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Horseback Riding provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Hoplites were heavy foot soldiers; mounted horsemen formed a distinct cavalry class and were not required for the infantry phalanx.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/sites/default/files/2019-09/Greece_Hoplites_Presnotes_KS2.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Page 2, Background information: identifies hoplites as heavily armed Greek infantrymen fighting in linked rows, then states that cavalry were few and not the main force of Greek armies.",
+    "source_claim_summary": "The British Museum notes separate mounted cavalry from the infantrymen who formed the hoplite ranks.",
+    "source_support_rationale": "Horseback riding enables cavalry and mobility, but the scoped formation consists of infantry coordinating shields and spears on foot."
+  },
+  "ontology_before": "The target treated a distinct mounted combat arm as a direct enabler of a heavy-infantry formation.",
+  "ontology_after": "Horseback riding remains in the cavalry lineage and is absent from the hoplite phalanx's direct prerequisites.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-organized-military-formations-hoplite-boundary: horseback_riding is absent.",
+  "would_reject_if": [
+    "Authoritative evidence establishes mounted service as necessary to create or sustain the hoplite infantry formation itself."
+  ],
+  "short_reason": "Cavalry and hoplite infantry were distinct arms; horseback riding did not constitute the phalanx.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organized_military_formations.before.json /tmp/organized_military_formations.after.json --require-behavior-change"
+  ]
+}

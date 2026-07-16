@@ -19,15 +19,16 @@
     <meta name="twitter:title" content="TechTree Documentary Demo">
     <meta name="twitter:description" content="Watch a target technology emerge from its prerequisite stack.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
-    <link rel="stylesheet" href="style.css?v=20260610h">
+    <link rel="stylesheet" href="style.css?v=20260716a">
 </head>
 <body class="documentary-demo">
-    <main class="documentary-stage" aria-labelledby="documentary-title">
-        <canvas id="documentary-canvas" class="documentary-canvas" aria-label="Animated technology dependency timeline"></canvas>
+    <a class="documentary-skip-link" href="#documentary-target">Skip to documentary controls</a>
+    <main class="documentary-stage" aria-labelledby="documentary-title" aria-busy="true">
+        <canvas id="documentary-canvas" class="documentary-canvas" aria-hidden="true"></canvas>
         <div class="documentary-ui">
-            <header class="documentary-nav" aria-label="TechTree navigation">
+            <header class="documentary-nav">
                 <a class="documentary-brand" href="demo.html">TechTree</a>
-                <nav>
+                <nav aria-label="Primary navigation">
                     <a href="index.html">Graph</a>
                     <a href="sorted.html">Sorted</a>
                     <a href="https://github.com/yodakohl/techtree">GitHub</a>
@@ -41,30 +42,37 @@
                 <p id="documentary-meta" class="documentary-meta">Source-backed dependency graph</p>
             </section>
 
-            <section class="documentary-controls" aria-label="Documentary controls">
+            <section id="documentary-controls" class="documentary-controls" aria-labelledby="documentary-controls-title">
+                <h2 id="documentary-controls-title" class="visually-hidden">Documentary controls</h2>
                 <div class="documentary-search">
-                    <input id="documentary-target" type="search" list="documentary-target-options" placeholder="Choose any target technology">
+                    <label class="visually-hidden" for="documentary-target">Target technology</label>
+                    <input id="documentary-target" type="search" list="documentary-target-options" placeholder="Choose any target technology" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="documentary-status">
                     <datalist id="documentary-target-options"></datalist>
-                    <button id="documentary-play-toggle" type="button">Pause</button>
+                    <div class="documentary-transport" role="group" aria-label="Playback controls">
+                        <button id="documentary-previous" type="button" aria-label="Previous scene">Previous</button>
+                        <button id="documentary-play-toggle" type="button" aria-label="Pause documentary" aria-pressed="true">Pause</button>
+                        <button id="documentary-next" type="button" aria-label="Next scene">Next</button>
+                    </div>
                 </div>
                 <div class="documentary-presets" aria-label="Preset documentary cuts">
-                    <button type="button" data-documentary-target="crispr_gene_editing">CRISPR</button>
-                    <button type="button" data-documentary-target="high_na_euv_lithography">EUV Chips</button>
-                    <button type="button" data-documentary-target="retrieval_augmented_generation">RAG</button>
-                    <button type="button" data-documentary-target="long_duration_energy_storage">Grid Storage</button>
+                    <button type="button" data-documentary-target="crispr_gene_editing" aria-pressed="false">CRISPR</button>
+                    <button type="button" data-documentary-target="high_na_euv_lithography" aria-pressed="false">EUV Chips</button>
+                    <button type="button" data-documentary-target="retrieval_augmented_generation" aria-pressed="false">RAG</button>
+                    <button type="button" data-documentary-target="long_duration_energy_storage" aria-pressed="false">Grid Storage</button>
                 </div>
             </section>
 
-            <section class="documentary-timeline" aria-label="Timeline scenes">
-                <div class="documentary-progress-track">
+            <section class="documentary-timeline" aria-labelledby="documentary-timeline-title">
+                <h2 id="documentary-timeline-title" class="visually-hidden">Timeline scenes</h2>
+                <div class="documentary-progress-track" role="progressbar" aria-label="Documentary playback progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                     <span id="documentary-progress"></span>
                 </div>
-                <div id="documentary-scenes" class="documentary-scenes"></div>
+                <div id="documentary-scenes" class="documentary-scenes" role="group" aria-label="Choose a scene"></div>
             </section>
 
-            <p id="documentary-status" class="documentary-status" role="status">Loading...</p>
+            <p id="documentary-status" class="documentary-status" role="status" aria-live="polite" aria-atomic="true">Loading...</p>
         </div>
     </main>
-    <script defer src="demo.js?v=20260610i"></script>
+    <script defer src="demo.js?v=20260716a"></script>
 </body>
 </html>

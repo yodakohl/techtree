@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-babylonian-world-map-geometry-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basic_cartography",
+    "prerequisite": "geometry"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Geometry provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No geometric construction, projection, coordinate framework, or angle measurement is documented for the scoped Babylonian World Map.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object 1882,0714.509, Description: represents the world as a disc surrounded by the Bitter River, uses simple marks for cities and regions, and places some geography explicitly incorrectly; no geometric method or projection is attributed.",
+    "source_claim_summary": "The artifact record supports symbolic spatial arrangement but not a geometry-based construction method.",
+    "source_support_rationale": "A round boundary and drawn shapes do not by themselves establish geometry as a causal prerequisite; the former edge converted visual form into an unsupported technical dependency."
+  },
+  "ontology_before": "The broad node inferred geometry from the fact that the artifact contains shapes and spatial arrangement.",
+  "ontology_after": "The scoped artifact can be represented as an early map without asserting a formal geometric construction method.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-babylonian-world-map-boundary: geometry is not a direct prerequisite.",
+  "would_reject_if": [
+    "Authoritative technical study demonstrates a specific geometric construction or projection used on tablet 1882,0714.509."
+  ],
+  "short_reason": "The source documents schematic shapes, not a formal geometric method.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/basic_cartography.before.json /tmp/basic_cartography.after.json --require-behavior-change"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-16-military-staff-college-scope",
+  "description": "Lock the 1810 mid-career staff-college tier to its professional military-education lineage without laundering later rail or telegraph technologies into founding prerequisites.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_staff_colleges",
+      "prerequisite": "railroads",
+      "reason": "Public railways postdate the 1810 staff-college anchor and became later planning subjects rather than a founding condition."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "military_staff_colleges",
+      "prerequisite": "telegraph",
+      "reason": "Electric telegraphy postdates the scoped institution and cannot enable its initial establishment."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "military_staff_colleges",
+      "prerequisite": "artillery_fortification_schools",
+      "reason": "Earlier military technical schools represent the documented institutional foundation from which the staff-college tier developed."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_staff_colleges",
+      "prerequisite": "artillery_fortification_schools",
+      "expected": "historical_predecessor",
+      "reason": "Technical military schools precede and inform staff colleges without constituting a universal engineering requirement."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "military_staff_colleges",
+      "prerequisite": "logistics_supply_lines",
+      "reason": "Logistical complexity remains relevant professional knowledge within higher command and staff education."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "military_staff_colleges",
+      "prerequisite": "logistics_supply_lines",
+      "expected": "common_dependency",
+      "reason": "Logistics is contextual curriculum knowledge, not a capability required to create the educational institution."
+    },
+    {
+      "type": "first_known_date",
+      "node": "military_staff_colleges",
+      "operator": "eq",
+      "value": 1810,
+      "reason": "The scoped mid-career tier is anchored to Prussia's General War School, established in 1810."
+    }
+  ]
+}

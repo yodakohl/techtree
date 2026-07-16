@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-16-babylonian-world-map-boundary",
+  "description": "Lock basic_cartography to the sixth-century BCE Babylonian World Map artifact and prevent generic later cartographic methods from reappearing as direct prerequisites.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "basic_cartography",
+      "prerequisite": "writing",
+      "reason": "Cuneiform labels, distance annotations, reverse-side descriptions, and the colophon are integral parts of the surviving map."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "basic_cartography",
+      "prerequisite": "writing",
+      "expected": "required",
+      "reason": "The specifically scoped artifact cannot retain its documented mapped identities and explanatory structure without writing."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_cartography",
+      "prerequisite": "surveying",
+      "reason": "The museum evidence does not document land-survey measurements or a surveying workflow for the artifact."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_cartography",
+      "prerequisite": "early_navigation",
+      "reason": "The Babylon-centered cosmography is not documented as a navigational chart or as derived from navigation observations."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_cartography",
+      "prerequisite": "geometry",
+      "reason": "The artifact record does not establish a geometric construction or projection method."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "basic_cartography",
+      "prerequisite": "mathematics",
+      "reason": "Written distance annotations do not establish mathematical calculation as the map's production method."
+    },
+    {
+      "type": "first_known_date",
+      "node": "basic_cartography",
+      "operator": "eq",
+      "value": -600,
+      "reason": "The surviving tablet is approximately dated to the sixth century BCE."
+    }
+  ]
+}

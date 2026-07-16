@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-hoplite-phalanx-organized-warfare-replaces-iron",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "organized_warfare"
+  },
+  "replaced_edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "iron_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Iron Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "primary_source",
+    "confidence": 0.9,
+    "note": "The Stele of the Vultures documents commanded shield-and-spear troops around 2450 BCE, providing an earlier organized-formation lineage without asserting direct transmission to Greek hoplite tactics."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://collections.louvre.fr/en/ark:/53355/cl010121794",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Collection record, Description/Features and Places and Dates: dates the Stele of the Vultures to about 2450 BCE and describes multiple helmeted soldiers bearing shields and spears, led by Eannatum at the head of his troops.",
+    "source_claim_summary": "The Louvre object record documents commanded shield-and-spear troops more than a millennium before the Greek hoplite phalanx.",
+    "source_support_rationale": "The earlier formation is the relevant organizational ancestry for a later close-order formation. Egyptian meteoritic iron beads demonstrate metalworking, not the troop coordination that defines this node."
+  },
+  "ontology_before": "The target treated the earliest hammered iron artifacts as a direct cause of organized formation tactics.",
+  "ontology_after": "The target inherits organized battlefield formation as a historical lineage while its material panoply is modeled separately.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-organized-military-formations-hoplite-boundary: organized_warfare is present and iron_working is absent.",
+  "would_reject_if": [
+    "Primary evidence establishes that the Greek close-order formation depended specifically on iron working rather than on earlier organized warfare and its own mixed-material panoply."
+  ],
+  "short_reason": "Earlier commanded shielded troops are a relevant formation predecessor; meteoritic iron beads are not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organized_military_formations.before.json /tmp/organized_military_formations.after.json --require-behavior-change"
+  ]
+}

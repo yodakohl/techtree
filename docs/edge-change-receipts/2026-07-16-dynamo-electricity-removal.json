@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-dynamo-electricity-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "dynamo",
+    "prerequisite": "electricity"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Electricity provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because the narrowed machine produces electrical current from mechanical rotation, while its precise generator lineage and conductor components are modeled separately.",
+  "source_supports_edge": "no",
+  "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/On_the_Conversion_of_Dynamical_into_Electrical_Force_without_the_Aid_of_Permanent_Magnetism_%28IA_jstor-112652%29.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 367-369 define the machine as converting mechanical force into electrical force through an electromagnetic apparatus, with Faraday's generator work as the stated lineage.",
+    "source_claim_summary": "The paper treats electricity as the machine's generated output and field of operation, not as a separate upstream machine or infrastructure component.",
+    "source_support_rationale": "The broad electricity node would duplicate the more precise Faraday-generator predecessor and does not identify what physically enters or enables the self-excited machine."
+  },
+  "ontology_before": "Dynamo inherited directly from the broad Electricity field while also claiming to be the first 1831 generator.",
+  "ontology_after": "Self-Excited Industrial Dynamo inherits from the concrete Faraday generator lineage and insulated-winding capability; Electricity is no longer a generic direct edge.",
+  "invariant_preserved_or_changed": "Changed: dynamo no longer directly depends on electricity.",
+  "would_reject_if": [
+    "The electricity node is narrowed to a specific excitation supply component required by every self-excited dynamo.",
+    "A primary source identifies a separate electrical-power input as necessary for continuous operation of the scoped machine.",
+    "The Faraday generator predecessor edge is removed, leaving no representation of the earlier electrical-generation lineage."
+  ],
+  "short_reason": "Electricity is the output domain, not the precise prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dynamo.before.json /tmp/dynamo.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

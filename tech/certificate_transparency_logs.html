@@ -13,7 +13,7 @@
     <meta property="twitter:title" content="Certificate Transparency Logs - TechTree" />
     <meta property="twitter:description" content="Public append-only logs and auditing systems that expose certificate issuance, strengthen web trust, and help detect compromised authorities." />
     <link rel="canonical" href="https://pushme.site/techtree/tech/certificate_transparency_logs.html" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","@id":"https://pushme.site/techtree/tech/certificate_transparency_logs.html","name":"Certificate Transparency Logs","description":"Public append-only logs and auditing systems that expose certificate issuance, strengthen web trust, and help detect compromised authorities.","identifier":"certificate_transparency_logs","inDefinedTermSet":"https://pushme.site/techtree/","url":"https://pushme.site/techtree/tech/certificate_transparency_logs.html","dateCreated":"1983","sameAs":"https://pushme.site/techtree/tech/certificate_transparency_logs.html"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","@id":"https://pushme.site/techtree/tech/certificate_transparency_logs.html","name":"Certificate Transparency Logs","description":"Public append-only logs and auditing systems that expose certificate issuance, strengthen web trust, and help detect compromised authorities.","identifier":"certificate_transparency_logs","inDefinedTermSet":"https://pushme.site/techtree/","url":"https://pushme.site/techtree/tech/certificate_transparency_logs.html","dateCreated":"2013","sameAs":"https://pushme.site/techtree/tech/certificate_transparency_logs.html"}</script>
     <style>
       body { font-family: Arial, sans-serif; margin: 1.5rem; line-height: 1.5; color: #1f2937; }
       h1, h2 { margin: 1rem 0 0.5rem; }
@@ -35,7 +35,7 @@
       </nav>
 
       <h2>Core metadata</h2>
-      <ul><li><strong>ID:</strong> certificate_transparency_logs</li><li><strong>Era:</strong> Modern</li><li><strong>First known date:</strong> 1983 (decade)</li><li><strong>Region:</strong> Global / multiple regions</li><li><strong>Review status:</strong> source_checked</li><li><strong>Maturity:</strong> established</li></ul>
+      <ul><li><strong>ID:</strong> certificate_transparency_logs</li><li><strong>Era:</strong> Modern</li><li><strong>First known date:</strong> 2013 (exact)</li><li><strong>Region:</strong> Global / multiple regions</li><li><strong>Review status:</strong> source_checked</li><li><strong>Maturity:</strong> established</li></ul>
 
       <h2>Prerequisites</h2>
       <ul><li><a href="https://pushme.site/techtree/tech/digital_identity_systems.html">Digital Identity Systems (digital_identity_systems)</a></li><li><a href="https://pushme.site/techtree/tech/internet.html">Internet (internet)</a></li><li><a href="https://pushme.site/techtree/tech/public_key_infrastructure.html">Public Key Infrastructure (public_key_infrastructure)</a></li></ul>
@@ -49,16 +49,16 @@
       <h2>Field lanes</h2><ul><li><strong>Cybersecurity &amp; Cryptography:</strong> Identity &amp; Trust</li></ul>
 
       <h2>Node sources</h2>
-      <ul><li><a href="https://datatracker.ietf.org/doc/html/rfc9162" target="_blank" rel="noopener noreferrer">RFC 9162: Certificate Transparency Version 2.0</a> (IETF, 2021, official_agency) • Supports: node, maturity</li></ul>
+      <ul><li><a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank" rel="noopener noreferrer">RFC 6962: Certificate Transparency</a> (IETF, 2013, primary_paper) • Supports: node, maturity<br/><small>Locator: Abstract and Sections 3-3.1: specifies public append-only logs for TLS certificates, using Merkle trees and accepting X.509 certificate chains.</small></li><li><a href="https://datatracker.ietf.org/doc/html/rfc9162" target="_blank" rel="noopener noreferrer">RFC 9162: Certificate Transparency Version 2.0</a> (IETF, 2021, official_agency) • Supports: node, maturity</li></ul>
 
       <h2>Prerequisite edge evidence</h2>
       
     <p><strong>Edge/source evidence summary:</strong></p>
     <ul>
       <li>Prerequisite edges: 3</li>
-      <li>Average edge confidence: 68%</li>
+      <li>Average edge confidence: 78%</li>
       <li>Prerequisite sources: 3</li>
-      <li>expert_inference: 3</li>
+      <li>expert_inference: 2</li><li>primary_source: 1</li>
     </ul>
 
       <table>
@@ -76,11 +76,11 @@
           
             <tr>
               <td><a href="https://pushme.site/techtree/tech/public_key_infrastructure.html">Public Key Infrastructure</a> (public_key_infrastructure)</td>
-              <td>enabling</td>
-              <td>68%</td>
-              <td>expert_inference</td>
-              <td>Public Key Infrastructure provides a capability that enables this technology without being the only possible path.</td>
-              <td><ul><li><a href="https://datatracker.ietf.org/doc/html/rfc9162" target="_blank" rel="noopener noreferrer">RFC 9162: Certificate Transparency Version 2.0</a> (IETF, 2021, official_agency) • Supports: node, maturity, edge</li></ul></td>
+              <td>required</td>
+              <td>98%</td>
+              <td>primary_source</td>
+              <td>Certificate Transparency logs X.509 TLS certificates and validates submitted chains to accepted roots, so an operational public-key certificate infrastructure is constitutive of the protocol.</td>
+              <td><ul><li><a href="https://datatracker.ietf.org/doc/html/rfc6962" target="_blank" rel="noopener noreferrer">RFC 6962: Certificate Transparency</a> (IETF, 2013, primary_paper) • Supports: edge<br/><small>Locator: Abstract and Section 3.1: the protocol publicly logs TLS certificates and requires submitted X.509 certificate chains to terminate at roots accepted by the log.</small></li></ul></td>
             </tr>
 
             <tr>

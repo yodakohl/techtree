@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-mfa-pki-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "multi_factor_authentication",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Multi-factor authentication can combine passwords, OTP devices, out-of-band methods, and biometrics without using X.509 certificates or a certificate authority.",
+  "source_supports_edge": "no",
+  "source_url": "https://pages.nist.gov/800-63-4/sp800-63b/authenticators/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Authenticator requirements and authenticator-type sections cover passwords, look-up secrets, out-of-band devices, single- and multi-factor OTP, and cryptographic authenticators.",
+    "source_claim_summary": "NIST defines several MFA-capable authenticator combinations, including password and OTP mechanisms that do not depend on certificate infrastructure.",
+    "source_support_rationale": "MFA is defined by combining evidence factors, not by a particular key-distribution system; PKI-backed cryptographic authenticators are one option among multiple conforming choices."
+  },
+  "ontology_before": "The graph made a particular cryptographic trust infrastructure a direct cause of every multiple-factor authentication design.",
+  "ontology_after": "MFA depends on combining distinct authentication factors and remains compatible with both PKI-backed and non-PKI authenticators.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-pki-independent-identity-and-primitive-boundaries: multi_factor_authentication no longer directly depends on public_key_infrastructure.",
+  "would_reject_if": [
+    "Authoritative MFA requirements redefine multiple-factor authentication so that every conforming combination must use X.509 certificates."
+  ],
+  "short_reason": "NIST recognizes password, OTP, out-of-band, and biometric factor combinations, so certificate infrastructure is not mandatory for MFA.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/multi_factor_authentication.before.json /tmp/multi_factor_authentication.after.json --require-behavior-change"
+  ]
+}

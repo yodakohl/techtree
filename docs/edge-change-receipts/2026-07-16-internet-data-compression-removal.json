@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-internet-data-compression-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "internet",
+    "prerequisite": "data_compression"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Data Compression provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "TCP/IP transports application octets without requiring that payloads be compressed, so compression remains an optional application or efficiency technique.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc793.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Section 1.5, Basic Data Transfer (p. 3), and section 2.8, Data Communication (p. 12), specify a continuous octet stream packaged into TCP segments and enumerate TCP's required transport functions without a compression stage.",
+    "source_claim_summary": "RFC 793 defines TCP as reliable transport of an application-provided octet stream, segmented independently of the payload's representation.",
+    "source_support_rationale": "Compression can reduce application data volume, but TCP accepts arbitrary octets and provides reliability, sequencing, flow control, and multiplexing without depending on compression."
+  },
+  "ontology_before": "The Internet node treated an optional payload optimization as a direct prerequisite of the TCP/IP internetwork.",
+  "ontology_after": "Data compression remains an optional application-layer or efficiency technology outside the direct architecture of the 1983 Internet node.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-internet-operational-boundary: internet no longer directly depends on data_compression.",
+  "would_reject_if": [
+    "The 1983 Internet scope is narrowed to a service whose protocol specification mandates compression before TCP transport."
+  ],
+  "short_reason": "RFC 793 transports an arbitrary octet stream and does not require compression, so compression is optional rather than architectural.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/internet.before.json /tmp/internet.after.json --require-behavior-change"
+  ]
+}

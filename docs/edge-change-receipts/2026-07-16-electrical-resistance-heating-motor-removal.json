@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-electrical-resistance-heating-motor-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "electrical_appliances_early",
+    "prerequisite": "electric_motor"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.72,
+    "evidence_level": "expert_inference",
+    "note": "Electric Motor supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct dependency remains because the narrowed node covers stationary resistance-heating appliances whose electrical input produces heat rather than mechanical motion.",
+  "source_supports_edge": "no",
+  "source_url": "https://patents.google.com/patent/US259054A/en",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Specification and claims describe a carbon resistance embedded near the iron face, electrical terminals, flexible conductors, a plug, adjustable resistance, and a safety catch; no motor or mechanically driven element forms part of the heating mechanism.",
+    "source_claim_summary": "Seely's appliance heats by electrical resistance inside a stationary iron, so its operating mechanism does not use an electric motor.",
+    "source_support_rationale": "The previous motor edge came from a broad appliance category that mixed heating and motion devices; narrowing the node removes the category-level reason for retaining a motor dependency."
+  },
+  "ontology_before": "Early Electrical Appliances mixed motor-driven and resistance-heating devices and therefore carried Electric Motor as a scaling dependency.",
+  "ontology_after": "Early Electric Resistance-Heating Appliances is limited to devices that turn electric current directly into heat; motor-driven appliances are outside the node boundary.",
+  "invariant_preserved_or_changed": "Changed: electrical_appliances_early no longer directly depends on electric_motor.",
+  "would_reject_if": [
+    "The node is broadened again to include fans, vacuum cleaners, washing machines, or other motor-driven appliances.",
+    "A primary source shows an electric motor was part of Seely's 1882 flat-iron heating mechanism.",
+    "A distinct motorized attachment is added to the scoped appliance and becomes part of the node's defining mechanism."
+  ],
+  "short_reason": "Resistance heating does not require mechanical motion.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/electrical_appliances_early.before.json /tmp/electrical_appliances_early.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

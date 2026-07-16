@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-dynamo-steam-engine-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "dynamo",
+    "prerequisite": "steam_engine"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "confidence": 0.55,
+    "evidence_level": "expert_inference",
+    "note": "Steam engines supplied mechanical power for later generator deployment, but Faraday's early generator principle did not require steam power."
+  },
+  "new_claim_absent": "No direct dependency remains because self-excitation requires mechanical rotation but does not prescribe a steam engine rather than another prime mover.",
+  "source_supports_edge": "no",
+  "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/On_the_Conversion_of_Dynamical_into_Electrical_Force_without_the_Aid_of_Permanent_Magnetism_%28IA_jstor-112652%29.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 368-369 describe rotation imparted to the armature, available mechanical force, and a driving strap, without specifying a steam engine as the necessary source of motion.",
+    "source_claim_summary": "The primary paper requires mechanical rotation for generation but leaves the prime mover unspecified.",
+    "source_support_rationale": "Steam was one historical deployment option; retaining it would elevate one substitutable power source into a causal prerequisite for the dynamo principle."
+  },
+  "ontology_before": "Dynamo carried Steam Engine as a scaling dependency even though its source note admitted the generator did not require steam.",
+  "ontology_after": "Self-Excited Industrial Dynamo requires mechanical rotation conceptually but has no direct edge to any one substitutable prime mover.",
+  "invariant_preserved_or_changed": "Changed: dynamo no longer directly depends on steam_engine.",
+  "would_reject_if": [
+    "The node is narrowed to a specific steam-driven generating installation rather than the self-excited dynamo machine.",
+    "A primary source shows the 1866 machine could only be operated by a steam engine.",
+    "A generic prime_mover node is added and directly evidenced as a required component of this scope."
+  ],
+  "short_reason": "Steam is a substitutable prime mover, not the dynamo mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dynamo.before.json /tmp/dynamo.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

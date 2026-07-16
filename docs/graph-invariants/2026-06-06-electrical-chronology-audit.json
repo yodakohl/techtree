@@ -1,12 +1,18 @@
 {
   "id": "2026-06-06-electrical-chronology-audit",
-  "description": "Adversarial invariants from the manual accuracy sample: keep early electrical motors and grids from depending on later generation technologies.",
+  "description": "Adversarial invariants from the manual accuracy sample: keep early electrical motors and grids from depending on later generation technologies, while preserving the distinct 1831 Faraday-generator and 1866 industrial-dynamo milestones.",
   "checks": [
     {
       "type": "direct_edge_absent",
       "dependent": "electric_motor",
       "prerequisite": "dynamo",
-      "reason": "Faraday's 1821 electric motor predates the graph's 1831 dynamo/electric-generator node."
+      "reason": "Faraday's 1821 electric motor predates the graph's 1866 self-excited industrial dynamo."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_motor",
+      "prerequisite": "electric_generators_dynamos",
+      "reason": "Faraday's 1821 electric motor predates his distinct 1831 disk-generator experiment."
     },
     {
       "type": "direct_edge_absent",
@@ -23,10 +29,17 @@
     },
     {
       "type": "first_known_date",
-      "node": "dynamo",
+      "node": "electric_generators_dynamos",
       "operator": "eq",
       "value": 1831,
-      "reason": "The dynamo node is scoped to Faraday's generator lineage, after the motor principle."
+      "reason": "The Faraday Disk Generator node preserves the 1831 experimental generator milestone after the 1821 motor principle."
+    },
+    {
+      "type": "first_known_date",
+      "node": "dynamo",
+      "operator": "eq",
+      "value": 1866,
+      "reason": "The Dynamo node is scoped separately to the 1866 self-excited industrial machine."
     },
     {
       "type": "first_known_date",

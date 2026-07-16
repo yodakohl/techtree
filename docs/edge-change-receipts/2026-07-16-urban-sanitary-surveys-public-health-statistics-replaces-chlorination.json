@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-urban-sanitary-surveys-public-health-statistics-replaces-chlorination",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "urban_sanitary_surveys",
+    "prerequisite": "public_health_statistics"
+  },
+  "replaced_edge": {
+    "dependent": "urban_sanitary_surveys",
+    "prerequisite": "urban_water_chlorination"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Urban Water Chlorination provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "primary_source",
+    "confidence": 0.94,
+    "note": "The early sanitary inquiries compiled disease returns, local medical reports, inspections, and comparative facts, making public-health data collection and analysis a direct enabling method."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gutenberg.org/cache/epub/65090/pg65090-images.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Prefatory letter (pp. iii-x) and Appendix instructions 1-4 (pp. xi-xvi) record the 1838 metropolitan inquiries and prescribe disease returns, institutional data, local medical reports, personal examination, and comparison of collected statements with other authentic facts.",
+    "source_claim_summary": "The founding sanitary inquiries used organized public-health data and inspection methods decades before municipal chlorination.",
+    "source_support_rationale": "Public-health statistics supplied the inquiry method directly documented in 1838-1842, whereas urban water chlorination began much later and is one possible intervention that surveys could evaluate rather than a prerequisite for conducting them."
+  },
+  "ontology_before": "The survey node depended on a 1908 water-treatment intervention, reversing the historical sequence between sanitary investigation and later municipal treatment.",
+  "ontology_after": "The survey node depends on the documented health-data method and leaves chlorination as a later intervention outside its direct prerequisite boundary.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-urban-sanitary-surveys-boundary: public_health_statistics is a direct enabler and urban_water_chlorination is absent.",
+  "would_reject_if": [
+    "Primary evidence establishes that the scoped sanitary-survey practice began only after municipal chlorination and could not be conducted without it."
+  ],
+  "short_reason": "The 1838-1842 inquiries explicitly used disease returns and comparative public-health data, while chlorination followed decades later.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/urban_sanitary_surveys.before.json /tmp/urban_sanitary_surveys.after.json --require-behavior-change"
+  ]
+}

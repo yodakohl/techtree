@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-medieval-alembic-bronze-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "distillation_advanced",
+    "prerequisite": "bronze_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Bronze Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct bronze-working dependency remains because the scoped ninth-century apparatus is documented with glass, pottery, wood, a stove, and charcoal, while the former generic materials citation supplied no bronze or copper-alloy apparatus evidence.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.jstage.jst.go.jp/article/orient/52/0/52_72/_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "pp. 88-89 give the apparatus and procedure: cucurbit and alembic, glass receiver, earthenware or pottery bath pot, wooden support and cover, stove, and mild charcoal fire; no bronze component is specified.",
+    "source_claim_summary": "A complete implementation of the scoped medieval milestone is documented without bronze or copper-alloy manufacture.",
+    "source_support_rationale": "The bronze_working node concerns copper-tin alloy craft, and neither the cited apparatus architecture nor the former NIST overview establishes that craft as a direct enabler of this ninth-century method."
+  },
+  "ontology_before": "Generic bronze-working capability was attached to distillation without source evidence for a bronze apparatus component.",
+  "ontology_after": "The graph keeps only apparatus and practice prerequisites explicitly documented for the scoped medieval method.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-medieval-alembic-distillation-scope: bronze_working is absent as a direct prerequisite.",
+  "would_reject_if": [
+    "A primary or authoritative source documents a bronze or copper-alloy alembic as part of the ninth-century milestone used for this node's date and scope.",
+    "The node is broadened to a later copper-still tradition where bronze-working capability is directly evidenced.",
+    "The bronze_working node is respecified to include the exact vessel-manufacturing practice used by the cited apparatus."
+  ],
+  "short_reason": "The scoped apparatus is evidenced without bronze, and the old source did not license a bronze-working edge.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_advanced.before.json /tmp/distillation_advanced.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

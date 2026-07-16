@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-16-medieval-alembic-glassmaking-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "distillation_advanced",
+    "prerequisite": "glassmaking"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Glassmaking provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Al-Kindi's documented apparatus uses a glass receiver and warns about glass breakage; glassmaking therefore enabled a specific apparatus component without being the only possible vessel technology."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.jstage.jst.go.jp/article/orient/52/0/52_72/_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "pp. 88-89 specify a glass receiver at the alembic delivery tube and warn that temperature shock can break the glass apparatus.",
+    "source_claim_summary": "The ninth-century procedure directly identifies a glass receiving vessel as part of the distillation unit.",
+    "source_support_rationale": "Glassmaking is enabling rather than required because the source documents a concrete glass component while the rest of the apparatus also uses pottery and wood."
+  },
+  "invariant_preserved_or_changed": "Preserved and locked by graph invariant 2026-07-16-medieval-alembic-distillation-scope: glassmaking remains an enabling material route with apparatus-specific evidence.",
+  "would_reject_if": [
+    "The cited receiver is reinterpreted as non-glass.",
+    "The node is narrowed to an all-ceramic apparatus that excludes glass components.",
+    "A dedicated laboratory_glassware node is added and should replace broad glassmaking."
+  ],
+  "short_reason": "Al-Kindi's apparatus explicitly includes a glass receiver.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_advanced.before.json /tmp/distillation_advanced.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

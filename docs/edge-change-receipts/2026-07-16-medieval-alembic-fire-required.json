@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-medieval-alembic-fire-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "distillation_advanced",
+    "prerequisite": "fire_control"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Fire Control is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.92,
+    "evidence_level": "review",
+    "note": "The documented method requires a heated water bath or a stove with mild charcoal fire to vaporize the charge; when the bath cools, distillation ceases."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.jstage.jst.go.jp/article/orient/52/0/52_72/_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "pp. 88-89 describe hot-water-bath distillation and a purpose-built stove with mild charcoal fire, state that cooling stops distillation, and warn that excessive fire destroys fragrance and taste.",
+    "source_claim_summary": "Controlled heat is an operating step of the alembic procedure, not merely distant pyrotechnic ancestry.",
+    "source_support_rationale": "The edge is required because without sustained controlled heating the liquid does not vaporize and the cited procedure explicitly stops."
+  },
+  "ontology_before": "Fire control was modeled only as deep historical lineage despite being part of the operating mechanism.",
+  "ontology_after": "Controlled fire and heat are modeled as a required distillation method component, with the specific water-bath and charcoal-fire procedure documented.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-medieval-alembic-distillation-scope: fire_control is required for the scoped heated-distillation method.",
+  "would_reject_if": [
+    "The node is broadened to include non-thermal separation methods.",
+    "A dedicated controlled_process_heating node is added and should replace fire_control.",
+    "A stronger source shows the cited apparatus operated without an external heat source."
+  ],
+  "short_reason": "Alembic distillation stops without controlled heating.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_advanced.before.json /tmp/distillation_advanced.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

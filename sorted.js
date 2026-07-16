@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const mainEl = document.getElementById('sorted-main');
     const statusEl = document.getElementById('sorted-status');
     const countEl = document.getElementById('sorted-count');
+    const selectionStatusEl = document.getElementById('sorted-selection-status');
     const searchInput = document.getElementById('sorted-search');
     const viewMode = document.getElementById('sorted-view');
     const fieldFilter = document.getElementById('sorted-field-filter');
@@ -9,11 +11,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const sortMode = document.getElementById('sorted-sort');
     const sectionsEl = document.getElementById('sorted-sections');
     const showMoreBtn = document.getElementById('sorted-more');
+    const resetBtn = document.getElementById('sorted-reset');
     const detailPanel = document.getElementById('sorted-detail-panel');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const pageSize = 175;
     let visibleLimit = pageSize;
     let selectedTechId = null;
     let activeGraph = null;
+    let renderFrameId = null;
+    let searchTimer = null;
 
     const eraOrder = {
         Ancient: 0,
@@ -515,8 +521,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         ]
     };
 
-    function setStatus(message) {
-        if (statusEl) statusEl.textContent = message;
+    function setStatus(message, state = '') {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.classList.toggle('is-error', state === 'error');
+        statusEl.setAttribute('aria-live', state === 'error' ? 'assertive' : 'polite');
     }
 
     function getDependencyEdges(item) {
@@ -570,18 +579,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     function clearSelectedMarkers() {
         document
             .querySelectorAll('.branch-tech-chip.is-selected, .sorted-table tr.is-selected, .sorted-tech-link.is-selected')
-            .forEach(el => el.classList.remove('is-selected'));
+            .forEach(el => {
+                el.classList.remove('is-selected');
+                el.removeAttribute('aria-current');
+            });
     }
 
     function updateSelectedMarkers() {
         clearSelectedMarkers();
         if (!selectedTechId) return;
         const chip = document.getElementById(`branch-tech-${selectedTechId}`);
-        if (chip) chip.classList.add('is-selected');
+        if (chip) {
+            chip.classList.add('is-selected');
+            chip.setAttribute('aria-current', 'true');
+        }
         const row = document.getElementById(`tech-${selectedTechId}`);
         if (row) {
             row.classList.add('is-selected');
-            row.querySelector('.sorted-tech-link')?.classList.add('is-selected');
+            const link = row.querySelector('.sorted-tech-link');
+            link?.classList.add('is-selected');
+            link?.setAttribute('aria-current', 'true');
         }
     }
 
@@ -591,18 +608,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (options.updateHash !== false) setHashTechId(id);
         renderDetail(activeGraph.byId.get(id));
         updateSelectedMarkers();
+        if (selectionStatusEl) selectionStatusEl.textContent = `Selected ${formatTechLabel(id)}.`;
         if (options.revealDetail && detailPanel && window.matchMedia('(max-width: 900px)').matches) {
-            detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            detailPanel.scrollIntoView({
+                behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+                block: 'start'
+            });
+        }
+        if (options.focusDetail) {
+            detailPanel?.querySelector('h2')?.focus({ preventScroll: true });
         }
     }
 
-    function classifyBranch(item) {
+    function classificationText(item) {
+        return `${item.id} ${item.name} ${item.description || ''} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
+    }
+
+    function classifyBranch(item, text = classificationText(item)) {
         const generatedMatch = item.id.match(/^(ancient|classical|medieval|renaissance|industrial|modern|future)_([a-z]+)_/);
         if (generatedMatch && generatedBranchNames.has(generatedMatch[2])) {
             return generatedBranchNames.get(generatedMatch[2]);
         }
 
-        const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
         let best = { name: 'Other', score: 0 };
         for (const rule of branchRules) {
             let score = 0;
@@ -614,9 +641,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         return best.name;
     }
 
-    function classifyFields(item, branch) {
+    function classifyFields(item, branch, text = classificationText(item)) {
         const explicitFields = Array.isArray(item.fields) ? item.fields : [];
-        const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
         const fields = [...explicitFields];
         for (const rule of fieldRules) {
             if (fields.includes(rule.name)) continue;
@@ -658,11 +684,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         return [...new Set(fields)];
     }
 
-    function classifyFieldLane(item, fieldName) {
+    function classifyFieldLane(item, fieldName, text = classificationText(item)) {
         if (item.fieldLanes && item.fieldLanes[fieldName]) return item.fieldLanes[fieldName];
         const lanes = fieldLaneRules[fieldName] || [];
         if (!lanes.length) return 'General';
-        const text = `${item.id} ${item.name} ${item.description} ${(item.prerequisites || []).join(' ')}`.toLowerCase();
         let best = { name: 'General', score: 0 };
         for (const lane of lanes) {
             let score = 0;
@@ -755,18 +780,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     function createRow(item, graph) {
         const row = document.createElement('tr');
         row.id = `tech-${item.id}`;
-        row.tabIndex = 0;
-        row.setAttribute('role', 'button');
-        row.setAttribute('aria-label', `Open details for ${item.name}`);
         row.addEventListener('click', event => {
             if (event.target.closest('.sorted-tech-link')) return;
             selectTechnology(item.id, { revealDetail: true });
-        });
-        row.addEventListener('keydown', event => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                selectTechnology(item.id, { revealDetail: true });
-            }
         });
 
         const nameCell = document.createElement('th');
@@ -778,7 +794,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         name.addEventListener('click', event => {
             event.preventDefault();
             event.stopPropagation();
-            selectTechnology(item.id, { revealDetail: true });
+            selectTechnology(item.id, {
+                revealDetail: true,
+                focusDetail: event.detail === 0
+            });
         });
         nameCell.appendChild(name);
         const id = document.createElement('span');
@@ -814,7 +833,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         descriptionCell.textContent = item.description || '';
 
         row.append(nameCell, eraCell, levelCell, prereqCell, unlocksCell, descriptionCell);
-        if (selectedTechId === item.id) row.classList.add('is-selected');
+        if (selectedTechId === item.id) {
+            row.classList.add('is-selected');
+            name.classList.add('is-selected');
+            name.setAttribute('aria-current', 'true');
+        }
         return row;
     }
 
@@ -827,10 +850,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         chip.textContent = item.name;
         chip.style.setProperty('--era-color', eraColors[item.era] || '#777');
         if (item.maturity) chip.dataset.maturity = item.maturity;
-        if (selectedTechId === item.id) chip.classList.add('is-selected');
+        if (selectedTechId === item.id) {
+            chip.classList.add('is-selected');
+            chip.setAttribute('aria-current', 'true');
+        }
         chip.addEventListener('click', event => {
             event.preventDefault();
-            selectTechnology(item.id, { revealDetail: true });
+            selectTechnology(item.id, {
+                revealDetail: true,
+                focusDetail: event.detail === 0
+            });
         });
         return chip;
     }
@@ -857,7 +886,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         button.type = 'button';
         button.className = 'relationship-chip';
         button.textContent = formatTechLabel(id);
-        button.addEventListener('click', () => selectTechnology(id, { revealDetail: true }));
+        button.addEventListener('click', event => {
+            selectTechnology(id, {
+                revealDetail: true,
+                focusDetail: event.detail === 0
+            });
+        });
         return button;
     }
 
@@ -962,6 +996,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const header = document.createElement('div');
         header.className = 'sorted-detail-header';
         const title = document.createElement('h2');
+        title.id = 'sorted-detail-heading';
+        title.tabIndex = -1;
         title.textContent = item.name;
         header.appendChild(title);
         const id = document.createElement('span');
@@ -1114,7 +1150,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 grid.appendChild(column);
             }
 
-            section.appendChild(grid);
+            const scroller = document.createElement('div');
+            scroller.className = 'branch-era-scroll';
+            scroller.tabIndex = 0;
+            scroller.setAttribute('aria-label', `${branch} eras; scroll horizontally to view every era`);
+            scroller.appendChild(grid);
+            section.appendChild(scroller);
             fragment.appendChild(section);
         }
 
@@ -1185,6 +1226,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const table = document.createElement('table');
             table.className = 'sorted-table';
             table.innerHTML = `
+                <caption class="visually-hidden">${era} technologies</caption>
                 <thead>
                     <tr>
                         <th scope="col">Technology</th>
@@ -1201,7 +1243,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 body.appendChild(createRow(item, graph));
             }
             table.appendChild(body);
-            section.appendChild(table);
+            const scroller = document.createElement('div');
+            scroller.className = 'sorted-table-scroll';
+            scroller.tabIndex = 0;
+            scroller.setAttribute('aria-label', `${era} technologies; scroll horizontally to view every column`);
+            scroller.appendChild(table);
+            section.appendChild(scroller);
             fragment.appendChild(section);
         }
 
@@ -1219,12 +1266,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         activeGraph = graph;
 
         for (const item of data) {
+            const itemClassificationText = classificationText(item);
             item.level = graph.level.get(item.id) || 0;
-            item.branch = classifyBranch(item);
-            item.fields = classifyFields(item, item.branch);
+            item.branch = classifyBranch(item, itemClassificationText);
+            item.fields = classifyFields(item, item.branch, itemClassificationText);
             item.fieldLanes = {};
             for (const field of item.fields) {
-                item.fieldLanes[field] = classifyFieldLane(item, field);
+                item.fieldLanes[field] = classifyFieldLane(item, field, itemClassificationText);
             }
             item.searchText = `${normalizeText(item, graph)} ${item.branch.toLowerCase()} ${item.fields.join(' ').toLowerCase()}`;
         }
@@ -1260,29 +1308,68 @@ document.addEventListener('DOMContentLoaded', async () => {
         const hashTechId = getHashTechId();
         if (hashTechId && graph.byId.has(hashTechId)) selectedTechId = hashTechId;
         render(data, graph);
+        mainEl?.setAttribute('aria-busy', 'false');
 
-        const scheduleRender = () => {
-            visibleLimit = pageSize;
-            window.requestAnimationFrame(() => render(data, graph));
+        const scheduleRender = ({ resetLimit = true } = {}) => {
+            window.clearTimeout(searchTimer);
+            if (resetLimit) visibleLimit = pageSize;
+            if (renderFrameId !== null) window.cancelAnimationFrame(renderFrameId);
+            renderFrameId = window.requestAnimationFrame(() => {
+                renderFrameId = null;
+                render(data, graph);
+            });
         };
-        searchInput?.addEventListener('input', scheduleRender);
+        searchInput?.addEventListener('input', () => {
+            window.clearTimeout(searchTimer);
+            searchTimer = window.setTimeout(() => scheduleRender(), 100);
+        });
+        searchInput?.addEventListener('keydown', event => {
+            if (event.key !== 'Escape') return;
+            window.clearTimeout(searchTimer);
+            searchInput.value = '';
+            scheduleRender();
+            setStatus('Search cleared.');
+        });
         viewMode?.addEventListener('change', scheduleRender);
         fieldFilter?.addEventListener('change', scheduleRender);
         branchFilter?.addEventListener('change', scheduleRender);
         eraFilter?.addEventListener('change', scheduleRender);
         sortMode?.addEventListener('change', scheduleRender);
+        resetBtn?.addEventListener('click', () => {
+            window.clearTimeout(searchTimer);
+            if (searchInput) searchInput.value = '';
+            if (viewMode) viewMode.value = 'branches';
+            if (fieldFilter) fieldFilter.value = 'all';
+            if (branchFilter) branchFilter.value = 'all';
+            if (eraFilter) eraFilter.value = 'all';
+            if (sortMode) sortMode.value = 'era';
+            scheduleRender();
+            setStatus('Filters cleared.');
+            searchInput?.focus();
+        });
         showMoreBtn?.addEventListener('click', () => {
             visibleLimit += pageSize;
-            window.requestAnimationFrame(() => render(data, graph));
+            scheduleRender({ resetLimit: false });
         });
         window.addEventListener('hashchange', () => {
             const hashId = getHashTechId();
             if (hashId && graph.byId.has(hashId)) {
                 selectTechnology(hashId, { updateHash: false, revealDetail: true });
+            } else {
+                selectedTechId = null;
+                renderDetail(null);
+                updateSelectedMarkers();
+                if (selectionStatusEl) selectionStatusEl.textContent = 'Selection cleared.';
             }
         });
     } catch (err) {
         console.error('Error loading sorted tech view:', err);
-        setStatus('Failed to load technologies.');
+        setStatus('Failed to load technologies. Refresh the page or check the server.', 'error');
+        mainEl?.setAttribute('aria-busy', 'false');
     }
+
+    window.addEventListener('beforeunload', () => {
+        window.clearTimeout(searchTimer);
+        if (renderFrameId !== null) window.cancelAnimationFrame(renderFrameId);
+    });
 });

@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-16-gps-satellite-constellations-required",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "gps",
+    "prerequisite": "satellite_constellations"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "evidence_level": "weak_inference",
+    "confidence": 0,
+    "note": "The previous GPS graph represented generic satellite technology but omitted the coordinated multi-satellite architecture documented for NAVSTAR."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "NAVSTAR's worldwide positioning architecture requires a coordinated constellation of orbiting satellites to provide the geometry and continuous ranging coverage unavailable from one spacecraft."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gao.gov/assets/psad-77-23.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Report pp. 1-3, System Description and Space Segment: specifies a constellation of orbiting satellites arranged to provide worldwide navigation coverage and continuous broadcasts.",
+    "source_claim_summary": "The contemporaneous program report defines NAVSTAR's space segment as a coordinated satellite constellation rather than a single spacecraft.",
+    "source_support_rationale": "Generic satellite technology captures the platform, but the GPS claim also depends on multi-satellite geometry and continuous coverage, so the constellation architecture needs its own direct edge."
+  },
+  "ontology_before": "GPS depended on generic satellite technology without explicitly representing its coordinated multi-satellite space-segment architecture.",
+  "ontology_after": "GPS requires both the satellite platform and the constellation-level arrangement that supplies worldwide ranging geometry.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: satellite_constellations remains required for gps.",
+  "would_reject_if": [
+    "The GPS node is rescoped to a single-spacecraft experiment that does not claim continuous worldwide positioning.",
+    "Primary architecture evidence shows that the scoped NAVSTAR design did not require coordinated signals from multiple satellites."
+  ],
+  "short_reason": "NAVSTAR's positioning geometry and worldwide coverage require a coordinated satellite constellation.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps.before.json /tmp/gps.after.json --require-behavior-change --require-claim-change"
+  ]
+}

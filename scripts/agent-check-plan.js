@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 const { execFileSync, spawn, spawnSync } = require('child_process');
+const os = require('node:os');
+
+const DEFAULT_MAX_PARALLELISM = 2;
 
 function parseArgs(argv) {
     const args = new Set(argv);
@@ -19,7 +22,9 @@ function usage() {
 
 Plans validation from changed files. --refresh updates stale generated artifacts
 before planning. --run executes the plan; --parallel runs independent checks
-concurrently and implies --run.`);
+concurrently and implies --run. Parallel execution uses at most two workers by
+default (and never more than the available CPU count); set AGENT_CHECK_JOBS to
+a positive integer to override the worker count.`);
 }
 
 function git(args) {
@@ -230,9 +235,46 @@ function runCommandAsync(command) {
     });
 }
 
-async function runPlanParallel(commands) {
-    console.log(`\nRunning ${commands.length} independent check(s) concurrently...`);
-    const results = await Promise.all(commands.map(runCommandAsync));
+function resolveParallelism(value, availableParallelism = os.availableParallelism()) {
+    if (value === undefined || value === '') {
+        return Math.max(1, Math.min(DEFAULT_MAX_PARALLELISM, availableParallelism));
+    }
+    const parsed = Number(value);
+    if (!Number.isInteger(parsed) || parsed < 1) {
+        throw new Error('AGENT_CHECK_JOBS must be a positive integer');
+    }
+    return parsed;
+}
+
+async function runBounded(items, maxConcurrency, execute) {
+    if (!Number.isInteger(maxConcurrency) || maxConcurrency < 1) {
+        throw new Error('maxConcurrency must be a positive integer');
+    }
+    if (!items.length) return [];
+
+    const results = new Array(items.length);
+    let nextIndex = 0;
+    const workerCount = Math.min(maxConcurrency, items.length);
+
+    async function worker() {
+        while (nextIndex < items.length) {
+            const index = nextIndex;
+            nextIndex += 1;
+            results[index] = await execute(items[index], index);
+        }
+    }
+
+    await Promise.all(Array.from({ length: workerCount }, worker));
+    return results;
+}
+
+async function runPlanParallel(commands, options = {}) {
+    const concurrency = options.concurrency ?? resolveParallelism(process.env.AGENT_CHECK_JOBS);
+    const execute = options.execute ?? runCommandAsync;
+    console.log(
+        `\nRunning ${commands.length} independent check(s) with up to ${Math.min(concurrency, commands.length)} concurrent worker(s)...`
+    );
+    const results = await runBounded(commands, concurrency, execute);
     let passed = true;
 
     for (const result of results) {
@@ -288,5 +330,7 @@ module.exports = {
     parseArgs,
     plan,
     removeQualityCoveredCommands,
+    resolveParallelism,
+    runBounded,
     runPlanParallel
 };

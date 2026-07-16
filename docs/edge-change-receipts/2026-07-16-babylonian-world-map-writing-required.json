@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-babylonian-world-map-writing-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "basic_cartography",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.97,
+    "note": "The surviving map is a cuneiform document whose named places, distance annotations, reverse-side regional descriptions, and colophon are integral to the artifact's mapped world."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Object 1882,0714.509, Description and Curator's comments: cuneiform labels identify Babylon, the Euphrates, and surrounding regions; notes state distances to eight outer regions; the reverse contains eight descriptive paragraphs; and the colophon says the tablet copied an earlier document.",
+    "source_claim_summary": "Cuneiform labels and explanatory text are constitutive components of the surviving mapped artifact.",
+    "source_support_rationale": "The scoped node is not an abstract unlabeled sketch: its geographical identities, outer-region structure, distances, and transmission history are conveyed by writing, so writing is required for this documented artifact."
+  },
+  "ontology_before": "Writing was treated only as a loose historical predecessor to a broad concept of cartography.",
+  "ontology_after": "Writing is a required component of the specifically scoped cuneiform world-map tablet.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-babylonian-world-map-boundary: writing is the sole direct prerequisite and is required.",
+  "would_reject_if": [
+    "The node is broadened to include non-textual maps rather than the specifically identified cuneiform tablet."
+  ],
+  "short_reason": "The artifact's mapped content depends directly on its cuneiform labels and explanatory text.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/basic_cartography.before.json /tmp/basic_cartography.after.json --require-behavior-change"
+  ]
+}

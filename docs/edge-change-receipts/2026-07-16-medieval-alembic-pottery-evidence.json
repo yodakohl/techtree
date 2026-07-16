@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-16-medieval-alembic-pottery-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "distillation_advanced",
+    "prerequisite": "pottery"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Pottery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.78,
+    "evidence_level": "review",
+    "note": "Al-Kindi's water-bath apparatus places the cucurbit inside an earthenware or pottery pot, directly enabling controlled moist heating without making ceramic material universal to every alembic component."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.jstage.jst.go.jp/article/orient/52/0/52_72/_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "p. 88 specifies an earthenware or pottery pot filled with water and sized to the cucurbit as the vessel for moist-heat distillation.",
+    "source_claim_summary": "The documented ninth-century water-bath unit directly uses a fired-clay outer vessel.",
+    "source_support_rationale": "Pottery is enabling rather than required because it provides the cited bath vessel, while the same apparatus also contains glass and wooden components."
+  },
+  "invariant_preserved_or_changed": "Preserved and locked by graph invariant 2026-07-16-medieval-alembic-distillation-scope: pottery remains an enabling apparatus material with a precise locator.",
+  "would_reject_if": [
+    "The Arabic terms in the cited passage are retranslated as a non-ceramic vessel.",
+    "The node is narrowed to dry distillation with no pottery water-bath apparatus.",
+    "A dedicated ceramic_laboratory_vessels node is added and should replace broad pottery."
+  ],
+  "short_reason": "Al-Kindi's moist-heating unit explicitly uses an earthenware or pottery bath pot.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_advanced.before.json /tmp/distillation_advanced.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

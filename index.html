@@ -20,40 +20,54 @@
     <meta name="twitter:description" content="A source-backed map of technology prerequisites, unlocks, evidence, and future roadmap fields.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260711a">
+    <link rel="stylesheet" href="style.css?v=20260716b">
     <script defer src="vendor/vis-network.min.js?v=20260516b"></script>
 </head>
 <body>
-    <header>
+    <a class="site-skip-link" href="#search-tech">Skip to graph controls</a>
+    <header class="site-header">
         <h1>TechTree</h1>
-        <nav>
+        <nav aria-label="Primary navigation">
             <a href="demo.html">Demo</a>
             <a href="sorted.html">Sorted View</a>
         </nav>
     </header>
-    <main>
-        <div id="tech-tree-container" role="region" aria-label="Interactive technology dependency graph">
+    <main id="graph-main" class="graph-main" aria-busy="true">
+        <div id="tech-tree-container" role="region" aria-label="Interactive technology dependency graph" aria-describedby="graph-keyboard-help graph-context-summary app-status" aria-busy="true" tabindex="-1">
             <!-- The tree will be rendered here by JavaScript -->
         </div>
         <div id="side-panels">
-            <div id="tech-info-panel">
-                <h2>Select a Technology</h2>
-                <label class="visually-hidden" for="search-tech">Search technologies</label>
-                <input type="search" id="search-tech" placeholder="Search by name or ID" autocomplete="off">
-                <label class="visually-hidden" for="era-filter">Filter by era</label>
-                <select id="era-filter" aria-label="Filter by era">
-                    <option value="all">All Eras</option>
-                </select>
-                <label class="visually-hidden" for="field-filter">Filter by field</label>
-                <select id="field-filter" aria-label="Filter by field">
-                    <option value="all">All Fields</option>
-                </select>
-                <label class="graph-focus-toggle">
-                    <input type="checkbox" id="focus-relevant" checked>
-                    Focus relevant
-                </label>
-                <p id="graph-context-summary" class="graph-context-summary" aria-live="polite"></p>
-                <p id="app-status" class="app-status" role="status" aria-live="polite"></p>
+            <section id="tech-info-panel" aria-labelledby="tech-info-heading">
+                <h2 id="tech-info-heading">Explore Technologies</h2>
+                <div id="graph-controls" class="graph-filter-grid">
+                    <label class="graph-control" for="search-tech">
+                        <span>Search</span>
+                        <input type="search" id="search-tech" list="search-tech-options" placeholder="Name or identifier" autocomplete="off" spellcheck="false" aria-controls="tech-tree-container" aria-keyshortcuts="Enter Escape">
+                    </label>
+                    <datalist id="search-tech-options"></datalist>
+                    <label class="graph-control" for="era-filter">
+                        <span>Era</span>
+                        <select id="era-filter">
+                            <option value="all">All Eras</option>
+                        </select>
+                    </label>
+                    <label class="graph-control" for="field-filter">
+                        <span>Field</span>
+                        <select id="field-filter">
+                            <option value="all">All Fields</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="graph-filter-actions">
+                    <label class="graph-focus-toggle">
+                        <input type="checkbox" id="focus-relevant" checked>
+                        Focus relevant
+                    </label>
+                    <button type="button" id="reset-graph-filters" class="secondary-button">Clear filters</button>
+                </div>
+                <p id="graph-keyboard-help" class="graph-keyboard-help">Focus the graph and use arrow keys to pan or <kbd>+</kbd>/<kbd>−</kbd> to zoom. In search, press <kbd>Enter</kbd> to select the first match.</p>
+                <p id="graph-context-summary" class="graph-context-summary" role="status" aria-live="polite" aria-atomic="true"></p>
+                <p id="app-status" class="app-status" role="status" aria-live="polite" aria-atomic="true"></p>
                 <p id="tech-name"></p>
                 <p id="tech-era"></p>
                 <p id="tech-description"></p>
@@ -70,16 +84,16 @@
                 </div>
                 <button type="button" id="edit-tech-btn" disabled>Edit</button>
                 <button type="button" id="delete-tech-btn" class="danger-button" disabled>Delete</button>
-            </div>
-            <div id="tech-add-panel">
+            </section>
+            <section id="tech-add-panel" aria-labelledby="editor-title">
                 <h2 id="editor-title">Add Technology</h2>
                 <label class="editor-field" for="new-tech-id">
                     <span>Identifier</span>
-                    <input type="text" id="new-tech-id" placeholder="steam_engine" autocomplete="off">
+                    <input type="text" id="new-tech-id" placeholder="steam_engine" autocomplete="off" required maxlength="160" pattern="[a-z0-9]+(?:[_-][a-z0-9]+)*">
                 </label>
                 <label class="editor-field" for="new-tech-name">
                     <span>Name</span>
-                    <input type="text" id="new-tech-name" autocomplete="off">
+                    <input type="text" id="new-tech-name" autocomplete="off" required maxlength="200">
                 </label>
                 <label class="editor-field" for="new-tech-era">
                     <span>Era</span>
@@ -95,26 +109,27 @@
                 </label>
                 <label class="editor-field" for="new-tech-description">
                     <span>Description</span>
-                    <textarea id="new-tech-description" rows="4"></textarea>
+                    <textarea id="new-tech-description" rows="4" required maxlength="5000"></textarea>
                 </label>
                 <label class="editor-field" for="new-tech-prereq">
                     <span>Prerequisite IDs</span>
-                    <input type="text" id="new-tech-prereq" placeholder="comma_separated, identifiers" autocomplete="off">
+                    <input type="text" id="new-tech-prereq" placeholder="comma_separated, identifiers" autocomplete="off" aria-describedby="prerequisite-help">
                 </label>
+                <p id="prerequisite-help" class="editor-help">Separate multiple identifiers with commas.</p>
                 <div class="editor-actions">
                     <button type="button" id="add-tech-btn">Add Technology</button>
                     <button type="button" id="update-tech-btn" hidden>Update Technology</button>
                     <button type="button" id="cancel-edit-btn" class="secondary-button" hidden>Cancel</button>
                 </div>
-                <p id="editor-status" class="editor-status" role="status" aria-live="polite"></p>
-            </div>
-            <div id="era-legend">
-                <h2>Era Legend</h2>
+                <p id="editor-status" class="editor-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            </section>
+            <section id="era-legend" aria-labelledby="era-legend-title">
+                <h2 id="era-legend-title">Era Legend</h2>
                 <!-- Populated by app.js -->
-            </div>
+            </section>
         </div>
     </main>
-    <script defer src="app.js?v=20260711a"></script>   <!-- Application logic -->
+    <script defer src="app.js?v=20260716b"></script>
 </body>
 </html>
 

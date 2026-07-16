@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-greek-trireme-sailing-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "sailing"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Sailing provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.9,
+    "note": "Triremes carried a square-rigged mainsail and boat-sail for passage and could operate under sail and oar, while their defining combat propulsion remained the oar crew."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://eodg.atm.ox.ac.uk/user/dudhia/rowing/trireme/poster.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Single-page poster, sea-trials section: Olympias was equipped like ancient ships with a square-rigged mainsail and boat-sail and was tested under both oar and sail.",
+    "source_claim_summary": "The Trireme Trust summary documents an ancient-style two-sail rig and practical operation under wind power as well as oars.",
+    "source_support_rationale": "Sails expanded passage capability but the source separately identifies 170 oars as the defining propulsion system, supporting an enabling rather than required classification."
+  },
+  "ontology_before": "A generic sailing association did not distinguish wind-assisted passage from the vessel's defining manual combat propulsion.",
+  "ontology_after": "Sailing remains a bounded enabler for the trireme's passage rig while manual boat propulsion is modeled separately as required.",
+  "invariant_preserved_or_changed": "Preserved and strengthened by graph invariant 2026-07-16-greek-trireme-boundary: sailing remains enabling.",
+  "would_reject_if": [
+    "Evidence shows Greek triremes lacked sails entirely or, conversely, that wind power rather than the three-level oar system defined their combat maneuvering."
+  ],
+  "short_reason": "The reconstruction evidence directly supports sails for passage while preserving the oar system as the defining propulsion architecture.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_shipbuilding_bireme_trireme.before.json /tmp/advanced_shipbuilding_bireme_trireme.after.json --require-behavior-change"
+  ]
+}

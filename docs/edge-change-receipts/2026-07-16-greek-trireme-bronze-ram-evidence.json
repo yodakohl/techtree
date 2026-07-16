@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-greek-trireme-bronze-ram-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "bronze_working"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Bronze Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.88,
+    "note": "Bronze casting enabled the prow ram used as a trireme's principal weapon, but the timber hull and three-level rowing architecture did not depend on bronze."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nmm.org.il/eng/Exhibitions/468/The_Athlit_Ram",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Exhibition text: the Athlit weapon is a 465 kg single bronze casting attached to a warship prow; its vessel was probably a medium quadrireme or three-tier trireme.",
+    "source_claim_summary": "The conserved Athlit artifact directly demonstrates a large cast-bronze ram integrated with the wooden prow of a possible three-tier trireme.",
+    "source_support_rationale": "The evidence supports bronze as the material technology for the offensive ram, while leaving the timber hull and oar arrangement independently sufficient to define the vessel class."
+  },
+  "ontology_before": "Bronze working was attached through a generic materials page without identifying what bronze contributed to the ship.",
+  "ontology_after": "Bronze working is retained only as a bounded enabler of the trireme's ram, not as a prerequisite of its hull or rowing architecture.",
+  "invariant_preserved_or_changed": "Preserved and strengthened by graph invariant 2026-07-16-greek-trireme-boundary: bronze_working remains enabling.",
+  "would_reject_if": [
+    "Artifact analysis shows the relevant trireme rams were not bronze or that the cited ram cannot represent the three-tier warship tradition."
+  ],
+  "short_reason": "The Athlit artifact directly supports a cast-bronze warship ram while keeping bronze distinct from the vessel's timber and oar systems.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_shipbuilding_bireme_trireme.before.json /tmp/advanced_shipbuilding_bireme_trireme.after.json --require-behavior-change"
+  ]
+}

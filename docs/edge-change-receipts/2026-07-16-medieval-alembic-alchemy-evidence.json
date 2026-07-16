@@ -1,0 +1,45 @@
+{
+  "id": "2026-07-16-medieval-alembic-alchemy-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "distillation_advanced",
+    "prerequisite": "alchemy"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Alchemy provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.82,
+    "evidence_level": "review",
+    "note": "Jabirian and al-Razi alchemical writings used the same distillation methods and apparatus as al-Kindi's perfume-making practice, making the medieval Arabic alchemical laboratory tradition a direct experimental enabler without making transmutation theory required."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.jstage.jst.go.jp/article/orient/52/0/52_72/_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "pp. 80-81 and 89-90 compare al-Kindi's perfume-distillation procedure with Jabirian and al-Razi alchemical methods and identify shared water-bath and direct-fire methodology.",
+    "source_claim_summary": "Practical perfume making and alchemical distillation were conceptually distinct but often used the same medieval apparatus and heating methods.",
+    "source_support_rationale": "The edge remains enabling because the Arabic alchemical laboratory tradition supplied a directly shared experimental method, while the node scope does not require belief in transmutation."
+  },
+  "invariant_preserved_or_changed": "Preserved and locked by graph invariant 2026-07-16-medieval-alembic-distillation-scope: alchemy remains an enabling edge rather than a required theoretical commitment.",
+  "would_reject_if": [
+    "The node is narrowed solely to al-Kindi's anti-alchemical perfume recipes with no shared apparatus lineage.",
+    "A stronger source shows the Jabirian and al-Razi procedures were technically unrelated to the scoped alembic practice.",
+    "A more precise medieval_laboratory_apparatus node is added and should replace the broad alchemy edge."
+  ],
+  "short_reason": "Shared apparatus and heating practice make Arabic alchemy an evidenced enabler, not a required theory.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/distillation_advanced.before.json /tmp/distillation_advanced.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

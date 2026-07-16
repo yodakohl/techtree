@@ -1,0 +1,138 @@
+{
+  "id": "2026-07-16-gps-navstar-logistics-boundary",
+  "description": "Lock GPS to the 1973 NAVSTAR architecture milestone, preserve its constitutive mechanisms, and prevent later GPS fleet logistics from becoming a backwards prerequisite of earlier constellations, route optimization, or drone autonomy.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "gps",
+      "operator": "eq",
+      "value": 1973,
+      "reason": "The scoped milestone is approval and initiation of the integrated NAVSTAR GPS architecture in 1973, not the earlier Transit precursor or later operational service."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps",
+      "prerequisite": "satellite_technology",
+      "expected": "required",
+      "reason": "NAVSTAR requires an orbiting satellite space segment to broadcast ranging and navigation data."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps",
+      "prerequisite": "satellite_constellations",
+      "expected": "required",
+      "reason": "NAVSTAR requires coordinated multi-satellite geometry and coverage rather than a single orbiting platform."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps",
+      "prerequisite": "atomic_clocks",
+      "expected": "required",
+      "reason": "GPS range measurement requires synchronized high-precision satellite timing."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps",
+      "prerequisite": "radio",
+      "expected": "required",
+      "reason": "The satellite-to-receiver radio link carries the ranging and navigation signals."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps",
+      "prerequisite": "relativity_special_general",
+      "expected": "required",
+      "reason": "Accurate GPS timing requires correction for special- and general-relativistic satellite-clock effects."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps",
+      "prerequisite": "integrated_circuits",
+      "expected": "commercial_or_scaling_dependency",
+      "reason": "Integrated circuits enabled small, low-power, low-cost receivers but are not the constitutive satellite-ranging principle."
+    },
+    {
+      "type": "first_known_date",
+      "node": "gps_guided_logistics",
+      "operator": "eq",
+      "value": 1997,
+      "reason": "The node is scoped to documented commercial GPS fleet navigation, tracking, routing, and dispatch adoption rather than earlier non-GPS dispatch."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps_guided_logistics",
+      "prerequisite": "gps",
+      "expected": "required",
+      "reason": "GPS positioning is constitutive of the explicitly GPS-guided fleet capability."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "gps_guided_logistics",
+      "prerequisite": "motorized_logistics",
+      "expected": "required",
+      "reason": "Motor vehicles and their routes, dispatch, and deliveries are constitutive of the scoped fleet capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "gps_guided_logistics",
+      "prerequisite": "supply_chain_management_software",
+      "reason": "The documented GPS fleet navigation and tracking capability does not require a broader enterprise supply-chain suite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "satellite_constellations",
+      "prerequisite": "gps",
+      "reason": "Multi-satellite navigation systems predated the 1973 NAVSTAR program, so GPS cannot be a prerequisite for the general constellation class."
+    },
+    {
+      "type": "first_known_date",
+      "node": "satellite_constellations",
+      "operator": "eq",
+      "value": 1963,
+      "reason": "The scoped milestone is the first coordinated Vela pair launched on October 17, 1963."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "satellite_constellations",
+      "prerequisite": "satellite_technology",
+      "expected": "required",
+      "reason": "A satellite constellation necessarily consists of multiple artificial satellites operated together."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "satellite_constellations",
+      "prerequisite": "smallsat_cubesats",
+      "reason": "The 1963 Vela constellation predates the 1999 CubeSat standard by decades."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "satellite_constellations",
+      "prerequisite": "communications_satellites",
+      "reason": "Vela demonstrates coordinated constellation coverage using detection satellites outside the communications application class."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "route_optimization_logistics",
+      "prerequisite": "gps_guided_logistics",
+      "reason": "Fleet-route optimization was formulated in 1959 and does not require a later GPS fleet application."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "route_optimization_logistics",
+      "prerequisite": "operations_research",
+      "reason": "Operations research remains the direct methodological lineage for the truck-routing optimization milestone."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "drone_autonomy",
+      "prerequisite": "gps_guided_logistics",
+      "reason": "Autonomous aircraft navigation and control do not require the later commercial GPS fleet-logistics workflow."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "drone_autonomy",
+      "prerequisite": "mobile_robot_navigation",
+      "reason": "Mobile-robot navigation remains the relevant localization, planning, and control lineage."
+    }
+  ]
+}

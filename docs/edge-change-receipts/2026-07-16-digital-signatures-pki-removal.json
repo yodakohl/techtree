@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-digital-signatures-pki-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "digital_signatures",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Digital-signature methods arise from public-key cryptography and can be defined or used without an X.509 certificate-authority infrastructure.",
+  "source_supports_edge": "no",
+  "source_url": "https://www-ee.stanford.edu/~hellman/publications/24.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Abstract and Sections I-III, pp. 644-648, introduce public-key cryptosystems and a public-key authentication signature scheme without an X.509 certificate framework.",
+    "source_claim_summary": "The foundational public-key paper defines digital signature authentication directly from public-key transformations and public key distribution.",
+    "source_support_rationale": "The method was specified before the 1988 X.509 framework and its mathematical operation does not require certification authorities, certificate paths, or revocation services."
+  },
+  "ontology_before": "The graph reversed the historical and technical direction by making digital signatures depend on the later certificate infrastructure that itself uses signatures.",
+  "ontology_after": "Digital signatures depend on cryptographic primitives, while X.509 PKI is a downstream system that uses them to certify identity-to-key bindings.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-pki-independent-identity-and-primitive-boundaries: digital_signatures no longer directly depends on public_key_infrastructure.",
+  "would_reject_if": [
+    "A foundational digital-signature construction requires X.509 certification authorities, certificate paths, and revocation as part of the signing operation."
+  ],
+  "short_reason": "Foundational signature schemes predate X.509 and operate on public-key primitives without requiring certificate infrastructure.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/digital_signatures.before.json /tmp/digital_signatures.after.json --require-behavior-change"
+  ]
+}

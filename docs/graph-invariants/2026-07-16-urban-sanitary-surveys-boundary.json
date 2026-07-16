@@ -1,0 +1,38 @@
+{
+  "id": "2026-07-16-urban-sanitary-surveys-boundary",
+  "description": "Lock urban sanitary surveys to the documented 1838 population-health and environmental inquiry method without later treatment or imaging dependencies.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urban_sanitary_surveys",
+      "prerequisite": "urban_water_chlorination",
+      "reason": "Municipal chlorination followed the documented sanitary inquiries by decades and is a possible intervention, not an inquiry prerequisite."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "urban_sanitary_surveys",
+      "prerequisite": "radiology_departments",
+      "reason": "The 1838 environmental and population-health survey workflow predates X-rays and does not require clinical imaging."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "urban_sanitary_surveys",
+      "prerequisite": "public_health_statistics",
+      "reason": "The primary inquiry record specifies disease returns, institutional data, local reports, and comparative factual analysis."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "urban_sanitary_surveys",
+      "prerequisite": "public_health_statistics",
+      "expected": "enabling",
+      "reason": "Organized health data enabled the surveys while personal inspection and descriptive evidence remained additional methods."
+    },
+    {
+      "type": "first_known_date",
+      "node": "urban_sanitary_surveys",
+      "operator": "eq",
+      "value": 1838,
+      "reason": "The 1842 Poor Law Commission report identifies metropolitan fever and sanitary-condition inquiries presented on 14 May 1838."
+    }
+  ]
+}

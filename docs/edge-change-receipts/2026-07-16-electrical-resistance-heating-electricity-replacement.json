@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-16-electrical-resistance-heating-electricity-replacement",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "electrical_appliances_early",
+    "prerequisite": "electricity"
+  },
+  "replaced_edge": {
+    "dependent": "electrical_appliances_early",
+    "prerequisite": "central_station_power"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Central Station Power provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "confidence": 0.96,
+    "evidence_level": "primary_source",
+    "note": "Resistance-heating appliances require electric current as their energy input; Seely's flat iron placed a carbon resistance inside the iron and connected it to a source of electricity."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patents.google.com/patent/US259054A/en",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Specification, opening paragraphs and claims: the appliance uses electric current to heat flat irons and similar utensils by placing an electrical resistance inside the iron; the patent says current may come from any suitable source.",
+    "source_claim_summary": "The patented appliance converts electrical input directly into heat through an internal carbon resistance and does not specify central-station generation as part of the device.",
+    "source_support_rationale": "Every realization inside the narrowed resistance-heating scope needs electric current, while a particular generation-and-distribution business model is only one possible way to supply that current."
+  },
+  "ontology_before": "Early Electrical Appliances depended on Central Station Power, making a specific urban supply architecture appear foundational to a node that also included unrelated motor appliances.",
+  "ontology_after": "Early Electric Resistance-Heating Appliances depends directly on Electricity as the required energy input; central-station power remains external deployment context.",
+  "invariant_preserved_or_changed": "Changed: electricity is the required direct prerequisite and central_station_power is no longer a direct prerequisite.",
+  "would_reject_if": [
+    "The node is later rescoped specifically to mass-market appliances sold only for central-station utility service.",
+    "A primary source shows Seely's 1882 appliance could operate without electrical current.",
+    "A separate early_electric_appliance_distribution node is added whose scope explicitly requires central-station customer service."
+  ],
+  "short_reason": "Electric current is intrinsic; central-station supply is not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/electrical_appliances_early.before.json /tmp/electrical_appliances_early.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

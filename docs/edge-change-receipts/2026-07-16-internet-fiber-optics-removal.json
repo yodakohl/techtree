@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-internet-fiber-optics-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "internet",
+    "prerequisite": "fiber_optics"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Fiber Optics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Fiber became an important transmission medium, but it was not required by the heterogeneous operational Internet of January 1983.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc801.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Introduction (p. 1) describes packet radio and satellite networks; Appendix D (p. 16) lists operational gateways joining ARPANET, SATNET, PRNET, UCL Net, RSRE Net, RCC Net, and Comsat DCN Net.",
+    "source_claim_summary": "RFC 801 documents the ARPA Internet interconnecting packet-radio, satellite, ARPANET, and other networks through gateways.",
+    "source_support_rationale": "An internetwork operating across radio, satellite, and legacy packet-network links demonstrates medium independence; fiber optics can scale later links without defining the 1983 milestone."
+  },
+  "ontology_before": "The Internet node treated one later high-capacity physical medium as a direct prerequisite for a heterogeneous internetwork.",
+  "ontology_after": "The Internet node is medium-independent at its direct boundary and depends instead on packet switching plus the TCP/IP protocol environment.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-internet-operational-boundary: internet no longer directly depends on fiber_optics.",
+  "would_reject_if": [
+    "Primary records establish that every network participating in Full Internet Service in January 1983 required fiber-optic transmission."
+  ],
+  "short_reason": "RFC 801 documents the operational internetwork across satellite, packet-radio, and other non-fiber links, making fiber optional rather than prerequisite.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/internet.before.json /tmp/internet.after.json --require-behavior-change"
+  ]
+}

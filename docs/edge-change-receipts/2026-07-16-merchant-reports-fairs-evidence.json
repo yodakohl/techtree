@@ -1,0 +1,41 @@
+{
+  "id": "2026-07-16-merchant-reports-fairs-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "market_price_bulletins",
+    "prerequisite": "trade_fairs"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Trade Fairs provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "textbook",
+    "confidence": 0.9,
+    "note": "The recurring Champagne fairs created distinct exchange markets whose changing rates and conditions were reported to merchant houses in other cities."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.manchesterhive.com/downloadpdf/display/9781526158147/9781526158147.00013.pdf",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Chapter 3, pp. 148-149: a 29 November 1265 letter reports the florin exchange rate at Troyes and compares it with the rate at the preceding St. Ayoul fair of Provins.",
+    "source_claim_summary": "A merchant report carried current exchange-rate information from one Champagne fair and compared it with the immediately preceding fair market.",
+    "source_support_rationale": "The fairs generated the discrete, changing market conditions being reported; the source ties the letter's informational content directly to those recurring trading venues."
+  },
+  "invariant_preserved_or_changed": "Preserved and locked by graph invariant 2026-07-16-merchant-market-reports-scope: trade_fairs remains a direct enabling prerequisite.",
+  "would_reject_if": [
+    "The 1265 report is shown to concern a private rate unrelated to the Troyes and Provins fair markets."
+  ],
+  "short_reason": "The documented letter reports and compares exchange rates at successive Champagne fairs.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run quality"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "2026-07-16-certificate-transparency-origin",
+  "description": "Lock Certificate Transparency to RFC 6962's 2013 X.509 logging protocol rather than backdating it to earlier digital-identity systems.",
+  "checks": [
+    {
+      "type": "direct_edge_present",
+      "dependent": "certificate_transparency_logs",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "RFC 6962 logs X.509 certificate chains and evaluates them against roots accepted by each log."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "certificate_transparency_logs",
+      "prerequisite": "public_key_infrastructure",
+      "expected": "required",
+      "reason": "Certificate issuance, chains, and trust roots are the protocol objects being made transparent."
+    },
+    {
+      "type": "first_known_date",
+      "node": "certificate_transparency_logs",
+      "operator": "eq",
+      "value": 2013,
+      "reason": "The first Certificate Transparency specification, RFC 6962, was published in June 2013."
+    }
+  ]
+}

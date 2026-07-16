@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-dynamo-construction-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "dynamo",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Construction provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because Classical Monumental Construction does not represent the iron, winding, commutator, or machine-fabrication capabilities documented for the dynamo.",
+  "source_supports_edge": "no",
+  "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/On_the_Conversion_of_Dynamical_into_Electrical_Force_without_the_Aid_of_Permanent_Magnetism_%28IA_jstor-112652%29.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Pages 368-369 describe soft-iron field structures, insulated windings, a rotating armature, and a commutator as the apparatus; no building or monumental-construction system is part of the machine.",
+    "source_claim_summary": "The source identifies electrical-machine components rather than civil or monumental construction capabilities.",
+    "source_support_rationale": "The old edge reused a generic construction label whose node scope is unrelated to the documented fabrication boundary of a nineteenth-century electrical machine."
+  },
+  "ontology_before": "Dynamo inherited from a broad Classical Monumental Construction node through a templated enabling claim.",
+  "ontology_after": "Self-Excited Industrial Dynamo retains only its generator predecessor and directly evidenced insulated-winding input.",
+  "invariant_preserved_or_changed": "Changed: dynamo no longer directly depends on construction.",
+  "would_reject_if": [
+    "The construction node is respecified to mean electrical-machine fabrication rather than classical monumental works.",
+    "A primary source identifies civil construction as part of the scoped 1866 dynamo machine.",
+    "The node is broadened to encompass complete generating stations and their buildings."
+  ],
+  "short_reason": "Monumental construction is outside the machine's component boundary.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dynamo.before.json /tmp/dynamo.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

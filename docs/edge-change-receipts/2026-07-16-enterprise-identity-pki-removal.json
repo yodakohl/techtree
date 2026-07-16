@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-enterprise-identity-pki-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "enterprise_cyber_identity",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Enterprise identity management can operate with passwords, shared secrets, OTP authenticators, federation, or public keys; certificate infrastructure is not mandatory across the category.",
+  "source_supports_edge": "no",
+  "source_url": "https://pages.nist.gov/800-63-4/sp800-63/model/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Digital Identity Model, authentication factors, authenticator secrets, and deployment architecture: supports shared-secret and asymmetric-key authenticators and remains architecture-agnostic.",
+    "source_claim_summary": "NIST's identity architecture permits organizations to deploy authentication with multiple authenticator and federation patterns rather than requiring certificate infrastructure.",
+    "source_support_rationale": "Enterprise deployment scope does not turn one supported mechanism into a universal prerequisite; shared-secret directories, passwords, and OTP systems can manage organizational identities without X.509 PKI."
+  },
+  "ontology_before": "The graph equated the broad enterprise identity category with certificate-based enterprise authentication.",
+  "ontology_after": "Enterprise identity systems retain multiple authentication and federation architectures, with PKI available as an optional implementation.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-pki-independent-identity-and-primitive-boundaries: enterprise_cyber_identity no longer directly depends on public_key_infrastructure.",
+  "would_reject_if": [
+    "The node is explicitly narrowed to enterprise certificate lifecycle management rather than broad organizational identity and access management."
+  ],
+  "short_reason": "NIST's architecture supports enterprise identity with both public-key and non-PKI authenticators, so PKI is optional.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/enterprise_cyber_identity.before.json /tmp/enterprise_cyber_identity.after.json --require-behavior-change"
+  ]
+}

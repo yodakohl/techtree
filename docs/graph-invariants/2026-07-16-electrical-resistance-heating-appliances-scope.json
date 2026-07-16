@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-electrical-resistance-heating-appliances-scope",
+  "description": "Lock electrical_appliances_early to early electric resistance-heating devices, excluding motor appliances and central-station infrastructure while preserving the documented lighting-circuit connection.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "electrical_appliances_early",
+      "operator": "eq",
+      "value": 1882,
+      "reason": "The narrowed node remains anchored to Seely's electric flat-iron patent issued on 6 June 1882."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electrical_appliances_early",
+      "prerequisite": "electricity",
+      "expected": "required",
+      "reason": "Electric current is the intrinsic energy input for every resistance-heating appliance inside the locked scope."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "electrical_appliances_early",
+      "prerequisite": "electrical_lighting_systems",
+      "expected": "enabling",
+      "reason": "Seely's preferred lamp-socket connection used an existing lighting circuit, but the patent allowed other suitable electricity sources."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electrical_appliances_early",
+      "prerequisite": "central_station_power",
+      "reason": "Central-station generation is a possible deployment context, not part of the resistance-heating appliance mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electrical_appliances_early",
+      "prerequisite": "electric_motor",
+      "reason": "Motor-driven appliances are explicitly outside the resistance-heating scope."
+    }
+  ]
+}

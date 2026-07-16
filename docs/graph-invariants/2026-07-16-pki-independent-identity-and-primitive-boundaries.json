@@ -1,0 +1,36 @@
+{
+  "id": "2026-07-16-pki-independent-identity-and-primitive-boundaries",
+  "description": "Keep cryptographic primitives, general secure hardware, and broad identity/authentication systems independent of the later X.509 PKI architecture.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_signatures",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "Digital-signature constructions predate X.509 and are cryptographic primitives used by PKI, not products of it."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "hardware_security_modules",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "HSMs provide general key protection and cryptographic processing for PKI and non-PKI applications alike."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "digital_identity_systems",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "Digital identity can use passwords, shared secrets, OTP seeds, biometrics, or asymmetric keys without a certificate authority."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "enterprise_cyber_identity",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "Enterprise identity and access management supports shared-secret, OTP, federation, and certificate-based architectures."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "multi_factor_authentication",
+      "prerequisite": "public_key_infrastructure",
+      "reason": "MFA is defined by combining factors and can use passwords, OTP, out-of-band, or biometric methods without X.509."
+    }
+  ]
+}

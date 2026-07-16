@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-greek-trireme-manual-propulsion-replaces-construction",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "basic_boat_propulsion"
+  },
+  "replaced_edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "construction"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.98,
+    "note": "The trireme is defined by 170 manually worked oars arranged on three levels; sail power supplemented passages but did not replace its constitutive oar system."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://eodg.atm.ox.ac.uk/user/dudhia/rowing/trireme/poster.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Single-page poster, opening paragraph and sea-trials section: defines the trireme by 170 oars at three levels and reports Olympias operating under both oar and sail.",
+    "source_claim_summary": "The Trireme Trust reconstruction summary identifies the three-level, 170-oar arrangement as the vessel's defining propulsion architecture.",
+    "source_support_rationale": "Manual boat propulsion names the actual motive system, whereas the removed construction node is scoped to monumental stone and civic works and contributes no ship-specific mechanism."
+  },
+  "ontology_before": "A Greek war galley directly inherited from Classical Monumental Construction while its defining multi-level manual propulsion was omitted.",
+  "ontology_after": "The trireme directly requires manual boat propulsion, while unrelated monumental building practice is absent from its ship-technology boundary.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-greek-trireme-boundary: basic_boat_propulsion is required and construction is absent.",
+  "would_reject_if": [
+    "The target is rescoped from an oared war galley to a monumental civic construction program whose manufacturing scale is the technology being modeled."
+  ],
+  "short_reason": "The trireme is structurally defined by its three-level oar system, not by generic stone-and-civic construction.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_shipbuilding_bireme_trireme.before.json /tmp/advanced_shipbuilding_bireme_trireme.after.json --require-behavior-change"
+  ]
+}

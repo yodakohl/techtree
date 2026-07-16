@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-internet-packet-switching-replaces-telecommunications",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "internet",
+    "prerequisite": "packet_switching"
+  },
+  "replaced_edge": {
+    "dependent": "internet",
+    "prerequisite": "telecommunications"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Telecommunications provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.96,
+    "note": "The operational 1983 Internet interconnected packet-switched computer networks through gateways, making packet switching part of the scoped network architecture."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc791.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Sections 1.1-1.4 (pp. 1-2) define IP for interconnected systems of packet-switched computer communication networks and place internet modules in hosts and gateways.",
+    "source_claim_summary": "RFC 791 specifies an internetwork architecture that routes datagrams through packet-switched networks joined by gateways.",
+    "source_support_rationale": "Packet switching names the directly specified networking mechanism, while telecommunications is broad background already inherited through the packet-switching and computer-networking lineage."
+  },
+  "ontology_before": "The Internet node used generic telecommunications as a direct enabler without naming the packet-network architecture of the 1983 internetwork.",
+  "ontology_after": "The Internet node directly requires packet switching and retains generic telecommunications only through the existing networking ancestry.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-internet-operational-boundary: packet_switching is required and telecommunications is not a direct Internet prerequisite.",
+  "would_reject_if": [
+    "A direct 1983 architecture source defines the scoped Internet without packet-switched networks or shows generic telecommunications to be the more specific causal boundary."
+  ],
+  "short_reason": "RFC 791 defines the Internet architecture over interconnected packet-switched networks, replacing a generic telecommunications edge with the specified mechanism.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/internet.before.json /tmp/internet.after.json --require-behavior-change"
+  ]
+}

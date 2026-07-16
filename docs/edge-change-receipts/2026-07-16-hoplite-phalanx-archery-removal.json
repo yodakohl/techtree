@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-hoplite-phalanx-archery-removal",
+  "decision_date": "2026-07-16",
+  "edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "archery"
+  },
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Archery provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Archers could support a hoplite army, but ranged auxiliary troops were not required to form the close-ranked shield-and-spear phalanx.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/sites/default/files/2019-09/Greece_Hoplites_Presnotes_KS2.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Page 2, Background information: defines hoplites as rows of shield-linked spearmen requiring collaboration and training, then separately lists lightly armed troops with throwing spears, slings, and bows.",
+    "source_claim_summary": "The British Museum notes distinguish light troops using bows from the heavy infantry ranks that constitute the hoplite formation.",
+    "source_support_rationale": "Combined forces may include archers, but auxiliary support is not a prerequisite for the formation mechanics of overlapping shields, depth, and coordinated heavy infantry."
+  },
+  "ontology_before": "The target conflated optional ranged support with the constitution of a hoplite close-order formation.",
+  "ontology_after": "Archery remains available to combined-arms descendants but is absent from the hoplite phalanx's direct boundary.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-organized-military-formations-hoplite-boundary: archery is absent.",
+  "would_reject_if": [
+    "Authoritative evidence establishes that a hoplite phalanx could not be formed or operate as a formation without an attached archery unit."
+  ],
+  "short_reason": "Archers supported some hoplite armies but were not constitutive of the phalanx.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organized_military_formations.before.json /tmp/organized_military_formations.after.json --require-behavior-change"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "2026-07-16-parliament-taxation-replaces-guilds",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "parliaments_estates_general",
+    "prerequisite": "taxation_and_tribute"
+  },
+  "replaced_edge": {
+    "dependent": "parliaments_estates_general",
+    "prerequisite": "guilds"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Guilds provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "textbook",
+    "confidence": 0.82,
+    "note": "Recurring taxation created a reason for rulers to summon territorial and urban representatives and for those representatives to claim consent over fiscal decisions."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://erskinemay.parliament.uk/section/4500/history-",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Section 1.2 explains that medieval parliaments advised the king on law-making and administration and that the Commons came to claim its assent as a necessary prerequisite for royal taxation.",
+    "source_claim_summary": "Fiscal consent became a documented function of medieval representative assemblies and a recurring basis for summoning and empowering representatives.",
+    "source_support_rationale": "Taxation names the institutional bargaining mechanism described by the parliamentary history. Guild membership does not define the represented towns, counties, clergy, or nobility and therefore launders urban association into political representation."
+  },
+  "ontology_before": "parliaments_estates_general treated guild organization as a direct enabling prerequisite for medieval representative assemblies.",
+  "ontology_after": "parliaments_estates_general now depends on taxation_and_tribute as the directly documented fiscal mechanism that repeatedly brought rulers and representatives into negotiation.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-parliamentary-scope: parliaments_estates_general depends on taxation_and_tribute and no longer directly depends on guilds.",
+  "would_reject_if": [
+    "Reliable comparative evidence shows that guild membership, rather than fiscal representation of territories and towns, was indispensable to the scoped medieval parliamentary tradition."
+  ],
+  "short_reason": "Tax bargaining directly explains recurring representative assemblies; guilds do not map cleanly to the represented estates or constituencies.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm test",
+    "npm run quality"
+  ]
+}

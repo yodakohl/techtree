@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-16-satellite-constellations-satellite-technology-required",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "satellite_constellations",
+    "prerequisite": "satellite_technology"
+  },
+  "old_claim": {
+    "type": "common_dependency",
+    "evidence_level": "weak_inference",
+    "confidence": 0,
+    "note": "The previous constellation graph omitted the underlying artificial-satellite platform while attaching later application classes instead."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.99,
+    "note": "A satellite constellation is constituted by multiple artificial satellites operated together, so satellite technology is a required platform rather than an optional enabler."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.losangeles.spaceforce.mil/News/Article-Display/Article/2601590/smc-receives-northrop-grumman-vela-satellite-model/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Vela history: describes twelve artificial satellites launched as six coordinated pairs, beginning with the first pair on October 17, 1963.",
+    "source_claim_summary": "The official history documents the scoped constellation as multiple orbital satellites deliberately deployed and operated in coordinated pairs.",
+    "source_support_rationale": "Removing artificial-satellite capability would remove every physical member of the constellation; communications and CubeSat implementations are not substitutes for that platform requirement."
+  },
+  "ontology_before": "Satellite constellations lacked their constitutive satellite-platform dependency and instead pointed to later implementation categories.",
+  "ontology_after": "Satellite technology is the required physical platform for the coordinated multi-satellite system class.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: satellite_technology remains required for satellite_constellations.",
+  "would_reject_if": [
+    "The node is broadened to coordinated non-satellite vehicles or sensors rather than orbital spacecraft.",
+    "The Vela pair is shown not to consist of artificial satellites operated together."
+  ],
+  "short_reason": "A satellite constellation necessarily consists of multiple artificial satellites.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/satellite_constellations.before.json /tmp/satellite_constellations.after.json --require-behavior-change --require-claim-change"
+  ]
+}

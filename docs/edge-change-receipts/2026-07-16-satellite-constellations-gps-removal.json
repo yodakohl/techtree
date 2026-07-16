@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-satellite-constellations-gps-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "satellite_constellations",
+    "prerequisite": "gps"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Global Positioning System (GPS) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct GPS dependency remains because coordinated multi-satellite systems such as Transit were operating before the 1973 NAVSTAR GPS program, making GPS a later constellation application rather than a prerequisite for constellations.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.losangeles.spaceforce.mil/Portals/16/documents/AFD-150806-075.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Transit section: dates the first Transit satellite to 1960, initial operational capability to 1964, and describes a three-satellite operational navigation system predating NAVSTAR GPS.",
+    "source_claim_summary": "The official navigation-systems history documents an operational multi-satellite navigation system years before the NAVSTAR GPS program was approved.",
+    "source_support_rationale": "A technology cannot be a causal prerequisite for a system class already demonstrated before that technology's own scoped milestone; GPS is one later use of constellation architecture."
+  },
+  "ontology_before": "Satellite constellations were modeled as depending on the later GPS program.",
+  "ontology_after": "Satellite constellations retain their pre-NAVSTAR chronology, while GPS remains a downstream satellite-navigation architecture.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: satellite_constellations has no direct gps prerequisite.",
+  "would_reject_if": [
+    "The node is rescoped specifically to the NAVSTAR operational constellation rather than the general coordinated multi-satellite system class.",
+    "Authoritative chronology establishes that no coordinated satellite system existed before NAVSTAR GPS."
+  ],
+  "short_reason": "Operational satellite constellations predated NAVSTAR, so the GPS-to-constellation arrow was chronologically reversed.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/satellite_constellations.before.json /tmp/satellite_constellations.after.json --require-behavior-change --require-claim-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

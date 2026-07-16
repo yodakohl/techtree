@@ -1,0 +1,51 @@
+{
+  "id": "2026-07-16-public-key-infrastructure-x509-boundary",
+  "description": "Lock Public Key Infrastructure to the 1988 X.509 certificate trust model and its constitutive public-key and digital-signature mechanisms.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_key_infrastructure",
+      "prerequisite": "internet_protocols_tcp_ip_arpanet",
+      "reason": "X.509 originated in the international Directory standards; TCP/IP is a later transport and deployment context, not part of the certificate trust mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "public_key_infrastructure",
+      "prerequisite": "software_engineering",
+      "reason": "Software engineering is generic implementation background rather than a certificate-specific causal prerequisite."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_key_infrastructure",
+      "prerequisite": "encryption_modern_cryptography_public_key",
+      "reason": "X.509 certificates bind identities to public keys and path validation operates from trusted public keys."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_key_infrastructure",
+      "prerequisite": "encryption_modern_cryptography_public_key",
+      "expected": "required",
+      "reason": "Removing public-key cryptography would remove both the certified key and the trust-anchor validation mechanism."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "public_key_infrastructure",
+      "prerequisite": "digital_signatures",
+      "reason": "Certification authorities sign certificates to certify each subject-to-public-key binding."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "public_key_infrastructure",
+      "prerequisite": "digital_signatures",
+      "expected": "required",
+      "reason": "The CA signature is constitutive of the certificate model rather than an optional transport or deployment feature."
+    },
+    {
+      "type": "first_known_date",
+      "node": "public_key_infrastructure",
+      "operator": "eq",
+      "value": 1988,
+      "reason": "The scoped infrastructure begins with X.509 (11/88), approved on 25 November 1988."
+    }
+  ]
+}

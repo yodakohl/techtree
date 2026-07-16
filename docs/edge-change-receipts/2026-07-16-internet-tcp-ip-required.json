@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-internet-tcp-ip-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "internet",
+    "prerequisite": "internet_protocols_tcp_ip_arpanet"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Internet Protocols (TCP/IP, ARPANET) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "Full Internet Service in January 1983 required hosts and services to complete the NCP-to-IP/TCP transition, making the Internet protocol suite constitutive of this milestone."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc801.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Introduction, General Plan, and Milestones (pp. 1-5) define the ARPA Internet, require complete NCP-to-IP/TCP conversion by 1 January 1983, and define Full Internet Service as all hosts and services being TCP-based.",
+    "source_claim_summary": "RFC 801 makes completed IP/TCP deployment the explicit condition for the January 1983 Full Internet Service milestone.",
+    "source_support_rationale": "The node is dated to that transition event and defined by TCP/IP, so the protocol suite is constitutive rather than one optional enabling route."
+  },
+  "ontology_before": "The Internet protocol suite was modeled as merely one enabling path to a node whose own definition and date are TCP/IP-specific.",
+  "ontology_after": "The protocol lineage is a required direct prerequisite for the operational January 1983 TCP/IP Internet.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-internet-operational-boundary: internet_protocols_tcp_ip_arpanet remains a required Internet edge.",
+  "would_reject_if": [
+    "The Internet node is broadened to pre-TCP experimental internetworking rather than the January 1983 Full Internet Service milestone."
+  ],
+  "short_reason": "RFC 801 defines completed TCP/IP conversion as the condition for Full Internet Service, so the protocol edge is required.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/internet.before.json /tmp/internet.after.json --require-behavior-change"
+  ]
+}

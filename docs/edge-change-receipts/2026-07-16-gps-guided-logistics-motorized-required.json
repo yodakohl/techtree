@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-16-gps-guided-logistics-motorized-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps_guided_logistics",
+    "prerequisite": "motorized_logistics"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "Motorized Logistics supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "The scoped fleet capability operates on motor vehicles whose movements, routes, dispatch, and deliveries are tracked and managed with GPS."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gps.gov/1998-biennial-report-congress-global-positioning-system",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Commercial Applications and Productivity Enhancement sections: describes GPS vehicle navigation, vehicle-fleet tracking and management, commercial routing and dispatch, and delivery-time and fuel savings.",
+    "source_claim_summary": "The federal report documents the scoped GPS application through motor-vehicle fleets, their routes, dispatch decisions, and deliveries.",
+    "source_support_rationale": "For a node explicitly limited to vehicle-fleet logistics, removing motorized transport removes the operational objects being positioned and managed, not merely a later channel for scaling."
+  },
+  "ontology_before": "Motorized logistics was treated only as commercialization support for GPS fleet operations.",
+  "ontology_after": "Motor vehicles and their logistics operations are required constituents of the scoped GPS-guided fleet capability.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: motorized_logistics remains required for gps_guided_logistics.",
+  "would_reject_if": [
+    "The node is broadened to include GPS tracking of non-vehicle assets, people, or wildlife as equivalent instances.",
+    "The scope is narrowed to GPS map software independent of motorized fleet operation."
+  ],
+  "short_reason": "The scoped capability is specifically GPS management of motor-vehicle fleets.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps_guided_logistics.before.json /tmp/gps_guided_logistics.after.json --require-behavior-change --require-claim-change"
+  ]
+}

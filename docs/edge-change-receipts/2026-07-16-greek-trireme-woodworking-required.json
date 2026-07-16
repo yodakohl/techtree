@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-greek-trireme-woodworking-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "woodworking_basic"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.96,
+    "note": "The trireme's light, slender hull depended critically on a carefully built timber structure, so shaping and joining wood was constitutive of the vessel."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://ecolloq.gsfc.nasa.gov/archive/1997-Fall/announce.weiskittel.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Engineering Colloquium abstract: the extreme slender-hull design relied critically on details of its timber structure and was reconstructed from ancient building evidence.",
+    "source_claim_summary": "The NASA-hosted Trireme Trust lecture abstract makes the timber structure critical to the viable lightweight hull design.",
+    "source_support_rationale": "This is a material and fabrication dependency of the vessel itself, not merely an earlier cultural tradition that happened to precede shipbuilding."
+  },
+  "ontology_before": "Woodworking was represented only as distant prehistory despite forming the trireme's load-bearing hull.",
+  "ontology_after": "Shaped and joined timber is a required direct prerequisite of the scoped Greek trireme.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-greek-trireme-boundary: woodworking_basic remains required.",
+  "would_reject_if": [
+    "A historically supported Greek trireme design uses a non-wooden hull whose structure can be built without shaped or joined timber."
+  ],
+  "short_reason": "The reconstruction evidence identifies the timber structure as critical to the trireme's extreme slender hull.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_shipbuilding_bireme_trireme.before.json /tmp/advanced_shipbuilding_bireme_trireme.after.json --require-behavior-change"
+  ]
+}

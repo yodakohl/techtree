@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-greek-trireme-rope-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "basic_rope_making"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "review",
+    "confidence": 0.94,
+    "note": "Athenian inventories treated hypozomata hull-bracing ropes as the foremost hanging gear and a trireme as commissioned when fitted, making heavy cordage operationally required."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.jstage.jst.go.jp/article/jin/111/0/111_KJ00004696691/_article/-char/en",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract: Piraeus naval inventories list hypozomata first; a decree specifies fitting crews, and a trireme fitted with the four regulation ropes was regarded as in commission.",
+    "source_claim_summary": "The study's inventory and decree evidence makes heavy hull-bracing ropes standard commissioned equipment of the Athenian trireme.",
+    "source_support_rationale": "Cordage therefore did structural and operational work on the vessel rather than serving only as a remote Paleolithic precursor to later rigging."
+  },
+  "ontology_before": "Rope making was modeled only as ancient background and cited through unrelated Neanderthal fiber evidence.",
+  "ontology_after": "Heavy cordage is a required direct prerequisite because hypozomata braced the hull and marked a trireme as commissioned.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-greek-trireme-boundary: basic_rope_making remains required.",
+  "would_reject_if": [
+    "Athenian naval records or a superior reconstruction show operational triremes commissioned without hypozomata or equivalent hull-bracing cordage."
+  ],
+  "short_reason": "Piraeus inventories and a commissioning decree make hypozomata structural equipment, not merely historical background.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_shipbuilding_bireme_trireme.before.json /tmp/advanced_shipbuilding_bireme_trireme.after.json --require-behavior-change"
+  ]
+}

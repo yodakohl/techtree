@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-16-dynamo-copper-wiring-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "dynamo",
+    "prerequisite": "copper_wiring_production"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Copper Wiring Production provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.9,
+    "evidence_level": "primary_source",
+    "note": "Insulated conductor windings around the soft-iron field structure and rotating armature enabled the self-exciting current-feedback circuit."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/On_the_Conversion_of_Dynamical_into_Electrical_Force_without_the_Aid_of_Permanent_Magnetism_%28IA_jstor-112652%29.pdf",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Pages 368-369 specify insulated wire around the soft-iron field and rotating armature; Wheatstone's parallel machine gives 640 feet of insulated copper field wire and 80 feet on the armature.",
+    "source_claim_summary": "The self-excited machines used insulated conductor windings on both their field structures and rotating armatures.",
+    "source_support_rationale": "The winding circuits carry the generated current back through the electromagnets, making electrical conductor fabrication a direct enabling input rather than generic industrial context."
+  },
+  "invariant_preserved_or_changed": "Preserved and strengthened: copper_wiring_production remains enabling with primary-source component evidence.",
+  "would_reject_if": [
+    "The node is narrowed to a dynamo design that does not use wound field or armature conductors.",
+    "The cited apparatus is shown to use no insulated conductor windings.",
+    "The copper-wiring node is narrowed exclusively to later building wiring and excludes machine coils."
+  ],
+  "short_reason": "Insulated windings are documented machine components.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dynamo.before.json /tmp/dynamo.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

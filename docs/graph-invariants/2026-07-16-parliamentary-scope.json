@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-parliamentary-scope",
+  "description": "Lock the directly sourced chronology and fiscal mechanism for the medieval representative-assembly node.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "parliaments_estates_general",
+      "prerequisite": "guilds",
+      "reason": "Guild organization does not define the estates or territorial constituencies represented in the scoped assemblies."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "parliaments_estates_general",
+      "prerequisite": "taxation_and_tribute",
+      "reason": "Fiscal consent is a directly documented mechanism in the development of representative assemblies."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "parliaments_estates_general",
+      "prerequisite": "taxation_and_tribute",
+      "expected": "enabling",
+      "reason": "Taxation repeatedly drove consultation and consent without being the only path to representative institutions."
+    },
+    {
+      "type": "first_known_date",
+      "node": "parliaments_estates_general",
+      "operator": "eq",
+      "value": 1188,
+      "reason": "UNESCO identifies the Decreta of León of 1188 as the oldest known documentary manifestation of the European parliamentary system."
+    },
+    {
+      "type": "first_known_date",
+      "node": "bureaucracy",
+      "operator": "eq",
+      "value": -550,
+      "reason": "The narrowed node is anchored to the Achaemenid satrapal system established during imperial expansion beginning in the sixth century BCE."
+    }
+  ]
+}

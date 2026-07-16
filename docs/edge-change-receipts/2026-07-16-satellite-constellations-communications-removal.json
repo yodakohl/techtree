@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-satellite-constellations-communications-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "satellite_constellations",
+    "prerequisite": "communications_satellites"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Communications Satellites provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct communications-satellite dependency remains because the scoped Vela constellation used coordinated detection satellites for worldwide nuclear-test monitoring, demonstrating the architecture outside the communications application class.",
+  "source_supports_edge": "no",
+  "source_url": "https://imagine.gsfc.nasa.gov/science/toolbox/missions/vela.html",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Primary Science section: states that each satellite in a Vela pair monitored one half of Earth for nuclear explosions and describes the mission's gamma-ray detection instruments.",
+    "source_claim_summary": "NASA documents coordinated global coverage by paired nuclear-detection satellites, providing a non-communications implementation of constellation architecture.",
+    "source_support_rationale": "Communications is one payload and service category among many; complementary coverage by detection spacecraft proves that category is not causal infrastructure for constellations in general."
+  },
+  "ontology_before": "The general constellation class depended on communications satellites, conflating one application domain with the multi-spacecraft architecture.",
+  "ontology_after": "Satellite constellations are defined by coordinated orbital coverage and can support detection, navigation, communications, or other missions.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: communications_satellites is absent as a direct prerequisite of satellite_constellations.",
+  "would_reject_if": [
+    "The node is narrowed specifically to communications constellations rather than coordinated satellite systems generally.",
+    "The Vela spacecraft are shown to have been communications satellites rather than nuclear-detection satellites."
+  ],
+  "short_reason": "Vela demonstrated coordinated constellation coverage without being a communications-satellite system.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/satellite_constellations.before.json /tmp/satellite_constellations.after.json --require-behavior-change --require-claim-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

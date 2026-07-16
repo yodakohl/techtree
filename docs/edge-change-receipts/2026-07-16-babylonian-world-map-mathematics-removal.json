@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-babylonian-world-map-mathematics-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basic_cartography",
+    "prerequisite": "mathematics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Mathematics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Although the tablet includes written distance statements, its catalogue does not establish mathematical calculation as a method required to produce the mapped cosmography.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object 1882,0714.509, Description: written notes place six or seven beru between outer regions, while the catalogue highlights inconsistencies between map notes and reverse text and does not describe a calculated scale, coordinates, or mathematical model.",
+    "source_claim_summary": "Written distance labels are present, but the object record does not document a mathematical cartographic method.",
+    "source_support_rationale": "Numerals appearing in an inscription support writing and annotation; they do not justify a broad mathematics prerequisite without evidence of calculation governing the map's construction."
+  },
+  "ontology_before": "The graph treated mathematics as a generic enabler for all cartography rather than testing the cited artifact's method.",
+  "ontology_after": "The node retains the map's written distance annotations without turning them into an unsupported mathematical-production dependency.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-babylonian-world-map-boundary: mathematics is not a direct prerequisite.",
+  "would_reject_if": [
+    "A reliable analysis demonstrates that mathematical calculation or scale governed the construction of the Babylonian World Map."
+  ],
+  "short_reason": "Distance annotations alone do not evidence mathematical map construction.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/basic_cartography.before.json /tmp/basic_cartography.after.json --require-behavior-change"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-gps-radio-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps",
+    "prerequisite": "radio"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Radio provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "GPS is a radio-navigation system whose satellites continuously transmit identification and navigation data on radio frequencies to user receivers."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gao.gov/assets/psad-77-23.pdf",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Report pp. 1-3: calls GPS a space-based radio-navigation system and says its satellites continuously broadcast identification and navigation data on two radio frequencies.",
+    "source_claim_summary": "The original NAVSTAR description places radio-frequency transmission between the satellite and receiver inside the system architecture.",
+    "source_support_rationale": "Without the wireless signal link, the user segment cannot obtain the timing, identity, or navigation message used to compute range and position."
+  },
+  "ontology_before": "Radio was treated as a replaceable enabling option for GPS.",
+  "ontology_after": "Radio transmission is a required direct prerequisite of the NAVSTAR satellite-to-user ranging link.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: radio remains required for gps.",
+  "would_reject_if": [
+    "The node is narrowed to an offline data product that does not receive navigation signals from satellites."
+  ],
+  "short_reason": "The contemporaneous GAO report defines NAVSTAR as a radio-navigation system with continuous satellite broadcasts.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps.before.json /tmp/gps.after.json --require-behavior-change --require-claim-change"
+  ]
+}

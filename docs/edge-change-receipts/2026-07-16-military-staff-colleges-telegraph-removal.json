@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-military-staff-colleges-telegraph-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "military_staff_colleges",
+    "prerequisite": "telegraph"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Telegraph provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct telegraph prerequisite remains; electric telegraphy became a later command-and-control subject after the scoped staff-college tier was already operating.",
+  "source_supports_edge": "no",
+  "source_url": "https://pdfs.semanticscholar.org/f498/bdacb1a6507bf55e91d54b68ae38a8b34e56.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Journal pp. 125-126, section \"Phase Two - the Kriegsakademie Era\": identifies the early nineteenth-century staff-college tier and dates Prussia's General War School to 1810.",
+    "source_claim_summary": "The canonical Prussian staff-college model was established in 1810 as a selective mid-career professional military school.",
+    "source_support_rationale": "The local electric-telegraph node is dated to 1837, twenty-seven years after the evidenced college. Telegraphy could alter later staff practice but could not enable creation of an institution already in operation."
+  },
+  "ontology_before": "military_staff_colleges treated electric telegraphy as a direct enabling prerequisite despite anchoring the institution to a nineteenth-century date copied from telegraph history.",
+  "ontology_after": "military_staff_colleges is anchored to the 1810 professional-education institution and does not turn later communications tools into founding prerequisites.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-military-staff-college-scope: telegraph is absent as a direct prerequisite while the staff-college chronology is fixed at 1810.",
+  "would_reject_if": [
+    "A reliable source demonstrates that the scoped 1810 staff-college institution depended on electric telegraphy rather than merely teaching or using it in later decades."
+  ],
+  "short_reason": "The staff-college tier predates electric telegraphy, so telegraph use in later military planning does not license a founding dependency.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "node scripts/check-graph-invariants.js docs/graph-invariants/2026-07-16-military-staff-college-scope.json",
+    "npm run node-snapshot-diff -- /tmp/military_staff_colleges.before.json /tmp/military_staff_colleges.after.json --require-behavior-change",
+    "node scripts/validate-data.js"
+  ]
+}

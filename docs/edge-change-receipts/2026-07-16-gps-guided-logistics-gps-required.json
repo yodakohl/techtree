@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-gps-guided-logistics-gps-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps_guided_logistics",
+    "prerequisite": "gps"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Global Positioning System (GPS) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "The scoped capability is specifically GPS-based fleet navigation, tracking, routing, and dispatch, so GPS positioning is constitutive rather than optional."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.gps.gov/1998-biennial-report-congress-global-positioning-system",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Commercial Applications and Productivity Enhancement sections: identifies GPS receivers tied to electronic maps as the basis for directions, vehicle-fleet tracking and management, commercial routing, dispatch, and delivery-efficiency gains.",
+    "source_claim_summary": "The federal report documents commercial vehicle navigation and fleet-management functions as applications produced by GPS positioning integrated with digital maps.",
+    "source_support_rationale": "Because this node is now explicitly bounded to GPS-guided fleet operations, removing GPS would remove the differentiating positioning method rather than merely substitute another implementation."
+  },
+  "ontology_before": "GPS was treated as one optional enabling route for a broadly named logistics capability.",
+  "ontology_after": "GPS is a required constituent of the explicitly scoped GPS-guided fleet logistics capability.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: gps remains required for gps_guided_logistics.",
+  "would_reject_if": [
+    "The node is broadened to include non-GPS fleet dispatch or generic route optimization as equivalent instances of the same scoped capability."
+  ],
+  "short_reason": "GPS positioning is constitutive of a node explicitly scoped to GPS-guided fleet logistics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps_guided_logistics.before.json /tmp/gps_guided_logistics.after.json --require-behavior-change --require-claim-change"
+  ]
+}

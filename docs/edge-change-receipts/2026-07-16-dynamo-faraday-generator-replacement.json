@@ -1,0 +1,50 @@
+{
+  "id": "2026-07-16-dynamo-faraday-generator-replacement",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "dynamo",
+    "prerequisite": "electric_generators_dynamos"
+  },
+  "replaced_edge": {
+    "dependent": "dynamo",
+    "prerequisite": "electromagnetism_early_discoveries"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.75,
+    "evidence_level": "expert_inference",
+    "note": "Early Electromagnetism is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "historical_predecessor",
+    "confidence": 0.95,
+    "evidence_level": "review",
+    "note": "Faraday's 1831 disk established mechanical-to-electrical induction; the 1866 self-excited dynamo was the later practical machine stage using field-current feedback."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://repository.si.edu/bitstream/handle/10088/23643/SMC_76_Schroeder_1923_2_1-94.pdf",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "establishes_historical_lineage",
+    "source_locator": "Pages 8 and 27: Faraday's 1831 disk demonstrated electrical generation but remained an experimental result; the review then identifies the 1866 self-excited dynamo as the later machine development.",
+    "source_claim_summary": "The Smithsonian history separates Faraday's first rotating disk generator from the later self-excited machines and presents them as successive generator stages.",
+    "source_support_rationale": "Pointing to the existing Faraday disk node preserves the concrete generator lineage while avoiding a second node that launders the same 1831 milestone under a broader dynamo label."
+  },
+  "ontology_before": "Dynamo duplicated the 1831 Faraday origin and pointed only to a broad electromagnetism category as its historical predecessor.",
+  "ontology_after": "Self-Excited Industrial Dynamo is a distinct 1866 stage that directly follows the separate Faraday Disk Generator node.",
+  "invariant_preserved_or_changed": "Changed: electric_generators_dynamos is the historical predecessor and electromagnetism_early_discoveries is no longer a redundant direct edge.",
+  "would_reject_if": [
+    "The dynamo node is reverted to Faraday's 1831 disk rather than the 1866 self-excited machine.",
+    "A stronger source demonstrates no historical or technical lineage from Faraday's generator to self-excited dynamos.",
+    "The separate electric_generators_dynamos node is removed and its 1831 scope is intentionally merged."
+  ],
+  "short_reason": "The precise predecessor is Faraday's generator, not a duplicate 1831 origin.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/dynamo.before.json /tmp/dynamo.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-drone-autonomy-gps-logistics-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "drone_autonomy",
+    "prerequisite": "gps_guided_logistics"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "GPS-Guided Logistics provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct GPS-guided logistics dependency remains because autonomous aircraft navigation, guidance, control, onboard computing, and mission execution do not causally require a commercial fleet-logistics workflow.",
+  "source_supports_edge": "no",
+  "source_url": "https://robotics.jpl.nasa.gov/how-we-do-it/systems/unmanned-aircraft-systems-uas/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Unmanned Aircraft Systems page: describes autonomous mission execution through onboard navigation, guidance, control, planning, perception, and computing, including operation in GPS-denied environments.",
+    "source_claim_summary": "JPL documents drone autonomy as an onboard robotic navigation and control capability that can function without GPS availability.",
+    "source_support_rationale": "Even when an autonomous aircraft uses GPS, that sensor input is distinct from the downstream business process of fleet tracking, routing, dispatch, and delivery management."
+  },
+  "ontology_before": "Drone autonomy was modeled as directly enabled by a later commercial GPS fleet-logistics application.",
+  "ontology_after": "Drone autonomy retains its mobile-robot navigation lineage without importing an unrelated logistics workflow as a prerequisite.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: drone_autonomy has no direct gps_guided_logistics prerequisite while mobile_robot_navigation remains present.",
+  "would_reject_if": [
+    "The node is rescoped specifically to autonomous logistics-drone fleet dispatch rather than general drone autonomy.",
+    "Authoritative architecture evidence makes commercial GPS fleet-management software a constituent of autonomous aircraft navigation and control."
+  ],
+  "short_reason": "Drone autonomy is an onboard navigation-and-control capability, not a derivative of GPS fleet logistics.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/drone_autonomy.before.json /tmp/drone_autonomy.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

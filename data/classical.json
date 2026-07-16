@@ -112,155 +112,152 @@
   },
   {
     "id": "advanced_shipbuilding_bireme_trireme",
-    "name": "Advanced Shipbuilding (Bireme, Trireme)",
+    "name": "Greek Trireme War Galley",
     "era": "Classical",
-    "description": "Construction of larger, more complex warships with multiple banks of oars and advanced naval architecture.",
+    "description": "Light, narrow Greek Mediterranean war galley powered by 170 oars arranged on three levels, with a timber hull, passage sails, hull-bracing cordage, and a bronze ram.",
     "prerequisites": [
-      "sailing",
-      "construction",
-      "bronze_working",
+      "basic_boat_propulsion",
       "woodworking_basic",
-      "iron_working",
-      "basic_rope_making"
+      "basic_rope_making",
+      "sailing",
+      "bronze_working"
     ],
     "firstKnownDate": -600,
     "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "region": "Greek Mediterranean; later especially Athenian fleets",
+    "scopeNote": "Scoped to the Greek trireme attested from at least the sixth century BCE, not to all biremes or global classical shipbuilding. Later Athenian inventories and the Olympias reconstruction define its component boundary without moving the origin date.",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
-        "prerequisite": "sailing",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Sailing provides a capability that enables this technology without being the only possible path.",
+        "prerequisite": "basic_boat_propulsion",
+        "type": "required",
+        "confidence": 0.98,
+        "evidence_level": "review",
+        "note": "The trireme is defined by 170 manually worked oars arranged on three levels; sail power supplemented passages but did not replace its constitutive oar system.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Trireme",
-            "url": "https://en.wikipedia.org/wiki/Trireme",
-            "publisher": "Wikipedia",
-            "year": 2026,
-            "source_type": "generic_overview",
+            "title": "The Olympias Trireme Reconstruction",
+            "url": "https://eodg.atm.ox.ac.uk/user/dudhia/rowing/trireme/poster.pdf",
+            "publisher": "Trireme Trust / University of Oxford",
+            "year": 2003,
+            "source_type": "review",
             "supports": [
               "edge"
             ],
-            "source_locator": "Design and Propulsion sections: describe the trireme as a Mediterranean war galley with oars, two masts, and square sails, and as a development from earlier oared warship forms."
+            "source_locator": "Single-page poster, opening paragraph and sea-trials section: defines the trireme by 170 oars at three levels and reports Olympias operating under both oar and sail."
           }
         ]
       },
       {
-        "prerequisite": "construction",
-        "type": "commercial_or_scaling_dependency",
-        "confidence": 0.72,
-        "evidence_level": "expert_inference",
-        "note": "Construction supports manufacturing, deployment, commercialization, or operational scaling.",
+        "prerequisite": "woodworking_basic",
+        "type": "required",
+        "confidence": 0.96,
+        "evidence_level": "review",
+        "note": "The trireme's light, slender hull depended critically on a carefully built timber structure, so shaping and joining wood was constitutive of the vessel.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Architecture in Ancient Greece",
-            "url": "https://www.metmuseum.org/essays/architecture-in-ancient-greece",
-            "publisher": "The Metropolitan Museum of Art",
-            "year": 2003,
-            "source_type": "museum",
+            "title": "A Ghost Ship Comes to Life: The Design, Reconstruction, and Sea Trials of an Ancient Greek Warship",
+            "url": "https://ecolloq.gsfc.nasa.gov/archive/1997-Fall/announce.weiskittel.html",
+            "publisher": "NASA Goddard Space Flight Center",
+            "year": 1997,
+            "source_type": "official_agency",
             "supports": [
               "edge"
-            ]
+            ],
+            "source_locator": "Engineering Colloquium abstract: the extreme slender-hull design relied critically on details of its timber structure and was reconstructed from ancient building evidence."
+          }
+        ]
+      },
+      {
+        "prerequisite": "basic_rope_making",
+        "type": "required",
+        "confidence": 0.94,
+        "evidence_level": "review",
+        "note": "Athenian inventories treated hypozomata hull-bracing ropes as the foremost hanging gear and a trireme as commissioned when fitted, making heavy cordage operationally required.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "A Study on the Hypozomata, the Most Important Hanging-Gear of the Greek Trireme",
+            "url": "https://www.jstage.jst.go.jp/article/jin/111/0/111_KJ00004696691/_article/-char/en",
+            "publisher": "Journal of Japan Institute of Navigation",
+            "year": 2004,
+            "source_type": "primary_paper",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Abstract: Piraeus naval inventories list hypozomata first; a decree specifies fitting crews, and a trireme fitted with the four regulation ropes was regarded as in commission."
+          }
+        ]
+      },
+      {
+        "prerequisite": "sailing",
+        "type": "enabling",
+        "confidence": 0.9,
+        "evidence_level": "review",
+        "note": "Triremes carried a square-rigged mainsail and boat-sail for passage and could operate under sail and oar, while their defining combat propulsion remained the oar crew.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "The Olympias Trireme Reconstruction",
+            "url": "https://eodg.atm.ox.ac.uk/user/dudhia/rowing/trireme/poster.pdf",
+            "publisher": "Trireme Trust / University of Oxford",
+            "year": 2003,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "source_locator": "Single-page poster, sea-trials section: Olympias was equipped like ancient ships with a square-rigged mainsail and boat-sail and was tested under both oar and sail."
           }
         ]
       },
       {
         "prerequisite": "bronze_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Bronze Working provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.88,
+        "evidence_level": "review",
+        "note": "Bronze casting enabled the prow ram used as a trireme's principal weapon, but the timber hull and three-level rowing architecture did not depend on bronze.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Materials",
-            "url": "https://www.nist.gov/materials",
-            "publisher": "NIST",
+            "title": "The Athlit Ram",
+            "url": "https://www.nmm.org.il/eng/Exhibitions/468/The_Athlit_Ram",
+            "publisher": "The National Maritime Museum, Haifa",
             "year": 2026,
-            "source_type": "generic_overview",
+            "source_type": "museum",
             "supports": [
               "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "woodworking_basic",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Woodworking is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "The wooden artifacts from Schöningen's Spear Horizon and their place in human evolution",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11009636/",
-            "publisher": "Proceedings of the National Academy of Sciences",
-            "year": 2024,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "iron_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
-            "url": "https://discovery.ucl.ac.uk/1430496/",
-            "publisher": "Journal of Archaeological Science",
-            "year": 2013,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "basic_rope_making",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Basic Rope Making is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
-            "publisher": "Scientific Reports",
-            "year": 2020,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
+            ],
+            "source_locator": "Exhibition text: the Athlit weapon is a 465 kg single bronze casting attached to a warship prow; its vessel was probably a medium quadrireme or three-tier trireme."
           }
         ]
       }
     ],
     "sources": [
       {
-        "title": "Architecture in Ancient Greece",
-        "url": "https://www.metmuseum.org/essays/architecture-in-ancient-greece",
-        "publisher": "The Metropolitan Museum of Art",
+        "title": "The Olympias Trireme Reconstruction",
+        "url": "https://eodg.atm.ox.ac.uk/user/dudhia/rowing/trireme/poster.pdf",
+        "publisher": "Trireme Trust / University of Oxford",
         "year": 2003,
-        "source_type": "museum",
+        "source_type": "review",
         "supports": [
-          "edge",
-          "node"
-        ]
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Single-page poster, opening paragraph: triremes were powered by 170 oars at three levels, operated as ramming weapons, and are attested from at least the sixth century BCE."
+      },
+      {
+        "title": "A Ghost Ship Comes to Life: The Design, Reconstruction, and Sea Trials of an Ancient Greek Warship",
+        "url": "https://ecolloq.gsfc.nasa.gov/archive/1997-Fall/announce.weiskittel.html",
+        "publisher": "NASA Goddard Space Flight Center",
+        "year": 1997,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Engineering Colloquium abstract: defines three-level-oared triremes as Mediterranean capital ships from the sixth to fourth centuries BCE and summarizes the evidence-based Olympias reconstruction."
       }
     ]
   },
@@ -1390,103 +1387,35 @@
   },
   {
     "id": "basic_cartography",
-    "name": "Basic Cartography",
+    "name": "Babylonian World Map",
     "era": "Classical",
-    "description": "Early map-making based on surveying, travel accounts, and astronomical observations.",
+    "description": "A cuneiform clay tablet depicting Babylon, the Euphrates, named neighboring regions, a circular cosmic ocean, and described outer regions.",
     "prerequisites": [
-      "surveying",
-      "writing",
-      "early_navigation",
-      "geometry",
-      "mathematics"
+      "writing"
     ],
     "firstKnownDate": -600,
     "datePrecision": "century",
-    "region": "Babylonia / Sippar",
+    "region": "Sippar, Babylonia",
     "reviewStatus": "source_checked",
+    "scopeNote": "Scoped to British Museum tablet 1882,0714.509, the sixth-century BCE Babylonian Map of the World. It is a schematic cosmographic artifact, not a claim that its maker used land surveying, mathematical projection, geometry, or maritime navigation.",
+    "dateUncertainty": true,
+    "dateUncertaintyNote": "The museum dates the surviving tablet approximately to the sixth century BCE and notes that its colophon says it was copied from an earlier document; -600 is a century-level anchor for the extant artifact.",
     "dependencyEdges": [
       {
-        "prerequisite": "surveying",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Surveying provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Geometry",
-            "url": "https://www.britannica.com/science/geometry",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
         "prerequisite": "writing",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "type": "required",
+        "confidence": 0.97,
+        "evidence_level": "primary_source",
+        "note": "The surviving map is a cuneiform document whose named places, distance annotations, reverse-side regional descriptions, and colophon are integral to the artifact's mapped world.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
+            "title": "The Map of the World",
+            "url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
             "publisher": "British Museum",
-            "year": 2020,
+            "year": 2026,
             "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "early_navigation",
-        "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Early Navigation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
-        "reviewStatus": "source_checked"
-      },
-      {
-        "prerequisite": "geometry",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Geometry provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Geometry",
-            "url": "https://www.britannica.com/science/geometry",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "mathematics",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Mathematics provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Mathematics",
-            "url": "https://www.britannica.com/science/mathematics",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
-            "source_type": "textbook",
+            "source_locator": "Object 1882,0714.509, Description and Curator's comments: cuneiform labels identify Babylon, the Euphrates, Assyria, Der, Bit-Yakin, Habban, and Urartu; written notes give distances to eight outer regions, the reverse describes those regions, and a colophon says the tablet copied an earlier document.",
             "supports": [
               "edge"
             ]
@@ -1496,14 +1425,15 @@
     ],
     "sources": [
       {
-        "title": "Clay tablet; map of the world",
+        "title": "The Map of the World",
         "url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
         "publisher": "British Museum",
         "year": 2026,
         "source_type": "museum",
-        "locator": "Object W_1882,0714.509 is the Babylonian Map of the World, a clay tablet showing Babylon, the Euphrates, surrounding waters, and named places.",
+        "source_locator": "Object 1882,0714.509, Description, Production date, Findspot, and Curator's comments: a sixth-century BCE clay map from Abu Habba (Sippar) showing Babylon and the Euphrates within a disc encircled by the Bitter River, with named regions and written descriptions of eight outer regions.",
         "supports": [
-          "node"
+          "node",
+          "maturity"
         ]
       }
     ]
@@ -1759,102 +1689,120 @@
   },
   {
     "id": "bureaucracy",
-    "name": "Bureaucracy",
+    "name": "Achaemenid Imperial Bureaucracy",
     "era": "Classical",
-    "description": "System of state administration managed by non-elected officials, characterized by standardized procedures and a hierarchy of authority.",
+    "description": "The Achaemenid Empire's hierarchical satrapal administration, which used appointed officials, chancelleries, written correspondence, taxation systems, and nested provincial authority to govern a large territory.",
     "prerequisites": [
       "writing",
       "record_keeping",
       "mathematics",
       "social_stratification"
     ],
-    "firstKnownDate": -500,
+    "firstKnownDate": -550,
     "datePrecision": "century",
-    "region": "Mesopotamia, Egypt, China, and other early states",
+    "region": "Achaemenid Empire",
     "reviewStatus": "source_checked",
     "dependencyEdges": [
       {
         "prerequisite": "writing",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Writing is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Written chancery correspondence and a shared administrative language were core infrastructure for communication between the royal court and provincial offices.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "ACHAEMENID DYNASTY ii. The empire",
+            "url": "https://www.iranicaonline.org/articles/achaemenid-dynasty/achaemenid-dynasty-ii-the-empire/",
+            "publisher": "Encyclopaedia Iranica",
+            "year": 1983,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "Administration section: describes an accurately run chancellery, communication by letter between the king and provincial offices, and Imperial Aramaic as the bureaucracy's shared administrative language."
           }
         ]
       },
       {
         "prerequisite": "record_keeping",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Record Keeping is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "confidence": 0.82,
+        "evidence_level": "textbook",
+        "note": "Chancery records, letters, fiscal accounts, and provincial archives made administration across the empire durable and auditable.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "ACHAEMENID DYNASTY ii. The empire",
+            "url": "https://www.iranicaonline.org/articles/achaemenid-dynasty/achaemenid-dynasty-ii-the-empire/",
+            "publisher": "Encyclopaedia Iranica",
+            "year": 1983,
+            "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "Administration section: describes the court and provincial chancelleries, administrative correspondence by letter, and the bureaucracy's use of a uniform written language."
           }
         ]
       },
       {
         "prerequisite": "mathematics",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Mathematics is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
+        "confidence": 0.78,
+        "evidence_level": "textbook",
+        "note": "Land measurement, crop classification, tribute assessment, and province-level tax quotas depended on quantitative administrative practice.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "Mathematics",
-            "url": "https://www.britannica.com/science/mathematics",
-            "publisher": "Encyclopaedia Britannica",
-            "year": 2026,
+            "title": "ACHAEMENID TAXATION",
+            "url": "https://www.iranicaonline.org/articles/achaemenid-taxation/",
+            "publisher": "Encyclopaedia Iranica",
+            "year": 2000,
             "source_type": "textbook",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "Overview: states that Darius established a regulated tax system in 519 BCE, with land measured and classified and provincial assessments based on cultivated land, fertility, and harvest yields."
           }
         ]
       },
       {
         "prerequisite": "social_stratification",
         "type": "common_dependency",
-        "confidence": 0.55,
-        "evidence_level": "weak_inference",
-        "note": "Social Stratification is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.72,
+        "evidence_level": "textbook",
+        "note": "The satrapal system was explicitly hierarchical, with several administrative ranks and senior offices appointed from the royal court and privileged families.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "ACHAEMENID SATRAPIES",
+            "url": "https://www.iranicaonline.org/articles/achaemenid-satrapies/",
+            "publisher": "Encyclopaedia Iranica",
+            "year": 2018,
+            "source_type": "textbook",
+            "supports": [
+              "edge"
+            ],
+            "locator": "Administrative hierarchy sections: reconstruct nested Great, Main, and Minor Satrapies, distinguish higher- and lower-ranking officials, and describe senior appointments from the royal court and privileged families."
+          }
+        ]
       }
     ],
     "sources": [
       {
-        "title": "How to write cuneiform",
-        "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-        "publisher": "British Museum",
-        "year": 2020,
-        "source_type": "museum",
+        "title": "ACHAEMENID SATRAPIES",
+        "url": "https://www.iranicaonline.org/articles/achaemenid-satrapies/",
+        "publisher": "Encyclopaedia Iranica",
+        "year": 2018,
+        "source_type": "textbook",
         "supports": [
           "edge",
           "node"
-        ]
+        ],
+        "locator": "Opening overview and administrative-hierarchy sections: describe satrapies as the system used to rule the empire, collect taxes, recruit forces, control local bureaucracies, and organize authority in nested ranks during Achaemenid expansion from about 550 BCE."
       }
-    ]
+    ],
+    "scopeNote": "Scoped to the directly documented Achaemenid satrapal and chancery system from the sixth century BCE, not to every earlier form of palace, temple, or scribal administration."
   },
   {
     "id": "chain_mail_armor",
@@ -2951,7 +2899,7 @@
         "sources": [
           {
             "title": "Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications",
-            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7138615/",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7145842/",
             "publisher": "Scientific Reports",
             "year": 2020,
             "source_type": "primary_paper",
@@ -3234,16 +3182,28 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Lydia & the First Coins",
-        "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-        "publisher": "American Numismatic Association Money Museum",
-        "year": 2026,
+        "title": "Currency Exhibition: Innovation of Currency and the First Coins",
+        "url": "https://www.boi.org.il/en/bank-of-israel/education-and-visitors-center/the-currency-exhibit-development-of-money/part2/",
+        "publisher": "Bank of Israel",
+        "year": 2024,
+        "source_type": "official_agency",
+        "supports": [
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Currency and first-coins sections: dates the first coins to Lydia around 650 BCE, says local rulers' designs guaranteed metal value and quality, and explains that fixed-weight denominations removed the need to weigh and authenticate precious metal in every transaction."
+      },
+      {
+        "title": "Money Gallery: The Beginnings of Coinage",
+        "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf",
+        "publisher": "British Museum",
+        "year": 2020,
         "source_type": "museum",
         "supports": [
           "node",
-          "maturity",
-          "edge"
-        ]
+          "maturity"
+        ],
+        "source_locator": "Case 1, Lydia (pp. 2-4): identifies electrum coins made and used in Lydia around 650 BCE, produced to strict weight standards, marked with designs and punches, probably authorized by Lydian kings, and rapidly adopted across Mediterranean economies."
       }
     ]
   },
@@ -5821,15 +5781,27 @@
     "maturity": "established",
     "sources": [
       {
-        "title": "Lydia & the First Coins",
-        "url": "https://www.money.org/money-museum/virtual-exhibits-hom-case1/",
-        "publisher": "American Numismatic Association Money Museum",
-        "year": 2026,
+        "title": "Money Gallery: The Beginnings of Coinage",
+        "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf",
+        "publisher": "British Museum",
+        "year": 2020,
         "source_type": "museum",
         "supports": [
           "node",
           "maturity"
-        ]
+        ],
+        "source_locator": "Case 1, \"The beginnings of coinage\": dates the earliest Lydian electrum coins to about 650 BCE and describes their strict weight standard, designs and punch marks, probable royal authorization, regulated value, and the later spread of separate gold and silver coinage."
+      },
+      {
+        "title": "The Origin of Electrum Coinage",
+        "url": "https://www.journals.uchicago.edu/doi/10.2307/505360",
+        "publisher": "American Journal of Archaeology",
+        "year": 1987,
+        "source_type": "review",
+        "supports": [
+          "node"
+        ],
+        "source_locator": "Volume 91, no. 3, pp. 385-397: reviews early electrum coinage and explains that carefully regularized weights assigned comparable pieces a particular transactional value, while discussing issuer guarantees and state involvement."
       }
     ],
     "firstKnownDate": -650,
@@ -6389,95 +6361,34 @@
   },
   {
     "id": "organized_military_formations",
-    "name": "Organized Military Formations",
+    "name": "Greek Hoplite Phalanx",
     "era": "Classical",
-    "description": "Development of disciplined troop formations and tactics (e.g., phalanx, legion) requiring extensive training and command structures.",
+    "description": "Close-order Greek heavy infantry advancing in deep ranks with overlapping shields and thrusting spears, documented by the mid-seventh century BCE.",
     "prerequisites": [
-      "iron_working",
-      "archery",
-      "writing",
-      "roads",
-      "horseback_riding"
+      "organized_warfare",
+      "bronze_working"
     ],
-    "firstKnownDate": -600,
-    "datePrecision": "century",
-    "region": "Mediterranean, South Asia, East Asia, and other classical societies",
+    "firstKnownDate": -650,
+    "datePrecision": "decade",
+    "region": "Archaic Greek city-states",
     "reviewStatus": "source_checked",
+    "scopeNote": "Scoped to the Archaic Greek hoplite phalanx as a close-order heavy-infantry formation. It does not stand for every organized army, cavalry or archery units, campaign logistics, or later Roman legion organization.",
     "dependencyEdges": [
       {
-        "prerequisite": "iron_working",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Iron Working provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
-            "url": "https://discovery.ucl.ac.uk/1430496/",
-            "publisher": "Journal of Archaeological Science",
-            "year": 2013,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "archery",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Archery provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Indications of bow and stone-tipped arrow use 64 000 years ago in KwaZulu-Natal, South Africa",
-            "url": "https://www.cambridge.org/core/journals/antiquity/article/abs/indications-of-bow-and-stonetipped-arrow-use-64-000-years-ago-in-kwazulunatal-south-africa/89AF638BE5E64CEAC63363EFDD4D5E8F",
-            "publisher": "Antiquity",
-            "year": 2010,
-            "source_type": "primary_paper",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "writing",
+        "prerequisite": "organized_warfare",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.9,
+        "evidence_level": "primary_source",
+        "note": "The Stele of the Vultures documents commanded shield-and-spear troops around 2450 BCE, providing an earlier organized-formation lineage without asserting direct transmission to Greek hoplite tactics.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
-            "supports": [
-              "edge"
-            ]
-          }
-        ]
-      },
-      {
-        "prerequisite": "roads",
-        "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Roads provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked",
-        "sources": [
-          {
-            "title": "Road",
-            "url": "https://www.britannica.com/technology/road",
-            "publisher": "Encyclopaedia Britannica",
+            "title": "Stele of the Vultures",
+            "url": "https://collections.louvre.fr/en/ark:/53355/cl010121794",
+            "publisher": "Musee du Louvre",
             "year": 2026,
-            "source_type": "textbook",
+            "source_type": "museum",
+            "source_locator": "Collection record, Description/Features and Places and Dates: dates the stele to about 2450 BCE and describes multiple helmeted soldiers with shields and spears, with Eannatum at the head of his troops.",
             "supports": [
               "edge"
             ]
@@ -6485,19 +6396,20 @@
         ]
       },
       {
-        "prerequisite": "horseback_riding",
+        "prerequisite": "bronze_working",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Horseback Riding provides a capability that enables this technology without being the only possible path.",
+        "confidence": 0.92,
+        "evidence_level": "review",
+        "note": "The hoplite phalanx depended on a heavy panoply whose armor and critical large shield were predominantly bronze, so bronze working directly enabled the formation without alone determining its tactics.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "First bioanthropological evidence for Yamnaya horsemanship",
-            "url": "https://www.science.org/doi/10.1126/sciadv.ade2451",
-            "publisher": "Science Advances",
-            "year": 2023,
-            "source_type": "primary_paper",
+            "title": "Ancient Greek Hoplites: Presentation Notes for Teachers",
+            "url": "https://www.britishmuseum.org/sites/default/files/2019-09/Greece_Hoplites_Presnotes_KS2.pdf",
+            "publisher": "British Museum",
+            "year": 2019,
+            "source_type": "museum",
+            "source_locator": "Pages 1-2, Notes on the pictures and Background information: describes bronze helmets, bronze-covered round shields, bronze spear points and greaves, then explains the shield-linked ranks, long spears, collaboration, and training of hoplite infantry.",
             "supports": [
               "edge"
             ]
@@ -6507,15 +6419,27 @@
     ],
     "sources": [
       {
-        "title": "5,000 years old Egyptian iron beads made from hammered meteoritic iron",
-        "url": "https://discovery.ucl.ac.uk/1430496/",
-        "publisher": "Journal of Archaeological Science",
-        "year": 2013,
-        "source_type": "primary_paper",
+        "title": "The Homeric Way of War: The Iliad and the Hoplite Phalanx (II)",
+        "url": "https://www.cambridge.org/core/journals/greece-and-rome/article/abs/homeric-way-of-war-the-iliad-and-the-hoplite-phalanx-ii/8048AA2712C018FD3D5A4FD83334D93E",
+        "publisher": "Greece & Rome / Cambridge University Press",
+        "year": 1994,
+        "source_type": "review",
         "supports": [
-          "edge",
+          "node",
+          "maturity"
+        ],
+        "source_locator": "Article information and notes 89 and 93: reviews the emergence evidence, states that a date near 700 BCE is widely rejected in favor of about 650 BCE, and discusses the Chigi vase and other dense Protocorinthian battle scenes."
+      },
+      {
+        "title": "Ancient Greek Hoplites: Presentation Notes for Teachers",
+        "url": "https://www.britishmuseum.org/sites/default/files/2019-09/Greece_Hoplites_Presnotes_KS2.pdf",
+        "publisher": "British Museum",
+        "year": 2019,
+        "source_type": "museum",
+        "supports": [
           "node"
-        ]
+        ],
+        "source_locator": "Pages 1-2: explains that hoplites fought in linked rows, each shield covering the next soldier, and used long spears; the formation required collaboration and training, while light troops and cavalry remained distinct arms."
       }
     ]
   },
@@ -11051,7 +10975,20 @@
         "confidence": 0.55,
         "evidence_level": "weak_inference",
         "note": "Contract Law is contextual infrastructure or shared knowledge, not a strict hard prerequisite.",
-        "reviewStatus": "source_checked"
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Law and the Rise of the Firm",
+            "url": "https://law.yale.edu/sites/default/files/documents/pdf/Faculty/Hansmann_Law_and_the_Rise_of_the_Firm.pdf",
+            "publisher": "Harvard Law Review",
+            "year": 2006,
+            "source_type": "review",
+            "locator": "Part IV.D, pp. 1360-1361: dates societates publicanorum to the third century BCE, describes their bids on state contracts, and notes their own-name property and transactions plus full legal-entity status by the first century BCE.",
+            "supports": [
+              "edge"
+            ]
+          }
+        ]
       },
       {
         "prerequisite": "record_keeping",
@@ -11094,9 +11031,19 @@
         "supports": [
           "node"
         ]
+      },
+      {
+        "title": "Law and the Rise of the Firm",
+        "url": "https://law.yale.edu/sites/default/files/documents/pdf/Faculty/Hansmann_Law_and_the_Rise_of_the_Firm.pdf",
+        "publisher": "Harvard Law Review",
+        "year": 2006,
+        "source_type": "review",
+        "locator": "Part IV.D-E, pp. 1360-1363: traces societates publicanorum from the third century BCE, including continuity beyond members' deaths, own-name property and transactions, and first-century-BCE recognition of collegia, municipalities, and nonprofit bodies as distinct legal entities.",
+        "supports": [
+          "node"
+        ]
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded during Classical source-fit review: the retained source supports a prerequisite, neighboring concept, or broad historical context, but not the exact node claim plus first-known-date chronology.",
     "dateUncertainty": true,
     "dateUncertaintyNote": "The date anchors institution-level legal capacity to Republican-era Roman collegia holding property corporately; modern legal-person doctrine is later and should not be read back wholesale."
   },
@@ -11202,48 +11149,63 @@
       {
         "prerequisite": "contract_law",
         "type": "enabling",
-        "confidence": 0.68,
-        "evidence_level": "expert_inference",
-        "note": "Contract Law provides a capability that enables this technology without being the only possible path.",
-        "reviewStatus": "source_checked"
+        "confidence": 0.84,
+        "evidence_level": "review",
+        "note": "Drafting, authenticating, sealing, and registering contracts, deeds, wills, and transfers were defining functions of Roman notarial and tabellio practice.",
+        "reviewStatus": "source_checked",
+        "sources": [
+          {
+            "title": "Notaries in the American Colonies",
+            "url": "https://repository.law.uic.edu/lawreview/vol32/iss4/1/",
+            "publisher": "John Marshall Law Review",
+            "year": 1999,
+            "source_type": "review",
+            "supports": [
+              "edge"
+            ],
+            "locator": "Part II, pages 865-866: explains that Roman notaries and tabelliones drafted private legal documents including wills, deeds, and contracts, which could be sealed, registered, and accorded public authenticity."
+          }
+        ]
       },
       {
         "prerequisite": "writing",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Roman notarial ancestors were specialized scribes whose written shorthand, drafted instruments, and copied acts supplied the documentary medium of the office.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "Notaries in the American Colonies",
+            "url": "https://repository.law.uic.edu/lawreview/vol32/iss4/1/",
+            "publisher": "John Marshall Law Review",
+            "year": 1999,
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "Part II, pages 865-866: traces the office to Roman Republic scribes who took notae in shorthand and describes notaries and tabelliones preparing written public, judicial, and private legal instruments."
           }
         ]
       },
       {
         "prerequisite": "record_keeping",
         "type": "historical_predecessor",
-        "confidence": 0.75,
-        "evidence_level": "expert_inference",
-        "note": "Record Keeping is an earlier historical predecessor or foundation, not a one-to-one engineering dependency.",
+        "confidence": 0.86,
+        "evidence_level": "review",
+        "note": "Registration of proceedings and preservation of authenticated instruments in public archives supplied the durable-record function that distinguished notarial practice.",
         "reviewStatus": "source_checked",
         "sources": [
           {
-            "title": "How to write cuneiform",
-            "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
-            "publisher": "British Museum",
-            "year": 2020,
-            "source_type": "museum",
+            "title": "Notaries in the American Colonies",
+            "url": "https://repository.law.uic.edu/lawreview/vol32/iss4/1/",
+            "publisher": "John Marshall Law Review",
+            "year": 1999,
+            "source_type": "review",
             "supports": [
               "edge"
-            ]
+            ],
+            "locator": "Part II, pages 865-866: states that Roman notaries recorded and registered public and judicial proceedings and that authenticated private instruments were eligible for registration in public archives."
           }
         ]
       }
@@ -11257,20 +11219,10 @@
         "source_type": "review",
         "supports": [
           "node"
-        ]
-      },
-      {
-        "title": "Notary History",
-        "url": "https://www.nationalnotary.org/knowledge-center/about-notaries/notary-history",
-        "publisher": "National Notary Association",
-        "year": 2026,
-        "source_type": "generic_overview",
-        "supports": [
-          "node"
-        ]
+        ],
+        "locator": "Part II, pages 865-866: anchors early notarial practice in the Roman Republic, distinguishes public notaries from professional tabelliones, and describes their work recording proceedings and drafting authenticated wills, deeds, and contracts."
       }
     ],
-    "sourceCheckedDowngradeNote": "Downgraded from source_checked because the current node source is generic or does not yet support the specific technology claim and placeholder chronology strongly enough.",
     "dateUncertainty": true,
     "dateUncertaintyNote": "The date anchors notarial ancestors to Roman notarii/scribes and first-century-BCE origins discussed in legal history; earlier scribal witnessing is related but not the narrower notarial office."
   },

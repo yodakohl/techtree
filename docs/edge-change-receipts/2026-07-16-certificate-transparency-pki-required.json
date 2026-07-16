@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-certificate-transparency-pki-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "certificate_transparency_logs",
+    "prerequisite": "public_key_infrastructure"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Public Key Infrastructure provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "Certificate Transparency logs X.509 TLS certificates and validates submitted chains to accepted roots, so an operational public-key certificate infrastructure is constitutive of the protocol."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://datatracker.ietf.org/doc/html/rfc6962",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Abstract and Section 3.1 define public logging of TLS certificates and require submitted X.509 certificate chains to terminate at roots accepted by the log.",
+    "source_claim_summary": "RFC 6962 defines Certificate Transparency around X.509 certificate-chain submissions, accepted roots, and auditable public log entries.",
+    "source_support_rationale": "Without issued certificates, certification chains, and trusted roots there is no protocol object for the scoped log to accept or audit, making PKI constitutive rather than optional."
+  },
+  "ontology_before": "The graph treated PKI as merely one enabling route to a technology whose protocol is specifically a transparency layer over X.509 certificate issuance.",
+  "ontology_after": "Certificate Transparency directly requires operational public-key certificate infrastructure and is dated to its first specification in 2013.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-certificate-transparency-origin: public_key_infrastructure remains required and the origin remains 2013.",
+  "would_reject_if": [
+    "The node is broadened to generic append-only transparency logs that do not accept or audit public-key certificates."
+  ],
+  "short_reason": "RFC 6962 defines CT as an auditable log of X.509 certificate chains, making PKI a required substrate.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/certificate_transparency_logs.before.json /tmp/certificate_transparency_logs.after.json --require-behavior-change"
+  ]
+}

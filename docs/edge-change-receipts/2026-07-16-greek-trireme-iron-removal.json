@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-greek-trireme-iron-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "advanced_shipbuilding_bireme_trireme",
+    "prerequisite": "iron_working"
+  },
+  "removed_edge": true,
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Iron Working provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "Iron working is not part of the evidence-backed direct boundary for the timber-hulled, oar-powered Greek trireme and its bronze ram.",
+  "source_supports_edge": "no",
+  "source_url": "https://averof.hellenicnavy.gr/en/trireme-olympias/construction-of-the-trireme-by-the-hn/",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Construction account, paragraphs 1-4: Olympias was built by ship carpenters with a timber keel, planking and frames, wooden wedges, brass nails, and a cast brass ram cap.",
+    "source_claim_summary": "The Hellenic Navy's full-scale reconstruction documents a complete timber-and-copper-alloy construction system without an iron-specific structural requirement.",
+    "source_support_rationale": "The former citation concerned Egyptian meteoritic beads rather than shipbuilding; the functioning reconstruction instead identifies wood and copper-alloy components as the relevant material technologies."
+  },
+  "ontology_before": "An unrelated early iron-artifact tradition was treated as a direct cause of Greek trireme construction.",
+  "ontology_after": "Iron working is excluded unless future trireme-specific structural evidence establishes an indispensable iron component.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-greek-trireme-boundary: iron_working is absent.",
+  "would_reject_if": [
+    "Trireme-specific archaeological or reconstruction evidence shows that an iron component was indispensable to the hull, propulsion system, rig, or ram."
+  ],
+  "short_reason": "The old meteoritic-bead source was unrelated, while the reconstructed trireme architecture does not require iron working.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/advanced_shipbuilding_bireme_trireme.before.json /tmp/advanced_shipbuilding_bireme_trireme.after.json --require-behavior-change"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-route-optimization-gps-logistics-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "route_optimization_logistics",
+    "prerequisite": "gps_guided_logistics"
+  },
+  "old_claim": {
+    "type": "commercial_or_scaling_dependency",
+    "evidence_level": "expert_inference",
+    "confidence": 0.72,
+    "note": "GPS-Guided Logistics supports manufacturing, deployment, commercialization, or operational scaling."
+  },
+  "new_claim_absent": "No direct GPS-guided logistics dependency remains because fleet-route optimization was formulated as an operations-research problem in 1959, decades before commercial GPS fleet systems.",
+  "source_supports_edge": "no",
+  "source_url": "https://doi.org/10.1287/mnsc.6.1.80",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "The Truck Dispatching Problem, abstract and pp. 80-91: formulates fleet routes from terminals, truck capacities, customer demands, and distances, with hand or digital-computer calculation in 1959.",
+    "source_claim_summary": "The foundational paper demonstrates route-optimization methods using operations-research variables and computation before GPS-guided fleet logistics existed.",
+    "source_support_rationale": "GPS can supply useful live position data to later routing systems, but the optimization method and its historical milestone do not require that downstream telemetry workflow."
+  },
+  "ontology_before": "Route optimization was modeled as commercially dependent on the later GPS-guided fleet logistics application.",
+  "ontology_after": "Route optimization retains its operations-research and software lineage without a backwards dependency on GPS fleet operations.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: route_optimization_logistics has no direct gps_guided_logistics prerequisite while operations_research remains present.",
+  "would_reject_if": [
+    "The node is rescoped exclusively to dynamic GPS-fed vehicle routing rather than the general fleet-route optimization method.",
+    "Primary evidence shows the 1959 truck-dispatch method required satellite position telemetry."
+  ],
+  "short_reason": "Route optimization was formally demonstrated before GPS fleet logistics and does not require it.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/route_optimization_logistics.before.json /tmp/route_optimization_logistics.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

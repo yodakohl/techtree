@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-merchant-reports-paper-accelerates",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "market_price_bulletins",
+    "prerequisite": "paper_making"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Paper Making provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "accelerates",
+    "evidence_level": "textbook",
+    "confidence": 0.78,
+    "note": "Thirteenth-century Italian paper mills made commercial letter production cheaper and more plentiful, but parchment remained an alternative writing surface."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://academic.oup.com/reference/62416/reference-article-abstract/555936706",
+  "source_shape": {
+    "source_type": "textbook",
+    "support_relationship": "reviews_field_relationship",
+    "source_locator": "Material-conditions overview: the transition from parchment to paper and the proliferation of water-powered paper mills in thirteenth-century Italy made letter production economical.",
+    "source_claim_summary": "Growing paper production lowered the material cost of letter writing and supported wider commercial correspondence.",
+    "source_support_rationale": "The source describes an economic scaling effect while also naming parchment as the predecessor medium, so paper accelerates report circulation without being indispensable."
+  },
+  "ontology_before": "Paper making was modeled as a generic enabling prerequisite even though written reports could use parchment.",
+  "ontology_after": "Paper making is retained as an accelerator that reduced cost and supported scale without defining the existence of merchant reports.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-merchant-market-reports-scope: paper_making is an accelerates edge.",
+  "would_reject_if": [
+    "Evidence shows that the scoped 1265 correspondence could only be produced on paper and not on another writing substrate."
+  ],
+  "short_reason": "Paper made letter production more economical, but parchment remained a viable alternative.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run quality"
+  ]
+}

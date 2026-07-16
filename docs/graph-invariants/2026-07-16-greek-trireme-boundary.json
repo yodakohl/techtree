@@ -1,0 +1,90 @@
+{
+  "id": "2026-07-16-greek-trireme-boundary",
+  "description": "Lock advanced_shipbuilding_bireme_trireme to the sixth-century-BCE Greek trireme and its oar, timber, cordage, passage-sail, and bronze-ram architecture.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "construction",
+      "reason": "The construction node represents monumental stone and civic works rather than a ship-specific fabrication capability."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "iron_working",
+      "reason": "No reviewed trireme evidence makes iron indispensable to the hull, propulsion, rig, or bronze ram."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "basic_boat_propulsion",
+      "reason": "The defining trireme propulsion system used 170 manually worked oars arranged on three levels."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "basic_boat_propulsion",
+      "expected": "required",
+      "reason": "Without manual oar propulsion the scoped vessel is no longer a trireme."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "woodworking_basic",
+      "reason": "The lightweight vessel depended critically on a shaped and joined timber hull."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "woodworking_basic",
+      "expected": "required",
+      "reason": "Timber construction is constitutive of the historically evidenced trireme hull."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "basic_rope_making",
+      "reason": "Hypozomata braced the hull and were standard commissioned equipment in Athenian naval inventories."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "basic_rope_making",
+      "expected": "required",
+      "reason": "A commissioned operational trireme required its heavy hull-bracing cordage."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "sailing",
+      "reason": "The vessel carried square-rigged sails for passages and could operate under wind power."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "sailing",
+      "expected": "enabling",
+      "reason": "Sails extended passage capability but did not replace the defining three-level oar system."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "bronze_working",
+      "reason": "Archaeological evidence directly supports a cast-bronze prow ram on the three-tier warship tradition."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "advanced_shipbuilding_bireme_trireme",
+      "prerequisite": "bronze_working",
+      "expected": "enabling",
+      "reason": "Bronze enabled the offensive ram without constituting the timber hull or oar arrangement."
+    },
+    {
+      "type": "first_known_date",
+      "node": "advanced_shipbuilding_bireme_trireme",
+      "operator": "eq",
+      "value": -600,
+      "reason": "The reviewed reconstruction summaries attest triremes from at least the sixth century BCE while exact invention remains disputed."
+    }
+  ]
+}

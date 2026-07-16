@@ -1,16 +1,24 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const canvas = document.getElementById('documentary-canvas');
     const context = canvas.getContext('2d');
+    const stageEl = document.querySelector('.documentary-stage');
     const titleEl = document.getElementById('documentary-title');
     const kickerEl = document.getElementById('documentary-kicker');
     const captionEl = document.getElementById('documentary-caption');
     const metaEl = document.getElementById('documentary-meta');
     const sceneListEl = document.getElementById('documentary-scenes');
     const progressEl = document.getElementById('documentary-progress');
+    const progressTrackEl = progressEl.parentElement;
     const targetInput = document.getElementById('documentary-target');
     const targetOptionsEl = document.getElementById('documentary-target-options');
+    const previousButton = document.getElementById('documentary-previous');
     const playToggle = document.getElementById('documentary-play-toggle');
+    const nextButton = document.getElementById('documentary-next');
     const statusEl = document.getElementById('documentary-status');
+    const presetButtons = [...document.querySelectorAll('[data-documentary-target]')];
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sceneDuration = 4400;
+    const maxCanvasPixels = 8_000_000;
 
     const eraRank = {
         Ancient: 0,
@@ -204,9 +212,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     let activeIndex = 0;
     let startedAt = performance.now();
     let pausedAt = null;
-    let running = true;
+    let running = !reducedMotionQuery.matches;
+    let playbackPreferenceOverridden = false;
     let animationId = null;
+    let resizeAnimationId = null;
+    let hiddenAt = null;
     let lastRenderedIndex = -1;
+    let lastProgressPercent = -1;
+    let lastProgressScene = -1;
+    let canvasCssWidth = 0;
+    let canvasCssHeight = 0;
+    let canvasScale = 0;
+    let resizeObserver = null;
 
     function setStatus(text) {
         statusEl.textContent = text;
@@ -286,7 +303,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function parseTargetValue(value) {
         const bracketMatch = String(value || '').match(/\[([^\]]+)\]\s*$/);
-        if (bracketMatch && graph.byId.has(bracketMatch[1])) return bracketMatch[1];
+        if (bracketMatch && graph?.byId.has(bracketMatch[1])) return bracketMatch[1];
         const normalized = String(value || '').trim().toLowerCase();
         if (!normalized) return null;
         const exact = techData.find(item => item.id.toLowerCase() === normalized || item.name.toLowerCase() === normalized);
@@ -311,8 +328,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const edges = [];
         const distance = new Map([[id, 0]]);
         const queue = [id];
-        while (queue.length) {
-            const current = queue.shift();
+        for (let queueIndex = 0; queueIndex < queue.length; queueIndex += 1) {
+            const current = queue[queueIndex];
             const depth = distance.get(current) || 0;
             for (const entry of graph.incoming.get(current) || []) {
                 edges.push(entry);
@@ -327,6 +344,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return {
             target,
             ids: [...ids],
+            idSet: ids,
             edges,
             edgeByFromTo,
             distance,
@@ -341,7 +359,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function longestChainTo(id, trace, memo = new Map()) {
         if (memo.has(id)) return memo.get(id);
         const entries = (graph.incoming.get(id) || [])
-            .filter(entry => trace.ids.includes(entry.from));
+            .filter(entry => trace.idSet.has(entry.from));
         if (!entries.length) {
             const base = [id];
             memo.set(id, base);
@@ -511,12 +529,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function resizeCanvas() {
-        const ratio = Math.min(window.devicePixelRatio || 1, 2);
         const width = canvas.clientWidth || window.innerWidth;
         const height = canvas.clientHeight || window.innerHeight;
-        canvas.width = Math.floor(width * ratio);
-        canvas.height = Math.floor(height * ratio);
+        const pixelBudgetRatio = Math.sqrt(maxCanvasPixels / Math.max(1, width * height));
+        const ratio = Math.min(window.devicePixelRatio || 1, 2, pixelBudgetRatio);
+        const pixelWidth = Math.max(1, Math.floor(width * ratio));
+        const pixelHeight = Math.max(1, Math.floor(height * ratio));
+        const dimensionsUnchanged = canvas.width === pixelWidth && canvas.height === pixelHeight;
+        const layoutUnchanged = canvasCssWidth === width && canvasCssHeight === height && canvasScale === ratio;
+        if (dimensionsUnchanged && layoutUnchanged) return;
+        if (!dimensionsUnchanged) {
+            canvas.width = pixelWidth;
+            canvas.height = pixelHeight;
+        }
+        canvasCssWidth = width;
+        canvasCssHeight = height;
+        canvasScale = ratio;
         context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        requestRender();
+    }
+
+    function queueCanvasResize() {
+        if (resizeAnimationId !== null) return;
+        resizeAnimationId = window.requestAnimationFrame(() => {
+            resizeAnimationId = null;
+            resizeCanvas();
+        });
+    }
+
+    function requestRender() {
+        if (animationId !== null || document.hidden || !scenes.length) return;
+        animationId = window.requestAnimationFrame(renderFrame);
     }
 
     function drawBackground(width, height, time, scene, sceneProgress) {
@@ -1380,29 +1423,51 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderFrame(time) {
+        animationId = null;
         if (!scenes.length) return;
+        if (document.hidden) return;
         const width = canvas.clientWidth || window.innerWidth;
         const height = canvas.clientHeight || window.innerHeight;
-        const duration = 4400;
-        const totalDuration = duration * scenes.length;
+        const totalDuration = sceneDuration * scenes.length;
         const rawElapsed = running ? time - startedAt : (pausedAt || time) - startedAt;
         const elapsed = ((rawElapsed % totalDuration) + totalDuration) % totalDuration;
-        activeIndex = Math.min(scenes.length - 1, Math.floor(elapsed / duration));
-        const sceneProgress = (elapsed % duration) / duration;
+        activeIndex = Math.min(scenes.length - 1, Math.floor(elapsed / sceneDuration));
+        const sceneProgress = (elapsed % sceneDuration) / sceneDuration;
         const scene = scenes[activeIndex];
-        const globalProgress = (activeIndex + sceneProgress) / Math.max(1, scenes.length - 1);
+        const playbackProgress = (activeIndex + sceneProgress) / scenes.length;
+        const timelineProgress = scenes.length === 1
+            ? sceneProgress
+            : (activeIndex + sceneProgress) / (scenes.length - 1);
+        const visualTime = running ? time : (pausedAt || time);
 
-        drawBackground(width, height, time, scene, sceneProgress);
-        drawSceneArt(width, height, time, sceneProgress, scene);
-        drawTimeline(width, height, Math.min(1, globalProgress));
+        drawBackground(width, height, visualTime, scene, sceneProgress);
+        drawSceneArt(width, height, visualTime, sceneProgress, scene);
+        drawTimeline(width, height, Math.min(1, timelineProgress));
         drawLetterbox(width, height);
 
         if (activeIndex !== lastRenderedIndex) {
             updateSceneText(scene);
             lastRenderedIndex = activeIndex;
         }
-        progressEl.style.transform = `scaleX(${Math.min(1, globalProgress)})`;
-        animationId = window.requestAnimationFrame(renderFrame);
+        updateProgress(playbackProgress);
+        if (running) requestRender();
+    }
+
+    function updateProgress(progress) {
+        const normalized = Math.max(0, Math.min(1, progress));
+        progressEl.style.transform = `scaleX(${normalized})`;
+        const progressPercent = Math.round(normalized * 100);
+        if (progressPercent !== lastProgressPercent) {
+            progressTrackEl.setAttribute('aria-valuenow', String(progressPercent));
+            lastProgressPercent = progressPercent;
+        }
+        if (scenes.length && activeIndex !== lastProgressScene) {
+            progressTrackEl.setAttribute(
+                'aria-valuetext',
+                `Scene ${activeIndex + 1} of ${scenes.length}: ${scenes[activeIndex].title || scenes[activeIndex].item.name}`
+            );
+            lastProgressScene = activeIndex;
+        }
     }
 
     function updateSceneText(scene) {
@@ -1412,52 +1477,137 @@ document.addEventListener('DOMContentLoaded', async () => {
         metaEl.textContent = scene.target
             ? 'Target technology'
             : `${scene.item.name} · ${scene.edge?.type ? scene.edge.type.replaceAll('_', ' ') : 'dependency'}`;
-        [...sceneListEl.children].forEach((child, index) => child.classList.toggle('is-active', index === activeIndex));
+        [...sceneListEl.children].forEach((child, index) => {
+            const active = index === activeIndex;
+            child.classList.toggle('is-active', active);
+            if (active) child.setAttribute('aria-current', 'step');
+            else child.removeAttribute('aria-current');
+        });
+        const activeButton = sceneListEl.children[activeIndex];
+        if (activeButton && sceneListEl.scrollWidth > sceneListEl.clientWidth) {
+            const listBounds = sceneListEl.getBoundingClientRect();
+            const buttonBounds = activeButton.getBoundingClientRect();
+            if (buttonBounds.left < listBounds.left) {
+                sceneListEl.scrollLeft -= listBounds.left - buttonBounds.left;
+            } else if (buttonBounds.right > listBounds.right) {
+                sceneListEl.scrollLeft += buttonBounds.right - listBounds.right;
+            }
+        }
+    }
+
+    function seekToScene(index, { focus = false } = {}) {
+        if (!scenes.length) return;
+        const normalizedIndex = ((index % scenes.length) + scenes.length) % scenes.length;
+        const now = performance.now();
+        activeIndex = normalizedIndex;
+        startedAt = now - normalizedIndex * sceneDuration;
+        pausedAt = running ? null : now;
+        lastRenderedIndex = normalizedIndex;
+        updateSceneText(scenes[normalizedIndex]);
+        updateProgress(normalizedIndex / scenes.length);
+        requestRender();
+        if (focus) sceneListEl.children[normalizedIndex]?.focus();
     }
 
     function renderSceneList() {
         sceneListEl.replaceChildren();
         scenes.forEach((scene, index) => {
             const button = document.createElement('button');
+            const date = document.createElement('span');
+            const title = document.createElement('strong');
             button.type = 'button';
-            button.innerHTML = `<span>${formatDate(scene.item.firstKnownDate)}</span><strong>${scene.title || scene.item.name}</strong>`;
-            button.addEventListener('click', () => {
-                activeIndex = index;
-                startedAt = performance.now() - index * 4400;
-                if (!running) pausedAt = performance.now();
-                updateSceneText(scene);
+            date.textContent = formatDate(scene.item.firstKnownDate);
+            title.textContent = scene.title || scene.item.name;
+            button.append(date, title);
+            button.setAttribute('aria-label', `Scene ${index + 1} of ${scenes.length}: ${date.textContent}, ${title.textContent}`);
+            button.addEventListener('click', () => seekToScene(index));
+            button.addEventListener('keydown', event => {
+                let nextIndex = null;
+                if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = index - 1;
+                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = index + 1;
+                if (event.key === 'Home') nextIndex = 0;
+                if (event.key === 'End') nextIndex = scenes.length - 1;
+                if (nextIndex === null) return;
+                event.preventDefault();
+                seekToScene(nextIndex, { focus: true });
             });
             sceneListEl.appendChild(button);
         });
     }
 
     function setTarget(id) {
-        if (!id || !graph.byId.has(id)) return;
+        if (!id || !graph?.byId.has(id)) return;
         targetId = id;
         currentTrace = buildTrace(id);
         scenes = buildScenes(currentTrace);
         lastRenderedIndex = -1;
+        lastProgressPercent = -1;
+        lastProgressScene = -1;
         activeIndex = 0;
         startedAt = performance.now();
-        pausedAt = null;
+        pausedAt = running ? null : startedAt;
         targetInput.value = currentTrace.target.name;
+        targetInput.setAttribute('aria-invalid', 'false');
         updateUrl();
         renderSceneList();
         updateSceneText(scenes[0]);
+        updateProgress(0);
+        presetButtons.forEach(button => {
+            const active = button.dataset.documentaryTarget === targetId;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', String(active));
+        });
         setStatus(`${currentTrace.ids.length - 1} prerequisites · ${currentTrace.edges.length} dependency edges`);
+        requestRender();
     }
 
-    function setRunning(value) {
-        running = value;
+    function updatePlaybackControl() {
         playToggle.textContent = running ? 'Pause' : 'Play';
-        if (running) {
-            const pauseDuration = performance.now() - (pausedAt || performance.now());
-            startedAt += pauseDuration;
+        playToggle.setAttribute('aria-label', running ? 'Pause documentary' : 'Play documentary');
+        playToggle.setAttribute('aria-pressed', String(running));
+    }
+
+    function setRunning(value, { userInitiated = false } = {}) {
+        const nextRunning = Boolean(value);
+        if (userInitiated) playbackPreferenceOverridden = true;
+        if (nextRunning === running) {
+            updatePlaybackControl();
+            requestRender();
+            return;
+        }
+        const now = performance.now();
+        if (nextRunning) {
+            if (pausedAt !== null) startedAt += now - pausedAt;
             pausedAt = null;
         } else {
-            pausedAt = performance.now();
+            pausedAt = now;
         }
+        running = nextRunning;
+        updatePlaybackControl();
+        if (running) {
+            requestRender();
+            return;
+        }
+        if (animationId !== null) window.cancelAnimationFrame(animationId);
+        animationId = null;
+        requestRender();
     }
+
+    function commitTargetInput() {
+        const id = parseTargetValue(targetInput.value);
+        if (id) {
+            setTarget(id);
+            return;
+        }
+        targetInput.setAttribute('aria-invalid', 'true');
+        setStatus('Target not found. Choose a technology from the suggestions.');
+    }
+
+    function handleReducedMotionChange(event) {
+        if (!playbackPreferenceOverridden) setRunning(!event.matches);
+    }
+
+    updatePlaybackControl();
 
     try {
         setStatus('Loading graph...');
@@ -1476,38 +1626,77 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         targetOptionsEl.replaceChildren(...options);
 
-        document.querySelectorAll('[data-documentary-target]').forEach(button => {
+        presetButtons.forEach(button => {
             button.addEventListener('click', () => setTarget(button.dataset.documentaryTarget));
         });
-        targetInput.addEventListener('change', () => {
-            const id = parseTargetValue(targetInput.value);
-            if (id) setTarget(id);
-            else setStatus('Target not found.');
+        targetInput.addEventListener('change', commitTargetInput);
+        targetInput.addEventListener('input', () => {
+            targetInput.setAttribute('aria-invalid', 'false');
         });
         targetInput.addEventListener('keydown', event => {
-            if (event.key !== 'Enter') return;
-            event.preventDefault();
-            const id = parseTargetValue(targetInput.value);
-            if (id) setTarget(id);
+            if (event.key === 'Escape') {
+                targetInput.value = currentTrace?.target.name || '';
+                targetInput.setAttribute('aria-invalid', 'false');
+                if (currentTrace) {
+                    setStatus(`${currentTrace.ids.length - 1} prerequisites · ${currentTrace.edges.length} dependency edges`);
+                }
+                return;
+            }
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                commitTargetInput();
+            }
         });
-        playToggle.addEventListener('click', () => setRunning(!running));
+        previousButton.addEventListener('click', () => seekToScene(activeIndex - 1));
+        nextButton.addEventListener('click', () => seekToScene(activeIndex + 1));
+        playToggle.addEventListener('click', () => setRunning(!running, { userInitiated: true }));
         canvas.addEventListener('click', () => {
-            startedAt = performance.now() - (((activeIndex + 1) % scenes.length) * 4400);
-            if (!running) setRunning(true);
+            seekToScene(activeIndex + 1);
+            if (!running) setRunning(true, { userInitiated: true });
         });
-        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('resize', queueCanvasResize, { passive: true });
+        if ('ResizeObserver' in window) {
+            resizeObserver = new ResizeObserver(queueCanvasResize);
+            resizeObserver.observe(canvas);
+        }
+        document.addEventListener('visibilitychange', () => {
+            const now = performance.now();
+            if (document.hidden) {
+                hiddenAt = now;
+                if (animationId !== null) window.cancelAnimationFrame(animationId);
+                animationId = null;
+                return;
+            }
+            if (running && hiddenAt !== null) startedAt += now - hiddenAt;
+            hiddenAt = null;
+            requestRender();
+        });
+        if (typeof reducedMotionQuery.addEventListener === 'function') {
+            reducedMotionQuery.addEventListener('change', handleReducedMotionChange);
+        } else {
+            reducedMotionQuery.addListener(handleReducedMotionChange);
+        }
 
         resizeCanvas();
         setTarget(getInitialTarget());
-        animationId = window.requestAnimationFrame(renderFrame);
+        stageEl.setAttribute('aria-busy', 'false');
+        requestRender();
     } catch (error) {
         console.error(error);
         setStatus('Failed to load demo.');
         titleEl.textContent = 'TechTree demo failed to load';
         captionEl.textContent = error.message;
+        stageEl.setAttribute('aria-busy', 'false');
     }
 
     window.addEventListener('beforeunload', () => {
-        if (animationId) window.cancelAnimationFrame(animationId);
+        if (animationId !== null) window.cancelAnimationFrame(animationId);
+        if (resizeAnimationId !== null) window.cancelAnimationFrame(resizeAnimationId);
+        resizeObserver?.disconnect();
+        if (typeof reducedMotionQuery.removeEventListener === 'function') {
+            reducedMotionQuery.removeEventListener('change', handleReducedMotionChange);
+        } else {
+            reducedMotionQuery.removeListener(handleReducedMotionChange);
+        }
     });
 });

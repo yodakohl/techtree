@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-pki-digital-signatures-replaces-tcp-ip",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "public_key_infrastructure",
+    "prerequisite": "digital_signatures"
+  },
+  "replaced_edge": {
+    "dependent": "public_key_infrastructure",
+    "prerequisite": "internet_protocols_tcp_ip_arpanet"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Internet Protocols (TCP/IP, ARPANET) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "primary_source",
+    "confidence": 0.98,
+    "note": "A certification authority digitally signs each X.509 certificate to certify the binding between its subject and public key, so digital signatures are required by the certificate model."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc5280.html",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Sections 4.1.1.2-4.1.1.3 specify the certificate signature algorithm and signature value and explain that the CA signature certifies the subject-to-public-key binding.",
+    "source_claim_summary": "RFC 5280 defines a CA-generated digital signature as part of every X.509 certificate's structure and certification semantics.",
+    "source_support_rationale": "A networking protocol can transport or retrieve certificates, but the certificate remains an X.509 trust object only because its issuing authority signs the identity-to-key binding."
+  },
+  "ontology_before": "The graph linked PKI directly to TCP/IP while omitting the certificate-signature mechanism that constitutes the X.509 trust model.",
+  "ontology_after": "Digital signatures are a required direct prerequisite, while TCP/IP remains a later transport context rather than a constituent of PKI.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-public-key-infrastructure-x509-boundary: digital_signatures is required and internet_protocols_tcp_ip_arpanet is absent.",
+  "would_reject_if": [
+    "The node is rescoped to a network service that does not issue or validate authority-signed certificates."
+  ],
+  "short_reason": "RFC 5280 makes the CA signature constitutive of an X.509 certificate, whereas TCP/IP is only a possible transport environment.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/public_key_infrastructure.before.json /tmp/public_key_infrastructure.after.json --require-behavior-change"
+  ]
+}

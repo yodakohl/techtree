@@ -1,0 +1,44 @@
+{
+  "id": "2026-07-16-electrical-resistance-heating-lighting-evidence",
+  "decision_date": "2026-07-16",
+  "change_class": "evidence_upgrade",
+  "edge": {
+    "dependent": "electrical_appliances_early",
+    "prerequisite": "electrical_lighting_systems"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Electrical Lighting Systems provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "confidence": 0.9,
+    "evidence_level": "primary_source",
+    "note": "Existing multiple-arc lighting circuits enabled practical appliance connection through a lamp-socket plug and flexible conductors, although the patent allowed any suitable electricity source."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://patents.google.com/patent/US259054A/en",
+  "source_shape": {
+    "source_type": "primary_paper",
+    "support_relationship": "documents_application_use",
+    "source_locator": "Specification and Figure 1: the preferred arrangement removes a lamp, inserts a plug into the lamp socket of a multiple-arc lighting circuit, and connects the iron through flexible conductors; the opening also permits any suitable electricity source.",
+    "source_claim_summary": "The patent directly demonstrates use of an installed electric-lighting circuit as the practical connection system for the movable flat iron.",
+    "source_support_rationale": "The lighting circuit supplies wiring and a socket interface that make household connection practical, but the patent's broader source language prevents treating that system as universally required."
+  },
+  "invariant_preserved_or_changed": "Preserved and strengthened: electrical_lighting_systems remains an enabling edge, now with primary-source evidence and a bounded non-required claim.",
+  "would_reject_if": [
+    "The node is later narrowed to an appliance powered only by a dedicated non-lighting circuit.",
+    "The patent figure is shown not to depict a lamp-socket connection to a multiple-arc lighting system.",
+    "The edge is promoted to required despite the patent allowing any suitable source of electricity."
+  ],
+  "short_reason": "The patent directly documents the lighting-circuit connection.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/electrical_appliances_early.before.json /tmp/electrical_appliances_early.after.json --require-behavior-change",
+    "npm run coverage"
+  ]
+}

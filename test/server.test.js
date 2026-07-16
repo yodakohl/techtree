@@ -125,11 +125,13 @@ test('serves API and public assets without exposing repository internals', async
     assert.equal(dataResponse.status, 200);
     assert.deepEqual(await responseJson(dataResponse), fixture.initialData);
     assert.equal(dataResponse.headers.get('etag'), fixture.etag);
+    assert.equal(dataResponse.headers.get('cache-control'), 'public, no-cache');
 
     const headResponse = await fetch(`${fixture.baseUrl}/api/tech-tree`, { method: 'HEAD' });
     assert.equal(headResponse.status, 200);
     assert.equal(await headResponse.text(), '');
     assert.ok(Number(headResponse.headers.get('content-length')) > 0);
+    assert.equal(headResponse.headers.get('cache-control'), 'public, no-cache');
 
     const indexResponse = await fetch(`${fixture.baseUrl}/?cache-bust=1`);
     assert.equal(indexResponse.status, 200);
@@ -139,6 +141,45 @@ test('serves API and public assets without exposing repository internals', async
         const response = await fetch(`${fixture.baseUrl}${privatePath}`);
         assert.equal(response.status, 404, privatePath);
     }
+});
+
+test('revalidates tech-tree GET and HEAD responses without retransmitting the dataset', async t => {
+    const fixture = await startFixture(t);
+
+    const conditionalGet = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: { 'If-None-Match': `"stale", W/${fixture.etag}` }
+    });
+    assert.equal(conditionalGet.status, 304);
+    assert.equal(await conditionalGet.text(), '');
+    assert.equal(conditionalGet.headers.get('etag'), fixture.etag);
+    assert.equal(conditionalGet.headers.get('cache-control'), 'public, no-cache');
+    assert.equal(conditionalGet.headers.get('vary'), 'Accept-Encoding');
+    assert.equal(conditionalGet.headers.get('content-length'), null);
+    assert.equal(conditionalGet.headers.get('content-type'), null);
+
+    const conditionalHead = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        method: 'HEAD',
+        headers: { 'If-None-Match': fixture.etag }
+    });
+    assert.equal(conditionalHead.status, 304);
+    assert.equal(await conditionalHead.text(), '');
+    assert.equal(conditionalHead.headers.get('etag'), fixture.etag);
+    assert.equal(conditionalHead.headers.get('cache-control'), 'public, no-cache');
+    assert.equal(conditionalHead.headers.get('content-length'), null);
+
+    const wildcardGet = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: { 'If-None-Match': '*' }
+    });
+    assert.equal(wildcardGet.status, 304);
+    assert.equal(await wildcardGet.text(), '');
+
+    const staleGet = await fetch(`${fixture.baseUrl}/api/tech-tree`, {
+        headers: { 'If-None-Match': '"stale"' }
+    });
+    assert.equal(staleGet.status, 200);
+    assert.deepEqual(await responseJson(staleGet), fixture.initialData);
+    assert.equal(staleGet.headers.get('etag'), fixture.etag);
+    assert.equal(staleGet.headers.get('cache-control'), 'public, no-cache');
 });
 
 test('enforces API methods and read-only mode', async t => {

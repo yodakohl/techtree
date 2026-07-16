@@ -1,0 +1,70 @@
+{
+  "id": "2026-07-16-self-excited-industrial-dynamo-scope",
+  "description": "Keep dynamo as the 1866 self-excited industrial machine stage and preserve electric_generators_dynamos as the distinct 1831 Faraday disk predecessor.",
+  "checks": [
+    {
+      "type": "first_known_date",
+      "node": "dynamo",
+      "operator": "eq",
+      "value": 1866,
+      "reason": "Siemens Historical Institute dates the practical dynamo machine to 1866, distinct from the Faraday disk."
+    },
+    {
+      "type": "first_known_date",
+      "node": "electric_generators_dynamos",
+      "operator": "eq",
+      "value": 1831,
+      "reason": "The separate Faraday Disk Generator must retain its experimental 1831 chronology."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dynamo",
+      "prerequisite": "electric_generators_dynamos",
+      "expected": "historical_predecessor",
+      "reason": "The self-excited machine is a later generator stage, not another label for Faraday's disk."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "dynamo",
+      "prerequisite": "copper_wiring_production",
+      "expected": "enabling",
+      "reason": "Insulated field and armature windings are directly documented components."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dynamo",
+      "prerequisite": "electricity",
+      "reason": "The broad electricity field must not replace the precise Faraday generator lineage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dynamo",
+      "prerequisite": "steam_engine",
+      "reason": "No one substitutable prime mover is intrinsic to self-excitation."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dynamo",
+      "prerequisite": "construction",
+      "reason": "Classical Monumental Construction is outside the electrical-machine boundary."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dynamo",
+      "prerequisite": "electromagnetism_early_discoveries",
+      "reason": "The direct historical edge must point to the concrete Faraday generator, which already carries the earlier electromagnetism lineage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "electric_generators_dynamos",
+      "prerequisite": "dynamo",
+      "reason": "The 1831 Faraday node must never depend on or be reverse-merged with the later 1866 self-excited dynamo."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "dynamo",
+      "prerequisite": "central_station_power",
+      "reason": "Utility-station deployment is downstream and must not redefine the machine milestone."
+    }
+  ]
+}

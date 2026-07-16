@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-gps-atomic-clocks-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps",
+    "prerequisite": "atomic_clocks"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Atomic Clocks provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "textbook",
+    "confidence": 0.98,
+    "note": "GPS determines range from precise signal travel time, and its satellites therefore require synchronized atomic clocks to provide usable positioning and timing."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nist.gov/atomic-clocks/atomic-clocks-technology-powerhouse",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "Opening section: states that positioning satellites are powered by atomic clocks and that GPS would not function without their precise timing.",
+    "source_claim_summary": "NIST directly identifies precise atomic time as the signal-timing basis that allows GPS receivers to calculate position.",
+    "source_support_rationale": "Ranging error grows directly from clock error, so ordinary unsynchronized clocks would destroy the measurement needed by the scoped positioning system."
+  },
+  "ontology_before": "Atomic clocks were modeled as an optional enhancement to GPS.",
+  "ontology_after": "Synchronized atomic clocks are a required timing mechanism for GPS ranging and time distribution.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: atomic_clocks remains required for gps.",
+  "would_reject_if": [
+    "A source-backed GPS architecture is demonstrated that obtains equivalent global ranging without precise synchronized clocks."
+  ],
+  "short_reason": "NIST states that GPS would not function without the precise timing supplied by atomic clocks.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps.before.json /tmp/gps.after.json --require-behavior-change --require-claim-change"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "2026-07-16-satellite-constellations-smallsats-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "satellite_constellations",
+    "prerequisite": "smallsat_cubesats"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "SmallSats & CubeSats provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct SmallSat or CubeSat dependency remains because coordinated Vela satellite pairs operated in 1963, decades before the standardized CubeSat platform introduced in 1999.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.nasa.gov/what-are-smallsats-and-cubesats/",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "What are CubeSats? section: dates the standardized CubeSat platform to 1999, long after the scoped 1963 Vela constellation milestone.",
+    "source_claim_summary": "NASA's chronology places the CubeSat standard more than three decades after coordinated satellite constellations were already demonstrated.",
+    "source_support_rationale": "Small spacecraft can make later constellations cheaper or denser, but a later form factor cannot be a prerequisite for an earlier system class built from conventional satellites."
+  },
+  "ontology_before": "The general constellation class was modeled as enabled by a much later small-satellite and CubeSat implementation family.",
+  "ontology_after": "Constellations are scoped to coordinated multi-satellite operation independent of spacecraft size or CubeSat standardization.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: smallsat_cubesats is absent as a direct prerequisite of satellite_constellations.",
+  "would_reject_if": [
+    "The node is narrowed specifically to modern small-satellite mega-constellations rather than the general constellation architecture.",
+    "The CubeSat standard is authoritatively redated before the 1963 Vela pair."
+  ],
+  "short_reason": "Satellite constellations existed decades before standardized CubeSats.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/satellite_constellations.before.json /tmp/satellite_constellations.after.json --require-behavior-change --require-claim-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}

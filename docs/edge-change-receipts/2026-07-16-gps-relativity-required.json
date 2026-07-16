@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-gps-relativity-required",
+  "decision_date": "2026-07-16",
+  "change_class": "semantic_retype",
+  "edge": {
+    "dependent": "gps",
+    "prerequisite": "relativity_special_general"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Relativity (Special & General) provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim": {
+    "type": "required",
+    "evidence_level": "textbook",
+    "confidence": 0.97,
+    "note": "Accurate GPS timing requires corrections for both special-relativistic motion and general-relativistic gravitational effects on satellite clocks."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.nist.gov/atomic-clocks/a-powerful-tool-for-science/putting-einstein-test",
+  "source_shape": {
+    "source_type": "official_agency",
+    "support_relationship": "demonstrates_method_dependency",
+    "source_locator": "GPS paragraphs: quantifies the opposing special- and general-relativistic clock effects and says engineers had to correct them for GPS to provide accurate time.",
+    "source_claim_summary": "NIST calculates the net satellite-clock offset from special and general relativity and states that operational GPS corrects for it.",
+    "source_support_rationale": "The accumulated timing shift would translate into rapidly growing range error, so the scoped accurate positioning and time service depends on applying both theories."
+  },
+  "ontology_before": "Relativity was modeled as an optional accuracy enhancement to GPS.",
+  "ontology_after": "Special- and general-relativistic clock corrections are required for the accurate GPS timing service.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-gps-navstar-logistics-boundary: relativity_special_general remains required for gps.",
+  "would_reject_if": [
+    "The GPS node is explicitly narrowed to a short-duration laboratory demonstration whose accuracy does not require satellite-clock correction."
+  ],
+  "short_reason": "NIST states that GPS engineers had to correct both relativistic effects to deliver accurate time.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants -- docs/graph-invariants/2026-07-16-gps-navstar-logistics-boundary.json",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/gps.before.json /tmp/gps.after.json --require-behavior-change --require-claim-change"
+  ]
+}

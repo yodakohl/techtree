@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-babylonian-world-map-navigation-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basic_cartography",
+    "prerequisite": "early_navigation"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Early Navigation is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim_absent": "The museum record presents the tablet as a cosmographic world map with terrestrial and mythic regions, not as a chart derived from or designed for coastal or celestial navigation.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object 1882,0714.509, Description and Curator's comments: centers Babylon and the Euphrates inside a cosmic ocean and describes unreachable outer regions and mythic beings; no navigational route, bearing, landmark sequence, or celestial observation is identified.",
+    "source_claim_summary": "The catalogue characterizes a Babylon-centered cosmography rather than an operational navigation chart.",
+    "source_support_rationale": "Navigation can consume maps without being the method that creates every map; retaining this reverse dependency would confuse a later application lineage with evidence about this tablet's composition."
+  },
+  "ontology_before": "Early navigation was modeled as a generic predecessor to the map solely because maps and navigation are often associated.",
+  "ontology_after": "Navigation remains a possible downstream use of cartographic traditions, but it is absent from this artifact's evidenced direct prerequisites.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-babylonian-world-map-boundary: early_navigation is not a direct prerequisite.",
+  "would_reject_if": [
+    "Reliable artifact analysis identifies the Babylonian World Map as a navigational chart constructed from documented navigation observations."
+  ],
+  "short_reason": "The tablet is a cosmographic diagram, not an evidenced navigation product.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/basic_cartography.before.json /tmp/basic_cartography.after.json --require-behavior-change"
+  ]
+}

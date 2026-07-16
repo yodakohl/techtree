@@ -12,7 +12,9 @@ const {
 } = require('../scripts/audit-source-urls');
 const {
     parseArgs: parseCheckArgs,
-    plan
+    plan,
+    resolveParallelism,
+    runBounded
 } = require('../scripts/agent-check-plan');
 const {
     TASKS,
@@ -154,6 +156,29 @@ test('data validation plan audits changed URLs instead of the full corpus', () =
     const commands = plan(['data/modern.json']).map(command => command.cmd);
     assert(commands.some(command => command.join(' ') === 'npm run source-urls -- --changed'));
     assert(!commands.some(command => command.join(' ') === 'npm run source-urls'));
+});
+
+test('parallel validation defaults to a memory-conscious CPU-aware worker count', () => {
+    assert.equal(resolveParallelism(undefined, 1), 1);
+    assert.equal(resolveParallelism(undefined, 8), 2);
+    assert.equal(resolveParallelism('3', 1), 3);
+    assert.throws(() => resolveParallelism('0', 8), /positive integer/);
+    assert.throws(() => resolveParallelism('many', 8), /positive integer/);
+});
+
+test('bounded validation never exceeds its worker limit and preserves result order', async () => {
+    let active = 0;
+    let peak = 0;
+    const results = await runBounded([30, 5, 20, 10], 2, async delay => {
+        active += 1;
+        peak = Math.max(peak, active);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        active -= 1;
+        return delay * 2;
+    });
+
+    assert.equal(peak, 2);
+    assert.deepEqual(results, [60, 10, 40, 20]);
 });
 
 test('derived refresh writes only stale tasks and keeps public generation last', () => {

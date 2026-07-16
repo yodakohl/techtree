@@ -1,0 +1,75 @@
+{
+  "id": "2026-07-16-internet-operational-boundary",
+  "description": "Lock the direct prerequisite boundary for the operational January 1983 TCP/IP Internet while preserving its broader networking ancestry transitively.",
+  "checks": [
+    {
+      "type": "direct_edge_absent",
+      "dependent": "internet",
+      "prerequisite": "personal_computers",
+      "reason": "Personal computers were optional endpoint products, not a universal condition of the 1983 host transition."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "internet",
+      "prerequisite": "telecommunications",
+      "reason": "Generic telecommunications remains transitive background; packet switching is the directly specified network mechanism."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "internet",
+      "prerequisite": "fiber_optics",
+      "reason": "The operational ARPA Internet joined satellite, packet-radio, and other networks without requiring fiber."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "internet",
+      "prerequisite": "data_compression",
+      "reason": "TCP/IP transports arbitrary application octets without a required compression stage."
+    },
+    {
+      "type": "direct_edge_absent",
+      "dependent": "internet",
+      "prerequisite": "computer_networking",
+      "reason": "Computer networking is already preserved transitively through both mechanism-specific direct prerequisites."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "internet",
+      "prerequisite": "packet_switching",
+      "reason": "RFC 791 defines the internetwork over interconnected packet-switched computer communication networks."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "internet",
+      "prerequisite": "packet_switching",
+      "expected": "required",
+      "reason": "Packet-switched networks and gateways are constitutive of the scoped 1983 architecture."
+    },
+    {
+      "type": "direct_edge_present",
+      "dependent": "internet",
+      "prerequisite": "internet_protocols_tcp_ip_arpanet",
+      "reason": "RFC 801 defines completed IP/TCP deployment as the condition for Full Internet Service."
+    },
+    {
+      "type": "edge_type",
+      "dependent": "internet",
+      "prerequisite": "internet_protocols_tcp_ip_arpanet",
+      "expected": "required",
+      "reason": "The node's definition and January 1983 milestone are specifically TCP/IP-based."
+    },
+    {
+      "type": "path_present",
+      "from": "computer_networking",
+      "to": "internet",
+      "reason": "The broad networking ancestry must remain available transitively without a redundant direct edge."
+    },
+    {
+      "type": "first_known_date",
+      "node": "internet",
+      "operator": "eq",
+      "value": 1983,
+      "reason": "RFC 801 labels January 1983 as Full Internet Service after the complete NCP-to-IP/TCP transition."
+    }
+  ]
+}

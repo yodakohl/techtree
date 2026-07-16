@@ -1,0 +1,39 @@
+{
+  "id": "2026-07-16-babylonian-world-map-surveying-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basic_cartography",
+    "prerequisite": "surveying"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "evidence_level": "expert_inference",
+    "confidence": 0.68,
+    "note": "Surveying provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "The scoped Babylonian World Map is a schematic cosmographic tablet; the object record does not document measured land survey data or a surveying workflow.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "Object 1882,0714.509, Description: depicts a disc-shaped world with Babylon, the Euphrates, named regions, the Bitter River, and mythic outer regions; the catalogue does not identify surveyed bearings, parcels, angles, or measured terrestrial positions.",
+    "source_claim_summary": "The museum documents a schematic cosmographic map rather than a measured land-survey product.",
+    "source_support_rationale": "Surveying may enable cadastral and topographic maps, but importing it into this artifact's direct boundary would attribute an undocumented production method to a symbolic world diagram."
+  },
+  "ontology_before": "A broad Basic Cartography node treated surveying as a generic enabling prerequisite despite citing only the Babylonian World Map.",
+  "ontology_after": "The node represents the specific Babylonian World Map and does not infer land-survey methods absent from its evidence.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-babylonian-world-map-boundary: surveying is not a direct prerequisite.",
+  "would_reject_if": [
+    "Primary or authoritative analysis demonstrates that measured field-survey observations were used to construct tablet 1882,0714.509."
+  ],
+  "short_reason": "The surviving artifact is a schematic cosmography, not a documented land survey.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/basic_cartography.before.json /tmp/basic_cartography.after.json --require-behavior-change"
+  ]
+}

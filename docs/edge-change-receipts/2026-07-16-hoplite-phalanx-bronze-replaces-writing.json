@@ -1,0 +1,47 @@
+{
+  "id": "2026-07-16-hoplite-phalanx-bronze-replaces-writing",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "bronze_working"
+  },
+  "replaced_edge": {
+    "dependent": "organized_military_formations",
+    "prerequisite": "writing"
+  },
+  "old_claim": {
+    "type": "historical_predecessor",
+    "evidence_level": "expert_inference",
+    "confidence": 0.75,
+    "note": "Writing is an earlier historical predecessor or foundation, not a one-to-one engineering dependency."
+  },
+  "new_claim": {
+    "type": "enabling",
+    "evidence_level": "review",
+    "confidence": 0.92,
+    "note": "The hoplite phalanx depended on a heavy panoply whose armor and critical large shield were predominantly bronze, so bronze working directly enabled the formation without alone determining its tactics."
+  },
+  "source_supports_edge": "yes",
+  "source_url": "https://www.britishmuseum.org/sites/default/files/2019-09/Greece_Hoplites_Presnotes_KS2.pdf",
+  "source_shape": {
+    "source_type": "museum",
+    "support_relationship": "describes_component_architecture",
+    "source_locator": "Pages 1-2, Notes on the pictures and Background information: identifies bronze helmets, bronze-covered shields, bronze spear points and greaves, then describes linked ranks using shields and spears through collaboration and training.",
+    "source_claim_summary": "The British Museum notes document the bronze components of hoplite equipment and the coordinated shield-linked formation in which that equipment was used.",
+    "source_support_rationale": "Bronze working supplied the characteristic shield and protective fittings around which hoplites maintained close order. Writing could record warfare but did not provide these formation mechanics."
+  },
+  "ontology_before": "The target treated writing as a generic historical foundation while omitting the characteristic material system of hoplite infantry.",
+  "ontology_after": "The target directly models the bronze-heavy hoplite panoply as an enabler and leaves writing outside the tactical boundary.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-organized-military-formations-hoplite-boundary: bronze_working is present and writing is absent.",
+  "would_reject_if": [
+    "Authoritative evidence shows that writing was constitutive of forming a hoplite phalanx or that bronze equipment was incidental to the scoped seventh-century formation."
+  ],
+  "short_reason": "Bronze armor and the large shield directly enabled hoplite close order; writing did not.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/organized_military_formations.before.json /tmp/organized_military_formations.after.json --require-behavior-change"
+  ]
+}

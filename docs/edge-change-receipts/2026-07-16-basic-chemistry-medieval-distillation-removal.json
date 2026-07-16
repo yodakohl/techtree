@@ -1,0 +1,43 @@
+{
+  "id": "2026-07-16-basic-chemistry-medieval-distillation-removal",
+  "decision_date": "2026-07-16",
+  "change_class": "topology_change",
+  "removed_edge": true,
+  "edge": {
+    "dependent": "basic_chemistry",
+    "prerequisite": "distillation_advanced"
+  },
+  "old_claim": {
+    "type": "enabling",
+    "confidence": 0.68,
+    "evidence_level": "expert_inference",
+    "note": "Advanced Distillation provides a capability that enables this technology without being the only possible path."
+  },
+  "new_claim_absent": "No direct dependency remains because distillation_advanced is now honestly scoped to ninth-century medieval alembic apparatus and procedures, which cannot enable a basic_chemistry node whose unchanged first-known-date anchor is c. 270.",
+  "source_supports_edge": "no",
+  "source_url": "https://www.jstage.jst.go.jp/article/orient/52/0/52_72/_article",
+  "source_shape": {
+    "source_type": "review",
+    "support_relationship": "refutes_dependency",
+    "source_locator": "pp. 79-81 and 87-90, especially section III.2: dates al-Kindi to the ninth century (d. ca. 866) and documents his alembic, receiver, heated bath or stove, and repeated distillation procedures; the article treats earlier Greco-Egyptian practice as historical background rather than this medieval implementation.",
+    "source_claim_summary": "The removed prerequisite is a ninth-century medieval laboratory milestone, centuries later than the dependent node's unchanged c. 270 date.",
+    "source_support_rationale": "The former generic chemistry overview did not establish this edge, and a later ninth-century milestone cannot causally enable an earlier c. 270 node. Retyping would preserve the same reverse chronology, while replacement would require evidence for a distinct earlier prerequisite outside this exact edge audit."
+  },
+  "ontology_before": "A c. 270 chemistry node depended directly on a separately scoped ninth-century medieval alembic milestone, creating reverse causation.",
+  "ontology_after": "The two historical boundaries remain distinct: basic_chemistry keeps its existing c. 270 claim and other prerequisites, while medieval alembic distillation remains an 800-century milestone without a backward edge.",
+  "invariant_preserved_or_changed": "Changed and locked by graph invariant 2026-07-16-medieval-alembic-distillation-scope: basic_chemistry must not directly depend on distillation_advanced.",
+  "would_reject_if": [
+    "basic_chemistry is honestly redated to the ninth century or later after a full node-scope audit.",
+    "distillation_advanced is respecified and evidenced as a pre-270 milestone rather than medieval alembic distillation.",
+    "A distinct pre-270 distillation node is created with direct evidence and proposed as a replacement prerequisite in a separate audited change."
+  ],
+  "short_reason": "The medieval alembic milestone postdates the c. 270 dependent by more than five centuries, so the direct edge is reverse-causal.",
+  "validation_commands": [
+    "npm run edge-receipts",
+    "npm run graph-invariants",
+    "npm run invariant-coverage",
+    "npm run node-snapshot-diff -- /tmp/basic_chemistry.before.json /tmp/basic_chemistry.after.json --require-behavior-change",
+    "node scripts/validate-data.js",
+    "npm run temporal"
+  ]
+}
