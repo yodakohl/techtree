@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const playToggle = document.getElementById('documentary-play-toggle');
     const nextButton = document.getElementById('documentary-next');
     const statusEl = document.getElementById('documentary-status');
+    const targetStatusEl = document.getElementById('documentary-target-status');
+    const graphLink = document.getElementById('documentary-graph-link');
+    const sortedLink = document.getElementById('documentary-sorted-link');
     const presetButtons = [...document.querySelectorAll('[data-documentary-target]')];
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const sceneDuration = 4400;
@@ -229,6 +232,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         statusEl.textContent = text;
         statusEl.classList.toggle('is-error', state === 'error');
         statusEl.setAttribute('aria-live', state === 'error' ? 'assertive' : 'polite');
+    }
+
+    function setTargetStatus(text = '', state = '') {
+        if (!targetStatusEl) return;
+        targetStatusEl.textContent = text;
+        targetStatusEl.classList.toggle('is-error', state === 'error');
+        targetStatusEl.setAttribute('aria-live', state === 'error' ? 'assertive' : 'polite');
     }
 
     function traceStatus(trace = currentTrace) {
@@ -1559,6 +1569,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         pausedAt = running ? null : startedAt;
         targetInput.value = currentTrace.target.name;
         targetInput.setAttribute('aria-invalid', 'false');
+        setTargetStatus();
+        if (graphLink) graphLink.href = `index.html?target=${encodeURIComponent(targetId)}`;
+        if (sortedLink) sortedLink.href = `sorted.html#tech-${encodeURIComponent(targetId)}`;
         updateUrl();
         renderSceneList();
         updateSceneText(scenes[0]);
@@ -1610,6 +1623,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         targetInput.setAttribute('aria-invalid', 'true');
+        setTargetStatus('Target not found. Choose a technology from the suggestions.', 'error');
         setStatus('Target not found. Choose a technology from the suggestions.', 'error');
     }
 
@@ -1642,12 +1656,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         targetInput.addEventListener('change', commitTargetInput);
         targetInput.addEventListener('input', () => {
             targetInput.setAttribute('aria-invalid', 'false');
+            setTargetStatus();
             if (currentTrace) setStatus(traceStatus());
         });
         targetInput.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
                 targetInput.value = currentTrace?.target.name || '';
                 targetInput.setAttribute('aria-invalid', 'false');
+                setTargetStatus();
                 if (currentTrace) {
                     setStatus(traceStatus());
                 }

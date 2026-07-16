@@ -20,116 +20,191 @@
     <meta name="twitter:description" content="A source-backed map of technology prerequisites, unlocks, evidence, and future roadmap fields.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260716c">
+    <link rel="stylesheet" href="style.css?v=20260716d">
     <script defer src="vendor/vis-network.min.js?v=20260516b"></script>
 </head>
-<body>
+<body class="graph-page">
     <a class="site-skip-link" href="#search-tech">Skip to graph controls</a>
-    <header class="site-header">
-        <h1>TechTree</h1>
+    <header class="site-header graph-site-header">
+        <div class="site-identity">
+            <a class="site-brand" href="index.html" aria-current="page">
+                <span class="site-brand-mark" aria-hidden="true">TT</span>
+                <span>TechTree</span>
+            </a>
+            <p>Source-backed technology dependencies</p>
+        </div>
         <nav aria-label="Primary navigation">
-            <a href="demo.html">Demo</a>
-            <a href="sorted.html">Sorted View</a>
+            <a id="graph-demo-link" href="demo.html">Documentary</a>
+            <a id="graph-sorted-link" href="sorted.html">Browse all</a>
         </nav>
     </header>
     <main id="graph-main" class="graph-main" aria-busy="true">
-        <div id="tech-tree-container" role="region" aria-label="Interactive technology dependency graph" aria-describedby="graph-keyboard-help graph-context-summary app-status" aria-busy="true" tabindex="-1">
-            <!-- The tree will be rendered here by JavaScript -->
-        </div>
-        <div id="side-panels">
-            <section id="tech-info-panel" aria-labelledby="tech-info-heading">
-                <h2 id="tech-info-heading">Explore Technologies</h2>
-                <div id="graph-controls" class="graph-filter-grid">
-                    <label class="graph-control" for="search-tech">
-                        <span>Search</span>
-                        <input type="search" id="search-tech" list="search-tech-options" placeholder="Name or identifier" autocomplete="off" spellcheck="false" aria-controls="tech-tree-container" aria-keyshortcuts="Enter Escape">
-                    </label>
-                    <datalist id="search-tech-options"></datalist>
-                    <label class="graph-control" for="era-filter">
-                        <span>Era</span>
-                        <select id="era-filter">
-                            <option value="all">All Eras</option>
-                        </select>
-                    </label>
-                    <label class="graph-control" for="field-filter">
-                        <span>Field</span>
-                        <select id="field-filter">
-                            <option value="all">All Fields</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="graph-filter-actions">
-                    <label class="graph-focus-toggle">
-                        <input type="checkbox" id="focus-relevant" checked>
-                        Focus relevant
-                    </label>
-                    <button type="button" id="reset-graph-filters" class="secondary-button">Clear filters</button>
-                </div>
-                <p id="graph-keyboard-help" class="graph-keyboard-help">Focus the graph and use arrow keys to pan or <kbd>+</kbd>/<kbd>−</kbd> to zoom. In search, press <kbd>Enter</kbd> to select the first match.</p>
-                <p id="graph-context-summary" class="graph-context-summary" role="status" aria-live="polite" aria-atomic="true"></p>
-                <p id="app-status" class="app-status" role="status" aria-live="polite" aria-atomic="true"></p>
-                <h3 id="tech-name" hidden></h3>
-                <p id="tech-era"></p>
-                <p id="tech-description"></p>
-                <p id="tech-prerequisites"></p>
-                <div id="tech-relationships" class="tech-relationships" hidden>
-                    <section>
-                        <h3>Prerequisites</h3>
-                        <div id="tech-prereq-list" class="relationship-chip-list"></div>
-                    </section>
-                    <section>
-                        <h3>Unlocks</h3>
-                        <div id="tech-unlocks-list" class="relationship-chip-list"></div>
-                    </section>
-                </div>
-                <button type="button" id="edit-tech-btn" disabled>Edit</button>
-                <button type="button" id="delete-tech-btn" class="danger-button" disabled>Delete</button>
-            </section>
-            <section id="tech-add-panel" aria-labelledby="editor-title">
-                <h2 id="editor-title">Add Technology</h2>
-                <label class="editor-field" for="new-tech-id">
-                    <span>Identifier</span>
-                    <input type="text" id="new-tech-id" placeholder="steam_engine" autocomplete="off" required maxlength="160" pattern="[a-z0-9]+(?:[_-][a-z0-9]+)*">
+        <section class="graph-explorer" aria-labelledby="graph-explorer-title">
+            <header class="graph-explorer-header">
+                <p class="graph-eyebrow">Interactive dependency explorer</p>
+                <h1 id="graph-explorer-title">See what had to exist first.</h1>
+                <p>Choose a technology to reveal its direct prerequisites and what it unlocks. Arrows run from an earlier capability to the technology it enables.</p>
+            </header>
+
+            <section id="graph-controls" class="graph-toolbar" aria-labelledby="graph-controls-title">
+                <h2 id="graph-controls-title" class="visually-hidden">Find and filter technologies</h2>
+                <label class="graph-control graph-control-search" for="search-tech">
+                    <span>Find a technology</span>
+                    <input type="search" id="search-tech" list="search-tech-options" placeholder="Try “steam engine” or an identifier" autocomplete="off" spellcheck="false" aria-controls="tech-tree-container" aria-keyshortcuts="Enter Escape">
                 </label>
-                <label class="editor-field" for="new-tech-name">
-                    <span>Name</span>
-                    <input type="text" id="new-tech-name" autocomplete="off" required maxlength="200">
-                </label>
-                <label class="editor-field" for="new-tech-era">
+                <datalist id="search-tech-options"></datalist>
+                <label class="graph-control" for="era-filter">
                     <span>Era</span>
-                    <select id="new-tech-era">
-                        <option value="Ancient">Ancient</option>
-                        <option value="Classical">Classical</option>
-                        <option value="Medieval">Medieval</option>
-                        <option value="Renaissance">Renaissance</option>
-                        <option value="Industrial">Industrial</option>
-                        <option value="Modern" selected>Modern</option>
-                        <option value="Future">Future</option>
+                    <select id="era-filter">
+                        <option value="all">All eras</option>
                     </select>
                 </label>
-                <label class="editor-field" for="new-tech-description">
-                    <span>Description</span>
-                    <textarea id="new-tech-description" rows="4" required maxlength="5000"></textarea>
+                <label class="graph-control" for="field-filter">
+                    <span>Field</span>
+                    <select id="field-filter">
+                        <option value="all">All fields</option>
+                    </select>
                 </label>
-                <label class="editor-field" for="new-tech-prereq">
-                    <span>Prerequisite IDs</span>
-                    <input type="text" id="new-tech-prereq" placeholder="comma_separated, identifiers" autocomplete="off" aria-describedby="prerequisite-help">
-                </label>
-                <p id="prerequisite-help" class="editor-help">Separate multiple identifiers with commas.</p>
-                <div class="editor-actions">
-                    <button type="button" id="add-tech-btn">Add Technology</button>
-                    <button type="button" id="update-tech-btn" hidden>Update Technology</button>
-                    <button type="button" id="cancel-edit-btn" class="secondary-button" hidden>Cancel</button>
+                <div class="graph-toolbar-actions">
+                    <label class="graph-focus-toggle">
+                        <input type="checkbox" id="focus-relevant" checked>
+                        Keep one-hop focus
+                    </label>
+                    <div class="graph-view-actions" role="group" aria-label="Graph view">
+                        <button type="button" class="secondary-button" data-graph-starter>Starter map</button>
+                        <button type="button" class="secondary-button" data-graph-show-all>Show all</button>
+                    </div>
+                    <button type="button" id="reset-graph-filters" class="secondary-button">Clear filters</button>
                 </div>
-                <p id="editor-status" class="editor-status" role="status" aria-live="polite" aria-atomic="true"></p>
             </section>
-            <section id="era-legend" aria-labelledby="era-legend-title">
-                <h2 id="era-legend-title">Era Legend</h2>
-                <!-- Populated by app.js -->
+
+            <div class="graph-status-row">
+                <p id="graph-context-summary" class="graph-context-summary" role="status" aria-live="polite" aria-atomic="true"></p>
+                <p id="app-status" class="app-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+
+            <div id="graph-canvas-shell" class="graph-canvas-shell is-loading is-intro">
+                <div id="tech-tree-container" role="region" aria-label="Interactive technology dependency graph" aria-describedby="graph-keyboard-help graph-context-summary app-status" aria-busy="true" tabindex="-1">
+                    <!-- The tree will be rendered here by JavaScript -->
+                </div>
+                <section id="graph-intro" class="graph-intro" aria-labelledby="graph-intro-title">
+                    <p class="graph-eyebrow">A calmer place to begin</p>
+                    <h2 id="graph-intro-title">Start with a familiar milestone.</h2>
+                    <p>The starter map shows four recognizable technologies and their immediate context instead of dropping all 1,658 nodes on screen at once.</p>
+                    <div class="graph-quick-starts" aria-label="Quick-start technologies">
+                        <button type="button" data-graph-target="printing_press">Printing press</button>
+                        <button type="button" data-graph-target="steam_engine">Steam engine</button>
+                        <button type="button" data-graph-target="internet">Internet</button>
+                        <button type="button" data-graph-target="crispr_gene_editing">CRISPR</button>
+                    </div>
+                    <button type="button" class="graph-show-all-link" data-graph-show-all>Show the complete graph</button>
+                </section>
+                <p class="graph-canvas-hint" aria-hidden="true">Drag to pan · Scroll or pinch to zoom · Select a node</p>
+            </div>
+
+            <details class="graph-key">
+                <summary>How to read and navigate the map</summary>
+                <div class="graph-key-grid">
+                    <div id="era-legend" aria-labelledby="era-legend-title">
+                        <h2 id="era-legend-title">Node colors</h2>
+                        <!-- Populated by app.js -->
+                    </div>
+                    <div>
+                        <h2>Controls</h2>
+                        <p id="graph-keyboard-help" class="graph-keyboard-help">Focus the graph and use arrow keys to pan or <kbd>+</kbd>/<kbd>−</kbd> to zoom. In search, press <kbd>Enter</kbd> to select the first match.</p>
+                        <p class="graph-keyboard-help">Solid blue edges are required dependencies; other colors describe enabling, historical, scaling, or speculative relationships.</p>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <aside id="side-panels" class="graph-sidebar" aria-label="Technology inspector and editor">
+            <section id="tech-info-panel" aria-labelledby="tech-info-heading">
+                <div class="panel-heading">
+                    <div>
+                        <p class="graph-eyebrow">Inspector</p>
+                        <h2 id="tech-info-heading">Technology details</h2>
+                    </div>
+                    <a id="tech-detail-link" class="tech-detail-link" href="#" hidden>Full record</a>
+                </div>
+                <div id="tech-empty-state" class="tech-empty-state">
+                    <span class="tech-empty-icon" aria-hidden="true">↗</span>
+                    <h3>Select a technology</h3>
+                    <p>Use search, choose a node in the map, or jump to a quick start. Details, evidence, prerequisites, and unlocks will appear here.</p>
+                    <div class="graph-quick-starts graph-quick-starts-compact" aria-label="Inspector quick starts">
+                        <button type="button" data-graph-target="printing_press">Printing press</button>
+                        <button type="button" data-graph-target="steam_engine">Steam engine</button>
+                        <button type="button" data-graph-target="internet">Internet</button>
+                        <button type="button" data-graph-target="crispr_gene_editing">CRISPR</button>
+                    </div>
+                </div>
+                <div id="tech-detail-content" hidden>
+                    <p id="tech-era" class="tech-era-badge"></p>
+                    <h3 id="tech-name"></h3>
+                    <p id="tech-description" class="tech-description"></p>
+                    <p id="tech-prerequisites" class="tech-relationship-summary"></p>
+                    <div id="tech-relationships" class="tech-relationships" hidden>
+                        <section>
+                            <h3>Prerequisites</h3>
+                            <div id="tech-prereq-list" class="relationship-chip-list"></div>
+                        </section>
+                        <section>
+                            <h3>Unlocks</h3>
+                            <div id="tech-unlocks-list" class="relationship-chip-list"></div>
+                        </section>
+                    </div>
+                    <div id="tech-admin-actions" class="tech-admin-actions">
+                        <button type="button" id="edit-tech-btn" disabled>Edit</button>
+                        <button type="button" id="delete-tech-btn" class="danger-button" disabled>Delete</button>
+                    </div>
+                </div>
             </section>
-        </div>
+            <details id="tech-add-panel" class="tech-editor-panel">
+                <summary>
+                    <span id="editor-title">Add technology</span>
+                    <span class="editor-summary-note">Editor</span>
+                </summary>
+                <div class="tech-editor-content">
+                    <label class="editor-field" for="new-tech-id">
+                        <span>Identifier</span>
+                        <input type="text" id="new-tech-id" placeholder="steam_engine" autocomplete="off" required maxlength="160" pattern="[a-z0-9]+(?:[_-][a-z0-9]+)*">
+                    </label>
+                    <label class="editor-field" for="new-tech-name">
+                        <span>Name</span>
+                        <input type="text" id="new-tech-name" autocomplete="off" required maxlength="200">
+                    </label>
+                    <label class="editor-field" for="new-tech-era">
+                        <span>Era</span>
+                        <select id="new-tech-era">
+                            <option value="Ancient">Ancient</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Medieval">Medieval</option>
+                            <option value="Renaissance">Renaissance</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Modern" selected>Modern</option>
+                            <option value="Future">Future</option>
+                        </select>
+                    </label>
+                    <label class="editor-field" for="new-tech-description">
+                        <span>Description</span>
+                        <textarea id="new-tech-description" rows="4" required maxlength="5000"></textarea>
+                    </label>
+                    <label class="editor-field" for="new-tech-prereq">
+                        <span>Prerequisite IDs</span>
+                        <input type="text" id="new-tech-prereq" placeholder="comma_separated, identifiers" autocomplete="off" aria-describedby="prerequisite-help">
+                    </label>
+                    <p id="prerequisite-help" class="editor-help">Separate multiple identifiers with commas.</p>
+                    <div class="editor-actions">
+                        <button type="button" id="add-tech-btn">Add Technology</button>
+                        <button type="button" id="update-tech-btn" hidden>Update Technology</button>
+                        <button type="button" id="cancel-edit-btn" class="secondary-button" hidden>Cancel</button>
+                    </div>
+                    <p id="editor-status" class="editor-status" role="status" aria-live="polite" aria-atomic="true"></p>
+                </div>
+            </details>
+        </aside>
     </main>
-    <script defer src="app.js?v=20260716c"></script>
+    <script defer src="app.js?v=20260716d"></script>
 </body>
 </html>
 

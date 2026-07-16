@@ -27,16 +27,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     const focusRelevantInput = document.getElementById('focus-relevant');
     const resetFiltersBtn = document.getElementById('reset-graph-filters');
     const graphContextSummaryEl = document.getElementById('graph-context-summary');
+    const graphCanvasShellEl = document.getElementById('graph-canvas-shell');
+    const graphIntroEl = document.getElementById('graph-intro');
     const relationshipsEl = document.getElementById('tech-relationships');
     const prereqListEl = document.getElementById('tech-prereq-list');
     const unlocksListEl = document.getElementById('tech-unlocks-list');
+    const techEmptyStateEl = document.getElementById('tech-empty-state');
+    const techDetailContentEl = document.getElementById('tech-detail-content');
+    const techDetailLinkEl = document.getElementById('tech-detail-link');
+    const techAdminActionsEl = document.getElementById('tech-admin-actions');
+    const demoLinkEl = document.getElementById('graph-demo-link');
+    const sortedLinkEl = document.getElementById('graph-sorted-link');
     const addPanel = document.getElementById('tech-add-panel');
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const techMetadataEl = document.createElement('div');
     techMetadataEl.className = 'tech-metadata';
     techMetadataEl.hidden = true;
-    if (techInfoPanel && techPrerequisitesEl) {
-        techInfoPanel.insertBefore(techMetadataEl, techPrerequisitesEl.nextSibling);
+    if (techPrerequisitesEl?.parentElement) {
+        techPrerequisitesEl.parentElement.insertBefore(techMetadataEl, techPrerequisitesEl.nextSibling);
     }
 
     function setStatus(element, message, state = '') {
@@ -228,6 +236,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (addPanel) addPanel.style.display = 'none';
         if (editBtn) editBtn.style.display = 'none';
         if (deleteBtn) deleteBtn.style.display = 'none';
+        if (techAdminActionsEl) techAdminActionsEl.hidden = true;
     }
 
     // Compute radial layout levels using an adjacency list for efficiency
@@ -367,7 +376,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const requestedTargetId = new URLSearchParams(window.location.search).get('target');
     const initialTargetId = requestedTargetId && nodes.get(requestedTargetId)
         ? requestedTargetId
-        : (nodes.get('crispr_gene_editing') ? 'crispr_gene_editing' : null);
+        : null;
+    const starterTargetIds = [
+        'printing_press',
+        'steam_engine',
+        'internet',
+        'crispr_gene_editing'
+    ].filter(id => Boolean(nodes.get(id)));
+    let selectedNodeId = null;
+    let currentSearchQuery = '';
+    let currentEraFilter = 'all';
+    let currentFieldFilter = 'all';
+    let introMode = !initialTargetId;
+    let searchTimer = null;
 
     const data = { nodes: nodes, edges: edges };
 
@@ -426,11 +447,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         graphFrame.setAttribute('aria-describedby', 'graph-keyboard-help graph-context-summary');
     }
 
-    // Open on a useful local context; deselecting restores the full overview.
+    // Apply a compact starter map before revealing the graph, unless a URL target was requested.
     network.once('afterDrawing', () => {
         window.requestAnimationFrame(() => {
             if (initialTargetId) selectTechnology(initialTargetId);
-            else network.fit();
+            else updateGraphView({ fit: true });
+            graphCanvasShellEl?.classList.remove('is-loading');
         });
     });
 
@@ -446,12 +468,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
-    let selectedNodeId = null;
-    let currentSearchQuery = '';
-    let currentEraFilter = 'all';
-    let currentFieldFilter = 'all';
-    let searchTimer = null;
-
     function existingIds(ids) {
         return ids.filter(id => Boolean(nodes.get(id)));
     }
@@ -463,6 +479,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             context.add(id);
             existingIds(prereqMap[id] || []).forEach(prereqId => context.add(prereqId));
             existingIds(dependentsMap[id] || []).forEach(depId => context.add(depId));
+        });
+        return context;
+    }
+
+    function getStarterContext(ids) {
+        const context = new Set(existingIds(ids));
+        ids.forEach(id => {
+            existingIds(prereqMap[id] || []).forEach(prereqId => context.add(prereqId));
+            existingIds(dependentsMap[id] || [])
+                .sort((left, right) => {
+                    const leftDate = nodesById[left]?.firstKnownDate ?? Number.POSITIVE_INFINITY;
+                    const rightDate = nodesById[right]?.firstKnownDate ?? Number.POSITIVE_INFINITY;
+                    return leftDate - rightDate || formatTechLabel(left).localeCompare(formatTechLabel(right));
+                })
+                .slice(0, 3)
+                .forEach(depId => context.add(depId));
         });
         return context;
     }
@@ -488,7 +520,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    function createCompactPositions(matchIds) {
+    function createCompactPositions(matchIds, allowedIds = null) {
         const positionsMap = new Map();
         const matches = sortedTechIds(matchIds);
         const centerIds = selectedNodeId ? [selectedNodeId] : matches;
@@ -498,10 +530,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         centerIds.forEach(id => {
             existingIds(prereqMap[id] || []).forEach(prereqId => {
-                if (!centerSet.has(prereqId)) prereqIds.add(prereqId);
+                if (!centerSet.has(prereqId) && (!allowedIds || allowedIds.has(prereqId))) prereqIds.add(prereqId);
             });
             existingIds(dependentsMap[id] || []).forEach(depId => {
-                if (!centerSet.has(depId)) unlockIds.add(depId);
+                if (!centerSet.has(depId) && (!allowedIds || allowedIds.has(depId))) unlockIds.add(depId);
             });
         });
 
@@ -563,6 +595,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (typeof value !== 'number') return String(value);
         if (value < 0) return `${Math.abs(value).toLocaleString()} BCE`;
         return String(value);
+    }
+
+    function syncContextLinks(nodeId) {
+        if (demoLinkEl) {
+            demoLinkEl.href = nodeId
+                ? `demo.html?target=${encodeURIComponent(nodeId)}`
+                : 'demo.html';
+        }
+        if (sortedLinkEl) {
+            sortedLinkEl.href = nodeId
+                ? `sorted.html#tech-${encodeURIComponent(nodeId)}`
+                : 'sorted.html';
+        }
+        if (techDetailLinkEl) {
+            techDetailLinkEl.hidden = !nodeId;
+            techDetailLinkEl.href = nodeId
+                ? `tech/${encodeURIComponent(nodeId)}.html`
+                : '#';
+        }
+    }
+
+    function isUnseededFocusedView() {
+        return !selectedNodeId
+            && !currentSearchQuery
+            && currentEraFilter === 'all'
+            && currentFieldFilter === 'all'
+            && (focusRelevantInput?.checked ?? true);
+    }
+
+    function updateIntroVisibility() {
+        const visible = introMode && isUnseededFocusedView();
+        if (graphIntroEl) graphIntroEl.hidden = !visible;
+        graphCanvasShellEl?.classList.toggle('is-intro', visible);
     }
 
     function createRelationshipChip(id) {
@@ -653,12 +718,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     function updateInfoPanel(nodeId) {
         if (!nodeId) {
             techNameEl.textContent = '';
-            techNameEl.hidden = true;
             techEraEl.textContent = '';
             techDescriptionEl.textContent = '';
             techPrerequisitesEl.textContent = '';
             renderTechMetadata(null);
             if (relationshipsEl) relationshipsEl.hidden = true;
+            if (techEmptyStateEl) techEmptyStateEl.hidden = false;
+            if (techDetailContentEl) techDetailContentEl.hidden = true;
+            syncContextLinks(null);
             editBtn.disabled = true;
             deleteBtn.disabled = true;
             return;
@@ -668,17 +735,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!nodeData) return;
 
         techNameEl.textContent = nodeData.label;
-        techNameEl.hidden = false;
-        techEraEl.textContent = `Era: ${nodeData.era || 'N/A'}`;
+        techEraEl.textContent = nodeData.era || 'Era unknown';
         techDescriptionEl.textContent = nodeData.description;
 
         const prereqIds = getPrerequisiteIds(nodesById[nodeId] || {});
         const dependentIds = dependentsMap[nodeId] || [];
-        techPrerequisitesEl.textContent = `Prerequisites: ${prereqIds.length ? prereqIds.map(formatTechLabel).join(', ') : 'None'}`;
+        techPrerequisitesEl.textContent = `${prereqIds.length} direct prerequisite${prereqIds.length === 1 ? '' : 's'} · ${dependentIds.length} direct unlock${dependentIds.length === 1 ? '' : 's'}`;
         renderTechMetadata(nodesById[nodeId]);
         renderRelationshipList(prereqListEl, prereqIds);
         renderRelationshipList(unlocksListEl, dependentIds);
         if (relationshipsEl) relationshipsEl.hidden = false;
+        if (techEmptyStateEl) techEmptyStateEl.hidden = true;
+        if (techDetailContentEl) techDetailContentEl.hidden = false;
+        syncContextLinks(nodeId);
 
         editBtn.disabled = false;
         deleteBtn.disabled = false;
@@ -686,7 +755,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function updateGraphSummary(visibleCount, totalCount, matchCount) {
         if (!graphContextSummaryEl) return;
-        const parts = [`${visibleCount} of ${totalCount} visible`];
+        const parts = [introMode && isUnseededFocusedView()
+            ? `Starter map · ${visibleCount} of ${totalCount} visible`
+            : `${visibleCount} of ${totalCount} visible`];
         if (currentEraFilter !== 'all') parts.push(currentEraFilter);
         if (currentFieldFilter !== 'all') parts.push(currentFieldFilter);
         if (currentSearchQuery) parts.push(`${matchCount} search match${matchCount === 1 ? '' : 'es'}`);
@@ -707,16 +778,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             ? matchIds
             : intersectSets(matchIds, fieldIds);
         let compactIds = null;
+        let compactSeedIds = null;
 
-        if (focusRelevant && selectedNodeId) {
+        if (introMode && isUnseededFocusedView()) {
+            compactIds = getStarterContext(starterTargetIds);
+            compactSeedIds = starterTargetIds;
+        } else if (focusRelevant && selectedNodeId) {
             compactIds = getOneHopContext([selectedNodeId]);
+            compactSeedIds = [selectedNodeId];
         } else if (focusRelevant && currentSearchQuery) {
             compactIds = getOneHopContext(filteredMatchIds);
+            compactSeedIds = [...filteredMatchIds];
         } else if (focusRelevant && currentFieldFilter !== 'all') {
             compactIds = fieldIds;
+            compactSeedIds = [...fieldIds];
         }
         const compactPositions = compactIds
-            ? createCompactPositions(selectedNodeId ? [selectedNodeId] : (currentSearchQuery ? filteredMatchIds : fieldIds))
+            ? createCompactPositions(compactSeedIds || [], compactIds)
             : null;
 
         const nodeUpdates = [];
@@ -767,6 +845,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (edgeUpdates.length) edges.update(edgeUpdates);
 
         updateGraphSummary(visible.size, dynamicData.length, currentSearchQuery ? filteredMatchIds.size : fieldIds.size);
+        updateIntroVisibility();
         if (resetFiltersBtn) {
             resetFiltersBtn.disabled = !currentSearchQuery
                 && currentEraFilter === 'all'
@@ -793,28 +872,73 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (searchInput) searchInput.value = '';
         if (eraFilter) eraFilter.value = 'all';
         if (fieldFilter) fieldFilter.value = 'all';
+        if (!selectedNodeId && (focusRelevantInput?.checked ?? true)) introMode = true;
         updateGraphView({ fit: true });
         setStatus(appStatusEl, 'Filters cleared.');
     }
 
     function applySearch(query) {
         currentSearchQuery = query.trim();
+        if (currentSearchQuery) introMode = false;
+        else if (isUnseededFocusedView()) introMode = true;
         updateGraphView({ fit: true });
     }
 
     function applyEraFilter(era) {
         currentEraFilter = era || 'all';
+        if (currentEraFilter !== 'all') introMode = false;
+        else if (isUnseededFocusedView()) introMode = true;
         updateGraphView({ fit: true });
     }
 
     function applyFieldFilter(field) {
         currentFieldFilter = field || 'all';
+        if (currentFieldFilter !== 'all') introMode = false;
         if (selectedNodeId && currentFieldFilter !== 'all' && !getFieldMatches(currentFieldFilter).has(selectedNodeId)) {
             selectedNodeId = null;
             network.unselectAll();
             updateInfoPanel(null);
         }
+        if (currentFieldFilter === 'all' && isUnseededFocusedView()) introMode = true;
         updateGraphView({ fit: true });
+    }
+
+    function showStarterView() {
+        window.clearTimeout(searchTimer);
+        selectedNodeId = null;
+        currentSearchQuery = '';
+        currentEraFilter = 'all';
+        currentFieldFilter = 'all';
+        introMode = true;
+        network.unselectAll();
+        if (searchInput) searchInput.value = '';
+        if (eraFilter) eraFilter.value = 'all';
+        if (fieldFilter) fieldFilter.value = 'all';
+        if (focusRelevantInput) focusRelevantInput.checked = true;
+        const url = new URL(window.location.href);
+        url.searchParams.delete('target');
+        window.history.replaceState(null, '', url);
+        updateInfoPanel(null);
+        updateGraphView({ fit: true });
+        setStatus(appStatusEl, 'Starter map restored.');
+    }
+
+    function showAllTechnologies() {
+        introMode = false;
+        if (focusRelevantInput) focusRelevantInput.checked = false;
+        updateGraphView({ fit: true });
+        setStatus(appStatusEl, `Showing all ${dynamicData.length.toLocaleString()} technologies.`);
+    }
+
+    function selectQuickStart(nodeId) {
+        currentSearchQuery = '';
+        currentEraFilter = 'all';
+        currentFieldFilter = 'all';
+        if (searchInput) searchInput.value = '';
+        if (eraFilter) eraFilter.value = 'all';
+        if (fieldFilter) fieldFilter.value = 'all';
+        if (focusRelevantInput) focusRelevantInput.checked = true;
+        selectTechnology(nodeId);
     }
 
     function selectFirstSearchMatch() {
@@ -839,6 +963,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function selectTechnology(nodeId, syncSelection = true) {
         if (!nodes.get(nodeId)) return;
+        introMode = false;
         selectedNodeId = nodeId;
         if (syncSelection) network.selectNodes([nodeId]);
         const url = new URL(window.location.href);
@@ -857,6 +982,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     network.on("deselectNode", function () {
         selectedNodeId = null;
+        if (isUnseededFocusedView()) introMode = true;
         const url = new URL(window.location.href);
         url.searchParams.delete('target');
         window.history.replaceState(null, '', url);
@@ -896,13 +1022,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (focusRelevantInput) {
-        focusRelevantInput.addEventListener('change', () => updateGraphView({ fit: true, focusSelected: true }));
+        focusRelevantInput.addEventListener('change', () => {
+            introMode = focusRelevantInput.checked && isUnseededFocusedView();
+            updateGraphView({ fit: true, focusSelected: true });
+        });
     }
 
     if (resetFiltersBtn) {
         resetFiltersBtn.addEventListener('click', resetHighlight);
     }
 
+    document.querySelectorAll('[data-graph-target]').forEach(button => {
+        button.addEventListener('click', () => selectQuickStart(button.dataset.graphTarget));
+    });
+    document.querySelectorAll('[data-graph-starter]').forEach(button => {
+        button.addEventListener('click', showStarterView);
+    });
+    document.querySelectorAll('[data-graph-show-all]').forEach(button => {
+        button.addEventListener('click', showAllTechnologies);
+    });
+
+    updateInfoPanel(null);
     updateGraphView();
     container.setAttribute('aria-busy', 'false');
     mainEl?.setAttribute('aria-busy', 'false');
@@ -1031,6 +1171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function clearForm() {
+        const wasEditing = Boolean(editingNodeId);
         newTechIdInput.value = '';
         newTechNameInput.value = '';
         newTechEraInput.value = 'Modern';
@@ -1045,6 +1186,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (addBtn) addBtn.hidden = false;
         clearEditorInvalidStates();
         setStatus(editorStatusEl, '');
+        if (wasEditing && addPanel instanceof HTMLDetailsElement) addPanel.open = false;
     }
 
     editorInputs.forEach(input => {
@@ -1088,6 +1230,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (cancelEditBtn) cancelEditBtn.hidden = false;
             clearEditorInvalidStates();
             setStatus(editorStatusEl, '');
+            if (addPanel instanceof HTMLDetailsElement) addPanel.open = true;
             newTechNameInput.focus();
         });
     }

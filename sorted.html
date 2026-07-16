@@ -20,18 +20,25 @@
     <meta name="twitter:description" content="A compact browser for source-backed technology data across fields and eras.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260716c">
+    <link rel="stylesheet" href="style.css?v=20260716d">
 </head>
 <body>
     <a class="site-skip-link" href="#sorted-search">Skip to technology filters</a>
     <header class="site-header">
         <h1>Sorted Technologies</h1>
         <nav aria-label="Primary navigation">
-            <a href="demo.html">Demo</a>
-            <a href="index.html">Graph View</a>
+            <a id="sorted-demo-link" href="demo.html">Demo</a>
+            <a id="sorted-graph-link" href="index.html">Graph View</a>
         </nav>
     </header>
     <main id="sorted-main" class="sorted-main" aria-busy="true">
+        <section class="sorted-intro" aria-labelledby="sorted-intro-title">
+            <div>
+                <p class="sorted-intro-kicker">Browse the dataset</p>
+                <h2 id="sorted-intro-title">Find a technology, then inspect its evidence and relationships.</h2>
+            </div>
+            <p><strong>Field</strong> is a curated domain, <strong>branch</strong> is a broad category, and <strong>depth</strong> is distance from foundational technologies.</p>
+        </section>
         <div class="sorted-layout">
             <div id="sorted-tech-container">
                 <div class="sorted-toolbar" role="search" aria-labelledby="sorted-filter-title">
@@ -43,8 +50,8 @@
                     <label class="sorted-control" for="sorted-view">
                         <span>View</span>
                         <select id="sorted-view">
-                            <option value="branches">Compact Branches</option>
-                            <option value="details">Detailed Table</option>
+                            <option value="branches">Era Matrix</option>
+                            <option value="details">Full Details</option>
                         </select>
                     </label>
                     <label class="sorted-control" for="sorted-field-filter">
@@ -73,7 +80,7 @@
                             <option value="name">Name</option>
                         </select>
                     </label>
-                    <button id="sorted-reset" class="secondary-button sorted-reset" type="button">Clear filters</button>
+                    <button id="sorted-reset" class="secondary-button sorted-reset" type="button">Reset view and filters</button>
                 </div>
                 <div class="sorted-summary">
                     <span id="sorted-count" role="status" aria-live="polite" aria-atomic="true"></span>
@@ -87,6 +94,6 @@
             <aside id="sorted-detail-panel" class="sorted-detail-panel" aria-label="Selected technology details" tabindex="-1"></aside>
         </div>
     </main>
-    <script defer src="sorted.js?v=20260716c"></script>
+    <script defer src="sorted.js?v=20260716d"></script>
 </body>
 </html>

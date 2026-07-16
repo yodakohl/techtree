@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const showMoreBtn = document.getElementById('sorted-more');
     const resetBtn = document.getElementById('sorted-reset');
     const detailPanel = document.getElementById('sorted-detail-panel');
+    const demoLink = document.getElementById('sorted-demo-link');
+    const graphLink = document.getElementById('sorted-graph-link');
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const pageSize = 175;
     let visibleLimit = pageSize;
@@ -583,6 +585,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${nextHash}`);
     }
 
+    function updateViewLinks(id) {
+        if (demoLink) demoLink.href = id ? `demo.html?target=${encodeURIComponent(id)}` : 'demo.html';
+        if (graphLink) graphLink.href = id ? `index.html?target=${encodeURIComponent(id)}` : 'index.html';
+    }
+
     function clearSelectedMarkers() {
         document
             .querySelectorAll('.branch-tech-chip.is-selected, .sorted-table tr.is-selected, .sorted-tech-link.is-selected')
@@ -991,6 +998,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function renderDetail(item) {
         if (!detailPanel) return;
         detailPanel.replaceChildren();
+        updateViewLinks(item?.id || null);
 
         if (!item) {
             const empty = document.createElement('p');
@@ -999,6 +1007,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             detailPanel.appendChild(empty);
             return;
         }
+
+        const backButton = document.createElement('button');
+        backButton.type = 'button';
+        backButton.className = 'secondary-button sorted-back-results';
+        backButton.textContent = 'Back to results';
+        backButton.addEventListener('click', () => {
+            document.getElementById('sorted-tech-container')?.scrollIntoView({
+                behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+                block: 'start'
+            });
+            searchInput?.focus({ preventScroll: true });
+        });
+        detailPanel.appendChild(backButton);
 
         const header = document.createElement('div');
         header.className = 'sorted-detail-header';
@@ -1352,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (eraFilter) eraFilter.value = 'all';
             if (sortMode) sortMode.value = 'era';
             scheduleRender();
-            setStatus('Filters cleared.');
+            setStatus('View and filters reset.');
             searchInput?.focus();
         });
         showMoreBtn?.addEventListener('click', () => {

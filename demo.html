@@ -19,7 +19,7 @@
     <meta name="twitter:title" content="TechTree Documentary Demo">
     <meta name="twitter:description" content="Watch a target technology emerge from its prerequisite stack.">
     <meta name="twitter:image" content="https://pushme.site/techtree/assets/techtree-social.png">
-    <link rel="stylesheet" href="style.css?v=20260716c">
+    <link rel="stylesheet" href="style.css?v=20260716d">
 </head>
 <body class="documentary-demo">
     <a class="documentary-skip-link" href="#documentary-target">Skip to documentary controls</a>
@@ -29,8 +29,8 @@
             <header class="documentary-nav">
                 <a class="documentary-brand" href="demo.html">TechTree</a>
                 <nav aria-label="Primary navigation">
-                    <a href="index.html">Graph</a>
-                    <a href="sorted.html">Sorted</a>
+                    <a id="documentary-graph-link" href="index.html">Graph</a>
+                    <a id="documentary-sorted-link" href="sorted.html">Sorted</a>
                     <a href="https://github.com/yodakohl/techtree">GitHub</a>
                 </nav>
             </header>
@@ -44,9 +44,12 @@
 
             <section id="documentary-controls" class="documentary-controls" aria-labelledby="documentary-controls-title">
                 <h2 id="documentary-controls-title" class="visually-hidden">Documentary controls</h2>
+                <div class="documentary-target-guide">
+                    <label for="documentary-target">Target technology</label>
+                    <span id="documentary-target-help">Type a name and press Enter, or choose a preset.</span>
+                </div>
                 <div class="documentary-search">
-                    <label class="visually-hidden" for="documentary-target">Target technology</label>
-                    <input id="documentary-target" type="search" list="documentary-target-options" placeholder="Choose any target technology" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="documentary-status">
+                    <input id="documentary-target" type="search" list="documentary-target-options" placeholder="Choose any target technology" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="documentary-target-help documentary-target-status">
                     <datalist id="documentary-target-options"></datalist>
                     <div class="documentary-transport" role="group" aria-label="Playback controls">
                         <button id="documentary-previous" type="button" aria-label="Previous scene">Previous</button>
@@ -54,6 +57,7 @@
                         <button id="documentary-next" type="button" aria-label="Next scene">Next</button>
                     </div>
                 </div>
+                <p id="documentary-target-status" class="documentary-target-status" role="status" aria-live="polite" aria-atomic="true"></p>
                 <div class="documentary-presets" role="group" aria-label="Preset documentary cuts">
                     <button type="button" data-documentary-target="crispr_gene_editing" aria-pressed="false">CRISPR</button>
                     <button type="button" data-documentary-target="high_na_euv_lithography" aria-pressed="false">EUV Chips</button>
@@ -73,6 +77,6 @@
             <p id="documentary-status" class="documentary-status" role="status" aria-live="polite" aria-atomic="true">Loading...</p>
         </div>
     </main>
-    <script defer src="demo.js?v=20260716c"></script>
+    <script defer src="demo.js?v=20260716d"></script>
 </body>
 </html>
